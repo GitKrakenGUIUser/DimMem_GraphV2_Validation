@@ -1,0 +1,95 @@
+{
+  "question": "I've been feeling nostalgic lately. Do you think it would be a good idea to attend my high school reunion?",
+  "question_date": "2023-05-30T01:29:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's high school reunion",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "high school reunion"
+      ],
+      "keywords": [
+        "high school reunion",
+        "attend"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "assistant_reply",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's high school experience",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "high school"
+      ],
+      "keywords": [
+        "high school",
+        "experience"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T01:29:00",
+        "raw": "high school years"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's feelings about nostalgia",
+      "target_memory_types": [
+        "profile",
+        "episodic"
+      ],
+      "entities": [
+        "nostalgia"
+      ],
+      "keywords": [
+        "nostalgia",
+        "feeling"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "nostalgia_level"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    }
+  ]
+}

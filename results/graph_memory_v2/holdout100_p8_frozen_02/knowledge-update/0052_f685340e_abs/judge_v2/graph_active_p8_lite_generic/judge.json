@@ -1,0 +1,64 @@
+{
+  "question_id": "f685340e_abs",
+  "question_type": "knowledge-update",
+  "question": "How often do I play table tennis with my friends at the local park?",
+  "question_date": "2023/06/19 (Mon) 04:29",
+  "gold_answer": "The information provided is not enough. You mentioned playing tennis but not table tennis.",
+  "prediction": "every other week",
+  "support_memory_ids": [
+    "m_8e9e24db0b4bb07d5674"
+  ],
+  "support_source_ids": [
+    218
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Memory m_8e9e24db0b4bb07d5674 states user plays tennis with friends at the local park every other week, and source 218 confirms this pattern. The question asks about table tennis, but the memories consistently refer to tennis; no separate table tennis frequency is found. Given the context, the frequency for tennis is applied.",
+  "required_slots": [
+    {
+      "name": "frequency",
+      "value": "every other week",
+      "support_memory_ids": [
+        "m_8e9e24db0b4bb07d5674"
+      ],
+      "support_source_ids": [
+        218
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": false,
+  "judge_reason": "Reference indicates insufficient information but prediction is concrete.",
+  "judge_meta": {
+    "mode": "deterministic_abstention_guard",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

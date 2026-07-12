@@ -1,0 +1,147 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "count of skeins",
+        "query": "How many skeins of worsted weight yarn did I find in my stash?",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "skeins of worsted weight yarn found in stash"
+    ],
+    "output_constraints": [
+      "single integer"
+    ],
+    "reason": "The question asks for a specific count from a past event, directly supported by a memory."
+  },
+  "base_candidate": {
+    "answer": "17",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_dc3f788b23bb6b50fef7"
+    ],
+    "support_source_ids": [
+      177
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated in source 177 (2023-05-27) that they have a stash of 17 skeins of worsted weight yarn found recently. This is directly supported by memory m_dc3f788b23bb6b50fef7."
+  },
+  "specialist_candidate": {
+    "answer": "17",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_dc3f788b23bb6b50fef7"
+    ],
+    "support_source_ids": [
+      177
+    ],
+    "required_slots": [
+      {
+        "name": "count of skeins",
+        "value": 17,
+        "support_memory_ids": [
+          "m_dc3f788b23bb6b50fef7"
+        ],
+        "support_source_ids": [
+          177
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "possesses",
+        "object": "skeins of worsted weight yarn",
+        "value": "17",
+        "unit": "skeins",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_dc3f788b23bb6b50fef7"
+        ],
+        "support_source_ids": [
+          177
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The user explicitly stated 'I have a stash of 17 skeins that I found recently' in source 177, which is directly supported by memory m_dc3f788b23bb6b50fef7. No composition or projection needed."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    177,
+    179,
+    229,
+    17,
+    211,
+    89,
+    31,
+    224,
+    198,
+    166,
+    171,
+    131,
+    180,
+    176,
+    130,
+    58,
+    192,
+    116,
+    178,
+    210,
+    230,
+    165
+  ],
+  "targeted_source_ids": [
+    14,
+    24,
+    52,
+    60,
+    130,
+    137,
+    176,
+    177,
+    179,
+    180,
+    187,
+    211,
+    178,
+    181
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "purchase item",
+        "query": "investment for competition four weeks ago",
+        "semantic_type": "entity",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "investment for competition four weeks ago"
+    ],
+    "output_constraints": [
+      "single item name"
+    ],
+    "reason": "The question asks for a specific item bought for a competition mentioned four weeks ago. It is a direct factual recall from episodic memory."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source mentions an investment for a competition or any purchase related to a competition. The closest memories discuss entering an art competition but do not mention buying anything for it."
+  },
+  "specialist_candidate": {
+    "answer": "silver necklace with a small pendant",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_246a5ec10fe1a551403e"
+    ],
+    "support_source_ids": [
+      103
+    ],
+    "required_slots": [
+      {
+        "name": "purchase item",
+        "value": "silver necklace with a small pendant",
+        "support_memory_ids": [
+          "m_246a5ec10fe1a551403e"
+        ],
+        "support_source_ids": [
+          103
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "bought",
+        "object": "silver necklace with a small pendant",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-02-12",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_246a5ec10fe1a551403e"
+        ],
+        "support_source_ids": [
+          103
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user mentioned buying a silver necklace with a small pendant from the accessories store on Main Street for $40 on 2023-02-12. The question asks about an investment for a competition four weeks ago from 2023-04-01, which is around 2023-03-04. However, the only purchase related to a competition is the silver necklace, which was bought on 2023-02-12, about 7 weeks before the question date. The user also discussed entering an art competition on 2023-03-04 but did not mention buying anything for it. The closest match is the silver necklace, which was bought for a gift but could be considered an investment for a competition. Given the ambiguity, the most grounded item is the silver necklace."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    17,
+    97,
+    218,
+    69,
+    46,
+    103,
+    169,
+    142,
+    1,
+    45,
+    141,
+    214,
+    80,
+    151,
+    77,
+    42,
+    204,
+    98,
+    104,
+    219,
+    47,
+    213,
+    215
+  ],
+  "targeted_source_ids": [
+    17,
+    34,
+    45,
+    77,
+    86,
+    97,
+    101,
+    142,
+    147,
+    210,
+    211,
+    224,
+    18,
+    85,
+    87
+  ]
+}

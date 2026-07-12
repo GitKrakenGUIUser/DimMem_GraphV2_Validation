@@ -1,0 +1,75 @@
+{
+  "question_id": "a2f3aa27",
+  "question_type": "knowledge-update",
+  "question": "How many followers do I have on Instagram now?",
+  "question_date": "2023/06/15 (Thu) 23:26",
+  "gold_answer": "1300",
+  "prediction": "1250",
+  "support_memory_ids": [
+    "m_38102e74921d57497eab"
+  ],
+  "support_source_ids": [
+    67
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The most recent grounded follower count is 1250 from 2023-05-25. A later memory mentions 'close to 1300' but is vague and not a precise update. Therefore, the current state is 1250.",
+  "required_slots": [
+    {
+      "name": "follower count state",
+      "value": "1250",
+      "support_memory_ids": [
+        "m_38102e74921d57497eab"
+      ],
+      "support_source_ids": [
+        67
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "follower count state",
+        "query": "Instagram follower count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Instagram follower count"
+    ],
+    "output_constraints": [
+      "must be a number"
+    ],
+    "reason": "Question asks for current follower count, requiring state resolution."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 28434,
+    "completion_tokens": 498,
+    "elapsed_seconds": 5.724752187728882
+  }
+}

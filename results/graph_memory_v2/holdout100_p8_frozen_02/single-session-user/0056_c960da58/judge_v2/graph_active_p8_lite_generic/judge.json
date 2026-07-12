@@ -1,0 +1,82 @@
+{
+  "question_id": "c960da58",
+  "question_type": "single-session-user",
+  "question": "How many playlists do I have on Spotify?",
+  "question_date": "2023/05/30 (Tue) 18:45",
+  "gold_answer": "20",
+  "prediction": "20",
+  "support_memory_ids": [
+    "m_79fac2b009437b3df378"
+  ],
+  "support_source_ids": [
+    20
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The memory m_79fac2b009437b3df378 explicitly states 'User has 20 playlists on Spotify.' with active state status. This is a direct stated count, so no further computation is needed.",
+  "required_slots": [
+    {
+      "name": "spotify_playlist_count",
+      "value": "20",
+      "support_memory_ids": [
+        "m_79fac2b009437b3df378"
+      ],
+      "support_source_ids": [
+        20
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "stated_count",
+  "calculation": {
+    "operator": "stated_count",
+    "operands": [
+      "20"
+    ],
+    "unit": "playlists",
+    "result": "20"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "spotify_playlist_count",
+        "query": "number of Spotify playlists",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "my Spotify playlist count",
+      "number of Spotify playlists"
+    ],
+    "reason": "The question asks for the current number of playlists, which is a state value that can be directly retrieved from memory.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 21071,
+    "completion_tokens": 470,
+    "elapsed_seconds": 4.831086874008179
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 130,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.8719503879547119
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "question": "How many pre-1920 American coins do I have in my collection?",
+  "question_date": "2023-06-09T11:14:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's collection of pre-1920 American coins",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "American coins",
+        "pre-1920 coins"
+      ],
+      "keywords": [
+        "pre-1920",
+        "American coins",
+        "collection"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "1920-01-01",
+        "raw": "pre-1920"
+      },
+      "locations": [],
+      "state_keys": [
+        "collection_inventory"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's coin collection inventory",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "coin collection"
+      ],
+      "keywords": [
+        "collection",
+        "inventory",
+        "coins"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "collection_inventory"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "list of coins with dates"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's American coins minted before 1920",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "American coins"
+      ],
+      "keywords": [
+        "American",
+        "coins",
+        "minted",
+        "before 1920"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "1920-01-01",
+        "raw": "pre-1920"
+      },
+      "locations": [],
+      "state_keys": [
+        "collection_inventory"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 3,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "charity_event",
+        "query": "charity events I participated in",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "amount_raised",
+        "query": "amount raised per charity event",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "charity events I participated in",
+      "amount raised per charity event"
+    ],
+    "output_constraints": [
+      "sum of amounts in USD"
+    ],
+    "reason": "The question asks for total money raised from all charity events participated in, requiring a sum of amounts per event. Composition is allowed to link events to amounts."
+  },
+  "base_candidate": {
+    "answer": "5850 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b5ac548a59a538b3d4ba",
+      "m_50341ee02a12e32ac3ff",
+      "m_ff89ea1d439209c7d331"
+    ],
+    "support_source_ids": [
+      184,
+      215,
+      85
+    ],
+    "required_slots": [
+      {
+        "name": "total_money_raised",
+        "value": "5850",
+        "support_memory_ids": [
+          "m_b5ac548a59a538b3d4ba",
+          "m_50341ee02a12e32ac3ff",
+          "m_ff89ea1d439209c7d331"
+        ],
+        "support_source_ids": [
+          184,
+          215,
+          85
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        600,
+        5000,
+        250
+      ],
+      "unit": "USD",
+      "result": "5850 USD"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User participated in three charity events: charity yoga event raised $600 (memory m_b5ac548a59a538b3d4ba, source 184), Bike-a-Thon raised $5,000 (memory m_50341ee02a12e32ac3ff, source 215), and charity walk raised $250 (memory m_ff89ea1d439209c7d331, source 85). Sum = 600 + 5000 + 250 = 5850."
+  },
+  "specialist_candidate": {
+    "answer": "5850 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b5ac548a59a538b3d4ba",
+      "m_50341ee02a12e32ac3ff",
+      "m_ff89ea1d439209c7d331"
+    ],
+    "support_source_ids": [
+      184,
+      215,
+      85
+    ],
+    "required_slots": [
+      {
+        "name": "charity_event",
+        "value": "charity yoga event, Bike-a-Thon for Cancer Research, charity walk",
+        "support_memory_ids": [
+          "m_b5ac548a59a538b3d4ba",
+          "m_50341ee02a12e32ac3ff",
+          "m_ff89ea1d439209c7d331"
+        ],
+        "support_source_ids": [
+          184,
+          215,
+          85
+        ]
+      },
+      {
+        "name": "amount_raised",
+        "value": "600, 5000, 250",
+        "support_memory_ids": [
+          "m_b5ac548a59a538b3d4ba",
+          "m_50341ee02a12e32ac3ff",
+          "m_ff89ea1d439209c7d331"
+        ],
+        "support_source_ids": [
+          184,
+          215,
+          85
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        600,
+        5000,
+        250
+      ],
+      "unit": "USD",
+      "result": "5850 USD"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "organized",
+        "object": "charity yoga event",
+        "value": "600",
+        "unit": "USD",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_b5ac548a59a538b3d4ba"
+        ],
+        "support_source_ids": [
+          184
+        ]
+      },
+      {
+        "subject": "user's team",
+        "predicate": "raised",
+        "object": "Bike-a-Thon for Cancer Research",
+        "value": "5000",
+        "unit": "USD",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_50341ee02a12e32ac3ff"
+        ],
+        "support_source_ids": [
+          215
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "participated in charity walk and raised",
+        "object": "charity walk",
+        "value": "250",
+        "unit": "USD",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_ff89ea1d439209c7d331"
+        ],
+        "support_source_ids": [
+          85
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Three charity events participated in: charity yoga event ($600), Bike-a-Thon for Cancer Research ($5,000), charity walk ($250). Sum = $5,850.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    215,
+    216,
+    85,
+    217,
+    218,
+    184,
+    139,
+    209,
+    219,
+    84,
+    122,
+    221,
+    148,
+    67,
+    69,
+    169,
+    185,
+    214
+  ],
+  "targeted_source_ids": [
+    52,
+    56,
+    67,
+    68,
+    85,
+    104,
+    147,
+    154,
+    184,
+    215,
+    216,
+    219,
+    84,
+    86,
+    214
+  ]
+}

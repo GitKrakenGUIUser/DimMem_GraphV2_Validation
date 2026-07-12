@@ -1,0 +1,89 @@
+{
+  "question_id": "gpt4_93159ced",
+  "question_type": "temporal-reasoning",
+  "question": "How long have I been working before I started my current job at NovaTech?",
+  "question_date": "2023/05/25 (Thu) 19:17",
+  "gold_answer": "4 years and 9 months",
+  "prediction": "2010 days",
+  "support_memory_ids": [
+    "m_f7040dda5915877930ed",
+    "m_1fc27287d29bd5550695"
+  ],
+  "support_source_ids": [
+    3,
+    126
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User has 9 years of professional experience (source 126) and has worked at NovaTech for 4 years 3 months (source 3). Therefore, before starting at NovaTech, the user worked for 9 years - 4 years 3 months = 4 years 9 months.",
+  "required_slots": [
+    {
+      "name": "total professional experience",
+      "value": "9 years",
+      "support_memory_ids": [
+        "m_1fc27287d29bd5550695"
+      ],
+      "support_source_ids": [
+        126
+      ]
+    },
+    {
+      "name": "tenure at NovaTech",
+      "value": "4 years 3 months",
+      "support_memory_ids": [
+        "m_f7040dda5915877930ed"
+      ],
+      "support_source_ids": [
+        3
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2013-08-25",
+      "2019-02-25"
+    ],
+    "unit": "years",
+    "result": "2010 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    3,
+    88,
+    79,
+    1,
+    126,
+    47,
+    201,
+    52,
+    74,
+    38,
+    75,
+    153,
+    61,
+    4,
+    33,
+    6,
+    125,
+    199,
+    200,
+    78,
+    127,
+    2
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 87856,
+    "completion_tokens": 1092,
+    "elapsed_seconds": 11.52807879447937
+  }
+}

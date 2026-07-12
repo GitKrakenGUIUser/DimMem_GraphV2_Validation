@@ -1,0 +1,220 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "model kits worked on or bought",
+        "query": "model kit worked on or bought",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "model kit worked on or bought"
+    ],
+    "reason": "Count distinct model kits mentioned in memories of working on or buying.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c095ce14fa4c9473f960",
+      "m_c80c9c2e2ce958fd1d13"
+    ],
+    "support_source_ids": [
+      6,
+      164
+    ],
+    "required_slots": [
+      {
+        "name": "count of model kits worked on or bought",
+        "value": "3",
+        "support_memory_ids": [
+          "m_c095ce14fa4c9473f960",
+          "m_c80c9c2e2ce958fd1d13"
+        ],
+        "support_source_ids": [
+          6,
+          164
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Revell F-15 Eagle kit",
+        "1/72 scale B-29 bomber model kit",
+        "1/24 scale '69 Camaro model kit"
+      ],
+      "unit": "model kits",
+      "result": "3"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "From memory m_c80c9c2e2ce958fd1d13 (source 164), user finished a Revell F-15 Eagle kit. From memory m_c095ce14fa4c9473f960 (source 6), user acquired a 1/72 B-29 bomber and a 1/24 '69 Camaro at a model show. These are three distinct model kits worked on or bought. No other model kits are mentioned."
+  },
+  "p7_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c095ce14fa4c9473f960",
+      "m_c80c9c2e2ce958fd1d13"
+    ],
+    "support_source_ids": [
+      6,
+      164
+    ],
+    "required_slots": [
+      {
+        "name": "model kits worked on or bought",
+        "value": "3",
+        "support_memory_ids": [
+          "m_c095ce14fa4c9473f960",
+          "m_c80c9c2e2ce958fd1d13"
+        ],
+        "support_source_ids": [
+          6,
+          164
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "1/72 scale B-29 bomber model kit",
+        "1/24 scale '69 Camaro model kit",
+        "Revell F-15 Eagle kit"
+      ],
+      "unit": "model kits",
+      "result": "3"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_c095ce14fa4c9473f960 (source 6), user acquired a 1/72 B-29 bomber model kit and a 1/24 '69 Camaro model kit at a model show last weekend (2023-05-13). From memory m_c80c9c2e2ce958fd1d13 (source 164), user finished building a Revell F-15 Eagle kit picked up in late April 2023. These are three distinct model kits worked on or bought. No other model kits are mentioned. Count = 3."
+  },
+  "specialist_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c095ce14fa4c9473f960",
+      "m_c80c9c2e2ce958fd1d13",
+      "m_1058457cc97d9bcca00f"
+    ],
+    "support_source_ids": [
+      6,
+      164,
+      167
+    ],
+    "required_slots": [
+      {
+        "name": "model kits worked on or bought",
+        "value": "3",
+        "support_memory_ids": [
+          "m_c095ce14fa4c9473f960",
+          "m_c80c9c2e2ce958fd1d13",
+          "m_1058457cc97d9bcca00f"
+        ],
+        "support_source_ids": [
+          6,
+          164,
+          167
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "B-29 bomber model kit",
+        "'69 Camaro model kit",
+        "Revell F-15 Eagle kit"
+      ],
+      "unit": "",
+      "result": "3"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "acquired",
+        "object": "B-29 bomber model kit",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-13",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_c095ce14fa4c9473f960"
+        ],
+        "support_source_ids": [
+          6
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "acquired",
+        "object": "'69 Camaro model kit",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-13",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_c095ce14fa4c9473f960"
+        ],
+        "support_source_ids": [
+          6
+        ]
+      },
+      {
+        "fact_id": "f3",
+        "subject": "user",
+        "predicate": "finished building",
+        "object": "Revell F-15 Eagle kit",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-04-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_c80c9c2e2ce958fd1d13"
+        ],
+        "support_source_ids": [
+          164
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_c095ce14fa4c9473f960, user acquired a B-29 bomber model kit and a '69 Camaro model kit at a model show. From memory m_c80c9c2e2ce958fd1d13, user finished building a Revell F-15 Eagle kit. These are three distinct model kits worked on or bought. No other distinct model kits are mentioned in the evidence.",
+    "safe_executor_applied": true
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    164,
+    6,
+    9,
+    167,
+    222,
+    10,
+    8,
+    165,
+    7
+  ],
+  "v2_timeline_memory_ids": []
+}

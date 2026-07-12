@@ -1,0 +1,107 @@
+{
+  "question": "How many days had passed since I started taking ukulele lessons when I decided to take my acoustic guitar to the guitar tech for servicing?",
+  "question_date": "2023-04-01T00:42:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user started taking ukulele lessons",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "ukulele lessons"
+      ],
+      "keywords": [
+        "started",
+        "ukulele lessons"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-04-01T00:42:00",
+        "raw": "before the question date"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "start date of ukulele lessons"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user decided to take their acoustic guitar to the guitar tech for servicing",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "acoustic guitar",
+        "guitar tech"
+      ],
+      "keywords": [
+        "decided",
+        "take",
+        "acoustic guitar",
+        "servicing"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-04-01T00:42:00",
+        "raw": "before the question date"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "date of decision to service guitar"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the number of days between the start of ukulele lessons and the decision to service the acoustic guitar",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "ukulele lessons",
+        "acoustic guitar",
+        "guitar tech"
+      ],
+      "keywords": [
+        "days",
+        "between",
+        "started",
+        "ukulele lessons",
+        "servicing"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "",
+        "end": "",
+        "raw": "difference between two dates"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "temporal_order"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "start date of ukulele lessons",
+        "date of decision to service guitar"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

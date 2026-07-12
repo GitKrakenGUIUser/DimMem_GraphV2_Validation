@@ -1,0 +1,187 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "completion time of fixing fence",
+        "query": "when did I fix the fence",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "completion time of trimming goats' hooves",
+        "query": "when did I trim the goats' hooves",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "fix fence date",
+      "trim goats hooves date",
+      "when did I fix the fence",
+      "when did I trim the goats' hooves"
+    ],
+    "reason": "Need timestamps of both tasks to determine which occurred first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "fixing the fence",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_819fdafc501633335988",
+      "m_31e51715e1750550660a"
+    ],
+    "support_source_ids": [
+      203,
+      57
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Fixing the fence occurred three weeks ago (around 2023-05-04), while trimming the goats' hooves occurred two weeks ago (around 2023-05-11). Therefore, fixing the fence was completed first."
+  },
+  "p7_candidate": {
+    "answer": "fixing the fence",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_819fdafc501633335988",
+      "m_31e51715e1750550660a"
+    ],
+    "support_source_ids": [
+      203,
+      57
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Fixing the fence occurred three weeks ago (around 2023-05-04), while trimming the goats' hooves occurred two weeks ago (around 2023-05-11). Therefore, fixing the fence was completed first."
+  },
+  "specialist_candidate": {
+    "answer": "fixing the fence",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_819fdafc501633335988",
+      "m_31e51715e1750550660a"
+    ],
+    "support_source_ids": [
+      203,
+      57
+    ],
+    "required_slots": [
+      {
+        "name": "completion time of fixing fence",
+        "value": "2023-05-04",
+        "support_memory_ids": [
+          "m_819fdafc501633335988"
+        ],
+        "support_source_ids": [
+          203
+        ]
+      },
+      {
+        "name": "completion time of trimming goats' hooves",
+        "value": "2023-05-11",
+        "support_memory_ids": [
+          "m_31e51715e1750550660a"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "fixed",
+        "object": "fence",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-04",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_819fdafc501633335988"
+        ],
+        "support_source_ids": [
+          203
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "trimmed hooves of",
+        "object": "goat",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-11",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_31e51715e1750550660a"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Fence fixed on 2023-05-04 (three weeks before 2023-05-25). Goat hooves trimmed on 2023-05-11 (two weeks before 2023-05-25). 2023-05-04 is earlier than 2023-05-11, so fixing the fence was completed first."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    203,
+    60,
+    57,
+    204,
+    2,
+    3,
+    58,
+    197,
+    59,
+    202,
+    61
+  ],
+  "v2_timeline_memory_ids": [
+    "m_2c35ea895923d5c1ecd2",
+    "m_819fdafc501633335988",
+    "m_0dc1566f8bb093fc222a",
+    "m_31e51715e1750550660a",
+    "m_3a4b1fec14d4186063bf",
+    "m_45941d0307c834aaed89",
+    "m_8c860b1e8f1947e9379d",
+    "m_cbe078f92b9fc89e5540"
+  ]
+}

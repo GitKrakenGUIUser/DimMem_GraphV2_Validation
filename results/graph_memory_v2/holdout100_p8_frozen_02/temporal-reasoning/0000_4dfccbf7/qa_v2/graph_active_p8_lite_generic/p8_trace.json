@@ -1,0 +1,226 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "start date of ukulele lessons",
+        "query": "started ukulele lessons date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of decision to service guitar",
+        "query": "decided to take acoustic guitar to guitar tech servicing date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "started ukulele lessons date",
+      "decided to take acoustic guitar to guitar tech servicing date"
+    ],
+    "reason": "Need two dates to compute days between start of ukulele lessons and decision to service guitar.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_328e3a774c3ba9ff4012",
+      "m_a924736e0dc47869ff73"
+    ],
+    "support_source_ids": [
+      191,
+      207
+    ],
+    "required_slots": [
+      {
+        "name": "start date of ukulele lessons",
+        "value": "2023-02-01",
+        "support_memory_ids": [
+          "m_328e3a774c3ba9ff4012"
+        ],
+        "support_source_ids": [
+          191
+        ]
+      },
+      {
+        "name": "date of decision to service guitar",
+        "value": "2023-02-25",
+        "support_memory_ids": [
+          "m_a924736e0dc47869ff73"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-01",
+        "2023-02-25"
+      ],
+      "unit": "days",
+      "result": "24 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User started ukulele lessons on 2023-02-01 (source 191, memory m_328e3a774c3ba9ff4012). User decided to take acoustic guitar (Taylor GS Mini) to guitar tech for servicing on 2023-02-25 (source 207, memory m_a924736e0dc47869ff73). The difference is 24 days."
+  },
+  "p7_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_328e3a774c3ba9ff4012",
+      "m_a924736e0dc47869ff73"
+    ],
+    "support_source_ids": [
+      191,
+      207
+    ],
+    "required_slots": [
+      {
+        "name": "start date of ukulele lessons",
+        "value": "2023-02-01",
+        "support_memory_ids": [
+          "m_328e3a774c3ba9ff4012"
+        ],
+        "support_source_ids": [
+          191
+        ]
+      },
+      {
+        "name": "date of decision to service guitar",
+        "value": "2023-02-25",
+        "support_memory_ids": [
+          "m_a924736e0dc47869ff73"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-01",
+        "2023-02-25"
+      ],
+      "unit": "days",
+      "result": "24 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User started ukulele lessons on 2023-02-01 (source 191). User decided to take Taylor GS Mini to guitar tech for servicing on 2023-02-25 (source 207). The number of days between these two dates is 24 days."
+  },
+  "specialist_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_328e3a774c3ba9ff4012",
+      "m_a924736e0dc47869ff73"
+    ],
+    "support_source_ids": [
+      191,
+      207
+    ],
+    "required_slots": [
+      {
+        "name": "start date of ukulele lessons",
+        "value": "2023-02-01",
+        "support_memory_ids": [
+          "m_328e3a774c3ba9ff4012"
+        ],
+        "support_source_ids": [
+          191
+        ]
+      },
+      {
+        "name": "date of decision to service guitar",
+        "value": "2023-02-25",
+        "support_memory_ids": [
+          "m_a924736e0dc47869ff73"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-01",
+        "2023-02-25"
+      ],
+      "unit": "days",
+      "result": "24"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "started ukulele lessons",
+        "object": "2023-02-01",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-02-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_328e3a774c3ba9ff4012"
+        ],
+        "support_source_ids": [
+          191
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "decided to take acoustic guitar to guitar tech servicing",
+        "object": "2023-02-25",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-02-25",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_a924736e0dc47869ff73"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_328e3a774c3ba9ff4012 (source 191), user started ukulele lessons on 2023-02-01. From memory m_a924736e0dc47869ff73 (source 207), user decided to take Taylor GS Mini for servicing on 2023-02-25. The difference is 24 days."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    191,
+    192,
+    193,
+    207,
+    7,
+    12,
+    232,
+    141,
+    194,
+    190
+  ],
+  "v2_timeline_memory_ids": []
+}

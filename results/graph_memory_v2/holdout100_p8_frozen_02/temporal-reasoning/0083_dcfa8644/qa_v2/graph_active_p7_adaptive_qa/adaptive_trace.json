@@ -1,0 +1,193 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "purchase date of Adidas running shoes",
+        "query": "When did I buy my Adidas running shoes?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "realization date of broken shoelace",
+        "query": "When did I realize the shoelace on my Converse sneakers broke?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I buy my Adidas running shoes?",
+      "When did I realize the shoelace on my Converse sneakers broke?"
+    ],
+    "output_constraints": [
+      "Answer must be a non-negative integer number of days."
+    ],
+    "reason": "The question asks for days elapsed between two events: buying Adidas shoes and realizing a shoelace broke. Both events need exact dates. Composition is needed to compute the difference."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_e01a6b08dd0c8c01094d",
+      "m_76cb83f2177120da8985"
+    ],
+    "support_source_ids": [
+      186,
+      83
+    ],
+    "required_slots": [
+      "exact time of realization"
+    ],
+    "unfilled_slots": [
+      "exact time of realization"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "The question asks for days between buying Adidas running shoes and realizing the shoelace broke. The purchase date is January 10th (source 186). The shoelace broke on January 24th (source 83), but the realization time is not explicitly stated; the user says 'I realized that one of the shoelaces on my old Converse sneakers had broken on January 24th', which implies the realization occurred on or after January 24th, but the exact date of realization is not provided. Without the realization date, the days cannot be calculated."
+  },
+  "specialist_candidate": {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e01a6b08dd0c8c01094d",
+      "m_76cb83f2177120da8985"
+    ],
+    "support_source_ids": [
+      186,
+      83
+    ],
+    "required_slots": [
+      {
+        "name": "purchase date of Adidas running shoes",
+        "value": "2023-01-10",
+        "support_memory_ids": [
+          "m_e01a6b08dd0c8c01094d"
+        ],
+        "support_source_ids": [
+          186
+        ]
+      },
+      {
+        "name": "realization date of broken shoelace",
+        "value": "2023-01-24",
+        "support_memory_ids": [
+          "m_76cb83f2177120da8985"
+        ],
+        "support_source_ids": [
+          83
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-01-10",
+        "2023-01-24"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "purchased",
+        "object": "Adidas running shoes",
+        "value": "2023-01-10",
+        "unit": "date",
+        "event_time": "2023-01-10",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e01a6b08dd0c8c01094d"
+        ],
+        "support_source_ids": [
+          186
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "realized",
+        "object": "shoelace on Converse sneakers broke",
+        "value": "2023-01-24",
+        "unit": "date",
+        "event_time": "2023-01-24",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_76cb83f2177120da8985"
+        ],
+        "support_source_ids": [
+          83
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "User bought Adidas running shoes on January 10, 2023 (source 186). User realized one shoelace on old Converse sneakers broke on January 24, 2023 (source 83). The number of days between these two dates is 15 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    83,
+    190,
+    186,
+    188,
+    189,
+    191,
+    187,
+    89,
+    88,
+    86,
+    178,
+    127,
+    25,
+    84,
+    33,
+    227,
+    87
+  ],
+  "targeted_source_ids": [
+    4,
+    5,
+    6,
+    25,
+    83,
+    87,
+    89,
+    186,
+    188,
+    189,
+    190,
+    227,
+    84,
+    187,
+    191
+  ]
+}

@@ -1,0 +1,63 @@
+[
+  {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "Facebook ad campaign reach",
+        "value": "2,000",
+        "support_memory_ids": [
+          "m_df5c71a6f417e933a347",
+          "m_cfe8bd5418b7711b6f8a"
+        ],
+        "support_source_ids": [
+          197,
+          208
+        ]
+      },
+      {
+        "name": "Instagram influencer collaboration reach",
+        "value": "Cannot be determined from the conversation.",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "Instagram influencer collaboration reach"
+    ],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        2000,
+        "unknown"
+      ],
+      "unit": "people",
+      "result": "unknown"
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The Facebook ad campaign reached 2,000 people (memories m_df5c71a6f417e933a347 and m_cfe8bd5418b7711b6f8a). However, the Instagram influencer collaboration only mentions the influencer has 10,000 followers (memory m_a9ee9b118039de4324fd), but does not specify how many people were actually reached by the collaboration. Without the reach number for the Instagram influencer collaboration, the total cannot be calculated."
+  },
+  {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "Facebook ad campaign reach",
+      "Instagram influencer collaboration reach"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The conversation provides the reach of a previous Facebook ad campaign (2,000 people) but does not specify whether that campaign is the one referred to in the question. The Instagram influencer collaboration mentions the influencer has 10,000 followers, but the actual number of people reached by the collaboration is not provided. Therefore, the total cannot be determined."
+  }
+]

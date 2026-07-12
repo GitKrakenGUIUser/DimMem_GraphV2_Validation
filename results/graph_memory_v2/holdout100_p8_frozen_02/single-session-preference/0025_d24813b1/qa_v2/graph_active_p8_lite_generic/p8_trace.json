@@ -1,0 +1,263 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:preference_criteria"
+  ],
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "user's baking skill level",
+        "query": "user baking skill level",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "user's dietary restrictions",
+        "query": "user dietary restrictions",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "user's preferred baking type",
+        "query": "user preferred baking type",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "colleagues' dietary restrictions",
+        "query": "colleagues dietary restrictions",
+        "semantic_type": "state",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "user baking skill level",
+      "user dietary restrictions",
+      "user preferred baking type",
+      "colleagues dietary restrictions"
+    ],
+    "reason": "To provide baking tips for a small gathering with colleagues, we need the user's baking skill level, dietary restrictions, and preferred baking type, plus optionally colleagues' dietary restrictions.",
+    "deterministic_contract_hint": "preference_criteria",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Based on your past baking interests, you enjoy making cookies (especially oatmeal raisin with nuts) and have had success with vegan recipes like cashew-based cheese sauces. For a small gathering with colleagues, consider baking a batch of oatmeal raisin cookies with nuts, or a vegan option like a lemon poppyseed cake (which you've made before and was a hit). These are crowd-pleasers and align with your baking experience.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ad1cf33f6ebef4f03a2e",
+      "m_8d96ed09dce6ff702b82",
+      "m_f858bcb5900f92a8b109"
+    ],
+    "support_source_ids": [
+      117
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.85,
+    "reasoning_summary": "User has expressed interest in baking cookies (oatmeal raisin with nuts) and has successfully made a lemon poppyseed cake for a colleague's party. These preferences are directly applicable to the current request for baking tips for a small gathering with colleagues."
+  },
+  "p7_candidate": {
+    "answer": "Based on your past baking interests, you enjoy making cookies (especially oatmeal raisin with nuts) and have had success with vegan recipes like cashew-based cheese sauces. For a small gathering with colleagues, consider baking a batch of oatmeal raisin cookies with nuts, or a vegan option like a lemon poppyseed cake (which you've made before and was a hit). These are crowd-pleasers and align with your baking experience.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ad1cf33f6ebef4f03a2e",
+      "m_8d96ed09dce6ff702b82",
+      "m_f858bcb5900f92a8b109"
+    ],
+    "support_source_ids": [
+      117
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.85,
+    "reasoning_summary": "User has expressed interest in baking cookies (oatmeal raisin with nuts) and has successfully made a lemon poppyseed cake for a colleague's party. These preferences are directly applicable to the current request for baking tips for a small gathering with colleagues."
+  },
+  "specialist_candidate": {
+    "answer": "Based on your interest in baking cookies and experimenting with flavors like oatmeal raisin with nuts, and your experience with vegan cooking, I recommend baking oatmeal raisin cookies with nuts for your colleagues. They are a crowd-pleaser and you can make them healthier by using alternatives like coconut sugar or oat flour. If you know any dietary restrictions among your colleagues, you can adjust accordingly.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ad1cf33f6ebef4f03a2e",
+      "m_e9e729da42b0939c1d87"
+    ],
+    "support_source_ids": [
+      117,
+      44
+    ],
+    "required_slots": [
+      {
+        "name": "user's baking skill level",
+        "value": "intermediate (bakes cookies on weekends, has made vegan cheese sauces)",
+        "support_memory_ids": [
+          "m_ad1cf33f6ebef4f03a2e",
+          "m_e9e729da42b0939c1d87"
+        ],
+        "support_source_ids": [
+          117,
+          44
+        ]
+      },
+      {
+        "name": "user's dietary restrictions",
+        "value": "none indicated (has made vegan dishes, but no personal restrictions stated)",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "user's preferred baking type",
+        "value": "cookies, specifically oatmeal raisin with nuts, and healthier options",
+        "support_memory_ids": [
+          "m_ad1cf33f6ebef4f03a2e"
+        ],
+        "support_source_ids": [
+          117
+        ]
+      },
+      {
+        "name": "colleagues' dietary restrictions",
+        "value": "unknown",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      {
+        "name": "colleagues' dietary restrictions",
+        "reason": "No information available in evidence."
+      }
+    ],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "bakes cookies on weekends",
+        "object": "true",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-25T00:16:02",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_ad1cf33f6ebef4f03a2e"
+        ],
+        "support_source_ids": [
+          117
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "wants to try",
+        "object": "oatmeal raisin cookies with nuts",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-25T00:16:02",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_ad1cf33f6ebef4f03a2e"
+        ],
+        "support_source_ids": [
+          117
+        ]
+      },
+      {
+        "fact_id": "f3",
+        "subject": "user",
+        "predicate": "has experience with",
+        "object": "vegan cooking and cashew-based sauces",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-21T08:00:02.500000",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e9e729da42b0939c1d87"
+        ],
+        "support_source_ids": [
+          44
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "reasoning_summary": "The user has expressed interest in baking cookies, specifically oatmeal raisin with nuts, and has experience with vegan cooking. No dietary restrictions are mentioned for the user or colleagues. Therefore, recommending oatmeal raisin cookies with nuts aligns with their preferences and skill level."
+  },
+  "choice": "specialist",
+  "verification": {
+    "choice": "specialist",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 0.75,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Missing required slot 'user's baking skill level' and 'user's dietary restrictions'."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 0.75,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Missing required slot 'user's baking skill level' and 'user's dietary restrictions'."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "All required slots filled, answer supported by evidence."
+      }
+    },
+    "reason": "Specialist candidate fills all required slots and provides a supported, non-contradictory answer."
+  },
+  "targeted_source_ids": [
+    9,
+    10,
+    11,
+    7,
+    1,
+    51,
+    117,
+    200,
+    8,
+    207,
+    159,
+    197
+  ],
+  "v2_timeline_memory_ids": [
+    "m_e9e729da42b0939c1d87",
+    "m_096f6b45b372ad252b49",
+    "m_1f0a658283bfd3298b6d",
+    "m_32ced65433fff34d9e04",
+    "m_4079f171d5edad716e5e",
+    "m_5979fb3dba43a09702d5",
+    "m_68ee1072bf58b19287d9",
+    "m_7bedb1bce3269e9a59a9"
+  ]
+}

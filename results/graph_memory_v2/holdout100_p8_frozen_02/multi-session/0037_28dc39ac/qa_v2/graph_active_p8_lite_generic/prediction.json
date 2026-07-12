@@ -1,0 +1,120 @@
+{
+  "question_id": "28dc39ac",
+  "question_type": "multi-session",
+  "question": "How many hours have I spent playing games in total?",
+  "question_date": "2023/05/30 (Tue) 23:42",
+  "gold_answer": "140 hours",
+  "prediction": "140 hours",
+  "support_memory_ids": [
+    "m_d69f180b3ca0c5df9a9a",
+    "m_37b98d67c18dc4c63f72",
+    "m_7e870ebe504888ea0224",
+    "m_53a04b26c71fe258f462",
+    "m_25d7acab61941f733fb2"
+  ],
+  "support_source_ids": [
+    10,
+    106,
+    130,
+    63,
+    153
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Summed all grounded game play durations: Assassin's Creed Odyssey (70h), The Last of Us Part II hard (30h), Celeste (10h), Hyper Light Drifter (5h), The Last of Us Part II normal (25h) = 140 hours. No overlapping or duplicate sessions.",
+  "required_slots": [
+    {
+      "name": "game_play_sessions",
+      "value": "Assassin's Creed Odyssey: 70 hours; The Last of Us Part II (hard): 30 hours; Celeste: 10 hours; Hyper Light Drifter: 5 hours; The Last of Us Part II (normal): 25 hours",
+      "support_memory_ids": [
+        "m_d69f180b3ca0c5df9a9a",
+        "m_37b98d67c18dc4c63f72",
+        "m_7e870ebe504888ea0224",
+        "m_53a04b26c71fe258f462",
+        "m_25d7acab61941f733fb2"
+      ],
+      "support_source_ids": [
+        10,
+        106,
+        130,
+        63,
+        153
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      70,
+      30,
+      10,
+      5,
+      25
+    ],
+    "unit": "hours",
+    "result": "140 hours"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "game_play_sessions",
+        "query": "game play session durations",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "game play session durations"
+    ],
+    "reason": "Need to sum all individual game play session durations to get total hours.",
+    "deterministic_contract_hint": "sum",
+    "contract_overridden": false
+  },
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 0.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "No evidence of total sum; individual sessions exist but p5 claims cannot be determined."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "All five game play sessions are supported by sources; sum is correct."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Same evidence and calculation as p7."
+      }
+    },
+    "reason": "p7 and specialist both provide correct sum, but p7 is more concise and directly matches the plan's answer_contract."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 32713,
+    "completion_tokens": 1407,
+    "elapsed_seconds": 11.001986265182495
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "question_id": "gpt4_2f8be40d",
+  "question_type": "multi-session",
+  "question": "How many weddings have I attended in this year?",
+  "question_date": "2023/10/15 (Sun) 23:47",
+  "gold_answer": "I attended three weddings. The couples were Rachel and Mike, Emily and Sarah, and Jen and Tom.",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.0,
+  "reasoning_summary": "The user mentions attending multiple weddings (cousin's vineyard wedding in August, college roommate's wedding on 2023-10-15, friend Jen's wedding last weekend, sister's wedding, cousin Emily's wedding, cousin Rachel's wedding), but it is unclear which of these are distinct events and which are the same event described differently. For example, 'cousin's wedding at a vineyard in August' and 'cousin Rachel's vineyard wedding' likely refer to the same event, and 'college roommate's wedding' and 'cousin Emily's wedding' may also overlap. Without clear evidence to disambiguate, the exact count cannot be determined.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [],
+    "unit": "weddings",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    47,
+    86,
+    70,
+    87,
+    119,
+    169,
+    212,
+    29,
+    49,
+    48,
+    51,
+    50,
+    204,
+    33,
+    135,
+    41,
+    30,
+    43,
+    118,
+    120,
+    170
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    0.0,
+    0.0
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 78616,
+    "completion_tokens": 801,
+    "elapsed_seconds": 10.439361572265625
+  },
+  "correct": false,
+  "judge_reason": "Prediction abstained while reference contains a concrete answer.",
+  "judge_meta": {
+    "mode": "deterministic_abstention_guard",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

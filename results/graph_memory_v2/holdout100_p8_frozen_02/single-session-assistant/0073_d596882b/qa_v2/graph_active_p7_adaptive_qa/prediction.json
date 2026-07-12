@@ -1,0 +1,64 @@
+{
+  "question_id": "d596882b",
+  "question_type": "single-session-assistant",
+  "question": "I'm planning another trip to New York City and I was wondering if you could remind me of that vegan eatery you recommended last time, the one with multiple locations throughout the city?",
+  "question_date": "2023/05/30 (Tue) 19:29",
+  "gold_answer": "By Chloe",
+  "prediction": "By Chloe",
+  "support_memory_ids": [
+    "m_2b9f7b46365b0c3be52f"
+  ],
+  "support_source_ids": [
+    127
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The assistant previously recommended 'By Chloe' as a popular plant-based eatery with multiple locations throughout New York City (source 127, memory m_2b9f7b46365b0c3be52f). This matches the user's request for a vegan eatery with multiple locations.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "same answer; preserve compact candidate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "previous recommendation",
+        "query": "vegan eatery multiple locations New York City recommended",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "vegan eatery multiple locations New York City recommended"
+    ],
+    "output_constraints": [
+      "name of the vegan eatery"
+    ],
+    "reason": "The user asks for a previously recommended vegan eatery with multiple locations in NYC, requiring assistant recall of a past recommendation."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35480,
+    "completion_tokens": 554,
+    "elapsed_seconds": 5.448390245437622
+  }
+}

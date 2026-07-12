@@ -1,0 +1,81 @@
+{
+  "question_id": "6b168ec8",
+  "question_type": "single-session-user",
+  "question": "How many bikes do I own?",
+  "question_date": "2023/05/30 (Tue) 20:24",
+  "gold_answer": "three",
+  "prediction": "3",
+  "support_memory_ids": [
+    "m_47e257b850971cefac0f"
+  ],
+  "support_source_ids": [
+    164
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Memory m_47e257b850971cefac0f explicitly states 'User owns three bikes', and source 164 confirms the user said 'I've got three of them'. No contradictory or superseding evidence found.",
+  "required_slots": [
+    {
+      "name": "bike ownership state",
+      "value": "3",
+      "support_memory_ids": [
+        "m_47e257b850971cefac0f"
+      ],
+      "support_source_ids": [
+        164
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "stated_count",
+  "calculation": {
+    "operator": "stated_count",
+    "operands": [
+      "3"
+    ],
+    "unit": "bikes",
+    "result": "3"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "bike ownership state",
+        "query": "bikes owned count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "bikes owned count"
+    ],
+    "reason": "The question asks for a current count of owned bikes, which is a direct numeric state.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 19053,
+    "completion_tokens": 463,
+    "elapsed_seconds": 4.551813125610352
+  },
+  "correct": true,
+  "judge_reason": "The prediction '3' is numerically equivalent to the reference answer 'three'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 126,
+    "completion_tokens": 31,
+    "elapsed_seconds": 1.044438362121582
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "store_name",
+        "query": "online store India traditional fabrics threads embellishments",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "online store India traditional fabrics threads embellishments"
+    ],
+    "output_constraints": [
+      "single entity name"
+    ],
+    "reason": "The question asks the assistant to recall a previously mentioned online store name from a prior conversation about Indian embroidery and tailoring."
+  },
+  "base_candidate": {
+    "answer": "Nostalgia",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4344b7daef370d6203cd"
+    ],
+    "support_source_ids": [
+      233
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "In the previous conversation, the assistant recommended 'Nostalgia' as an online store based in India that sells traditional Indian fabrics, threads, and embellishments (source 233, memory rank 3)."
+  },
+  "specialist_candidate": {
+    "answer": "Nostalgia",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4344b7daef370d6203cd"
+    ],
+    "support_source_ids": [
+      233
+    ],
+    "required_slots": [
+      {
+        "name": "store_name",
+        "value": "Nostalgia",
+        "support_memory_ids": [
+          "m_4344b7daef370d6203cd"
+        ],
+        "support_source_ids": [
+          233
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "assistant",
+        "predicate": "recommended",
+        "object": "Nostalgia",
+        "value": "online store based in India that offers traditional Indian fabrics, threads, and embellishments",
+        "unit": "",
+        "event_time": "2023-05-29T12:47:02",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_4344b7daef370d6203cd"
+        ],
+        "support_source_ids": [
+          233
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously recommended 'Nostalgia' as an online store based in India that sells traditional Indian fabrics, threads, and embellishments (source 233). This directly answers the user's recall question."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    233,
+    230,
+    232,
+    234,
+    231,
+    235,
+    254,
+    190,
+    17,
+    255,
+    1,
+    97,
+    236,
+    90
+  ],
+  "targeted_source_ids": [
+    42,
+    90,
+    107,
+    189,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    254
+  ]
+}

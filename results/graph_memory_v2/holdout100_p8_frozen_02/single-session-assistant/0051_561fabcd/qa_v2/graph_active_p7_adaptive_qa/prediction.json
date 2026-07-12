@@ -1,0 +1,79 @@
+{
+  "question_id": "561fabcd",
+  "question_type": "single-session-assistant",
+  "question": "I was thinking back to our previous conversation about the Radiation Amplified zombie, and I was wondering if you remembered what we finally decided to name it?",
+  "question_date": "2023/05/30 (Tue) 20:36",
+  "gold_answer": "Fissionator.",
+  "prediction": "Fissionator",
+  "support_memory_ids": [
+    "m_d0b3e246cff6c373798f",
+    "m_8542e3c4bdfad41812ce"
+  ],
+  "support_source_ids": [
+    232,
+    231
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "In the previous conversation, the user proposed the name 'Fissionator' for the Radiation Amplified zombie (source 232), and the assistant suggested it among one-word names (source 231). The user then adopted 'Fissionator' in subsequent messages, indicating it was the decided name.",
+  "required_slots": [
+    {
+      "name": "previous_conversation_about_radiation_amplified_zombie",
+      "value": "Fissionator",
+      "support_memory_ids": [
+        "m_d0b3e246cff6c373798f",
+        "m_8542e3c4bdfad41812ce"
+      ],
+      "support_source_ids": [
+        232,
+        231
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "previous_conversation_about_radiation_amplified_zombie",
+        "query": "previous conversation about Radiation Amplified zombie",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "previous conversation about Radiation Amplified zombie"
+    ],
+    "output_constraints": [
+      "The answer must be the name that was decided in the previous conversation."
+    ],
+    "reason": "The question asks the assistant to recall a name decided in a previous conversation, which requires retrieving the assistant's own reply from that conversation."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 37111,
+    "completion_tokens": 838,
+    "elapsed_seconds": 7.296760082244873
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "question": "How many years in total did I spend in formal education from high school to the completion of my Bachelor's degree?",
+  "question_date": "2021-08-20T23:34:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's high school graduation date",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "high school",
+        "graduation",
+        "date"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2021-08-20T23:34:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "high school graduation date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's Bachelor's degree completion date",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "Bachelor's degree",
+        "completion",
+        "date"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2021-08-20T23:34:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "Bachelor's degree completion date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's total years in formal education from high school to Bachelor's degree",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "years",
+        "formal education",
+        "high school",
+        "Bachelor's degree"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "education_years"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "high school graduation date",
+        "Bachelor's degree completion date"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_birth_date",
+        "query": "What is the user's birth date?",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "alex_birth_date",
+        "query": "When was Alex born?",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What is the user's birth date?",
+      "When was Alex born?"
+    ],
+    "output_constraints": [
+      "The answer should be a number representing years (and optionally months/days) old."
+    ],
+    "reason": "The question asks for the user's age at a past event (Alex's birth). This requires two dates: user's birth date and Alex's birth date. The age is computed as the difference in years (and possibly months/days) between the two dates, with the age at the time of Alex's birth. Composition is allowed because the two facts are independent and can be combined via date difference."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "user_birth_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "alex_birth_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user_birth_date",
+      "alex_birth_date"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The conversation does not contain the user's birth date or Alex's birth date, which are required to compute the user's age when Alex was born."
+  },
+  "specialist_candidate": {
+    "answer": "4045 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_89b1b3f089e980bb9003",
+      "m_b32ea3fa22e090976d4d"
+    ],
+    "support_source_ids": [
+      111,
+      52
+    ],
+    "required_slots": [
+      {
+        "name": "user_birth_date",
+        "value": "1991-04-24",
+        "support_memory_ids": [
+          "m_89b1b3f089e980bb9003"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      },
+      {
+        "name": "alex_birth_date",
+        "value": "2002-05-21",
+        "support_memory_ids": [
+          "m_b32ea3fa22e090976d4d"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "1991-04-24",
+        "2002-05-21"
+      ],
+      "unit": "years",
+      "result": "4045 days"
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "birth_date",
+        "object": "1991-04-24",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_89b1b3f089e980bb9003"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      },
+      {
+        "subject": "Alex",
+        "predicate": "birth_date",
+        "object": "2002-05-21",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_b32ea3fa22e090976d4d"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "User turned 32 in April 2023 (source 111), so birth year is 1991. Alex was 21 on 2023-05-21 (source 52), so birth year is 2002. Age difference: 2002 - 1991 = 11 years.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    51,
+    52,
+    55,
+    75,
+    114,
+    2,
+    53,
+    207,
+    208,
+    11,
+    76,
+    111,
+    169,
+    160,
+    239,
+    1,
+    68,
+    242,
+    113,
+    54,
+    112,
+    115
+  ],
+  "targeted_source_ids": [
+    52,
+    55,
+    68,
+    83,
+    85,
+    86,
+    113,
+    114,
+    117,
+    189,
+    215,
+    216,
+    84,
+    217
+  ]
+}

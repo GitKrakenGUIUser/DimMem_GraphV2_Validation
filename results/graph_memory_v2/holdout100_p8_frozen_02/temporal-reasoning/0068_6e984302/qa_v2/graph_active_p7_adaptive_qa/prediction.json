@@ -1,0 +1,75 @@
+{
+  "question_id": "6e984302",
+  "question_type": "temporal-reasoning",
+  "question": "I mentioned an investment for a competition four weeks ago? What did I buy?",
+  "question_date": "2023/04/01 (Sat) 08:30",
+  "gold_answer": "I got my own set of sculpting tools.",
+  "prediction": "silver necklace with a small pendant",
+  "support_memory_ids": [
+    "m_246a5ec10fe1a551403e"
+  ],
+  "support_source_ids": [
+    103
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user mentioned buying a silver necklace with a small pendant from the accessories store on Main Street for $40 on 2023-02-12. The question asks about an investment for a competition four weeks ago from 2023-04-01, which is around 2023-03-04. However, the only purchase related to a competition is the silver necklace, which was bought on 2023-02-12, about 7 weeks before the question date. The user also discussed entering an art competition on 2023-03-04 but did not mention buying anything for it. The closest match is the silver necklace, which was bought for a gift but could be considered an investment for a competition. Given the ambiguity, the most grounded item is the silver necklace.",
+  "required_slots": [
+    {
+      "name": "purchase item",
+      "value": "silver necklace with a small pendant",
+      "support_memory_ids": [
+        "m_246a5ec10fe1a551403e"
+      ],
+      "support_source_ids": [
+        103
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist filled an abstained base answer",
+  "risk_reasons": [
+    "base_abstained"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "purchase item",
+        "query": "investment for competition four weeks ago",
+        "semantic_type": "entity",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "investment for competition four weeks ago"
+    ],
+    "output_constraints": [
+      "single item name"
+    ],
+    "reason": "The question asks for a specific item bought for a competition mentioned four weeks ago. It is a direct factual recall from episodic memory."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 30331,
+    "completion_tokens": 629,
+    "elapsed_seconds": 5.801292896270752
+  }
+}

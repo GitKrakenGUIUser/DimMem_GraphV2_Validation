@@ -1,0 +1,83 @@
+{
+  "question_id": "5a7937c8",
+  "question_type": "multi-session",
+  "question": "How many days did I spend participating in faith-related activities in December?",
+  "question_date": "2024/01/10 (Wed) 23:41",
+  "gold_answer": "3 days.",
+  "prediction": "3",
+  "support_memory_ids": [
+    "m_1878da2a96adf0513ebf",
+    "m_8dad7caf0e955ace7c3f",
+    "m_f7b1cc587b69e54a89ef"
+  ],
+  "support_source_ids": [
+    171,
+    125,
+    24
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User participated in three distinct faith-related activities in December 2023: volunteering at a church food drive on Dec 10, leading a Bible study on Dec 17, and attending midnight mass on Dec 24. Each is a separate day, so total is 3 days.",
+  "required_slots": [
+    {
+      "name": "faith-related activities in December",
+      "value": "3 days",
+      "support_memory_ids": [
+        "m_1878da2a96adf0513ebf",
+        "m_8dad7caf0e955ace7c3f",
+        "m_f7b1cc587b69e54a89ef"
+      ],
+      "support_source_ids": [
+        171,
+        125,
+        24
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "2023-12-10",
+      "2023-12-17",
+      "2023-12-24"
+    ],
+    "unit": "days",
+    "result": "3"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    171,
+    125,
+    173,
+    172,
+    24,
+    195,
+    196,
+    192,
+    194,
+    113,
+    175,
+    180,
+    141,
+    1,
+    28,
+    174,
+    126,
+    25,
+    193
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    6.090000000000001,
+    6.090000000000001
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 84030,
+    "completion_tokens": 860,
+    "elapsed_seconds": 14.40697693824768
+  }
+}

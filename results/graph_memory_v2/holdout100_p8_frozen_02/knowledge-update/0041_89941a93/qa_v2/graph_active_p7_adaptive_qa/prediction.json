@@ -1,0 +1,77 @@
+{
+  "question_id": "89941a93",
+  "question_type": "knowledge-update",
+  "question": "How many bikes do I currently own?",
+  "question_date": "2023/10/27 (Fri) 13:00",
+  "gold_answer": "4",
+  "prediction": "4",
+  "support_memory_ids": [
+    "m_2b43d3aaad7c9d6ca50f",
+    "m_9e6cfdee9af3ae83bd53"
+  ],
+  "support_source_ids": [
+    41,
+    154
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user stated they had three bikes on 2023-02-22 (source 41). On 2023-10-10, they stated they have four bikes after purchasing a new hybrid bike (source 154). The later statement updates the count to 4, which is the current state as of the question date (2023-10-27).",
+  "required_slots": [
+    {
+      "name": "current bike count",
+      "value": 4,
+      "support_memory_ids": [
+        "m_2b43d3aaad7c9d6ca50f"
+      ],
+      "support_source_ids": [
+        154
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "current bike count",
+        "query": "user's current number of bikes",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user's current bike count"
+    ],
+    "output_constraints": [
+      "integer"
+    ],
+    "reason": "The question asks for the current number of bikes owned, which is a state value. The most direct evidence is a profile or fact stating the count. No composition needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 30087,
+    "completion_tokens": 696,
+    "elapsed_seconds": 6.971040725708008
+  }
+}

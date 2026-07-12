@@ -1,0 +1,88 @@
+{
+  "question_id": "3c1045c8",
+  "question_type": "multi-session",
+  "question": "How much older am I than the average age of employees in my department?",
+  "question_date": "2023/05/30 (Tue) 23:08",
+  "gold_answer": "2.5 years",
+  "prediction": "2.5 years older",
+  "support_memory_ids": [
+    "m_957afc859e33d5a375e2",
+    "m_d12dc24d6577c2a31eeb"
+  ],
+  "support_source_ids": [
+    142,
+    133
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User stated age 32 in memory m_957afc859e33d5a375e2 (source 142). User stated average age in department is 29.5 in memory m_d12dc24d6577c2a31eeb (source 133). Difference = 32 - 29.5 = 2.5 years.",
+  "required_slots": [
+    {
+      "name": "user_age",
+      "value": "32",
+      "support_memory_ids": [
+        "m_957afc859e33d5a375e2"
+      ],
+      "support_source_ids": [
+        142
+      ]
+    },
+    {
+      "name": "average_age_department",
+      "value": "29.5",
+      "support_memory_ids": [
+        "m_d12dc24d6577c2a31eeb"
+      ],
+      "support_source_ids": [
+        133
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "other",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "years",
+    "result": "2.5"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    133,
+    38,
+    2,
+    257,
+    142,
+    226,
+    86,
+    69,
+    67,
+    28,
+    5,
+    93,
+    3,
+    255,
+    135,
+    4,
+    126,
+    91,
+    6,
+    225,
+    143,
+    134,
+    29,
+    27
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    3.79,
+    3.7800000000000002
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 91505,
+    "completion_tokens": 812,
+    "elapsed_seconds": 23.96700406074524
+  }
+}

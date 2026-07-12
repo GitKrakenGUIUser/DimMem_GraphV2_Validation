@@ -1,0 +1,79 @@
+{
+  "question_id": "a06e4cfe",
+  "question_type": "single-session-user",
+  "question": "What is my preferred gin-to-vermouth ratio for a classic gin martini?",
+  "question_date": "2023/05/30 (Tue) 23:48",
+  "gold_answer": "3:1",
+  "prediction": "3:1",
+  "support_memory_ids": [
+    "m_217d86bb7f6c0cdf4803"
+  ],
+  "support_source_ids": [
+    46
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user explicitly stated they settled on a 3:1 gin-to-vermouth ratio with a dash of citrus bitters for their classic martini recipe. This is stored as an active state in memory m_217d86bb7f6c0cdf4803 and confirmed by source 46.",
+  "required_slots": [
+    {
+      "name": "gin_to_vermouth_ratio",
+      "value": "3:1",
+      "support_memory_ids": [
+        "m_217d86bb7f6c0cdf4803"
+      ],
+      "support_source_ids": [
+        46
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "gin_to_vermouth_ratio",
+        "query": "preferred gin to vermouth ratio",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "preferred gin to vermouth ratio"
+    ],
+    "reason": "The question asks for a personal preference that is stored as a state value. The existing candidate uses state_resolution to retrieve the ratio from memory.",
+    "deterministic_contract_hint": "state_resolution",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 24225,
+    "completion_tokens": 511,
+    "elapsed_seconds": 4.579289436340332
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 141,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.8455324172973633
+  }
+}

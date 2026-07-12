@@ -1,0 +1,121 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "timeline",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "booking date",
+        "query": "When did I book the Airbnb in San Francisco?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I book the Airbnb in San Francisco?"
+    ],
+    "output_constraints": [
+      "Answer in months, rounded down to whole months."
+    ],
+    "reason": "The question asks for the number of months ago a booking occurred, requiring a single historical date to compute the difference from the question date."
+  },
+  "base_candidate": {
+    "answer": "61 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2f3c10bd90cec307c34c"
+    ],
+    "support_source_ids": [
+      173
+    ],
+    "required_slots": [
+      {
+        "name": "booking date",
+        "value": "2023-03-21",
+        "support_memory_ids": [
+          "m_2f3c10bd90cec307c34c"
+        ],
+        "support_source_ids": [
+          173
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-21",
+        "2023-05-21"
+      ],
+      "unit": "months",
+      "result": "61 days"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user said they went to San Francisco 'exactly two months ago' on 2023-05-21, so the booking was 2 months before that date. The memory m_2f3c10bd90cec307c34c and source 173 confirm the trip was exactly two months ago."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "confidence": 0.0,
+    "grounding_failure": "concrete answer has no valid support IDs",
+    "answerable": false
+  },
+  "choice": "base",
+  "choice_reason": "monotonic guard: expanded evidence only caused abstention",
+  "compact_source_ids": [
+    120,
+    122,
+    173,
+    124,
+    177,
+    185,
+    189,
+    176,
+    123,
+    44,
+    234,
+    121,
+    125,
+    175,
+    190,
+    188,
+    174
+  ],
+  "targeted_source_ids": [
+    120,
+    122,
+    124,
+    125,
+    134,
+    173,
+    175,
+    176,
+    185,
+    189,
+    190,
+    196,
+    121,
+    174,
+    188
+  ]
+}

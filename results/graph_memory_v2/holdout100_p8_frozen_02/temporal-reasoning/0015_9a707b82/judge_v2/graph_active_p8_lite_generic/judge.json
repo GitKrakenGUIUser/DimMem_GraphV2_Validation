@@ -1,0 +1,53 @@
+{
+  "question_id": "9a707b82",
+  "question_type": "temporal-reasoning",
+  "question": "I mentioned cooking something for my friend a couple of days ago. What was it?",
+  "question_date": "2022/04/12 (Tue) 22:57",
+  "gold_answer": "a chocolate cake",
+  "prediction": "banana bread",
+  "support_memory_ids": [
+    "m_bcd26c8b480fea4eacc3"
+  ],
+  "support_source_ids": [
+    72
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Source 72 (timestamp 2022-04-10) shows the user said 'I recently made a batch with walnuts, and it turned out amazing' in the context of banana bread. The question asks about 'a couple of days ago' relative to the current conversation, and the user's mention of 'recently' aligns with that timeframe. The candidate incorrectly claimed the user made chocolate cake, but the source clearly states the user made banana bread with walnuts. The chocolate cake was mentioned as a separate event ('last weekend') for a friend's birthday, not for the friend mentioned in the question.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": false,
+  "judge_reason": "Prediction is 'banana bread', but reference answer is 'a chocolate cake'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 138,
+    "completion_tokens": 33,
+    "elapsed_seconds": 0.7655420303344727
+  }
+}

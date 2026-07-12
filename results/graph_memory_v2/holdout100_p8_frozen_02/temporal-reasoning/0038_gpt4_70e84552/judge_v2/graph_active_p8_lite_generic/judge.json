@@ -1,0 +1,100 @@
+{
+  "question_id": "gpt4_70e84552",
+  "question_type": "temporal-reasoning",
+  "question": "Which task did I complete first, fixing the fence or trimming the goats' hooves?",
+  "question_date": "2023/05/25 (Thu) 08:03",
+  "gold_answer": "Fixing the fence",
+  "prediction": "fixing the fence",
+  "support_memory_ids": [
+    "m_819fdafc501633335988",
+    "m_31e51715e1750550660a"
+  ],
+  "support_source_ids": [
+    203,
+    57
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Fence fixed on 2023-05-04 (three weeks before 2023-05-25). Goat hooves trimmed on 2023-05-11 (two weeks before 2023-05-25). 2023-05-04 is earlier than 2023-05-11, so fixing the fence was completed first.",
+  "required_slots": [
+    {
+      "name": "completion time of fixing fence",
+      "value": "2023-05-04",
+      "support_memory_ids": [
+        "m_819fdafc501633335988"
+      ],
+      "support_source_ids": [
+        203
+      ]
+    },
+    {
+      "name": "completion time of trimming goats' hooves",
+      "value": "2023-05-11",
+      "support_memory_ids": [
+        "m_31e51715e1750550660a"
+      ],
+      "support_source_ids": [
+        57
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "comparison",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "completion time of fixing fence",
+        "query": "when did I fix the fence",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "completion time of trimming goats' hooves",
+        "query": "when did I trim the goats' hooves",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "fix fence date",
+      "trim goats hooves date",
+      "when did I fix the fence",
+      "when did I trim the goats' hooves"
+    ],
+    "reason": "Need timestamps of both tasks to determine which occurred first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 24379,
+    "completion_tokens": 730,
+    "elapsed_seconds": 5.807419300079346
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer with equivalent wording.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 141,
+    "completion_tokens": 24,
+    "elapsed_seconds": 0.85886549949646
+  }
+}

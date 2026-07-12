@@ -1,0 +1,163 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user high school memories",
+        "query": "user high school memories",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "user nostalgia level",
+        "query": "user nostalgia level",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user high school memories",
+      "user nostalgia level"
+    ],
+    "output_constraints": [
+      "assistant should provide a recommendation based on retrieved memories and nostalgia"
+    ],
+    "reason": "The question asks for a recommendation about attending a high school reunion, which requires recalling user's high school experiences and current nostalgia level to form an opinion."
+  },
+  "base_candidate": {
+    "answer": "Based on your positive high school memories (debate team, AP economics) and current nostalgia, attending your high school reunion could be a good idea to reconnect with old friends and revisit those happy experiences.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5d7cb6a6702cc441ee52"
+    ],
+    "support_source_ids": [
+      57
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.7,
+    "reasoning_summary": "The user recalls happy high school experiences (debate team, AP economics) and expresses nostalgia. This positive memory supports the idea that attending the reunion could be enjoyable."
+  },
+  "specialist_candidate": {
+    "answer": "Based on your happy high school memories (debate team, AP economics) and your current nostalgia, attending your high school reunion seems like a good idea to reconnect with those positive experiences.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5d7cb6a6702cc441ee52"
+    ],
+    "support_source_ids": [
+      57
+    ],
+    "required_slots": [
+      {
+        "name": "user high school memories",
+        "value": "happy high school experiences: debate team and AP economics",
+        "support_memory_ids": [
+          "m_5d7cb6a6702cc441ee52"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "name": "user nostalgia level",
+        "value": "nostalgic (user states 'feeling nostalgic lately')",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "recalls",
+        "object": "happy high school experiences: debate team and AP economics",
+        "value": "",
+        "unit": "",
+        "event_time": "high school",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_5d7cb6a6702cc441ee52"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "reasoning_summary": "User recalls happy high school memories (debate team, AP economics) and expresses nostalgia. This supports a positive recommendation for attending the reunion."
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist fills required slots (user high school memories and nostalgia level) with concrete values, follows the answer contract (assistant_recall), and has higher confidence.",
+  "compact_source_ids": [
+    57,
+    43,
+    77,
+    1,
+    34,
+    59,
+    167,
+    73,
+    195,
+    64,
+    32,
+    82,
+    83,
+    55,
+    139,
+    42,
+    215,
+    41,
+    141,
+    196,
+    78,
+    76,
+    2,
+    58
+  ],
+  "targeted_source_ids": [
+    41,
+    42,
+    55,
+    79,
+    82,
+    83,
+    116,
+    126,
+    139,
+    141,
+    180,
+    215,
+    81,
+    84,
+    138,
+    140
+  ]
+}

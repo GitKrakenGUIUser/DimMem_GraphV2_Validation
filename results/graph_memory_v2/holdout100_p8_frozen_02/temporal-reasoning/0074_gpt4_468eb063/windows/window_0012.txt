@@ -1,0 +1,37 @@
+[2023-04-11T09:47:03, Tue] 1.User: I'm trying to prioritize my tasks and manage my workload more effectively so I can avoid working late into the night. I've been having trouble staying on track with my bedtime routine, especially when I have a lot of work to do. Can you suggest some ways to automate repetitive tasks or delegate tasks to free up more time for focused work?
+[2023-04-11T17:33:00.500000, Tue] 2.User: Can you change 'state' to 'status'
+[2023-04-11T17:33:01, Tue] 3.User: Great. Now, coming back to this one:
+
+SELECT COUNT(DISTINCT user\_id) AS payers\_last\_7\_days,
+ (SELECT COALESCE(COUNT(DISTINCT user\_id), 0)
+ FROM allpayments
+ WHERE state = 'paid' AND created\_at BETWEEN current\_date - interval '14 days' AND current\_date - interval '7 days') AS payers\_previous\_period,
+ (100 - (SELECT COALESCE(COUNT(DISTINCT user\_id), 0)::float
+ FROM allpayments
+ WHERE state = 'paid' AND created\_at BETWEEN current\_date - interval '14 days' AND current\_date - interval '7 days') / COUNT(DISTINCT user\_id)::float \* 100) AS growth\_percentage
+FROM allpayments
+WHERE state = 'paid' AND created\_at >= current\_date - interval '7 days'
+Could you rewrite it using the table 'payments' instead of 'allmpayments', calling the users 'backers' instead of 'payers'? The only this is that in order to get the user\_id, you will have to JOIN the table 'contributions' (the contributions table is the only that has the user\_id. It has a field called 'id' which is equivalent to the field 'contribution\_id' on the payments table
+[2023-04-11T17:33:01.500000, Tue] 4.User: Great. Now coming back to this one:
+
+SELECT COUNT(DISTINCT user\_id) AS payers\_last\_7\_days,
+ (SELECT COALESCE(COUNT(DISTINCT user\_id), 0)
+ FROM allpayments
+ WHERE state = 'paid' AND created\_at BETWEEN current\_date - interval '14 days' AND current\_date - interval '7 days') AS payers\_previous\_period,
+ (100 - (SELECT COALESCE(COUNT(DISTINCT user\_id), 0)::float
+ FROM allpayments
+ WHERE state = 'paid' AND created\_at BETWEEN current\_date - interval '14 days' AND current\_date - interval '7 days') / COUNT(DISTINCT user\_id)::float \* 100) AS growth\_percentage
+FROM allpayments
+WHERE state = 'paid' AND created\_at >= current\_date - interval '7 days'
+I want to have now a YTD query, which means that I need one column that shows me the payers of the current year up until today, then another column that shows the YTD of last year, and then a third column showing me the growth
+[2023-04-11T17:33:02, Tue] 5.User: Instead of EXTRACT, can you get the year using something like DATE\_TRUNC('year', CURRENT\_DATE - INTERVAL '1 year')
+[2023-04-11T09:02:00.500000, Tue] 6.User: How do you think the story would change if the button in The Box was removed or altered in some way?
+[2023-04-11T09:02:01, Tue] 7.User: Yeah, I guess you're right. The button is what makes the story interesting. I can't imagine the characters making the same decisions without it.
+[2023-04-11T09:02:01.500000, Tue] 8.User: Yeah, I agree. It's crazy to think that one small button could have such a big impact on the story. It really shows how important small details can be in storytelling.
+[2023-04-11T21:54:00.500000, Tue] 9.User: I'm looking for some suggestions on herbal teas that can help with focus and productivity. I've been trying chamomile in the afternoon, but I want to explore other options. By the way, I've switched to a new coffee brand that I discovered at a local coffee shop, and I'm still getting used to the stronger flavor.
+[2023-04-11T21:54:01, Tue] 10.User: I'll definitely try out some of those herbal teas. Peppermint and Yerba Mate sound interesting. Do you have any recommendations on how to brew them for the best flavor?
+[2023-04-11T21:54:01.500000, Tue] 11.User: What are the benefits of cold-brewing herbal teas? Is it better than hot-brewing in terms of flavor and nutritional content?
+[2023-04-11T21:54:02, Tue] 12.User: That's really helpful, thanks! I think I'll try cold-brewing my Peppermint tea to see how it turns out. By the way, do you have any recommendations on how to store herbal teas to preserve their flavor and aroma?
+[2023-04-11T21:54:02.500000, Tue] 13.User: I think I'll also try cold-brewing my Yerba Mate tea to see how it compares to hot-brewing. Do you have any recommendations on how to sweeten my herbal teas? I've been using sugar, but I'm looking for some alternatives.
+[2023-04-11T21:54:03, Tue] 14.User: I think I'll try out some of those sweetener alternatives, especially honey and stevia. By the way, do you have any recommendations on how to make a good latte with my new coffee brand? I've been experimenting with different ratios of coffee to creamer, but I'm not quite satisfied with the result.
+[2023-04-11T23:24:00.500000, Tue] 15.User: I'm looking to order some skincare products online and I was wondering if you could help me find any good deals or discounts on the brand I'm interested in. By the way, I used a buy one get one free coupon on their website on the 22nd, and I'm hoping to find something similar.

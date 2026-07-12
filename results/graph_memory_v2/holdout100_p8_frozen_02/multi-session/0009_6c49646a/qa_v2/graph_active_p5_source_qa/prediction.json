@@ -1,0 +1,81 @@
+{
+  "question_id": "6c49646a",
+  "question_type": "multi-session",
+  "question": "What is the total distance I covered in my four road trips?",
+  "question_date": "2023/05/30 (Tue) 22:17",
+  "gold_answer": "3,000 miles",
+  "prediction": "3000 miles",
+  "support_memory_ids": [
+    "m_d58d19cc4ce5f8e5f8e0",
+    "m_e526e6277c34a6439ed9"
+  ],
+  "support_source_ids": [
+    81,
+    140
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user mentioned three road trips totaling 1,800 miles (source 81) and a separate 4-day Yellowstone trip covering 1,200 miles (source 140). These are the only four road trips with distances mentioned, so the total is 1,800 + 1,200 = 3,000 miles.",
+  "required_slots": [
+    {
+      "name": "total distance",
+      "value": "3,000 miles",
+      "support_memory_ids": [
+        "m_d58d19cc4ce5f8e5f8e0",
+        "m_e526e6277c34a6439ed9"
+      ],
+      "support_source_ids": [
+        81,
+        140
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      1800,
+      1200
+    ],
+    "unit": "miles",
+    "result": "3000 miles"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    81,
+    140,
+    71,
+    67,
+    146,
+    77,
+    78,
+    68,
+    151,
+    89,
+    148,
+    144,
+    94,
+    90,
+    107,
+    102,
+    153,
+    80,
+    141,
+    82,
+    145,
+    143
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.279999999999999
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 94598,
+    "completion_tokens": 806,
+    "elapsed_seconds": 14.41287636756897
+  }
+}

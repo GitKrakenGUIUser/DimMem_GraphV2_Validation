@@ -1,0 +1,83 @@
+{
+  "question_id": "3e321797",
+  "question_type": "single-session-assistant",
+  "question": "I wanted to follow up on our previous conversation about natural remedies for dark circles under the eyes. You mentioned applying tomato juice mixed with lemon juice, how long did you say I should leave it on for?",
+  "question_date": "2023/05/30 (Tue) 23:45",
+  "gold_answer": "10 minutes",
+  "prediction": "10 minutes",
+  "support_memory_ids": [
+    "m_e63721e7170fe1bc1563"
+  ],
+  "support_source_ids": [
+    189
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "In the previous conversation (source 189), the assistant listed natural remedies for dark circles and stated: 'Tomato - Apply tomato juice mixed with lemon juice on your under-eye area and wash off after 10 minutes with cold water.' This directly answers the user's question about how long to leave the mixture on.",
+  "required_slots": [
+    {
+      "name": "duration",
+      "value": "10 minutes",
+      "support_memory_ids": [
+        "m_e63721e7170fe1bc1563"
+      ],
+      "support_source_ids": [
+        189
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "same answer; preserve compact candidate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "duration",
+        "query": "tomato juice lemon juice dark circles leave on duration",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "tomato juice lemon juice dark circles leave on duration"
+    ],
+    "output_constraints": [
+      "answer must be a duration like 'X minutes'"
+    ],
+    "reason": "The user is asking about a specific duration mentioned in a previous assistant reply. The answer contract is assistant_recall, requiring retrieval of the assistant's prior statement. No composition or state projection needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 33333,
+    "completion_tokens": 568,
+    "elapsed_seconds": 6.028473854064941
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 164,
+    "completion_tokens": 22,
+    "elapsed_seconds": 0.7432873249053955
+  }
+}

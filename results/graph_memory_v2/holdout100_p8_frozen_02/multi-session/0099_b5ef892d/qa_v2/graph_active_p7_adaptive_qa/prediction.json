@@ -1,0 +1,82 @@
+{
+  "question_id": "b5ef892d",
+  "question_type": "multi-session",
+  "question": "How many days did I spend on camping trips in the United States this year?",
+  "question_date": "2023/04/29 (Sat) 23:45",
+  "gold_answer": "8 days.",
+  "prediction": "8 days",
+  "support_memory_ids": [
+    "m_1393a57d11c496682191",
+    "m_2f826047ced99447b5cf"
+  ],
+  "support_source_ids": [
+    161,
+    207
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Two camping trips in the US this year: 5-day Yellowstone trip in March 2023 and 3-day Big Sur trip in early April 2023. Sum = 8 days.",
+  "required_slots": [
+    {
+      "name": "camping_trip_durations",
+      "value": 8,
+      "support_memory_ids": [
+        "m_1393a57d11c496682191",
+        "m_2f826047ced99447b5cf"
+      ],
+      "support_source_ids": [
+        161,
+        207
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      5,
+      3
+    ],
+    "unit": "days",
+    "result": "8 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "camping_trip_durations",
+        "query": "camping trips in United States this year duration",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "camping trips in United States this year duration"
+    ],
+    "output_constraints": [
+      "sum of days"
+    ],
+    "reason": "The question asks for total days spent on camping trips in the US this year, requiring summing durations of multiple trips."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35132,
+    "completion_tokens": 654,
+    "elapsed_seconds": 5.8781819343566895
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "bike ownership state",
+        "query": "bike count owned",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "bike count owned"
+    ],
+    "output_constraints": [
+      "answer must be a number"
+    ],
+    "reason": "The question asks for the current count of bikes owned, which is a state resolution query. The most direct evidence is a stored state or fact about bike ownership count."
+  },
+  "base_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_47e257b850971cefac0f"
+    ],
+    "support_source_ids": [
+      164
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_47e257b850971cefac0f explicitly states 'User owns three bikes: a road bike, a mountain bike, and a commuter bike.' This is corroborated by source turn 164 where the user says 'I've got three of them - a road bike, a mountain bike, and a commuter bike'. No contradictory evidence exists."
+  },
+  "specialist_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_47e257b850971cefac0f"
+    ],
+    "support_source_ids": [
+      164
+    ],
+    "required_slots": [
+      {
+        "name": "bike ownership state",
+        "value": "3",
+        "support_memory_ids": [
+          "m_47e257b850971cefac0f"
+        ],
+        "support_source_ids": [
+          164
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "owns",
+        "object": "bikes",
+        "value": "3",
+        "unit": "count",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_47e257b850971cefac0f"
+        ],
+        "support_source_ids": [
+          164
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_47e257b850971cefac0f directly states 'User owns three bikes' and is supported by source 164 where user says 'I've got three of them'. No later evidence contradicts this, so the current count is 3."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    164,
+    166,
+    238,
+    165,
+    167,
+    136,
+    208,
+    163,
+    211,
+    143,
+    225,
+    50,
+    3,
+    232,
+    157,
+    224,
+    162
+  ],
+  "targeted_source_ids": [
+    50,
+    75,
+    108,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    181,
+    182,
+    238
+  ]
+}

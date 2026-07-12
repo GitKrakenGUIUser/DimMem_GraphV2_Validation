@@ -1,0 +1,226 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "date of Holi",
+        "query": "Holi 2023 date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of Sunday mass at St. Mary's Church",
+        "query": "St. Mary's Church Sunday mass date 2023",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Holi 2023 date",
+      "St. Mary's Church Sunday mass date 2023"
+    ],
+    "reason": "Need dates of Holi and Sunday mass to compute days between.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "21 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_329f0e35b1c702322df5",
+      "m_91b4ea6e66afb94028d3"
+    ],
+    "support_source_ids": [
+      90,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of Holi",
+        "value": "2023-02-26",
+        "support_memory_ids": [
+          "m_329f0e35b1c702322df5"
+        ],
+        "support_source_ids": [
+          90
+        ]
+      },
+      {
+        "name": "date of Sunday mass at St. Mary's Church",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_91b4ea6e66afb94028d3"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-26",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "21 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Holi was on February 26, 2023 (memory m_329f0e35b1c702322df5, source 90). Sunday mass at St. Mary's Church was on March 19, 2023 (memory m_91b4ea6e66afb94028d3, source 139). The number of days between February 26 and March 19 is 21 days."
+  },
+  "p7_candidate": {
+    "answer": "21 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_329f0e35b1c702322df5",
+      "m_91b4ea6e66afb94028d3"
+    ],
+    "support_source_ids": [
+      90,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of Holi",
+        "value": "2023-02-26",
+        "support_memory_ids": [
+          "m_329f0e35b1c702322df5"
+        ],
+        "support_source_ids": [
+          90
+        ]
+      },
+      {
+        "name": "date of Sunday mass at St. Mary's Church",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_91b4ea6e66afb94028d3"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-26",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "21 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_329f0e35b1c702322df5 (source 90), user attended Holi on February 26, 2023. From memory m_91b4ea6e66afb94028d3 (source 139), user attended Sunday mass at St. Mary's Church on March 19, 2023. The difference between March 19 and February 26 is 21 days."
+  },
+  "specialist_candidate": {
+    "answer": "21 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_329f0e35b1c702322df5",
+      "m_91b4ea6e66afb94028d3"
+    ],
+    "support_source_ids": [
+      90,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of Holi",
+        "value": "2023-02-26",
+        "support_memory_ids": [
+          "m_329f0e35b1c702322df5"
+        ],
+        "support_source_ids": [
+          90
+        ]
+      },
+      {
+        "name": "date of Sunday mass at St. Mary's Church",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_91b4ea6e66afb94028d3"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-26",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "21"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "Holi",
+        "predicate": "occurred_on",
+        "object": "2023-02-26",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-02-26",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_329f0e35b1c702322df5"
+        ],
+        "support_source_ids": [
+          90
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "Sunday mass at St. Mary's Church",
+        "predicate": "occurred_on",
+        "object": "2023-03-19",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-03-19",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_91b4ea6e66afb94028d3"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From memory, Holi was on February 26, 2023, and Sunday mass at St. Mary's Church was on March 19, 2023. The difference is 21 days."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    95,
+    90,
+    144,
+    142,
+    140,
+    139,
+    92,
+    94,
+    91,
+    143
+  ],
+  "v2_timeline_memory_ids": []
+}

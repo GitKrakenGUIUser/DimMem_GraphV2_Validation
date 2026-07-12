@@ -1,0 +1,232 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "p7_abstained",
+    "p7_unfilled_slots",
+    "p7_no_support",
+    "audit_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "duration for reading 'The Nightingale'",
+        "query": "weeks spent reading The Nightingale",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "duration for listening to 'Sapiens: A Brief History of Humankind'",
+        "query": "weeks spent listening Sapiens A Brief History of Humankind",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "duration for listening to 'The Power'",
+        "query": "weeks spent listening The Power",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "weeks spent reading The Nightingale",
+      "weeks spent listening Sapiens A Brief History of Humankind",
+      "weeks spent listening The Power"
+    ],
+    "reason": "The question asks for total weeks spent on three activities. Each activity's duration in weeks is needed, then summed.",
+    "deterministic_contract_hint": "sum",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "duration for each activity"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The conversation provides start and finish dates for reading 'The Nightingale' (started 2022-01-01, finished 2022-01-15) and listening to 'Sapiens: A Brief History of Humankind' (started 2022-02-01, finished 2022-03-01) and 'The Power' (started 2022-03-06, finished 2022-03-20), but does not specify the number of weeks spent on each activity. Without duration information, total weeks cannot be calculated."
+  },
+  "p7_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "duration for each activity"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The conversation provides start and finish dates for reading 'The Nightingale' (started 2022-01-01, finished 2022-01-15) and listening to 'Sapiens: A Brief History of Humankind' (started 2022-02-01, finished 2022-03-01) and 'The Power' (started 2022-03-06, finished 2022-03-20), but does not specify the number of weeks spent on each activity. Without duration information, total weeks cannot be calculated."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "duration for reading 'The Nightingale'",
+        "value": "0",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "duration for listening to 'Sapiens: A Brief History of Humankind'",
+        "value": "0",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "duration for listening to 'The Power'",
+        "value": "0",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        0,
+        0,
+        0
+      ],
+      "unit": "weeks",
+      "result": "0"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "finished_reading",
+        "object": "The Nightingale",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2022-01-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_735abe5b70797c86e2fd"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "started_listening",
+        "object": "Sapiens: A Brief History of Humankind",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2022-02-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_b62ca58a2da2ac49ef4e"
+        ],
+        "support_source_ids": [
+          176
+        ]
+      },
+      {
+        "fact_id": "f3",
+        "subject": "user",
+        "predicate": "finished_listening",
+        "object": "Sapiens: A Brief History of Humankind",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2022-03-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_4a8ac0cce8530752772c"
+        ],
+        "support_source_ids": [
+          192
+        ]
+      },
+      {
+        "fact_id": "f4",
+        "subject": "user",
+        "predicate": "started_listening",
+        "object": "The Power",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2022-03-06",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_2be344e610a3a78cbf60"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      },
+      {
+        "fact_id": "f5",
+        "subject": "user",
+        "predicate": "finished_listening",
+        "object": "The Power",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2022-03-20",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_2b4ba882ca792a8e1db8"
+        ],
+        "support_source_ids": [
+          210
+        ]
+      }
+    ],
+    "confidence": 0.2,
+    "reasoning_summary": "The evidence provides start and end dates for each activity but no explicit duration in weeks. The Nightingale was started on 2022-01-01 and finished on 2022-01-15, which is 2 weeks. Sapiens was started on 2022-02-01 and finished on 2022-03-01, which is 4 weeks. The Power was started on 2022-03-06 and finished on 2022-03-20, which is 2 weeks. Sum = 2+4+2 = 8 weeks.",
+    "grounding_failure": "concrete answer has no valid support IDs"
+  },
+  "choice": "p7",
+  "verification": {},
+  "targeted_source_ids": [
+    207,
+    208,
+    211,
+    135,
+    174,
+    177,
+    192,
+    210,
+    176,
+    206,
+    134,
+    143,
+    173,
+    209
+  ],
+  "v2_timeline_memory_ids": []
+}

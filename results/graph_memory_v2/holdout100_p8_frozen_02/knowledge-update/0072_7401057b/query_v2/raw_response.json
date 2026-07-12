@@ -1,0 +1,119 @@
+{
+  "question": "How many free night's stays can I redeem at any Hilton property with my accumulated points?",
+  "question_date": "2023-06-16T09:50:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's accumulated Hilton points and the number of free night stays redeemable at any Hilton property",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "Hilton",
+        "Hilton Honors"
+      ],
+      "keywords": [
+        "free night stays",
+        "redeem",
+        "accumulated points",
+        "Hilton property"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "hilton_points_balance",
+        "hilton_redemption_rate"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "hilton_points_balance",
+        "hilton_redemption_rate"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's Hilton Honors points balance and the standard redemption rate for free nights at any Hilton property",
+      "target_memory_types": [
+        "profile",
+        "fact"
+      ],
+      "entities": [
+        "Hilton Honors",
+        "Hilton"
+      ],
+      "keywords": [
+        "points balance",
+        "redemption rate",
+        "free night",
+        "Hilton property"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "hilton_points_balance",
+        "hilton_standard_redemption_rate"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "hilton_points_balance",
+        "hilton_standard_redemption_rate"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's Hilton Honors account details including points balance and the current promotion for free night redemptions at any Hilton property",
+      "target_memory_types": [
+        "profile",
+        "fact"
+      ],
+      "entities": [
+        "Hilton Honors",
+        "Hilton"
+      ],
+      "keywords": [
+        "points balance",
+        "promotion",
+        "free night",
+        "Hilton property"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-06-16",
+        "end": "",
+        "raw": "current"
+      },
+      "locations": [],
+      "state_keys": [
+        "hilton_points_balance",
+        "hilton_current_promotion"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "hilton_points_balance",
+        "hilton_current_promotion"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+[2023-04-01T20:44:01, Sat] 1.User: I'm particularly interested in sci-fi novels that explore the intersection of technology and humanity, like "Ready Player One" and "Neuromancer". Do you have any recommendations in that vein?
+[2023-04-01T20:44:01.500000, Sat] 2.User: I'm really interested in "Snow Crash" and "The Circle". I've heard a lot about these books, and they seem to explore the themes I'm interested in. Can you tell me more about them?
+[2023-04-01T20:44:02, Sat] 3.User: I think I'll start with "Snow Crash". I've heard a lot about Neal Stephenson's work and I'm curious to see how he explores the themes of virtual reality and hacking. Plus, the plot sounds really engaging and fast-paced.
+[2023-04-01T20:44:02.500000, Sat] 4.User: I'll definitely keep an eye out for those aspects. I'm actually planning to read "Snow Crash" during my daily commute, which is about 45 minutes long. I've found that audiobooks are really helpful for making the most of my commute time, so I'll probably listen to the audiobook version of "Snow Crash".
+[2023-04-01T20:44:03, Sat] 5.User: I'm planning to read more books like "Snow Crash" and "Ready Player One" that explore the intersection of technology and humanity. Can you recommend some other books that might interest me?
+[2023-04-01T20:51:00.500000, Sat] 6.User: I'm looking to create a social media content calendar for the next month. Can you help me brainstorm some post ideas for my fitness and wellness content? By the way, since I've been using relevant hashtags, I've gained 25 new followers who are interested in fitness and wellness, so I want to make sure I'm creating content that resonates with them.
+[2023-04-01T20:51:01, Sat] 7.User: I like these ideas, especially the ones on workouts and exercises. Can you help me come up with a 4-week plan for my WOW series, where I can share a new exercise or workout routine every week?
+[2023-04-01T20:51:01.500000, Sat] 8.User: I like this plan. Can you help me come up with a way to incorporate my fitness journey feature into my content calendar? I want to highlight one of my followers' fitness journeys or transformations, but I'm not sure how to go about it.
+[2023-04-01T20:51:02, Sat] 9.User: I like this idea of a "Transformation Tuesday" feature. Since I've been using relevant hashtags, I've gained 25 new followers who are interested in fitness and wellness, so I think this feature will really resonate with them. Can you help me come up with a way to ask my followers to submit their transformation stories and photos?
+[2023-04-01T20:51:02.500000, Sat] 10.User: I'd like to create a post to ask my followers to submit their transformation stories and photos for the "Transformation Tuesday" feature. Since I've gained 25 new followers who are interested in fitness and wellness, I think this feature will really resonate with them. Can you help me come up with a way to ask my followers to submit their transformation stories and photos?
+[2023-04-01T20:51:03, Sat] 11.User: I think there's a small mistake in the response. The user already mentioned that they've gained 25 new followers who are interested in fitness and wellness, so it's not necessary to repeat that information in the response. Here's a revised version of the post:
+
+**Call to Action: Share Your Transformation Story!**
+
+"Hey fitness fam!
+
+I'm so excited to announce a new feature on my page: Transformation Tuesday! Every Tuesday, I'll be highlighting one of your amazing fitness journeys or transformations.
+
+If you've achieved a fitness goal, lost weight, gained muscle, or simply feel more confident in your own skin, I want to hear from you!
+
+Share your transformation story with me, and you could be featured on my page! Here's how:
+
+ DM me or email me at [your email] with the following:
+
+* A brief description of your fitness journey, including your goals, challenges, and successes
+* Before-and-after photos (or progress photos)
+* Any tips or advice you
+[2023-04-01T21:07:00.500000, Sat] 12.User: from this code extract a method is\_upset(a,b) whic returns true if a beating b would be an upset
+
+ def select\_winner(self, i, round\_win\_counts, upset\_rates):
+ # Calculate the probability of an upset based on historical seed win rates
+ i\_team = self.teams[i]
+ j\_team = self.teams[i + 1]
+ i\_is\_better\_score = i\_team.ken\_pom\_score > j\_team.ken\_pom\_score
+ better\_index = i if i\_is\_better\_score else i + 1
+ worse\_index = i + 1 if i\_is\_better\_score else i
+ historical = upset\_rates[(i, i + 1)]
+ statistical = self.calculate\_win\_probability(
+ self.teams[worse\_index],
+ self.teams[better\_index]
+ )
+
+ # noise is added by using historical upset rates rather than team specific kenpom scores
+ probability = (1 - self.noise) \* statistical + self.noise \* historical
+
+ # If a random number is less than the probability of an upset, return the underdog
+ if np.random.rand() < probability:
+ index = i + 1 if i\_is\_better\_score else i
+ upset = True
+ # Otherwise, return the favorite
+ else:
+ index = i if round\_win\_counts[i] > round\_win\_counts[i + 1] else i + 1
+ upset = False
+
+ return index, upset
+[2023-04-01T21:07:01, Sat] 13.User: write an instance function in team that compares self to another team and returns is\_better then use is\_better for is\_upset
+[2023-04-01T21:07:01.500000, Sat] 14.User: clean this method up
+
+ @staticmethod
+ def get\_midpoint\_win\_rate(seed1, seed2):
+ if seed1 == seed2:
+ return 0.5
+
+ lower\_seed, higher\_seed = sorted((seed1, seed2))
+
+ left\_tuple\_win\_rate = None
+ right\_tuple\_win\_rate = None
+
+ for (lower, higher), win\_rate in HISTORICAL\_SEED\_WIN\_RATES.items():
+ if lower == lower\_seed:
+ left\_tuple\_win\_rate = win\_rate
+ if higher == higher\_seed:
+ right\_tuple\_win\_rate = win\_rate
+ if lower == higher\_seed:
+ right\_tuple\_win\_rate = 1 - win\_rate
+ if higher == lower\_seed:
+ left\_tuple\_win\_rate = 1 - win\_rate
+
+ if left\_tuple\_win\_rate is None or right\_tuple\_win\_rate is None:
+ raise ValueError(f"Win rate data not available for seeds {seed1} and {seed2}")
+
+ win\_rate = (left\_tuple\_win\_rate + right\_tuple\_win\_rate) / 2
+ return win\_rate
+[2023-04-01T21:08:00.500000, Sat] 15.User: What is God's Kingdom?

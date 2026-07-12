@@ -1,0 +1,190 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "camping_trip_durations",
+        "query": "camping trips in United States this year duration",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "camping trips in United States this year duration"
+    ],
+    "output_constraints": [
+      "sum of days"
+    ],
+    "reason": "The question asks for total days spent on camping trips in the US this year, requiring summing durations of multiple trips."
+  },
+  "base_candidate": {
+    "answer": "8 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1393a57d11c496682191",
+      "m_2f826047ced99447b5cf"
+    ],
+    "support_source_ids": [
+      161,
+      207
+    ],
+    "required_slots": [
+      {
+        "name": "total_camping_days",
+        "value": "8",
+        "support_memory_ids": [
+          "m_1393a57d11c496682191",
+          "m_2f826047ced99447b5cf"
+        ],
+        "support_source_ids": [
+          161,
+          207
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5,
+        3
+      ],
+      "unit": "days",
+      "result": "8 days"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "User took a 5-day camping trip to Yellowstone in March 2023 (memory m_1393a57d11c496682191, source 161) and a 3-day solo camping trip to Big Sur in early April 2023 (memory m_2f826047ced99447b5cf, source 207). Both trips are in the United States and occurred in 2023 before the question date. Total days = 5 + 3 = 8."
+  },
+  "specialist_candidate": {
+    "answer": "8 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1393a57d11c496682191",
+      "m_2f826047ced99447b5cf"
+    ],
+    "support_source_ids": [
+      161,
+      207
+    ],
+    "required_slots": [
+      {
+        "name": "camping_trip_durations",
+        "value": 8,
+        "support_memory_ids": [
+          "m_1393a57d11c496682191",
+          "m_2f826047ced99447b5cf"
+        ],
+        "support_source_ids": [
+          161,
+          207
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5,
+        3
+      ],
+      "unit": "days",
+      "result": "8 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "went on camping trip",
+        "object": "Yellowstone National Park",
+        "value": "5",
+        "unit": "days",
+        "event_time": "2023-03",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_1393a57d11c496682191"
+        ],
+        "support_source_ids": [
+          161
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "went on camping trip",
+        "object": "Big Sur",
+        "value": "3",
+        "unit": "days",
+        "event_time": "2023-04-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_2f826047ced99447b5cf"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Two camping trips in the US this year: 5-day Yellowstone trip in March 2023 and 3-day Big Sur trip in early April 2023. Sum = 8 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    207,
+    115,
+    161,
+    112,
+    210,
+    209,
+    230,
+    116,
+    238,
+    235,
+    177,
+    220,
+    31,
+    20,
+    198,
+    21,
+    162,
+    208,
+    113,
+    211
+  ],
+  "targeted_source_ids": [
+    1,
+    112,
+    115,
+    142,
+    161,
+    163,
+    164,
+    176,
+    177,
+    205,
+    207,
+    220,
+    113,
+    162,
+    208
+  ]
+}

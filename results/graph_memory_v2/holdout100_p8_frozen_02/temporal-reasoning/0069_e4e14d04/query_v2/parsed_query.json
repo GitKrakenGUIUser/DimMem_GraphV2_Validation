@@ -1,0 +1,112 @@
+{
+  "question": "How long had I been a member of 'Book Lovers Unite' when I attended the meetup?",
+  "question_date": "2023-05-28T15:46:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's membership start date for Book Lovers Unite",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "Book Lovers Unite"
+      ],
+      "keywords": [
+        "Book Lovers Unite",
+        "membership",
+        "start date"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-28T15:46:00",
+        "raw": "before the meetup"
+      },
+      "locations": [],
+      "state_keys": [
+        "membership_start_date"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "membership_start_date"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's attendance date for the Book Lovers Unite meetup",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Book Lovers Unite"
+      ],
+      "keywords": [
+        "Book Lovers Unite",
+        "meetup",
+        "attended"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when I attended the meetup"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "meetup_date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's membership duration in Book Lovers Unite up to the meetup",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "Book Lovers Unite"
+      ],
+      "keywords": [
+        "Book Lovers Unite",
+        "membership",
+        "duration",
+        "meetup"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "",
+        "end": "",
+        "raw": "from membership start to meetup"
+      },
+      "locations": [],
+      "state_keys": [
+        "membership_start_date",
+        "meetup_date"
+      ],
+      "relation_hints": [
+        "duration_between"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "membership_start_date",
+        "meetup_date"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

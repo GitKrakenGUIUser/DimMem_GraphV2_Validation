@@ -1,0 +1,182 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_interest",
+        "query": "user interest in video editing",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "previous_recommendations",
+        "query": "previous assistant recommendations for video editing resources",
+        "semantic_type": "assistant_reply",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "user interest in video editing",
+      "previous assistant recommendations for video editing resources"
+    ],
+    "output_constraints": [
+      "Recommend resources based on user's interest and any prior recommendations."
+    ],
+    "reason": "The user asks for recommendations to learn video editing. The answer should be grounded in user's interest (state) and optionally previous assistant replies to avoid repetition."
+  },
+  "base_candidate": {
+    "answer": "Based on your interest in video editing, I recommend the following resources: Adobe's official documentation and tutorials, YouTube channels like Premiere Bro, Video Copilot, and Adobe Creative Cloud, online courses on Udemy, LinkedIn Learning, and Skillshare, and communities like Reddit's r/premierepro and Adobe's Premiere Pro forum.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9edabfafde629982413c"
+    ],
+    "support_source_ids": [
+      43
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The candidate answer incorrectly assumes the user specifically asked about Adobe Premiere Pro, but the question is general about video editing resources. The evidence shows the user enjoys Premiere Pro and asked about advanced settings, but the current question is broader. The answer should not specify 'your interest in Adobe Premiere Pro' unless the user explicitly stated that. However, the memory indicates the user enjoys Premiere Pro, so the answer is partially grounded but over-specific. Corrected to remove the assumption about Premiere Pro interest."
+  },
+  "specialist_candidate": {
+    "answer": "Based on your interest in video editing with Adobe Premiere Pro, here are some resources to learn more:\n\n- **Adobe Premiere Pro official documentation and tutorials**\n- **YouTube channels**: Premiere Bro, Video Copilot, Adobe Creative Cloud\n- **Online courses**: Udemy, LinkedIn Learning, Skillshare\n- **Communities**: Reddit's r/premierepro, Adobe Premiere Pro forum\n\nThese were previously recommended to you on 2023-05-21.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9edabfafde629982413c"
+    ],
+    "support_source_ids": [
+      43
+    ],
+    "required_slots": [
+      {
+        "name": "user_interest",
+        "value": "User enjoys using Adobe Premiere Pro for video editing and wants to learn advanced settings.",
+        "support_memory_ids": [
+          "m_9edabfafde629982413c"
+        ],
+        "support_source_ids": [
+          43
+        ]
+      },
+      {
+        "name": "previous_recommendations",
+        "value": "Adobe Premiere Pro official documentation, YouTube channels (Premiere Bro, Video Copilot, Adobe Creative Cloud), online courses (Udemy, LinkedIn Learning, Skillshare), communities (Reddit r/premierepro, Adobe Premiere Pro forum)",
+        "support_memory_ids": [
+          "m_9edabfafde629982413c"
+        ],
+        "support_source_ids": [
+          43
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "enjoys using",
+        "object": "Adobe Premiere Pro",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_9edabfafde629982413c"
+        ],
+        "support_source_ids": [
+          43
+        ]
+      },
+      {
+        "subject": "Assistant",
+        "predicate": "recommended",
+        "object": "resources for learning video editing",
+        "value": "Adobe Premiere Pro official documentation, YouTube channels (Premiere Bro, Video Copilot, Adobe Creative Cloud), online courses (Udemy, LinkedIn Learning, Skillshare), communities (Reddit r/premierepro, Adobe Premiere Pro forum)",
+        "unit": "",
+        "event_time": "2023-05-21T14:21:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_9edabfafde629982413c"
+        ],
+        "support_source_ids": [
+          43
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "User asked for resources to learn video editing. Memory shows user enjoys Adobe Premiere Pro and previously received recommendations for learning advanced settings. The assistant's previous reply (source 43) listed specific resources. These are recalled and presented as the answer."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies preference_criteria contract",
+  "compact_source_ids": [
+    43,
+    125,
+    5,
+    206,
+    205,
+    44,
+    47,
+    67,
+    203,
+    35,
+    199,
+    197,
+    127,
+    118,
+    10,
+    48,
+    38,
+    126,
+    204,
+    45,
+    124,
+    202
+  ],
+  "targeted_source_ids": [
+    5,
+    7,
+    10,
+    38,
+    43,
+    48,
+    118,
+    120,
+    121,
+    125,
+    127,
+    177,
+    6,
+    44,
+    124,
+    126
+  ]
+}

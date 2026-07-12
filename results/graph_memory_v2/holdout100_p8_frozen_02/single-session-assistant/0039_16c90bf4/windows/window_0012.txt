@@ -1,0 +1,62 @@
+[2023-05-27T03:33:01.500000, Sat] 1.User: I like the idea of including gratitude for challenges. It's interesting that the pastor's sermon about renewal and forgiveness made me think about my values and priorities, and now I'm trying to apply that to my daily life. Do you think it's possible to practice gratitude even in difficult situations, like when I'm feeling anxious or overwhelmed?
+[2023-05-27T03:33:02, Sat] 2.User: I see what you mean about practicing gratitude in difficult situations. It's definitely something I want to work on. I've been feeling really anxious about an upcoming project at work, and I think focusing on what I'm grateful for could really help me approach it with a more positive mindset. Do you have any tips on how to stay organized and focused when working on a big project?
+[2023-05-27T03:33:02.500000, Sat] 3.User: I think I'll start by breaking down the project into smaller tasks and creating a schedule. That should help me feel more in control of the project. I'll also try to focus on what I'm grateful for each day, like the opportunity to work on this project or the skills I've developed so far. Thanks for the tips!
+[2023-05-27T03:33:03, Sat] 4.User: I think I'll reach out to a colleague who's worked on a similar project before and ask for their guidance and advice. Sometimes, talking to someone who's been in your shoes can be really helpful in getting a fresh perspective and learning from their experience.
+[2023-05-27T10:26:00.500000, Sat] 5.User: Write a rhyming poem about a bad cop, her name is BadCop, that learns to love GPT generated code, but the code is sentient, and destroys the bad cop. It's very sad. Start with a title.
+[2023-05-27T14:52:00.500000, Sat] 6.User: hello there
+[2023-05-27T17:43:00.500000, Sat] 7.User: What are the current political and economic concerns in North Vietnam, and how do they relate to the region's future?
+[2023-05-27T17:43:01, Sat] 8.User: It's concerning to hear about the human rights violations in North Vietnam, what efforts are being made to address this issue?
+[2023-05-27T17:43:01.500000, Sat] 9.User: That's really unfortunate. Do you think there's any hope for improvement in the near future?
+[2023-05-27T19:26:00.500000, Sat] 10.User: What unique features does the Neuschwanstein Castle have, and how does its architecture reflect its history?
+[2023-05-27T19:26:01, Sat] 11.User: What was the inspiration behind the castle's thematic decor?
+[2023-05-27T19:26:01.500000, Sat] 12.User: Can you tell me more about the technology used in Neuschwanstein Castle?
+[2023-05-27T19:26:02, Sat] 13.User: Can you tell me about any other castles with similar technological advancements?
+[2023-05-27T19:26:02.500000, Sat] 14.User: Wow, it's amazing how technologically advanced the Neuschwanstein Castle was for its time. I can't imagine what it must have been like to visit it back then.
+[2023-05-27T22:15:00.500000, Sat] 15.User: I think 
+
+from transformers import BertForSequenceClassification, BertTokenizerFast
+from datasets import load\_dataset
+from transformers import TrainingArguments, Trainer, EarlyStoppingCallback, ModelCheckpoint
+import torch
+
+# Load dataset
+dataset = load\_dataset("csv", data\_files={"train": "./data/train.csv", "validation": "./data/val.csv"}, delimiter=",")
+
+# Load tokenizer and encode the dataset
+tokenizer = BertTokenizerFast.from\_pretrained('bert-base-cased')
+def encode\_dataset(d):
+ return tokenizer(d['text'], padding='max\_length', truncation=True, max\_length=512)
+dataset = dataset.map(encode\_dataset)
+
+# Load model and prepare the Trainer
+model = BertForSequenceClassification.from\_pretrained('bert-base-cased', num\_labels=8)
+
+training\_args = TrainingArguments(
+ output\_dir='./results', # output directory
+ num\_train\_epochs=3, # total number of training epochs
+ per\_device\_train\_batch\_size=32, # batch size per device during training
+ per\_device\_eval\_batch\_size=64, # batch size for evaluation
+ warmup\_steps=500, # number of warmup steps for learning rate scheduler
+ weight\_decay=0.01, # strength of weight decay
+ logging\_dir='./logs', # directory for storing logs
+ logging\_steps=10,
+ evaluation\_strategy='steps', # evaluation strategy to adopt during training
+ save\_total\_limit=3, # maximum number of checkpoints to save
+ eval\_steps=500, # number of steps between evaluations
+ save\_strategy='steps', # save checkpoint every eval\_steps
+ load\_best\_model\_at\_end=True, # load the best model when finished training
+ metric\_for\_best\_model='accuracy',# use accuracy to evaluate the best model
+)
+
+trainer = Trainer(
+ model=model, # the instantiated Transformers model to be trained
+ args=training\_args, # training arguments, defined above
+ train\_dataset=dataset['train'], # training dataset
+ eval\_dataset=dataset['validation'], # evaluation dataset
+ callbacks=[EarlyStoppingCallback(early\_stopping\_patience=2), ModelCheckpoint(dirpath="./checkpoints", filename="checkpoint-{epoch}", monitor="eval\_accuracy")],
+)
+
+# Train the model
+trainer.train()
+
+this code is good , but please add Accelerator process in this code

@@ -1,0 +1,153 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 3,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "duration for reading The Nightingale",
+        "query": "How many weeks did I spend reading The Nightingale?",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "duration for listening to Sapiens: A Brief History of Humankind",
+        "query": "How many weeks did I spend listening to Sapiens: A Brief History of Humankind?",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "duration for listening to The Power",
+        "query": "How many weeks did I spend listening to The Power?",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many weeks did I spend reading The Nightingale?",
+      "How many weeks did I spend listening to Sapiens: A Brief History of Humankind?",
+      "How many weeks did I spend listening to The Power?"
+    ],
+    "output_constraints": [
+      "Answer must be a number representing total weeks."
+    ],
+    "reason": "The question asks for total weeks spent on three activities, requiring sum of individual durations. Each duration is a numeric value that can be retrieved from episodic memory. Composition is allowed if durations are not directly stored but can be derived from start and end dates."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "duration for each activity"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The conversation provides start and finish dates for reading 'The Nightingale' (started 2022-01-01, finished 2022-01-15) and listening to 'Sapiens: A Brief History of Humankind' (started 2022-02-01, finished 2022-03-01) and 'The Power' (started 2022-03-06, finished 2022-03-20), but does not specify the number of weeks spent on each activity. Without duration information, total weeks cannot be calculated."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "duration for reading The Nightingale",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "duration for listening to Sapiens: A Brief History of Humankind",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "duration for listening to The Power",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "duration for reading The Nightingale",
+      "duration for listening to Sapiens: A Brief History of Humankind",
+      "duration for listening to The Power"
+    ],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [],
+      "unit": "weeks",
+      "result": ""
+    },
+    "fact_table": [],
+    "confidence": 0.0,
+    "reasoning_summary": "No memory provides the duration (in weeks) for any of the three activities. Only start or finish dates are recorded, but without a start date for 'The Nightingale' (only start and finish dates for reading, but no duration), and for the audiobooks only start or finish dates are given, not the time spent. Therefore, the total weeks cannot be computed."
+  },
+  "choice": "base",
+  "choice_reason": "same answer; preserve compact candidate",
+  "compact_source_ids": [
+    176,
+    143,
+    207,
+    192,
+    210,
+    137,
+    134,
+    174,
+    24,
+    93,
+    139,
+    37,
+    173,
+    146,
+    135,
+    211,
+    177,
+    175,
+    193,
+    92,
+    94,
+    36
+  ],
+  "targeted_source_ids": [
+    134,
+    135,
+    143,
+    173,
+    174,
+    176,
+    177,
+    192,
+    207,
+    208,
+    210,
+    211,
+    175,
+    193,
+    206,
+    209
+  ]
+}

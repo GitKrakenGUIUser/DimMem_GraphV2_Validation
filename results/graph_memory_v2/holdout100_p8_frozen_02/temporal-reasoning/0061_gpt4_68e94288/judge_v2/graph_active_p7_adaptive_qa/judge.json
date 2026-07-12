@@ -1,0 +1,52 @@
+{
+  "question_id": "gpt4_68e94288",
+  "question_type": "temporal-reasoning",
+  "question": "What was the social media activity I participated 5 days ago?",
+  "question_date": "2023/03/20 (Mon) 11:50",
+  "gold_answer": "You participated in a social media challenge called #PlankChallenge.",
+  "prediction": "You participated in the #PlankChallenge on social media.",
+  "support_memory_ids": [
+    "m_c292e0ac6d7c5e724f65"
+  ],
+  "support_source_ids": [
+    175
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Memory m_c292e0ac6d7c5e724f65 and source 175 (user utterance on 2023-03-15) confirm the user participated in #PlankChallenge on social media on 2023-03-15, which is 5 days before the question date 2023-03-20.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "base candidate passed risk gate",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer in meaning, mentioning participation in the #PlankChallenge on social media.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 152,
+    "completion_tokens": 36,
+    "elapsed_seconds": 0.9838762283325195
+  }
+}

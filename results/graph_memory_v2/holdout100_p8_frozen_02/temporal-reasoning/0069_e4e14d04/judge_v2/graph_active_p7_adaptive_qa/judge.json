@@ -1,0 +1,105 @@
+{
+  "question_id": "e4e14d04",
+  "question_type": "temporal-reasoning",
+  "question": "How long had I been a member of 'Book Lovers Unite' when I attended the meetup?",
+  "question_date": "2023/05/28 (Sun) 15:46",
+  "gold_answer": "Two weeks",
+  "prediction": "14 days",
+  "support_memory_ids": [
+    "m_9c5691e871c54e4dc593",
+    "m_e6c986b676db32f1a07f"
+  ],
+  "support_source_ids": [
+    54,
+    209
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Membership start: 'three weeks ago' from question date 2023-05-28 gives 2023-05-07. Meetup: 'last week' from question date gives 2023-05-21. Difference = 14 days.",
+  "required_slots": [
+    {
+      "name": "membership_start_date",
+      "value": "2023-05-07",
+      "support_memory_ids": [
+        "m_9c5691e871c54e4dc593"
+      ],
+      "support_source_ids": [
+        54
+      ]
+    },
+    {
+      "name": "meetup_date",
+      "value": "2023-05-21",
+      "support_memory_ids": [
+        "m_e6c986b676db32f1a07f"
+      ],
+      "support_source_ids": [
+        209
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-05-07",
+      "2023-05-21"
+    ],
+    "unit": "days",
+    "result": "14 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:temporal"
+  ],
+  "plan": {
+    "answer_contract": "other",
+    "operator": "date_difference_days",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "membership_start_date",
+        "query": "When did I become a member of Book Lovers Unite?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "meetup_date",
+        "query": "When did I attend the Book Lovers Unite meetup?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I become a member of Book Lovers Unite?",
+      "When did I attend the Book Lovers Unite meetup?"
+    ],
+    "output_constraints": [
+      "Answer must be a duration in days, weeks, months, or years."
+    ],
+    "reason": "The question asks for the duration between membership start and meetup attendance, requiring two time points and a date difference operation."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32089,
+    "completion_tokens": 847,
+    "elapsed_seconds": 6.439578056335449
+  },
+  "correct": true,
+  "judge_reason": "Two weeks is equivalent to 14 days.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 143,
+    "completion_tokens": 24,
+    "elapsed_seconds": 0.8330726623535156
+  }
+}

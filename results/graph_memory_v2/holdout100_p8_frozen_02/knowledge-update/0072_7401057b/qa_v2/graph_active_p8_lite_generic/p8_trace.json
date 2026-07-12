@@ -1,0 +1,197 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "free_nights_count",
+        "query": "Hilton Honors points free nights count",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Hilton Honors points free nights count"
+    ],
+    "reason": "The question asks for the number of free night stays redeemable with accumulated points, which is a count that can be directly stated in memory.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8ad1be1e9ff4cbc6d981"
+    ],
+    "support_source_ids": [
+      52
+    ],
+    "required_slots": [
+      {
+        "name": "free_nights_count",
+        "value": "1",
+        "support_memory_ids": [
+          "m_8ad1be1e9ff4cbc6d981"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_8ad1be1e9ff4cbc6d981 and source turn 52 both state the user has accumulated enough points for a single free night's stay at any Hilton property. No conflicting evidence found."
+  },
+  "p7_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8ad1be1e9ff4cbc6d981",
+      "m_943d88d834219f62bef0"
+    ],
+    "support_source_ids": [
+      51,
+      52,
+      140
+    ],
+    "required_slots": [
+      {
+        "name": "hilton_points_balance",
+        "value": "enough for two free nights",
+        "support_memory_ids": [
+          "m_8ad1be1e9ff4cbc6d981",
+          "m_943d88d834219f62bef0"
+        ],
+        "support_source_ids": [
+          52,
+          140
+        ]
+      },
+      {
+        "name": "hilton_redemption_rate",
+        "value": "1 free night per sufficient points",
+        "support_memory_ids": [
+          "m_8ad1be1e9ff4cbc6d981"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Two memories state the user has enough points for free nights: one says 'enough for a single free night' (source 52, timestamp 2023-05-29), and a later memory says 'enough for two free nights' (source 140, timestamp 2023-05-30). The later memory supersedes the earlier one, so the current balance is enough for two free nights. No redemption rate needed beyond the fact that points are sufficient for free nights at any Hilton property."
+  },
+  "specialist_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8ad1be1e9ff4cbc6d981"
+    ],
+    "support_source_ids": [
+      52
+    ],
+    "required_slots": [
+      {
+        "name": "free_nights_count",
+        "value": "1",
+        "support_memory_ids": [
+          "m_8ad1be1e9ff4cbc6d981"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "stated_count",
+    "calculation": {
+      "operator": "stated_count",
+      "operands": [
+        "1"
+      ],
+      "unit": "free nights",
+      "result": "1"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "has accumulated enough Hilton points for",
+        "object": "a single free night's stay at any Hilton property",
+        "numeric_value": 1,
+        "unit": "free nights",
+        "event_time": "",
+        "valid_from": "2023-05-29T16:25:01.500000",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_8ad1be1e9ff4cbc6d981"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_8ad1be1e9ff4cbc6d981 and source 52 state that the user has accumulated enough points for a single free night's stay at any Hilton property. This is a stated count of 1 free night."
+  },
+  "choice": "p7",
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "Contradicted by later memory m_943d88d834219f62bef0 (source 140) stating enough points for two free nights."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Later memory (source 140) supersedes earlier one, indicating current balance is enough for two free nights."
+      },
+      "specialist": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "Contradicted by later memory m_943d88d834219f62bef0 (source 140) stating enough points for two free nights."
+      }
+    },
+    "reason": "Later memory (source 140, timestamp 2023-05-30) states 'enough points for two free night's stays', superseding earlier memory (source 52) of one free night. Thus p7 is correct."
+  },
+  "targeted_source_ids": [
+    51,
+    52,
+    140,
+    53,
+    50,
+    143,
+    141
+  ],
+  "v2_timeline_memory_ids": []
+}

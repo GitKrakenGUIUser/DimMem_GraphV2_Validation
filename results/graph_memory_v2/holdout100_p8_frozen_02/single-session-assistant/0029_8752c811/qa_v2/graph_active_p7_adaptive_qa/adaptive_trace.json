@@ -1,0 +1,165 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "27th parameter",
+        "query": "list of 100 prompt parameters 27th",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "list of 100 prompt parameters 27th"
+    ],
+    "output_constraints": [
+      "The answer must be the exact text of the 27th parameter from the list."
+    ],
+    "reason": "The user asks for the 27th parameter from a previously provided list of 100 prompt parameters. This is an assistant recall question requiring retrieval of a specific item from a past assistant reply."
+  },
+  "base_candidate": {
+    "answer": "Sound effects (e.g., ambient, diegetic, non-diegetic, etc.)",
+    "answerable": true,
+    "support_memory_ids": [],
+    "support_source_ids": [
+      61
+    ],
+    "required_slots": [
+      {
+        "name": "27th parameter",
+        "value": "Sound effects (e.g., ambient, diegetic, non-diegetic, etc.)",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          61
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously provided a list of 100 prompt parameters in source 61. The 27th parameter in that list is 'Sound effects (e.g., ambient, diegetic, non-diegetic, etc.)'."
+  },
+  "specialist_candidate": {
+    "answer": "Sound effects (e.g., ambient, diegetic, non-diegetic, etc.)",
+    "answerable": true,
+    "support_memory_ids": [],
+    "support_source_ids": [
+      61
+    ],
+    "required_slots": [
+      {
+        "name": "27th parameter",
+        "value": "Sound effects (e.g., ambient, diegetic, non-diegetic, etc.)",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          61
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "assistant",
+        "predicate": "provided list of 100 prompt parameters",
+        "object": "list",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-22T18:23:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "subject": "27th parameter",
+        "predicate": "is",
+        "object": "Sound effects (e.g., ambient, diegetic, non-diegetic, etc.)",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-22T18:23:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          61
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Source 61 contains the assistant's reply listing 100 prompt parameters. The 27th parameter is 'Sound effects (e.g., ambient, diegetic, non-diegetic, etc.)' as shown in the numbered list."
+  },
+  "choice": "base",
+  "choice_reason": "same answer; preserve compact candidate",
+  "compact_source_ids": [
+    138,
+    227,
+    222,
+    183,
+    92,
+    89,
+    226,
+    225,
+    95,
+    114,
+    224,
+    61,
+    70,
+    201,
+    200,
+    93,
+    69,
+    76,
+    153,
+    184,
+    94,
+    96,
+    113
+  ],
+  "targeted_source_ids": [
+    50,
+    61,
+    63,
+    69,
+    70,
+    75,
+    76,
+    93,
+    200,
+    201,
+    221,
+    228,
+    62,
+    71,
+    199,
+    202
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "question_id": "2e6d26dc",
+  "question_type": "multi-session",
+  "question": "How many babies were born to friends and family members in the last few months?",
+  "question_date": "2023/05/13 (Sat) 23:55",
+  "gold_answer": "5",
+  "prediction": "5",
+  "support_memory_ids": [
+    "m_471cd7074cdf5356c40a",
+    "m_451a620b32a4ce435b5d",
+    "m_e7b627e63946352881d3",
+    "m_60d2a29645ca07bc59fb"
+  ],
+  "support_source_ids": [
+    20,
+    153,
+    105,
+    16
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The question asks for the number of babies born to friends and family in the last few months (after 2023-02-13). From the memories, we have: Ava and Lily (twins, born April 2023), Charlotte (born around March 2023), Max (born March 2023), and Jasper (born a few weeks ago, i.e., late April/early May 2023). All are within the last few months. However, note that Jasper is mentioned as 'a few weeks ago' from the conversation date (2023-05-13), which falls within the last few months. Also, note that the twins are two distinct babies. So total distinct babies: Ava, Lily, Charlotte, Max, Jasper = 5. But wait, the memory for Jasper says 'a few weeks ago' and the source timestamp is 2023-05-13, so that is within the last few months. However, the plan says target_count=1, but that is for the answer contract, not the actual count. The answer should be 5. But let's double-check: The question says 'babies born to friends and family members'. All are friends or family: aunt (family), Mike and Emma (friends), Rachel (cousin, family), David (friend). So all count. Therefore, answer is 5. However, the plan says target_count=1, but that is likely a mistake in the plan. The actual count from evidence is 5. I will output 5.",
+  "required_slots": [
+    {
+      "name": "babies",
+      "value": "4",
+      "support_memory_ids": [
+        "m_471cd7074cdf5356c40a",
+        "m_451a620b32a4ce435b5d",
+        "m_e7b627e63946352881d3",
+        "m_60d2a29645ca07bc59fb"
+      ],
+      "support_source_ids": [
+        20,
+        153,
+        105,
+        16
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Ava",
+      "Lily",
+      "Charlotte",
+      "Max",
+      "Jasper"
+    ],
+    "unit": "babies",
+    "result": "5"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "babies",
+        "query": "babies born to friends and family in the last few months",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "babies born to friends and family in the last few months"
+    ],
+    "output_constraints": [
+      "The answer must be a single integer representing the count of distinct babies."
+    ],
+    "reason": "The question asks for a count of babies born to friends and family in the last few months, which is a direct count of distinct birth events. The time constraint is relative to the question date (2023-05-13), so 'last few months' implies births after 2023-02-13. The answer is a number, so the contract is direct_value with count_distinct operator."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 30783,
+    "completion_tokens": 1292,
+    "elapsed_seconds": 10.88422966003418
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 135,
+    "completion_tokens": 23,
+    "elapsed_seconds": 1.307237148284912
+  }
+}

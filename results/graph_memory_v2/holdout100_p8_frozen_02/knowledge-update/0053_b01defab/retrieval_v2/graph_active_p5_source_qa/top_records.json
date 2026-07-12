@@ -1,0 +1,1373 @@
+[
+  {
+    "memory_id": "m_704dfa3a17a6e9295b9a",
+    "content": "User is reading 'The Nightingale' by Kristin Hannah but paused because it was too emotional.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-01-21T15:05:01",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "book was too emotional",
+      "purpose": "",
+      "keywords": [
+        "The Nightingale",
+        "Kristin Hannah",
+        "paused",
+        "emotional"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "subject"
+        },
+        {
+          "name": "The Nightingale",
+          "entity_type": "product",
+          "role": "book"
+        },
+        {
+          "name": "Kristin Hannah",
+          "entity_type": "person",
+          "role": "author"
+        }
+      ],
+      "topic": "reading status",
+      "relation": {
+        "subject": "User",
+        "predicate": "paused reading",
+        "object": "The Nightingale"
+      },
+      "state_key": "user.reading.current_book",
+      "state_value": "The Nightingale (paused)",
+      "state_status": "historical",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_1",
+      "session_index": 2,
+      "source_ids": [
+        19
+      ],
+      "source_uids": [
+        "s0002u0002"
+      ],
+      "source_times": [
+        "2023-01-21T15:05:01"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 0.9,
+    "evidence_span": "I've been meaning to get back to 'The Nightingale' by Kristin Hannah, which I put down temporarily because it was getting too emotional",
+    "assistant_replies": [
+      "I'm thrilled to hear that you enjoyed \"The Song of Achilles\"!\n\nRegarding \"The Nightingale\" by Kristin Hannah, I completely understand why you might have put it down due to its emotional intensity. However, since you're hoping to finish it for your book club discussion, let's estimate the reading time required to complete it.\n\n\"The Nightingale\" has approximately 440 pages, similar to \"The Poppy War\". Assuming you dedicate your daily commute to reading it, and using the same estimates as before:\n\n* 30-minute commute: 6-9 pages per day (approx. 50-60 days to finish the book)\n* 60-minute commute: 12-18 pages per day (approx. 25-30 days to finish the book)\n\nConsidering your book club discussion is likely within the next few weeks, it's definitely doable if you commit to reading during your daily commute. You can also try to squeeze in some extra reading time on weekends or before bed to speed up your progress.\n\nTo make the most of your commute, I recommend:\n\n1. Try to set aside dedicated time for reading, minimizing distractions during your commute.\n2. Get comfortable with your reading material, whether it's a physical book, e-book, or audiobook.\n3. Take breaks if needed, but try to maintain momentum by reading at least a few pages each day.\n4. If you're concerned about the emotional intensity, consider preparing yourself before diving back in. You might want to read during a time when you're feeling more emotionally prepared to handle the story's heavier moments.\n\nYou got this! With consistent effort, you should be able to finish \"The Nightingale\" in time for your book club discussion. Good luck, and I hope you'll enjoy the rest of the book!"
+    ],
+    "score": 0.08633527234267584,
+    "rank": 1,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 1,
+        "raw_score": 108.995441375257,
+        "rrf_contribution": 0.01639344262295082
+      },
+      {
+        "route": "dense",
+        "rank": 1,
+        "raw_score": 0.7071781791013093,
+        "rrf_contribution": 0.01639344262295082
+      },
+      {
+        "route": "dimension",
+        "rank": 2,
+        "raw_score": 0.5333333333333333,
+        "rrf_contribution": 0.018548387096774192
+      },
+      {
+        "route": "active_state_chain",
+        "state_key": "user.reading.current_book",
+        "seed": "m_704dfa3a17a6e9295b9a"
+      }
+    ],
+    "graph_paths": [
+      [
+        "state_chain",
+        "user.reading.current_book"
+      ]
+    ]
+  },
+  {
+    "memory_id": "m_dab27f8a9470e7ab6e64",
+    "content": "User has been reading historical fiction, recently finished 'The Seven Husbands of Evelyn Hugo' and 'The Nightingale' by Kristin Hannah.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "historical fiction",
+        "The Seven Husbands of Evelyn Hugo",
+        "The Nightingale",
+        "Kristin Hannah",
+        "reading"
+      ],
+      "entities": [
+        {
+          "name": "The Seven Husbands of Evelyn Hugo",
+          "entity_type": "product",
+          "role": "book"
+        },
+        {
+          "name": "The Nightingale",
+          "entity_type": "product",
+          "role": "book"
+        },
+        {
+          "name": "Kristin Hannah",
+          "entity_type": "person",
+          "role": "author"
+        }
+      ],
+      "topic": "reading",
+      "relation": {
+        "subject": "user",
+        "predicate": "has read",
+        "object": "The Seven Husbands of Evelyn Hugo and The Nightingale"
+      },
+      "state_key": "user.reading.history",
+      "state_value": "The Seven Husbands of Evelyn Hugo, The Nightingale",
+      "state_status": "active",
+      "preference": {
+        "target": "historical fiction",
+        "polarity": "positive",
+        "strength": 0.8,
+        "scope": "general"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_2",
+      "session_index": 46,
+      "source_ids": [
+        229
+      ],
+      "source_uids": [
+        "s0046u0001"
+      ],
+      "source_times": [
+        "2023-03-30T01:14:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 18
+    },
+    "confidence": 0.9,
+    "evidence_span": "I've been into historical fiction lately, and I just finished reading 'The Seven Husbands of Evelyn Hugo'. I also recently finished 'The Nightingale' by Kristin Hannah",
+    "assistant_replies": [
+      "You've been reading some fantastic books lately! I'd be happy to recommend some historical fiction novels that might interest you. Based on your taste in \"The Seven Husbands of Evelyn Hugo\" and \"The Nightingale\", here are some suggestions:\n\n1. **The Alice Network** by Kate Quinn: This novel tells the story of a socialite and a female spy from the Alice Network, a real-life espionage ring, during World War I and the aftermath. It's a historical fiction novel with strong female protagonists, similar to \"The Nightingale\".\n2. **The Lost Girls of Paris** by Pam Jenoff: Set in 1946, this novel follows a young widow who discovers a suitcase of photographs of women who worked for a resistance network during World War II. It's a gripping and emotional story about women's roles in the war.\n3. **The Dollhouse** by Fiona Davis: This novel is set in the 1950s and follows a young journalist who becomes obsessed with the story of a reclusive actress who lived in the iconic Dakota apartment building in New York City. It's a historical fiction novel with a strong female protagonist and a touch of glamour, similar to \"The Seven Husbands of Evelyn Hugo\".\n4. **The Women in the Castle** by Jessica Shattuck: This novel explores the lives of three women in Germany during World War II and its aftermath. It's a powerful and emotional story about the strength and resilience of women during wartime.\n5. **The Guernsey Literary and Potato Peel Pie Society** by Mary Ann Shaffer: Set on the island of Guernsey after World War II, this epistolary novel tells the story of a writer who forms a connection with a group of islanders who formed a book club during the occupation. It's a heartwarming and historical novel with a strong focus on the power of literature.\n6. **The Address** by Fiona Davis: Another novel by Fiona Davis, this one is set in the 1880s and follows the lives of the residents and staff of the iconic Dakota apartment building in New York City. It's a historical fiction novel with a strong focus on the lives of women during a time of great change.\n7. **Those Who Save Us** by Jenna Blum: This novel explores the complex relationship between a mother and daughter in Nazi-occupied Germany and its aftermath. It's a powerful and emotional story about the bonds between women and the secrets they keep.\n\nThese novels offer a mix of historical fiction, strong female protagonists, and emotional storytelling that might appeal to you. I hope you find something that interests you!"
+    ],
+    "score": 0.05085450714747383,
+    "rank": 2,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 2,
+        "raw_score": 103.95123419900465,
+        "rrf_contribution": 0.016129032258064516
+      },
+      {
+        "route": "dense",
+        "rank": 3,
+        "raw_score": 0.5104132177002947,
+        "rrf_contribution": 0.015873015873015872
+      },
+      {
+        "route": "dimension",
+        "rank": 1,
+        "raw_score": 0.6,
+        "rrf_contribution": 0.01885245901639344
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_feb7d4577030494be201",
+    "content": "User loved 'The Nightingale' by Kristin Hannah and found the sisterly bond between Vianne and Isabelle powerful.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-03-30T01:14:03",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "The Nightingale",
+        "Kristin Hannah",
+        "sisterly bond",
+        "Vianne",
+        "Isabelle"
+      ],
+      "entities": [
+        {
+          "name": "The Nightingale",
+          "entity_type": "product",
+          "role": "book"
+        },
+        {
+          "name": "Kristin Hannah",
+          "entity_type": "person",
+          "role": "author"
+        },
+        {
+          "name": "Vianne",
+          "entity_type": "other",
+          "role": "character"
+        },
+        {
+          "name": "Isabelle",
+          "entity_type": "other",
+          "role": "character"
+        }
+      ],
+      "topic": "book appreciation",
+      "relation": {
+        "subject": "User",
+        "predicate": "loved",
+        "object": "The Nightingale"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "The Nightingale",
+        "polarity": "positive",
+        "strength": 0.9,
+        "scope": "specific"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_2",
+      "session_index": 46,
+      "source_ids": [
+        234
+      ],
+      "source_uids": [
+        "s0046u0006"
+      ],
+      "source_times": [
+        "2023-03-30T01:14:03"
+      ],
+      "source_role": "user",
+      "window_index": 19
+    },
+    "confidence": 0.95,
+    "evidence_span": "I loved 'The Nightingale'! ... the sisterly bond between Vianne and Isabelle ... was so powerful.",
+    "assistant_replies": [
+      "I completely agree with you! The sisterly bond between Vianne and Isabelle was one of the most compelling aspects of the novel for me as well. The way they supported each other, despite their differences, was a beautiful portrayal of the power of female relationships. And I think it's so important that the novel highlighted the daily struggles and sacrifices of ordinary people during wartime, because it's often those stories that get lost in the grand narratives of war.\n\nI also appreciated how the novel balanced the darkness of war with moments of hope and resilience. It's a delicate balance to strike, but Kristin Hannah did it perfectly. The novel never shied away from the harsh realities of war, but it also showed how people found ways to hold on to hope and humanity, even in the darkest of times.\n\nAnd I think that's one of the things that makes \"The Nightingale\" such an unforgettable read – it's a testament to the human spirit, and the ways in which people can find strength and courage in the face of unimaginable adversity.\n\nWhat do you think it is about historical fiction that resonates with readers? Is it the way it allows us to connect with the past, or something else entirely?"
+    ],
+    "score": 0.05025601638504864,
+    "rank": 3,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 3,
+        "raw_score": 95.11324591200531,
+        "rrf_contribution": 0.015873015873015872
+      },
+      {
+        "route": "dense",
+        "rank": 2,
+        "raw_score": 0.5959436903846886,
+        "rrf_contribution": 0.016129032258064516
+      },
+      {
+        "route": "dimension",
+        "rank": 3,
+        "raw_score": 0.3333333333333333,
+        "rrf_contribution": 0.01825396825396825
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_62046728450172c444da",
+    "content": "User is interested in reading 'The Alice Network' about female spies during World War I.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "interested in female spies during World War I",
+      "purpose": "",
+      "keywords": [
+        "The Alice Network",
+        "female spies",
+        "World War I",
+        "reading"
+      ],
+      "entities": [
+        {
+          "name": "The Alice Network",
+          "entity_type": "product",
+          "role": "book"
+        }
+      ],
+      "topic": "reading plans",
+      "relation": {
+        "subject": "user",
+        "predicate": "plans to read",
+        "object": "The Alice Network"
+      },
+      "state_key": "user.reading.planned",
+      "state_value": "The Alice Network",
+      "state_status": "planned",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_2",
+      "session_index": 46,
+      "source_ids": [
+        231
+      ],
+      "source_uids": [
+        "s0046u0003"
+      ],
+      "source_times": [
+        "2023-03-30T01:14:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 18
+    },
+    "confidence": 0.9,
+    "evidence_span": "I think I'll start with 'The Alice Network' since I've been meaning to read more about female spies during World War I.",
+    "assistant_replies": [
+      "\"The Alice Network\" is a fascinating read, and you'll likely devour it quickly.\n\nFor tracking your progress and notes, I'd be happy to recommend some reading journals and apps that can enhance your reading experience:\n\n**Digital Options:**\n\n1. **Goodreads**: A popular platform for book lovers, Goodreads allows you to track your reading progress, add books to your shelves, and leave reviews. You can also join groups, participate in discussions, and get personalized recommendations.\n2. **Reading Challenge**: A simple and easy-to-use app that helps you track your reading progress, set goals, and earn rewards.\n3. **Libib**: A comprehensive app that lets you catalog your books, track your reading progress, and add notes. It also has a built-in dictionary and thesaurus.\n4. **BookNerd**: An app designed specifically for book lovers, BookNerd allows you to track your reading progress, add notes, and get personalized recommendations.\n\n**Physical Journals:**\n\n1. **The Book Lover's Journal**: A beautifully designed journal that provides space to record your thoughts, opinions, and notes about the books you read.\n2. **The Reading Life Journal**: A comprehensive journal that includes space for tracking your reading progress, writing reviews, and recording memorable quotes.\n3. **The Literary Guild Reader's Journal**: A stylish journal that provides space to record your thoughts, opinions, and notes about the books you read, as well as a section for tracking your reading progress.\n\n**Hybrid Options:**\n\n1. **Bullet Journal**: A customizable notebook system that can be adapted to track your reading progress, notes, and reviews. You can create a spread specifically for your reading log and add as much or as little information as you like.\n2. **Evernote**: A note-taking app that can be used to track your reading progress, add notes, and organize your thoughts. You can create a separate notebook for your reading log and add tags, images, and audio notes.\n\nChoose the one that resonates with you the most, or feel free to experiment with a few options to find the perfect fit!\n\nRemember, the most important thing is to find a system that works for you and enhances your reading experience. Happy reading!"
+    ],
+    "score": 0.04921875,
+    "rank": 4,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 4,
+        "raw_score": 33.708128089722635,
+        "rrf_contribution": 0.015625
+      },
+      {
+        "route": "dense",
+        "rank": 4,
+        "raw_score": 0.4330045207262511,
+        "rrf_contribution": 0.015625
+      },
+      {
+        "route": "dimension",
+        "rank": 4,
+        "raw_score": 0.26666666666666666,
+        "rrf_contribution": 0.01796875
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_c2343d3223c7190ef206",
+    "content": "User has finished watching 'Stranger Things' and plans to watch 'The Haunting of Hill House'.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-01-30T08:03:01",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Stranger Things",
+        "finished",
+        "The Haunting of Hill House",
+        "plan to watch"
+      ],
+      "entities": [
+        {
+          "name": "Stranger Things",
+          "entity_type": "product",
+          "role": "watched"
+        },
+        {
+          "name": "The Haunting of Hill House",
+          "entity_type": "product",
+          "role": "planned"
+        }
+      ],
+      "topic": "TV show watching history",
+      "relation": {
+        "subject": "user",
+        "predicate": "finished watching",
+        "object": "Stranger Things"
+      },
+      "state_key": "user.watched_shows",
+      "state_value": "Stranger Things",
+      "state_status": "historical",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "639cec58",
+      "session_index": 9,
+      "source_ids": [
+        53
+      ],
+      "source_uids": [
+        "s0009u0002"
+      ],
+      "source_times": [
+        "2023-01-30T08:03:01"
+      ],
+      "source_role": "user",
+      "window_index": 4
+    },
+    "confidence": 1.0,
+    "evidence_span": "I've been meaning to check out 'The Haunting of Hill House' since I finished 'Stranger Things'.",
+    "assistant_replies": [
+      "Great connection! \"The Haunting of Hill House\" is a fantastic show that explores the psychological effects of trauma and the supernatural, and it's a great follow-up to \"Stranger Things\".\n\nNow, about those true crime podcasts... I've got some awesome recommendations for you! If you enjoy \"My Favorite Murder\", you might like:\n\n1. **Crime Junkie**: Hosted by Ashley Flowers and Britt Pennella, this podcast covers a wide range of true crime cases, often with a comedic spin.\n2. **Last Podcast on the Left**: A comedic true crime podcast that delves into famous and lesser-known cases, with a focus on storytelling and humor.\n3. **Lore**: A podcast that explores the darker side of history and folklore, often featuring lesser-known true crime cases and creepy legends.\n4. **Serial**: A podcast that dives deep into a single case per season, with a focus on in-depth reporting and storytelling.\n5. **Criminal**: A podcast that covers a wide range of true crime cases, often with a focus on the human side of the stories and the people involved.\n6. **The Vanished**: A podcast that explores the stories of missing persons, often featuring interviews with family members and investigators.\n7. **The Generation Why Podcast**: A podcast that covers a wide range of true crime cases, often with a focus on the psychology and motivations behind the crimes.\n8. **Casefile True Crime Podcast**: A podcast that covers a wide range of true crime cases, often with a focus on the facts and evidence surrounding the cases.\n\nThese podcasts offer a mix of humor, storytelling, and in-depth reporting, which might appeal to fans of \"My Favorite Murder\". Give them a try and see which one becomes your new favorite commute companion!\n\nDo you have a favorite type of true crime case or a specific aspect of the genre that you're interested in (e.g., serial killers, cults, historical cases)? I can give you more tailored recommendations if you'd like!"
+    ],
+    "score": 0.04689094366843727,
+    "rank": 5,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 8,
+        "raw_score": 21.696739282414605,
+        "rrf_contribution": 0.014705882352941176
+      },
+      {
+        "route": "dense",
+        "rank": 9,
+        "raw_score": 0.3422937693564824,
+        "rrf_contribution": 0.014492753623188406
+      },
+      {
+        "route": "dimension",
+        "rank": 5,
+        "raw_score": 0.26666666666666666,
+        "rrf_contribution": 0.01769230769230769
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_1ece5c9ea57e7e14a95a",
+    "content": "User attended a literary festival in the city on 2023-01-30 and attended a book reading by poet Rachel Patel.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-01-30",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "day",
+        "raw": "today"
+      },
+      "locations": [
+        "literary festival in the city"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "literary festival",
+        "book reading",
+        "Rachel Patel",
+        "poetry"
+      ],
+      "entities": [
+        {
+          "name": "Rachel Patel",
+          "entity_type": "person",
+          "role": "poet"
+        }
+      ],
+      "topic": "literary event",
+      "relation": {
+        "subject": "user",
+        "predicate": "attended",
+        "object": "book reading by Rachel Patel"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "59dc866c_1",
+      "session_index": 8,
+      "source_ids": [
+        46
+      ],
+      "source_uids": [
+        "s0008u0001"
+      ],
+      "source_times": [
+        "2023-01-30T13:08:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 3
+    },
+    "confidence": 0.9,
+    "evidence_span": "I recently attended a literary festival in the city, where I attend a book reading session by poet Rachel Patel, today.",
+    "assistant_replies": [
+      "What a wonderful experience! I'm thrilled to help you discover more amazing poetry collections and authors similar to Rachel Patel's style.\n\nSince I'm not familiar with Rachel Patel's work (as she seems to be a fictional poet), I'll provide you with some general recommendations that might resonate with you. Please feel free to give me more information about her poetry, such as themes, tone, or style, and I can give you more targeted suggestions.\n\nHere are some popular poetry collections and authors you might enjoy:\n\n1. **Rupi Kaur**: Known for her concise, powerful, and emotive poetry, Kaur's collections like \"Milk and Honey\" and \"The Sun and Her Flowers\" explore themes of identity, love, loss, and empowerment.\n2. ** Warsan Shire**: A British-Somali poet, Shire's work often focuses on displacement, identity, love, and the experiences of refugees. Her collection \"Teaching My Mother How to Give Birth\" is a great starting point.\n3. **Mary Oliver**: A Pulitzer Prize-winning poet, Oliver's work is known for its lyricism, simplicity, and connection to nature. Try \"Wild Geese\" or \"Devotions\" for a taste of her poetry.\n4. **Ada Limón**: A contemporary American poet, Limón's collections like \"The Carrying\" and \"Bright Dead Things\" explore themes of love, identity, family, and the human condition.\n5. ** Danez Smith**: A black, queer poet from the US, Smith's work often tackles themes of race, identity, love, and social justice. Check out \"Homie\" or \"[insert] boy\" for a powerful read.\n6. **Ocean Vuong**: A Vietnamese-American poet, Vuong's collection \"Night Sky with Exit Wounds\" is a critically acclaimed exploration of identity, family, love, and the immigrant experience.\n7. **Sharon Olds**: A Pulitzer Prize-winning poet, Olds' work is known for its intimate, lyrical, and often provocative exploration of family, love, and the human body. Try \"Stag's Leap\" or \"Odes\" for a taste of her poetry.\n\nThese are just a few examples of the many talented poets out there. You can also explore anthologies like \"The BreakBeat Poets\" or \"The Best American Poetry\" series to discover new voices and styles.\n\nPlease let me know if you have any specific preferences (e.g., themes, styles, or forms) or if you'd like more recommendations!"
+    ],
+    "score": 0.044684988518943744,
+    "rank": 6,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 5,
+        "raw_score": 30.40227564147953,
+        "rrf_contribution": 0.015384615384615385
+      },
+      {
+        "route": "dense",
+        "rank": 7,
+        "raw_score": 0.3825335679532077,
+        "rrf_contribution": 0.014925373134328358
+      },
+      {
+        "route": "dimension",
+        "rank": 20,
+        "raw_score": 0.2,
+        "rrf_contribution": 0.014374999999999999
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_18dcc69e4264923fe3c5",
+    "content": "User plans to visit the new bookstore on Main St.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-01-21T15:05:02",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [
+        "new bookstore on Main St"
+      ],
+      "reason": "",
+      "purpose": "to check reading journals and get staff recommendations",
+      "keywords": [
+        "bookstore",
+        "Main St",
+        "visit",
+        "staff recommendations"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "subject"
+        },
+        {
+          "name": "new bookstore on Main St",
+          "entity_type": "place",
+          "role": "location"
+        }
+      ],
+      "topic": "bookstore visit",
+      "relation": {
+        "subject": "User",
+        "predicate": "plans to visit",
+        "object": "new bookstore on Main St"
+      },
+      "state_key": "user.planned_visit.bookstore",
+      "state_value": "new bookstore on Main St",
+      "state_status": "planned",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_1",
+      "session_index": 2,
+      "source_ids": [
+        21
+      ],
+      "source_uids": [
+        "s0002u0004"
+      ],
+      "source_times": [
+        "2023-01-21T15:05:02"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 0.9,
+    "evidence_span": "I think I'll head to the new bookstore on Main St to see if they have any of those options.",
+    "assistant_replies": [
+      "That sounds like a great plan! Independent bookstores are treasures, and the staff often have wonderful recommendations and insights. They might even have some local or unique journal options that you won't find online.\n\nDon't hesitate to ask the staff for recommendations or advice on finding the perfect reading journal. They might have some hidden gems or insider knowledge to share. Who knows, you might even discover a new favorite author or book while browsing the shelves!\n\nRemember to take your time, enjoy the bookstore experience, and indulge in the sensory delight of being surrounded by books. Happy journal hunting, and I hope you find the perfect one to accompany you on your reading journey!"
+    ],
+    "score": 0.042727934166290324,
+    "rank": 7,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 13,
+        "raw_score": 12.616690289181332,
+        "rrf_contribution": 0.0136986301369863
+      },
+      {
+        "route": "dense",
+        "rank": 10,
+        "raw_score": 0.32994565398140596,
+        "rrf_contribution": 0.014285714285714285
+      },
+      {
+        "route": "dimension",
+        "rank": 18,
+        "raw_score": 0.2,
+        "rrf_contribution": 0.014743589743589743
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_d850166104bccf1370aa",
+    "content": "User plans to read 'The Poppy War' next.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-01-21T15:05:01.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "The Poppy War",
+        "next book",
+        "reading plan"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "subject"
+        },
+        {
+          "name": "The Poppy War",
+          "entity_type": "product",
+          "role": "book"
+        }
+      ],
+      "topic": "reading plans",
+      "relation": {
+        "subject": "User",
+        "predicate": "plans to read",
+        "object": "The Poppy War"
+      },
+      "state_key": "user.reading.next_book",
+      "state_value": "The Poppy War",
+      "state_status": "planned",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_1",
+      "session_index": 2,
+      "source_ids": [
+        20
+      ],
+      "source_uids": [
+        "s0002u0003"
+      ],
+      "source_times": [
+        "2023-01-21T15:05:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 0.9,
+    "evidence_span": "I think I'll stick to my original plan to pick up 'The Poppy War' next",
+    "assistant_replies": [
+      "\"The Poppy War\" is a great choice for your next read!\n\nA reading journal is an excellent idea! It's a wonderful way to track your progress, record your thoughts, and reflect on your reading experiences. I'm happy to recommend some popular and highly-regarded options:\n\n1. **The Reading Life Journal** by Anne Bogel: A beautifully designed journal with prompts, quotes, and space for notes. It's undated, so you can start anytime.\n2. **The Book Lover's Journal** by Barbara Kingsolver: A thoughtful and inspiring journal with sections for recording books, authors, and quotes. It also includes essays and prompts to encourage reflection.\n3. **The Reading Journal** by Peter Pauper Press: A simple, yet elegant journal with space for recording titles, authors, dates, and ratings. It also includes a section for notes and quotes.\n4. **The Book Club Journal** by Book of the Month Club: A fun and interactive journal designed specifically for book clubs. It includes space for recording thoughts, opinions, and discussions.\n5. **The Literary Guild Reading Journal**: A comprehensive journal with sections for recording books, authors, genres, and ratings. It also includes space for notes, quotes, and a reading log.\n\nWhen choosing a reading journal, consider the following factors:\n\n* Size: Do you prefer a compact journal that fits in your bag or a larger one that stays on your nightstand?\n* Layout: Do you like a structured format with prompts, or do you prefer a blank slate?\n* Design: Is aesthetics important to you, or do you prefer a more minimalist approach?\n* Features: Do you want a journal with additional features like a reading log, author index, or book recommendations?\n\nYou can find these journals online or in your local bookstore. If you prefer to explore more options, you can also search for \"reading journals\" or \"book journals\" on online marketplaces or bookstores.\n\nRemember, the most important thing is to find a journal that works for you and your reading style. Happy reading and journaling!"
+    ],
+    "score": 0.030303030303030304,
+    "rank": 8,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 6,
+        "raw_score": 25.761146603491277,
+        "rrf_contribution": 0.015151515151515152
+      },
+      {
+        "route": "dense",
+        "rank": 6,
+        "raw_score": 0.38906372124285,
+        "rrf_contribution": 0.015151515151515152
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_81784debf33b04c676c8",
+    "content": "User is interested in trying Goodreads and the Book Lover's Journal for tracking reading progress and notes.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-03-30T01:14:02",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to track reading progress and notes",
+      "keywords": [
+        "Goodreads",
+        "Book Lover's Journal",
+        "reading tracking",
+        "notes"
+      ],
+      "entities": [
+        {
+          "name": "Goodreads",
+          "entity_type": "product",
+          "role": "reading tracking app"
+        },
+        {
+          "name": "Book Lover's Journal",
+          "entity_type": "product",
+          "role": "reading journal"
+        }
+      ],
+      "topic": "reading tools",
+      "relation": {
+        "subject": "User",
+        "predicate": "intends to use",
+        "object": "Goodreads and Book Lover's Journal"
+      },
+      "state_key": "user.reading_tracking_tools",
+      "state_value": "Goodreads, Book Lover's Journal",
+      "state_status": "planned",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_2",
+      "session_index": 46,
+      "source_ids": [
+        232
+      ],
+      "source_uids": [
+        "s0046u0004"
+      ],
+      "source_times": [
+        "2023-03-30T01:14:02"
+      ],
+      "source_role": "user",
+      "window_index": 19
+    },
+    "confidence": 0.9,
+    "evidence_span": "I think I'll try out Goodreads and the Book Lover's Journal.",
+    "assistant_replies": [
+      "Goodreads and the Book Lover's Journal will complement each other nicely. You'll be able to track your progress and add notes digitally, while also having a beautiful physical space to reflect on your reading experiences.\n\nFor historical fiction book clubs and online communities, I've got some fantastic recommendations:\n\n**Online Communities:**\n\n1. **The Historical Fiction Forum**: A dedicated forum for historical fiction enthusiasts, with threads for discussions, reviews, and recommendations.\n2. **Historical Fiction Lovers**: A Facebook group with over 10,000 members, where you can discuss historical fiction books, ask for recommendations, and participate in giveaways.\n3. **The Historical Novel Society**: A community for readers and writers of historical fiction, with a forum, reviews, and articles.\n\n**Book Clubs:**\n\n1. **The Historical Fiction Book Club**: A Goodreads group with over 20,000 members, featuring a new book selection each month and active discussions.\n2. **The WWII Historical Fiction Book Club**: A Goodreads group focused specifically on World War II historical fiction, with a new book selection each month and in-depth discussions.\n3. **The Historical Fiction Book Club**: A Facebook group with a new book selection each month, featuring discussions, Q&A sessions with authors, and giveaways.\n\n**Blogs and Websites:**\n\n1. **Historical Fiction Virtual Book Tours**: A website that hosts virtual book tours, author interviews, and reviews of historical fiction books.\n2. **Historical Tapestry**: A blog featuring historical fiction reviews, author interviews, and guest posts.\n3. **Passages to the Past**: A blog focused on historical fiction, featuring reviews, author interviews, and giveaways.\n\nThese communities, book clubs, and websites will provide you with a wealth of opportunities to connect with fellow historical fiction enthusiasts, discover new books, and engage in meaningful discussions.\n\nFeel free to explore these options and find the ones that resonate with you the most. You might even find online friends who share your passion for historical fiction!\n\nRemember to also join the Goodreads groups and participate in discussions to connect with other readers. You can also create your own Goodreads group or Facebook group focused on historical fiction, if you'd like!"
+    ],
+    "score": 0.02967032967032967,
+    "rank": 9,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 10,
+        "raw_score": 20.004611009751844,
+        "rrf_contribution": 0.014285714285714285
+      },
+      {
+        "route": "dense",
+        "rank": 5,
+        "raw_score": 0.40707370053648845,
+        "rrf_contribution": 0.015384615384615385
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_db374e94fa0d64f1e704",
+    "content": "User wants a physical reading journal to track progress and thoughts.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-01-21T15:05:01.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to track progress and thoughts",
+      "keywords": [
+        "reading journal",
+        "physical",
+        "track progress"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "subject"
+        }
+      ],
+      "topic": "reading tools",
+      "relation": {
+        "subject": "User",
+        "predicate": "wants",
+        "object": "physical reading journal"
+      },
+      "state_key": "user.reading.journal_preference",
+      "state_value": "physical reading journal",
+      "state_status": "active",
+      "preference": {
+        "target": "physical reading journal",
+        "polarity": "positive",
+        "strength": 0.6,
+        "scope": "specific"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_1",
+      "session_index": 2,
+      "source_ids": [
+        20
+      ],
+      "source_uids": [
+        "s0002u0003"
+      ],
+      "source_times": [
+        "2023-01-21T15:05:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 0.9,
+    "evidence_span": "Do you have any recommendations for a reading journal that I can use to track my progress and thoughts? I've been using my phone's Notes app, but I'd love a physical one.",
+    "assistant_replies": [
+      "\"The Poppy War\" is a great choice for your next read!\n\nA reading journal is an excellent idea! It's a wonderful way to track your progress, record your thoughts, and reflect on your reading experiences. I'm happy to recommend some popular and highly-regarded options:\n\n1. **The Reading Life Journal** by Anne Bogel: A beautifully designed journal with prompts, quotes, and space for notes. It's undated, so you can start anytime.\n2. **The Book Lover's Journal** by Barbara Kingsolver: A thoughtful and inspiring journal with sections for recording books, authors, and quotes. It also includes essays and prompts to encourage reflection.\n3. **The Reading Journal** by Peter Pauper Press: A simple, yet elegant journal with space for recording titles, authors, dates, and ratings. It also includes a section for notes and quotes.\n4. **The Book Club Journal** by Book of the Month Club: A fun and interactive journal designed specifically for book clubs. It includes space for recording thoughts, opinions, and discussions.\n5. **The Literary Guild Reading Journal**: A comprehensive journal with sections for recording books, authors, genres, and ratings. It also includes space for notes, quotes, and a reading log.\n\nWhen choosing a reading journal, consider the following factors:\n\n* Size: Do you prefer a compact journal that fits in your bag or a larger one that stays on your nightstand?\n* Layout: Do you like a structured format with prompts, or do you prefer a blank slate?\n* Design: Is aesthetics important to you, or do you prefer a more minimalist approach?\n* Features: Do you want a journal with additional features like a reading log, author index, or book recommendations?\n\nYou can find these journals online or in your local bookstore. If you prefer to explore more options, you can also search for \"reading journals\" or \"book journals\" on online marketplaces or bookstores.\n\nRemember, the most important thing is to find a journal that works for you and your reading style. Happy reading and journaling!"
+    ],
+    "score": 0.028790389395194696,
+    "rank": 10,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 11,
+        "raw_score": 17.570328382692693,
+        "rrf_contribution": 0.014084507042253521
+      },
+      {
+        "route": "dense",
+        "rank": 8,
+        "raw_score": 0.35408834077061807,
+        "rrf_contribution": 0.014705882352941176
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_9f0847e072082da99134",
+    "content": "User enjoys mythology-inspired books and has read 'The Song of Achilles'.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-01-21T15:05:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "mythology",
+        "books",
+        "The Song of Achilles",
+        "reading"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "subject"
+        },
+        {
+          "name": "The Song of Achilles",
+          "entity_type": "product",
+          "role": "book"
+        }
+      ],
+      "topic": "reading preferences",
+      "relation": {
+        "subject": "User",
+        "predicate": "enjoys",
+        "object": "mythology-inspired books"
+      },
+      "state_key": "user.reading.preference",
+      "state_value": "mythology-inspired books",
+      "state_status": "active",
+      "preference": {
+        "target": "mythology-inspired books",
+        "polarity": "positive",
+        "strength": 0.7,
+        "scope": "general"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_1",
+      "session_index": 2,
+      "source_ids": [
+        18
+      ],
+      "source_uids": [
+        "s0002u0001"
+      ],
+      "source_times": [
+        "2023-01-21T15:05:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 0.9,
+    "evidence_span": "I've been enjoying mythology-inspired books lately",
+    "assistant_replies": [
+      "Mythology-inspired books are fascinating! I'd be happy to recommend some titles beyond \"The Song of Achilles\". Here are a few suggestions:\n\n1. **Circe** by Madeline Miller: Another beautifully written novel by the same author as \"The Song of Achilles\", this one retells the story of Circe, the witch from Homer's \"The Odyssey\".\n2. **The Silence of the Girls** by Pat Barker: A retelling of the Trojan War from the perspective of Briseis, a Trojan princess who becomes a concubine to Achilles.\n3. **The Penelopiad** by Margaret Atwood: A novella that reimagines Homer's \"The Odyssey\" from the perspective of Penelope, Odysseus's wife.\n4. **The Golem and the Jinni** by Helene Wecker: A historical fantasy novel that draws inspiration from Middle Eastern and Jewish mythology, set in early 20th-century New York City.\n5. **The City of Brass** by S.A. Chakraborty: A fantasy novel set in 18th-century Cairo, drawing inspiration from Middle Eastern mythology and folklore.\n6. **The House of Shattered Wings** by Aliette de Bodard: A dark fantasy novel set in a post-apocalyptic Paris, inspired by Vietnamese and French mythology.\n7. **The Library of the Unwritten** by A.J. Hackwith: A fantasy novel that explores the concept of unfinished stories and forgotten myths, set in a mystical library.\n\nAs for your question about reading time, it depends on several factors, including your reading speed, commute time, and personal reading habits. However, here's a rough estimate:\n\nAssuming you read during your daily commute, which is approximately 30-60 minutes per day, and you read at an average speed of 2-3 pages per 10 minutes, you can estimate the following:\n\n* 30-minute commute: 6-9 pages per day (approx. 15-20 days to finish a 440-page book)\n* 60-minute commute: 12-18 pages per day (approx. 25-30 days to finish a 440-page book)\n\nKeep in mind that these are rough estimates, and your actual reading time may vary. Additionally, if you're reading a dense or complex book like \"The Poppy War\", you might need more time to absorb the material.\n\nFeel free to adjust these estimates based on your personal reading habits and pace. Happy reading!"
+    ],
+    "score": 0.028438886647841874,
+    "rank": 11,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 7,
+        "raw_score": 23.86511354999438,
+        "rrf_contribution": 0.014925373134328358
+      },
+      {
+        "route": "dense",
+        "rank": 14,
+        "raw_score": 0.27962440414303047,
+        "rrf_contribution": 0.013513513513513514
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_99ed9c9e59e306783764",
+    "content": "User reads on their daily commute.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-01-21T15:05:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [
+        "daily commute"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "daily commute",
+        "reading",
+        "habit"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "subject"
+        }
+      ],
+      "topic": "reading habits",
+      "relation": {
+        "subject": "User",
+        "predicate": "reads during",
+        "object": "daily commute"
+      },
+      "state_key": "user.reading.habit",
+      "state_value": "reads on daily commute",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_1",
+      "session_index": 2,
+      "source_ids": [
+        18
+      ],
+      "source_uids": [
+        "s0002u0001"
+      ],
+      "source_times": [
+        "2023-01-21T15:05:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 0.9,
+    "evidence_span": "if I read on my daily commute",
+    "assistant_replies": [
+      "Mythology-inspired books are fascinating! I'd be happy to recommend some titles beyond \"The Song of Achilles\". Here are a few suggestions:\n\n1. **Circe** by Madeline Miller: Another beautifully written novel by the same author as \"The Song of Achilles\", this one retells the story of Circe, the witch from Homer's \"The Odyssey\".\n2. **The Silence of the Girls** by Pat Barker: A retelling of the Trojan War from the perspective of Briseis, a Trojan princess who becomes a concubine to Achilles.\n3. **The Penelopiad** by Margaret Atwood: A novella that reimagines Homer's \"The Odyssey\" from the perspective of Penelope, Odysseus's wife.\n4. **The Golem and the Jinni** by Helene Wecker: A historical fantasy novel that draws inspiration from Middle Eastern and Jewish mythology, set in early 20th-century New York City.\n5. **The City of Brass** by S.A. Chakraborty: A fantasy novel set in 18th-century Cairo, drawing inspiration from Middle Eastern mythology and folklore.\n6. **The House of Shattered Wings** by Aliette de Bodard: A dark fantasy novel set in a post-apocalyptic Paris, inspired by Vietnamese and French mythology.\n7. **The Library of the Unwritten** by A.J. Hackwith: A fantasy novel that explores the concept of unfinished stories and forgotten myths, set in a mystical library.\n\nAs for your question about reading time, it depends on several factors, including your reading speed, commute time, and personal reading habits. However, here's a rough estimate:\n\nAssuming you read during your daily commute, which is approximately 30-60 minutes per day, and you read at an average speed of 2-3 pages per 10 minutes, you can estimate the following:\n\n* 30-minute commute: 6-9 pages per day (approx. 15-20 days to finish a 440-page book)\n* 60-minute commute: 12-18 pages per day (approx. 25-30 days to finish a 440-page book)\n\nKeep in mind that these are rough estimates, and your actual reading time may vary. Additionally, if you're reading a dense or complex book like \"The Poppy War\", you might need more time to absorb the material.\n\nFeel free to adjust these estimates based on your personal reading habits and pace. Happy reading!"
+    ],
+    "score": 0.02797339593114241,
+    "rank": 12,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 12,
+        "raw_score": 15.32119433898367,
+        "rrf_contribution": 0.013888888888888888
+      },
+      {
+        "route": "dense",
+        "rank": 11,
+        "raw_score": 0.3103534012321603,
+        "rrf_contribution": 0.014084507042253521
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_08e4f68e8bba089e856a",
+    "content": "User asked for recommendations for a licensed acupuncturist in their area.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-11T07:10:01",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "2023-03-11T07:10:01"
+      },
+      "locations": [
+        "user's area"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "user",
+        "acupuncturist",
+        "recommendations"
+      ],
+      "entities": [],
+      "topic": "health",
+      "relation": {
+        "subject": "user",
+        "predicate": "asked for",
+        "object": "recommendations for licensed acupuncturist"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_355155",
+      "session_index": 34,
+      "source_ids": [
+        169
+      ],
+      "source_uids": [
+        "s0034u0002"
+      ],
+      "source_times": [
+        "2023-03-11T07:10:01"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "Do you have any recommendations for a licensed acupuncturist in my area?",
+    "assistant_replies": [
+      "I do not have access to location information. however, you can search for licensed acupuncturists near your area using online directories such as the national certification commission for acupuncture and oriental medicine (nccaom) or the american association of acupuncture and oriental medicine (aaaom). you can also ask for recommendations from your healthcare provider or from friends and family who have had success with acupuncture. it is essential to ensure that the acupuncturist you select is licensed and has experience in treating menopause symptoms."
+    ],
+    "score": 0.027792207792207792,
+    "rank": 13,
+    "retrieval_sources": [
+      {
+        "route": "dense",
+        "rank": 28,
+        "raw_score": 0.22437334833683417,
+        "rrf_contribution": 0.011363636363636364
+      },
+      {
+        "route": "dimension",
+        "rank": 10,
+        "raw_score": 0.2,
+        "rrf_contribution": 0.016428571428571428
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_247671ba28bece7a7ebf",
+    "content": "User has a coworker named Rachel with whom they discuss books.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-03-30T01:14:02",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Rachel",
+        "coworker",
+        "book discussions"
+      ],
+      "entities": [
+        {
+          "name": "Rachel",
+          "entity_type": "person",
+          "role": "coworker"
+        }
+      ],
+      "topic": "social connections",
+      "relation": {
+        "subject": "User",
+        "predicate": "discusses books with",
+        "object": "Rachel"
+      },
+      "state_key": "user.book_discussion_partners",
+      "state_value": "Rachel (coworker)",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_2",
+      "session_index": 46,
+      "source_ids": [
+        232
+      ],
+      "source_uids": [
+        "s0046u0004"
+      ],
+      "source_times": [
+        "2023-03-30T01:14:02"
+      ],
+      "source_role": "user",
+      "window_index": 19
+    },
+    "confidence": 0.9,
+    "evidence_span": "I've been enjoying discussing books with my coworker, Rachel",
+    "assistant_replies": [
+      "Goodreads and the Book Lover's Journal will complement each other nicely. You'll be able to track your progress and add notes digitally, while also having a beautiful physical space to reflect on your reading experiences.\n\nFor historical fiction book clubs and online communities, I've got some fantastic recommendations:\n\n**Online Communities:**\n\n1. **The Historical Fiction Forum**: A dedicated forum for historical fiction enthusiasts, with threads for discussions, reviews, and recommendations.\n2. **Historical Fiction Lovers**: A Facebook group with over 10,000 members, where you can discuss historical fiction books, ask for recommendations, and participate in giveaways.\n3. **The Historical Novel Society**: A community for readers and writers of historical fiction, with a forum, reviews, and articles.\n\n**Book Clubs:**\n\n1. **The Historical Fiction Book Club**: A Goodreads group with over 20,000 members, featuring a new book selection each month and active discussions.\n2. **The WWII Historical Fiction Book Club**: A Goodreads group focused specifically on World War II historical fiction, with a new book selection each month and in-depth discussions.\n3. **The Historical Fiction Book Club**: A Facebook group with a new book selection each month, featuring discussions, Q&A sessions with authors, and giveaways.\n\n**Blogs and Websites:**\n\n1. **Historical Fiction Virtual Book Tours**: A website that hosts virtual book tours, author interviews, and reviews of historical fiction books.\n2. **Historical Tapestry**: A blog featuring historical fiction reviews, author interviews, and guest posts.\n3. **Passages to the Past**: A blog focused on historical fiction, featuring reviews, author interviews, and giveaways.\n\nThese communities, book clubs, and websites will provide you with a wealth of opportunities to connect with fellow historical fiction enthusiasts, discover new books, and engage in meaningful discussions.\n\nFeel free to explore these options and find the ones that resonate with you the most. You might even find online friends who share your passion for historical fiction!\n\nRemember to also join the Goodreads groups and participate in discussions to connect with other readers. You can also create your own Goodreads group or Facebook group focused on historical fiction, if you'd like!"
+    ],
+    "score": 0.026848370927318295,
+    "rank": 14,
+    "retrieval_sources": [
+      {
+        "route": "dense",
+        "rank": 16,
+        "raw_score": 0.25571938821527374,
+        "rrf_contribution": 0.013157894736842105
+      },
+      {
+        "route": "dimension",
+        "rank": 24,
+        "raw_score": 0.2,
+        "rrf_contribution": 0.013690476190476189
+      }
+    ],
+    "graph_paths": []
+  },
+  {
+    "memory_id": "m_5577bcd455aaec0bbbb3",
+    "content": "User has been using the Notes app on their phone for reading tracking but finds it not ideal.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Notes app",
+        "reading tracking",
+        "not ideal",
+        "journal"
+      ],
+      "entities": [
+        {
+          "name": "Notes app",
+          "entity_type": "product",
+          "role": "app"
+        }
+      ],
+      "topic": "reading tools",
+      "relation": {
+        "subject": "user",
+        "predicate": "uses",
+        "object": "Notes app for reading tracking but finds it not ideal"
+      },
+      "state_key": "user.reading.tracking_tool",
+      "state_value": "Notes app (not ideal)",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "negative",
+        "strength": 0.5,
+        "scope": "specific"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "answer_8c0712af_2",
+      "session_index": 46,
+      "source_ids": [
+        231
+      ],
+      "source_uids": [
+        "s0046u0003"
+      ],
+      "source_times": [
+        "2023-03-30T01:14:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 18
+    },
+    "confidence": 0.9,
+    "evidence_span": "I've been using the Notes app on my phone, but it's not ideal.",
+    "assistant_replies": [
+      "\"The Alice Network\" is a fascinating read, and you'll likely devour it quickly.\n\nFor tracking your progress and notes, I'd be happy to recommend some reading journals and apps that can enhance your reading experience:\n\n**Digital Options:**\n\n1. **Goodreads**: A popular platform for book lovers, Goodreads allows you to track your reading progress, add books to your shelves, and leave reviews. You can also join groups, participate in discussions, and get personalized recommendations.\n2. **Reading Challenge**: A simple and easy-to-use app that helps you track your reading progress, set goals, and earn rewards.\n3. **Libib**: A comprehensive app that lets you catalog your books, track your reading progress, and add notes. It also has a built-in dictionary and thesaurus.\n4. **BookNerd**: An app designed specifically for book lovers, BookNerd allows you to track your reading progress, add notes, and get personalized recommendations.\n\n**Physical Journals:**\n\n1. **The Book Lover's Journal**: A beautifully designed journal that provides space to record your thoughts, opinions, and notes about the books you read.\n2. **The Reading Life Journal**: A comprehensive journal that includes space for tracking your reading progress, writing reviews, and recording memorable quotes.\n3. **The Literary Guild Reader's Journal**: A stylish journal that provides space to record your thoughts, opinions, and notes about the books you read, as well as a section for tracking your reading progress.\n\n**Hybrid Options:**\n\n1. **Bullet Journal**: A customizable notebook system that can be adapted to track your reading progress, notes, and reviews. You can create a spread specifically for your reading log and add as much or as little information as you like.\n2. **Evernote**: A note-taking app that can be used to track your reading progress, add notes, and organize your thoughts. You can create a separate notebook for your reading log and add tags, images, and audio notes.\n\nChoose the one that resonates with you the most, or feel free to experiment with a few options to find the perfect fit!\n\nRemember, the most important thing is to find a system that works for you and enhances your reading experience. Happy reading!"
+    ],
+    "score": 0.025603864734299518,
+    "rank": 15,
+    "retrieval_sources": [
+      {
+        "route": "bm25",
+        "rank": 9,
+        "raw_score": 21.377900440065133,
+        "rrf_contribution": 0.014492753623188406
+      },
+      {
+        "route": "dense",
+        "rank": 30,
+        "raw_score": 0.2194382373771954,
+        "rrf_contribution": 0.011111111111111112
+      }
+    ],
+    "graph_paths": []
+  }
+]

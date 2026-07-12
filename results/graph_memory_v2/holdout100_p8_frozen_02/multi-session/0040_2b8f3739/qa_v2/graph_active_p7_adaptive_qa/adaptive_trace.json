@@ -1,0 +1,216 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "individual sale amounts",
+        "query": "amount of money earned from selling products at markets",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "market sale earnings"
+    ],
+    "output_constraints": [
+      "total amount in currency"
+    ],
+    "reason": "The question asks for total earnings from market sales, which requires summing individual sale amounts."
+  },
+  "base_candidate": {
+    "answer": "495 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8abff4d1f2005890dcf2",
+      "m_8531fed73bee0c54f7cb",
+      "m_0a0e10ce86065ad4b3fb"
+    ],
+    "support_source_ids": [
+      50,
+      216,
+      240
+    ],
+    "required_slots": [
+      {
+        "name": "total earnings",
+        "value": "345",
+        "support_memory_ids": [
+          "m_8abff4d1f2005890dcf2",
+          "m_8531fed73bee0c54f7cb",
+          "m_0a0e10ce86065ad4b3fb"
+        ],
+        "support_source_ids": [
+          50,
+          216,
+          240
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        225,
+        150,
+        120
+      ],
+      "unit": "USD",
+      "result": "495 USD"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Three market sales are recorded: $225 from jam (May 29), $150 from herb plants (20 x $7.5, June 1), and $120 from fresh herbs (May 15). Sum = $495."
+  },
+  "specialist_candidate": {
+    "answer": "495 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8abff4d1f2005890dcf2",
+      "m_8531fed73bee0c54f7cb",
+      "m_0a0e10ce86065ad4b3fb"
+    ],
+    "support_source_ids": [
+      50,
+      216,
+      240
+    ],
+    "required_slots": [
+      {
+        "name": "individual sale amounts",
+        "value": "$225, $150, $120",
+        "support_memory_ids": [
+          "m_8abff4d1f2005890dcf2",
+          "m_8531fed73bee0c54f7cb",
+          "m_0a0e10ce86065ad4b3fb"
+        ],
+        "support_source_ids": [
+          50,
+          216,
+          240
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        225,
+        150,
+        120
+      ],
+      "unit": "USD",
+      "result": "495 USD"
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "sold",
+        "object": "15 jars of homemade jam",
+        "value": "225",
+        "unit": "USD",
+        "event_time": "2023-05-29",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_8abff4d1f2005890dcf2"
+        ],
+        "support_source_ids": [
+          50
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "sold",
+        "object": "20 potted herb plants",
+        "value": "150",
+        "unit": "USD",
+        "event_time": "2023-06-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_8531fed73bee0c54f7cb"
+        ],
+        "support_source_ids": [
+          216
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "sold",
+        "object": "12 bunches of fresh organic herbs",
+        "value": "120",
+        "unit": "USD",
+        "event_time": "2023-05-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_0a0e10ce86065ad4b3fb"
+        ],
+        "support_source_ids": [
+          240
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Three market sales are recorded: $225 from jam on May 29, $150 from herb plants on June 1 (20 plants at $7.50 each), and $120 from herbs on May 15. Summing gives $495.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    218,
+    59,
+    240,
+    121,
+    50,
+    216,
+    76,
+    62,
+    96,
+    86,
+    191,
+    243,
+    79,
+    51,
+    241,
+    63,
+    217
+  ],
+  "targeted_source_ids": [
+    39,
+    50,
+    59,
+    61,
+    84,
+    85,
+    101,
+    194,
+    216,
+    218,
+    221,
+    240,
+    40,
+    83,
+    217,
+    219,
+    241
+  ]
+}

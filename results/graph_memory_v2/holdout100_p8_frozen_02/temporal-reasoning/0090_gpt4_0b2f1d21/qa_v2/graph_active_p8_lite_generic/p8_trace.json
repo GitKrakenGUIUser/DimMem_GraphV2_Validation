@@ -1,0 +1,208 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "purchase date of coffee maker",
+        "query": "coffee maker purchase date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "malfunction date of stand mixer",
+        "query": "stand mixer malfunction date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "coffee maker purchase date",
+      "stand mixer malfunction date"
+    ],
+    "reason": "Need dates of both events to determine which occurred first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "The stand mixer malfunction happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5b208a3530473242e648",
+      "m_5410f6a0cfb1275e4879"
+    ],
+    "support_source_ids": [
+      186,
+      48
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The coffee maker was purchased about three weeks before 2023-05-25, i.e., around 2023-05-04. The stand mixer malfunctioned 'last month' relative to 2023-05-25, i.e., around April 2023. Since April is before May, the stand mixer malfunction occurred first."
+  },
+  "p7_candidate": {
+    "answer": "The stand mixer malfunction happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5b208a3530473242e648",
+      "m_5410f6a0cfb1275e4879"
+    ],
+    "support_source_ids": [
+      186,
+      48
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The coffee maker was purchased about three weeks before 2023-05-25, i.e., around 2023-05-04. The stand mixer malfunctioned 'last month' relative to 2023-05-25, i.e., around April 2023. Since April is before May, the stand mixer malfunction occurred first."
+  },
+  "specialist_candidate": {
+    "answer": "The purchase of the coffee maker happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5b208a3530473242e648",
+      "m_5410f6a0cfb1275e4879"
+    ],
+    "support_source_ids": [
+      186,
+      48
+    ],
+    "required_slots": [
+      {
+        "name": "purchase date of coffee maker",
+        "value": "2023-05-04",
+        "support_memory_ids": [
+          "m_5b208a3530473242e648"
+        ],
+        "support_source_ids": [
+          186
+        ]
+      },
+      {
+        "name": "malfunction date of stand mixer",
+        "value": "2023-04-25",
+        "support_memory_ids": [
+          "m_5410f6a0cfb1275e4879"
+        ],
+        "support_source_ids": [
+          48
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "coffee maker",
+        "predicate": "purchase date",
+        "object": "2023-05-04",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-04",
+        "valid_from": "2023-05-04",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_5b208a3530473242e648"
+        ],
+        "support_source_ids": [
+          186
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "stand mixer",
+        "predicate": "malfunction date",
+        "object": "2023-04-25",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-04-25",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_5410f6a0cfb1275e4879"
+        ],
+        "support_source_ids": [
+          48
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The coffee maker was purchased about three weeks before 2023-05-25, i.e., around 2023-05-04. The stand mixer broke down 'last month' relative to 2023-05-25, i.e., around 2023-04-25. Since 2023-04-25 is earlier than 2023-05-04, the stand mixer malfunction occurred first. However, the question asks which event happened first, so the purchase of the coffee maker happened after the malfunction. Wait, re-evaluating: 'last month' from 2023-05-25 is April 2023, so the malfunction was in April, and the purchase was in May. Therefore, the malfunction happened first. But the answer says purchase happened first? Let's correct: The stand mixer malfunction (April) occurred before the coffee maker purchase (May). So the malfunction happened first. The answer should be 'The malfunction of the stand mixer happened first.' I need to correct the answer."
+  },
+  "choice": "p5",
+  "verification": {
+    "choice": "p5",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Both p5 and p7 are identical and correctly conclude that the stand mixer malfunction (April 2023) occurred before the coffee maker purchase (May 2023). The specialist's answer is contradictory because it states the purchase happened first but then corrects itself in reasoning. p5 is selected as the best candidate."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Same as p5."
+      },
+      "specialist": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "The answer states 'purchase happened first' but the reasoning correctly concludes the opposite, making the answer contradictory."
+      }
+    },
+    "reason": "p5 and p7 are identical and correct; specialist is contradictory. Choosing p5."
+  },
+  "targeted_source_ids": [
+    52,
+    51,
+    50,
+    186,
+    48,
+    187,
+    53,
+    49
+  ],
+  "v2_timeline_memory_ids": [
+    "m_5410f6a0cfb1275e4879",
+    "m_5c79c0f6b44d79808986",
+    "m_7851384f6634255c2c3b",
+    "m_167d11d2bb61d9f0fcc3",
+    "m_5b208a3530473242e648",
+    "m_6e3cbd95b5409efa8197",
+    "m_875e58d7698d0997ae5f",
+    "m_8a8b9fc1ba032b114a10"
+  ]
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "answer": "30 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a8036cb8f9c0f59ecee4"
+    ],
+    "support_source_ids": [
+      101
+    ],
+    "required_slots": [
+      {
+        "name": "event_date",
+        "value": "2023-04-01",
+        "support_memory_ids": [
+          "m_a8036cb8f9c0f59ecee4"
+        ],
+        "support_source_ids": [
+          101
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-01",
+        "2023-05-01"
+      ],
+      "unit": "weeks",
+      "result": "30 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user attended the bird watching workshop on 2023-04-01 (memory m_a8036cb8f9c0f59ecee4, source 101). The question date is 2023-05-01. The difference is 30 days, which is 4 weeks (30/7 ≈ 4.285, rounded down to 4 weeks ago).",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "30 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a8036cb8f9c0f59ecee4"
+    ],
+    "support_source_ids": [
+      101
+    ],
+    "required_slots": [
+      {
+        "name": "event_date",
+        "value": "2023-04-01",
+        "support_memory_ids": [
+          "m_a8036cb8f9c0f59ecee4"
+        ],
+        "support_source_ids": [
+          101
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-01",
+        "2023-05-01"
+      ],
+      "unit": "weeks",
+      "result": "30 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_a8036cb8f9c0f59ecee4 states the user attended the bird watching workshop on 2023-04-01. The question date is 2023-05-01. The difference is 30 days, which is 4 weeks (30/7 ≈ 4.285, but weeks ago is typically rounded down to 4 weeks).",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

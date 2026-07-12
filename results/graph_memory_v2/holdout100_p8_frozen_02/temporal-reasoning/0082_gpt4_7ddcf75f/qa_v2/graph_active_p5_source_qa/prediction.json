@@ -1,0 +1,72 @@
+{
+  "question_id": "gpt4_7ddcf75f",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I go on a whitewater rafting trip in the Oregon mountains?",
+  "question_date": "2023/06/20 (Tue) 16:30",
+  "gold_answer": "3 days ago. 4 days (including the last day) is also acceptable.",
+  "prediction": "3 days",
+  "support_memory_ids": [
+    "m_6d4ab3ca30681b5b3876"
+  ],
+  "support_source_ids": [
+    62
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user stated they 'just got back from an amazing whitewater rafting trip in the Oregon mountains with a group of coworkers today' on 2023-06-17 (source 62). The question date is 2023-06-20. The difference is 3 days.",
+  "required_slots": [
+    {
+      "name": "trip date",
+      "value": "2023-06-17",
+      "support_memory_ids": [
+        "m_6d4ab3ca30681b5b3876"
+      ],
+      "support_source_ids": [
+        62
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-06-17",
+      "2023-06-20"
+    ],
+    "unit": "days",
+    "result": "3 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    62,
+    65,
+    64,
+    63,
+    27,
+    218,
+    212,
+    182,
+    163,
+    31,
+    184,
+    124,
+    176,
+    30,
+    66,
+    32,
+    217
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    4.490000000000001,
+    4.490000000000001
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 83608,
+    "completion_tokens": 703,
+    "elapsed_seconds": 9.665444135665894
+  }
+}

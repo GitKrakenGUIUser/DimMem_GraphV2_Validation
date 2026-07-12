@@ -1,0 +1,71 @@
+{
+  "question_id": "gpt4_b4a80587",
+  "question_type": "temporal-reasoning",
+  "question": "Which event happened first, the road trip to the coast or the arrival of the new prime lens?",
+  "question_date": "2023/05/23 (Tue) 04:05",
+  "gold_answer": "The arrival of the new prime lens",
+  "prediction": "The arrival of the new prime lens happened first.",
+  "support_memory_ids": [
+    "m_ae59892c937b30e2f504",
+    "m_00dca1364cc22cfb6f53",
+    "m_bdf215e5059dad271d5f"
+  ],
+  "support_source_ids": [
+    139,
+    140,
+    56
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The road trip occurred from 2023-05-16 to 2023-05-18 (source 139, 140). The lens was obtained 'a month ago' from 2023-05-23, i.e., around 2023-04-23 (source 56, 57). Since April 23 is before May 16, the lens arrived first. The candidate answer incorrectly stated the road trip happened first.",
+  "required_slots": [
+    {
+      "name": "road trip date",
+      "value": "2023-05-16 to 2023-05-18",
+      "support_memory_ids": [
+        "m_ae59892c937b30e2f504",
+        "m_00dca1364cc22cfb6f53"
+      ],
+      "support_source_ids": [
+        139,
+        140
+      ]
+    },
+    {
+      "name": "lens arrival date",
+      "value": "approximately 2023-04-23",
+      "support_memory_ids": [
+        "m_bdf215e5059dad271d5f"
+      ],
+      "support_source_ids": [
+        56
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "base candidate passed risk gate",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "question_id": "16c90bf4",
+  "question_type": "single-session-assistant",
+  "question": "I'm looking back at our previous conversation about the Seco de Cordero recipe from Ancash. You mentioned using a light or medium-bodied beer, but I was wondering if you could remind me what type of beer you specifically recommended?",
+  "question_date": "2023/05/30 (Tue) 22:48",
+  "gold_answer": "I recommended using a Pilsner or Lager for the recipe.",
+  "prediction": "In our previous conversation, I recommended using a light or medium-bodied beer for the Seco de Cordero recipe, specifically a pilsner or lager.",
+  "support_memory_ids": [
+    "m_2791c95112508fce2254"
+  ],
+  "support_source_ids": [
+    185
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The assistant's reply in source 185 explicitly recommends 'a pilsner or lager' as the specific beer type for the Seco de Cordero recipe from Ancash.",
+  "required_slots": [
+    {
+      "name": "assistant_reply",
+      "value": "a pilsner or lager",
+      "support_memory_ids": [
+        "m_2791c95112508fce2254"
+      ],
+      "support_source_ids": [
+        185
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "The specialist candidate fills the required slot with a specific beer type and follows the answer contract for assistant recall, while the compact candidate omits the required slot structure.",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "assistant_reply",
+        "query": "beer recommendation Seco de Cordero Ancash",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "beer recommendation Seco de Cordero Ancash"
+    ],
+    "output_constraints": [
+      "specific beer type"
+    ],
+    "reason": "The question asks to recall a specific recommendation from a previous conversation, which is an assistant-recall type."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32782,
+    "completion_tokens": 603,
+    "elapsed_seconds": 7.309014081954956
+  },
+  "correct": true,
+  "judge_reason": "The prediction correctly states the recommendation of a pilsner or lager, matching the reference answer.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 207,
+    "completion_tokens": 35,
+    "elapsed_seconds": 0.9019157886505127
+  }
+}

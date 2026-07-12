@@ -1,0 +1,158 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "spotify_playlist_count",
+        "query": "user's number of Spotify playlists",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user's number of Spotify playlists"
+    ],
+    "output_constraints": [
+      "must be a non-negative integer"
+    ],
+    "reason": "The question asks for the current count of playlists on Spotify, which is a state value. No composition or semantic bridge needed."
+  },
+  "base_candidate": {
+    "answer": "20",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_79fac2b009437b3df378"
+    ],
+    "support_source_ids": [
+      20
+    ],
+    "required_slots": [
+      {
+        "name": "spotify_playlist_count",
+        "value": "20",
+        "support_memory_ids": [
+          "m_79fac2b009437b3df378"
+        ],
+        "support_source_ids": [
+          20
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated 'I have 20 playlists on Spotify' in source turn 20, which is stored in memory m_79fac2b009437b3df378. No contradictory or updated information exists."
+  },
+  "specialist_candidate": {
+    "answer": "20",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_79fac2b009437b3df378"
+    ],
+    "support_source_ids": [
+      20
+    ],
+    "required_slots": [
+      {
+        "name": "spotify_playlist_count",
+        "value": "20",
+        "support_memory_ids": [
+          "m_79fac2b009437b3df378"
+        ],
+        "support_source_ids": [
+          20
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "has",
+        "object": "20 playlists on Spotify",
+        "value": "20",
+        "unit": "playlists",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_79fac2b009437b3df378"
+        ],
+        "support_source_ids": [
+          20
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The user explicitly stated 'I have 20 playlists on Spotify' in source 20 on 2023-05-20. No later updates contradict this, so the current count is 20."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    20,
+    21,
+    75,
+    135,
+    181,
+    15,
+    173,
+    44,
+    172,
+    171,
+    136,
+    87,
+    22,
+    34,
+    19,
+    219,
+    28,
+    35,
+    183,
+    14,
+    16,
+    74
+  ],
+  "targeted_source_ids": [
+    9,
+    20,
+    21,
+    22,
+    23,
+    27,
+    28,
+    67,
+    68,
+    99,
+    105,
+    107,
+    10,
+    19,
+    106
+  ]
+}

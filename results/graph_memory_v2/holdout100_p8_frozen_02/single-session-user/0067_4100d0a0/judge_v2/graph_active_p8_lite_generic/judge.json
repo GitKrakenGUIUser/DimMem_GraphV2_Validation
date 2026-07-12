@@ -1,0 +1,79 @@
+{
+  "question_id": "4100d0a0",
+  "question_type": "single-session-user",
+  "question": "What is my ethnicity?",
+  "question_date": "2023/05/30 (Tue) 18:19",
+  "gold_answer": "A mix of Irish and Italian",
+  "prediction": "Irish and Italian",
+  "support_memory_ids": [
+    "m_4d8c3f4a7429a933e6bf"
+  ],
+  "support_source_ids": [
+    255
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user explicitly stated their mixed ethnicity as Irish and Italian in source 255, which is stored as an active state with key user.ethnicity. No superseding information exists.",
+  "required_slots": [
+    {
+      "name": "ethnicity",
+      "value": "Irish and Italian",
+      "support_memory_ids": [
+        "m_4d8c3f4a7429a933e6bf"
+      ],
+      "support_source_ids": [
+        255
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "ethnicity",
+        "query": "user ethnicity",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user ethnicity"
+    ],
+    "reason": "The question asks for the user's ethnicity, which is a personal state attribute. The most direct evidence is a stored state value for ethnicity.",
+    "deterministic_contract_hint": "state_resolution",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 20683,
+    "completion_tokens": 473,
+    "elapsed_seconds": 4.372453212738037
+  },
+  "correct": true,
+  "judge_reason": "Equivalent wording: 'Irish and Italian' matches 'A mix of Irish and Italian'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 130,
+    "completion_tokens": 33,
+    "elapsed_seconds": 1.0543901920318604
+  }
+}

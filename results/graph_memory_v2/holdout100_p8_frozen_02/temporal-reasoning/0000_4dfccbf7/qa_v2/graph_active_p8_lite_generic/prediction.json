@@ -1,0 +1,93 @@
+{
+  "question_id": "4dfccbf7",
+  "question_type": "temporal-reasoning",
+  "question": "How many days had passed since I started taking ukulele lessons when I decided to take my acoustic guitar to the guitar tech for servicing?",
+  "question_date": "2023/04/01 (Sat) 00:42",
+  "gold_answer": "24 days. 25 days (including the last day) is also acceptable.",
+  "prediction": "24 days",
+  "support_memory_ids": [
+    "m_328e3a774c3ba9ff4012",
+    "m_a924736e0dc47869ff73"
+  ],
+  "support_source_ids": [
+    191,
+    207
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From memory m_328e3a774c3ba9ff4012 (source 191), user started ukulele lessons on 2023-02-01. From memory m_a924736e0dc47869ff73 (source 207), user decided to take Taylor GS Mini for servicing on 2023-02-25. The difference is 24 days.",
+  "required_slots": [
+    {
+      "name": "start date of ukulele lessons",
+      "value": "2023-02-01",
+      "support_memory_ids": [
+        "m_328e3a774c3ba9ff4012"
+      ],
+      "support_source_ids": [
+        191
+      ]
+    },
+    {
+      "name": "date of decision to service guitar",
+      "value": "2023-02-25",
+      "support_memory_ids": [
+        "m_a924736e0dc47869ff73"
+      ],
+      "support_source_ids": [
+        207
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-02-01",
+      "2023-02-25"
+    ],
+    "unit": "days",
+    "result": "24"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "start date of ukulele lessons",
+        "query": "started ukulele lessons date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of decision to service guitar",
+        "query": "decided to take acoustic guitar to guitar tech servicing date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "started ukulele lessons date",
+      "decided to take acoustic guitar to guitar tech servicing date"
+    ],
+    "reason": "Need two dates to compute days between start of ukulele lessons and decision to service guitar.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 22361,
+    "completion_tokens": 802,
+    "elapsed_seconds": 6.1875457763671875
+  }
+}

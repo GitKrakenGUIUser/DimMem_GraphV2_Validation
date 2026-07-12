@@ -1,0 +1,59 @@
+[2022-09-01T22:21:01.500000, Thu] 1.User: I think Before the Flood would be a great choice. I've been reading a lot of in-depth feature articles lately, including the one in The New Yorker that got me interested in climate change, and I think the documentary would be a good way to visualize the issue. Do you think it's available to stream on Netflix or Amazon Prime?
+[2022-09-01T22:21:02, Thu] 2.User: I'll send out the YouTube link to my friends and we can plan a time to watch it together. Do you think I could also find any related articles or interviews with Al Gore on The New Yorker website, given my subscription?
+[2022-09-01T22:21:02.500000, Thu] 3.User: I'll definitely check out those articles and interviews on The New Yorker website. I've been enjoying the in-depth feature articles in the magazine, and it'll be great to explore more content online. Maybe I'll even find some other documentaries or films recommended by The New Yorker that my friends and I can watch together.
+[2022-09-01T22:21:03, Thu] 4.User: I think I'll also check out some of the entertainment and lifestyle publications I subscribe to, like Vanity Fair and Us Weekly, to see if they have any recommendations for documentaries or films related to climate change. Sometimes, these publications can offer a unique perspective or highlight films that might not be on my radar otherwise.
+[2022-09-01T22:49:00.500000, Thu] 5.User: Production deployment plan
+payment-service is Payment Server V2
+
+first-data-xtp-mux is First Data XTP Mux
+
+DC1
+
+Divert all traffic to DC2, so no traffic in DC1
+
+Stop payment-service in DC1
+
+Stop first-data-xtp-mux in DC1
+
+Deploy first-data-xtp-mux in DC1
+
+Deploy payment-service in DC1
+
+Start first-data-xtp-mux in DC1
+
+Start payment-service in DC1
+
+PVT in DC1
+
+Sign-off on PVT
+DC2
+
+Divert all traffic to DC1, so no traffic in DC2
+
+Stop payment-service in DC2
+
+Stop first-data-xtp-mux in DC2
+
+Deploy first-data-xtp-mux in DC2
+
+Deploy payment-service in DC2
+
+Start first-data-xtp-mux in DC2
+
+Start payment-service in DC2
+
+PVT in DC2
+
+Sign-off on PVT
+Finalise
+
+Switch to load balanced traffic
+
+Monitor
+[2022-09-01T22:49:01, Thu] 6.User: Make it generic, remove the application names
+[2022-09-01T23:28:00.500000, Thu] 7.User: I'm trying to find more comedy clubs in the area where I can perform. Can you help me with that?
+[2022-09-01T23:28:01, Thu] 8.User: I'm in the city area, and I'm a stand-up comedian. I'm looking for open mics and showcases, mostly on weeknights. I'm open to performing at non-traditional venues too. By the way, I've been trying to get more stage time since I started taking stand-up comedy class 6 weeks ago, and it's been a blast.
+[2022-09-01T23:28:01.500000, Thu] 9.User: I'm in New York City.
+[2022-09-01T23:28:02, Thu] 10.User: I'm also thinking of trying to get more gigs at coffee shops or bars. Do you know of any websites or resources that can help me find those types of gigs?
+[2022-09-01T23:28:02.500000, Thu] 11.User: Can you also help me with something else? I've been trying to come up with new material, and I was wondering if you could give me some ideas on how to brainstorm jokes.
+[2022-09-01T23:28:03, Thu] 12.User: I've been thinking about writing jokes about my experience taking a stand-up comedy class. I've had some funny moments in class, and I think I could turn them into some good material. Do you have any suggestions on how to approach that?

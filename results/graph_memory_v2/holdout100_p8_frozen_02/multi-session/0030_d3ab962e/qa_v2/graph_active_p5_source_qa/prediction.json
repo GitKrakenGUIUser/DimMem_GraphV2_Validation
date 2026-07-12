@@ -1,0 +1,83 @@
+{
+  "question_id": "d3ab962e",
+  "question_type": "multi-session",
+  "question": "What is the total distance of the hikes I did on two consecutive weekends?",
+  "question_date": "2022/09/24 (Sat) 23:49",
+  "gold_answer": "8 miles",
+  "prediction": "8 miles",
+  "support_memory_ids": [
+    "m_1f1a8ca2fc568afa366f",
+    "m_63e5f2608fbe8ae60403"
+  ],
+  "support_source_ids": [
+    205,
+    39
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user hiked 5 miles at Red Rock Canyon two weekends ago (2022-09-10) and 3 miles at Valley of Fire State Park last weekend (2022-09-17). These are two consecutive weekends. The total distance is 5 + 3 = 8 miles.",
+  "required_slots": [
+    {
+      "name": "hike distances",
+      "value": "5 miles and 3 miles",
+      "support_memory_ids": [
+        "m_1f1a8ca2fc568afa366f",
+        "m_63e5f2608fbe8ae60403"
+      ],
+      "support_source_ids": [
+        205,
+        39
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      5,
+      3
+    ],
+    "unit": "miles",
+    "result": "8 miles"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    205,
+    177,
+    159,
+    250,
+    228,
+    39,
+    106,
+    40,
+    251,
+    190,
+    192,
+    65,
+    152,
+    178,
+    217,
+    113,
+    114,
+    108,
+    229,
+    189,
+    206,
+    191,
+    41,
+    64
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 96009,
+    "completion_tokens": 744,
+    "elapsed_seconds": 13.740346908569336
+  }
+}

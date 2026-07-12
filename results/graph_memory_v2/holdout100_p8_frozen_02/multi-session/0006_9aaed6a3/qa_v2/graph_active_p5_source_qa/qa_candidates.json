@@ -1,0 +1,80 @@
+[
+  {
+    "answer": "$0.75",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6a099d8ff1860ffdb237",
+      "m_a8a73edb5987433762d5"
+    ],
+    "support_source_ids": [
+      70,
+      50
+    ],
+    "required_slots": [
+      {
+        "name": "cashback amount",
+        "value": "$0.75",
+        "support_memory_ids": [
+          "m_6a099d8ff1860ffdb237",
+          "m_a8a73edb5987433762d5"
+        ],
+        "support_source_ids": [
+          70,
+          50
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "other",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User spent $75 at SaveMart last Thursday (2023-05-18) per memory m_6a099d8ff1860ffdb237 and source 70. User has a SaveMart membership earning 1% cashback per memory m_a8a73edb5987433762d5 and source 50. Cashback = $75 * 0.01 = $0.75."
+  },
+  {
+    "answer": "75.01 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6a099d8ff1860ffdb237",
+      "m_a8a73edb5987433762d5"
+    ],
+    "support_source_ids": [
+      70,
+      50
+    ],
+    "required_slots": [
+      {
+        "name": "cashback amount",
+        "value": "$0.75",
+        "support_memory_ids": [
+          "m_6a099d8ff1860ffdb237",
+          "m_a8a73edb5987433762d5"
+        ],
+        "support_source_ids": [
+          70,
+          50
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        "75",
+        "0.01"
+      ],
+      "unit": "dollars",
+      "result": "75.01 dollars"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User spent $75 at SaveMart last Thursday (source 70). User has a SaveMart membership earning 1% cashback (source 50). Cashback = $75 * 1% = $0.75.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

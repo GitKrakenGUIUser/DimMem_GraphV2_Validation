@@ -1,0 +1,106 @@
+{
+  "question_id": "a1cc6108",
+  "question_type": "multi-session",
+  "question": "How old was I when Alex was born?",
+  "question_date": "2023/05/30 (Tue) 20:23",
+  "gold_answer": "11",
+  "prediction": "4045 days",
+  "support_memory_ids": [
+    "m_89b1b3f089e980bb9003",
+    "m_b32ea3fa22e090976d4d"
+  ],
+  "support_source_ids": [
+    111,
+    52
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User turned 32 in April 2023 (source 111), so birth year is 1991. Alex was 21 on 2023-05-21 (source 52), so birth year is 2002. Age difference: 2002 - 1991 = 11 years.",
+  "required_slots": [
+    {
+      "name": "user_birth_date",
+      "value": "1991-04-24",
+      "support_memory_ids": [
+        "m_89b1b3f089e980bb9003"
+      ],
+      "support_source_ids": [
+        111
+      ]
+    },
+    {
+      "name": "alex_birth_date",
+      "value": "2002-05-21",
+      "support_memory_ids": [
+        "m_b32ea3fa22e090976d4d"
+      ],
+      "support_source_ids": [
+        52
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "1991-04-24",
+      "2002-05-21"
+    ],
+    "unit": "years",
+    "result": "4045 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist filled an abstained base answer",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_birth_date",
+        "query": "What is the user's birth date?",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "alex_birth_date",
+        "query": "When was Alex born?",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What is the user's birth date?",
+      "When was Alex born?"
+    ],
+    "output_constraints": [
+      "The answer should be a number representing years (and optionally months/days) old."
+    ],
+    "reason": "The question asks for the user's age at a past event (Alex's birth). This requires two dates: user's birth date and Alex's birth date. The age is computed as the difference in years (and possibly months/days) between the two dates, with the age at the time of Alex's birth. Composition is allowed because the two facts are independent and can be combined via date difference."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 30995,
+    "completion_tokens": 848,
+    "elapsed_seconds": 8.304965496063232
+  },
+  "correct": false,
+  "judge_reason": "Prediction is in days, not years; 4045 days is approximately 11.08 years, but the answer must be exactly 11 years.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 130,
+    "completion_tokens": 46,
+    "elapsed_seconds": 1.0644524097442627
+  }
+}

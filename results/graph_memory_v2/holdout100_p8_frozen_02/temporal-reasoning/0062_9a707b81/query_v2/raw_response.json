@@ -1,0 +1,113 @@
+{
+  "question": "How many days ago did I attend a baking class at a local culinary school when I made my friend's birthday cake?",
+  "question_date": "2022/04/15",
+  "hypotheses": [
+    {
+      "query_anchor": "the user attended a baking class at a local culinary school when making a friend's birthday cake",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "baking class",
+        "local culinary school",
+        "friend's birthday cake"
+      ],
+      "keywords": [
+        "baking class",
+        "culinary school",
+        "birthday cake"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2022-04-15",
+        "raw": "days ago"
+      },
+      "locations": [
+        "local culinary school"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "date of baking class"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user made a friend's birthday cake at a baking class at a local culinary school",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "friend's birthday cake",
+        "baking class",
+        "local culinary school"
+      ],
+      "keywords": [
+        "birthday cake",
+        "baking class",
+        "culinary school"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2022-04-15",
+        "raw": "days ago"
+      },
+      "locations": [
+        "local culinary school"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "date of making cake"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user attended a baking class at a local culinary school",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "baking class",
+        "local culinary school"
+      ],
+      "keywords": [
+        "baking class",
+        "culinary school"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2022-04-15",
+        "raw": "days ago"
+      },
+      "locations": [
+        "local culinary school"
+      ],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "date of baking class"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

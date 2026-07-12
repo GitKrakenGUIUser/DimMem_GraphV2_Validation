@@ -1,0 +1,86 @@
+{
+  "question_id": "ba358f49",
+  "question_type": "multi-session",
+  "question": "How many years will I be when my friend Rachel gets married?",
+  "question_date": "2022/09/01 (Thu) 23:52",
+  "gold_answer": "33",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.0,
+  "reasoning_summary": "The user's birth date is not mentioned in any memory or source turn. Rachel's marriage is mentioned as 'next year' relative to 2022-09-01, but without the user's birth date, the user's age at that time cannot be calculated.",
+  "required_slots": [
+    {
+      "name": "user_birth_date",
+      "value": "unknown",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    },
+    {
+      "name": "rachel_marriage_date",
+      "value": "unknown",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [
+    "user_birth_date",
+    "rachel_marriage_date"
+  ],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "same answer; preserve compact candidate",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_birth_date",
+        "query": "user birth date",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "rachel_marriage_date",
+        "query": "Rachel marriage date",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user birth date",
+      "Rachel marriage date"
+    ],
+    "output_constraints": [
+      "answer must be a number of years"
+    ],
+    "reason": "The question asks for the user's age at a future event, requiring both the user's birth date and Rachel's marriage date to compute the difference in years."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34360,
+    "completion_tokens": 486,
+    "elapsed_seconds": 5.624507665634155
+  }
+}

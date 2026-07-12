@@ -1,0 +1,102 @@
+{
+  "question": "What did I bake for my uncle's birthday party?",
+  "question_date": "2023-05-30T15:26:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user baked something for their uncle's birthday party",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "the user",
+        "uncle"
+      ],
+      "keywords": [
+        "bake",
+        "uncle",
+        "birthday party"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T15:26:00",
+        "raw": "before now"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's uncle's birthday party",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "the user",
+        "uncle"
+      ],
+      "keywords": [
+        "uncle",
+        "birthday party"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T15:26:00",
+        "raw": "before now"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "same_event"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "baked item"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user baked something for a party",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "bake",
+        "party"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T15:26:00",
+        "raw": "before now"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "uncle",
+        "birthday"
+      ],
+      "confidence": 0.4
+    }
+  ]
+}

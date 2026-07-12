@@ -1,0 +1,75 @@
+{
+  "question_id": "778164c6",
+  "question_type": "single-session-assistant",
+  "question": "I was looking back at our previous conversation about Caribbean dishes and I was wondering, what was the name of that Jamaican dish you recommended I try with snapper that has fruit in it?",
+  "question_date": "2023/05/30 (Tue) 20:36",
+  "gold_answer": "Grilled Snapper with Mango Salsa",
+  "prediction": "Grilled Snapper with Mango Salsa",
+  "support_memory_ids": [
+    "m_bfcb6f74622c2e2a398c"
+  ],
+  "support_source_ids": [
+    253
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user asked for the name of a Jamaican dish with snapper and fruit that the assistant recommended. In source 253, the assistant listed 'Grilled Snapper with Mango Salsa' which is a Jamaican dish featuring snapper and fruit (mango salsa). This matches the user's query.",
+  "required_slots": [
+    {
+      "name": "assistant_reply",
+      "value": "Grilled Snapper with Mango Salsa",
+      "support_memory_ids": [
+        "m_bfcb6f74622c2e2a398c"
+      ],
+      "support_source_ids": [
+        253
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "assistant_reply",
+        "query": "Jamaican dish snapper fruit recommended",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Jamaican dish snapper fruit recommended"
+    ],
+    "output_constraints": [
+      "The answer must be a dish name from assistant's previous reply."
+    ],
+    "reason": "The user asks for a dish name from a previous conversation, requiring assistant recall of a specific recommendation."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 26653,
+    "completion_tokens": 567,
+    "elapsed_seconds": 5.48979640007019
+  }
+}

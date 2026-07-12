@@ -1,0 +1,194 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "high school graduation date",
+        "query": "When did I graduate from high school?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "Bachelor's degree completion date",
+        "query": "When did I complete my Bachelor's degree?",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "high school graduation date",
+      "Bachelor's degree completion date"
+    ],
+    "output_constraints": [
+      "answer must be a number of years"
+    ],
+    "reason": "The question asks for total years from high school to Bachelor's degree, requiring two dates to compute the difference in years."
+  },
+  "base_candidate": {
+    "answer": "8 years",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f3264006bfebb15d17f9",
+      "m_44583d75eeb3ca4a42d9"
+    ],
+    "support_source_ids": [
+      193,
+      18
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        "4",
+        "4"
+      ],
+      "unit": "years",
+      "result": "8 years"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "High school attended from 2010 to 2014 (4 years). Bachelor's degree took 4 years (as stated in memory m_44583d75eeb3ca4a42d9). Total formal education from high school to Bachelor's completion is 4 + 4 = 8 years."
+  },
+  "specialist_candidate": {
+    "answer": "6",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_44583d75eeb3ca4a42d9",
+      "m_f3264006bfebb15d17f9"
+    ],
+    "support_source_ids": [
+      18,
+      193
+    ],
+    "required_slots": [
+      {
+        "name": "high school graduation date",
+        "value": "2014",
+        "support_memory_ids": [
+          "m_f3264006bfebb15d17f9"
+        ],
+        "support_source_ids": [
+          193
+        ]
+      },
+      {
+        "name": "Bachelor's degree completion date",
+        "value": "2020",
+        "support_memory_ids": [
+          "m_44583d75eeb3ca4a42d9"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_years",
+      "operands": [
+        "2014",
+        "2020"
+      ],
+      "unit": "years",
+      "result": "6"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "graduated high school",
+        "object": "Arcadia High School",
+        "value": "2014",
+        "unit": "year",
+        "event_time": "2014",
+        "valid_from": "2014",
+        "valid_to": "2014",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_f3264006bfebb15d17f9"
+        ],
+        "support_source_ids": [
+          193
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "completed Bachelor's degree",
+        "object": "UCLA",
+        "value": "2020",
+        "unit": "year",
+        "event_time": "2020",
+        "valid_from": "2020",
+        "valid_to": "2020",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_44583d75eeb3ca4a42d9"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "High school graduation inferred as 2014 (attended 2010-2014). Bachelor's degree completed in 2020. Difference is 6 years."
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist candidate fills required slots with specific dates (2014 and 2020) and computes the exact difference (6 years), matching the answer contract for a sum of years between two events. Compact candidate incorrectly sums durations (4+4) instead of computing the interval between graduation and degree completion.",
+  "compact_source_ids": [
+    215,
+    193,
+    18,
+    19,
+    21,
+    53,
+    44,
+    127,
+    212,
+    32,
+    48,
+    1,
+    214,
+    186,
+    128,
+    150,
+    107,
+    192,
+    211,
+    213,
+    194,
+    22,
+    54,
+    20
+  ],
+  "targeted_source_ids": [
+    8,
+    14,
+    18,
+    19,
+    21,
+    65,
+    97,
+    121,
+    128,
+    185,
+    193,
+    215,
+    66,
+    127,
+    129,
+    214
+  ]
+}

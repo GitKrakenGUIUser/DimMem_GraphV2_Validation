@@ -1,0 +1,148 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:temporal",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "arrival_time_weeknight",
+        "query": "What time do I usually get home from work on weeknights?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What time do I usually get home from work on weeknights?"
+    ],
+    "output_constraints": [
+      "time of day"
+    ],
+    "reason": "Direct fact retrieval of typical arrival time on weeknights."
+  },
+  "base_candidate": {
+    "answer": "around 6:30 pm",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_583eddf1f241bd18cd67"
+    ],
+    "support_source_ids": [
+      98
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.85,
+    "reasoning_summary": "The user stated in source 98 that they usually get home from work around 6:30 pm on weekdays, which is directly stored in memory m_583eddf1f241bd18cd67."
+  },
+  "specialist_candidate": {
+    "answer": "around 6:30 pm",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_583eddf1f241bd18cd67"
+    ],
+    "support_source_ids": [
+      98
+    ],
+    "required_slots": [
+      {
+        "name": "arrival_time_weeknight",
+        "value": "around 6:30 pm",
+        "support_memory_ids": [
+          "m_583eddf1f241bd18cd67"
+        ],
+        "support_source_ids": [
+          98
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "gets home from work at",
+        "object": "around 6:30 pm on weekdays",
+        "value": "around 6:30 pm",
+        "unit": "time of day",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_583eddf1f241bd18cd67"
+        ],
+        "support_source_ids": [
+          98
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_583eddf1f241bd18cd67 directly states 'User usually gets home from work around 6:30 pm on weekdays.' Source 98 confirms this with user saying 'I usually get home from work around 6:30 pm on weekdays.' No contradictory evidence found."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    98,
+    97,
+    95,
+    209,
+    36,
+    147,
+    167,
+    53,
+    171,
+    134,
+    192,
+    9,
+    39,
+    96,
+    176,
+    108,
+    148,
+    191,
+    99,
+    193,
+    94
+  ],
+  "targeted_source_ids": [
+    7,
+    9,
+    38,
+    48,
+    71,
+    95,
+    96,
+    98,
+    102,
+    126,
+    177,
+    204,
+    8,
+    94,
+    97,
+    99
+  ]
+}

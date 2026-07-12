@@ -1,0 +1,426 @@
+[
+  {
+    "memory_id": "m_4c96d5fc253b4fc924ca",
+    "content": "User proposed key deliverables for a system: data ingest, data processing, statistical analysis, machine learning, prediction, result scaling, web front end, and database for historical data and predictions.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-25T23:09:01",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "deliverables",
+        "data ingest",
+        "data processing",
+        "statistical analysis",
+        "machine learning",
+        "prediction",
+        "result scaling",
+        "web front end",
+        "database"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "owner"
+        }
+      ],
+      "topic": "system architecture",
+      "relation": {
+        "subject": "User",
+        "predicate": "proposed",
+        "object": "key deliverables list"
+      },
+      "state_key": "project.deliverables",
+      "state_value": "data ingest, data processing, statistical analysis, machine learning, prediction, result scaling, web front end, database",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_f9XBWSi_15",
+      "session_index": 27,
+      "source_ids": [
+        136
+      ],
+      "source_uids": [
+        "s0027u0002"
+      ],
+      "source_times": [
+        "2023-05-25T23:09:01"
+      ],
+      "source_role": "user",
+      "window_index": 11
+    },
+    "confidence": 1.0,
+    "evidence_span": "key deliverables I think I would break it down as - data ingest system - data processing system - statistical analysis system - machine learning system - prediction system - result scaling system - web front end - database for storage of historical data and predictions",
+    "assistant_replies": [
+      "That seems like a good breakdown of the main components based on what we've discussed. However, one additional system that comes to mind is a testing and debugging system, which would be responsible for verifying the accuracy of the predictions and identifying any bugs or errors in the system. This would involve unit testing, integration testing, and user acceptance testing.\n\nIn addition to the database for storing historical data and predictions, it might be necessary to have a separate data storage system for raw data, such as a data lake or data warehouse, to handle the large amounts of data being ingested from multiple sources. This would allow for efficient querying and processing of the data.\n\nFinally, it might be helpful to have a monitoring and alerting system in place to notify you if any issues arise with the system, such as if there are performance or availability issues.\n\nDo you think these additional components would be necessary for your project?"
+    ]
+  },
+  {
+    "memory_id": "m_fd8f0cd5d2f5880fc1a8",
+    "content": "User decided to use PostgreSQL for database, possibly with time series features, because data volume is not huge and data is well-structured.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-25T23:09:01.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "data volume not huge and data well-structured",
+      "purpose": "",
+      "keywords": [
+        "PostgreSQL",
+        "database",
+        "time series",
+        "data volume",
+        "well-structured"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "owner"
+        },
+        {
+          "name": "PostgreSQL",
+          "entity_type": "product",
+          "role": "database"
+        }
+      ],
+      "topic": "database selection",
+      "relation": {
+        "subject": "User",
+        "predicate": "chose",
+        "object": "PostgreSQL with time series features"
+      },
+      "state_key": "project.database",
+      "state_value": "PostgreSQL with time series features",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_f9XBWSi_15",
+      "session_index": 27,
+      "source_ids": [
+        137
+      ],
+      "source_uids": [
+        "s0027u0003"
+      ],
+      "source_times": [
+        "2023-05-25T23:09:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 11
+    },
+    "confidence": 1.0,
+    "evidence_span": "I don't think that the quantity of data coming in will be huge and it will mostly be well structured data from the exchange or text that wont need to be indexed. So I'm not worried about just putting it into a postgres database. Potentially with some special time series features turned on.",
+    "assistant_replies": [
+      "That makes sense. If you don't anticipate needing a data storage system beyond a PostgreSQL database, that's fine.\n\nRegarding the monitoring and log aggregation system, using an off-the-shelf solution is a good idea, as it will save time and effort. There are several good options available that you can evaluate.\n\nAnd you're right, testing and debugging is not a system per se, but it's an essential process that needs to be integrated throughout the development lifecycle. Unit testing, integration testing, and user acceptance testing should be built into the development process from the beginning to ensure the system works as expected and catches any errors or bugs as early as possible.\n\nBased on what you've said, it seems like we can proceed with the main components we have identified so far, which are:\n\n* Data ingest system\n* Data processing system\n* Statistical analysis system\n* Machine learning system\n* Prediction system\n* Result scaling system\n* Web front end\n* Monitoring and log aggregation system\n\nIs there anything else you would like to add or discuss before we move on to breaking down each component into smaller tasks?"
+    ]
+  },
+  {
+    "memory_id": "m_6144999e2311e2a78d58",
+    "content": "User decided to use an off-the-shelf solution for monitoring and log aggregation, requiring further investigation.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-25T23:09:01.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "monitoring",
+        "log aggregation",
+        "off-the-shelf",
+        "investigation"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "owner"
+        }
+      ],
+      "topic": "monitoring and logging",
+      "relation": {
+        "subject": "User",
+        "predicate": "decided",
+        "object": "use off-the-shelf monitoring and log aggregation solution"
+      },
+      "state_key": "project.monitoring",
+      "state_value": "off-the-shelf solution, further investigation needed",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_f9XBWSi_15",
+      "session_index": 27,
+      "source_ids": [
+        137
+      ],
+      "source_uids": [
+        "s0027u0003"
+      ],
+      "source_times": [
+        "2023-05-25T23:09:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 11
+    },
+    "confidence": 1.0,
+    "evidence_span": "A monitoring and log aggregation system will defiantly be important. I think using an off the shelf solution for this would be best rather than developing our own. There will need to be further investigation into what to use but we should definitely have it.",
+    "assistant_replies": [
+      "That makes sense. If you don't anticipate needing a data storage system beyond a PostgreSQL database, that's fine.\n\nRegarding the monitoring and log aggregation system, using an off-the-shelf solution is a good idea, as it will save time and effort. There are several good options available that you can evaluate.\n\nAnd you're right, testing and debugging is not a system per se, but it's an essential process that needs to be integrated throughout the development lifecycle. Unit testing, integration testing, and user acceptance testing should be built into the development process from the beginning to ensure the system works as expected and catches any errors or bugs as early as possible.\n\nBased on what you've said, it seems like we can proceed with the main components we have identified so far, which are:\n\n* Data ingest system\n* Data processing system\n* Statistical analysis system\n* Machine learning system\n* Prediction system\n* Result scaling system\n* Web front end\n* Monitoring and log aggregation system\n\nIs there anything else you would like to add or discuss before we move on to breaking down each component into smaller tasks?"
+    ]
+  },
+  {
+    "memory_id": "m_e5d0d0d802d2e875b1a8",
+    "content": "User suggested that for each component, there should be a task to figure out what data needs to be retrieved, which will guide database schema and consistent data format.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-25T23:09:03.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "guide database schema and consistent data format",
+      "keywords": [
+        "data retrieval",
+        "component",
+        "database schema",
+        "data format"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "owner"
+        }
+      ],
+      "topic": "data requirements",
+      "relation": {
+        "subject": "User",
+        "predicate": "suggested",
+        "object": "add data retrieval task for each component"
+      },
+      "state_key": "project.data_retrieval_task",
+      "state_value": "figure out data needed per component",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_f9XBWSi_15",
+      "session_index": 27,
+      "source_ids": [
+        141
+      ],
+      "source_uids": [
+        "s0027u0007"
+      ],
+      "source_times": [
+        "2023-05-25T23:09:03.500000"
+      ],
+      "source_role": "user",
+      "window_index": 11
+    },
+    "confidence": 1.0,
+    "evidence_span": "Maybe for each one of these components there needs to be another task which is to figure out what data needs to be retrieved? This will also guide the database schema and consistent data format",
+    "assistant_replies": [
+      "That's a great point! You're right that identifying the specific data that needs to be retrieved is a critical step that will help guide the design of the database schema and the data format. It will also ensure that the data being ingested is relevant to the system's predictions.\n\nSo for each source, we can include a task to identify the specific data that needs to be retrieved. This will involve researching the API documentation for each source to understand the available data fields and selecting the fields that are relevant to the system's predictions.\n\nHere's an updated list of tasks for the Data Ingest system:\n\n* Ingest data from the Coinbase API\n\t+ Identify the specific data that needs to be retrieved\n\t+ Implement authentication to access the API\n\t+ Retrieve data from the API endpoints\n\t+ Clean and normalize the data\n* Ingest data from the Reddit API\n\t+ Identify the specific data that needs to be retrieved\n\t+ Implement authentication to access the API\n\t+ Retrieve data from the API endpoints\n\t+ Clean and normalize the data\n* Ingest data from the Twitter API\n\t+ Identify the specific data that needs to be retrieved\n\t+ Implement authentication to access the API\n\t+ Retrieve data from the API endpoints\n\t+ Clean and normalize the data\n* Ensure that all ingested data is in a consistent format\n* Store the ingested data in the PostgreSQL database\n\nDoes that sound good to you?"
+    ]
+  },
+  {
+    "memory_id": "m_a9a395c4e03cc8476978",
+    "content": "User assumed that the transform task needs to be completed before the analyze task.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-25T23:09:04.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "transform",
+        "analyze",
+        "task order",
+        "dependency"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "owner"
+        }
+      ],
+      "topic": "task dependencies",
+      "relation": {
+        "subject": "transform task",
+        "predicate": "precedes",
+        "object": "analyze task"
+      },
+      "state_key": "project.task_order",
+      "state_value": "transform before analyze",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_f9XBWSi_15",
+      "session_index": 27,
+      "source_ids": [
+        143
+      ],
+      "source_uids": [
+        "s0027u0009"
+      ],
+      "source_times": [
+        "2023-05-25T23:09:04.500000"
+      ],
+      "source_role": "user",
+      "window_index": 11
+    },
+    "confidence": 1.0,
+    "evidence_span": "I assume that the transform task needs to be completed before the analyze task?",
+    "assistant_replies": [
+      "Yes, that's correct! In general, the data transformation task should be completed before the data analysis tasks, as the transformed data will be used as input to the statistical and machine learning models. The transformation process may involve several steps such as cleaning, normalization, feature engineering, and scaling, and it is essential to ensure that the data is in the appropriate format for analysis."
+    ]
+  },
+  {
+    "memory_id": "m_2b56ed6624c5e2c09f48",
+    "content": "User is looking for educational content to watch during morning routine, similar to 'Motivation Madness' or 'Productivity Game'.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-26T07:15:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "watch during morning routine",
+      "keywords": [
+        "educational content",
+        "morning routine",
+        "Motivation Madness",
+        "Productivity Game",
+        "recommendation"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "owner"
+        },
+        {
+          "name": "Motivation Madness",
+          "entity_type": "other",
+          "role": "channel"
+        },
+        {
+          "name": "Productivity Game",
+          "entity_type": "other",
+          "role": "channel"
+        }
+      ],
+      "topic": "educational content",
+      "relation": {
+        "subject": "User",
+        "predicate": "seeks",
+        "object": "educational channels like Motivation Madness or Productivity Game"
+      },
+      "state_key": "user.preference.educational_channels",
+      "state_value": "similar to Motivation Madness or Productivity Game",
+      "state_status": "active",
+      "preference": {
+        "target": "educational channels",
+        "polarity": "positive",
+        "strength": 0.8,
+        "scope": "contextual"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "0528adef",
+      "session_index": 29,
+      "source_ids": [
+        147
+      ],
+      "source_uids": [
+        "s0029u0001"
+      ],
+      "source_times": [
+        "2023-05-26T07:15:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 11
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm looking for some educational content to watch during my morning routine. Can you recommend any channels similar to 'Motivation Madness' or 'Productivity Game'?",
+    "assistant_replies": [
+      "Great choices! Both \"Motivation Madness\" and \"Productivity Game\" are excellent channels for morning motivation and productivity inspiration. Here are some similar channels you might enjoy:\n\n**Motivational Channels:**\n\n1. **Tony Robbins**: Tony Robbins is a legendary motivational speaker and life coach. His channel features inspiring videos on personal growth, self-improvement, and peak performance.\n2. **GaryVee**: Gary Vaynerchuk is a well-known entrepreneur, author, and motivational speaker. His channel offers daily motivation, business insights, and personal development advice.\n3. **Lewis Howes**: Lewis Howes is a lifestyle entrepreneur, author, and motivational speaker. His channel focuses on personal growth, productivity, and entrepreneurship.\n4. **Impact Theory**: Hosted by Tom Bilyeu, Impact Theory features inspiring interviews with successful people from various fields, sharing their stories and insights on personal growth and success.\n5. **Goalcast**: Goalcast offers motivational videos on personal growth, productivity, and goal-setting, featuring inspiring stories and advice from successful individuals.\n\n**Productivity and Self-Improvement Channels:**\n\n1. **Crash Course**: While not exclusively a motivational channel, Crash Course offers educational videos on a wide range of subjects, from science and history to productivity and personal growth.\n2. **CGP Grey**: CGP Grey creates engaging, informative videos on geography, history, and productivity, with a dash of humor.\n3. **Ali Abdaal**: Ali Abdaal is a productivity YouTuber and doctor who shares tips and strategies for effective time management, goal-setting, and personal growth.\n4. **Thomas Frank**: Thomas Frank is a productivity expert and YouTuber who creates videos on effective learning, time management, and goal achievement.\n5. **Marie Forleo**: Marie Forleo is a life coach, author, and entrepreneur who shares videos on personal growth, productivity, and business development.\n\n**Additional Recommendations:**\n\n1. **TED-Ed**: TED-Ed offers educational videos on various subjects, from science and art to personal growth and motivation.\n2. **The School of Life**: This channel explores big questions and ideas from psychology, philosophy, and culture, offering insights on personal growth and self-improvement.\n3. **AsapSCIENCE**: AsapSCIENCE creates engaging, short videos on science and psychology, covering topics like productivity, motivation, and personal growth.\n\nI hope you find these recommendations helpful and enjoyable!"
+    ]
+  }
+]

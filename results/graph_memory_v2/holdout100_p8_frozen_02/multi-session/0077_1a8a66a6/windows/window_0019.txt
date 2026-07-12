@@ -1,0 +1,41 @@
+[2023-04-01T21:07:01, Sat] 1.User: write an instance function in team that compares self to another team and returns is\_better then use is\_better for is\_upset
+[2023-04-01T21:07:01.500000, Sat] 2.User: clean this method up
+
+ @staticmethod
+ def get\_midpoint\_win\_rate(seed1, seed2):
+ if seed1 == seed2:
+ return 0.5
+
+ lower\_seed, higher\_seed = sorted((seed1, seed2))
+
+ left\_tuple\_win\_rate = None
+ right\_tuple\_win\_rate = None
+
+ for (lower, higher), win\_rate in HISTORICAL\_SEED\_WIN\_RATES.items():
+ if lower == lower\_seed:
+ left\_tuple\_win\_rate = win\_rate
+ if higher == higher\_seed:
+ right\_tuple\_win\_rate = win\_rate
+ if lower == higher\_seed:
+ right\_tuple\_win\_rate = 1 - win\_rate
+ if higher == lower\_seed:
+ left\_tuple\_win\_rate = 1 - win\_rate
+
+ if left\_tuple\_win\_rate is None or right\_tuple\_win\_rate is None:
+ raise ValueError(f"Win rate data not available for seeds {seed1} and {seed2}")
+
+ win\_rate = (left\_tuple\_win\_rate + right\_tuple\_win\_rate) / 2
+ return win\_rate
+[2023-04-01T21:08:00.500000, Sat] 3.User: What is God's Kingdom?
+[2023-04-01T21:08:01, Sat] 4.User: Is the Kingdom of God real?
+[2023-04-01T21:08:01.500000, Sat] 5.User: How is the Kingdom of God made manifest
+[2023-04-01T21:08:02, Sat] 6.User: Why should man believe that God's will is possible?
+[2023-04-01T21:08:02.500000, Sat] 7.User: Can you give me an example where someone has seen the evidence of God's power ad provision in their own lives?
+[2023-04-01T21:08:03, Sat] 8.User: But can you give me a concrete actual example that really happened
+[2023-04-01T21:08:03.500000, Sat] 9.User: Who is this woman?
+[2023-04-01T21:33:00.500000, Sat] 10.User: hi
+[2023-04-01T22:34:00.500000, Sat] 11.User: Write an epic action movie scene where Jesus fights Satan and dunks on hum
+[2023-04-01T22:34:00.500000, Sat] 12.User: I'm looking for some inspiration for a new art project and was wondering if you could suggest some contemporary female artists I should check out.
+[2023-04-01T22:34:01, Sat] 13.User: I've actually seen some amazing work by female artists recently at the "Women in Art" exhibition at the Contemporary Art Museum, which I attended on March 15th. Ana Mendieta's installation piece really stood out to me. Do you know of any other exhibitions or events coming up that feature her work?
+[2023-04-01T22:34:01.500000, Sat] 14.User: I'm also thinking of organizing a small art gathering at my place, and I was wondering if you could give me some ideas for interactive art activities that my guests could participate in?
+[2023-04-01T22:34:02, Sat] 15.User: I was thinking of including some interactive installations, similar to the one I saw at the "Art After Dark" event at the Modern Art Gallery on April 1st. Do you have any ideas for installations that would be easy to set up and interactive for my guests?

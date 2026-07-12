@@ -1,0 +1,82 @@
+{
+  "question_id": "ba358f49",
+  "question_type": "multi-session",
+  "question": "How many years will I be when my friend Rachel gets married?",
+  "question_date": "2022/09/01 (Thu) 23:52",
+  "gold_answer": "33",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.0,
+  "reasoning_summary": "The user's birth date is not mentioned in any memory or source turn. Rachel's marriage is mentioned as 'next year' relative to 2022-09-01, but without the user's birth date, the user's age at that time cannot be calculated.",
+  "required_slots": [
+    {
+      "name": "user_birth_date",
+      "value": "unknown",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    },
+    {
+      "name": "rachel_marriage_date",
+      "value": "unknown",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [
+    "user_birth_date",
+    "rachel_marriage_date"
+  ],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [
+    "p7_abstained",
+    "p7_unfilled_slots",
+    "p7_no_support",
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "relative",
+    "slots": [
+      {
+        "name": "user_birth_date",
+        "query": "user birth date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "rachel_marriage_date",
+        "query": "Rachel marriage date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user birth date",
+      "Rachel marriage date"
+    ],
+    "reason": "Need user's birth date and Rachel's marriage date to compute age at marriage.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 21743,
+    "completion_tokens": 520,
+    "elapsed_seconds": 4.599462270736694
+  }
+}

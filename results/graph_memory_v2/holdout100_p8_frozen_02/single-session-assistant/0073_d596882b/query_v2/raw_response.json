@@ -1,0 +1,118 @@
+{
+  "question": "I'm planning another trip to New York City and I was wondering if you could remind me of that vegan eatery you recommended last time, the one with multiple locations throughout the city?",
+  "question_date": "2023-05-30T19:29:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user asks for the name of a vegan eatery with multiple locations in New York City that the assistant recommended in a previous conversation",
+      "target_memory_types": [
+        "assistant_reply"
+      ],
+      "entities": [
+        "New York City",
+        "vegan eatery"
+      ],
+      "keywords": [
+        "vegan",
+        "eatery",
+        "multiple locations",
+        "New York City",
+        "recommended"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T19:29:00",
+        "raw": "last time"
+      },
+      "locations": [
+        "New York City"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "recommended_by_assistant"
+      ],
+      "answer_dim": "assistant_reply",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "previous recommendation content"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user asks for the name of a vegan restaurant chain in New York City that was previously recommended",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "New York City",
+        "vegan restaurant chain"
+      ],
+      "keywords": [
+        "vegan",
+        "restaurant",
+        "chain",
+        "New York City",
+        "recommended"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T19:29:00",
+        "raw": "last time"
+      },
+      "locations": [
+        "New York City"
+      ],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "specific restaurant name"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user asks for a vegan eatery with multiple locations in New York City that was mentioned in a previous conversation",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "New York City",
+        "vegan eatery"
+      ],
+      "keywords": [
+        "vegan",
+        "eatery",
+        "multiple locations",
+        "New York City",
+        "previous conversation"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T19:29:00",
+        "raw": "last time"
+      },
+      "locations": [
+        "New York City"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "mentioned_in_conversation"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "previous conversation context"
+      ],
+      "confidence": 0.8
+    }
+  ]
+}

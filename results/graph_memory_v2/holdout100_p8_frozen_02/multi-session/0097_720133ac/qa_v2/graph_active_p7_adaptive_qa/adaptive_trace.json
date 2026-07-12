@@ -1,0 +1,207 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 2,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "vet_visit_cost",
+        "query": "cost of Lola's vet visit",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "flea_medication_cost",
+        "query": "cost of Lola's flea medication",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "cost of Lola's vet visit",
+      "cost of Lola's flea medication"
+    ],
+    "output_constraints": [
+      "sum of two costs in dollars"
+    ],
+    "reason": "The question asks for total cost, which is a sum of two separate costs."
+  },
+  "base_candidate": {
+    "answer": "75 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_07981ed9a42a23bb13fd",
+      "m_7f95f83dd83a5fc4adcf"
+    ],
+    "support_source_ids": [
+      219,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "vet_visit_cost",
+        "value": "50",
+        "support_memory_ids": [
+          "m_7f95f83dd83a5fc4adcf"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      },
+      {
+        "name": "flea_medication_cost",
+        "value": "25",
+        "support_memory_ids": [
+          "m_07981ed9a42a23bb13fd"
+        ],
+        "support_source_ids": [
+          219
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        50,
+        25
+      ],
+      "unit": "dollars",
+      "result": "75 dollars"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The vet visit cost $50 (discounted consultation fee) and the flea medication cost $25 for a 3-month supply. Sum is $75."
+  },
+  "specialist_candidate": {
+    "answer": "75 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_07981ed9a42a23bb13fd",
+      "m_7f95f83dd83a5fc4adcf"
+    ],
+    "support_source_ids": [
+      219,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "vet_visit_cost",
+        "value": 50,
+        "support_memory_ids": [
+          "m_7f95f83dd83a5fc4adcf"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      },
+      {
+        "name": "flea_medication_cost",
+        "value": 25,
+        "support_memory_ids": [
+          "m_07981ed9a42a23bb13fd"
+        ],
+        "support_source_ids": [
+          219
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        50,
+        25
+      ],
+      "unit": "dollars",
+      "result": "75 dollars"
+    },
+    "fact_table": [
+      {
+        "subject": "Lola's vet visit",
+        "predicate": "cost",
+        "object": "50",
+        "value": 50,
+        "unit": "dollars",
+        "event_time": "2023-05-18T00:00:00",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_7f95f83dd83a5fc4adcf"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      },
+      {
+        "subject": "Lola's flea medication",
+        "predicate": "cost",
+        "object": "25",
+        "value": 25,
+        "unit": "dollars",
+        "event_time": "2023-05-30T14:21:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_07981ed9a42a23bb13fd"
+        ],
+        "support_source_ids": [
+          219
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The vet visit cost $50 (source 105) and the flea medication cost $25 (source 219). Sum is $75.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    219,
+    105,
+    221,
+    224,
+    220,
+    39,
+    109,
+    108,
+    162,
+    149,
+    106,
+    42,
+    110,
+    96,
+    223,
+    222
+  ],
+  "targeted_source_ids": [
+    28,
+    60,
+    92,
+    96,
+    105,
+    110,
+    111,
+    113,
+    132,
+    219,
+    220,
+    221,
+    109
+  ]
+}

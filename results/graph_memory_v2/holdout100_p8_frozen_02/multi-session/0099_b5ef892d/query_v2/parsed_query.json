@@ -1,0 +1,108 @@
+{
+  "question": "How many days did I spend on camping trips in the United States this year?",
+  "question_date": "2023-04-29T23:45:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's camping trips in the United States this year",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "camping trip",
+        "United States"
+      ],
+      "keywords": [
+        "camping",
+        "United States"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-01-01",
+        "end": "2023-04-29",
+        "raw": "this year"
+      },
+      "locations": [
+        "United States"
+      ],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "total days spent camping in US this year"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's camping trips in the United States this year",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "camping trip",
+        "United States"
+      ],
+      "keywords": [
+        "camping",
+        "United States"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-01-01",
+        "end": "2023-04-29",
+        "raw": "this year"
+      },
+      "locations": [
+        "United States"
+      ],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "list of camping trips in US this year",
+        "duration of each trip"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's camping trips in the United States this year",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "camping trip",
+        "United States"
+      ],
+      "keywords": [
+        "camping",
+        "United States"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-01-01",
+        "end": "2023-04-29",
+        "raw": "this year"
+      },
+      "locations": [
+        "United States"
+      ],
+      "state_keys": [
+        "total_camping_days_this_year"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "total_camping_days_this_year"
+      ],
+      "confidence": 0.4
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "question_id": "720133ac",
+  "question_type": "multi-session",
+  "question": "What is the total cost of Lola's vet visit and flea medication?",
+  "question_date": "2023/05/30 (Tue) 18:40",
+  "gold_answer": "$75",
+  "prediction": "75 dollars",
+  "support_memory_ids": [
+    "m_07981ed9a42a23bb13fd",
+    "m_7f95f83dd83a5fc4adcf"
+  ],
+  "support_source_ids": [
+    219,
+    105
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The vet visit cost $50 (source 105) and the flea medication cost $25 (source 219). Sum is $75.",
+  "required_slots": [
+    {
+      "name": "vet_visit_cost",
+      "value": 50,
+      "support_memory_ids": [
+        "m_7f95f83dd83a5fc4adcf"
+      ],
+      "support_source_ids": [
+        105
+      ]
+    },
+    {
+      "name": "flea_medication_cost",
+      "value": 25,
+      "support_memory_ids": [
+        "m_07981ed9a42a23bb13fd"
+      ],
+      "support_source_ids": [
+        219
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      50,
+      25
+    ],
+    "unit": "dollars",
+    "result": "75 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 2,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "vet_visit_cost",
+        "query": "cost of Lola's vet visit",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "flea_medication_cost",
+        "query": "cost of Lola's flea medication",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "cost of Lola's vet visit",
+      "cost of Lola's flea medication"
+    ],
+    "output_constraints": [
+      "sum of two costs in dollars"
+    ],
+    "reason": "The question asks for total cost, which is a sum of two separate costs."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 28458,
+    "completion_tokens": 753,
+    "elapsed_seconds": 6.0064778327941895
+  },
+  "correct": true,
+  "judge_reason": "Equivalent wording and units, '75 dollars' matches '$75'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 135,
+    "completion_tokens": 29,
+    "elapsed_seconds": 0.875067949295044
+  }
+}

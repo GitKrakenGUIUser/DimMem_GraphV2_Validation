@@ -1,0 +1,102 @@
+{
+  "question": "I've got some free time tonight, any documentary recommendations?",
+  "question_date": "2023-05-30T22:56:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user asked for documentary recommendations for tonight",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [],
+      "keywords": [
+        "documentary",
+        "recommendation",
+        "tonight"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-05-30",
+        "end": "",
+        "raw": "tonight"
+      },
+      "locations": [],
+      "state_keys": [
+        "preferred_genres",
+        "recently_watched"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "user's documentary preferences",
+        "previously recommended documentaries"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user asked for documentary recommendations for tonight, considering past recommendations",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [],
+      "keywords": [
+        "documentary",
+        "recommendation",
+        "previous"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T22:56:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "supersedes"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "previous documentary recommendations"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user asked for documentary recommendations for tonight, based on user profile",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [],
+      "keywords": [
+        "documentary",
+        "preference",
+        "genre"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "preferred_genres",
+        "disliked_genres"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "user's preferred documentary genres"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

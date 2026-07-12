@@ -1,0 +1,127 @@
+{
+  "question": "How many years will I be when my friend Rachel gets married?",
+  "question_date": "2022-09-01T23:52:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's age when Rachel gets married",
+      "target_memory_types": [
+        "profile",
+        "fact"
+      ],
+      "entities": [
+        "the user",
+        "Rachel"
+      ],
+      "keywords": [
+        "age",
+        "Rachel",
+        "marriage",
+        "wedding"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when Rachel gets married"
+      },
+      "locations": [],
+      "state_keys": [
+        "user_birth_date",
+        "user_age",
+        "rachel_marriage_date"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "user_birth_date",
+        "rachel_marriage_date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's age at Rachel's wedding",
+      "target_memory_types": [
+        "episodic",
+        "profile"
+      ],
+      "entities": [
+        "the user",
+        "Rachel"
+      ],
+      "keywords": [
+        "age",
+        "Rachel",
+        "wedding",
+        "birthday"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when Rachel gets married"
+      },
+      "locations": [],
+      "state_keys": [
+        "user_birth_date",
+        "rachel_wedding_date"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "user_birth_date",
+        "rachel_wedding_date"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's age at the time of Rachel's marriage",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user",
+        "Rachel"
+      ],
+      "keywords": [
+        "age",
+        "Rachel",
+        "marriage",
+        "date"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when Rachel gets married"
+      },
+      "locations": [],
+      "state_keys": [
+        "user_birth_date",
+        "rachel_marriage_date"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "user_birth_date",
+        "rachel_marriage_date"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

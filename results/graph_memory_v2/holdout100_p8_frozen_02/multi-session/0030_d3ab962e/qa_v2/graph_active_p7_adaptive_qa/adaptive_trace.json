@@ -1,0 +1,194 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "hike distances",
+        "query": "hike distance weekend",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "hike distance weekend"
+    ],
+    "output_constraints": [
+      "sum of distances in miles"
+    ],
+    "reason": "The question asks for total distance of hikes on two consecutive weekends, requiring sum of two distances."
+  },
+  "base_candidate": {
+    "answer": "8 miles",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1f1a8ca2fc568afa366f",
+      "m_63e5f2608fbe8ae60403"
+    ],
+    "support_source_ids": [
+      205,
+      39
+    ],
+    "required_slots": [
+      {
+        "name": "hike distances",
+        "value": "5 miles and 3 miles",
+        "support_memory_ids": [
+          "m_1f1a8ca2fc568afa366f",
+          "m_63e5f2608fbe8ae60403"
+        ],
+        "support_source_ids": [
+          205,
+          39
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5,
+        3
+      ],
+      "unit": "miles",
+      "result": "8 miles"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user hiked 5 miles at Red Rock Canyon two weekends ago (2022-09-10) and 3 miles at Valley of Fire State Park last weekend (2022-09-17). These are two consecutive weekends. The total distance is 5 + 3 = 8 miles."
+  },
+  "specialist_candidate": {
+    "answer": "8 miles",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1f1a8ca2fc568afa366f",
+      "m_63e5f2608fbe8ae60403"
+    ],
+    "support_source_ids": [
+      205,
+      39
+    ],
+    "required_slots": [
+      {
+        "name": "hike distances",
+        "value": "5 miles and 3 miles",
+        "support_memory_ids": [
+          "m_1f1a8ca2fc568afa366f",
+          "m_63e5f2608fbe8ae60403"
+        ],
+        "support_source_ids": [
+          205,
+          39
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5,
+        3
+      ],
+      "unit": "miles",
+      "result": "8 miles"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "hiked",
+        "object": "5 miles at Red Rock Canyon",
+        "value": "5",
+        "unit": "miles",
+        "event_time": "2022-09-10",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_1f1a8ca2fc568afa366f"
+        ],
+        "support_source_ids": [
+          205
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "hiked",
+        "object": "3-mile loop trail at Valley of Fire State Park",
+        "value": "3",
+        "unit": "miles",
+        "event_time": "2022-09-17",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_63e5f2608fbe8ae60403"
+        ],
+        "support_source_ids": [
+          39
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Two hikes on consecutive weekends: 5 miles two weekends ago (2022-09-10) and 3 miles last weekend (2022-09-17). Sum is 8 miles.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    205,
+    177,
+    159,
+    250,
+    228,
+    39,
+    106,
+    40,
+    251,
+    190,
+    192,
+    65,
+    152,
+    178,
+    217,
+    113,
+    114,
+    108,
+    229,
+    189,
+    206,
+    191,
+    41,
+    64
+  ],
+  "targeted_source_ids": [
+    24,
+    28,
+    44,
+    101,
+    152,
+    177,
+    178,
+    182,
+    196,
+    198,
+    199,
+    205,
+    153,
+    200,
+    206
+  ]
+}

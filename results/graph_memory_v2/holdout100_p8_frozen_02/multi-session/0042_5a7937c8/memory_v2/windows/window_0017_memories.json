@@ -1,0 +1,291 @@
+[
+  {
+    "memory_id": "m_b85ecc6e80a0df487fc4",
+    "content": "User is trying a query in Google Sheets that looks up a postal code but encountering issues with postal codes that contain letters or spaces, like Swedish or Luxembourg postal codes.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2024-01-10T22:37:00.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "2024-01-10T22:37:00.500000"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Google Sheets",
+        "query",
+        "postal code",
+        "letters",
+        "spaces",
+        "Swedish",
+        "Luxembourg"
+      ],
+      "entities": [
+        {
+          "name": "Google Sheets",
+          "entity_type": "tool",
+          "role": "platform"
+        },
+        {
+          "name": "Swedish postal code",
+          "entity_type": "other",
+          "role": "example"
+        },
+        {
+          "name": "Luxembourg postal code",
+          "entity_type": "other",
+          "role": "example"
+        }
+      ],
+      "topic": "Google Sheets query issue",
+      "relation": {
+        "subject": "User",
+        "predicate": "encountering issue with",
+        "object": "Google Sheets query for postal codes with letters or spaces"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_ExcZFNl_0",
+      "session_index": 41,
+      "source_ids": [
+        209
+      ],
+      "source_uids": [
+        "s0041u0001"
+      ],
+      "source_times": [
+        "2024-01-10T22:37:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 17
+    },
+    "confidence": 1.0,
+    "evidence_span": "I am trying a query in Google Sheets that looks up a postal code but encountering issues, it doesn't seem to look up postal codes that contain letters or if there is a space in the postal code like for a Swedish or Luxembourg postal code.",
+    "assistant_replies": [
+      "It looks like you are using the `QUERY` function to search for rows in the 'Masterfile 12/1/2022' sheet where column A (zip\\_code) contains the value in cell C2. If you want to include postal codes that contain letters or have spaces in the search, you can modify the `WHERE` clause of the `QUERY` function to use the `REGEXMATCH` function.\n\nHere is an example of how you can modify the `WHERE` clause to include postal codes with letters or spaces:\n```\n=QUERY('Masterfile 12/1/2022'!A:Q,\"Select * Where REGEXMATCH(A, \"\"\"&$C$2&\"\"\")\")\n```\nThis will search for rows where the value in column A matches the regular expression in cell C2. The regular expression `\".*\"&$C$2&\".*\"` will match any string that contains the value in cell C2, regardless of whether it contains letters or spaces.\n\nI hope this helps! Let me know if you have any further questions or need more information."
+    ]
+  },
+  {
+    "memory_id": "m_9ce26f81a6eb0e334d72",
+    "content": "User's current formula is =QUERY('Masterfile 12/1/2022'!A:Q,\"Select * Where A contains \"\"\"&$C$2&\"\"\"\")",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2024-01-10T22:37:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to look up postal codes",
+      "keywords": [
+        "Google Sheets",
+        "formula",
+        "QUERY",
+        "Masterfile",
+        "postal code lookup"
+      ],
+      "entities": [
+        {
+          "name": "Masterfile 12/1/2022",
+          "entity_type": "dataset",
+          "role": "data source"
+        }
+      ],
+      "topic": "Google Sheets formula",
+      "relation": {
+        "subject": "User",
+        "predicate": "uses formula",
+        "object": "=QUERY('Masterfile 12/1/2022'!A:Q,\"Select * Where A contains \"\"\"&$C$2&\"\"\"\")"
+      },
+      "state_key": "user.google_sheets.formula",
+      "state_value": "=QUERY('Masterfile 12/1/2022'!A:Q,\"Select * Where A contains \"\"\"&$C$2&\"\"\"\")",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_ExcZFNl_0",
+      "session_index": 41,
+      "source_ids": [
+        209
+      ],
+      "source_uids": [
+        "s0041u0001"
+      ],
+      "source_times": [
+        "2024-01-10T22:37:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 17
+    },
+    "confidence": 1.0,
+    "evidence_span": "Here is the current formula that I have: =QUERY('Masterfile 12/1/2022'!A:Q,\"Select * Where A contains \"\"\"&$C$2&\"\"\"\")",
+    "assistant_replies": [
+      "It looks like you are using the `QUERY` function to search for rows in the 'Masterfile 12/1/2022' sheet where column A (zip\\_code) contains the value in cell C2. If you want to include postal codes that contain letters or have spaces in the search, you can modify the `WHERE` clause of the `QUERY` function to use the `REGEXMATCH` function.\n\nHere is an example of how you can modify the `WHERE` clause to include postal codes with letters or spaces:\n```\n=QUERY('Masterfile 12/1/2022'!A:Q,\"Select * Where REGEXMATCH(A, \"\"\"&$C$2&\"\"\")\")\n```\nThis will search for rows where the value in column A matches the regular expression in cell C2. The regular expression `\".*\"&$C$2&\".*\"` will match any string that contains the value in cell C2, regardless of whether it contains letters or spaces.\n\nI hope this helps! Let me know if you have any further questions or need more information."
+    ]
+  },
+  {
+    "memory_id": "m_e4fc6fb07e11170f3825",
+    "content": "User provided sample data with columns: zip_code, country_code, place_name, state, geometry, dc1, dc1_ping, dc1_distance, dc2, dc2_ping, dc2_distance, dc3, dc3_ping, dc3_distance, dc4, dc4_ping, dc4_distance.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2024-01-10T22:37:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "sample data",
+        "columns",
+        "zip_code",
+        "country_code",
+        "place_name",
+        "state",
+        "geometry",
+        "dc1",
+        "dc2",
+        "dc3",
+        "dc4"
+      ],
+      "entities": [],
+      "topic": "sample data structure",
+      "relation": {
+        "subject": "sample data",
+        "predicate": "has columns",
+        "object": "zip_code, country_code, place_name, state, geometry, dc1, dc1_ping, dc1_distance, dc2, dc2_ping, dc2_distance, dc3, dc3_ping, dc3_distance, dc4, dc4_ping, dc4_distance"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_ExcZFNl_0",
+      "session_index": 41,
+      "source_ids": [
+        209
+      ],
+      "source_uids": [
+        "s0041u0001"
+      ],
+      "source_times": [
+        "2024-01-10T22:37:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 17
+    },
+    "confidence": 1.0,
+    "evidence_span": "Here is some sample data: zip_code country_code place_name state geometry dc1 dc1_ping dc1_distance dc2 dc2_ping dc2_distance dc3 dc3_ping dc3_distance dc4 dc4_ping dc4_distance",
+    "assistant_replies": [
+      "It looks like you are using the `QUERY` function to search for rows in the 'Masterfile 12/1/2022' sheet where column A (zip\\_code) contains the value in cell C2. If you want to include postal codes that contain letters or have spaces in the search, you can modify the `WHERE` clause of the `QUERY` function to use the `REGEXMATCH` function.\n\nHere is an example of how you can modify the `WHERE` clause to include postal codes with letters or spaces:\n```\n=QUERY('Masterfile 12/1/2022'!A:Q,\"Select * Where REGEXMATCH(A, \"\"\"&$C$2&\"\"\")\")\n```\nThis will search for rows where the value in column A matches the regular expression in cell C2. The regular expression `\".*\"&$C$2&\".*\"` will match any string that contains the value in cell C2, regardless of whether it contains letters or spaces.\n\nI hope this helps! Let me know if you have any further questions or need more information."
+    ]
+  },
+  {
+    "memory_id": "m_99887a4c73f27653ce17",
+    "content": "User asks if there are better ways than QUERY, such as FILTER or VLOOKUP.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2024-01-10T22:37:00.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "2024-01-10T22:37:00.500000"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to improve postal code lookup",
+      "keywords": [
+        "better ways",
+        "FILTER",
+        "VLOOKUP",
+        "alternative",
+        "Google Sheets"
+      ],
+      "entities": [
+        {
+          "name": "FILTER",
+          "entity_type": "tool",
+          "role": "alternative"
+        },
+        {
+          "name": "VLOOKUP",
+          "entity_type": "tool",
+          "role": "alternative"
+        }
+      ],
+      "topic": "alternative methods",
+      "relation": {
+        "subject": "User",
+        "predicate": "asks about",
+        "object": "better ways than QUERY, like FILTER or VLOOKUP"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_ExcZFNl_0",
+      "session_index": 41,
+      "source_ids": [
+        209
+      ],
+      "source_uids": [
+        "s0041u0001"
+      ],
+      "source_times": [
+        "2024-01-10T22:37:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 17
+    },
+    "confidence": 1.0,
+    "evidence_span": "Also, do you think there's better ways to do this than a query as well? Maybe using FILTER or VLOOKUP? I would appreciate your suggestions.",
+    "assistant_replies": [
+      "It looks like you are using the `QUERY` function to search for rows in the 'Masterfile 12/1/2022' sheet where column A (zip\\_code) contains the value in cell C2. If you want to include postal codes that contain letters or have spaces in the search, you can modify the `WHERE` clause of the `QUERY` function to use the `REGEXMATCH` function.\n\nHere is an example of how you can modify the `WHERE` clause to include postal codes with letters or spaces:\n```\n=QUERY('Masterfile 12/1/2022'!A:Q,\"Select * Where REGEXMATCH(A, \"\"\"&$C$2&\"\"\")\")\n```\nThis will search for rows where the value in column A matches the regular expression in cell C2. The regular expression `\".*\"&$C$2&\".*\"` will match any string that contains the value in cell C2, regardless of whether it contains letters or spaces.\n\nI hope this helps! Let me know if you have any further questions or need more information."
+    ]
+  }
+]

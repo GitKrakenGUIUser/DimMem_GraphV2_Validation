@@ -1,0 +1,65 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [],
+  "specialist_needed": false,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "base_candidate": {
+    "answer": "every other week",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8e9e24db0b4bb07d5674"
+    ],
+    "support_source_ids": [
+      218
+    ],
+    "required_slots": [
+      {
+        "name": "frequency",
+        "value": "every other week",
+        "support_memory_ids": [
+          "m_8e9e24db0b4bb07d5674"
+        ],
+        "support_source_ids": [
+          218
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_8e9e24db0b4bb07d5674 states user plays tennis with friends at the local park every other week, and source 218 confirms this pattern. The question asks about table tennis, but the memories consistently refer to tennis; no separate table tennis frequency is found. Given the context, the frequency for tennis is applied."
+  },
+  "specialist_candidate": null,
+  "choice": "base",
+  "choice_reason": "base candidate passed risk gate",
+  "compact_source_ids": [
+    4,
+    218,
+    5,
+    1,
+    223,
+    12,
+    222,
+    2,
+    174,
+    169,
+    185,
+    6,
+    210,
+    219,
+    3
+  ],
+  "targeted_source_ids": []
+}

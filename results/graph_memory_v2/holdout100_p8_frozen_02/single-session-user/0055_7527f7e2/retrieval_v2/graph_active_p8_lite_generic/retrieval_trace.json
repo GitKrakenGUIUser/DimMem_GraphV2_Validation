@@ -1,0 +1,2892 @@
+{
+  "initial": [
+    {
+      "memory_id": "m_96e44b3585d49fb47de8",
+      "content": "User spent $800 on a designer handbag last month.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "last month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "spent",
+          "$800",
+          "designer handbag",
+          "luxury"
+        ],
+        "entities": [
+          {
+            "name": "designer handbag",
+            "entity_type": "object",
+            "role": "purchase"
+          }
+        ],
+        "topic": "personal spending",
+        "relation": {
+          "subject": "user",
+          "predicate": "spent",
+          "object": "$800 on designer handbag"
+        },
+        "state_key": "user.spending.designer_handbag",
+        "state_value": "$800",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_7cb94507",
+        "session_index": 15,
+        "source_ids": [
+          83
+        ],
+        "source_uids": [
+          "s0015u0002"
+        ],
+        "source_times": [
+          "2023-05-23T08:15:01"
+        ],
+        "source_role": "user",
+        "window_index": 6
+      },
+      "score": 0.05163934426229508,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 207.84978153686217,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.7270211972900854,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.6666666666666666,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 107.58669549508016,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.793886363463981,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.8888888888888888,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "active_entity",
+          "entity": "designer handbag"
+        }
+      ],
+      "graph_paths": [
+        [
+          "entity",
+          "designer handbag"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_105f3768a522ab3a6344",
+      "content": "User started buying beauty products at a discount store.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "similar products at fraction of cost",
+        "purpose": "",
+        "keywords": [
+          "beauty products",
+          "discount store",
+          "save money"
+        ],
+        "entities": [
+          {
+            "name": "discount store",
+            "entity_type": "organization",
+            "role": "store"
+          }
+        ],
+        "topic": "shopping habits",
+        "relation": {
+          "subject": "user",
+          "predicate": "started buying",
+          "object": "beauty products at discount store"
+        },
+        "state_key": "user.shopping.beauty_products_source",
+        "state_value": "discount store",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_7cb94507",
+        "session_index": 15,
+        "source_ids": [
+          85
+        ],
+        "source_uids": [
+          "s0015u0004"
+        ],
+        "source_times": [
+          "2023-05-23T08:15:02"
+        ],
+        "source_role": "user",
+        "window_index": 6
+      },
+      "score": 0.048180314309346564,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 5,
+          "raw_score": 14.995617923784454,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.47226995351850354,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 9,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.016666666666666666
+        },
+        {
+          "route": "bm25",
+          "rank": 23,
+          "raw_score": 7.151473477902618,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dense",
+          "rank": 3,
+          "raw_score": 0.40670058515423885,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.018548387096774192
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_07c49732489d0ac71674",
+      "content": "User's neighbor expressed concern that the landlord is at the property very often without getting much done.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": "Recently"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "neighbor",
+          "concern",
+          "landlord",
+          "frequent",
+          "property"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "tenant"
+          },
+          {
+            "name": "neighbor",
+            "entity_type": "person",
+            "role": "neighbor"
+          },
+          {
+            "name": "Venkatesh",
+            "entity_type": "person",
+            "role": "landlord"
+          }
+        ],
+        "topic": "neighbor concern",
+        "relation": {
+          "subject": "neighbor",
+          "predicate": "expressed concern about",
+          "object": "landlord's frequent visits without progress"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "sharegpt_bTDMt3m_0",
+        "session_index": 40,
+        "source_ids": [
+          220
+        ],
+        "source_uids": [
+          "s0040u0006"
+        ],
+        "source_times": [
+          "2023-05-29T15:27:03"
+        ],
+        "source_role": "user",
+        "window_index": 18
+      },
+      "score": 0.03384176587301587,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 20.049424423257555,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01796875
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_13e3bde1113f29fee361",
+      "content": "User attended a morning seminar on entrepreneurship at the co-working space near their apartment on 2023-05-25.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-25",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "today"
+        },
+        "locations": [
+          "co-working space near user's apartment"
+        ],
+        "reason": "",
+        "purpose": "network and spread the word about project",
+        "keywords": [
+          "seminar",
+          "entrepreneurship",
+          "co-working space",
+          "networking",
+          "project"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "attendee"
+          }
+        ],
+        "topic": "entrepreneurship seminar",
+        "relation": {
+          "subject": "user",
+          "predicate": "attended",
+          "object": "morning seminar on entrepreneurship"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "864a563d_3",
+        "session_index": 23,
+        "source_ids": [
+          136
+        ],
+        "source_uids": [
+          "s0023u0004"
+        ],
+        "source_times": [
+          "2023-05-25T23:09:02"
+        ],
+        "source_role": "user",
+        "window_index": 11
+      },
+      "score": 0.032326215356656064,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 21.462143375369322,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 11,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01619718309859155
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_04ba618b2ae7122bc296",
+      "content": "User attended a guided tour at the Guggenheim Museum on 2023-05-26, focusing on Wassily Kandinsky.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-26",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "today"
+        },
+        "locations": [
+          "Guggenheim Museum"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "Guggenheim Museum",
+          "guided tour",
+          "Wassily Kandinsky",
+          "2023-05-26"
+        ],
+        "entities": [
+          {
+            "name": "Guggenheim Museum",
+            "entity_type": "organization",
+            "role": "location"
+          },
+          {
+            "name": "Wassily Kandinsky",
+            "entity_type": "person",
+            "role": "subject"
+          }
+        ],
+        "topic": "art museum visit",
+        "relation": {
+          "subject": "user",
+          "predicate": "attended",
+          "object": "guided tour at Guggenheim Museum about Wassily Kandinsky"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "bee872da_2",
+        "session_index": 26,
+        "source_ids": [
+          148
+        ],
+        "source_uids": [
+          "s0026u0003"
+        ],
+        "source_times": [
+          "2023-05-26T06:40:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 12
+      },
+      "score": 0.030018674136321193,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 25,
+          "raw_score": 10.435024869655937,
+          "rrf_contribution": 0.011764705882352941
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01825396825396825
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_d99b12f88f6a8463b159",
+      "content": "User wants help tracking spending habits and creating a budget.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-23T08:15:00.500000",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "2023-05-23T08:15:00.500000"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "get better handle on finances",
+        "keywords": [
+          "track spending",
+          "budget",
+          "personal finance"
+        ],
+        "entities": [],
+        "topic": "personal finance",
+        "relation": {
+          "subject": "user",
+          "predicate": "wants help with",
+          "object": "tracking spending and creating budget"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_7cb94507",
+        "session_index": 15,
+        "source_ids": [
+          82
+        ],
+        "source_uids": [
+          "s0015u0001"
+        ],
+        "source_times": [
+          "2023-05-23T08:15:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 6
+      },
+      "score": 0.028438886647841874,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 7,
+          "raw_score": 13.737726170216966,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dense",
+          "rank": 14,
+          "raw_score": 0.32505200561526904,
+          "rrf_contribution": 0.013513513513513514
+        },
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 20.51769109566471,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.43482680568501686,
+          "rrf_contribution": 0.016129032258064516
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_e13b5bd59f580605be88",
+      "content": "User did not have proper access to a part of the property they paid for for a whole year.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "range",
+          "raw": "a whole year"
+        },
+        "locations": [],
+        "reason": "garage repairs",
+        "purpose": "",
+        "keywords": [
+          "no access",
+          "property",
+          "paid for",
+          "whole year"
+        ],
+        "entities": [],
+        "topic": "rental issue",
+        "relation": {
+          "subject": "user",
+          "predicate": "did not have proper access to",
+          "object": "part of property paid for"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "sharegpt_bTDMt3m_0",
+        "session_index": 40,
+        "source_ids": [
+          218
+        ],
+        "source_uids": [
+          "s0040u0004"
+        ],
+        "source_times": [
+          "2023-05-29T15:27:02"
+        ],
+        "source_role": "user",
+        "window_index": 17
+      },
+      "score": 0.028125,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 4,
+          "raw_score": 16.679818418146255,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dense",
+          "rank": 20,
+          "raw_score": 0.30828035212088667,
+          "rrf_contribution": 0.0125
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_33ac5154e56f6ba77694",
+      "content": "User needs help finding a good cobbler in their area.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-27T23:54:00.500000",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "2023-05-27T23:54:00.500000"
+        },
+        "locations": [
+          "user's area"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "cobbler",
+          "shoe repair",
+          "recommendation"
+        ],
+        "entities": [],
+        "topic": "cobbler search",
+        "relation": {
+          "subject": "user",
+          "predicate": "looking for",
+          "object": "good cobbler in area"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "4e2acecc",
+        "session_index": 32,
+        "source_ids": [
+          179
+        ],
+        "source_uids": [
+          "s0032u0001"
+        ],
+        "source_times": [
+          "2023-05-27T23:54:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.02810889728615596,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 11,
+          "raw_score": 13.13504770304185,
+          "rrf_contribution": 0.014084507042253521
+        },
+        {
+          "route": "dimension",
+          "rank": 22,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.014024390243902438
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_4afea615e81cf51d9e23",
+      "content": "User asked how many cards are typically in a Magic the Gathering set.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-27T11:38:03",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "2023-05-27T11:38:03"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "Magic the Gathering",
+          "cards per set",
+          "typical set"
+        ],
+        "entities": [],
+        "topic": "Magic the Gathering set size",
+        "relation": {
+          "subject": "user",
+          "predicate": "asked",
+          "object": "number of cards in a typical set"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "sharegpt_xIDRgaY_0",
+        "session_index": 29,
+        "source_ids": [
+          164
+        ],
+        "source_uids": [
+          "s0029u0006"
+        ],
+        "source_times": [
+          "2023-05-27T11:38:03"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.02606951871657754,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 13.620880457676252,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 28,
+          "raw_score": 0.2830870806935316,
+          "rrf_contribution": 0.011363636363636364
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_6918b1eee46926086c68",
+      "content": "User has been wearing a silver necklace with a pendant that says 'sister' in cursive, given by their sister 3 weeks ago, almost daily since then.",
+      "dimension": {
+        "memory_type": "profile",
+        "time": {
+          "event_start": "2023-05-09",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "3 weeks ago"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "silver necklace",
+          "sister pendant",
+          "daily wear",
+          "gift from sister"
+        ],
+        "entities": [
+          {
+            "name": "user's sister",
+            "entity_type": "person",
+            "role": "giver"
+          }
+        ],
+        "topic": "jewelry preference",
+        "relation": {
+          "subject": "user",
+          "predicate": "wears almost daily",
+          "object": "silver necklace with 'sister' pendant"
+        },
+        "state_key": "user.favorite_jewelry",
+        "state_value": "silver necklace with 'sister' pendant",
+        "state_status": "active",
+        "preference": {
+          "target": "silver necklace with 'sister' pendant",
+          "polarity": "positive",
+          "strength": 0.9,
+          "scope": "specific"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "44bbd8cd_2",
+        "session_index": 44,
+        "source_ids": [
+          243
+        ],
+        "source_uids": [
+          "s0044u0006"
+        ],
+        "source_times": [
+          "2023-05-30T22:18:03"
+        ],
+        "source_role": "user",
+        "window_index": 19
+      },
+      "score": 0.02381289865343728,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 23,
+          "raw_score": 10.743457348598788,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dense",
+          "rank": 25,
+          "raw_score": 0.2852660114418372,
+          "rrf_contribution": 0.011764705882352941
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_025edf24e5da23dcf83b",
+      "content": "User has been thinking of writing their own play.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-21",
+          "valid_to": "",
+          "precision": "day",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "user",
+          "thinking",
+          "writing",
+          "play",
+          "scriptwriting"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          }
+        ],
+        "topic": "user creative project",
+        "relation": {
+          "subject": "User",
+          "predicate": "thinking of writing",
+          "object": "own play"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "fb2368b8_3",
+        "session_index": 6,
+        "source_ids": [
+          37
+        ],
+        "source_uids": [
+          "s0006u0003"
+        ],
+        "source_times": [
+          "2023-05-21T03:22:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 2
+      },
+      "score": 0.018548387096774192,
+      "retrieval_sources": [
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.018548387096774192
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_08dd04169ecb6fda5cb5",
+      "content": "User recently tried shakshuka and found it amazing, especially the combination of eggs and tomato sauce.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-22T19:22:03.500000",
+          "event_end": "",
+          "valid_from": "2023-05-22T19:22:03.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "recently"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "shakshuka",
+          "tried",
+          "amazing",
+          "eggs",
+          "tomato sauce"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "self"
+          },
+          {
+            "name": "shakshuka",
+            "entity_type": "product",
+            "role": "food"
+          }
+        ],
+        "topic": "shakshuka experience",
+        "relation": {
+          "subject": "User",
+          "predicate": "tried and liked",
+          "object": "shakshuka"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "shakshuka",
+          "polarity": "positive",
+          "strength": 0.8,
+          "scope": "specific"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "ultrachat_461239",
+        "session_index": 13,
+        "source_ids": [
+          74
+        ],
+        "source_uids": [
+          "s0013u0007"
+        ],
+        "source_times": [
+          "2023-05-22T19:22:03.500000"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.01769230769230769,
+      "retrieval_sources": [
+        {
+          "route": "dimension",
+          "rank": 5,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01769230769230769
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_0bb9b542ff4eefb6b67f",
+      "content": "User needs to reorder Luna's medication tomorrow during lunch break.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-21T12:00:00",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "tomorrow during my lunch break"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "reorder Luna's medication",
+        "keywords": [
+          "Luna",
+          "medication",
+          "reorder",
+          "lunch break"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          },
+          {
+            "name": "Luna",
+            "entity_type": "other",
+            "role": "pet"
+          }
+        ],
+        "topic": "medication reorder",
+        "relation": {
+          "subject": "User",
+          "predicate": "plans to reorder",
+          "object": "Luna's medication"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "d81d9846",
+        "session_index": 1,
+        "source_ids": [
+          8,
+          9
+        ],
+        "source_uids": [
+          "s0001u0003",
+          "s0001u0004"
+        ],
+        "source_times": [
+          "2023-05-20T05:56:01.500000",
+          "2023-05-20T05:56:02"
+        ],
+        "source_role": "user",
+        "window_index": 0
+      },
+      "score": 0.017424242424242422,
+      "retrieval_sources": [
+        {
+          "route": "dimension",
+          "rank": 6,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.017424242424242422
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_0c6aa79de6544515b888",
+      "content": "User lost a gold band with a small diamond at the gym about a month ago and is considering asking if anyone turned it in.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-04-30",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "about a month ago"
+        },
+        "locations": [
+          "gym"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "gold band",
+          "small diamond",
+          "lost",
+          "gym",
+          "ask"
+        ],
+        "entities": [],
+        "topic": "lost jewelry",
+        "relation": {
+          "subject": "user",
+          "predicate": "lost",
+          "object": "gold band with small diamond at gym"
+        },
+        "state_key": "user.lost_jewelry",
+        "state_value": "gold band with small diamond lost at gym about a month ago",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "44bbd8cd_2",
+        "session_index": 44,
+        "source_ids": [
+          240
+        ],
+        "source_uids": [
+          "s0044u0003"
+        ],
+        "source_times": [
+          "2023-05-30T22:18:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 19
+      },
+      "score": 0.017164179104477612,
+      "retrieval_sources": [
+        {
+          "route": "dimension",
+          "rank": 7,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.017164179104477612
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_0de2c5f71ef04adfab55",
+      "content": "User requested the improved paragraph about Orlando theme parks to sound more warm yet convincing.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [
+          "Orlando"
+        ],
+        "reason": "",
+        "purpose": "to make the text more warm yet convincing",
+        "keywords": [
+          "warm",
+          "convincing",
+          "tone",
+          "Orlando",
+          "theme parks"
+        ],
+        "entities": [
+          {
+            "name": "Orlando",
+            "entity_type": "place",
+            "role": "destination"
+          }
+        ],
+        "topic": "blog tone adjustment",
+        "relation": {
+          "subject": "User",
+          "predicate": "requested tone adjustment for",
+          "object": "paragraph about Orlando theme parks"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "sharegpt_ToxFax1_535",
+        "session_index": 19,
+        "source_ids": [
+          111
+        ],
+        "source_uids": [
+          "s0019u0011"
+        ],
+        "source_times": [
+          "2023-05-25T03:23:05.500000"
+        ],
+        "source_role": "user",
+        "window_index": 8
+      },
+      "score": 0.016911764705882352,
+      "retrieval_sources": [
+        {
+          "route": "dimension",
+          "rank": 8,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.016911764705882352
+        }
+      ],
+      "graph_paths": []
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "coverage_before": {
+        "must_continue": true,
+        "hard_gaps": [
+          "state_chain_not_checked"
+        ],
+        "remaining_slots": [],
+        "expected_evidence_count": 1,
+        "current_evidence_count": 15,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "purchase_amount"
+        ],
+        "state_chain_checked": false,
+        "state_evidence_present": false,
+        "needs_multi_hop": false,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": []
+      },
+      "decision": {
+        "active_hypothesis": 0,
+        "mode": "finish",
+        "actions": [],
+        "updated_missing_slots": [],
+        "revised_constraints": {
+          "entities": [
+            "designer handbag"
+          ],
+          "time_anchor": "",
+          "state_keys": [
+            "purchase_amount"
+          ],
+          "relation_hints": []
+        },
+        "reason": "Evidence m_96e44b3585d49fb47de8 directly states 'User spent $800 on a designer handbag last month.' This provides the state value for purchase_amount. The question date is 2023-05-30, and 'last month' relative to the evidence timestamp (2023-05-23) is plausible. No further retrieval needed."
+      },
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 9216,
+        "completion_tokens": 160,
+        "elapsed_seconds": 1.8153743743896484
+      },
+      "finish_overridden": true,
+      "tool_results": [
+        {
+          "tool": "follow_state_chain",
+          "args": {
+            "state_key": "purchase_amount",
+            "limit": 12
+          },
+          "count": 0,
+          "memory_ids": []
+        },
+        {
+          "tool": "search_text",
+          "args": {
+            "query": "the user's spending on a designer handbag",
+            "entities": [
+              "designer handbag"
+            ],
+            "keywords": [
+              "spent",
+              "designer handbag",
+              "cost"
+            ],
+            "memory_types": [
+              "fact"
+            ],
+            "limit": 10
+          },
+          "count": 10,
+          "memory_ids": [
+            "m_96e44b3585d49fb47de8",
+            "m_105f3768a522ab3a6344",
+            "m_d99b12f88f6a8463b159",
+            "m_102f47259bf984ed810a",
+            "m_191983c4a004d13e24bf",
+            "m_46663a44c9646e870542",
+            "m_3a23c172c1f38c42178e",
+            "m_0e3e34d750f6df027485",
+            "m_37bfd28ecd77a2e64026",
+            "m_3167107c34b7c6de24f9"
+          ]
+        },
+        {
+          "tool": "expand_entity",
+          "args": {
+            "entity": "designer handbag",
+            "limit": 10
+          },
+          "count": 1,
+          "memory_ids": [
+            "m_96e44b3585d49fb47de8"
+          ]
+        }
+      ],
+      "override_reason": [
+        "state_chain_not_checked"
+      ],
+      "tool_parallel": {
+        "stage": "active-v3-tools-r1",
+        "total": 3,
+        "workers": 3,
+        "succeeded": 3,
+        "failed": 0,
+        "elapsed_seconds": 4.199985980987549
+      },
+      "new_memory_count": 7,
+      "total_tool_calls": 3,
+      "coverage_after": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [],
+        "expected_evidence_count": 1,
+        "current_evidence_count": 22,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "purchase_amount"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": false,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_entity",
+          "follow_state_chain",
+          "search_text"
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "coverage_before": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [],
+        "expected_evidence_count": 1,
+        "current_evidence_count": 22,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "purchase_amount"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": false,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_entity",
+          "follow_state_chain",
+          "search_text"
+        ]
+      },
+      "decision": {
+        "active_hypothesis": 0,
+        "mode": "finish",
+        "actions": [],
+        "updated_missing_slots": [],
+        "revised_constraints": {
+          "entities": [],
+          "time_anchor": "",
+          "state_keys": [],
+          "relation_hints": []
+        },
+        "reason": "Evidence m_96e44b3585d49fb47de8 directly states 'User spent $800 on a designer handbag last month.' with state_key 'user.spending.designer_handbag' and state_value '$800'. This satisfies the required state_key 'purchase_amount' and expected_evidence_count of 1. No further retrieval needed."
+      },
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 11532,
+        "completion_tokens": 149,
+        "elapsed_seconds": 2.089820384979248
+      },
+      "finish_overridden": false,
+      "tool_results": []
+    }
+  ],
+  "router_mode": "llm",
+  "policy": {
+    "name": "active_v3",
+    "coverage_gate": true,
+    "all_hypotheses": false,
+    "diverse_actions": false,
+    "coverage_rerank": false,
+    "max_rounds": 4,
+    "max_total_tool_calls": 9,
+    "router_evidence_k": 18,
+    "max_actions_per_round": 3
+  },
+  "final": [
+    {
+      "memory_id": "m_96e44b3585d49fb47de8",
+      "content": "User spent $800 on a designer handbag last month.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "last month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "spent",
+          "$800",
+          "designer handbag",
+          "luxury"
+        ],
+        "entities": [
+          {
+            "name": "designer handbag",
+            "entity_type": "object",
+            "role": "purchase"
+          }
+        ],
+        "topic": "personal spending",
+        "relation": {
+          "subject": "user",
+          "predicate": "spent",
+          "object": "$800 on designer handbag"
+        },
+        "state_key": "user.spending.designer_handbag",
+        "state_value": "$800",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_7cb94507",
+        "session_index": 15,
+        "source_ids": [
+          83
+        ],
+        "source_uids": [
+          "s0015u0002"
+        ],
+        "source_times": [
+          "2023-05-23T08:15:01"
+        ],
+        "source_role": "user",
+        "window_index": 6
+      },
+      "score": 0.12327868852459016,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 207.84978153686217,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.7270211972900854,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.6666666666666666,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 107.58669549508016,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.793886363463981,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.8888888888888888,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "active_entity",
+          "entity": "designer handbag"
+        }
+      ],
+      "graph_paths": [
+        [
+          "entity",
+          "designer handbag"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_105f3768a522ab3a6344",
+      "content": "User started buying beauty products at a discount store.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "similar products at fraction of cost",
+        "purpose": "",
+        "keywords": [
+          "beauty products",
+          "discount store",
+          "save money"
+        ],
+        "entities": [
+          {
+            "name": "discount store",
+            "entity_type": "organization",
+            "role": "store"
+          }
+        ],
+        "topic": "shopping habits",
+        "relation": {
+          "subject": "user",
+          "predicate": "started buying",
+          "object": "beauty products at discount store"
+        },
+        "state_key": "user.shopping.beauty_products_source",
+        "state_value": "discount store",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_7cb94507",
+        "session_index": 15,
+        "source_ids": [
+          85
+        ],
+        "source_uids": [
+          "s0015u0004"
+        ],
+        "source_times": [
+          "2023-05-23T08:15:02"
+        ],
+        "source_role": "user",
+        "window_index": 6
+      },
+      "score": 0.09464991005022097,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 5,
+          "raw_score": 14.995617923784454,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.47226995351850354,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 9,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.016666666666666666
+        },
+        {
+          "route": "bm25",
+          "rank": 23,
+          "raw_score": 7.151473477902618,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dense",
+          "rank": 3,
+          "raw_score": 0.40670058515423885,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.018548387096774192
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_d99b12f88f6a8463b159",
+      "content": "User wants help tracking spending habits and creating a budget.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-23T08:15:00.500000",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "2023-05-23T08:15:00.500000"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "get better handle on finances",
+        "keywords": [
+          "track spending",
+          "budget",
+          "personal finance"
+        ],
+        "entities": [],
+        "topic": "personal finance",
+        "relation": {
+          "subject": "user",
+          "predicate": "wants help with",
+          "object": "tracking spending and creating budget"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_7cb94507",
+        "session_index": 15,
+        "source_ids": [
+          82
+        ],
+        "source_uids": [
+          "s0015u0001"
+        ],
+        "source_times": [
+          "2023-05-23T08:15:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 6
+      },
+      "score": 0.060696951163970905,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 7,
+          "raw_score": 13.737726170216966,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dense",
+          "rank": 14,
+          "raw_score": 0.32505200561526904,
+          "rrf_contribution": 0.013513513513513514
+        },
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 20.51769109566471,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.43482680568501686,
+          "rrf_contribution": 0.016129032258064516
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_07c49732489d0ac71674",
+      "content": "User's neighbor expressed concern that the landlord is at the property very often without getting much done.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": "Recently"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "neighbor",
+          "concern",
+          "landlord",
+          "frequent",
+          "property"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "tenant"
+          },
+          {
+            "name": "neighbor",
+            "entity_type": "person",
+            "role": "neighbor"
+          },
+          {
+            "name": "Venkatesh",
+            "entity_type": "person",
+            "role": "landlord"
+          }
+        ],
+        "topic": "neighbor concern",
+        "relation": {
+          "subject": "neighbor",
+          "predicate": "expressed concern about",
+          "object": "landlord's frequent visits without progress"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "sharegpt_bTDMt3m_0",
+        "session_index": 40,
+        "source_ids": [
+          220
+        ],
+        "source_uids": [
+          "s0040u0006"
+        ],
+        "source_times": [
+          "2023-05-29T15:27:03"
+        ],
+        "source_role": "user",
+        "window_index": 18
+      },
+      "score": 0.03384176587301587,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 20.049424423257555,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01796875
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_13e3bde1113f29fee361",
+      "content": "User attended a morning seminar on entrepreneurship at the co-working space near their apartment on 2023-05-25.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-25",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "today"
+        },
+        "locations": [
+          "co-working space near user's apartment"
+        ],
+        "reason": "",
+        "purpose": "network and spread the word about project",
+        "keywords": [
+          "seminar",
+          "entrepreneurship",
+          "co-working space",
+          "networking",
+          "project"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "attendee"
+          }
+        ],
+        "topic": "entrepreneurship seminar",
+        "relation": {
+          "subject": "user",
+          "predicate": "attended",
+          "object": "morning seminar on entrepreneurship"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "864a563d_3",
+        "session_index": 23,
+        "source_ids": [
+          136
+        ],
+        "source_uids": [
+          "s0023u0004"
+        ],
+        "source_times": [
+          "2023-05-25T23:09:02"
+        ],
+        "source_role": "user",
+        "window_index": 11
+      },
+      "score": 0.032326215356656064,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 21.462143375369322,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 11,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01619718309859155
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_102f47259bf984ed810a",
+      "content": "User owns a pair of 1460 Dr. Martens boots and likes the height, material, and color of that pair.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "1460 Dr. Martens boots",
+          "user owns",
+          "likes height material color"
+        ],
+        "entities": [
+          {
+            "name": "1460 Dr. Martens boots",
+            "entity_type": "product",
+            "role": "owned item"
+          }
+        ],
+        "topic": "user possessions",
+        "relation": {
+          "subject": "user",
+          "predicate": "owns",
+          "object": "1460 Dr. Martens boots"
+        },
+        "state_key": "user.possessions.footwear",
+        "state_value": "1460 Dr. Martens boots",
+        "state_status": "active",
+        "preference": {
+          "target": "1460 Dr. Martens boots",
+          "polarity": "positive",
+          "strength": 0.7,
+          "scope": "specific"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "4e2acecc",
+        "session_index": 32,
+        "source_ids": [
+          184
+        ],
+        "source_uids": [
+          "s0032u0006"
+        ],
+        "source_times": [
+          "2023-05-27T23:54:03"
+        ],
+        "source_role": "user",
+        "window_index": 15
+      },
+      "score": 0.031378424657534244,
+      "retrieval_sources": [
+        {
+          "route": "dense",
+          "rank": 4,
+          "raw_score": 0.38375514659168847,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dimension",
+          "rank": 13,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.015753424657534244
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_04ba618b2ae7122bc296",
+      "content": "User attended a guided tour at the Guggenheim Museum on 2023-05-26, focusing on Wassily Kandinsky.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-26",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "today"
+        },
+        "locations": [
+          "Guggenheim Museum"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "Guggenheim Museum",
+          "guided tour",
+          "Wassily Kandinsky",
+          "2023-05-26"
+        ],
+        "entities": [
+          {
+            "name": "Guggenheim Museum",
+            "entity_type": "organization",
+            "role": "location"
+          },
+          {
+            "name": "Wassily Kandinsky",
+            "entity_type": "person",
+            "role": "subject"
+          }
+        ],
+        "topic": "art museum visit",
+        "relation": {
+          "subject": "user",
+          "predicate": "attended",
+          "object": "guided tour at Guggenheim Museum about Wassily Kandinsky"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "bee872da_2",
+        "session_index": 26,
+        "source_ids": [
+          148
+        ],
+        "source_uids": [
+          "s0026u0003"
+        ],
+        "source_times": [
+          "2023-05-26T06:40:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 12
+      },
+      "score": 0.030018674136321193,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 25,
+          "raw_score": 10.435024869655937,
+          "rrf_contribution": 0.011764705882352941
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01825396825396825
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_191983c4a004d13e24bf",
+      "content": "User's new apartment is about 10 miles from their old place in San Francisco.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-22T15:51:02",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [
+          "San Francisco"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "new apartment",
+          "10 miles",
+          "old place",
+          "San Francisco"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "self"
+          },
+          {
+            "name": "San Francisco",
+            "entity_type": "place",
+            "role": "location"
+          }
+        ],
+        "topic": "apartment location",
+        "relation": {
+          "subject": "User's new apartment",
+          "predicate": "distance from old place",
+          "object": "10 miles"
+        },
+        "state_key": "user.new_apartment_distance",
+        "state_value": "10 miles from old place in San Francisco",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "b7a5c591",
+        "session_index": 12,
+        "source_ids": [
+          65
+        ],
+        "source_uids": [
+          "s0012u0004"
+        ],
+        "source_times": [
+          "2023-05-22T15:51:02"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.028873873873873874,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 15,
+          "raw_score": 8.305746655540352,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dimension",
+          "rank": 14,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01554054054054054
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_46663a44c9646e870542",
+      "content": "User submitted thesis proposal on April 10th and wants a schedule for the next few months.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "2023-04-10",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "April 10th"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "to create a schedule for thesis work",
+        "keywords": [
+          "thesis proposal",
+          "submitted",
+          "April 10th",
+          "schedule"
+        ],
+        "entities": [],
+        "topic": "thesis timeline",
+        "relation": {
+          "subject": "user",
+          "predicate": "submitted",
+          "object": "thesis proposal on April 10th"
+        },
+        "state_key": "user.thesis_proposal_submission_date",
+        "state_value": "2023-04-10",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "60147f90_1",
+        "session_index": 30,
+        "source_ids": [
+          167
+        ],
+        "source_uids": [
+          "s0030u0001"
+        ],
+        "source_times": [
+          "2023-05-27T22:58:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.028143763938926057,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 7,
+          "raw_score": 9.141246274090049,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dimension",
+          "rank": 27,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.013218390804597701
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_3a23c172c1f38c42178e",
+      "content": "User owns a new 50mm prime lens and is considering using it for landscape photography.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "landscape photography",
+        "keywords": [
+          "50mm prime lens",
+          "new",
+          "landscape photography"
+        ],
+        "entities": [
+          {
+            "name": "50mm prime lens",
+            "entity_type": "product",
+            "role": "owned"
+          }
+        ],
+        "topic": "photography equipment",
+        "relation": {
+          "subject": "user",
+          "predicate": "owns",
+          "object": "new 50mm prime lens"
+        },
+        "state_key": "user.photography_gear",
+        "state_value": "50mm prime lens",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "a233bc96_2",
+        "session_index": 28,
+        "source_ids": [
+          155
+        ],
+        "source_uids": [
+          "s0028u0003"
+        ],
+        "source_times": [
+          "2023-05-26T21:07:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 12
+      },
+      "score": 0.028141135972461272,
+      "retrieval_sources": [
+        {
+          "route": "dense",
+          "rank": 10,
+          "raw_score": 0.31897712256876354,
+          "rrf_contribution": 0.014285714285714285
+        },
+        {
+          "route": "dimension",
+          "rank": 23,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.013855421686746987
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_e13b5bd59f580605be88",
+      "content": "User did not have proper access to a part of the property they paid for for a whole year.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "range",
+          "raw": "a whole year"
+        },
+        "locations": [],
+        "reason": "garage repairs",
+        "purpose": "",
+        "keywords": [
+          "no access",
+          "property",
+          "paid for",
+          "whole year"
+        ],
+        "entities": [],
+        "topic": "rental issue",
+        "relation": {
+          "subject": "user",
+          "predicate": "did not have proper access to",
+          "object": "part of property paid for"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "sharegpt_bTDMt3m_0",
+        "session_index": 40,
+        "source_ids": [
+          218
+        ],
+        "source_uids": [
+          "s0040u0004"
+        ],
+        "source_times": [
+          "2023-05-29T15:27:02"
+        ],
+        "source_role": "user",
+        "window_index": 17
+      },
+      "score": 0.028125,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 4,
+          "raw_score": 16.679818418146255,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dense",
+          "rank": 20,
+          "raw_score": 0.30828035212088667,
+          "rrf_contribution": 0.0125
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_33ac5154e56f6ba77694",
+      "content": "User needs help finding a good cobbler in their area.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-27T23:54:00.500000",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "2023-05-27T23:54:00.500000"
+        },
+        "locations": [
+          "user's area"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "cobbler",
+          "shoe repair",
+          "recommendation"
+        ],
+        "entities": [],
+        "topic": "cobbler search",
+        "relation": {
+          "subject": "user",
+          "predicate": "looking for",
+          "object": "good cobbler in area"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "4e2acecc",
+        "session_index": 32,
+        "source_ids": [
+          179
+        ],
+        "source_uids": [
+          "s0032u0001"
+        ],
+        "source_times": [
+          "2023-05-27T23:54:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.02810889728615596,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 11,
+          "raw_score": 13.13504770304185,
+          "rrf_contribution": 0.014084507042253521
+        },
+        {
+          "route": "dimension",
+          "rank": 22,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.014024390243902438
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_0e3e34d750f6df027485",
+      "content": "User provided information that if the other party repudiates, the innocent party can either accept repudiation and terminate, or affirm the contract and insist on performance.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "repudiation",
+          "options",
+          "terminate",
+          "affirm",
+          "innocent party"
+        ],
+        "entities": [],
+        "topic": "construction contract repudiation",
+        "relation": {
+          "subject": "innocent party",
+          "predicate": "options upon repudiation",
+          "object": "terminate or affirm"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "sharegpt_74Lf1rT_24",
+        "session_index": 20,
+        "source_ids": [
+          116
+        ],
+        "source_uids": [
+          "s0020u0004"
+        ],
+        "source_times": [
+          "2023-05-25T07:27:02"
+        ],
+        "source_role": "user",
+        "window_index": 9
+      },
+      "score": 0.02746647509578544,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 27,
+          "raw_score": 6.812867895044064,
+          "rrf_contribution": 0.011494252873563218
+        },
+        {
+          "route": "dimension",
+          "rank": 12,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01597222222222222
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_37bfd28ecd77a2e64026",
+      "content": "User asked whether to accept being underpaid or risk losing job if employer is cheap and doesn't see their worth.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "underpaid",
+          "risk losing job",
+          "employer cheap",
+          "worth"
+        ],
+        "entities": [],
+        "topic": "salary negotiation",
+        "relation": {
+          "subject": "user",
+          "predicate": "asked about",
+          "object": "accepting underpayment vs risking job loss"
+        },
+        "state_key": "user.underpayment_dilemma",
+        "state_value": "considering whether to accept being underpaid or risk losing job",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "uncertain"
+      },
+      "provenance": {
+        "session_id": "ultrachat_54556",
+        "session_index": 43,
+        "source_ids": [
+          237
+        ],
+        "source_uids": [
+          "s0043u0005"
+        ],
+        "source_times": [
+          "2023-05-30T18:17:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 19
+      },
+      "score": 0.027182284980744542,
+      "retrieval_sources": [
+        {
+          "route": "dense",
+          "rank": 16,
+          "raw_score": 0.29703247757017764,
+          "rrf_contribution": 0.013157894736842105
+        },
+        {
+          "route": "dimension",
+          "rank": 22,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.014024390243902438
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_3167107c34b7c6de24f9",
+      "content": "User has been using packing cubes for three months and finds them helpful for efficient packing.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "2023-02-21",
+          "event_end": "",
+          "valid_from": "2023-05-21T22:18:01.500000",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "three months now"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "to pack more efficiently",
+        "keywords": [
+          "packing cubes",
+          "efficient packing",
+          "three months"
+        ],
+        "entities": [],
+        "topic": "travel",
+        "relation": {
+          "subject": "user",
+          "predicate": "uses",
+          "object": "packing cubes"
+        },
+        "state_key": "user.travel.packing_cubes",
+        "state_value": "using packing cubes for three months",
+        "state_status": "active",
+        "preference": {
+          "target": "packing cubes",
+          "polarity": "positive",
+          "strength": 0.8,
+          "scope": "contextual"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "eae6a7c0",
+        "session_index": 8,
+        "source_ids": [
+          49
+        ],
+        "source_uids": [
+          "s0008u0003"
+        ],
+        "source_times": [
+          "2023-05-21T22:18:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 3
+      },
+      "score": 0.027056962025316454,
+      "retrieval_sources": [
+        {
+          "route": "dense",
+          "rank": 20,
+          "raw_score": 0.2797065866994071,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dimension",
+          "rank": 19,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.014556962025316455
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_4afea615e81cf51d9e23",
+      "content": "User asked how many cards are typically in a Magic the Gathering set.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-27T11:38:03",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "2023-05-27T11:38:03"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "Magic the Gathering",
+          "cards per set",
+          "typical set"
+        ],
+        "entities": [],
+        "topic": "Magic the Gathering set size",
+        "relation": {
+          "subject": "user",
+          "predicate": "asked",
+          "object": "number of cards in a typical set"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "sharegpt_xIDRgaY_0",
+        "session_index": 29,
+        "source_ids": [
+          164
+        ],
+        "source_uids": [
+          "s0029u0006"
+        ],
+        "source_times": [
+          "2023-05-27T11:38:03"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.02606951871657754,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 13.620880457676252,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 28,
+          "raw_score": 0.2830870806935316,
+          "rrf_contribution": 0.011363636363636364
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_6918b1eee46926086c68",
+      "content": "User has been wearing a silver necklace with a pendant that says 'sister' in cursive, given by their sister 3 weeks ago, almost daily since then.",
+      "dimension": {
+        "memory_type": "profile",
+        "time": {
+          "event_start": "2023-05-09",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "3 weeks ago"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "silver necklace",
+          "sister pendant",
+          "daily wear",
+          "gift from sister"
+        ],
+        "entities": [
+          {
+            "name": "user's sister",
+            "entity_type": "person",
+            "role": "giver"
+          }
+        ],
+        "topic": "jewelry preference",
+        "relation": {
+          "subject": "user",
+          "predicate": "wears almost daily",
+          "object": "silver necklace with 'sister' pendant"
+        },
+        "state_key": "user.favorite_jewelry",
+        "state_value": "silver necklace with 'sister' pendant",
+        "state_status": "active",
+        "preference": {
+          "target": "silver necklace with 'sister' pendant",
+          "polarity": "positive",
+          "strength": 0.9,
+          "scope": "specific"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "44bbd8cd_2",
+        "session_index": 44,
+        "source_ids": [
+          243
+        ],
+        "source_uids": [
+          "s0044u0006"
+        ],
+        "source_times": [
+          "2023-05-30T22:18:03"
+        ],
+        "source_role": "user",
+        "window_index": 19
+      },
+      "score": 0.02381289865343728,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 23,
+          "raw_score": 10.743457348598788,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dense",
+          "rank": 25,
+          "raw_score": 0.2852660114418372,
+          "rrf_contribution": 0.011764705882352941
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_025edf24e5da23dcf83b",
+      "content": "User has been thinking of writing their own play.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-21",
+          "valid_to": "",
+          "precision": "day",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "user",
+          "thinking",
+          "writing",
+          "play",
+          "scriptwriting"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          }
+        ],
+        "topic": "user creative project",
+        "relation": {
+          "subject": "User",
+          "predicate": "thinking of writing",
+          "object": "own play"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "fb2368b8_3",
+        "session_index": 6,
+        "source_ids": [
+          37
+        ],
+        "source_uids": [
+          "s0006u0003"
+        ],
+        "source_times": [
+          "2023-05-21T03:22:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 2
+      },
+      "score": 0.018548387096774192,
+      "retrieval_sources": [
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.018548387096774192
+        }
+      ],
+      "graph_paths": []
+    }
+  ],
+  "visited_actions": [
+    "{\"args\": {\"entities\": [\"designer handbag\"], \"keywords\": [\"spent\", \"designer handbag\", \"cost\"], \"limit\": 10, \"memory_types\": [\"fact\"], \"query\": \"the user's spending on a designer handbag\"}, \"tool\": \"search_text\"}",
+    "{\"args\": {\"entity\": \"designer handbag\", \"limit\": 10}, \"tool\": \"expand_entity\"}",
+    "{\"args\": {\"limit\": 12, \"state_key\": \"purchase_amount\"}, \"tool\": \"follow_state_chain\"}"
+  ],
+  "total_tool_calls": 3,
+  "final_coverage": {
+    "must_continue": false,
+    "hard_gaps": [],
+    "remaining_slots": [],
+    "expected_evidence_count": 1,
+    "current_evidence_count": 18,
+    "needs_assistant_context": false,
+    "has_assistant_context": true,
+    "state_keys": [
+      "purchase_amount"
+    ],
+    "state_chain_checked": true,
+    "state_evidence_present": false,
+    "needs_multi_hop": false,
+    "bridge_checked": true,
+    "time_evidence_present": true,
+    "visited_tools": [
+      "expand_entity",
+      "follow_state_chain",
+      "search_text"
+    ]
+  }
+}

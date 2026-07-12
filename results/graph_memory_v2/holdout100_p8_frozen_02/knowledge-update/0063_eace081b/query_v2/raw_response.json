@@ -1,0 +1,117 @@
+{
+  "question": "Where am I planning to stay for my birthday trip to Hawaii?",
+  "question_date": "2023-06-06T04:18:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's planned accommodation for birthday trip to Hawaii",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "Hawaii",
+        "birthday trip"
+      ],
+      "keywords": [
+        "stay",
+        "accommodation",
+        "Hawaii",
+        "birthday trip"
+      ],
+      "time_constraint": {
+        "operator": "around",
+        "start": "",
+        "end": "",
+        "raw": "birthday trip"
+      },
+      "locations": [
+        "Hawaii"
+      ],
+      "state_keys": [
+        "planned_accommodation"
+      ],
+      "relation_hints": [
+        "part_of",
+        "location_of"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's birthday date",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "birthday",
+        "date"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "birthday_date"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "birthday_date"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user's planned trip to Hawaii",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "Hawaii",
+        "trip"
+      ],
+      "keywords": [
+        "trip",
+        "Hawaii",
+        "plan"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [
+        "Hawaii"
+      ],
+      "state_keys": [
+        "trip_dates"
+      ],
+      "relation_hints": [
+        "part_of"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "trip_dates"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

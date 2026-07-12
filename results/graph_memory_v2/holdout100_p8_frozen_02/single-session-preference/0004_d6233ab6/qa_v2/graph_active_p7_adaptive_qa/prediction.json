@@ -1,0 +1,88 @@
+{
+  "question_id": "d6233ab6",
+  "question_type": "single-session-preference",
+  "question": "I've been feeling nostalgic lately. Do you think it would be a good idea to attend my high school reunion?",
+  "question_date": "2023/05/30 (Tue) 01:29",
+  "gold_answer": "The user would prefer responses that draw upon their personal experiences and memories, specifically their positive high school experiences such as being part of the debate team and taking advanced placement courses. They would prefer suggestions that highlight the potential benefits of attending the reunion, such as reconnecting with old friends and revisiting favorite subjects like history and economics. The user might not prefer generic or vague responses that do not take into account their individual experiences and interests.",
+  "prediction": "Based on your happy high school memories (debate team, AP economics) and your current nostalgia, attending your high school reunion seems like a good idea to reconnect with those positive experiences.",
+  "support_memory_ids": [
+    "m_5d7cb6a6702cc441ee52"
+  ],
+  "support_source_ids": [
+    57
+  ],
+  "confidence": 0.8,
+  "reasoning_summary": "User recalls happy high school memories (debate team, AP economics) and expresses nostalgia. This supports a positive recommendation for attending the reunion.",
+  "required_slots": [
+    {
+      "name": "user high school memories",
+      "value": "happy high school experiences: debate team and AP economics",
+      "support_memory_ids": [
+        "m_5d7cb6a6702cc441ee52"
+      ],
+      "support_source_ids": [
+        57
+      ]
+    },
+    {
+      "name": "user nostalgia level",
+      "value": "nostalgic (user states 'feeling nostalgic lately')",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "Specialist fills required slots (user high school memories and nostalgia level) with concrete values, follows the answer contract (assistant_recall), and has higher confidence.",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user high school memories",
+        "query": "user high school memories",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "user nostalgia level",
+        "query": "user nostalgia level",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user high school memories",
+      "user nostalgia level"
+    ],
+    "output_constraints": [
+      "assistant should provide a recommendation based on retrieved memories and nostalgia"
+    ],
+    "reason": "The question asks for a recommendation about attending a high school reunion, which requires recalling user's high school experiences and current nostalgia level to form an opinion."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 44360,
+    "completion_tokens": 684,
+    "elapsed_seconds": 9.02295184135437
+  }
+}

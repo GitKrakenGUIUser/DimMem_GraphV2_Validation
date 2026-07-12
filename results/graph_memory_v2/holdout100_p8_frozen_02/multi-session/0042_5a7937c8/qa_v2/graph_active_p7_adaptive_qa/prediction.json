@@ -1,0 +1,87 @@
+{
+  "question_id": "5a7937c8",
+  "question_type": "multi-session",
+  "question": "How many days did I spend participating in faith-related activities in December?",
+  "question_date": "2024/01/10 (Wed) 23:41",
+  "gold_answer": "3 days.",
+  "prediction": "3",
+  "support_memory_ids": [
+    "m_1878da2a96adf0513ebf",
+    "m_8dad7caf0e955ace7c3f",
+    "m_f7b1cc587b69e54a89ef"
+  ],
+  "support_source_ids": [
+    171,
+    125,
+    24
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Three distinct faith-related activities in December 2023: food drive on Dec 10, Bible study on Dec 17, midnight mass on Dec 24. Each is a separate day, so count is 3.",
+  "required_slots": [
+    {
+      "name": "faith-related activities in December",
+      "value": "Bible study on December 17, midnight mass on December 24, food drive on December 10",
+      "support_memory_ids": [
+        "m_1878da2a96adf0513ebf",
+        "m_8dad7caf0e955ace7c3f",
+        "m_f7b1cc587b69e54a89ef"
+      ],
+      "support_source_ids": [
+        171,
+        125,
+        24
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "2023-12-10",
+      "2023-12-17",
+      "2023-12-24"
+    ],
+    "unit": "days",
+    "result": "3"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "faith-related activities in December",
+        "query": "faith-related activities December 2023",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "faith-related activities December 2023"
+    ],
+    "output_constraints": [
+      "count of distinct days"
+    ],
+    "reason": "The question asks for a count of days spent on faith-related activities in December, which is a historical count of distinct event days."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32031,
+    "completion_tokens": 868,
+    "elapsed_seconds": 7.258532524108887
+  }
+}

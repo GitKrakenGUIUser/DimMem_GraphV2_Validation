@@ -1,0 +1,75 @@
+{
+  "question_id": "9a707b81",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I attend a baking class at a local culinary school when I made my friend's birthday cake?",
+  "question_date": "2022/04/15 (Fri) 18:46",
+  "gold_answer": "21 days. 22 days (including the last day) is also acceptable.",
+  "prediction": "26 days",
+  "support_memory_ids": [
+    "m_e7ec3f066e4d377e41de"
+  ],
+  "support_source_ids": [
+    89
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Memory m_e7ec3f066e4d377e41de states the user took a baking class at a local culinary school yesterday (2022-03-20). The question date is 2022-04-15. The difference is 26 days.",
+  "required_slots": [
+    {
+      "name": "date of baking class",
+      "value": "2022-03-20",
+      "support_memory_ids": [
+        "m_e7ec3f066e4d377e41de"
+      ],
+      "support_source_ids": [
+        89
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2022-03-20",
+      "2022-04-15"
+    ],
+    "unit": "days",
+    "result": "26 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    89,
+    70,
+    229,
+    233,
+    88,
+    30,
+    227,
+    83,
+    91,
+    224,
+    183,
+    228,
+    64,
+    260,
+    164,
+    31,
+    90,
+    225,
+    82,
+    226
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    4.490000000000001,
+    4.490000000000001
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 85653,
+    "completion_tokens": 869,
+    "elapsed_seconds": 12.118648529052734
+  }
+}

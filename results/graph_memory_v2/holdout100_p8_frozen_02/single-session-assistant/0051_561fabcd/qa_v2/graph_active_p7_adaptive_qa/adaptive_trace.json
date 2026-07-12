@@ -1,0 +1,186 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "previous_conversation_about_radiation_amplified_zombie",
+        "query": "previous conversation about Radiation Amplified zombie",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "previous conversation about Radiation Amplified zombie"
+    ],
+    "output_constraints": [
+      "The answer must be the name that was decided in the previous conversation."
+    ],
+    "reason": "The question asks the assistant to recall a name decided in a previous conversation, which requires retrieving the assistant's own reply from that conversation."
+  },
+  "base_candidate": {
+    "answer": "Fissionator",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d0b3e246cff6c373798f"
+    ],
+    "support_source_ids": [
+      232
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user proposed the name 'Fissionator' for the Radiation Amplified zombie in a previous conversation, and the assistant accepted it. This is the final name decided upon."
+  },
+  "specialist_candidate": {
+    "answer": "Fissionator",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d0b3e246cff6c373798f",
+      "m_8542e3c4bdfad41812ce"
+    ],
+    "support_source_ids": [
+      232,
+      231
+    ],
+    "required_slots": [
+      {
+        "name": "previous_conversation_about_radiation_amplified_zombie",
+        "value": "Fissionator",
+        "support_memory_ids": [
+          "m_d0b3e246cff6c373798f",
+          "m_8542e3c4bdfad41812ce"
+        ],
+        "support_source_ids": [
+          232,
+          231
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "proposed",
+        "object": "Fissionator",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-30T17:19:01.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_d0b3e246cff6c373798f"
+        ],
+        "support_source_ids": [
+          232
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "liked",
+        "object": "Contaminated Colossus",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-30T17:19:01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_8542e3c4bdfad41812ce"
+        ],
+        "support_source_ids": [
+          231
+        ]
+      },
+      {
+        "subject": "assistant",
+        "predicate": "suggested",
+        "object": "Fissionator",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-30T17:19:01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_8542e3c4bdfad41812ce"
+        ],
+        "support_source_ids": [
+          231
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "In the previous conversation, the user proposed the name 'Fissionator' for the Radiation Amplified zombie (source 232), and the assistant suggested it among one-word names (source 231). The user then adopted 'Fissionator' in subsequent messages, indicating it was the decided name."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    234,
+    233,
+    78,
+    232,
+    205,
+    230,
+    47,
+    206,
+    195,
+    204,
+    231,
+    22,
+    27,
+    154,
+    118,
+    120,
+    121,
+    97,
+    179,
+    119,
+    164,
+    178,
+    235,
+    26
+  ],
+  "targeted_source_ids": [
+    29,
+    80,
+    97,
+    118,
+    119,
+    120,
+    121,
+    164,
+    178,
+    179,
+    233,
+    234,
+    122,
+    235
+  ]
+}

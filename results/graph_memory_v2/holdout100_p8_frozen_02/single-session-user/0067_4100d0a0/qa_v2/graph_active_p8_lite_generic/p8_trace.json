@@ -1,0 +1,161 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "ethnicity",
+        "query": "user ethnicity",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user ethnicity"
+    ],
+    "reason": "The question asks for the user's ethnicity, which is a personal state attribute. The most direct evidence is a stored state value for ethnicity.",
+    "deterministic_contract_hint": "state_resolution",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Irish and Italian",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4d8c3f4a7429a933e6bf"
+    ],
+    "support_source_ids": [
+      255
+    ],
+    "required_slots": [
+      {
+        "name": "ethnicity",
+        "value": "Irish and Italian",
+        "support_memory_ids": [
+          "m_4d8c3f4a7429a933e6bf"
+        ],
+        "support_source_ids": [
+          255
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated their mixed ethnicity as Irish and Italian in source turn 255, which is stored in memory m_4d8c3f4a7429a933e6bf with state_key 'user.ethnicity' and state_value 'Irish and Italian'. This is the most direct and recent evidence."
+  },
+  "p7_candidate": {
+    "answer": "Irish and Italian",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4d8c3f4a7429a933e6bf"
+    ],
+    "support_source_ids": [
+      255
+    ],
+    "required_slots": [
+      {
+        "name": "ethnicity",
+        "value": "Irish and Italian",
+        "support_memory_ids": [
+          "m_4d8c3f4a7429a933e6bf"
+        ],
+        "support_source_ids": [
+          255
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated their mixed ethnicity as Irish and Italian in source turn 255, which is stored in memory m_4d8c3f4a7429a933e6bf with state_key 'user.ethnicity' and state_value 'Irish and Italian'. This is the most direct and recent evidence."
+  },
+  "specialist_candidate": {
+    "answer": "Irish and Italian",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4d8c3f4a7429a933e6bf"
+    ],
+    "support_source_ids": [
+      255
+    ],
+    "required_slots": [
+      {
+        "name": "ethnicity",
+        "value": "Irish and Italian",
+        "support_memory_ids": [
+          "m_4d8c3f4a7429a933e6bf"
+        ],
+        "support_source_ids": [
+          255
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "has ethnicity",
+        "object": "Irish and Italian",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-30T15:59:01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_4d8c3f4a7429a933e6bf"
+        ],
+        "support_source_ids": [
+          255
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The user explicitly stated their mixed ethnicity as Irish and Italian in source 255, which is stored as an active state with key user.ethnicity. No superseding information exists."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    255,
+    14,
+    3,
+    33,
+    61,
+    1,
+    256,
+    254,
+    176,
+    2
+  ],
+  "v2_timeline_memory_ids": [
+    "m_0bf1f28b47295713705d",
+    "m_4d8c3f4a7429a933e6bf",
+    "m_7872eb5fa4c827855f46",
+    "m_930089108172dd03f43e"
+  ]
+}

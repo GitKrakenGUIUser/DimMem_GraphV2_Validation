@@ -1,0 +1,93 @@
+{
+  "question_id": "2e6d26dc",
+  "question_type": "multi-session",
+  "question": "How many babies were born to friends and family members in the last few months?",
+  "question_date": "2023/05/13 (Sat) 23:55",
+  "gold_answer": "5",
+  "prediction": "5",
+  "support_memory_ids": [
+    "m_471cd7074cdf5356c40a",
+    "m_451a620b32a4ce435b5d",
+    "m_6ec5ade71a8c519c59f3",
+    "m_e7b627e63946352881d3",
+    "m_60d2a29645ca07bc59fb"
+  ],
+  "support_source_ids": [
+    20,
+    153,
+    16,
+    105,
+    69
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From the evidence, babies born to friends and family since February 2023 are: Ava (April), Lily (April), Charlotte (March), Max (March), Jasper (a few weeks ago, likely April). Count distinct = 5.",
+  "required_slots": [
+    {
+      "name": "babies",
+      "value": "5",
+      "support_memory_ids": [
+        "m_471cd7074cdf5356c40a",
+        "m_451a620b32a4ce435b5d",
+        "m_6ec5ade71a8c519c59f3",
+        "m_e7b627e63946352881d3",
+        "m_60d2a29645ca07bc59fb"
+      ],
+      "support_source_ids": [
+        20,
+        153,
+        16,
+        105,
+        69
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Ava",
+      "Lily",
+      "Charlotte",
+      "Max",
+      "Jasper"
+    ],
+    "unit": "babies",
+    "result": "5"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "concrete_answer_with_uncertain_reasoning"
+  ],
+  "plan": {
+    "answer_contract": "direct_numeric",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "babies",
+        "query": "babies born to friends and family since February 2023",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "babies born to friends and family since February 2023"
+    ],
+    "reason": "Count distinct babies born to friends and family in the last few months (after 2023-02-13).",
+    "deterministic_contract_hint": "direct_numeric",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 21909,
+    "completion_tokens": 995,
+    "elapsed_seconds": 7.00151252746582
+  }
+}

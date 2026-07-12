@@ -1,0 +1,86 @@
+[
+  {
+    "answer": "3000 miles",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d58d19cc4ce5f8e5f8e0",
+      "m_e526e6277c34a6439ed9"
+    ],
+    "support_source_ids": [
+      81,
+      140
+    ],
+    "required_slots": [
+      {
+        "name": "total distance",
+        "value": "3,000 miles",
+        "support_memory_ids": [
+          "m_d58d19cc4ce5f8e5f8e0",
+          "m_e526e6277c34a6439ed9"
+        ],
+        "support_source_ids": [
+          81,
+          140
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        1800,
+        1200
+      ],
+      "unit": "miles",
+      "result": "3000 miles"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user mentioned three road trips totaling 1,800 miles (source 81) and a separate 4-day Yellowstone trip covering 1,200 miles (source 140). These are the only four road trips with distances mentioned, so the total is 1,800 + 1,200 = 3,000 miles.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "3000 miles",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d58d19cc4ce5f8e5f8e0",
+      "m_e526e6277c34a6439ed9"
+    ],
+    "support_source_ids": [
+      81,
+      140
+    ],
+    "required_slots": [
+      {
+        "name": "total_distance",
+        "value": "3000",
+        "support_memory_ids": [
+          "m_d58d19cc4ce5f8e5f8e0",
+          "m_e526e6277c34a6439ed9"
+        ],
+        "support_source_ids": [
+          81,
+          140
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        1800,
+        1200
+      ],
+      "unit": "miles",
+      "result": "3000 miles"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_d58d19cc4ce5f8e5f8e0 states user covered 1,800 miles on three recent road trips (Durango, Breckenridge, Santa Fe). Memory m_e526e6277c34a6439ed9 states user completed a 4-day road trip to Yellowstone covering 1,200 miles. These are the only four road trips mentioned with distances. Summing 1,800 + 1,200 = 3,000 miles.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

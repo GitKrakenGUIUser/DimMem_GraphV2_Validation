@@ -1,0 +1,87 @@
+{
+  "question_id": "b5ef892d",
+  "question_type": "multi-session",
+  "question": "How many days did I spend on camping trips in the United States this year?",
+  "question_date": "2023/04/29 (Sat) 23:45",
+  "gold_answer": "8 days.",
+  "prediction": "8 days",
+  "support_memory_ids": [
+    "m_1393a57d11c496682191",
+    "m_2f826047ced99447b5cf"
+  ],
+  "support_source_ids": [
+    161,
+    207
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "User took a 5-day camping trip to Yellowstone in March 2023 (memory m_1393a57d11c496682191, source 161) and a 3-day solo camping trip to Big Sur in early April 2023 (memory m_2f826047ced99447b5cf, source 207). Both trips are in the United States and occurred in 2023 before the question date. Total days = 5 + 3 = 8.",
+  "required_slots": [
+    {
+      "name": "total_camping_days",
+      "value": "8",
+      "support_memory_ids": [
+        "m_1393a57d11c496682191",
+        "m_2f826047ced99447b5cf"
+      ],
+      "support_source_ids": [
+        161,
+        207
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      5,
+      3
+    ],
+    "unit": "days",
+    "result": "8 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    207,
+    115,
+    161,
+    112,
+    210,
+    209,
+    230,
+    116,
+    238,
+    235,
+    177,
+    220,
+    31,
+    20,
+    198,
+    21,
+    162,
+    208,
+    113,
+    211
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.279999999999999,
+    5.279999999999999
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 91432,
+    "completion_tokens": 818,
+    "elapsed_seconds": 8.875465154647827
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 137,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.9488987922668457
+  }
+}

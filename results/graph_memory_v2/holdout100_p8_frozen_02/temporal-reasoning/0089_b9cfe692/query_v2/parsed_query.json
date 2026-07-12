@@ -1,0 +1,111 @@
+{
+  "question": "How long did I take to finish 'The Seven Husbands of Evelyn Hugo' and 'The Nightingale' combined?",
+  "question_date": "2023-05-24T08:08:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's reading duration for 'The Seven Husbands of Evelyn Hugo'",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "The Seven Husbands of Evelyn Hugo"
+      ],
+      "keywords": [
+        "reading duration",
+        "finish",
+        "The Seven Husbands of Evelyn Hugo"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "reading_duration"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "reading_duration for The Nightingale"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's reading duration for 'The Nightingale'",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "The Nightingale"
+      ],
+      "keywords": [
+        "reading duration",
+        "finish",
+        "The Nightingale"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "reading_duration"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "reading_duration for The Seven Husbands of Evelyn Hugo"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's total reading duration for both books combined",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "The Seven Husbands of Evelyn Hugo",
+        "The Nightingale"
+      ],
+      "keywords": [
+        "total reading duration",
+        "combined",
+        "finish"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "total_reading_duration"
+      ],
+      "relation_hints": [
+        "sum"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "reading_duration for each book"
+      ],
+      "confidence": 0.7
+    }
+  ]
+}

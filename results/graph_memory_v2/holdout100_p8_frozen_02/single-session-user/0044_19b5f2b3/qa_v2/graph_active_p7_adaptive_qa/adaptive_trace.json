@@ -1,0 +1,154 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:temporal",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "duration",
+        "query": "How long was I in Japan?",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How long was I in Japan?"
+    ],
+    "output_constraints": [
+      "duration in days or weeks"
+    ],
+    "reason": "The question asks for a duration of a past trip, which is directly stored as a fact. No composition needed."
+  },
+  "base_candidate": {
+    "answer": "2 weeks",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_12aaf46eb66e148cbc2b"
+    ],
+    "support_source_ids": [
+      206
+    ],
+    "required_slots": [
+      {
+        "name": "duration",
+        "value": "2 weeks",
+        "support_memory_ids": [
+          "m_12aaf46eb66e148cbc2b"
+        ],
+        "support_source_ids": [
+          206
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_12aaf46eb66e148cbc2b explicitly states 'User spent two weeks traveling solo around Japan a few months ago.' Source turn 206 confirms the user said 'I spent two weeks traveling solo around the country.'"
+  },
+  "specialist_candidate": {
+    "answer": "2 weeks",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_12aaf46eb66e148cbc2b"
+    ],
+    "support_source_ids": [
+      206
+    ],
+    "required_slots": [
+      {
+        "name": "duration",
+        "value": "2 weeks",
+        "support_memory_ids": [
+          "m_12aaf46eb66e148cbc2b"
+        ],
+        "support_source_ids": [
+          206
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "weeks",
+      "result": "2 weeks"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "spent two weeks traveling solo around",
+        "object": "Japan",
+        "value": "2 weeks",
+        "unit": "weeks",
+        "event_time": "2023-03-30 to 2023-04-13",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_12aaf46eb66e148cbc2b"
+        ],
+        "support_source_ids": [
+          206
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_12aaf46eb66e148cbc2b explicitly states 'two weeks traveling solo around Japan', and source 206 confirms the user said 'I spent two weeks traveling solo around the country'. The duration is directly provided as 2 weeks."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    206,
+    207,
+    61,
+    182,
+    208,
+    9,
+    178,
+    217,
+    58,
+    95,
+    24,
+    197,
+    8,
+    129,
+    155,
+    213,
+    205,
+    209
+  ],
+  "targeted_source_ids": [
+    94,
+    153,
+    155,
+    182,
+    185,
+    199,
+    205,
+    206,
+    207,
+    208,
+    215,
+    239,
+    93,
+    95
+  ]
+}

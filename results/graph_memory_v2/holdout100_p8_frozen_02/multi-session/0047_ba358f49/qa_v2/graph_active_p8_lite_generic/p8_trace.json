@@ -1,0 +1,171 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "p7_abstained",
+    "p7_unfilled_slots",
+    "p7_no_support",
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "relative",
+    "slots": [
+      {
+        "name": "user_birth_date",
+        "query": "user birth date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "rachel_marriage_date",
+        "query": "Rachel marriage date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user birth date",
+      "Rachel marriage date"
+    ],
+    "reason": "Need user's birth date and Rachel's marriage date to compute age at marriage.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "user_birth_date",
+        "value": "unknown",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "rachel_marriage_date",
+        "value": "unknown",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user_birth_date",
+      "rachel_marriage_date"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The user's birth date is not mentioned in any memory or source turn. Rachel's marriage is mentioned as 'next year' relative to 2022-09-01, but without the user's birth date, the user's age at that time cannot be calculated."
+  },
+  "p7_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "user_birth_date",
+        "value": "unknown",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "rachel_marriage_date",
+        "value": "unknown",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user_birth_date",
+      "rachel_marriage_date"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The user's birth date is not mentioned in any memory or source turn. Rachel's marriage is mentioned as 'next year' relative to 2022-09-01, but without the user's birth date, the user's age at that time cannot be calculated."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "user_birth_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "rachel_marriage_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user_birth_date",
+      "rachel_marriage_date"
+    ],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "years",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "Rachel",
+        "predicate": "getting married",
+        "object": "next year",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2022-09-01",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_a32f89348e0e4240f198"
+        ],
+        "support_source_ids": [
+          30
+        ]
+      }
+    ],
+    "confidence": 0.0,
+    "reasoning_summary": "The evidence states Rachel is getting married next year (relative to 2022-09-01), but the user's birth date is not provided in any evidence, so the age at that time cannot be computed."
+  },
+  "choice": "p7",
+  "verification": {},
+  "targeted_source_ids": [
+    30,
+    21,
+    3,
+    53,
+    4,
+    46,
+    115,
+    114,
+    9,
+    20,
+    22,
+    31
+  ],
+  "v2_timeline_memory_ids": []
+}

@@ -1,0 +1,57 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [],
+  "specialist_needed": false,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "base_candidate": {
+    "answer": "Yes, you finished reading 'The Nightingale' by Kristin Hannah.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_dab27f8a9470e7ab6e64",
+      "m_feb7d4577030494be201"
+    ],
+    "support_source_ids": [
+      229,
+      234
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_dab27f8a9470e7ab6e64 states the user 'recently finished' The Nightingale as of 2023-03-30. Memory m_feb7d4577030494be201 shows the user loved the book and discussed its details, confirming completion. Source turn 229 (2023-03-30) explicitly says 'I just finished reading The Nightingale'. Source turn 234 (2023-03-30) discusses the ending and emotional impact, further confirming completion. All evidence is before the question date (2023-04-12)."
+  },
+  "specialist_candidate": null,
+  "choice": "base",
+  "choice_reason": "base candidate passed risk gate",
+  "compact_source_ids": [
+    19,
+    229,
+    234,
+    20,
+    18,
+    231,
+    21,
+    46,
+    232,
+    53,
+    233,
+    23,
+    74,
+    54,
+    230,
+    52
+  ],
+  "targeted_source_ids": []
+}

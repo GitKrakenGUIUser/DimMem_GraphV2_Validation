@@ -1,0 +1,60 @@
+{
+  "question_id": "5c40ec5b",
+  "question_type": "knowledge-update",
+  "question": "How many times have I met up with Alex from Germany?",
+  "question_date": "2023/10/30 (Mon) 13:39",
+  "gold_answer": "We've met up twice.",
+  "prediction": "1",
+  "support_memory_ids": [
+    "m_69fb12bb0f1c18bbf51a"
+  ],
+  "support_source_ids": [
+    234,
+    238
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user explicitly stated in source 234 that they have met up with Alex twice. This is also captured in memory m_69fb12bb0f1c18bbf51a as a fact. No other meetups are mentioned.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "meetup events"
+    ],
+    "unit": "times",
+    "result": "1"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    234,
+    238,
+    78,
+    85,
+    118,
+    80,
+    226,
+    13,
+    21,
+    22,
+    119,
+    79,
+    60,
+    237,
+    235,
+    77
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    4.94,
+    4.94
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 68943,
+    "completion_tokens": 622,
+    "elapsed_seconds": 8.217779874801636
+  }
+}

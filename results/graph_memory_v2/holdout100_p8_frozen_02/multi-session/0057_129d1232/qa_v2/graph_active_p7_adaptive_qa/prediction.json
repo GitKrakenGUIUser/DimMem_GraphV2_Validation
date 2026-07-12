@@ -1,0 +1,108 @@
+{
+  "question_id": "129d1232",
+  "question_type": "multi-session",
+  "question": "How much money did I raise in total through all the charity events I participated in?",
+  "question_date": "2023/05/01 (Mon) 23:45",
+  "gold_answer": "$5,850",
+  "prediction": "5850 USD",
+  "support_memory_ids": [
+    "m_b5ac548a59a538b3d4ba",
+    "m_50341ee02a12e32ac3ff",
+    "m_ff89ea1d439209c7d331"
+  ],
+  "support_source_ids": [
+    184,
+    215,
+    85
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Three charity events participated in: charity yoga event ($600), Bike-a-Thon for Cancer Research ($5,000), charity walk ($250). Sum = $5,850.",
+  "required_slots": [
+    {
+      "name": "charity_event",
+      "value": "charity yoga event, Bike-a-Thon for Cancer Research, charity walk",
+      "support_memory_ids": [
+        "m_b5ac548a59a538b3d4ba",
+        "m_50341ee02a12e32ac3ff",
+        "m_ff89ea1d439209c7d331"
+      ],
+      "support_source_ids": [
+        184,
+        215,
+        85
+      ]
+    },
+    {
+      "name": "amount_raised",
+      "value": "600, 5000, 250",
+      "support_memory_ids": [
+        "m_b5ac548a59a538b3d4ba",
+        "m_50341ee02a12e32ac3ff",
+        "m_ff89ea1d439209c7d331"
+      ],
+      "support_source_ids": [
+        184,
+        215,
+        85
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      600,
+      5000,
+      250
+    ],
+    "unit": "USD",
+    "result": "5850 USD"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 3,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "charity_event",
+        "query": "charity events I participated in",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "amount_raised",
+        "query": "amount raised per charity event",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "charity events I participated in",
+      "amount raised per charity event"
+    ],
+    "output_constraints": [
+      "sum of amounts in USD"
+    ],
+    "reason": "The question asks for total money raised from all charity events participated in, requiring a sum of amounts per event. Composition is allowed to link events to amounts."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31760,
+    "completion_tokens": 952,
+    "elapsed_seconds": 16.777949333190918
+  }
+}

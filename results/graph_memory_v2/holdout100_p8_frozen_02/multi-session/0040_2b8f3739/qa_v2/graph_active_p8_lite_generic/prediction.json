@@ -1,0 +1,109 @@
+{
+  "question_id": "2b8f3739",
+  "question_type": "multi-session",
+  "question": "What is the total amount of money I earned from selling my products at the markets?",
+  "question_date": "2023/06/01 (Thu) 23:37",
+  "gold_answer": "$495",
+  "prediction": "495 USD",
+  "support_memory_ids": [
+    "m_8abff4d1f2005890dcf2",
+    "m_8531fed73bee0c54f7cb",
+    "m_0a0e10ce86065ad4b3fb"
+  ],
+  "support_source_ids": [
+    50,
+    216,
+    240
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Three market sales are recorded: $225 from jam (May 29), $150 from herb plants (20 x $7.5, June 1), and $120 from fresh herbs (May 15). Sum = $495.",
+  "required_slots": [
+    {
+      "name": "total earnings",
+      "value": "345",
+      "support_memory_ids": [
+        "m_8abff4d1f2005890dcf2",
+        "m_8531fed73bee0c54f7cb",
+        "m_0a0e10ce86065ad4b3fb"
+      ],
+      "support_source_ids": [
+        50,
+        216,
+        240
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      225,
+      150,
+      120
+    ],
+    "unit": "USD",
+    "result": "495 USD"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p5",
+  "risk_reasons": [
+    "audit_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "individual sale amounts",
+        "query": "market sale amounts",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "market sale amounts"
+    ],
+    "reason": "Need to sum all individual sale amounts from market sales before the question date.",
+    "deterministic_contract_hint": "sum",
+    "contract_overridden": false
+  },
+  "verification": {
+    "choice": "p5",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      }
+    },
+    "reason": "All candidates are equivalent and correct. p5 is selected arbitrarily."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 30928,
+    "completion_tokens": 981,
+    "elapsed_seconds": 7.415008306503296
+  }
+}

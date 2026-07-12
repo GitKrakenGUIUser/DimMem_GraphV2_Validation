@@ -1,0 +1,92 @@
+[
+  {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "high school graduation date",
+        "value": "2014",
+        "support_memory_ids": [
+          "m_f3264006bfebb15d17f9"
+        ],
+        "support_source_ids": [
+          193
+        ]
+      },
+      {
+        "name": "Bachelor's degree completion date",
+        "value": "2020",
+        "support_memory_ids": [
+          "m_0311c0d8d6b4377f2b9a",
+          "m_44583d75eeb3ca4a42d9"
+        ],
+        "support_source_ids": [
+          18,
+          21
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2014-06-01",
+        "2020-06-01"
+      ],
+      "unit": "years",
+      "result": "2192 days"
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "High school attendance from 2010 to 2014 implies graduation in 2014. Bachelor's degree completed in 2020. Assuming typical June graduations, the difference is 6 years.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    },
+    "grounding_failure": "concrete answer has no valid support IDs"
+  },
+  {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "high school graduation date",
+        "value": "2014",
+        "support_memory_ids": [
+          "m_f3264006bfebb15d17f9"
+        ],
+        "support_source_ids": [
+          193
+        ]
+      },
+      {
+        "name": "Bachelor's degree completion date",
+        "value": "2020",
+        "support_memory_ids": [
+          "m_0311c0d8d6b4377f2b9a",
+          "m_44583d75eeb3ca4a42d9"
+        ],
+        "support_source_ids": [
+          18,
+          21
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_years",
+      "operands": [
+        "2014",
+        "2020"
+      ],
+      "unit": "years",
+      "result": "6"
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "High school attended from 2010 to 2014, so graduation in 2014. Bachelor's completed in 2020. Difference is 6 years. However, the question asks for total years in formal education from high school to Bachelor's completion, which typically includes 4 years of high school and 4 years of university, but the user attended high school from 2010 to 2014 (4 years) and Bachelor's from 2016 to 2020 (4 years) assuming a typical timeline. The gap between 2014 and 2016 is not accounted for. The memories only provide start and end years, not the exact duration of formal education. The calculation of 6 years (2014 to 2020) does not represent the total years spent in education. Therefore, the answer cannot be determined precisely from the conversation."
+  }
+]

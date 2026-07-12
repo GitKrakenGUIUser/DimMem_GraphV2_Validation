@@ -1,0 +1,110 @@
+{
+  "question": "How many days had passed since I bought my Adidas running shoes when I realized one of the shoelaces on my old Converse sneakers had broken?",
+  "question_date": "2023-02-03T17:43:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user bought Adidas running shoes",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Adidas running shoes"
+      ],
+      "keywords": [
+        "bought",
+        "Adidas",
+        "running shoes"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-02-03T17:43:00",
+        "raw": "before the realization"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "purchase date of Adidas running shoes"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user realized a shoelace on old Converse sneakers broke",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Converse sneakers"
+      ],
+      "keywords": [
+        "realized",
+        "shoelace",
+        "broke",
+        "Converse",
+        "sneakers"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-02-03T17:43:00",
+        "end": "2023-02-03T17:43:00",
+        "raw": "when I realized"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "exact time of realization"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user bought Adidas running shoes and later realized a shoelace on old Converse sneakers broke",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Adidas running shoes",
+        "Converse sneakers"
+      ],
+      "keywords": [
+        "bought",
+        "Adidas",
+        "running shoes",
+        "realized",
+        "shoelace",
+        "broke",
+        "Converse",
+        "sneakers"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "",
+        "end": "2023-02-03T17:43:00",
+        "raw": "between purchase and realization"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "temporal_order"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "purchase date of Adidas running shoes",
+        "exact time of realization"
+      ],
+      "confidence": 0.7
+    }
+  ]
+}

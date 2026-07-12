@@ -1,0 +1,99 @@
+{
+  "question_id": "28dc39ac",
+  "question_type": "multi-session",
+  "question": "How many hours have I spent playing games in total?",
+  "question_date": "2023/05/30 (Tue) 23:42",
+  "gold_answer": "140 hours",
+  "prediction": "140 hours",
+  "support_memory_ids": [
+    "m_d69f180b3ca0c5df9a9a",
+    "m_37b98d67c18dc4c63f72",
+    "m_7e870ebe504888ea0224",
+    "m_53a04b26c71fe258f462",
+    "m_25d7acab61941f733fb2"
+  ],
+  "support_source_ids": [
+    10,
+    106,
+    130,
+    63,
+    153
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Summed all grounded game play durations: Assassin's Creed Odyssey (70h), The Last of Us Part II hard (30h), Celeste (10h), Hyper Light Drifter (5h), The Last of Us Part II normal (25h) = 140 hours. No overlapping or duplicate sessions.",
+  "required_slots": [
+    {
+      "name": "game_play_sessions",
+      "value": "Assassin's Creed Odyssey: 70 hours; The Last of Us Part II (hard): 30 hours; Celeste: 10 hours; Hyper Light Drifter: 5 hours; The Last of Us Part II (normal): 25 hours",
+      "support_memory_ids": [
+        "m_d69f180b3ca0c5df9a9a",
+        "m_37b98d67c18dc4c63f72",
+        "m_7e870ebe504888ea0224",
+        "m_53a04b26c71fe258f462",
+        "m_25d7acab61941f733fb2"
+      ],
+      "support_source_ids": [
+        10,
+        106,
+        130,
+        63,
+        153
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      70,
+      30,
+      10,
+      5,
+      25
+    ],
+    "unit": "hours",
+    "result": "140 hours"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist filled an abstained base answer",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "game_play_sessions",
+        "query": "game play sessions with duration",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "game play sessions with duration"
+    ],
+    "output_constraints": [
+      "total hours as a number"
+    ],
+    "reason": "The question asks for total hours spent playing games, which requires summing durations of all game play sessions."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35880,
+    "completion_tokens": 1191,
+    "elapsed_seconds": 9.762224435806274
+  }
+}

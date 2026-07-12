@@ -1,0 +1,193 @@
+[2023-05-24T23:33:00.500000, Wed] 1.User: how can i configure logrotate in tomcat with 30 days max and size of 50 mb and add cron
+[2023-05-25T08:28:00.500000, Thu] 2.User: Debug: ---------------------------------------------------------------------------
+ValueError Traceback (most recent call last)
+~\AppData\Local\Temp\ipykernel\_22232\3564592056.py in 
+ 1 for index, airport in airports\_ireland.iterrows():
+----> 2 plt.scatter(float(airport['latitude']), float(airport['longitude']), marker='o', color='red', transform=ccrs.Mercator())
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\pyplot.py in scatter(x, y, s, c, marker, cmap, norm, vmin, vmax, alpha, linewidths, edgecolors, plotnonfinite, data, \*\*kwargs)
+ 2817 vmin=None, vmax=None, alpha=None, linewidths=None, \*,
+ 2818 edgecolors=None, plotnonfinite=False, data=None, \*\*kwargs):
+-> 2819 \_\_ret = gca().scatter(
+ 2820 x, y, s=s, c=c, marker=marker, cmap=cmap, norm=norm,
+ 2821 vmin=vmin, vmax=vmax, alpha=alpha, linewidths=linewidths,
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\\_\_init\_\_.py in inner(ax, data, \*args, \*\*kwargs)
+ 1410 def inner(ax, \*args, data=None, \*\*kwargs):
+ 1411 if data is None:
+-> 1412 return func(ax, \*map(sanitize\_sequence, args), \*\*kwargs)
+ 1413 
+ 1414 bound = new\_sig.bind(ax, \*args, \*\*kwargs)
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\\_axes.py in scatter(self, x, y, s, c, marker, cmap, norm, vmin, vmax, alpha, linewidths, edgecolors, plotnonfinite, \*\*kwargs)
+ 4478 self.set\_ymargin(0.05)
+ 4479 
+-> 4480 self.add\_collection(collection)
+ 4481 self.\_request\_autoscale\_view()
+ 4482 
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\\_base.py in add\_collection(self, collection, autolim)
+ 2246 # pre-lazy-autoscale behavior, which is not really better).
+ 2247 self.\_unstale\_viewLim()
+-> 2248 datalim = collection.get\_datalim(self.transData)
+ 2249 points = datalim.get\_points()
+ 2250 if not np.isinf(datalim.minpos).all():
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in get\_datalim(self, transData)
+ 264 
+ 265 transform = self.get\_transform()
+--> 266 transOffset = self.get\_offset\_transform()
+ 267 if not (isinstance(transOffset, transforms.IdentityTransform)
+ 268 or transOffset.contains\_branch(transData)):
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in get\_offset\_transform(self)
+ 233 elif (not isinstance(self.\_transOffset, transforms.Transform)
+ 234 and hasattr(self.\_transOffset, '\_as\_mpl\_transform')):
+--> 235 self.\_transOffset = self.\_transOffset.\_as\_mpl\_transform(self.axes)
+ 236 return self.\_transOffset
+ 237 
+
+C:\ProgramData\Anaconda3\lib\site-packages\cartopy\crs.py in \_as\_mpl\_transform(self, axes)
+ 248 import cartopy.mpl.geoaxes as geoaxes
+ 249 if not isinstance(axes, geoaxes.GeoAxes):
+--> 250 raise ValueError(
+ 251 'Axes should be an instance of GeoAxes, got %s' % type(axes)
+ 252 )
+
+ValueError: Axes should be an instance of GeoAxes, got 
+
+---------------------------------------------------------------------------
+ValueError Traceback (most recent call last)
+C:\ProgramData\Anaconda3\lib\site-packages\IPython\core\formatters.py in \_\_call\_\_(self, obj)
+ 339 pass
+ 340 else:
+--> 341 return printer(obj)
+ 342 # Finally look for special method names
+ 343 method = get\_real\_method(obj, self.print\_method)
+
+C:\ProgramData\Anaconda3\lib\site-packages\IPython\core\pylabtools.py in print\_figure(fig, fmt, bbox\_inches, base64, \*\*kwargs)
+ 149 FigureCanvasBase(fig)
+ 150 
+--> 151 fig.canvas.print\_figure(bytes\_io, \*\*kw)
+ 152 data = bytes\_io.getvalue()
+ 153 if fmt == 'svg':
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backend\_bases.py in print\_figure(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox\_inches, pad\_inches, bbox\_extra\_artists, backend, \*\*kwargs)
+ 2293 )
+ 2294 with getattr(renderer, "\_draw\_disabled", nullcontext)():
+-> 2295 self.figure.draw(renderer)
+ 2296 
+ 2297 if bbox\_inches:
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py in draw\_wrapper(artist, renderer, \*args, \*\*kwargs)
+ 71 @wraps(draw)
+ 72 def draw\_wrapper(artist, renderer, \*args, \*\*kwargs):
+---> 73 result = draw(artist, renderer, \*args, \*\*kwargs)
+ 74 if renderer.\_rasterizing:
+ 75 renderer.stop\_rasterizing()
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py in draw\_wrapper(artist, renderer)
+ 48 renderer.start\_filter()
+ 49 
+---> 50 return draw(artist, renderer)
+ 51 finally:
+ 52 if artist.get\_agg\_filter() is not None:
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\figure.py in draw(self, renderer)
+ 2835 
+ 2836 self.patch.draw(renderer)
+-> 2837 mimage.\_draw\_list\_compositing\_images(
+ 2838 renderer, self, artists, self.suppressComposite)
+ 2839 
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\image.py in \_draw\_list\_compositing\_images(renderer, parent, artists, suppress\_composite)
+ 130 if not\_composite or not has\_images:
+ 131 for a in artists:
+--> 132 a.draw(renderer)
+ 133 else:
+ 134 # Composite any adjacent images together
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py in draw\_wrapper(artist, renderer)
+ 48 renderer.start\_filter()
+ 49 
+---> 50 return draw(artist, renderer)
+ 51 finally:
+ 52 if artist.get\_agg\_filter() is not None:
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\\_base.py in draw(self, renderer)
+ 3089 renderer.stop\_rasterizing()
+ 3090 
+-> 3091 mimage.\_draw\_list\_compositing\_images(
+ 3092 renderer, self, artists, self.figure.suppressComposite)
+ 3093 
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\image.py in \_draw\_list\_compositing\_images(renderer, parent, artists, suppress\_composite)
+ 130 if not\_composite or not has\_images:
+ 131 for a in artists:
+--> 132 a.draw(renderer)
+ 133 else:
+ 134 # Composite any adjacent images together
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py in draw\_wrapper(artist, renderer)
+ 48 renderer.start\_filter()
+ 49 
+---> 50 return draw(artist, renderer)
+ 51 finally:
+ 52 if artist.get\_agg\_filter() is not None:
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in draw(self, renderer)
+ 988 def draw(self, renderer):
+ 989 self.set\_sizes(self.\_sizes, self.figure.dpi)
+--> 990 super().draw(renderer)
+ 991 
+ 992 
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py in draw\_wrapper(artist, renderer)
+ 48 renderer.start\_filter()
+ 49 
+---> 50 return draw(artist, renderer)
+ 51 finally:
+ 52 if artist.get\_agg\_filter() is not None:
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in draw(self, renderer)
+ 364 self.update\_scalarmappable()
+ 365 
+--> 366 transform, transOffset, offsets, paths = self.\_prepare\_points()
+ 367 
+ 368 gc = renderer.new\_gc()
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in \_prepare\_points(self)
+ 324 
+ 325 transform = self.get\_transform()
+--> 326 transOffset = self.get\_offset\_transform()
+ 327 offsets = self.get\_offsets()
+ 328 paths = self.get\_paths()
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in get\_offset\_transform(self)
+ 233 elif (not isinstance(self.\_transOffset, transforms.Transform)
+ 234 and hasattr(self.\_transOffset, '\_as\_mpl\_transform')):
+--> 235 self.\_transOffset = self.\_transOffset.\_as\_mpl\_transform(self.axes)
+ 236 return self.\_transOffset
+ 237 
+
+C:\ProgramData\Anaconda3\lib\site-packages\cartopy\crs.py in \_as\_mpl\_transform(self, axes)
+ 248 import cartopy.mpl.geoaxes as geoaxes
+ 249 if not isinstance(axes, geoaxes.GeoAxes):
+--> 250 raise ValueError(
+ 251 'Axes should be an instance of GeoAxes, got %s' % type(axes)
+ 252 )
+
+ValueError: Axes should be an instance of GeoAxes, got
+[2023-05-25T09:59:00.500000, Thu] 3.User: I'm trying to optimize my morning routine. Can you suggest some healthy breakfast options that'll give me energy throughout the morning?
+[2023-05-25T09:59:01, Thu] 4.User: I've been having oatmeal with banana and honey, but I want to try something new. What are the benefits of adding nuts to my oatmeal?
+[2023-05-25T09:59:01.500000, Thu] 5.User: What are some other healthy snacks that I can have throughout the day to keep my energy levels up?
+[2023-05-25T09:59:02, Thu] 6.User: What are some tips for staying hydrated throughout the day, especially during and after exercise?
+[2023-05-25T09:59:02.500000, Thu] 7.User: I'm trying to establish a consistent wake-up time and morning routine. Do you have any suggestions for a simple morning stretch routine that I can do in 10-15 minutes?
+[2023-05-25T09:59:03, Thu] 8.User: I want to try incorporating some meditation into my morning routine. Do you have any suggestions for a beginner-friendly meditation app or guided meditation for stress relief?
+[2023-05-25T18:42:00.500000, Thu] 9.User: I'm considering upgrading my camera and was looking for some advice on mirrorless cameras. What are the main differences between Sony and Fujifilm models?
+[2023-05-25T18:42:01, Thu] 10.User: I've been really enjoying photography lately, and I've been trying to take my camera with me on every outing. I've been getting back into it for a few months now, and I've learned a lot since then. I'm still deciding between Sony and Fujifilm, but I'm leaning towards Fujifilm because of its film simulation modes. Do you know if there are any good online resources for learning more about these modes and how to use them effectively?
+[2023-05-25T18:42:01.500000, Thu] 11.User: I'm also thinking about starting a photography project where I take a photo every day for a month. I've been looking at some inspiration online, and I think it would be a great way to stay motivated and practice my skills. Do you know if there are any tips or resources available for doing a daily photography project like this?
+[2023-05-25T18:42:02, Thu] 12.User: I'm thinking of joining a local photography club to get feedback on my work and meet other photographers. Do you know if there are any specific things I should look for when selecting a club, or any questions I should ask during a meeting?
+[2023-05-25T18:42:02.500000, Thu] 13.User: I'm thinking of asking the club about their experience with Fujifilm cameras, since I'm considering switching to one. Would that be a good question to ask?
+[2023-05-25T18:42:03, Thu] 14.User: I've been thinking about organizing my old photos on my computer, and I was wondering if you have any tips on how to do it efficiently?
+[2023-05-26T00:43:00.500000, Fri] 15.User: Can you describe the process of creating a new video game as a game designer?

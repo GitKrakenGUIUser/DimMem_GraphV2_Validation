@@ -1,0 +1,86 @@
+{
+  "question": "I mentioned an investment for a competition four weeks ago? What did I buy?",
+  "question_date": "2023-04-01T08:30:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user mentioned an investment for a competition four weeks ago",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [],
+      "keywords": [
+        "investment",
+        "competition",
+        "bought"
+      ],
+      "time_constraint": {
+        "operator": "around",
+        "start": "2023-03-04T00:00:00",
+        "end": "2023-03-04T23:59:59",
+        "raw": "four weeks ago"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user bought something for a competition",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [],
+      "keywords": [
+        "bought",
+        "competition",
+        "investment"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-04-01T08:30:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user mentioned an investment for a competition",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [],
+      "keywords": [
+        "investment",
+        "competition"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.3
+    }
+  ]
+}

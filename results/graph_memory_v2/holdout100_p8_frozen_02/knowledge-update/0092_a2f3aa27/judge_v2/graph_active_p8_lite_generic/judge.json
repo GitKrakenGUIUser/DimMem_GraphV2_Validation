@@ -1,0 +1,81 @@
+{
+  "question_id": "a2f3aa27",
+  "question_type": "knowledge-update",
+  "question": "How many followers do I have on Instagram now?",
+  "question_date": "2023/06/15 (Thu) 23:26",
+  "gold_answer": "1300",
+  "prediction": "1250",
+  "support_memory_ids": [
+    "m_38102e74921d57497eab"
+  ],
+  "support_source_ids": [
+    67
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The most recent valid state for Instagram follower count is 1250, stated on 2023-05-25. Later mention 'close to 1300' is approximate and not a precise count. Therefore, the current follower count is 1250.",
+  "required_slots": [
+    {
+      "name": "follower count state",
+      "value": "1250",
+      "support_memory_ids": [
+        "m_38102e74921d57497eab"
+      ],
+      "support_source_ids": [
+        67
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "stated_count",
+  "calculation": {
+    "operator": "stated_count",
+    "operands": [
+      "1250"
+    ],
+    "unit": "followers",
+    "result": "1250"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "follower count state",
+        "query": "Instagram follower count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Instagram follower count"
+    ],
+    "reason": "Need the most recent follower count state at question time.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 19928,
+    "completion_tokens": 475,
+    "elapsed_seconds": 4.572920083999634
+  },
+  "correct": false,
+  "judge_reason": "Predicted 1250 does not match reference 1300.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 131,
+    "completion_tokens": 28,
+    "elapsed_seconds": 0.8647596836090088
+  }
+}

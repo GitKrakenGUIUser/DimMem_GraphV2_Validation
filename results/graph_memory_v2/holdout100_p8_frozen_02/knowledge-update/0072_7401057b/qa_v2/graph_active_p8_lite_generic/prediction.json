@@ -1,0 +1,113 @@
+{
+  "question_id": "7401057b",
+  "question_type": "knowledge-update",
+  "question": "How many free night's stays can I redeem at any Hilton property with my accumulated points?",
+  "question_date": "2023/06/16 (Fri) 09:50",
+  "gold_answer": "Two",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_8ad1be1e9ff4cbc6d981",
+    "m_943d88d834219f62bef0"
+  ],
+  "support_source_ids": [
+    51,
+    52,
+    140
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Two memories state the user has enough points for free nights: one says 'enough for a single free night' (source 52, timestamp 2023-05-29), and a later memory says 'enough for two free nights' (source 140, timestamp 2023-05-30). The later memory supersedes the earlier one, so the current balance is enough for two free nights. No redemption rate needed beyond the fact that points are sufficient for free nights at any Hilton property.",
+  "required_slots": [
+    {
+      "name": "hilton_points_balance",
+      "value": "enough for two free nights",
+      "support_memory_ids": [
+        "m_8ad1be1e9ff4cbc6d981",
+        "m_943d88d834219f62bef0"
+      ],
+      "support_source_ids": [
+        52,
+        140
+      ]
+    },
+    {
+      "name": "hilton_redemption_rate",
+      "value": "1 free night per sufficient points",
+      "support_memory_ids": [
+        "m_8ad1be1e9ff4cbc6d981"
+      ],
+      "support_source_ids": [
+        52
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "free_nights_count",
+        "query": "Hilton Honors points free nights count",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Hilton Honors points free nights count"
+    ],
+    "reason": "The question asks for the number of free night stays redeemable with accumulated points, which is a count that can be directly stated in memory.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "Contradicted by later memory m_943d88d834219f62bef0 (source 140) stating enough points for two free nights."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Later memory (source 140) supersedes earlier one, indicating current balance is enough for two free nights."
+      },
+      "specialist": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "Contradicted by later memory m_943d88d834219f62bef0 (source 140) stating enough points for two free nights."
+      }
+    },
+    "reason": "Later memory (source 140, timestamp 2023-05-30) states 'enough points for two free night's stays', superseding earlier memory (source 52) of one free night. Thus p7 is correct."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 30122,
+    "completion_tokens": 813,
+    "elapsed_seconds": 7.6368935108184814
+  }
+}

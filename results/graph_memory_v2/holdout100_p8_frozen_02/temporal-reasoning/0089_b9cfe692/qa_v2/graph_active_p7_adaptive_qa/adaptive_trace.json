@@ -1,0 +1,209 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "reading_duration for The Seven Husbands of Evelyn Hugo",
+        "query": "How long did I take to finish 'The Seven Husbands of Evelyn Hugo'?",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "reading_duration for The Nightingale",
+        "query": "How long did I take to finish 'The Nightingale'?",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How long did I take to finish 'The Seven Husbands of Evelyn Hugo'?",
+      "How long did I take to finish 'The Nightingale'?"
+    ],
+    "output_constraints": [
+      "Answer must be a single duration (e.g., '5.5 weeks') representing the sum of the two reading durations."
+    ],
+    "reason": "The question asks for combined reading duration of two books, requiring sum of two separate durations."
+  },
+  "base_candidate": {
+    "answer": "5.5 weeks",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3ecfb52763b48224ea1a",
+      "m_298f811c9612e880d999"
+    ],
+    "support_source_ids": [
+      60,
+      44
+    ],
+    "required_slots": [
+      {
+        "name": "reading_duration for The Seven Husbands of Evelyn Hugo",
+        "value": "2.5 weeks",
+        "support_memory_ids": [
+          "m_3ecfb52763b48224ea1a"
+        ],
+        "support_source_ids": [
+          60
+        ]
+      },
+      {
+        "name": "reading_duration for The Nightingale",
+        "value": "3 weeks",
+        "support_memory_ids": [
+          "m_298f811c9612e880d999"
+        ],
+        "support_source_ids": [
+          44
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        2.5,
+        3
+      ],
+      "unit": "weeks",
+      "result": "5.5 weeks"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User finished 'The Seven Husbands of Evelyn Hugo' in 2.5 weeks (source 60) and 'The Nightingale' in 3 weeks (source 44). Combined duration is 5.5 weeks."
+  },
+  "specialist_candidate": {
+    "answer": "5.5 weeks",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3ecfb52763b48224ea1a",
+      "m_298f811c9612e880d999"
+    ],
+    "support_source_ids": [
+      60,
+      44
+    ],
+    "required_slots": [
+      {
+        "name": "reading_duration for The Seven Husbands of Evelyn Hugo",
+        "value": "2.5 weeks",
+        "support_memory_ids": [
+          "m_3ecfb52763b48224ea1a"
+        ],
+        "support_source_ids": [
+          60
+        ]
+      },
+      {
+        "name": "reading_duration for The Nightingale",
+        "value": "3 weeks",
+        "support_memory_ids": [
+          "m_298f811c9612e880d999"
+        ],
+        "support_source_ids": [
+          44
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        2.5,
+        3
+      ],
+      "unit": "weeks",
+      "result": "5.5 weeks"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "finished listening to",
+        "object": "The Seven Husbands of Evelyn Hugo",
+        "value": "2.5",
+        "unit": "weeks",
+        "event_time": "2023-05-24T08:41:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3ecfb52763b48224ea1a"
+        ],
+        "support_source_ids": [
+          60
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "finished reading",
+        "object": "The Nightingale",
+        "value": "3",
+        "unit": "weeks",
+        "event_time": "2023-05-24T11:25:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_298f811c9612e880d999"
+        ],
+        "support_source_ids": [
+          44
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "User stated finishing 'The Seven Husbands of Evelyn Hugo' in two and a half weeks (source 60) and 'The Nightingale' in three weeks (source 44). Sum is 5.5 weeks.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    60,
+    135,
+    46,
+    44,
+    48,
+    137,
+    47,
+    9,
+    134,
+    174,
+    181,
+    136,
+    129,
+    61,
+    8
+  ],
+  "targeted_source_ids": [
+    7,
+    9,
+    18,
+    44,
+    46,
+    47,
+    48,
+    60,
+    135,
+    137,
+    138,
+    180,
+    45,
+    61,
+    134,
+    136
+  ]
+}

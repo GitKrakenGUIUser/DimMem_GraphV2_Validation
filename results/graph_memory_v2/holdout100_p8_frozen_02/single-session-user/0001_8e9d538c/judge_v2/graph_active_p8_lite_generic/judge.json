@@ -1,0 +1,81 @@
+{
+  "question_id": "8e9d538c",
+  "question_type": "single-session-user",
+  "question": "How many skeins of worsted weight yarn did I find in my stash?",
+  "question_date": "2023/05/30 (Tue) 18:03",
+  "gold_answer": "17",
+  "prediction": "17",
+  "support_memory_ids": [
+    "m_dc3f788b23bb6b50fef7"
+  ],
+  "support_source_ids": [
+    177
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user stated in source 177 that they have a stash of 17 skeins of worsted weight yarn found recently. This is a direct stated count, so the answer is 17.",
+  "required_slots": [
+    {
+      "name": "count of skeins",
+      "value": "17",
+      "support_memory_ids": [
+        "m_dc3f788b23bb6b50fef7"
+      ],
+      "support_source_ids": [
+        177
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "stated_count",
+  "calculation": {
+    "operator": "stated_count",
+    "operands": [
+      "17"
+    ],
+    "unit": "skeins",
+    "result": "17"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "count of skeins",
+        "query": "worsted weight yarn stash count",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "worsted weight yarn stash count"
+    ],
+    "reason": "The question asks for a specific number of skeins found in the stash, which is a direct numeric value from a past event.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 19059,
+    "completion_tokens": 480,
+    "elapsed_seconds": 4.397085905075073
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 136,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.5916812419891357
+  }
+}

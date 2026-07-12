@@ -1,0 +1,186 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "company name",
+        "query": "rug-manufacturing company in Chaudhary employing over 40,000",
+        "semantic_type": "entity",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "rug-manufacturing company in Chaudhary employing over 40,000"
+    ],
+    "output_constraints": [
+      "single company name"
+    ],
+    "reason": "The user asks to recall a specific company mentioned in a previous conversation, so the answer contract is assistant_recall. The only missing slot is the company name, which should be retrieved from assistant's memory."
+  },
+  "base_candidate": {
+    "answer": "Jaipur Rugs",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_59a3b8fd5e043e228ada"
+    ],
+    "support_source_ids": [
+      211
+    ],
+    "required_slots": [
+      {
+        "name": "company name",
+        "value": "Jaipur Rugs",
+        "support_memory_ids": [
+          "m_59a3b8fd5e043e228ada"
+        ],
+        "support_source_ids": [
+          211
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "In a previous conversation on 2023-05-29, the assistant mentioned Jaipur Rugs as a private company that employs over 40,000 people in the rug-manufacturing industry in Chaudhary. This directly answers the user's follow-up question."
+  },
+  "specialist_candidate": {
+    "answer": "Jaipur Rugs",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_59a3b8fd5e043e228ada"
+    ],
+    "support_source_ids": [
+      211
+    ],
+    "required_slots": [
+      {
+        "name": "company name",
+        "value": "Jaipur Rugs",
+        "support_memory_ids": [
+          "m_59a3b8fd5e043e228ada"
+        ],
+        "support_source_ids": [
+          211
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "Jaipur Rugs",
+        "predicate": "employs",
+        "object": "over 40,000 people",
+        "value": "40000",
+        "unit": "people",
+        "event_time": "2023-05-29T04:01:01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_59a3b8fd5e043e228ada"
+        ],
+        "support_source_ids": [
+          211
+        ]
+      },
+      {
+        "subject": "Jaipur Rugs",
+        "predicate": "operates in",
+        "object": "rug-manufacturing industry",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-29T04:01:01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_59a3b8fd5e043e228ada"
+        ],
+        "support_source_ids": [
+          211
+        ]
+      },
+      {
+        "subject": "Jaipur Rugs",
+        "predicate": "located in",
+        "object": "Chaudhary",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-29T04:01:01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_59a3b8fd5e043e228ada"
+        ],
+        "support_source_ids": [
+          211
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's previous reply (source 211) explicitly states: 'Jaipur Rugs is a private company that employs over 40,000 people in the rug-manufacturing industry.' This directly answers the user's question about the company in Chaudhary."
+  },
+  "choice": "base",
+  "choice_reason": "same answer; preserve compact candidate",
+  "compact_source_ids": [
+    211,
+    210,
+    212,
+    231,
+    199,
+    141,
+    197,
+    169,
+    224,
+    157,
+    166,
+    206,
+    33,
+    32,
+    196,
+    233,
+    198,
+    223,
+    225
+  ],
+  "targeted_source_ids": [
+    32,
+    33,
+    53,
+    96,
+    152,
+    196,
+    210,
+    211,
+    212,
+    230,
+    231,
+    233
+  ]
+}

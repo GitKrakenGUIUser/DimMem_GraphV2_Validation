@@ -1,0 +1,96 @@
+{
+  "question_id": "4dfccbf7",
+  "question_type": "temporal-reasoning",
+  "question": "How many days had passed since I started taking ukulele lessons when I decided to take my acoustic guitar to the guitar tech for servicing?",
+  "question_date": "2023/04/01 (Sat) 00:42",
+  "gold_answer": "24 days. 25 days (including the last day) is also acceptable.",
+  "prediction": "24 days",
+  "support_memory_ids": [
+    "m_328e3a774c3ba9ff4012",
+    "m_a924736e0dc47869ff73"
+  ],
+  "support_source_ids": [
+    191,
+    207
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User started ukulele lessons on 2023-02-01 (source 191, memory m_328e3a774c3ba9ff4012). User decided to take acoustic guitar (Taylor GS Mini) to guitar tech for servicing on 2023-02-25 (source 207, memory m_a924736e0dc47869ff73). The difference is 24 days.",
+  "required_slots": [
+    {
+      "name": "start date of ukulele lessons",
+      "value": "2023-02-01",
+      "support_memory_ids": [
+        "m_328e3a774c3ba9ff4012"
+      ],
+      "support_source_ids": [
+        191
+      ]
+    },
+    {
+      "name": "date of decision to service guitar",
+      "value": "2023-02-25",
+      "support_memory_ids": [
+        "m_a924736e0dc47869ff73"
+      ],
+      "support_source_ids": [
+        207
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-02-01",
+      "2023-02-25"
+    ],
+    "unit": "days",
+    "result": "24 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    207,
+    191,
+    193,
+    192,
+    87,
+    33,
+    205,
+    18,
+    129,
+    138,
+    141,
+    206,
+    7,
+    118,
+    93,
+    208,
+    194,
+    130,
+    204,
+    128,
+    140
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 86638,
+    "completion_tokens": 920,
+    "elapsed_seconds": 17.066797494888306
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 163,
+    "completion_tokens": 22,
+    "elapsed_seconds": 2.6049578189849854
+  }
+}

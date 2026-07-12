@@ -1,0 +1,188 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "setup event for first device",
+        "query": "set up smart thermostat",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "setup event for second device",
+        "query": "set up mesh network system",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "set up smart thermostat",
+      "set up mesh network system"
+    ],
+    "reason": "Need to compare setup times of two devices to determine which was first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "smart thermostat",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_83f50691cfd4896cadae",
+      "m_08cfef4d4fe9cf193ac8"
+    ],
+    "support_source_ids": [
+      192,
+      101
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The smart thermostat was set up 'a month ago' from the question date (2023-05-25), i.e., around 2023-04-25. The mesh network system was upgraded '3 weeks ago', i.e., around 2023-05-04. Since 2023-04-25 is earlier than 2023-05-04, the smart thermostat was set up first."
+  },
+  "p7_candidate": {
+    "answer": "smart thermostat",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_83f50691cfd4896cadae",
+      "m_08cfef4d4fe9cf193ac8"
+    ],
+    "support_source_ids": [
+      192,
+      101
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The smart thermostat was set up 'a month ago' from the question date (2023-05-25), i.e., around 2023-04-25. The mesh network system was upgraded '3 weeks ago', i.e., around 2023-05-04. Since 2023-04-25 is earlier than 2023-05-04, the smart thermostat was set up first."
+  },
+  "specialist_candidate": {
+    "answer": "smart thermostat",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_83f50691cfd4896cadae",
+      "m_08cfef4d4fe9cf193ac8"
+    ],
+    "support_source_ids": [
+      192,
+      194,
+      101
+    ],
+    "required_slots": [
+      {
+        "name": "setup event for first device",
+        "value": "set up smart thermostat",
+        "support_memory_ids": [
+          "m_83f50691cfd4896cadae"
+        ],
+        "support_source_ids": [
+          192,
+          194
+        ]
+      },
+      {
+        "name": "setup event for second device",
+        "value": "set up mesh network system",
+        "support_memory_ids": [
+          "m_08cfef4d4fe9cf193ac8"
+        ],
+        "support_source_ids": [
+          101
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "comparison",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "User",
+        "predicate": "set up",
+        "object": "smart thermostat",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-04-25",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_83f50691cfd4896cadae"
+        ],
+        "support_source_ids": [
+          192,
+          194
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "User",
+        "predicate": "upgraded home Wi-Fi router to",
+        "object": "mesh network system",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-04",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_08cfef4d4fe9cf193ac8"
+        ],
+        "support_source_ids": [
+          101
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The smart thermostat was set up a month ago (2023-04-25) and the mesh network system was upgraded 3 weeks ago (2023-05-04). Since 2023-04-25 is earlier than 2023-05-04, the smart thermostat was set up first."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    192,
+    194,
+    42,
+    99,
+    104,
+    120,
+    41,
+    119,
+    43,
+    193,
+    195
+  ],
+  "v2_timeline_memory_ids": [
+    "m_325412952b62fc4c2965",
+    "m_08cfef4d4fe9cf193ac8",
+    "m_5ac741137dd0abc682b1",
+    "m_83f50691cfd4896cadae",
+    "m_243045c110c9bb8a8ad6",
+    "m_4033ced7dc57bd4643fb",
+    "m_4b8bff09f5c2209a3cf9",
+    "m_5d3bd5aae5eb06e3b842"
+  ]
+}

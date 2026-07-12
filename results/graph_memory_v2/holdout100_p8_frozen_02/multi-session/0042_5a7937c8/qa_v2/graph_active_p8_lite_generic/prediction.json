@@ -1,0 +1,83 @@
+{
+  "question_id": "5a7937c8",
+  "question_type": "multi-session",
+  "question": "How many days did I spend participating in faith-related activities in December?",
+  "question_date": "2024/01/10 (Wed) 23:41",
+  "gold_answer": "3 days.",
+  "prediction": "3",
+  "support_memory_ids": [
+    "m_1878da2a96adf0513ebf",
+    "m_8dad7caf0e955ace7c3f",
+    "m_f7b1cc587b69e54a89ef"
+  ],
+  "support_source_ids": [
+    171,
+    125,
+    24
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Identified three distinct days in December with faith-related activities: December 10 (food drive at church), December 17 (Bible study at church), and December 24 (midnight mass at St. Mary's Church). Counted distinct days = 3.",
+  "required_slots": [
+    {
+      "name": "faith-related activities in December",
+      "value": "Bible study on December 17, midnight mass on December 24, food drive on December 10",
+      "support_memory_ids": [
+        "m_1878da2a96adf0513ebf",
+        "m_8dad7caf0e955ace7c3f",
+        "m_f7b1cc587b69e54a89ef"
+      ],
+      "support_source_ids": [
+        171,
+        125,
+        24
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "2023-12-10",
+      "2023-12-17",
+      "2023-12-24"
+    ],
+    "unit": "days",
+    "result": "3"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "faith-related activities in December",
+        "query": "faith activities December",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "faith activities December"
+    ],
+    "reason": "Need to count distinct days with faith-related activities in December.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 22935,
+    "completion_tokens": 827,
+    "elapsed_seconds": 6.0098876953125
+  }
+}

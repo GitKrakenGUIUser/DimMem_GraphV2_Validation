@@ -1,0 +1,63 @@
+{
+  "question_id": "a3838d2b",
+  "question_type": "temporal-reasoning",
+  "question": "How many charity events did I participate in before the 'Run for the Cure' event?",
+  "question_date": "2023/11/29 (Wed) 03:31",
+  "gold_answer": "4",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_984b6bf016097a094833",
+    "m_41eda4c8b740609ae153"
+  ],
+  "support_source_ids": [
+    124,
+    177
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "The user participated in 'Dance for a Cause' on May 1, 2023 (memory m_984b6bf016097a094833, source 124) and volunteered at 'Walk for Wildlife' in June 2023 (memory m_41eda4c8b740609ae153, source 177). Both occurred before 'Run for the Cure' on October 15, 2023. No other charity events before that date are found. Thus, 2 charity events.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Dance for a Cause",
+      "Walk for Wildlife"
+    ],
+    "unit": "events",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    66,
+    69,
+    70,
+    189,
+    71,
+    124,
+    128,
+    155,
+    170,
+    177,
+    67,
+    126,
+    127,
+    125,
+    68,
+    129,
+    171
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.279999999999999,
+    5.279999999999999
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 75595,
+    "completion_tokens": 696,
+    "elapsed_seconds": 9.41172981262207
+  }
+}

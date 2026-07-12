@@ -1,0 +1,97 @@
+{
+  "question_id": "gpt4_372c3eed",
+  "question_type": "multi-session",
+  "question": "How many years in total did I spend in formal education from high school to the completion of my Bachelor's degree?",
+  "question_date": "2021/08/20 (Fri) 23:34",
+  "gold_answer": "10 years",
+  "prediction": "6",
+  "support_memory_ids": [
+    "m_44583d75eeb3ca4a42d9",
+    "m_f3264006bfebb15d17f9"
+  ],
+  "support_source_ids": [
+    18,
+    193
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "High school graduation inferred as 2014 (attended 2010-2014). Bachelor's degree completed in 2020. Difference is 6 years.",
+  "required_slots": [
+    {
+      "name": "high school graduation date",
+      "value": "2014",
+      "support_memory_ids": [
+        "m_f3264006bfebb15d17f9"
+      ],
+      "support_source_ids": [
+        193
+      ]
+    },
+    {
+      "name": "Bachelor's degree completion date",
+      "value": "2020",
+      "support_memory_ids": [
+        "m_44583d75eeb3ca4a42d9"
+      ],
+      "support_source_ids": [
+        18
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_years",
+    "operands": [
+      "2014",
+      "2020"
+    ],
+    "unit": "years",
+    "result": "6"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "Specialist candidate fills required slots with specific dates (2014 and 2020) and computes the exact difference (6 years), matching the answer contract for a sum of years between two events. Compact candidate incorrectly sums durations (4+4) instead of computing the interval between graduation and degree completion.",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "high school graduation date",
+        "query": "When did I graduate from high school?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "Bachelor's degree completion date",
+        "query": "When did I complete my Bachelor's degree?",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "high school graduation date",
+      "Bachelor's degree completion date"
+    ],
+    "output_constraints": [
+      "answer must be a number of years"
+    ],
+    "reason": "The question asks for total years from high school to Bachelor's degree, requiring two dates to compute the difference in years."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 39799,
+    "completion_tokens": 842,
+    "elapsed_seconds": 8.679524898529053
+  }
+}

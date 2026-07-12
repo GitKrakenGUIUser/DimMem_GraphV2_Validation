@@ -1,0 +1,152 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "plan": {
+    "answer_contract": "duration",
+    "operator": "date_difference_days",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "marination_duration",
+        "query": "Alex marinate BBQ ribs special sauce duration",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Alex marinate BBQ ribs special sauce duration"
+    ],
+    "reason": "The question asks for a duration of marination, which is a state value. The evidence should directly state the time period.",
+    "deterministic_contract_hint": "duration",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "24 hours",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6b74d9c8eb937302c53d"
+    ],
+    "support_source_ids": [
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "marination_duration",
+        "value": "24 hours",
+        "support_memory_ids": [
+          "m_6b74d9c8eb937302c53d"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_6b74d9c8eb937302c53d and source turn 136 both state that Alex marinated BBQ ribs in a special sauce for 24 hours before grilling."
+  },
+  "p7_candidate": {
+    "answer": "24 hours",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6b74d9c8eb937302c53d"
+    ],
+    "support_source_ids": [
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "marination_duration",
+        "value": "24 hours",
+        "support_memory_ids": [
+          "m_6b74d9c8eb937302c53d"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_6b74d9c8eb937302c53d and source turn 136 both state that Alex marinated BBQ ribs in a special sauce for 24 hours before grilling."
+  },
+  "specialist_candidate": {
+    "answer": "24 hours",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6b74d9c8eb937302c53d"
+    ],
+    "support_source_ids": [
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "marination_duration",
+        "value": "24 hours",
+        "support_memory_ids": [
+          "m_6b74d9c8eb937302c53d"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "Alex",
+        "predicate": "marinated BBQ ribs in special sauce for",
+        "object": "24 hours",
+        "numeric_value": 24,
+        "unit": "hours",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_6b74d9c8eb937302c53d"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_6b74d9c8eb937302c53d directly states that Alex marinated BBQ ribs in special sauce for 24 hours before grilling. Source 136 confirms this."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    135,
+    136,
+    138,
+    137,
+    139,
+    37
+  ],
+  "v2_timeline_memory_ids": []
+}

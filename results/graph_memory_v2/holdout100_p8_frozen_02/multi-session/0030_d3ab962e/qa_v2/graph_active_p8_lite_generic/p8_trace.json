@@ -1,0 +1,196 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "hike distances",
+        "query": "hike distance weekend",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "hike distance weekend"
+    ],
+    "reason": "Need distances of hikes on two consecutive weekends to sum.",
+    "deterministic_contract_hint": "sum",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "8 miles",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1f1a8ca2fc568afa366f",
+      "m_63e5f2608fbe8ae60403"
+    ],
+    "support_source_ids": [
+      205,
+      39
+    ],
+    "required_slots": [
+      {
+        "name": "hike distances",
+        "value": "5 miles and 3 miles",
+        "support_memory_ids": [
+          "m_1f1a8ca2fc568afa366f",
+          "m_63e5f2608fbe8ae60403"
+        ],
+        "support_source_ids": [
+          205,
+          39
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5,
+        3
+      ],
+      "unit": "miles",
+      "result": "8 miles"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user hiked 5 miles at Red Rock Canyon two weekends ago (2022-09-10) and 3 miles at Valley of Fire State Park last weekend (2022-09-17). These are two consecutive weekends. The total distance is 5 + 3 = 8 miles."
+  },
+  "p7_candidate": {
+    "answer": "8 miles",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1f1a8ca2fc568afa366f",
+      "m_63e5f2608fbe8ae60403"
+    ],
+    "support_source_ids": [
+      205,
+      39
+    ],
+    "required_slots": [
+      {
+        "name": "hike distances",
+        "value": "5 miles and 3 miles",
+        "support_memory_ids": [
+          "m_1f1a8ca2fc568afa366f",
+          "m_63e5f2608fbe8ae60403"
+        ],
+        "support_source_ids": [
+          205,
+          39
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5,
+        3
+      ],
+      "unit": "miles",
+      "result": "8 miles"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Two hikes on consecutive weekends: 5 miles two weekends ago (2022-09-10) and 3 miles last weekend (2022-09-17). Sum is 8 miles."
+  },
+  "specialist_candidate": {
+    "answer": "8 miles",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1f1a8ca2fc568afa366f",
+      "m_63e5f2608fbe8ae60403"
+    ],
+    "support_source_ids": [
+      205,
+      39
+    ],
+    "required_slots": [
+      {
+        "name": "hike distances",
+        "value": "5 miles and 3 miles",
+        "support_memory_ids": [
+          "m_1f1a8ca2fc568afa366f",
+          "m_63e5f2608fbe8ae60403"
+        ],
+        "support_source_ids": [
+          205,
+          39
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5,
+        3
+      ],
+      "unit": "miles",
+      "result": "8 miles"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "hiked",
+        "object": "5 miles at Red Rock Canyon",
+        "numeric_value": 5,
+        "unit": "miles",
+        "event_time": "2022-09-10",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_1f1a8ca2fc568afa366f"
+        ],
+        "support_source_ids": [
+          205
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "hiked",
+        "object": "3 miles at Valley of Fire State Park",
+        "numeric_value": 3,
+        "unit": "miles",
+        "event_time": "2022-09-17",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_63e5f2608fbe8ae60403"
+        ],
+        "support_source_ids": [
+          39
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Two hikes on consecutive weekends: 5 miles two weekends ago (2022-09-10) and 3 miles last weekend (2022-09-17). Sum is 8 miles.",
+    "safe_executor_applied": true
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    205,
+    3,
+    39,
+    177,
+    44,
+    2,
+    178,
+    4,
+    40,
+    206
+  ],
+  "v2_timeline_memory_ids": []
+}

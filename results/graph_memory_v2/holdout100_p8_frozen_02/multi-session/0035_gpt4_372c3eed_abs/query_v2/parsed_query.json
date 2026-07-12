@@ -1,0 +1,107 @@
+{
+  "question": "How many years in total did I spend in formal education from high school to the completion of my Master's degree?",
+  "question_date": "2023/08/20 (Sun) 23:54",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's high school graduation year",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "high school",
+        "graduation",
+        "year"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-08-20",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "high_school_graduation_year"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's Master's degree completion year",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "Master's degree",
+        "completion",
+        "year"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-08-20",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "masters_completion_year"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's formal education timeline from high school to Master's degree",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "high school",
+        "Master's degree",
+        "years",
+        "education"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "",
+        "end": "",
+        "raw": "from high school to completion of Master's degree"
+      },
+      "locations": [],
+      "state_keys": [
+        "education_start_year",
+        "education_end_year"
+      ],
+      "relation_hints": [
+        "same_person"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "high school start year",
+        "Master's degree completion year"
+      ],
+      "confidence": 0.8
+    }
+  ]
+}

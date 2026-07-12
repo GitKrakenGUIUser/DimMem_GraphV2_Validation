@@ -1,0 +1,143 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "assistant_reply",
+        "query": "beer recommendation Seco de Cordero Ancash",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "beer recommendation Seco de Cordero Ancash"
+    ],
+    "output_constraints": [
+      "specific beer type"
+    ],
+    "reason": "The question asks to recall a specific recommendation from a previous conversation, which is an assistant-recall type."
+  },
+  "base_candidate": {
+    "answer": "a pilsner or lager",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2791c95112508fce2254"
+    ],
+    "support_source_ids": [
+      185
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The assistant's reply in source 185 explicitly recommends 'a pilsner or lager' as the specific type of beer for Seco de Cordero."
+  },
+  "specialist_candidate": {
+    "answer": "In our previous conversation, I recommended using a light or medium-bodied beer for the Seco de Cordero recipe, specifically a pilsner or lager.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2791c95112508fce2254"
+    ],
+    "support_source_ids": [
+      185
+    ],
+    "required_slots": [
+      {
+        "name": "assistant_reply",
+        "value": "a pilsner or lager",
+        "support_memory_ids": [
+          "m_2791c95112508fce2254"
+        ],
+        "support_source_ids": [
+          185
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "assistant",
+        "predicate": "recommended",
+        "object": "beer type for Seco de Cordero",
+        "value": "pilsner or lager",
+        "unit": "",
+        "event_time": "2023-05-28T13:04:01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_2791c95112508fce2254"
+        ],
+        "support_source_ids": [
+          185
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's reply in source 185 explicitly recommends 'a pilsner or lager' as the specific beer type for the Seco de Cordero recipe from Ancash."
+  },
+  "choice": "specialist",
+  "choice_reason": "The specialist candidate fills the required slot with a specific beer type and follows the answer contract for assistant recall, while the compact candidate omits the required slot structure.",
+  "compact_source_ids": [
+    185,
+    184,
+    187,
+    27,
+    73,
+    28,
+    207,
+    227,
+    246,
+    205,
+    204,
+    203,
+    174,
+    250,
+    186,
+    144,
+    72,
+    188,
+    206
+  ],
+  "targeted_source_ids": [
+    72,
+    142,
+    144,
+    174,
+    184,
+    185,
+    186,
+    187,
+    208,
+    212,
+    232,
+    250,
+    175,
+    188
+  ]
+}

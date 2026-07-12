@@ -1,0 +1,75 @@
+{
+  "question_id": "6b168ec8",
+  "question_type": "single-session-user",
+  "question": "How many bikes do I own?",
+  "question_date": "2023/05/30 (Tue) 20:24",
+  "gold_answer": "three",
+  "prediction": "3",
+  "support_memory_ids": [
+    "m_47e257b850971cefac0f"
+  ],
+  "support_source_ids": [
+    164
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Memory m_47e257b850971cefac0f directly states 'User owns three bikes' and is supported by source 164 where user says 'I've got three of them'. No later evidence contradicts this, so the current count is 3.",
+  "required_slots": [
+    {
+      "name": "bike ownership state",
+      "value": "3",
+      "support_memory_ids": [
+        "m_47e257b850971cefac0f"
+      ],
+      "support_source_ids": [
+        164
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "bike ownership state",
+        "query": "bike count owned",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "bike count owned"
+    ],
+    "output_constraints": [
+      "answer must be a number"
+    ],
+    "reason": "The question asks for the current count of bikes owned, which is a state resolution query. The most direct evidence is a stored state or fact about bike ownership count."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 28333,
+    "completion_tokens": 511,
+    "elapsed_seconds": 23.237959384918213
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "phone_number",
+        "query": "phone number of Speyer tourism board",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "phone number of Speyer tourism board"
+    ],
+    "output_constraints": [
+      "must be a phone number string"
+    ],
+    "reason": "The user asks to confirm a phone number previously provided by the assistant, so the answer contract is assistant_recall with a single slot for the phone number."
+  },
+  "base_candidate": {
+    "answer": "+49 (0) 62 32 / 14 23 - 0",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9f45862752ac66bdea82"
+    ],
+    "support_source_ids": [
+      181
+    ],
+    "required_slots": [
+      {
+        "name": "phone_number",
+        "value": "+49 (0) 62 32 / 14 23 - 0",
+        "support_memory_ids": [
+          "m_9f45862752ac66bdea82"
+        ],
+        "support_source_ids": [
+          181
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously provided the phone number of Speyer Tourismus Marketing GmbH as +49 (0) 62 32 / 14 23 - 0 in response to the user's earlier request for contact details. This is recorded in memory m_9f45862752ac66bdea82 and source turn 181."
+  },
+  "specialist_candidate": {
+    "answer": "+49 (0) 62 32 / 14 23 - 0",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9f45862752ac66bdea82"
+    ],
+    "support_source_ids": [
+      181
+    ],
+    "required_slots": [
+      {
+        "name": "phone_number",
+        "value": "+49 (0) 62 32 / 14 23 - 0",
+        "support_memory_ids": [
+          "m_9f45862752ac66bdea82"
+        ],
+        "support_source_ids": [
+          181
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "Speyer tourism board",
+        "predicate": "phone_number",
+        "object": "+49 (0) 62 32 / 14 23 - 0",
+        "value": "+49 (0) 62 32 / 14 23 - 0",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_9f45862752ac66bdea82"
+        ],
+        "support_source_ids": [
+          181
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously provided the phone number of the Speyer tourism board in source 181. The user asks to confirm that number. The memory and source directly contain the phone number: +49 (0) 62 32 / 14 23 - 0."
+  },
+  "choice": "base",
+  "choice_reason": "same answer; preserve compact candidate",
+  "compact_source_ids": [
+    181,
+    182,
+    22,
+    149,
+    180,
+    194,
+    21,
+    148,
+    23,
+    55,
+    59,
+    60,
+    211,
+    179,
+    195,
+    4,
+    20,
+    150
+  ],
+  "targeted_source_ids": [
+    4,
+    20,
+    22,
+    40,
+    56,
+    179,
+    180,
+    181,
+    182,
+    195,
+    211,
+    213,
+    21,
+    23
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "question_id": "2b8f3739",
+  "question_type": "multi-session",
+  "question": "What is the total amount of money I earned from selling my products at the markets?",
+  "question_date": "2023/06/01 (Thu) 23:37",
+  "gold_answer": "$495",
+  "prediction": "495 USD",
+  "support_memory_ids": [
+    "m_8abff4d1f2005890dcf2",
+    "m_8531fed73bee0c54f7cb",
+    "m_0a0e10ce86065ad4b3fb"
+  ],
+  "support_source_ids": [
+    50,
+    216,
+    240
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Three market sales are recorded: $225 from jam (May 29), $150 from herb plants (20 x $7.5, June 1), and $120 from fresh herbs (May 15). Sum = $495.",
+  "required_slots": [
+    {
+      "name": "total earnings",
+      "value": "345",
+      "support_memory_ids": [
+        "m_8abff4d1f2005890dcf2",
+        "m_8531fed73bee0c54f7cb",
+        "m_0a0e10ce86065ad4b3fb"
+      ],
+      "support_source_ids": [
+        50,
+        216,
+        240
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      225,
+      150,
+      120
+    ],
+    "unit": "USD",
+    "result": "495 USD"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    218,
+    59,
+    240,
+    121,
+    50,
+    216,
+    76,
+    62,
+    96,
+    86,
+    191,
+    243,
+    79,
+    51,
+    241,
+    63,
+    217
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    6.1000000000000005,
+    6.1000000000000005
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 87792,
+    "completion_tokens": 780,
+    "elapsed_seconds": 34.69734168052673
+  }
+}

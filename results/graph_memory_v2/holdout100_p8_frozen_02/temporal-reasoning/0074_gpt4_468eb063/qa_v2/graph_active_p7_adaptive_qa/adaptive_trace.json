@@ -1,0 +1,168 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of meeting Emma",
+        "query": "When did I meet Emma?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I meet Emma?"
+    ],
+    "output_constraints": [
+      "Answer must be a number of days."
+    ],
+    "reason": "The question asks for a count of days since a past event, requiring a single date slot and a date difference operation."
+  },
+  "base_candidate": {
+    "answer": "9 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b17a4a104080c7d380d8"
+    ],
+    "support_source_ids": [
+      60
+    ],
+    "required_slots": [
+      {
+        "name": "date of meeting Emma",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b17a4a104080c7d380d8"
+        ],
+        "support_source_ids": [
+          60
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-11",
+        "2023-04-20"
+      ],
+      "unit": "days",
+      "result": "9 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_b17a4a104080c7d380d8 states user had lunch with Emma on 2023-04-11 (event_start). The question date is 2023-04-20. The difference is 9 days."
+  },
+  "specialist_candidate": {
+    "answer": "9 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b17a4a104080c7d380d8"
+    ],
+    "support_source_ids": [
+      60
+    ],
+    "required_slots": [
+      {
+        "name": "date of meeting Emma",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b17a4a104080c7d380d8"
+        ],
+        "support_source_ids": [
+          60
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-11",
+        "2023-04-20"
+      ],
+      "unit": "days",
+      "result": "9 days"
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "had lunch with",
+        "object": "Emma",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-04-11",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_b17a4a104080c7d380d8"
+        ],
+        "support_source_ids": [
+          60
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_b17a4a104080c7d380d8 states user had lunch with Emma on 2023-04-11 (today relative to that conversation). Question date is 2023-04-20. Difference is 9 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    200,
+    196,
+    198,
+    63,
+    60,
+    189,
+    156,
+    118,
+    109,
+    137,
+    201,
+    229,
+    139,
+    157,
+    99,
+    146,
+    147,
+    148,
+    64,
+    199,
+    61,
+    62,
+    197
+  ],
+  "targeted_source_ids": [
+    39,
+    60,
+    63,
+    64,
+    79,
+    139,
+    147,
+    148,
+    196,
+    198,
+    200,
+    201,
+    146,
+    149,
+    199
+  ]
+}

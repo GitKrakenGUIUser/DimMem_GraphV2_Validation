@@ -1,0 +1,843 @@
+[
+  {
+    "memory_id": "m_2faccde2d0a47612d1f3",
+    "content": "User is integrating Stripe into a web app's server written in Go, specifically using Stripe Connect with Express to create accounts for users and upload their information to Stripe.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-28T10:00:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "create accounts for users and upload their information to Stripe",
+      "keywords": [
+        "Stripe",
+        "Stripe Connect",
+        "Express",
+        "Go",
+        "integration",
+        "web app",
+        "server"
+      ],
+      "entities": [
+        {
+          "name": "Stripe",
+          "entity_type": "organization",
+          "role": "service provider"
+        },
+        {
+          "name": "Stripe Connect",
+          "entity_type": "product",
+          "role": "integration"
+        },
+        {
+          "name": "Express",
+          "entity_type": "product",
+          "role": "account type"
+        },
+        {
+          "name": "Go",
+          "entity_type": "tool",
+          "role": "programming language"
+        }
+      ],
+      "topic": "Stripe integration",
+      "relation": {
+        "subject": "User",
+        "predicate": "is integrating",
+        "object": "Stripe Connect with Express in Go server"
+      },
+      "state_key": "project.stripe_integration",
+      "state_value": "integrating Stripe Connect with Express in Go server",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_WbCGgx9_0",
+      "session_index": 32,
+      "source_ids": [
+        172
+      ],
+      "source_uids": [
+        "s0032u0001"
+      ],
+      "source_times": [
+        "2023-05-28T10:00:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm integrating Stripe into my web app's server. I want to add an integration for using Stripe Connect with Express. My server is written in Go",
+    "assistant_replies": [
+      "Stripe has an official Go library for interacting with the Stripe API, which you can use to create Stripe Connect accounts for your users and upload their information to Stripe. Here is an example of how to use the library to create a Stripe Connect account for a user:\n```\npackage main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\n\t\"github.com/stripe/stripe-go\"\n\t\"github.com/stripe/stripe-go/account\"\n)\n\nfunc main() {\n\tstripe.Key = os.Getenv(\"STRIPE_SECRET_KEY\")\n\n\tparams := &stripe.AccountParams{\n\t\tType: stripe.String(string(stripe.AccountTypeCustom)),\n\t}\n\tparams.SetCountry(\"US\")\n\tparams.SetEmail(\"jane.doe@example.com\")\n\n\taccount, err := account.New(params)\n\tif err != nil {\n\t\tfmt.Println(\"Error creating account:\", err)\n\t\treturn\n\t}\n\n\tfmt.Println(\"Account ID:\", account.ID)\n}\n```\nYou need to set `stripe.Key` to your Stripe Secret Key.\n\nYou may also need to pass additional information such as the user's name, address, and business information depending on the requirements for the type of account you want to create. You can find more information on the available fields in the Stripe API documentation: <https://stripe.com/docs/api/go#create_account>\n\nYou can also refer to Stripe's official Go library documentation for more information on how to use the library to interact with the Stripe API: <https://godoc.org/github.com/stripe/stripe-go>"
+    ]
+  },
+  {
+    "memory_id": "m_db869b041acaeaa7c74f",
+    "content": "User asked about when to use Stripe's Go client (github.com/stripe/stripe-go/client).",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "2023-05-28T10:00:01",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Stripe",
+        "Go client",
+        "stripe-go",
+        "when to use"
+      ],
+      "entities": [
+        {
+          "name": "Stripe",
+          "entity_type": "organization",
+          "role": "service provider"
+        },
+        {
+          "name": "github.com/stripe/stripe-go/client",
+          "entity_type": "tool",
+          "role": "Go client library"
+        }
+      ],
+      "topic": "Stripe Go client",
+      "relation": {
+        "subject": "User",
+        "predicate": "asked about",
+        "object": "when to use Stripe's Go client"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_WbCGgx9_0",
+      "session_index": 32,
+      "source_ids": [
+        173
+      ],
+      "source_uids": [
+        "s0032u0002"
+      ],
+      "source_times": [
+        "2023-05-28T10:00:01"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "When would I use Stripe's go client (\"github.com/stripe/stripe-go/client\")?",
+    "assistant_replies": [
+      "The `github.com/stripe/stripe-go/client` package provides a client that you can use to interact with the Stripe API directly. This package is lower level than some of the other packages in the Stripe Go library, and it provides more flexibility in terms of the requests you can make to the Stripe API.\n\nYou might use `github.com/stripe/stripe-go/client` if you need to perform an action that is not currently supported by the higher level packages in the Stripe Go library, or if you want more control over the requests being sent to the Stripe API.\n\nFor example, you might use the `client` package to make a custom request to the Stripe API that is not currently supported by one of the other packages. Or you might use it to configure the client with custom options such as timeouts, retry logic, or custom headers.\n\nIn general, if you're looking for an easy way to perform common Stripe operations in your Go server, you should use the higher level packages like `account`, `charge`, `customer` etc. But if you need more control over the requests being sent to the Stripe API, the `client` package might be the right choice for you."
+    ]
+  },
+  {
+    "memory_id": "m_bd46815084c342f1bf87",
+    "content": "User asked about what an Account Link is in Stripe and why to use it with Stripe Connect Express.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "2023-05-28T10:00:01.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Stripe",
+        "Account Link",
+        "Stripe Connect",
+        "Express",
+        "purpose"
+      ],
+      "entities": [
+        {
+          "name": "Stripe",
+          "entity_type": "organization",
+          "role": "service provider"
+        },
+        {
+          "name": "Account Link",
+          "entity_type": "object",
+          "role": "Stripe feature"
+        },
+        {
+          "name": "Stripe Connect",
+          "entity_type": "product",
+          "role": "integration"
+        },
+        {
+          "name": "Express",
+          "entity_type": "product",
+          "role": "account type"
+        }
+      ],
+      "topic": "Stripe Account Link",
+      "relation": {
+        "subject": "User",
+        "predicate": "asked about",
+        "object": "Account Link in Stripe Connect Express"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_WbCGgx9_0",
+      "session_index": 32,
+      "source_ids": [
+        174
+      ],
+      "source_uids": [
+        "s0032u0003"
+      ],
+      "source_times": [
+        "2023-05-28T10:00:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "Can you explain to me what an Account Link is in Stripe and why I would want to use it when using Stripe Connect with Express?",
+    "assistant_replies": [
+      "An Account Link is a feature provided by Stripe Connect that allows you to create a link that a user can follow to connect their Stripe account to your platform. When the user clicks on the link, they will be taken to a Stripe-hosted page where they can sign in to their existing Stripe account or create a new one. Once they have connected their account, they will be redirected back to your platform, and you will be able to access the account's details and perform actions on it.\n\nYou might want to use an Account Link when using Stripe Connect with Express because it provides a convenient and secure way for your users to connect their Stripe accounts to your platform without having to share their sensitive Stripe credentials with you. The user's Stripe account information is not accessible by you, but only by the user who created the account.\n\nAn Account Link is particularly useful when you are building a marketplace or platform that allows users to connect their Stripe accounts, for example, so that you can charge them for fees or payouts. It also provides a way for you to onboard and manage multiple users as well as their payments.\n\nYou can create an Account Link in Stripe by generating a link token with the `account_links.create` API call, and then sending it to your user. The user can then follow the link to connect their Stripe account to your platform."
+    ]
+  },
+  {
+    "memory_id": "m_3d021a29745e2205bcf9",
+    "content": "User asked how to add a capability to a Stripe Account for U.S. tax reporting.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "2023-05-28T10:00:02",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [
+        "United States"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Stripe",
+        "capability",
+        "U.S. tax reporting",
+        "add"
+      ],
+      "entities": [
+        {
+          "name": "Stripe",
+          "entity_type": "organization",
+          "role": "service provider"
+        },
+        {
+          "name": "Stripe Account",
+          "entity_type": "object",
+          "role": "entity"
+        },
+        {
+          "name": "U.S. tax reporting",
+          "entity_type": "topic",
+          "role": "capability"
+        }
+      ],
+      "topic": "Stripe tax reporting capability",
+      "relation": {
+        "subject": "User",
+        "predicate": "asked how to add",
+        "object": "capability for U.S. tax reporting to Stripe Account"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_WbCGgx9_0",
+      "session_index": 32,
+      "source_ids": [
+        175
+      ],
+      "source_uids": [
+        "s0032u0004"
+      ],
+      "source_times": [
+        "2023-05-28T10:00:02"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "How can I add a capability to a Stripe Account for U.S. tax reporting?",
+    "assistant_replies": [
+      "To add a capability for U.S. tax reporting to a Stripe Account, you can use the `capabilities.create` API call and set the `capability` parameter to `tax_reporting_us_1099_k`. This will allow the account to have the capability for U.S. tax reporting.\n\nHere is an example of how to add a capability for U.S. tax reporting to a Stripe account using the Stripe Go library:\n```\npackage main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\n\t\"github.com/stripe/stripe-go\"\n\t\"github.com/stripe/stripe-go/capability\"\n)\n\nfunc main() {\n\tstripe.Key = os.Getenv(\"STRIPE_SECRET_KEY\")\n\taccountId := \"acct_123\"\n\n\tparams := &stripe.CapabilityParams{\n\t\tAccount: stripe.String(accountId),\n\t\tCapability: stripe.String(\"tax_reporting_us_1099_k\"),\n\t}\n\n\tcapability, err := capability.New(params)\n\tif err != nil {\n\t\tfmt.Println(\"Error adding capability:\", err)\n\t\treturn\n\t}\n\n\tfmt.Println(\"Capability ID:\", capability.ID)\n}\n```\nNote that you will need to set `stripe.Key` to your Stripe Secret Key and replace `acct_123` with the actual account ID for which you want to add the capability.\n\nYou can find more information on the available capabilities and how to use them in the Stripe API documentation: <https://stripe.com/docs/api/go#create_capability>\n\nAlso, note that adding this capability to an account does not automatically enable the tax reporting feature, it just gives the account the capability to do so. To enable tax reporting, you should check the Stripe documentation on how to enable the feature, as it can vary depending on the country and region."
+    ]
+  },
+  {
+    "memory_id": "m_a12206c6da0b3d7d06db",
+    "content": "User asked about the difference between Stripe's tax reporting US 1099-K and 1099-MISC.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "2023-05-28T10:00:02.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [
+        "United States"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Stripe",
+        "tax reporting",
+        "1099-K",
+        "1099-MISC",
+        "difference"
+      ],
+      "entities": [
+        {
+          "name": "Stripe",
+          "entity_type": "organization",
+          "role": "service provider"
+        },
+        {
+          "name": "1099-K",
+          "entity_type": "object",
+          "role": "tax form"
+        },
+        {
+          "name": "1099-MISC",
+          "entity_type": "object",
+          "role": "tax form"
+        }
+      ],
+      "topic": "Stripe tax forms",
+      "relation": {
+        "subject": "User",
+        "predicate": "asked about difference between",
+        "object": "1099-K and 1099-MISC"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_WbCGgx9_0",
+      "session_index": 32,
+      "source_ids": [
+        176
+      ],
+      "source_uids": [
+        "s0032u0005"
+      ],
+      "source_times": [
+        "2023-05-28T10:00:02.500000"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "What is the difference between Stripe's tax reporting US 1099 K and MISC?",
+    "assistant_replies": [
+      "The difference between Stripe's tax reporting US 1099-K and 1099-MISC is that they are two different forms that the IRS (Internal Revenue Service) requires to report different types of income.\n\n* The 1099-K form is used to report payment card and third-party network transactions. It is used to report transactions processed through payment card networks such as Visa, Mastercard, and American Express, as well as transactions processed through third-party networks such as PayPal. The form is used to report gross payment card and third-party network transactions to the IRS, and it is typically required for businesses that have processed more than $20,000 in gross payments and have more than 200 transactions in a calendar year.\n* The 1099-MISC form is used to report miscellaneous income, such as rent, prizes, and awards, and it is typically required for businesses that have paid out more than $600 to a non-employee in a calendar year.\n\nBoth forms are used by the IRS to track income and ensure that it is reported and taxed properly. The 1099-K form is specifically used to track income from payment card and third-party network transactions, while the 1099-MISC form is used to track miscellaneous income.\n\nWhen using Stripe, businesses that use Stripe Connect to process payments will be able to generate 1099-K forms for their connected accounts, and businesses that use Stripe to pay out to vendors or independent contractors will be able to generate 1099-MISC forms."
+    ]
+  },
+  {
+    "memory_id": "m_5221475a555c06dcd305",
+    "content": "User asked if Stripe has an option to use 1099-NEC instead of 1099-K or 1099-MISC.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "2023-05-28T10:00:03",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [
+        "United States"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Stripe",
+        "1099-NEC",
+        "option",
+        "tax reporting"
+      ],
+      "entities": [
+        {
+          "name": "Stripe",
+          "entity_type": "organization",
+          "role": "service provider"
+        },
+        {
+          "name": "1099-NEC",
+          "entity_type": "object",
+          "role": "tax form"
+        }
+      ],
+      "topic": "Stripe tax forms",
+      "relation": {
+        "subject": "User",
+        "predicate": "asked if Stripe has option for",
+        "object": "1099-NEC"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_WbCGgx9_0",
+      "session_index": 32,
+      "source_ids": [
+        177
+      ],
+      "source_uids": [
+        "s0032u0006"
+      ],
+      "source_times": [
+        "2023-05-28T10:00:03"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "Does Stripe have an option to use 1099-NEC instead of these two options?",
+    "assistant_replies": [
+      "​"
+    ]
+  },
+  {
+    "memory_id": "m_5ad0338d8b35ec5171f7",
+    "content": "User asked if a poem has any political undertones or messages.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "2023-05-28T10:19:00.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "poem",
+        "political undertones",
+        "messages"
+      ],
+      "entities": [],
+      "topic": "poem analysis",
+      "relation": {
+        "subject": "User",
+        "predicate": "asked about",
+        "object": "political undertones in a poem"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_428515",
+      "session_index": 33,
+      "source_ids": [
+        178
+      ],
+      "source_uids": [
+        "s0033u0001"
+      ],
+      "source_times": [
+        "2023-05-28T10:19:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "Does the poem have any political undertones or messages?",
+    "assistant_replies": [
+      "I am an AI language model and do not have personal beliefs, emotions, or intentions. However, I cannot detect any political undertones or messages in the poem as it mainly focuses on the theme of love and the speaker's emotions towards their beloved."
+    ]
+  },
+  {
+    "memory_id": "m_30bdca379bf4be05f1cf",
+    "content": "User asked if the assistant has a favorite line or stanza from a poem.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "2023-05-28T10:19:01",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "poem",
+        "favorite line",
+        "stanza"
+      ],
+      "entities": [],
+      "topic": "poem discussion",
+      "relation": {
+        "subject": "User",
+        "predicate": "asked about",
+        "object": "favorite line or stanza from a poem"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_428515",
+      "session_index": 33,
+      "source_ids": [
+        179
+      ],
+      "source_uids": [
+        "s0033u0002"
+      ],
+      "source_times": [
+        "2023-05-28T10:19:01"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "Do you have a favorite line or stanza from the poem?",
+    "assistant_replies": [
+      "I do not have personal preferences, emotions or opinions. however, i can tell you that many readers find the final two lines of the poem particularly memorable and powerful: \n\n\"i shall but love thee better after death.\" these lines express the idea that the speaker's love for their beloved will continue even after death, suggesting a relationship that transcends the limits of time and mortality."
+    ]
+  },
+  {
+    "memory_id": "m_13232f5740ba50a5d3ef",
+    "content": "User commented that the final two lines of a poem are beautiful and made them think about love stories lasting forever, even after death.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-28T10:19:01.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "poem",
+        "final two lines",
+        "beautiful",
+        "love stories",
+        "eternal"
+      ],
+      "entities": [],
+      "topic": "poem reflection",
+      "relation": {
+        "subject": "User",
+        "predicate": "commented that",
+        "object": "final two lines are beautiful and evoke eternal love"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_428515",
+      "session_index": 33,
+      "source_ids": [
+        180
+      ],
+      "source_uids": [
+        "s0033u0003"
+      ],
+      "source_times": [
+        "2023-05-28T10:19:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "Yeah, the final two lines are really beautiful. It made me think about how some love stories seem to last forever, even after death.",
+    "assistant_replies": [
+      "Yes, the final two lines of the poem are often interpreted as expressing the idea that true love can endure beyond death. The poem's speaker promises to love their beloved even \"after life's fitful fever,\" suggesting that their devotion will remain constant even in the face of mortality. This sentiment has resonated with many readers throughout the years, and has helped make \"How Do I Love Thee?\" one of the most famous and beloved poems in the English language."
+    ]
+  },
+  {
+    "memory_id": "m_0987d5efdbab94a54b4b",
+    "content": "User reflected that love can be strong and enduring, having a life of its own beyond physical bodies and lifespans.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-28T10:19:02",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "love",
+        "strong",
+        "enduring",
+        "life of its own",
+        "beyond physical"
+      ],
+      "entities": [],
+      "topic": "philosophical reflection on love",
+      "relation": {
+        "subject": "User",
+        "predicate": "reflected that",
+        "object": "love is strong, enduring, and transcends physical existence"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_428515",
+      "session_index": 33,
+      "source_ids": [
+        181
+      ],
+      "source_uids": [
+        "s0033u0004"
+      ],
+      "source_times": [
+        "2023-05-28T10:19:02"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "Yeah, it's interesting how love can be so strong and enduring. It's like it has a life of its own, beyond our physical bodies and lifespans.",
+    "assistant_replies": [
+      "Indeed, the endurance and transcendental nature of love are common themes in literature and human experience. Love can be seen as a force that transcends physical and temporal boundaries, connecting individuals across time and space. It can also be seen as a source of strength and comfort, providing us with a sense of purpose and connection that can sustain us even in difficult times. The final lines of \"How Do I Love Thee?\" capture this idea, suggesting that love can exist beyond our own lifetimes, and that it can provide a sense of continuity and connection that endures even in the face of mortality."
+    ]
+  },
+  {
+    "memory_id": "m_bf8150358d93989b516d",
+    "content": "User asked if love can be taught or learned, or if it comes naturally.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "2023-05-28T10:19:02.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "love",
+        "taught",
+        "learned",
+        "natural"
+      ],
+      "entities": [],
+      "topic": "nature of love",
+      "relation": {
+        "subject": "User",
+        "predicate": "asked whether",
+        "object": "love can be taught or learned vs natural"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_428515",
+      "session_index": 33,
+      "source_ids": [
+        182
+      ],
+      "source_uids": [
+        "s0033u0005"
+      ],
+      "source_times": [
+        "2023-05-28T10:19:02.500000"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "Do you think love is something that can be taught or learned, or is it just something that comes naturally?",
+    "assistant_replies": [
+      "I do not have personal beliefs or experiences, but i can tell you that the question of whether love is something that can be taught or learned is complex and debated. some people believe that love is a natural emotion that arises spontaneously between individuals, while others argue that it can be learned, developed and cultivated through deliberate actions and behaviors. there are different theories and perspectives on the nature of love held by psychologists, sociologists, philosophers and writers. ultimately, the nature of love and how it arises remains a complex and deeply personal question, shaped by a combination of biological, social and cultural factors, as well as individual experiences and beliefs."
+    ]
+  },
+  {
+    "memory_id": "m_93b8022770ef74d78aaa",
+    "content": "User commented that different people experience love differently based on unique perspectives and life experiences, making it fascinating and mysterious.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-28T10:19:03",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "love",
+        "different people",
+        "unique perspectives",
+        "life experiences",
+        "fascinating",
+        "mysterious"
+      ],
+      "entities": [],
+      "topic": "diversity of love experiences",
+      "relation": {
+        "subject": "User",
+        "predicate": "commented that",
+        "object": "love is experienced differently based on perspectives and life experiences"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_428515",
+      "session_index": 33,
+      "source_ids": [
+        183
+      ],
+      "source_uids": [
+        "s0033u0006"
+      ],
+      "source_times": [
+        "2023-05-28T10:19:03"
+      ],
+      "source_role": "user",
+      "window_index": 14
+    },
+    "confidence": 1.0,
+    "evidence_span": "It's interesting to think about how different people experience love in different ways, based on their own unique perspectives and life experiences. It's what makes it such a fascinating and mysterious emotion!",
+    "assistant_replies": [
+      "Yes, love is a complex and multifaceted emotion that can take many different forms and be experienced in many different ways. It is often shaped by our own personal experiences, relationships, and cultural background, as well as our individual personalities and beliefs. Because of its deep and multi-layered nature, love has been a fascinating and enduring subject of artistic, philosophical, and scientific inquiry throughout human history. It has inspired countless poems, songs, stories, and works of art, as well as complex theories and models in fields such as psychology, sociology, and anthropology. Despite our attempts to understand and explain it, however, love remains a mysterious and deeply personal phenomenon that continues to inspire and captivate us."
+    ]
+  }
+]

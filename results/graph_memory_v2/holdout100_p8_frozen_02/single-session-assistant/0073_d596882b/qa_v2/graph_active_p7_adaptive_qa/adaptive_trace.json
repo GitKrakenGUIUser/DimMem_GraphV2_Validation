@@ -1,0 +1,142 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "previous recommendation",
+        "query": "vegan eatery multiple locations New York City recommended",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "vegan eatery multiple locations New York City recommended"
+    ],
+    "output_constraints": [
+      "name of the vegan eatery"
+    ],
+    "reason": "The user asks for a previously recommended vegan eatery with multiple locations in NYC, requiring assistant recall of a past recommendation."
+  },
+  "base_candidate": {
+    "answer": "By Chloe",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2b9f7b46365b0c3be52f"
+    ],
+    "support_source_ids": [
+      127
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The assistant previously recommended 'By Chloe' as a popular plant-based eatery with multiple locations throughout New York City (source 127, memory m_2b9f7b46365b0c3be52f). This matches the user's request for a vegan eatery with multiple locations."
+  },
+  "specialist_candidate": {
+    "answer": "By Chloe",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2b9f7b46365b0c3be52f"
+    ],
+    "support_source_ids": [
+      127
+    ],
+    "required_slots": [
+      {
+        "name": "previous recommendation",
+        "value": "By Chloe",
+        "support_memory_ids": [
+          "m_2b9f7b46365b0c3be52f"
+        ],
+        "support_source_ids": [
+          127
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "assistant",
+        "predicate": "recommended",
+        "object": "By Chloe",
+        "value": "vegan eatery with multiple locations in NYC",
+        "unit": "",
+        "event_time": "2023-05-25T21:36:01.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_2b9f7b46365b0c3be52f"
+        ],
+        "support_source_ids": [
+          127
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The assistant previously recommended 'By Chloe' as a popular plant-based eatery with multiple locations throughout New York City in response to the user's request for vegan/vegetarian options. This matches the user's query for a vegan eatery with multiple locations in NYC."
+  },
+  "choice": "base",
+  "choice_reason": "same answer; preserve compact candidate",
+  "compact_source_ids": [
+    128,
+    127,
+    126,
+    16,
+    27,
+    89,
+    62,
+    159,
+    28,
+    125,
+    237,
+    48,
+    166,
+    92,
+    9,
+    17,
+    15
+  ],
+  "targeted_source_ids": [
+    9,
+    16,
+    48,
+    92,
+    126,
+    127,
+    128,
+    136,
+    166,
+    211,
+    214,
+    215,
+    47,
+    49,
+    125
+  ]
+}

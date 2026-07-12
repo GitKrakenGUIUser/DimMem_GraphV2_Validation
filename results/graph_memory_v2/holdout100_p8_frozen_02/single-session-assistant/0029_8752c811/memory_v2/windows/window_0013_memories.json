@@ -1,0 +1,762 @@
+[
+  {
+    "memory_id": "m_1d61e268d7eb10ab66a5",
+    "content": "User is planning a trip to the mall this weekend and needs help finding a good place to grab lunch near H&M.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-27T10:37:00.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "this weekend"
+      },
+      "locations": [
+        "mall"
+      ],
+      "reason": "",
+      "purpose": "find lunch place near H&M",
+      "keywords": [
+        "mall",
+        "trip",
+        "lunch",
+        "H&M",
+        "weekend"
+      ],
+      "entities": [
+        {
+          "name": "H&M",
+          "entity_type": "organization",
+          "role": "location reference"
+        }
+      ],
+      "topic": "mall trip planning",
+      "relation": {
+        "subject": "user",
+        "predicate": "planning trip to",
+        "object": "mall"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "57ea5a94",
+      "session_index": 35,
+      "source_ids": [
+        161
+      ],
+      "source_uids": [
+        "s0035u0001"
+      ],
+      "source_times": [
+        "2023-05-27T10:37:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm planning a trip to the mall this weekend and I need some help finding a good place to grab lunch. Can you recommend any restaurants near H&M?",
+    "assistant_replies": [
+      "Mall food court, always a fun adventure! I'd be happy to help you find a great spot for lunch near H&M. Can you please tell me which mall you're planning to visit? That way, I can give you more specific recommendations."
+    ]
+  },
+  {
+    "memory_id": "m_37801ffa2b6521baf7ae",
+    "content": "User bought distressed denim jeans at the same mall last week.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-20T00:00:00",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": "last week"
+      },
+      "locations": [
+        "mall"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "distressed denim jeans",
+        "bought",
+        "mall",
+        "last week"
+      ],
+      "entities": [
+        {
+          "name": "distressed denim jeans",
+          "entity_type": "product",
+          "role": "purchased item"
+        }
+      ],
+      "topic": "past purchase",
+      "relation": {
+        "subject": "user",
+        "predicate": "bought",
+        "object": "distressed denim jeans"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "57ea5a94",
+      "session_index": 35,
+      "source_ids": [
+        162
+      ],
+      "source_uids": [
+        "s0035u0002"
+      ],
+      "source_times": [
+        "2023-05-27T10:37:01"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm actually going to the same mall where I got those distressed denim jeans last week.",
+    "assistant_replies": [
+      "I'm happy to help, but I'm a large language model, I don't have the ability to keep track of your personal shopping history or know which mall you visited last week. Could you please tell me the name of the mall or the city/state where it's located? That way, I can give you a list of restaurants near the H&M store at that mall."
+    ]
+  },
+  {
+    "memory_id": "m_0ae74ae7ca3d08169a4e",
+    "content": "The mall has a food court with Subway and Sbarro's.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [
+        "mall food court"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "mall",
+        "food court",
+        "Subway",
+        "Sbarro's"
+      ],
+      "entities": [
+        {
+          "name": "Subway",
+          "entity_type": "organization",
+          "role": "restaurant"
+        },
+        {
+          "name": "Sbarro's",
+          "entity_type": "organization",
+          "role": "restaurant"
+        }
+      ],
+      "topic": "mall amenities",
+      "relation": {
+        "subject": "mall",
+        "predicate": "has food court with",
+        "object": "Subway and Sbarro's"
+      },
+      "state_key": "mall.food_court.restaurants",
+      "state_value": "Subway, Sbarro's",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "57ea5a94",
+      "session_index": 35,
+      "source_ids": [
+        163
+      ],
+      "source_uids": [
+        "s0035u0003"
+      ],
+      "source_times": [
+        "2023-05-27T10:37:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "It's the one with the food court that has a Subway and a Sbarro's.",
+    "assistant_replies": [
+      "I'm afraid that doesn't give me enough information to pinpoint the exact mall. There are many malls with a food court that have a Subway and a Sbarro's. Could you please provide more details or clues about the mall, such as:\n\n1. The city or state where the mall is located\n2. The name of the mall (if you remember)\n3. Any other distinctive features or landmarks near the food court\n4. The type of cuisine you're in the mood for (e.g. Italian, Mexican, Asian, etc.)\n\nWith more information, I can try to help you find a great place to grab lunch near the H&M store at your mall!"
+    ]
+  },
+  {
+    "memory_id": "m_2625a8bd416c660e440b",
+    "content": "User does not want to eat at the food court and is looking for restaurants inside the mall that are not in the food court.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [
+        "mall"
+      ],
+      "reason": "",
+      "purpose": "find non-food court restaurants",
+      "keywords": [
+        "food court",
+        "avoid",
+        "restaurants",
+        "mall",
+        "dining preference"
+      ],
+      "entities": [],
+      "topic": "dining preference",
+      "relation": {
+        "subject": "user",
+        "predicate": "prefers not to eat at",
+        "object": "food court"
+      },
+      "state_key": "user.dining_preference.food_court",
+      "state_value": "avoid",
+      "state_status": "active",
+      "preference": {
+        "target": "food court dining",
+        "polarity": "negative",
+        "strength": 0.8,
+        "scope": "specific"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "57ea5a94",
+      "session_index": 35,
+      "source_ids": [
+        164
+      ],
+      "source_uids": [
+        "s0035u0004"
+      ],
+      "source_times": [
+        "2023-05-27T10:37:02"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "I don't feel like eating at the food court. Are there any restaurants inside the mall that are not in the food court?",
+    "assistant_replies": [
+      "It can be challenging to narrow down the options without more specific information.\n\nYes, many malls have restaurants located outside of the food court, often referred to as \"in-line\" restaurants. These can be a great option if you're looking for a sit-down meal or a more upscale dining experience.\n\nUnfortunately, without knowing the specific mall, I can't give you a list of exact options. However, I can suggest a few popular restaurants that are commonly found in malls and might not be part of the food court:\n\n1. The Cheesecake Factory\n2. California Pizza Kitchen (CPK)\n3. P.F. Chang's\n4. BJ's Restaurant and Brewhouse\n5. Olive Garden\n6. Red Robin\n\nIf you're willing, could you try to recall any other details about the mall, such as:\n\n* Is it an indoor or outdoor mall?\n* Are there any department stores like Macy's, Nordstrom, or JCPenney?\n* Is it a relatively new or older mall?\n* Do you remember any distinctive features, like a large statue, fountain, or play area for kids?\n\nAny additional information you can provide might help me give you more tailored suggestions."
+    ]
+  },
+  {
+    "memory_id": "m_e476c30910dbcae0aa6c",
+    "content": "User saw a huge Forever 21 store across from H&M at the mall last week.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-20T00:00:00",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": "last week"
+      },
+      "locations": [
+        "mall"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Forever 21",
+        "H&M",
+        "across",
+        "mall",
+        "store location"
+      ],
+      "entities": [
+        {
+          "name": "Forever 21",
+          "entity_type": "organization",
+          "role": "store"
+        },
+        {
+          "name": "H&M",
+          "entity_type": "organization",
+          "role": "store"
+        }
+      ],
+      "topic": "mall store locations",
+      "relation": {
+        "subject": "Forever 21",
+        "predicate": "located across from",
+        "object": "H&M"
+      },
+      "state_key": "mall.store_locations.Forever_21",
+      "state_value": "across from H&M",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "57ea5a94",
+      "session_index": 35,
+      "source_ids": [
+        165
+      ],
+      "source_uids": [
+        "s0035u0005"
+      ],
+      "source_times": [
+        "2023-05-27T10:37:02.500000"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "I remember last week when I was at the mall, I saw a huge Forever 21 store right across from H&M.",
+    "assistant_replies": [
+      "That's a great detail! Unfortunately, it's still not enough to pinpoint the exact mall, as Forever 21 and H&M are both popular retailers that can be found in many malls. However, I can try to give you some general advice on how to find a restaurant near H&M in your mall.\n\nYou can try checking the mall's website or mobile app (if they have one) to see a directory of stores and restaurants. You can filter the results to show only restaurants, and then look for ones that are located near H&M. You can also try searching online for \"restaurants near H&M [mall name]\" or \"dining options at [mall name]\" to see if any websites or review platforms have lists of restaurants in your mall.\n\nIf you're still having trouble finding a restaurant, you could consider asking a mall employee or a sales associate at H&M for recommendations. They might be able to point you in the direction of some great options!\n\nI hope this helps, and I apologize again for not being able to provide more specific guidance."
+    ]
+  },
+  {
+    "memory_id": "m_b9bcc34b01016a21b28c",
+    "content": "User plans to stop by Sephora after lunch to stock up on skincare products and asks about sales or promotions.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-27T10:37:03",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "after lunch"
+      },
+      "locations": [
+        "mall"
+      ],
+      "reason": "",
+      "purpose": "stock up on skincare products",
+      "keywords": [
+        "Sephora",
+        "skincare",
+        "lunch",
+        "sales",
+        "promotions"
+      ],
+      "entities": [
+        {
+          "name": "Sephora",
+          "entity_type": "organization",
+          "role": "store"
+        },
+        {
+          "name": "skincare products",
+          "entity_type": "product",
+          "role": "purchase intent"
+        }
+      ],
+      "topic": "shopping plan",
+      "relation": {
+        "subject": "user",
+        "predicate": "plans to visit",
+        "object": "Sephora"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "57ea5a94",
+      "session_index": 35,
+      "source_ids": [
+        166
+      ],
+      "source_uids": [
+        "s0035u0006"
+      ],
+      "source_times": [
+        "2023-05-27T10:37:03"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm actually planning to stop by Sephora after lunch to stock up on some skincare products. Do you think they have any sales or promotions going on right now?",
+    "assistant_replies": [
+      "Sephora is a great destination for skincare enthusiasts! Unfortunately, as a conversational AI, I don't have real-time access to current sales or promotions at specific Sephora locations. However, I can suggest a few ways to find out about any ongoing deals:\n\n1. **Check Sephora's website or app**: You can visit Sephora's website or mobile app to browse their current offers, sales, and promotions. They often feature a \"Deals\" or \"Offers\" section that lists ongoing discounts and special deals.\n2. **Sign up for Sephora's email newsletter**: By joining Sephora's email list, you'll receive regular updates on new products, sales, and exclusive offers. You might receive notifications about upcoming promotions or special deals.\n3. **Follow Sephora on social media**: Sephora frequently posts about new products, sales, and promotions on their social media channels, such as Instagram, Facebook, and Twitter. Keep an eye on their feeds to stay informed.\n4. **Ask a Sephora sales associate**: When you visit Sephora, ask the sales associates about any current promotions, discounts, or loyalty rewards. They're often knowledgeable about ongoing deals and can help you find the best products for your skincare needs.\n5. **Check out Sephora's loyalty program**: If you're a Beauty Insider (Sephora's loyalty program), you might have access to exclusive offers, early access to sales, and other perks.\n\nRemember to also check the specific products you're interested in to see if they have any ongoing promotions or discounts.\n\nHave fun shopping for your skincare goodies, and I hope you find some great deals!"
+    ]
+  },
+  {
+    "memory_id": "m_fc5cd49dc08cea252aad",
+    "content": "User asks for explanation of difference between Roth and Traditional IRA, and pros and cons of each.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-27T13:27:00.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "understand differences and pros/cons",
+      "keywords": [
+        "Roth IRA",
+        "Traditional IRA",
+        "difference",
+        "pros",
+        "cons"
+      ],
+      "entities": [
+        {
+          "name": "Roth IRA",
+          "entity_type": "product",
+          "role": "financial product"
+        },
+        {
+          "name": "Traditional IRA",
+          "entity_type": "product",
+          "role": "financial product"
+        }
+      ],
+      "topic": "retirement savings",
+      "relation": {
+        "subject": "user",
+        "predicate": "asks about",
+        "object": "Roth vs Traditional IRA"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_54567",
+      "session_index": 36,
+      "source_ids": [
+        167
+      ],
+      "source_uids": [
+        "s0036u0001"
+      ],
+      "source_times": [
+        "2023-05-27T13:27:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "Can you explain the difference between a Roth and Traditional IRA, and what are the pros and cons of each?",
+    "assistant_replies": [
+      "A Roth IRA and a Traditional IRA are both types of individual retirement accounts, but they differ in several ways. \n\nA Traditional IRA is a retirement savings account that allows individuals to contribute pre-tax dollars. This means that the contributions are deductible on your tax return, and you don't pay taxes until the money is withdrawn in retirement. The contributions grow tax-deferred, which means the earnings are not taxed until withdrawn. However, when you withdraw funds in retirement, the withdrawals are taxed as ordinary income at your current tax rate. \n\nOn the other hand, a Roth IRA is a retirement savings account that allows individuals to contribute after-tax dollars. This means that contributions are not deductible on your tax return, but the earnings and withdrawals are tax-free as long as certain conditions are met. For example, withdrawals must be made after age 59 ½ and the account must be open for at least five years. \n\nThe pros of a Traditional IRA include upfront tax deductions, lower tax liability, and higher contribution limits for those over age 50. The cons include mandatory withdrawals starting at age 72, tax liabilities during retirement, and limitations on contributions for high earners.\n\nThe pros of a Roth IRA include tax-free distributions in retirement, no mandatory withdrawals, and tax-free growth. The cons include no upfront tax deductions, lower contribution limits than a Traditional IRA, and potential tax liability for earnings withdrawn before age 59 ½. \n\nUltimately, the choice between a Roth and Traditional IRA depends on personal financial goals, tax brackets, and financial circumstances. It’s important to consult a financial advisor to determine which IRA is the best fit for your individual needs."
+    ]
+  },
+  {
+    "memory_id": "m_0c61fb351cc386a71b60",
+    "content": "User asks for retirement savings recommendation for someone just starting to save.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-27T13:27:01",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "get savings recommendation",
+      "keywords": [
+        "retirement",
+        "savings",
+        "recommendation",
+        "beginner"
+      ],
+      "entities": [],
+      "topic": "retirement savings",
+      "relation": {
+        "subject": "user",
+        "predicate": "asks recommendation for",
+        "object": "retirement savings for beginner"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_54567",
+      "session_index": 36,
+      "source_ids": [
+        168
+      ],
+      "source_uids": [
+        "s0036u0002"
+      ],
+      "source_times": [
+        "2023-05-27T13:27:01"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "What would you recommend for someone who is just starting to save for retirement?",
+    "assistant_replies": [
+      "As an AI language model, I cannot give a personal recommendation, but I can provide some general advice to help you decide. If you're just starting to save for retirement, it's important to establish a retirement savings plan that accounts for your current financial situation, future goals, and any retirement benefits provided by your employer. It's generally recommended to consider opening both a Roth and Traditional IRA to diversify your retirement savings, taking advantage of both tax-deferred and tax-free growth. However, if you have a higher income and you expect your tax bracket to be lower in retirement, a traditional IRA may be more suitable for you. Additionally, make a habit of regularly contributing to your retirement accounts, even if it's a small amount. Over time, the power of compound interest can help your savings grow significantly. You can also consider investing in a diverse mix of assets that align with your specific risk tolerance and long-term goals. Remember, it's never too early or too late to start saving for retirement, and the best strategy is to start as soon as possible and be consistent with your contributions. Be sure to consult with a financial advisor to help you create a tailored retirement strategy that best fits your needs."
+    ]
+  },
+  {
+    "memory_id": "m_688633e53a37072eb42f",
+    "content": "User asks about contribution limits for Roth and Traditional IRA.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-27T13:27:01.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "understand contribution limits",
+      "keywords": [
+        "contribution limits",
+        "Roth IRA",
+        "Traditional IRA"
+      ],
+      "entities": [
+        {
+          "name": "Roth IRA",
+          "entity_type": "product",
+          "role": "financial product"
+        },
+        {
+          "name": "Traditional IRA",
+          "entity_type": "product",
+          "role": "financial product"
+        }
+      ],
+      "topic": "retirement savings",
+      "relation": {
+        "subject": "user",
+        "predicate": "asks about contribution limits for",
+        "object": "Roth and Traditional IRA"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_54567",
+      "session_index": 36,
+      "source_ids": [
+        169
+      ],
+      "source_uids": [
+        "s0036u0003"
+      ],
+      "source_times": [
+        "2023-05-27T13:27:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm curious though, are there any limits to how much I can contribute to a Roth or Traditional IRA?",
+    "assistant_replies": [
+      "Yes, there are contribution limits for both Roth and Traditional IRAs, and these limits can change year-to-year. For the tax year 2021, the contribution limit for both Roth and Traditional IRAs is $6,000, or $7,000 for individuals who are age 50 or older. It's important to note that these contribution limits apply to the total amount you can contribute across all IRA accounts, so if you have both a Roth and Traditional IRA, the combined total of your contributions cannot exceed the annual limit. Additionally, the contribution limits may vary depending on your income and tax filing status. For example, for tax year 2021, the ability to contribute to a Roth IRA begins to phase out for individuals with a modified adjusted gross income (MAGI) of $125,000 or more, and completely phases out at $140,000 for single filers. For married couples filing jointly, the phase-out range is between $198,000 and $208,000. It's important to keep up with these limits and any changes to them, so you can make informed decisions about how much to contribute to your retirement savings each year."
+    ]
+  },
+  {
+    "memory_id": "m_0d93c6f48b03553103d7",
+    "content": "User decides to start with a Roth IRA and work up to contributing the maximum limit.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "2023-05-27T13:27:02",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "save for retirement",
+      "keywords": [
+        "Roth IRA",
+        "start",
+        "maximum contribution",
+        "retirement"
+      ],
+      "entities": [
+        {
+          "name": "Roth IRA",
+          "entity_type": "product",
+          "role": "financial product"
+        }
+      ],
+      "topic": "retirement savings plan",
+      "relation": {
+        "subject": "user",
+        "predicate": "decides to use",
+        "object": "Roth IRA"
+      },
+      "state_key": "user.retirement_plan.account_type",
+      "state_value": "Roth IRA",
+      "state_status": "planned",
+      "preference": {
+        "target": "Roth IRA",
+        "polarity": "positive",
+        "strength": 0.7,
+        "scope": "specific"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "ultrachat_54567",
+      "session_index": 36,
+      "source_ids": [
+        170
+      ],
+      "source_uids": [
+        "s0036u0004"
+      ],
+      "source_times": [
+        "2023-05-27T13:27:02"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "I think I'll start with a Roth IRA and work my way up to contributing the maximum limit.",
+    "assistant_replies": [
+      "That sounds like a great plan! Starting with a Roth IRA is a good choice, especially if you believe that you'll be in a higher tax bracket in retirement than you are now. It can also be helpful to set specific savings goals for each year and to automate your contributions, so you don't forget to save or miss out on any potential tax benefits. Remember, it's important to continue educating yourself about all aspects of retirement savings, including tax laws, investment strategies, and financial planning. With time, dedication, and a steady savings plan, you can help secure your financial future and enjoy a comfortable retirement."
+    ]
+  },
+  {
+    "memory_id": "m_2fd96f722919d2702bc8",
+    "content": "User feels more confident about starting retirement savings and asks for tips to stay motivated for long-term saving.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-27T13:27:02.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "get tips for staying motivated",
+      "keywords": [
+        "confident",
+        "retirement savings",
+        "motivation",
+        "tips"
+      ],
+      "entities": [],
+      "topic": "retirement savings motivation",
+      "relation": {
+        "subject": "user",
+        "predicate": "feels confident about",
+        "object": "starting retirement savings"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_54567",
+      "session_index": 36,
+      "source_ids": [
+        171
+      ],
+      "source_uids": [
+        "s0036u0005"
+      ],
+      "source_times": [
+        "2023-05-27T13:27:02.500000"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 1.0,
+    "evidence_span": "I feel more confident about starting my retirement savings now. Do you have any tips for staying motivated to keep saving for retirement over the long term?",
+    "assistant_replies": [
+      "As an AI language model, I can provide some tips to help you stay motivated to save for retirement over the long term:\n\n1. Set goals: Setting specific financial goals, such as how much you want to save by the time you retire, can help you stay motivated and focused. 2. Automate your savings: To make saving for retirement effortless, consider setting up automatic contributions to your retirement accounts, such as a Roth IRA or Traditional IRA. 3. Track your progress: It's important to keep track of your progress towards your retirement savings goals, which can help you stay motivated and adjust your savings strategy along the way. 4. Review your plan regularly: Reviewing your retirement plan on a regular basis can help you stay on track, adjust your savings goals if necessary, and identify any areas where you can cut expenses or increase savings. 5. Visualize the future: Remember that saving for retirement is investing in your future, which can help you envision the benefits of your hard work and dedication. 6. Stay informed: Stay up-to-date on the latest news and developments in the world of retirement savings, tax laws, and investment strategies. This knowledge can help you make informed decisions about your retirement savings plan. Remember, saving for retirement is a long-term commitment, and it's important to stay focused and motivated to ensure that you're able to enjoy a comfortable retirement."
+    ]
+  }
+]

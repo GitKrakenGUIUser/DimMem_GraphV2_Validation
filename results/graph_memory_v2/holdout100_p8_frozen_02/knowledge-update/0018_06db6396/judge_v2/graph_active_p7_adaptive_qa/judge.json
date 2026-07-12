@@ -1,0 +1,100 @@
+{
+  "question_id": "06db6396",
+  "question_type": "knowledge-update",
+  "question": "How many projects have I completed since starting painting classes?",
+  "question_date": "2023/11/08 (Wed) 09:08",
+  "gold_answer": "5",
+  "prediction": "5",
+  "support_memory_ids": [
+    "m_223972c169e99d1227eb",
+    "m_f430fce5d7a9da8f26ca"
+  ],
+  "support_source_ids": [
+    147,
+    20
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user stated on 2023-10-09 that they just finished their 5th project since starting painting classes (source 147). An earlier memory from 2023-08-16 indicated 4 projects completed (source 20). The later statement supersedes the earlier one, so the current count is 5.",
+  "required_slots": [
+    {
+      "name": "painting classes start date",
+      "value": "unknown",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    },
+    {
+      "name": "completed projects count since start",
+      "value": "5",
+      "support_memory_ids": [
+        "m_223972c169e99d1227eb"
+      ],
+      "support_source_ids": [
+        147
+      ]
+    }
+  ],
+  "unfilled_slots": [
+    "painting classes start date"
+  ],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "painting classes start date",
+        "query": "When did I start painting classes?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "completed projects count since start",
+        "query": "How many projects have I completed since starting painting classes?",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I start painting classes?",
+      "How many projects have I completed since starting painting classes?"
+    ],
+    "output_constraints": [
+      "Answer must be a single integer count."
+    ],
+    "reason": "The question asks for a count of completed projects since a specific start date, requiring state resolution of the current count. The start date is needed to filter projects, but the count itself is a state that can be directly retrieved if stored, or computed via composition of start date and project completion events."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34653,
+    "completion_tokens": 834,
+    "elapsed_seconds": 6.777899742126465
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 130,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7783634662628174
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "question_id": "gpt4_0b2f1d21",
+  "question_type": "temporal-reasoning",
+  "question": "Which event happened first, the purchase of the coffee maker or the malfunction of the stand mixer?",
+  "question_date": "2023/05/25 (Thu) 09:31",
+  "gold_answer": "The malfunction of the stand mixer",
+  "prediction": "The stand mixer malfunction happened first.",
+  "support_memory_ids": [
+    "m_5b208a3530473242e648",
+    "m_5410f6a0cfb1275e4879"
+  ],
+  "support_source_ids": [
+    186,
+    48
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The coffee maker was purchased about three weeks before 2023-05-25, i.e., around 2023-05-04. The stand mixer malfunctioned 'last month' relative to 2023-05-25, i.e., around April 2023. Since April is before May, the stand mixer malfunction occurred first.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "base candidate passed risk gate",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer that the stand mixer malfunction occurred first.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 147,
+    "completion_tokens": 29,
+    "elapsed_seconds": 0.8222808837890625
+  }
+}

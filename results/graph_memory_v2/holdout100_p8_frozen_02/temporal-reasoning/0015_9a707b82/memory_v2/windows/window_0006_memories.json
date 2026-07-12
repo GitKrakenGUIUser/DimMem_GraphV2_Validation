@@ -1,0 +1,935 @@
+[
+  {
+    "memory_id": "m_b8026cdb72c93f764f4f",
+    "content": "User wants a TypeScript function getMany that takes an arbitrary array of KvKey and returns a same-length array of results, with a generic argument to specify the value type for each entry and ensure output array length matches input.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "getMany",
+        "TypeScript",
+        "generic",
+        "KvKey",
+        "array length"
+      ],
+      "entities": [
+        {
+          "name": "getMany",
+          "entity_type": "other",
+          "role": "function"
+        },
+        {
+          "name": "KvKey",
+          "entity_type": "other",
+          "role": "type"
+        },
+        {
+          "name": "KvConsistencyLevel",
+          "entity_type": "other",
+          "role": "type"
+        }
+      ],
+      "topic": "TypeScript function typing",
+      "relation": {
+        "subject": "getMany function",
+        "predicate": "desired signature",
+        "object": "generic with per-element type and length constraint"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_XKH6h44_0",
+      "session_index": 14,
+      "source_ids": [
+        76
+      ],
+      "source_uids": [
+        "s0014u0001"
+      ],
+      "source_times": [
+        "2022-04-10T19:16:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "i'd like to have it take a generic argument that lets me specify the value type for each kv entry result, and ensure that the output array's length is the same as the input array.",
+    "assistant_replies": [
+      "You can achieve this by utilizing mapped types and tuple utility types in TypeScript. Here's how you can modify the `getMany` function to accept a generic argument that specifies the value type for each KV entry result and ensures that the output array's length is the same as the input array:\n```ts\ntype KvKey = string | number | symbol;\ntype KvConsistencyLevel = 'strong' | 'eventual';\ntype KvEntryMaybe<T> = T | null;\n\nfunction getMany<T extends unknown[]>(\n  keys: { [K in keyof T]: KvKey },\n  options?: { consistency?: KvConsistencyLevel },\n): Promise<{ [K in keyof T]: KvEntryMaybe<T[K]> }> {\n  // Your implementation here\n}\n```\nIn this modified version of the function:\n\n1. The generic argument `T` is extended from `unknown[]` which represents an array of unknown types.\n2. The `keys` parameter now uses mapped types `{ [K in keyof T]: KvKey }` to ensure that the number of keys matches the number of types specified in the generic `T`.\n3. The return type of the function is changed to `{ [K in keyof T]: KvEntryMaybe<T[K]> }`, which ensures that the length of the output array is the same as the input array, and each output type corresponds to the specified generic type for that KV entry result.\n\nNow, you can use the `getMany` function with a tuple of types for the generic argument:\n```ts\nasync function main() {\n  const [result1, result2] = await getMany<[string, number]>(['key1', 'key2']);\n  // result1 will be inferred as KvEntryMaybe<string>\n  // result2 will be inferred as KvEntryMaybe<number>\n}\n```"
+    ]
+  },
+  {
+    "memory_id": "m_d2192207aaa12089edb5",
+    "content": "User cannot pass `as const` arrays to the getMany function currently.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "getMany",
+        "as const",
+        "array",
+        "TypeScript"
+      ],
+      "entities": [
+        {
+          "name": "getMany",
+          "entity_type": "other",
+          "role": "function"
+        }
+      ],
+      "topic": "TypeScript function limitation",
+      "relation": {
+        "subject": "getMany function",
+        "predicate": "cannot accept",
+        "object": "as const arrays"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "negated"
+    },
+    "provenance": {
+      "session_id": "sharegpt_XKH6h44_0",
+      "session_index": 14,
+      "source_ids": [
+        77
+      ],
+      "source_uids": [
+        "s0014u0002"
+      ],
+      "source_times": [
+        "2022-04-10T19:16:01"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "i can not pass `as const` arrays to this function now",
+    "assistant_replies": [
+      "Apologies for the confusion. To support passing `as const` arrays to the `getMany` function, you can adjust the generic constraints and make a slight modification to the function:\n```ts\ntype KvKey = string | number | symbol;\ntype KvConsistencyLevel = 'strong' | 'eventual';\ntype KvEntryMaybe<T> = T | null;\n\nfunction getMany<T extends readonly unknown[]>(\n  keys: readonly [...{ [K in keyof T]: KvKey }],\n  options?: { consistency?: KvConsistencyLevel },\n): Promise<{ [K in keyof T]: KvEntryMaybe<T[K]> }> {\n  // Your implementation here\n}\n\nasync function main() {\n  const [result1, result2] = await getMany(['key1', 'key2'] as const);\n  // result1 will be inferred as KvEntryMaybe<string>\n  // result2 will be inferred as KvEntryMaybe<string>\n}\n```\nHere's what changed:\n\n1. The generic argument `T` now extends `readonly unknown[]` instead of `unknown[]`. This change supports the use of `as const` arrays, which are treated as `readonly` tuples.\n2. The `keys` parameter now accepts a `readonly` array, specified as `readonly [...{ [K in keyof T]: KvKey }]`.\n\nNow, you should be able to pass `as const` arrays to the `getMany` function."
+    ]
+  },
+  {
+    "memory_id": "m_31fd3f7078cacf9ca5cb",
+    "content": "User asks whether the array returned by getMany is still mutable.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "getMany",
+        "returned array",
+        "mutable"
+      ],
+      "entities": [
+        {
+          "name": "getMany",
+          "entity_type": "other",
+          "role": "function"
+        }
+      ],
+      "topic": "TypeScript array mutability",
+      "relation": {
+        "subject": "returned array from getMany",
+        "predicate": "mutability",
+        "object": "unknown"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "uncertain"
+    },
+    "provenance": {
+      "session_id": "sharegpt_XKH6h44_0",
+      "session_index": 14,
+      "source_ids": [
+        78
+      ],
+      "source_uids": [
+        "s0014u0003"
+      ],
+      "source_times": [
+        "2022-04-10T19:16:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "is the returned array still mutable?",
+    "assistant_replies": [
+      "Yes, the returned array from the `getMany` function is still mutable. The `readonly` modifier only affects the input `keys` array and doesn't affect the output array's mutability."
+    ]
+  },
+  {
+    "memory_id": "m_a7a7014cd0bdc391513e",
+    "content": "User is looking for new recipe ideas for using up leftover vegetables.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "use up leftover vegetables",
+      "keywords": [
+        "recipe ideas",
+        "leftover vegetables",
+        "cooking"
+      ],
+      "entities": [],
+      "topic": "cooking recipes",
+      "relation": {
+        "subject": "user",
+        "predicate": "seeking",
+        "object": "recipe ideas for leftover vegetables"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "68d35085_1",
+      "session_index": 15,
+      "source_ids": [
+        79
+      ],
+      "source_uids": [
+        "s0015u0001"
+      ],
+      "source_times": [
+        "2022-04-10T11:49:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm looking for some new recipe ideas for using up leftover vegetables.",
+    "assistant_replies": [
+      "That sounds like a great way to use up leftovers! Beef stew is a classic way to repurpose vegetables and make a delicious meal. Here are some other ideas for using up leftover vegetables:\n\n1. **Veggie soup**: Similar to your beef stew, you can make a big pot of vegetable soup with a variety of leftover vegetables, such as carrots, celery, potatoes, and onions.\n2. **Stir-fry**: Stir-fries are a great way to use up a mix of leftover vegetables, such as bell peppers, broccoli, and mushrooms. Serve with rice, noodles, or as a standalone dish.\n3. **Roasted vegetable quinoa bowl**: Roast a variety of leftover vegetables like Brussels sprouts, sweet potatoes, and cauliflower, and serve over quinoa with a dollop of tzatziki sauce or a fried egg.\n4. **Veggie omelette**: Whip up an omelette with eggs and fill it with leftover vegetables like bell peppers, onions, and mushrooms.\n5. **Frittata**: Similar to an omelette, but in a larger, Italian-style egg dish. Add leftover vegetables like zucchini, tomatoes, and spinach.\n6. **Veggie burgers**: Use leftover vegetables like carrots, zucchini, and mushrooms to make a veggie burger patty. Serve on a bun with your favorite toppings.\n7. **Grilled vegetable wrap**: Fill a wrap with leftover grilled vegetables like eggplant, zucchini, and red onion, and top with hummus or tzatziki sauce.\n8. **Veggie fritters**: Shred or chop leftover vegetables like carrots, zucchini, and cabbage, and mix with flour, eggs, and spices. Form into patties and fry until crispy.\n9. **Leftover veggie hash**: Dice leftover vegetables like potatoes, carrots, and onions, and pan-fry until crispy. Serve as a side dish or add to breakfast dishes like eggs and toast.\n10. **Freeze them**: If you can't use up all your leftover vegetables before they go bad, consider freezing them for future meals. Many vegetables like broccoli, cauliflower, and carrots freeze well and can be added to soups, stews, or stir-fries later.\n\nI hope these ideas inspire you to create some delicious meals with your leftover vegetables!"
+    ]
+  },
+  {
+    "memory_id": "m_8f9b0df164ffd6c18977",
+    "content": "User is looking for recipe ideas that use up leftover beef.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "use up leftover beef",
+      "keywords": [
+        "recipe ideas",
+        "leftover beef",
+        "cooking"
+      ],
+      "entities": [],
+      "topic": "cooking recipes",
+      "relation": {
+        "subject": "user",
+        "predicate": "seeking",
+        "object": "recipe ideas for leftover beef"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "68d35085_1",
+      "session_index": 15,
+      "source_ids": [
+        80
+      ],
+      "source_uids": [
+        "s0015u0002"
+      ],
+      "source_times": [
+        "2022-04-10T11:49:01"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm actually looking for some recipe ideas that use up leftover beef, not just vegetables.",
+    "assistant_replies": [
+      "Using up leftover beef can be a great way to reduce food waste and create new, delicious meals. Here are some tasty recipe ideas that use up leftover beef:\n\n1. **Beef Tacos**: Shred or chop leftover beef and season with taco spices. Serve in tacos with your favorite toppings, such as salsa, avocado, sour cream, and shredded cheese.\n2. **Beef and Mushroom Gravy over Mashed Potatoes**: Sauté sliced mushrooms and onions in butter until tender, then add leftover beef and a splash of red wine. Serve over mashed potatoes for a hearty, comforting meal.\n3. **Beef and Vegetable Stir-Fry**: Slice leftover beef into thin strips and stir-fry with your favorite vegetables, such as bell peppers, broccoli, and carrots. Serve over rice or noodles.\n4. **Beef Quesadillas**: Shred leftover beef and mix with diced onions, cheese, and a sprinkle of cumin. Place the mixture inside tortillas and cook in a skillet until crispy and melted.\n5. **Beef and Barley Soup**: Add leftover beef to a pot of simmering barley soup, along with some diced vegetables like carrots, celery, and onions. Serve with crusty bread for a satisfying meal.\n6. **Beef and Cheese Sliders**: Thinly slice leftover beef and serve on small hamburger buns with melted cheese, lettuce, and tomato.\n7. **Beef Fried Rice**: Dice leftover beef and add to a wok or large skillet with cooked rice, scrambled eggs, and your favorite vegetables (e.g., peas, carrots, green onions). Serve as a main dish or side.\n8. **Beef and Mushroom Meatball Subs**: Mix leftover beef with sautéed mushrooms, breadcrumbs, and egg. Form into meatballs and bake or fry until cooked through. Serve on sub rolls with marinara sauce and melted mozzarella cheese.\n9. **Beef and Vegetable Hash**: Dice leftover beef and cook with diced vegetables like potatoes, onions, and bell peppers. Serve with eggs and toast for a hearty breakfast or brunch.\n10. **Beef Empanadas**: Shred leftover beef and mix with onions, garlic, and spices. Use as a filling for empanadas, either homemade or store-bought, and bake or fry until crispy.\n\nI hope these ideas inspire you to create some tasty meals with your leftover beef!"
+    ]
+  },
+  {
+    "memory_id": "m_b095a043d176ee8186f5",
+    "content": "User is thinking of making something with leftover beef and pasta and wants recipe ideas.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "use up leftover beef",
+      "keywords": [
+        "leftover beef",
+        "pasta",
+        "recipe ideas"
+      ],
+      "entities": [],
+      "topic": "cooking recipes",
+      "relation": {
+        "subject": "user",
+        "predicate": "planning to cook",
+        "object": "leftover beef and pasta dish"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "68d35085_1",
+      "session_index": 15,
+      "source_ids": [
+        81
+      ],
+      "source_uids": [
+        "s0015u0003"
+      ],
+      "source_times": [
+        "2022-04-10T11:49:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "I was thinking of making something with leftover beef and pasta. Do you have any recipe ideas for that?",
+    "assistant_replies": [
+      "A great combination! Beef and pasta is a classic comfort food pairing. Here are some delicious recipe ideas that use leftover beef and pasta:\n\n1. **Beef Stroganoff**: Sauté sliced leftover beef with onions, mushrooms, and garlic, then serve over egg noodles with a creamy sauce made from sour cream, Dijon mustard, and beef broth.\n2. **Beef Bolognese Pasta Bake**: Toss cooked pasta with leftover beef, marinara sauce, and shredded mozzarella cheese. Transfer to a baking dish and top with more cheese and breadcrumbs. Bake until golden and bubbly.\n3. **Creamy Beef Fettuccine**: Sauté leftover beef with garlic and onions, then add heavy cream, dried thyme, and cooked fettuccine. Simmer until the sauce thickens, and serve with grated Parmesan cheese.\n4. **Beef and Mushroom Penne**: Cook penne pasta and toss with sautéed leftover beef, mushrooms, and garlic. Add a splash of red wine and beef broth, and finish with grated Parmesan cheese.\n5. **Beef and Vegetable Pasta Primavera**: Toss cooked pasta with leftover beef, steamed vegetables (e.g., broccoli, carrots, bell peppers), and a light sauce made from olive oil, garlic, and lemon juice.\n6. **Beef Ragu Pasta**: Simmer leftover beef with onions, carrots, celery, and tomatoes to create a hearty ragu sauce. Serve over cooked pasta, such as pappardelle or rigatoni.\n7. **Beef and Spinach Lasagna**: Layer cooked lasagna noodles with leftover beef, spinach, ricotta cheese, and marinara sauce. Top with melted mozzarella cheese and bake until golden.\n\nThese are just a few ideas to get you started. Feel free to mix and match ingredients or add your own favorite flavors to create the perfect dish!"
+    ]
+  },
+  {
+    "memory_id": "m_84092f09847577e11110",
+    "content": "User thinks Beef Stroganoff sounds good and plans to try it.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Beef Stroganoff",
+        "recipe",
+        "try"
+      ],
+      "entities": [
+        {
+          "name": "Beef Stroganoff",
+          "entity_type": "other",
+          "role": "recipe"
+        }
+      ],
+      "topic": "cooking recipes",
+      "relation": {
+        "subject": "user",
+        "predicate": "likes",
+        "object": "Beef Stroganoff"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "Beef Stroganoff",
+        "polarity": "positive",
+        "strength": 0.7,
+        "scope": "specific"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "68d35085_1",
+      "session_index": 15,
+      "source_ids": [
+        82
+      ],
+      "source_uids": [
+        "s0015u0004"
+      ],
+      "source_times": [
+        "2022-04-10T11:49:02"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "I think the Beef Stroganoff sounds really good. I'll have to try that out.",
+    "assistant_replies": [
+      "Beef Stroganoff is a classic comfort food dish that's easy to make and always a crowd-pleaser.\n\nAnd yay for using up leftover vegetables in your beef stew! It's always a great feeling to reduce food waste and create a delicious meal at the same time. Freezing leftovers is a great way to extend their shelf life and have a quick meal ready for later. You can also consider freezing individual portions, making it easy to grab and reheat when you need a quick lunch or dinner.\n\nIf you're looking for more ways to use up leftover vegetables, you could also consider making a vegetable soup or broth, or adding them to a frittata or omelette. And don't forget to get creative with your leftovers – you can often repurpose them into new and exciting dishes with a little bit of imagination!\n\nLet me know how your Beef Stroganoff turns out, and if you have any other questions or need any more recipe ideas, feel free to ask!"
+    ]
+  },
+  {
+    "memory_id": "m_7cc209f2c17df106eb0b",
+    "content": "User made a big pot of beef stew last weekend that lasted for three meals and froze some for later.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2022-04-03",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "day",
+        "raw": "last weekend"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "use up leftover vegetables",
+      "keywords": [
+        "beef stew",
+        "last weekend",
+        "froze",
+        "leftover vegetables"
+      ],
+      "entities": [],
+      "topic": "cooking",
+      "relation": {
+        "subject": "user",
+        "predicate": "cooked",
+        "object": "beef stew"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "historical",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "68d35085_1",
+      "session_index": 15,
+      "source_ids": [
+        82
+      ],
+      "source_uids": [
+        "s0015u0004"
+      ],
+      "source_times": [
+        "2022-04-10T11:49:02"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "I had a big pot of beef stew that lasted us for three meals last weekend, and I was able to freeze some of it for later. It was a great way to use up some leftover vegetables too.",
+    "assistant_replies": [
+      "Beef Stroganoff is a classic comfort food dish that's easy to make and always a crowd-pleaser.\n\nAnd yay for using up leftover vegetables in your beef stew! It's always a great feeling to reduce food waste and create a delicious meal at the same time. Freezing leftovers is a great way to extend their shelf life and have a quick meal ready for later. You can also consider freezing individual portions, making it easy to grab and reheat when you need a quick lunch or dinner.\n\nIf you're looking for more ways to use up leftover vegetables, you could also consider making a vegetable soup or broth, or adding them to a frittata or omelette. And don't forget to get creative with your leftovers – you can often repurpose them into new and exciting dishes with a little bit of imagination!\n\nLet me know how your Beef Stroganoff turns out, and if you have any other questions or need any more recipe ideas, feel free to ask!"
+    ]
+  },
+  {
+    "memory_id": "m_0be9cd761b45d3ccbff2",
+    "content": "User asks about best way to cook beef for Beef Stroganoff: use leftover beef as is or sauté again with onions and mushrooms.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Beef Stroganoff",
+        "cook beef",
+        "leftover",
+        "sauté"
+      ],
+      "entities": [
+        {
+          "name": "Beef Stroganoff",
+          "entity_type": "other",
+          "role": "recipe"
+        }
+      ],
+      "topic": "cooking technique",
+      "relation": {
+        "subject": "user",
+        "predicate": "asks about",
+        "object": "cooking method for beef in Beef Stroganoff"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "uncertain"
+    },
+    "provenance": {
+      "session_id": "68d35085_1",
+      "session_index": 15,
+      "source_ids": [
+        83
+      ],
+      "source_uids": [
+        "s0015u0005"
+      ],
+      "source_times": [
+        "2022-04-10T11:49:02.500000"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "What's the best way to cook the beef for the Beef Stroganoff? Should I use the leftover beef as is, or sauté it again with some onions and mushrooms to give it more flavor?",
+    "assistant_replies": [
+      "When it comes to cooking the beef for Beef Stroganoff, you can definitely use leftover beef as a starting point, but I'd recommend taking it a step further to enhance the flavor and texture.\n\nSautéing the leftover beef with some onions and mushrooms is an excellent idea! This will help to:\n\n1. Wake up the flavors: Sautéing the beef with aromatics like onions and mushrooms will help to revive its flavor and add new dimensions to the dish.\n2. Add texture: By cooking the beef with some crunchy onions and tender mushrooms, you'll add a nice texture contrast to the dish.\n3. Create a rich sauce: As you cook the beef and vegetables, they'll release their juices, which will help to create a rich and savory sauce.\n\nHere's a suggested approach:\n\n1. Slice the leftover beef into thin strips, about 1-2 inches long and 1/4 inch thick.\n2. Heat some oil in a pan over medium-high heat. Add the sliced onions and cook until they're translucent and starting to caramelize (about 5 minutes).\n3. Add the sliced mushrooms and cook until they're tender and lightly browned (about 3-4 minutes).\n4. Add the sliced beef to the pan and cook for about 2-3 minutes, until it's lightly browned and heated through.\n5. Add a splash of Dijon mustard, Worcestershire sauce, and beef broth to the pan, stirring to combine. This will help to create a rich and creamy sauce.\n6. Reduce the heat to low and simmer the mixture for about 5-7 minutes, stirring occasionally, until the sauce has thickened and the flavors have melded together.\n7. Serve the beef and sauce over cooked egg noodles, garnished with chopped parsley or dill, and enjoy!\n\nBy sautéing the leftover beef with onions and mushrooms, you'll create a more complex and satisfying flavor profile that will elevate your Beef Stroganoff to the next level."
+    ]
+  },
+  {
+    "memory_id": "m_4c29bbb33a1a1a70d3b9",
+    "content": "User plans to sauté beef with onions and mushrooms for Beef Stroganoff, and add Dijon mustard and Worcestershire sauce for extra flavor.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "give more flavor",
+      "keywords": [
+        "Beef Stroganoff",
+        "sauté",
+        "onions",
+        "mushrooms",
+        "Dijon mustard",
+        "Worcestershire sauce"
+      ],
+      "entities": [
+        {
+          "name": "Beef Stroganoff",
+          "entity_type": "other",
+          "role": "recipe"
+        },
+        {
+          "name": "Dijon mustard",
+          "entity_type": "other",
+          "role": "ingredient"
+        },
+        {
+          "name": "Worcestershire sauce",
+          "entity_type": "other",
+          "role": "ingredient"
+        }
+      ],
+      "topic": "cooking plan",
+      "relation": {
+        "subject": "user",
+        "predicate": "plans to cook",
+        "object": "Beef Stroganoff with sautéed beef, onions, mushrooms, Dijon mustard, Worcestershire sauce"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "68d35085_1",
+      "session_index": 15,
+      "source_ids": [
+        84
+      ],
+      "source_uids": [
+        "s0015u0006"
+      ],
+      "source_times": [
+        "2022-04-10T11:49:03"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "I think I'll try sautéing the beef with some onions and mushrooms to give it more flavor. I'll also make sure to add some Dijon mustard and Worcestershire sauce to the sauce for extra depth of flavor.",
+    "assistant_replies": [
+      "Sautéing the beef with onions and mushrooms will definitely add a lot of flavor to your Beef Stroganoff.\n\nFor the mushrooms, you can't go wrong with a classic choice like button mushrooms or cremini mushrooms. They're mild in flavor, tender, and pair well with the beef and creamy sauce. However, if you want to add a bit more umami flavor and texture, you could consider using:\n\n1. **Portobello mushrooms**: These have a meaty texture and a rich, earthy flavor that will add depth to your dish.\n2. **Shiitake mushrooms**: With their smoky, slightly sweet flavor, shiitake mushrooms will add a nice complexity to your Beef Stroganoff.\n3. **Chanterelle mushrooms**: These have a fruity, apricot-like flavor and a firm texture that will add a nice contrast to the dish.\n\nIf you want to get really fancy, you could even use a combination of mushroom varieties to create a more complex flavor profile.\n\nWhen preparing the mushrooms, make sure to slice them thinly so they cook quickly and evenly. You can also add a pinch of salt to help bring out their natural flavors.\n\nRemember, the key is to cook the mushrooms until they're tender and lightly browned, which will help to bring out their natural umami flavor and add depth to your sauce.\n\nNow, go forth and sauté those mushrooms!"
+    ]
+  },
+  {
+    "memory_id": "m_b76af8eae3a4512f51b6",
+    "content": "User asks for recommendations on what type of mushrooms to use for Beef Stroganoff.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Beef Stroganoff",
+        "mushrooms",
+        "recommendation"
+      ],
+      "entities": [
+        {
+          "name": "Beef Stroganoff",
+          "entity_type": "other",
+          "role": "recipe"
+        }
+      ],
+      "topic": "cooking ingredients",
+      "relation": {
+        "subject": "user",
+        "predicate": "asks about",
+        "object": "mushroom type for Beef Stroganoff"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "uncertain"
+    },
+    "provenance": {
+      "session_id": "68d35085_1",
+      "session_index": 15,
+      "source_ids": [
+        84
+      ],
+      "source_uids": [
+        "s0015u0006"
+      ],
+      "source_times": [
+        "2022-04-10T11:49:03"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "Do you have any recommendations for what type of mushrooms I should use?",
+    "assistant_replies": [
+      "Sautéing the beef with onions and mushrooms will definitely add a lot of flavor to your Beef Stroganoff.\n\nFor the mushrooms, you can't go wrong with a classic choice like button mushrooms or cremini mushrooms. They're mild in flavor, tender, and pair well with the beef and creamy sauce. However, if you want to add a bit more umami flavor and texture, you could consider using:\n\n1. **Portobello mushrooms**: These have a meaty texture and a rich, earthy flavor that will add depth to your dish.\n2. **Shiitake mushrooms**: With their smoky, slightly sweet flavor, shiitake mushrooms will add a nice complexity to your Beef Stroganoff.\n3. **Chanterelle mushrooms**: These have a fruity, apricot-like flavor and a firm texture that will add a nice contrast to the dish.\n\nIf you want to get really fancy, you could even use a combination of mushroom varieties to create a more complex flavor profile.\n\nWhen preparing the mushrooms, make sure to slice them thinly so they cook quickly and evenly. You can also add a pinch of salt to help bring out their natural flavors.\n\nRemember, the key is to cook the mushrooms until they're tender and lightly browned, which will help to bring out their natural umami flavor and add depth to your sauce.\n\nNow, go forth and sauté those mushrooms!"
+    ]
+  },
+  {
+    "memory_id": "m_4515bdc69d1a208bba21",
+    "content": "User asks about effects of Black Lives Matter movement on criminal justice system and policing practices in the United States.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [
+        "United States"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Black Lives Matter",
+        "criminal justice",
+        "policing",
+        "United States"
+      ],
+      "entities": [
+        {
+          "name": "Black Lives Matter",
+          "entity_type": "organization",
+          "role": "movement"
+        }
+      ],
+      "topic": "social justice",
+      "relation": {
+        "subject": "Black Lives Matter movement",
+        "predicate": "effects on",
+        "object": "criminal justice system and policing practices"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_94727",
+      "session_index": 16,
+      "source_ids": [
+        85
+      ],
+      "source_uids": [
+        "s0016u0001"
+      ],
+      "source_times": [
+        "2022-04-10T11:55:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "What effects has the Black Lives Matter movement had on the criminal justice system and policing practices in the United States?",
+    "assistant_replies": [
+      "The Black Lives Matter movement has had significant effects on the criminal justice system and policing practices in the United States. Some of the effects are:\n\n1. Increased scrutiny on police brutality and excessive use of force: The movement has brought attention to the issue of police brutality and excessive use of force against Black people, which has led to increased scrutiny on police practices.\n\n2. Calls for police reform: As a result of the increased scrutiny, the movement has called for police reforms, including demilitarization of police force and the implementation of community policing.\n\n3. Changes in police practices: Many police departments have implemented changes in their practices, such as use of body cameras and de-escalation training.\n\n4. Changes in laws and policies: The movement has also led to changes in laws and policies, such as changes in bail and sentencing laws, and implementation of police accountability measures.\n\n5. Increased awareness and education: The movement has increased public awareness and education on issues of racial injustice and systemic racism within the criminal justice system.\n\nOverall, the Black Lives Matter movement has brought much-needed attention to the issues of racial injustice and police brutality in the United States, leading to important changes in policing practices and the criminal justice system."
+    ]
+  },
+  {
+    "memory_id": "m_f8f9e4646f429d41af2a",
+    "content": "User asks whether Black Lives Matter movement has been effective in bringing about lasting change in criminal justice system and policing practices.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Black Lives Matter",
+        "effective",
+        "lasting change",
+        "criminal justice",
+        "policing"
+      ],
+      "entities": [
+        {
+          "name": "Black Lives Matter",
+          "entity_type": "organization",
+          "role": "movement"
+        }
+      ],
+      "topic": "social justice",
+      "relation": {
+        "subject": "Black Lives Matter movement",
+        "predicate": "effectiveness in bringing lasting change",
+        "object": "criminal justice system and policing practices"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "uncertain"
+    },
+    "provenance": {
+      "session_id": "ultrachat_94727",
+      "session_index": 16,
+      "source_ids": [
+        86
+      ],
+      "source_uids": [
+        "s0016u0002"
+      ],
+      "source_times": [
+        "2022-04-10T11:55:01"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "Do you think the Black Lives Matter movement has been effective in bringing about lasting change in the criminal justice system and policing practices?",
+    "assistant_replies": [
+      "As an AI language model, I don't have personal opinions or beliefs. However, I can provide a fact-based answer. The Black Lives Matter movement has undoubtedly sparked conversations and debates about racial inequality and police brutality in the United States, and it has helped bring about some changes in the criminal justice system and policing practices. However, the movement is ongoing, and it is too early to gauge its effectiveness in bringing about lasting change. There is still a long way to go in terms of addressing systemic racism and inequality in all aspects of society, including the criminal justice system and policing practices."
+    ]
+  },
+  {
+    "memory_id": "m_9cdd7e68ef81c4642ccc",
+    "content": "User asks for examples of specific changes made because of the Black Lives Matter movement.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Black Lives Matter",
+        "specific changes",
+        "examples"
+      ],
+      "entities": [
+        {
+          "name": "Black Lives Matter",
+          "entity_type": "organization",
+          "role": "movement"
+        }
+      ],
+      "topic": "social justice",
+      "relation": {
+        "subject": "Black Lives Matter movement",
+        "predicate": "resulted in specific changes",
+        "object": "examples requested"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "ultrachat_94727",
+      "session_index": 16,
+      "source_ids": [
+        87
+      ],
+      "source_uids": [
+        "s0016u0003"
+      ],
+      "source_times": [
+        "2022-04-10T11:55:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 6
+    },
+    "confidence": 1.0,
+    "evidence_span": "Can you provide examples of specific changes that have been made because of the Black Lives Matter movement?",
+    "assistant_replies": [
+      "Yes, there have been several specific changes made in response to the Black Lives Matter movement, including:\n\n1. Body Cameras: Many police departments across the United States have started to use body cameras on officers to provide more evidence of their interactions with members of the public.\n\n2. Police Reform Laws: Several states and cities have started to pass police reform packages that include changes like restrictions on chokeholds and other restraints, increased oversight of police departments, and more accountability for officer misconduct.\n\n3. Defunding Police: Some cities have moved to defund police departments and divert funding to social welfare programs and other community-based initiatives.\n\n4. Changes in Prosecution: Several district attorneys have pledged to stop prosecuting certain low-level offenses and focus instead on more serious crimes.\n\n5. Monument Removals: Across the United States, many monuments and statues of Confederate leaders and other figures supporting white supremacy have been removed.\n\nThese are just some examples of the changes that have been made as a result of the Black Lives Matter movement. It is important to note that these changes are just the beginning, and more work needs to be done to address the underlying issues of systemic racism and inequality in the United States."
+    ]
+  }
+]

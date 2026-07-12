@@ -1,0 +1,101 @@
+{
+  "question_id": "720133ac",
+  "question_type": "multi-session",
+  "question": "What is the total cost of Lola's vet visit and flea medication?",
+  "question_date": "2023/05/30 (Tue) 18:40",
+  "gold_answer": "$75",
+  "prediction": "75 dollars",
+  "support_memory_ids": [
+    "m_7f95f83dd83a5fc4adcf",
+    "m_07981ed9a42a23bb13fd"
+  ],
+  "support_source_ids": [
+    105,
+    219
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From memory m_7f95f83dd83a5fc4adcf (source 105), Lola's vet visit cost $50. From memory m_07981ed9a42a23bb13fd (source 219), flea medication cost $25. Sum is $75.",
+  "required_slots": [
+    {
+      "name": "vet_visit_cost",
+      "value": "50",
+      "support_memory_ids": [
+        "m_7f95f83dd83a5fc4adcf"
+      ],
+      "support_source_ids": [
+        105
+      ]
+    },
+    {
+      "name": "flea_medication_cost",
+      "value": "25",
+      "support_memory_ids": [
+        "m_07981ed9a42a23bb13fd"
+      ],
+      "support_source_ids": [
+        219
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      50,
+      25
+    ],
+    "unit": "dollars",
+    "result": "75 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "vet_visit_cost",
+        "query": "Lola vet visit cost",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "flea_medication_cost",
+        "query": "Lola flea medication cost",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Lola vet visit cost",
+      "Lola flea medication cost"
+    ],
+    "reason": "Need two numeric costs to sum for total.",
+    "deterministic_contract_hint": "sum",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 19345,
+    "completion_tokens": 741,
+    "elapsed_seconds": 5.717028856277466
+  },
+  "correct": true,
+  "judge_reason": "Equivalent wording and units, '75 dollars' matches '$75'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 135,
+    "completion_tokens": 29,
+    "elapsed_seconds": 0.7773118019104004
+  }
+}

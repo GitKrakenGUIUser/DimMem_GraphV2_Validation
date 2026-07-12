@@ -1,0 +1,106 @@
+{
+  "question": "How much have I made from selling eggs this month?",
+  "question_date": "2023-05-30T09:50:00",
+  "hypotheses": [
+    {
+      "query_anchor": "total earnings from selling eggs in May 2023",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "user",
+        "egg"
+      ],
+      "keywords": [
+        "sell",
+        "egg",
+        "earnings",
+        "May 2023"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-05-01",
+        "end": "2023-05-30",
+        "raw": "this month"
+      },
+      "locations": [],
+      "state_keys": [
+        "egg_sales_total"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "egg sales transactions in May 2023",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "user",
+        "egg"
+      ],
+      "keywords": [
+        "sell",
+        "egg",
+        "transaction",
+        "May 2023"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-05-01",
+        "end": "2023-05-30",
+        "raw": "this month"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 5,
+      "missing_slots": [
+        "individual sale amounts"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "total income from egg sales this month",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "user",
+        "egg"
+      ],
+      "keywords": [
+        "income",
+        "egg",
+        "sell",
+        "monthly"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-05-01",
+        "end": "2023-05-30",
+        "raw": "this month"
+      },
+      "locations": [],
+      "state_keys": [
+        "egg_sales_total"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    }
+  ]
+}

@@ -1,0 +1,769 @@
+[
+  {
+    "memory_id": "m_a689a807efd2ec686e1d",
+    "content": "User has 5 coupons for $1 off Tide and 3 coupons for 50 cents off Bounty.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "coupons",
+        "Tide",
+        "Bounty",
+        "discount"
+      ],
+      "entities": [
+        {
+          "name": "Tide",
+          "entity_type": "product",
+          "role": "coupon target"
+        },
+        {
+          "name": "Bounty",
+          "entity_type": "product",
+          "role": "coupon target"
+        }
+      ],
+      "topic": "coupons",
+      "relation": {
+        "subject": "User",
+        "predicate": "has coupons",
+        "object": "5 for $1 off Tide and 3 for 50 cents off Bounty"
+      },
+      "state_key": "user.coupons.tide_bounty",
+      "state_value": "5 Tide $1 off, 3 Bounty 50 cents off",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "95cec590_1",
+      "session_index": 48,
+      "source_ids": [
+        244
+      ],
+      "source_uids": [
+        "s0048u0002"
+      ],
+      "source_times": [
+        "2023-05-30T02:45:01"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "I've got 5 coupons for $1 off Tide and 3 for 50 cents off Bounty",
+    "assistant_replies": [
+      "Let's update the count:\n\n* Tide coupons: You started with 5, used 3, so you have 2 remaining coupons for $1 off Tide each.\n* Bounty coupons: You started with 3, used 2, so you have 1 remaining coupon for 50 cents off Bounty.\n\nSo, you have a total of 2 Tide coupons worth $2 and 1 Bounty coupon worth $0.50.\n\nNext, let's talk about the expiration dates. Do you remember when the coupons expire? Are they valid for a specific period, or do they have a \"while supplies last\" kind of deal?\n\nAlso, which stores do you plan to visit this weekend to use these coupons? Are you going to a specific supermarket, discount store, or maybe a warehouse club?\n\nLastly, are you looking to buy these items at a specific price point or quantity to maximize your savings? For example, do you want to buy a certain size or bundle of Tide or Bounty products to get the best deal?"
+    ]
+  },
+  {
+    "memory_id": "m_829b0d3cfa9cb670b21b",
+    "content": "User has used 3 of the Tide coupons and 2 of the Bounty coupons last time they went shopping.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": "last time I went shopping"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "used",
+        "coupons",
+        "Tide",
+        "Bounty",
+        "shopping"
+      ],
+      "entities": [
+        {
+          "name": "Tide",
+          "entity_type": "product",
+          "role": "coupon target"
+        },
+        {
+          "name": "Bounty",
+          "entity_type": "product",
+          "role": "coupon target"
+        }
+      ],
+      "topic": "coupon usage",
+      "relation": {
+        "subject": "User",
+        "predicate": "used coupons",
+        "object": "3 Tide $1 off and 2 Bounty 50 cents off"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "95cec590_1",
+      "session_index": 48,
+      "source_ids": [
+        244
+      ],
+      "source_uids": [
+        "s0048u0002"
+      ],
+      "source_times": [
+        "2023-05-30T02:45:01"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "I've already used 3 of the Tide ones and 2 of the Bounty ones last time I went shopping",
+    "assistant_replies": [
+      "Let's update the count:\n\n* Tide coupons: You started with 5, used 3, so you have 2 remaining coupons for $1 off Tide each.\n* Bounty coupons: You started with 3, used 2, so you have 1 remaining coupon for 50 cents off Bounty.\n\nSo, you have a total of 2 Tide coupons worth $2 and 1 Bounty coupon worth $0.50.\n\nNext, let's talk about the expiration dates. Do you remember when the coupons expire? Are they valid for a specific period, or do they have a \"while supplies last\" kind of deal?\n\nAlso, which stores do you plan to visit this weekend to use these coupons? Are you going to a specific supermarket, discount store, or maybe a warehouse club?\n\nLastly, are you looking to buy these items at a specific price point or quantity to maximize your savings? For example, do you want to buy a certain size or bundle of Tide or Bounty products to get the best deal?"
+    ]
+  },
+  {
+    "memory_id": "m_8809781d9adfa4b29a36",
+    "content": "User saved $5 total from using 3 Tide coupons ($1 off each) and 2 Bounty coupons (50 cents off each) last shopping trip.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": "last time I went shopping"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "saved",
+        "$5",
+        "coupons",
+        "Tide",
+        "Bounty"
+      ],
+      "entities": [
+        {
+          "name": "Tide",
+          "entity_type": "product",
+          "role": "coupon target"
+        },
+        {
+          "name": "Bounty",
+          "entity_type": "product",
+          "role": "coupon target"
+        }
+      ],
+      "topic": "savings",
+      "relation": {
+        "subject": "User",
+        "predicate": "saved",
+        "object": "$5"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "95cec590_1",
+      "session_index": 48,
+      "source_ids": [
+        244,
+        246,
+        247
+      ],
+      "source_uids": [
+        "s0048u0002",
+        "s0048u0004",
+        "s0048u0005"
+      ],
+      "source_times": [
+        "2023-05-30T02:45:01",
+        "2023-05-30T02:45:02",
+        "2023-05-30T02:45:02.500000"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "which saved me $5 total",
+    "assistant_replies": [
+      "Let's update the count:\n\n* Tide coupons: You started with 5, used 3, so you have 2 remaining coupons for $1 off Tide each.\n* Bounty coupons: You started with 3, used 2, so you have 1 remaining coupon for 50 cents off Bounty.\n\nSo, you have a total of 2 Tide coupons worth $2 and 1 Bounty coupon worth $0.50.\n\nNext, let's talk about the expiration dates. Do you remember when the coupons expire? Are they valid for a specific period, or do they have a \"while supplies last\" kind of deal?\n\nAlso, which stores do you plan to visit this weekend to use these coupons? Are you going to a specific supermarket, discount store, or maybe a warehouse club?\n\nLastly, are you looking to buy these items at a specific price point or quantity to maximize your savings? For example, do you want to buy a certain size or bundle of Tide or Bounty products to get the best deal?",
+      "So, you used a total of 5 coupons last time, which saved you $5. That's a great start!\n\nLet's break it down:\n\n* 3 coupons for $1 off Tide = $3 saved\n* 2 coupons for 50 cents off Bounty = $1 saved\n* Total savings: $3 + $1 = $4\n\nWait, I think there might be a small mistake. You mentioned you saved $5, but the calculation above only adds up to $4. Could you double-check your receipts or remember how you saved the extra $1?\n\nOnce we clear this up, we can move forward with planning your next shopping trip to make the most of your remaining coupons!",
+      "I apologize for the mistake earlier. Let's re-calculate the savings:\n\n* 3 coupons for $1 off Tide = 3 x $1 = $3 saved\n* 2 coupons for 50 cents off Bounty = 2 x $0.50 = $1 saved\n* Total savings: $3 + $1 = $4\n\nI'm still getting $4 as the total savings. I understand that you're sure you saved $5, but the math doesn't add up. It's possible that there's another factor involved, such as a sale or discount that contributed to the additional $1 in savings.\n\nIf you're certain about the $5 savings, could you think back to your last shopping trip and see if you remember any other details that might explain the discrepancy? Was there a sale or promotion on Tide or Bounty? Did you use any other coupons or discounts? Any additional information you can provide might help clarify things."
+    ]
+  },
+  {
+    "memory_id": "m_b628e2fc254faccadc5c",
+    "content": "User plans to go shopping at their local supermarket this weekend.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-06-03",
+        "event_end": "2023-06-04",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "range",
+        "raw": "this weekend"
+      },
+      "locations": [
+        "local supermarket"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "shopping",
+        "weekend",
+        "supermarket"
+      ],
+      "entities": [],
+      "topic": "shopping plan",
+      "relation": {
+        "subject": "User",
+        "predicate": "plans to shop at",
+        "object": "local supermarket"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "95cec590_1",
+      "session_index": 48,
+      "source_ids": [
+        245
+      ],
+      "source_uids": [
+        "s0048u0003"
+      ],
+      "source_times": [
+        "2023-05-30T02:45:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm planning to go shopping this weekend",
+    "assistant_replies": [
+      "Got it! With a few weeks to go before they expire, you've got some flexibility to plan your shopping trip.\n\nSince you'll be going to your local supermarket, I'll assume they accept manufacturer coupons like the ones you have. Here's a quick plan to help you make the most of your remaining coupons:\n\n1. **Tide coupons:** You have 2 coupons for $1 off Tide each. Try to find a sale or promotion on Tide at your supermarket that will stack with your coupons. Look for a price around $2-$3 per unit, so you can get a good deal. If you can find a sale, you might be able to get Tide for around $1-$2 per unit after the coupon.\n2. **Bounty coupon:** You have 1 coupon for 50 cents off Bounty. Again, look for a sale or promotion on Bounty at your supermarket. If you can find a price around $1-$2 per unit, you can get a decent deal with the 50-cent coupon.\n\nTo maximize your savings, consider the following tips:\n\n* Check the supermarket's weekly ad or website to see if they have any sales or promotions on Tide or Bounty.\n* Look for bundle deals or bulk packs that might be cheaper per unit than individual items.\n* If you have a loyalty program or digital coupons through your supermarket's app, check if they have any additional discounts or offers that can stack with your manufacturer coupons.\n* Try to buy the items in quantities that will use up your coupons, so you don't let them expire.\n\nBy following these tips, you should be able to get a good deal on Tide and Bounty using your remaining coupons. Happy shopping!"
+    ]
+  },
+  {
+    "memory_id": "m_0bc43796524c18ca6e0f",
+    "content": "User's coupons for Tide and Bounty are valid for a few more weeks.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "2023-06-20",
+        "precision": "range",
+        "raw": "a few more weeks"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "coupons",
+        "valid",
+        "expiration",
+        "weeks"
+      ],
+      "entities": [
+        {
+          "name": "Tide",
+          "entity_type": "product",
+          "role": "coupon target"
+        },
+        {
+          "name": "Bounty",
+          "entity_type": "product",
+          "role": "coupon target"
+        }
+      ],
+      "topic": "coupon expiration",
+      "relation": {
+        "subject": "coupons",
+        "predicate": "valid until",
+        "object": "a few more weeks"
+      },
+      "state_key": "user.coupons.tide_bounty.expiration",
+      "state_value": "valid for a few more weeks from 2023-05-30",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "95cec590_1",
+      "session_index": 48,
+      "source_ids": [
+        245
+      ],
+      "source_uids": [
+        "s0048u0003"
+      ],
+      "source_times": [
+        "2023-05-30T02:45:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm pretty sure they're valid for a few more weeks",
+    "assistant_replies": [
+      "Got it! With a few weeks to go before they expire, you've got some flexibility to plan your shopping trip.\n\nSince you'll be going to your local supermarket, I'll assume they accept manufacturer coupons like the ones you have. Here's a quick plan to help you make the most of your remaining coupons:\n\n1. **Tide coupons:** You have 2 coupons for $1 off Tide each. Try to find a sale or promotion on Tide at your supermarket that will stack with your coupons. Look for a price around $2-$3 per unit, so you can get a good deal. If you can find a sale, you might be able to get Tide for around $1-$2 per unit after the coupon.\n2. **Bounty coupon:** You have 1 coupon for 50 cents off Bounty. Again, look for a sale or promotion on Bounty at your supermarket. If you can find a price around $1-$2 per unit, you can get a decent deal with the 50-cent coupon.\n\nTo maximize your savings, consider the following tips:\n\n* Check the supermarket's weekly ad or website to see if they have any sales or promotions on Tide or Bounty.\n* Look for bundle deals or bulk packs that might be cheaper per unit than individual items.\n* If you have a loyalty program or digital coupons through your supermarket's app, check if they have any additional discounts or offers that can stack with your manufacturer coupons.\n* Try to buy the items in quantities that will use up your coupons, so you don't let them expire.\n\nBy following these tips, you should be able to get a good deal on Tide and Bounty using your remaining coupons. Happy shopping!"
+    ]
+  },
+  {
+    "memory_id": "m_39ccf1a8cc8e3b5a77b1",
+    "content": "User had a digital coupon on their grocery store app for 10% off entire purchase that added to savings on the same shopping trip.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": "that day"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "digital coupon",
+        "10% off",
+        "grocery app",
+        "savings"
+      ],
+      "entities": [],
+      "topic": "digital coupon",
+      "relation": {
+        "subject": "User",
+        "predicate": "used digital coupon",
+        "object": "10% off entire purchase"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "95cec590_1",
+      "session_index": 48,
+      "source_ids": [
+        248
+      ],
+      "source_uids": [
+        "s0048u0006"
+      ],
+      "source_times": [
+        "2023-05-30T02:45:03"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "I did get some other savings that day, but it was from a digital coupon on my grocery store app for 10% off my entire purchase",
+    "assistant_replies": [
+      "The 10% off digital coupon on your entire purchase would have added to your total savings, making it $5. Mystery solved!\n\nNow, let's focus on your remaining coupons. You have:\n\n* 2 coupons for $1 off Tide each\n* 1 coupon for 50 cents off Bounty\n\nAs we discussed earlier, you can try to find a sale or promotion on Tide and Bounty at your local supermarket to stack with your coupons. This will help you maximize your savings.\n\nDo you have any other questions or would you like some more tips on how to make the most of your remaining coupons?"
+    ]
+  },
+  {
+    "memory_id": "m_699f28ffeac887e55e0c",
+    "content": "User recently bought a silver necklace from Pandora at the mall for their sister's birthday, costing around $150.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": "recently"
+      },
+      "locations": [
+        "mall"
+      ],
+      "reason": "",
+      "purpose": "sister's birthday gift",
+      "keywords": [
+        "bought",
+        "silver necklace",
+        "Pandora",
+        "mall",
+        "$150",
+        "sister",
+        "birthday"
+      ],
+      "entities": [
+        {
+          "name": "Pandora",
+          "entity_type": "organization",
+          "role": "jewelry store"
+        },
+        {
+          "name": "User's sister",
+          "entity_type": "person",
+          "role": "recipient"
+        }
+      ],
+      "topic": "gift purchase",
+      "relation": {
+        "subject": "User",
+        "predicate": "bought",
+        "object": "silver necklace from Pandora for sister's birthday"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "b90109d2_1",
+      "session_index": 50,
+      "source_ids": [
+        253
+      ],
+      "source_uids": [
+        "s0050u0001"
+      ],
+      "source_times": [
+        "2023-05-30T16:58:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "I recently bought a silver one from Pandora at the mall for my sister's birthday, and it cost around $150",
+    "assistant_replies": [
+      "Happy birthday to your friend! A necklace is a thoughtful gift, and I'd be happy to help you with some suggestions.\n\nFirst, since you mentioned Pandora, I'll assume you're looking for a similar style or quality. Here are a few options to consider:\n\n1. **Alex and Ani**: Known for their charm-style necklaces, Alex and Ani offers a wide range of designs, from elegant to playful. Their prices are similar to Pandora's, with necklaces ranging from $50 to $200.\n2. **Tiffany & Co.**: If you want to splurge, Tiffany's is a great option. Their Return to Tiffany Heart Tag Pendant is a classic design that's similar to Pandora's style. Expect to spend around $200-$500.\n3. **Kate Spade New York**: Kate Spade's jewelry line features playful, elegant designs with a touch of whimsy. Their necklaces are priced similarly to Pandora's, ranging from $50 to $200.\n4. **BaubleBar**: This brand offers trendy, affordable jewelry with a wide range of styles. You can find necklaces similar to Pandora's for around $30-$100.\n5. **James Avery**: If your friend prefers classic, understated designs, James Avery is a great option. Their necklaces are made from high-quality materials and are priced around $50-$200.\n\nOther jewelry stores you might want to explore:\n\n1. **Blue Nile**: An online retailer with a wide selection of necklaces from various designers, including their own brand.\n2. **David Yurman**: Known for their cable and gemstone designs, David Yurman offers high-quality necklaces with a similar price point to Pandora.\n3. **Mejuri**: A modern jewelry brand with a minimalist aesthetic, offering necklaces in silver, gold, and rose gold.\n4. **J.Crew**: While not exclusively a jewelry store, J.Crew often features a stylish selection of necklaces from various designers.\n\nBefore making a final decision, consider your friend's personal style, preferences, and any specific interests she may have. This will help you choose a necklace that resonates with her taste."
+    ]
+  },
+  {
+    "memory_id": "m_48be6698d65ce2b1655a",
+    "content": "User is looking for birthday gift ideas for a friend who likes jewelry, considering a necklace.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "friend's birthday gift",
+      "keywords": [
+        "birthday gift",
+        "friend",
+        "jewelry",
+        "necklace"
+      ],
+      "entities": [
+        {
+          "name": "User's friend",
+          "entity_type": "person",
+          "role": "gift recipient"
+        }
+      ],
+      "topic": "gift ideas",
+      "relation": {
+        "subject": "User",
+        "predicate": "seeking gift ideas for",
+        "object": "friend who likes jewelry"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "b90109d2_1",
+      "session_index": 50,
+      "source_ids": [
+        253
+      ],
+      "source_uids": [
+        "s0050u0001"
+      ],
+      "source_times": [
+        "2023-05-30T16:58:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm looking for some ideas for a friend's birthday gift. She likes jewelry, so I was thinking of getting her a necklace.",
+    "assistant_replies": [
+      "Happy birthday to your friend! A necklace is a thoughtful gift, and I'd be happy to help you with some suggestions.\n\nFirst, since you mentioned Pandora, I'll assume you're looking for a similar style or quality. Here are a few options to consider:\n\n1. **Alex and Ani**: Known for their charm-style necklaces, Alex and Ani offers a wide range of designs, from elegant to playful. Their prices are similar to Pandora's, with necklaces ranging from $50 to $200.\n2. **Tiffany & Co.**: If you want to splurge, Tiffany's is a great option. Their Return to Tiffany Heart Tag Pendant is a classic design that's similar to Pandora's style. Expect to spend around $200-$500.\n3. **Kate Spade New York**: Kate Spade's jewelry line features playful, elegant designs with a touch of whimsy. Their necklaces are priced similarly to Pandora's, ranging from $50 to $200.\n4. **BaubleBar**: This brand offers trendy, affordable jewelry with a wide range of styles. You can find necklaces similar to Pandora's for around $30-$100.\n5. **James Avery**: If your friend prefers classic, understated designs, James Avery is a great option. Their necklaces are made from high-quality materials and are priced around $50-$200.\n\nOther jewelry stores you might want to explore:\n\n1. **Blue Nile**: An online retailer with a wide selection of necklaces from various designers, including their own brand.\n2. **David Yurman**: Known for their cable and gemstone designs, David Yurman offers high-quality necklaces with a similar price point to Pandora.\n3. **Mejuri**: A modern jewelry brand with a minimalist aesthetic, offering necklaces in silver, gold, and rose gold.\n4. **J.Crew**: While not exclusively a jewelry store, J.Crew often features a stylish selection of necklaces from various designers.\n\nBefore making a final decision, consider your friend's personal style, preferences, and any specific interests she may have. This will help you choose a necklace that resonates with her taste."
+    ]
+  },
+  {
+    "memory_id": "m_874b9068dbdc434e5856",
+    "content": "User has heard of Alex and Ani before but never checked out their store.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Alex and Ani",
+        "heard of",
+        "store"
+      ],
+      "entities": [
+        {
+          "name": "Alex and Ani",
+          "entity_type": "organization",
+          "role": "jewelry brand"
+        }
+      ],
+      "topic": "brand awareness",
+      "relation": {
+        "subject": "User",
+        "predicate": "has heard of",
+        "object": "Alex and Ani"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "b90109d2_1",
+      "session_index": 50,
+      "source_ids": [
+        254
+      ],
+      "source_uids": [
+        "s0050u0002"
+      ],
+      "source_times": [
+        "2023-05-30T16:58:01"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "I've heard of them before, but I've never checked out their store.",
+    "assistant_replies": [
+      "Alex and Ani has both physical stores and an online presence. You can find their products in various retail channels:\n\n1. **Alex and Ani Retail Stores**: They have over 100 standalone stores across the United States, Canada, and the UK. You can find a store near you by using their store locator on their website.\n2. **Department Stores**: Alex and Ani products are also available in many department stores, such as Nordstrom, Bloomingdale's, and Lord & Taylor.\n3. **Specialty Retailers**: You can find Alex and Ani products in specialty retailers like jewelry stores, gift shops, and boutiques.\n4. **Online**: You can shop on their official website (alexandani.com) or through authorized online retailers like Amazon.\n\nVisiting a physical store can be a great way to see the products up close, try them on, and get a feel for the quality and craftsmanship. If you're short on time or prefer to shop online, their website offers a wide selection, easy returns, and free shipping on orders over $75.\n\nKeep in mind that Alex and Ani often releases limited-edition collections, so if you find something you like, it's a good idea to grab it before it sells out!"
+    ]
+  },
+  {
+    "memory_id": "m_b44d8bbb1b257ea7d938",
+    "content": "User plans to check out Alex and Ani's website first to see what they have.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [
+        "Alex and Ani website"
+      ],
+      "reason": "",
+      "purpose": "to see their products",
+      "keywords": [
+        "Alex and Ani",
+        "website",
+        "check",
+        "products"
+      ],
+      "entities": [
+        {
+          "name": "Alex and Ani",
+          "entity_type": "organization",
+          "role": "jewelry brand"
+        }
+      ],
+      "topic": "online shopping plan",
+      "relation": {
+        "subject": "User",
+        "predicate": "plans to check",
+        "object": "Alex and Ani website"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "b90109d2_1",
+      "session_index": 50,
+      "source_ids": [
+        255
+      ],
+      "source_uids": [
+        "s0050u0003"
+      ],
+      "source_times": [
+        "2023-05-30T16:58:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "I think I'll check out their website first to see what they have.",
+    "assistant_replies": [
+      "Alex and Ani offers a gift wrapping service for online orders. Here's what you can expect:\n\n1. **Gift Wrapping**: They offer complimentary gift wrapping on all online orders. You can choose from a variety of wrapping paper designs and add a personalized gift message.\n2. **Gift Boxing**: Alex and Ani's gift boxes are beautifully designed and add a luxurious touch to your gift. Their gift boxes are available for an additional $5.\n3. **Gift Card Option**: If you're unsure about the recipient's style or preferences, you can opt for an Alex and Ani gift card, which can be sent via email or physical mail.\n\nWhen you're checking out on their website, you'll have the option to add gift wrapping and/or a gift box to your order. Simply select the gift wrapping option, choose your wrapping paper design, and add a personal message. They'll take care of the rest!\n\nAdditionally, Alex and Ani offers a \"Gift Services\" section on their website, where you can find more information on their gift wrapping and gift card options.\n\nRemember, if you have any questions or need assistance with your online order, you can contact Alex and Ani's customer service team, and they'll be happy to help."
+    ]
+  },
+  {
+    "memory_id": "m_ab47df935af705cb6872",
+    "content": "User is interested in gift wrapping or gift boxing services if purchasing online from Alex and Ani.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "if purchasing online",
+      "keywords": [
+        "gift wrapping",
+        "gift boxing",
+        "Alex and Ani",
+        "online purchase"
+      ],
+      "entities": [
+        {
+          "name": "Alex and Ani",
+          "entity_type": "organization",
+          "role": "jewelry brand"
+        }
+      ],
+      "topic": "gift services",
+      "relation": {
+        "subject": "User",
+        "predicate": "interested in",
+        "object": "gift wrapping or gift boxing services"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "uncertain"
+    },
+    "provenance": {
+      "session_id": "b90109d2_1",
+      "session_index": 50,
+      "source_ids": [
+        255
+      ],
+      "source_uids": [
+        "s0050u0003"
+      ],
+      "source_times": [
+        "2023-05-30T16:58:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 20
+    },
+    "confidence": 1.0,
+    "evidence_span": "Do they offer any gift wrapping or gift boxing services if I decide to purchase online?",
+    "assistant_replies": [
+      "Alex and Ani offers a gift wrapping service for online orders. Here's what you can expect:\n\n1. **Gift Wrapping**: They offer complimentary gift wrapping on all online orders. You can choose from a variety of wrapping paper designs and add a personalized gift message.\n2. **Gift Boxing**: Alex and Ani's gift boxes are beautifully designed and add a luxurious touch to your gift. Their gift boxes are available for an additional $5.\n3. **Gift Card Option**: If you're unsure about the recipient's style or preferences, you can opt for an Alex and Ani gift card, which can be sent via email or physical mail.\n\nWhen you're checking out on their website, you'll have the option to add gift wrapping and/or a gift box to your order. Simply select the gift wrapping option, choose your wrapping paper design, and add a personal message. They'll take care of the rest!\n\nAdditionally, Alex and Ani offers a \"Gift Services\" section on their website, where you can find more information on their gift wrapping and gift card options.\n\nRemember, if you have any questions or need assistance with your online order, you can contact Alex and Ani's customer service team, and they'll be happy to help."
+    ]
+  }
+]

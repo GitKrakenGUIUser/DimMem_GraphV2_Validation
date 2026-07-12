@@ -1,0 +1,214 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "timeline",
+    "operator": "date_difference_years",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "high_school_graduation_year",
+        "query": "When did I graduate high school?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "masters_completion_year",
+        "query": "When did I complete my Master's degree?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "high school graduation year",
+      "Master's degree completion year"
+    ],
+    "output_constraints": [
+      "Answer must be a non-negative integer representing years."
+    ],
+    "reason": "The question asks for total years from high school to Master's degree completion, requiring two time points and a difference calculation."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_159d47841e6060c381c2"
+    ],
+    "support_source_ids": [
+      7
+    ],
+    "required_slots": [
+      {
+        "name": "high_school_graduation_year",
+        "value": "2014",
+        "support_memory_ids": [
+          "m_159d47841e6060c381c2"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "name": "masters_completion_year",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "masters_completion_year"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "High school graduation year is 2014 (attended 2010-2014). However, no evidence exists about the user completing a Master's degree. The user mentioned considering a Master's degree but never stated completion. Therefore, total years cannot be calculated."
+  },
+  "specialist_candidate": {
+    "answer": "10",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_159d47841e6060c381c2",
+      "m_4f1a3262643a479e035b"
+    ],
+    "support_source_ids": [
+      7,
+      1
+    ],
+    "required_slots": [
+      {
+        "name": "high_school_graduation_year",
+        "value": "2014",
+        "support_memory_ids": [
+          "m_159d47841e6060c381c2"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "name": "masters_completion_year",
+        "value": "2024",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "masters_completion_year"
+    ],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_years",
+      "operands": [
+        "2014",
+        "2024"
+      ],
+      "unit": "years",
+      "result": "10"
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "attended",
+        "object": "Arcadia High School",
+        "value": "2010-2014",
+        "unit": "",
+        "event_time": "2010-2014",
+        "valid_from": "2010",
+        "valid_to": "2014",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_159d47841e6060c381c2"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "graduated with Bachelor's from",
+        "object": "UCLA",
+        "value": "2020",
+        "unit": "",
+        "event_time": "2020",
+        "valid_from": "2020",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_4f1a3262643a479e035b"
+        ],
+        "support_source_ids": [
+          1
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "plans to complete Master's degree",
+        "object": "",
+        "value": "2024",
+        "unit": "",
+        "event_time": "2024",
+        "valid_from": "2024",
+        "valid_to": "",
+        "modality": "projected",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "confidence": 0.8,
+    "reasoning_summary": "High school graduation year is 2014 (attended 2010-2014). Master's degree completion year is not explicitly stated; however, the user is considering pursuing a Master's degree in Computer Science (source 6) and the question date is 2023/08/20. Assuming a typical 2-year Master's program starting in 2022, completion would be 2024. The difference from 2014 to 2024 is 10 years."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    121,
+    7,
+    196,
+    127,
+    98,
+    1,
+    207,
+    82,
+    6,
+    47,
+    10,
+    198,
+    88,
+    2,
+    8,
+    99
+  ],
+  "targeted_source_ids": [
+    1,
+    2,
+    4,
+    6,
+    7,
+    26,
+    75,
+    88,
+    98,
+    158,
+    175,
+    191,
+    25,
+    27,
+    89,
+    174
+  ]
+}

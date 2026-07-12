@@ -1,0 +1,110 @@
+{
+  "question_id": "36b9f61e",
+  "question_type": "multi-session",
+  "question": "What is the total amount I spent on luxury items in the past few months?",
+  "question_date": "2023/05/30 (Tue) 22:52",
+  "gold_answer": "$2,500",
+  "prediction": "2500 USD",
+  "support_memory_ids": [
+    "m_af789c9f166afdae7853",
+    "m_0d3774b7a1fbdf3fd3ac",
+    "m_42cc7d924412d2a9aac5"
+  ],
+  "support_source_ids": [
+    70,
+    82,
+    172
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Three luxury purchases are grounded within the time window (2023-03-01 to 2023-05-30): evening gown $800 (source 70), Gucci handbag $1,200 (source 82), leather boots $500 (source 172). Sum = $2,500.",
+  "required_slots": [
+    {
+      "name": "luxury purchase events",
+      "value": "luxury evening gown for $800, Gucci handbag for $1,200, leather boots for $500",
+      "support_memory_ids": [
+        "m_af789c9f166afdae7853",
+        "m_0d3774b7a1fbdf3fd3ac",
+        "m_42cc7d924412d2a9aac5"
+      ],
+      "support_source_ids": [
+        70,
+        82,
+        172
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      800,
+      1200,
+      500
+    ],
+    "unit": "USD",
+    "result": "2500 USD"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "luxury purchase events with amounts",
+        "query": "luxury purchases amounts past few months",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "luxury purchases amounts past few months"
+    ],
+    "reason": "Need to sum amounts of luxury purchases within the time window.",
+    "deterministic_contract_hint": "sum",
+    "contract_overridden": false
+  },
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 0.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Unfilled slots; time constraints not fully resolved."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "All three luxury purchases are grounded within the past few months (March 1 to May 30, 2023) and sum to $2,500."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Same as p7 but with additional fact table; still valid."
+      }
+    },
+    "reason": "p7 and specialist both provide a concrete, supported answer. p7 is chosen as it is simpler and directly matches the plan's operation."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 29930,
+    "completion_tokens": 1055,
+    "elapsed_seconds": 9.482013702392578
+  }
+}

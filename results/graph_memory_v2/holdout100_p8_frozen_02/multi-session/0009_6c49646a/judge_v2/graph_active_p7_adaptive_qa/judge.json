@@ -1,0 +1,90 @@
+{
+  "question_id": "6c49646a",
+  "question_type": "multi-session",
+  "question": "What is the total distance I covered in my four road trips?",
+  "question_date": "2023/05/30 (Tue) 22:17",
+  "gold_answer": "3,000 miles",
+  "prediction": "3000 miles",
+  "support_memory_ids": [
+    "m_d58d19cc4ce5f8e5f8e0",
+    "m_e526e6277c34a6439ed9"
+  ],
+  "support_source_ids": [
+    81,
+    140
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User stated 1,800 miles on three recent road trips (source 81) and 1,200 miles on a Yellowstone trip (source 140). These are four distinct road trips. Sum = 1,800 + 1,200 = 3,000 miles.",
+  "required_slots": [
+    {
+      "name": "road trip distance",
+      "value": "3000",
+      "support_memory_ids": [
+        "m_d58d19cc4ce5f8e5f8e0",
+        "m_e526e6277c34a6439ed9"
+      ],
+      "support_source_ids": [
+        81,
+        140
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      1800,
+      1200
+    ],
+    "unit": "miles",
+    "result": "3000 miles"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 4,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "road trip distance",
+        "query": "distance of road trip",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "road trip distances"
+    ],
+    "output_constraints": [
+      "sum of distances in miles"
+    ],
+    "reason": "The question asks for total distance of four road trips, requiring sum of individual distances."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 36045,
+    "completion_tokens": 680,
+    "elapsed_seconds": 6.605862617492676
+  },
+  "correct": true,
+  "judge_reason": "Equivalent numeric value and units, minor formatting difference (no comma) is acceptable.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 137,
+    "completion_tokens": 31,
+    "elapsed_seconds": 0.955467700958252
+  }
+}

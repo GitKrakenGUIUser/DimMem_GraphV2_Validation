@@ -1,0 +1,77 @@
+{
+  "question_id": "e48988bc",
+  "question_type": "single-session-assistant",
+  "question": "I was looking back at our previous conversation about environmentally responsible supply chain practices, and I was wondering if you could remind me of the company you mentioned that's doing a great job with sustainability?",
+  "question_date": "2023/05/30 (Tue) 23:26",
+  "gold_answer": "Patagonia",
+  "prediction": "Patagonia",
+  "support_memory_ids": [
+    "m_e1c9427200e7a8981997"
+  ],
+  "support_source_ids": [
+    202,
+    201
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user asked about a company mentioned in a previous conversation about environmentally responsible supply chain practices. Memory m_e1c9427200e7a8981997 records the user's positive sentiment about Patagonia's environmentally responsible supply chain practices. Source 202 shows the user explicitly mentioning Patagonia, and source 201 shows the assistant providing Patagonia as an example of a company with successful environmentally responsible supply chain practices. Therefore, the company is Patagonia.",
+  "required_slots": [
+    {
+      "name": "company name",
+      "value": "Patagonia",
+      "support_memory_ids": [
+        "m_e1c9427200e7a8981997"
+      ],
+      "support_source_ids": [
+        202,
+        201
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "same answer; preserve compact candidate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "company name",
+        "query": "company mentioned in conversation about environmentally responsible supply chain practices",
+        "semantic_type": "entity",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "environmentally responsible supply chain practices company"
+    ],
+    "output_constraints": [
+      "single company name"
+    ],
+    "reason": "User asks to recall a company previously mentioned by assistant in a conversation about sustainability. This is an assistant recall task requiring episodic memory of assistant's own reply."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31574,
+    "completion_tokens": 561,
+    "elapsed_seconds": 5.924492597579956
+  }
+}

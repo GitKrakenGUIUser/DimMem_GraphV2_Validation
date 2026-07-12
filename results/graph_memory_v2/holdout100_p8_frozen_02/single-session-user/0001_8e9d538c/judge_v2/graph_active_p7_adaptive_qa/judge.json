@@ -1,0 +1,84 @@
+{
+  "question_id": "8e9d538c",
+  "question_type": "single-session-user",
+  "question": "How many skeins of worsted weight yarn did I find in my stash?",
+  "question_date": "2023/05/30 (Tue) 18:03",
+  "gold_answer": "17",
+  "prediction": "17",
+  "support_memory_ids": [
+    "m_dc3f788b23bb6b50fef7"
+  ],
+  "support_source_ids": [
+    177
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user explicitly stated 'I have a stash of 17 skeins that I found recently' in source 177, which is directly supported by memory m_dc3f788b23bb6b50fef7. No composition or projection needed.",
+  "required_slots": [
+    {
+      "name": "count of skeins",
+      "value": 17,
+      "support_memory_ids": [
+        "m_dc3f788b23bb6b50fef7"
+      ],
+      "support_source_ids": [
+        177
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "count of skeins",
+        "query": "How many skeins of worsted weight yarn did I find in my stash?",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "skeins of worsted weight yarn found in stash"
+    ],
+    "output_constraints": [
+      "single integer"
+    ],
+    "reason": "The question asks for a specific count from a past event, directly supported by a memory."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 29795,
+    "completion_tokens": 524,
+    "elapsed_seconds": 5.722529411315918
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 136,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7999057769775391
+  }
+}

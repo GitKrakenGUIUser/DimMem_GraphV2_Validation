@@ -1,0 +1,86 @@
+{
+  "question_id": "982b5123",
+  "question_type": "temporal-reasoning",
+  "question": "How many months ago did I book the Airbnb in San Francisco?",
+  "question_date": "2023/05/21 (Sun) 10:30",
+  "gold_answer": "Five months ago",
+  "prediction": "61 days",
+  "support_memory_ids": [
+    "m_2f3c10bd90cec307c34c"
+  ],
+  "support_source_ids": [
+    173
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "The user said they went to San Francisco 'exactly two months ago' on 2023-05-21, so the booking was 2 months before that date. The memory m_2f3c10bd90cec307c34c and source 173 confirm the trip was exactly two months ago.",
+  "required_slots": [
+    {
+      "name": "booking date",
+      "value": "2023-03-21",
+      "support_memory_ids": [
+        "m_2f3c10bd90cec307c34c"
+      ],
+      "support_source_ids": [
+        173
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-03-21",
+      "2023-05-21"
+    ],
+    "unit": "months",
+    "result": "61 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "monotonic guard: expanded evidence only caused abstention",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "timeline",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "booking date",
+        "query": "When did I book the Airbnb in San Francisco?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I book the Airbnb in San Francisco?"
+    ],
+    "output_constraints": [
+      "Answer in months, rounded down to whole months."
+    ],
+    "reason": "The question asks for the number of months ago a booking occurred, requiring a single historical date to compute the difference from the question date."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 28873,
+    "completion_tokens": 3150,
+    "elapsed_seconds": 28.320420503616333
+  },
+  "correct": false,
+  "judge_reason": "Prediction is in days, not months; reference answer is 'Five months ago'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 135,
+    "completion_tokens": 33,
+    "elapsed_seconds": 0.8774936199188232
+  }
+}

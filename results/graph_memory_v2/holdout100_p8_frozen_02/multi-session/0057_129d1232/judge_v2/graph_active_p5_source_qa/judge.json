@@ -1,0 +1,90 @@
+{
+  "question_id": "129d1232",
+  "question_type": "multi-session",
+  "question": "How much money did I raise in total through all the charity events I participated in?",
+  "question_date": "2023/05/01 (Mon) 23:45",
+  "gold_answer": "$5,850",
+  "prediction": "5850 USD",
+  "support_memory_ids": [
+    "m_b5ac548a59a538b3d4ba",
+    "m_50341ee02a12e32ac3ff",
+    "m_ff89ea1d439209c7d331"
+  ],
+  "support_source_ids": [
+    184,
+    215,
+    85
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User participated in three charity events: charity yoga event raised $600 (memory m_b5ac548a59a538b3d4ba, source 184), Bike-a-Thon raised $5,000 (memory m_50341ee02a12e32ac3ff, source 215), and charity walk raised $250 (memory m_ff89ea1d439209c7d331, source 85). Sum = 600 + 5000 + 250 = 5850.",
+  "required_slots": [
+    {
+      "name": "total_money_raised",
+      "value": "5850",
+      "support_memory_ids": [
+        "m_b5ac548a59a538b3d4ba",
+        "m_50341ee02a12e32ac3ff",
+        "m_ff89ea1d439209c7d331"
+      ],
+      "support_source_ids": [
+        184,
+        215,
+        85
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      600,
+      5000,
+      250
+    ],
+    "unit": "USD",
+    "result": "5850 USD"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    215,
+    216,
+    85,
+    217,
+    218,
+    184,
+    139,
+    209,
+    219,
+    84,
+    122,
+    221,
+    148,
+    67,
+    69,
+    169,
+    185,
+    214
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    6.1000000000000005,
+    6.090000000000001
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 79517,
+    "completion_tokens": 913,
+    "elapsed_seconds": 12.846062660217285
+  },
+  "correct": true,
+  "judge_reason": "Equivalent numeric value and unit, minor formatting difference acceptable.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 140,
+    "completion_tokens": 26,
+    "elapsed_seconds": 0.8921346664428711
+  }
+}

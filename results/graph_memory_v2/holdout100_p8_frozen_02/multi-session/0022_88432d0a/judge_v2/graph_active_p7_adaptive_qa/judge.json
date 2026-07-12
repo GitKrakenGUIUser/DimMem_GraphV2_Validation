@@ -1,0 +1,106 @@
+{
+  "question_id": "88432d0a",
+  "question_type": "multi-session",
+  "question": "How many times did I bake something in the past two weeks?",
+  "question_date": "2023/05/30 (Tue) 23:45",
+  "gold_answer": "4",
+  "prediction": "4",
+  "support_memory_ids": [
+    "m_d7f0217477f916beac5f",
+    "m_7691b0d7487d936e3be3",
+    "m_3f1510948efda77c1bc0",
+    "m_78ba6d9a4e5867ded18d",
+    "m_918f9574ddaf29fd7b14",
+    "m_8d8740f06468979d429b"
+  ],
+  "support_source_ids": [
+    55,
+    208,
+    124,
+    120,
+    197,
+    122
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Identified 4 distinct baking events within the past two weeks (2023-05-16T23:45 to 2023-05-30T23:45): chocolate cake on 2023-05-20, whole wheat baguette on 2023-05-20, sourdough bread on 2023-05-23, and cookies on 2023-05-25. The chocolate cake event appears in two memories but refers to the same event, so counted once. The answer is 4.",
+  "required_slots": [
+    {
+      "name": "baking event",
+      "value": "4 distinct baking events between 2023-05-16T23:45 and 2023-05-30T23:45",
+      "support_memory_ids": [
+        "m_7691b0d7487d936e3be3",
+        "m_78ba6d9a4e5867ded18d",
+        "m_3f1510948efda77c1bc0",
+        "m_918f9574ddaf29fd7b14"
+      ],
+      "support_source_ids": [
+        208,
+        120,
+        124,
+        197
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "chocolate cake for sister's birthday (2023-05-20)",
+      "whole wheat baguette (2023-05-20)",
+      "sourdough bread (2023-05-23)",
+      "cookies (2023-05-25)"
+    ],
+    "unit": "events",
+    "result": "4"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist filled an abstained base answer",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "count",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "baking event",
+        "query": "bake OR baked OR baking",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "bake OR baked OR baking"
+    ],
+    "output_constraints": [
+      "count of distinct baking events between 2023-05-16T23:45:00 and 2023-05-30T23:45:00"
+    ],
+    "reason": "The question asks for a count of baking events in the past two weeks, requiring episodic memories of baking activities."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31411,
+    "completion_tokens": 1163,
+    "elapsed_seconds": 9.700535297393799
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 132,
+    "completion_tokens": 23,
+    "elapsed_seconds": 1.0154528617858887
+  }
+}

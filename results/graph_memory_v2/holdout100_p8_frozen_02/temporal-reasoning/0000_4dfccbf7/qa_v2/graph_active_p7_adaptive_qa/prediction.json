@@ -1,0 +1,97 @@
+{
+  "question_id": "4dfccbf7",
+  "question_type": "temporal-reasoning",
+  "question": "How many days had passed since I started taking ukulele lessons when I decided to take my acoustic guitar to the guitar tech for servicing?",
+  "question_date": "2023/04/01 (Sat) 00:42",
+  "gold_answer": "24 days. 25 days (including the last day) is also acceptable.",
+  "prediction": "24 days",
+  "support_memory_ids": [
+    "m_328e3a774c3ba9ff4012",
+    "m_a924736e0dc47869ff73"
+  ],
+  "support_source_ids": [
+    191,
+    207
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User started ukulele lessons on 2023-02-01 (source 191). User decided to take Taylor GS Mini to guitar tech for servicing on 2023-02-25 (source 207). The number of days between these two dates is 24 days.",
+  "required_slots": [
+    {
+      "name": "start date of ukulele lessons",
+      "value": "2023-02-01",
+      "support_memory_ids": [
+        "m_328e3a774c3ba9ff4012"
+      ],
+      "support_source_ids": [
+        191
+      ]
+    },
+    {
+      "name": "date of decision to service guitar",
+      "value": "2023-02-25",
+      "support_memory_ids": [
+        "m_a924736e0dc47869ff73"
+      ],
+      "support_source_ids": [
+        207
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-02-01",
+      "2023-02-25"
+    ],
+    "unit": "days",
+    "result": "24 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "start date of ukulele lessons",
+        "query": "When did I start taking ukulele lessons?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of decision to service guitar",
+        "query": "When did I decide to take my acoustic guitar to the guitar tech for servicing?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "start date of ukulele lessons",
+      "date of decision to service guitar"
+    ],
+    "output_constraints": [
+      "answer must be a number of days"
+    ],
+    "reason": "The question asks for the number of days between two events. Both dates are needed to compute the difference."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 33594,
+    "completion_tokens": 820,
+    "elapsed_seconds": 6.901914119720459
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "p5_p7_disagree"
+  ],
+  "plan": {
+    "answer_contract": "direct_numeric",
+    "operator": "date_difference_years",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "user_birth_date",
+        "query": "user birth date",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "alex_birth_date",
+        "query": "Alex birth date",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user birth date",
+      "Alex birth date"
+    ],
+    "reason": "Need both birth dates to compute age difference in years.",
+    "deterministic_contract_hint": "direct_value",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "user_birth_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "alex_birth_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user_birth_date",
+      "alex_birth_date"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The conversation does not contain the user's birth date or Alex's birth date, which are required to compute the user's age when Alex was born."
+  },
+  "p7_candidate": {
+    "answer": "4045 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_89b1b3f089e980bb9003",
+      "m_b32ea3fa22e090976d4d"
+    ],
+    "support_source_ids": [
+      111,
+      52
+    ],
+    "required_slots": [
+      {
+        "name": "user_birth_date",
+        "value": "1991-04-24",
+        "support_memory_ids": [
+          "m_89b1b3f089e980bb9003"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      },
+      {
+        "name": "alex_birth_date",
+        "value": "2002-05-21",
+        "support_memory_ids": [
+          "m_b32ea3fa22e090976d4d"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "1991-04-24",
+        "2002-05-21"
+      ],
+      "unit": "years",
+      "result": "4045 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User turned 32 in April 2023 (source 111), so birth year is 1991. Alex was 21 on 2023-05-21 (source 52), so birth year is 2002. Age difference: 2002 - 1991 = 11 years."
+  },
+  "specialist_candidate": {
+    "answer": "11",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_89b1b3f089e980bb9003",
+      "m_b32ea3fa22e090976d4d"
+    ],
+    "support_source_ids": [
+      52,
+      114
+    ],
+    "required_slots": [
+      {
+        "name": "user_birth_date",
+        "value": "1991",
+        "support_memory_ids": [
+          "m_89b1b3f089e980bb9003"
+        ],
+        "support_source_ids": [
+          114
+        ]
+      },
+      {
+        "name": "alex_birth_date",
+        "value": "2002",
+        "support_memory_ids": [
+          "m_b32ea3fa22e090976d4d"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_years",
+      "operands": [
+        "1991",
+        "2002"
+      ],
+      "unit": "years",
+      "result": "11"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "User",
+        "predicate": "birth_year",
+        "object": "1991",
+        "numeric_value": 1991,
+        "unit": "year",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "inferred",
+        "support_memory_ids": [
+          "m_89b1b3f089e980bb9003"
+        ],
+        "support_source_ids": [
+          114
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "Alex",
+        "predicate": "birth_year",
+        "object": "2002",
+        "numeric_value": 2002,
+        "unit": "year",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "inferred",
+        "support_memory_ids": [
+          "m_b32ea3fa22e090976d4d"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "reasoning_summary": "User turned 32 in 2023 (memory m_89b1b3f089e980bb9003), so birth year is 1991. Alex is 21 in 2023 (memory m_b32ea3fa22e090976d4d), so birth year is 2002. Age difference = 2002 - 1991 = 11 years."
+  },
+  "choice": "specialist",
+  "verification": {
+    "choice": "specialist",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 0.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Required slots unfilled."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": false,
+        "reason": "Calculation result is in days, but plan requires years."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Correctly computes age difference in years."
+      }
+    },
+    "reason": "specialist correctly computes the age difference in years as required by the plan, while p7 returns days and p5 abstains."
+  },
+  "targeted_source_ids": [
+    52,
+    55,
+    51,
+    31,
+    2,
+    34,
+    14,
+    38,
+    53,
+    54
+  ],
+  "v2_timeline_memory_ids": []
+}

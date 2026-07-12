@@ -1,0 +1,83 @@
+{
+  "question_id": "54026fce",
+  "question_type": "single-session-preference",
+  "question": "I've been thinking about ways to stay connected with my colleagues. Any suggestions?",
+  "question_date": "2023/05/30 (Tue) 23:48",
+  "gold_answer": "The user would prefer responses that acknowledge their desire for social interaction and collaboration while working remotely, utilizing their previous experiences with company initiatives and team collaborations. They might prefer suggestions of virtual team-building activities, regular check-ins, or joining interest-based groups within the company. The user may not prefer generic suggestions that do not take into account their specific work situation or previous attempts at staying connected with colleagues.",
+  "prediction": "Based on our previous conversation, here are suggestions for staying connected with colleagues: Virtual Coffee Breaks, Online Team Activities, Collaborative Projects, Social Channels, Recognition and Celebrations, and Interest-Based Groups.",
+  "support_memory_ids": [
+    "m_a0c191cf89b80be95177"
+  ],
+  "support_source_ids": [
+    123
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user asked for suggestions to stay connected with colleagues. The assistant previously provided a list of six suggestions in source 123. The answer contract is assistant_recall, so those suggestions are retrieved and presented.",
+  "required_slots": [
+    {
+      "name": "previous_suggestions",
+      "value": "Virtual Coffee Breaks, Online Team Activities, Collaborative Projects, Social Channels, Recognition and Celebrations, Interest-Based Groups",
+      "support_memory_ids": [
+        "m_a0c191cf89b80be95177"
+      ],
+      "support_source_ids": [
+        123
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "The specialist candidate correctly fills the required slot 'previous_suggestions' with a precise list from memory, adheres to the assistant_recall contract, and has higher confidence.",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "previous_suggestions",
+        "query": "previous suggestions for staying connected with colleagues",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "previous suggestions for staying connected with colleagues"
+    ],
+    "output_constraints": [
+      "list of suggestions previously given"
+    ],
+    "reason": "The question asks for suggestions, and the compact candidate indicates the assistant previously provided suggestions. The answer contract is assistant_recall to retrieve those past suggestions."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 40030,
+    "completion_tokens": 1207,
+    "elapsed_seconds": 10.605428218841553
+  },
+  "correct": true,
+  "judge_reason": "The prediction aligns with the reference answer by suggesting virtual team-building activities, regular check-ins, and interest-based groups, acknowledging the user's desire for social interaction and collaboration.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 249,
+    "completion_tokens": 49,
+    "elapsed_seconds": 1.0246305465698242
+  }
+}

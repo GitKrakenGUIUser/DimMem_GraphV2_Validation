@@ -1,0 +1,84 @@
+{
+  "question_id": "19b5f2b3",
+  "question_type": "single-session-user",
+  "question": "How long was I in Japan for?",
+  "question_date": "2023/05/30 (Tue) 20:50",
+  "gold_answer": "two weeks",
+  "prediction": "2 weeks",
+  "support_memory_ids": [
+    "m_12aaf46eb66e148cbc2b"
+  ],
+  "support_source_ids": [
+    206
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Memory m_12aaf46eb66e148cbc2b explicitly states 'two weeks traveling solo around Japan', and source 206 confirms the user said 'I spent two weeks traveling solo around the country'. The duration is directly provided as 2 weeks.",
+  "required_slots": [
+    {
+      "name": "duration",
+      "value": "2 weeks",
+      "support_memory_ids": [
+        "m_12aaf46eb66e148cbc2b"
+      ],
+      "support_source_ids": [
+        206
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "weeks",
+    "result": "2 weeks"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:temporal",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "duration",
+        "query": "How long was I in Japan?",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How long was I in Japan?"
+    ],
+    "output_constraints": [
+      "duration in days or weeks"
+    ],
+    "reason": "The question asks for a duration of a past trip, which is directly stored as a fact. No composition needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31838,
+    "completion_tokens": 533,
+    "elapsed_seconds": 5.534716844558716
+  },
+  "correct": true,
+  "judge_reason": "Equivalent wording and units, '2 weeks' matches 'two weeks'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 129,
+    "completion_tokens": 30,
+    "elapsed_seconds": 1.187192678451538
+  }
+}

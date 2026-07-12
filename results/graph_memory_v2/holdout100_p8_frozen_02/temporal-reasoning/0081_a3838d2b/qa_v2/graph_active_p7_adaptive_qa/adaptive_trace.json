@@ -1,0 +1,238 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "count_distinct",
+    "operator": "count_distinct",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of Run for the Cure event",
+        "query": "When was the Run for the Cure event?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "charity events before Run for the Cure",
+        "query": "What charity events did I participate in before the Run for the Cure event?",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When was the Run for the Cure event?",
+      "What charity events did I participate in before the Run for the Cure event?"
+    ],
+    "output_constraints": [
+      "Answer must be a non-negative integer representing the count of distinct charity events."
+    ],
+    "reason": "The question asks for a count of charity events before a specific event. The date of 'Run for the Cure' is needed first to define the time boundary, then all charity events before that date must be retrieved and counted. Composition is required because the date is not given in the question."
+  },
+  "base_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_984b6bf016097a094833",
+      "m_41eda4c8b740609ae153"
+    ],
+    "support_source_ids": [
+      124,
+      177
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Dance for a Cause",
+        "Walk for Wildlife"
+      ],
+      "unit": "events",
+      "result": "2"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user participated in 'Dance for a Cause' on May 1, 2023 (memory m_984b6bf016097a094833, source 124) and volunteered at 'Walk for Wildlife' in June 2023 (memory m_41eda4c8b740609ae153, source 177). Both occurred before 'Run for the Cure' on October 15, 2023. No other charity events before that date are found. Thus, 2 charity events."
+  },
+  "specialist_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_984b6bf016097a094833",
+      "m_41eda4c8b740609ae153",
+      "m_8227240be2b0599b4026"
+    ],
+    "support_source_ids": [
+      124,
+      128,
+      177,
+      189
+    ],
+    "required_slots": [
+      {
+        "name": "date of Run for the Cure event",
+        "value": "2023-10-15",
+        "support_memory_ids": [
+          "m_3a94c0e9abbff98142e4",
+          "m_98dc43ef3eacbc4a15c9"
+        ],
+        "support_source_ids": [
+          66,
+          69,
+          70
+        ]
+      },
+      {
+        "name": "charity events before Run for the Cure",
+        "value": "Dance for a Cause (2023-05-01), Walk for Wildlife (June 2023), Food for Thought charity gala (2023-09-25)",
+        "support_memory_ids": [
+          "m_984b6bf016097a094833",
+          "m_41eda4c8b740609ae153",
+          "m_8227240be2b0599b4026"
+        ],
+        "support_source_ids": [
+          124,
+          128,
+          177,
+          189
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Dance for a Cause",
+        "Walk for Wildlife",
+        "Food for Thought charity gala"
+      ],
+      "unit": "events",
+      "result": "3"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "participated in",
+        "object": "Run for the Cure",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-10-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3a94c0e9abbff98142e4",
+          "m_98dc43ef3eacbc4a15c9"
+        ],
+        "support_source_ids": [
+          66,
+          69,
+          70
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "participated in",
+        "object": "Dance for a Cause",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_984b6bf016097a094833"
+        ],
+        "support_source_ids": [
+          124,
+          128
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "volunteered at",
+        "object": "Walk for Wildlife",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-06",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_41eda4c8b740609ae153"
+        ],
+        "support_source_ids": [
+          177
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "volunteered at",
+        "object": "Food for Thought charity gala",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-09-25",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_8227240be2b0599b4026"
+        ],
+        "support_source_ids": [
+          189
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Run for the Cure occurred on 2023-10-15. Three distinct charity events (Dance for a Cause on 2023-05-01, Walk for Wildlife in June 2023, Food for Thought charity gala on 2023-09-25) all occurred before that date. The Bike-a-Thon in November 2023 is after Run for the Cure, so not counted. Thus count = 3.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist fills required slots (date of Run for the Cure) and provides a deterministic count of 3 distinct charity events before that date, with full support and higher confidence.",
+  "compact_source_ids": [
+    66,
+    69,
+    70,
+    189,
+    71,
+    124,
+    128,
+    155,
+    170,
+    177,
+    67,
+    126,
+    127,
+    125,
+    68,
+    129,
+    171
+  ],
+  "targeted_source_ids": [
+    17,
+    66,
+    69,
+    70,
+    71,
+    124,
+    128,
+    139,
+    170,
+    176,
+    189,
+    240,
+    67,
+    68
+  ]
+}

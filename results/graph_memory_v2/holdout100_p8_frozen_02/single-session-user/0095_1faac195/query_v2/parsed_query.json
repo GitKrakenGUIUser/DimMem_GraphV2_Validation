@@ -1,0 +1,118 @@
+{
+  "question": "Where does my sister Emily live?",
+  "question_date": "2023-05-30T19:50:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's sister Emily's current residence",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Emily",
+        "the user"
+      ],
+      "keywords": [
+        "Emily",
+        "sister",
+        "live",
+        "residence"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-05-30",
+        "end": "",
+        "raw": "current"
+      },
+      "locations": [],
+      "state_keys": [
+        "residence"
+      ],
+      "relation_hints": [
+        "sibling_of"
+      ],
+      "answer_dim": "location",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's sister Emily's previous residence",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "Emily",
+        "the user"
+      ],
+      "keywords": [
+        "Emily",
+        "sister",
+        "live",
+        "moved"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30",
+        "raw": "previous"
+      },
+      "locations": [],
+      "state_keys": [
+        "residence"
+      ],
+      "relation_hints": [
+        "sibling_of",
+        "supersedes"
+      ],
+      "answer_dim": "location",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "previous residence"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user's sister Emily's hometown",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "Emily",
+        "the user"
+      ],
+      "keywords": [
+        "Emily",
+        "sister",
+        "hometown",
+        "born"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30",
+        "raw": "hometown"
+      },
+      "locations": [],
+      "state_keys": [
+        "hometown"
+      ],
+      "relation_hints": [
+        "sibling_of"
+      ],
+      "answer_dim": "location",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "hometown"
+      ],
+      "confidence": 0.3
+    }
+  ]
+}

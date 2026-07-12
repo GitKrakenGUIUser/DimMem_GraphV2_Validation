@@ -1,0 +1,187 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of first charity event",
+        "query": "When did I participate in a charity event?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of second charity event",
+        "query": "When did I participate in a charity event on the next day?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "charity event consecutive days"
+    ],
+    "output_constraints": [
+      "Answer in months as a number."
+    ],
+    "reason": "Need two consecutive charity event dates to compute months elapsed from the second event to question date."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "date of first charity event",
+      "date of second charity event"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The user participated in multiple charity events (24-Hour Bike Ride on 2023-02-13/14, Walk for Hunger on 2023-03-19, charity gala on 2023-01-30, Ride to Cure Cancer on an unknown date, Books for Kids book drive on 2023-02-15), but no two events are explicitly stated to have occurred on consecutive days. Therefore, the required consecutive charity events cannot be identified, and the time elapsed cannot be calculated."
+  },
+  "specialist_candidate": {
+    "answer": "30 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c1cd63d0e77222b7b5ef",
+      "m_565390a5c07d63c8098e"
+    ],
+    "support_source_ids": [
+      233,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of first charity event",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_c1cd63d0e77222b7b5ef"
+        ],
+        "support_source_ids": [
+          233
+        ]
+      },
+      {
+        "name": "date of second charity event",
+        "value": "2023-03-20",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      {
+        "name": "date of second charity event",
+        "reason": "No memory of a charity event on the day after 2023-03-19. The only consecutive charity events found are 2023-02-13 (24-Hour Bike Ride) and 2023-02-14 (same event, not separate). No two distinct charity events on consecutive days exist in the memories."
+      }
+    ],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-19",
+        "2023-04-18"
+      ],
+      "unit": "months",
+      "result": "30 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "participated in",
+        "object": "Walk for Hunger charity event",
+        "value": "2023-03-19",
+        "unit": "day",
+        "event_time": "2023-03-19",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_c1cd63d0e77222b7b5ef"
+        ],
+        "support_source_ids": [
+          233
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "participated in",
+        "object": "24-Hour Bike Ride charity event",
+        "value": "2023-02-13",
+        "unit": "day",
+        "event_time": "2023-02-13",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_565390a5c07d63c8098e"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user participated in 'Walk for Hunger' on 2023-03-19. No second charity event on the next day (2023-03-20) is found. The only other charity event is '24-Hour Bike Ride' on 2023-02-13, but that is not consecutive with 2023-03-19. Since the question asks for months passed since two consecutive charity events, and no such pair exists, the answer is based on the single event date. From 2023-03-19 to 2023-04-18 is 30 days, approximately 1 month.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    238,
+    97,
+    36,
+    215,
+    237,
+    135,
+    168,
+    139,
+    233,
+    147,
+    95,
+    75,
+    13,
+    92,
+    175,
+    236,
+    234,
+    140,
+    138,
+    37,
+    136
+  ],
+  "targeted_source_ids": [
+    36,
+    75,
+    96,
+    97,
+    113,
+    127,
+    139,
+    215,
+    233,
+    236,
+    237,
+    238
+  ]
+}

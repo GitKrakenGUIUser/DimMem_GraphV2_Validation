@@ -1,0 +1,98 @@
+{
+  "question": "How many bikes do I own?",
+  "question_date": "2023-05-30T20:24:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's bikes owned",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "bike"
+      ],
+      "keywords": [
+        "bike",
+        "own",
+        "count"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-05-30",
+        "end": "",
+        "raw": "now"
+      },
+      "locations": [],
+      "state_keys": [
+        "bike_count"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's bike purchases",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "bike"
+      ],
+      "keywords": [
+        "bike",
+        "buy",
+        "purchase"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30",
+        "raw": "ever"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's bike inventory",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "bike"
+      ],
+      "keywords": [
+        "bike",
+        "inventory",
+        "list"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-05-30",
+        "end": "",
+        "raw": "current"
+      },
+      "locations": [],
+      "state_keys": [
+        "bike_list"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.6
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "question_id": "gpt4_2655b836",
+  "question_type": "temporal-reasoning",
+  "question": "What was the first issue I had with my new car after its first service?",
+  "question_date": "2023/04/10 (Mon) 10:15",
+  "gold_answer": "GPS system not functioning correctly",
+  "prediction": "The user had an issue with their car's GPS system on 2023-03-22.",
+  "support_memory_ids": [
+    "m_09b728738125d24fe5c3"
+  ],
+  "support_source_ids": [
+    95
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Memory m_09b728738125d24fe5c3 and source 95 state that the user had a GPS issue on 2023-03-22. Memory m_7a6516e8b6084d9b2d38 and source 66 confirm the first service was on 2023-03-15. Since 2023-03-22 is after 2023-03-15, the GPS issue is the first issue after the first service.",
+  "required_slots": [
+    {
+      "name": "first issue after first service",
+      "value": "GPS system issue",
+      "support_memory_ids": [
+        "m_09b728738125d24fe5c3"
+      ],
+      "support_source_ids": [
+        95
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": false,
+  "judge_reason": "Prediction includes a specific date not in reference answer, and phrasing differs.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 156,
+    "completion_tokens": 30,
+    "elapsed_seconds": 0.8437292575836182
+  }
+}

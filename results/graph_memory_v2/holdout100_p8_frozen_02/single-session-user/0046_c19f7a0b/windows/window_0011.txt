@@ -1,0 +1,55 @@
+[2023-05-25T16:59:01, Thu] 1.User: write an instance function in team that compares self to another team and returns is\_better then use is\_better for is\_upset
+[2023-05-25T16:59:01.500000, Thu] 2.User: clean this method up
+
+ @staticmethod
+ def get\_midpoint\_win\_rate(seed1, seed2):
+ if seed1 == seed2:
+ return 0.5
+
+ lower\_seed, higher\_seed = sorted((seed1, seed2))
+
+ left\_tuple\_win\_rate = None
+ right\_tuple\_win\_rate = None
+
+ for (lower, higher), win\_rate in HISTORICAL\_SEED\_WIN\_RATES.items():
+ if lower == lower\_seed:
+ left\_tuple\_win\_rate = win\_rate
+ if higher == higher\_seed:
+ right\_tuple\_win\_rate = win\_rate
+ if lower == higher\_seed:
+ right\_tuple\_win\_rate = 1 - win\_rate
+ if higher == lower\_seed:
+ left\_tuple\_win\_rate = 1 - win\_rate
+
+ if left\_tuple\_win\_rate is None or right\_tuple\_win\_rate is None:
+ raise ValueError(f"Win rate data not available for seeds {seed1} and {seed2}")
+
+ win\_rate = (left\_tuple\_win\_rate + right\_tuple\_win\_rate) / 2
+ return win\_rate
+[2023-05-25T23:09:00.500000, Thu] 3.User: Fantastic! I'm ready to move onto the next planning phase!
+[2023-05-25T23:09:01, Thu] 4.User: From what we discussed are the key deliverables I think I would break it down as 
+- data ingest system
+- data processing system
+- statistical analysis system
+- machine learning system
+- prediction system
+- result scaling system
+- web front end
+- database for storage of historical data and predictions
+
+Are there any other systems you can think of that I might be missing?
+[2023-05-25T23:09:01.500000, Thu] 5.User: I don't think that the quantity of data coming in will be huge and it will mostly be well structured data from the exchange or text that wont need to be indexed. So I'm not worried about just putting it into a postgres database. Potentially with some special time series features turned on.
+
+A monitoring and log aggregation system will defiantly be important. I think using an off the shelf solution for this would be best rather than developing our own. There will need to be further investigation into what to use but we should definitely have it.
+
+As for testing and debugging we will definitely do it but that's not a system right? It's more of a process?
+[2023-05-25T23:09:02, Thu] 6.User: I think that's everything. Could you give me a dot point summary of this phase as you did previously before we move onto the next phase
+[2023-05-25T23:09:02.500000, Thu] 7.User: Lets move onto the next phase
+[2023-05-25T23:09:03, Thu] 8.User: Lets go component by component. What's the first one?
+[2023-05-25T23:09:03.500000, Thu] 9.User: Oh wow I wasn't expecting you to break it down for me but this is great thank you! I think this is good. Maybe for each one of these components there needs to be another task which is to figure out what data needs to be retrieved? This will also guide the database schema and consistent data format
+[2023-05-25T23:09:04, Thu] 10.User: Sounds great! I'm ready to move onto the next component when you are
+[2023-05-25T23:09:04.500000, Thu] 11.User: No this looks good! I know order doesn't matter at this stage but I assume that the transform task needs to be completed before the analyze task?
+[2023-05-26T02:42:00.500000, Fri] 12.User: how many words can you make with octpuso without repeating letters
+[2023-05-26T02:42:01, Fri] 13.User: How many words can you make with pustooc without repeating any letters and ensuring p is in every word?
+[2023-05-26T02:42:01.500000, Fri] 14.User: Make a seven letter word with pustooc
+[2023-05-26T07:15:00.500000, Fri] 15.User: I'm looking for some educational content to watch during my morning routine. Can you recommend any channels similar to "Motivation Madness" or "Productivity Game"?

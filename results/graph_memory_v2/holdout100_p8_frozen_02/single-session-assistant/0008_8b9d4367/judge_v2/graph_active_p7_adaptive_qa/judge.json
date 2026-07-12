@@ -1,0 +1,83 @@
+{
+  "question_id": "8b9d4367",
+  "question_type": "single-session-assistant",
+  "question": "I wanted to follow up on our previous conversation about private sector businesses in Chaudhary. Can you remind me of the company that employs over 40,000 people in the rug-manufacturing industry?",
+  "question_date": "2023/05/30 (Tue) 07:53",
+  "gold_answer": "Jaipur Rugs",
+  "prediction": "Jaipur Rugs",
+  "support_memory_ids": [
+    "m_59a3b8fd5e043e228ada"
+  ],
+  "support_source_ids": [
+    211
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "In a previous conversation on 2023-05-29, the assistant mentioned Jaipur Rugs as a private company that employs over 40,000 people in the rug-manufacturing industry in Chaudhary. This directly answers the user's follow-up question.",
+  "required_slots": [
+    {
+      "name": "company name",
+      "value": "Jaipur Rugs",
+      "support_memory_ids": [
+        "m_59a3b8fd5e043e228ada"
+      ],
+      "support_source_ids": [
+        211
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "same answer; preserve compact candidate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "company name",
+        "query": "rug-manufacturing company in Chaudhary employing over 40,000",
+        "semantic_type": "entity",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "rug-manufacturing company in Chaudhary employing over 40,000"
+    ],
+    "output_constraints": [
+      "single company name"
+    ],
+    "reason": "The user asks to recall a specific company mentioned in a previous conversation, so the answer contract is assistant_recall. The only missing slot is the company name, which should be retrieved from assistant's memory."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34226,
+    "completion_tokens": 801,
+    "elapsed_seconds": 7.657814979553223
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 166,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7691855430603027
+  }
+}

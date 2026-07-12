@@ -1,0 +1,140 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "assistant_reply",
+        "query": "Jamaican dish snapper fruit recommended",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Jamaican dish snapper fruit recommended"
+    ],
+    "output_constraints": [
+      "The answer must be a dish name from assistant's previous reply."
+    ],
+    "reason": "The user asks for a dish name from a previous conversation, requiring assistant recall of a specific recommendation."
+  },
+  "base_candidate": {
+    "answer": "Grilled Snapper with Mango Salsa",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_bfcb6f74622c2e2a398c"
+    ],
+    "support_source_ids": [
+      253
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The assistant's reply in source 253 listed 'Grilled Snapper with Mango Salsa' as a Caribbean dish with snapper and fruit (mango salsa). The user asked for the Jamaican dish with snapper and fruit; this is the only dish in the list that includes fruit."
+  },
+  "specialist_candidate": {
+    "answer": "Grilled Snapper with Mango Salsa",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_bfcb6f74622c2e2a398c"
+    ],
+    "support_source_ids": [
+      253
+    ],
+    "required_slots": [
+      {
+        "name": "assistant_reply",
+        "value": "Grilled Snapper with Mango Salsa",
+        "support_memory_ids": [
+          "m_bfcb6f74622c2e2a398c"
+        ],
+        "support_source_ids": [
+          253
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "assistant",
+        "predicate": "recommended",
+        "object": "Grilled Snapper with Mango Salsa",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-30T15:28:01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_bfcb6f74622c2e2a398c"
+        ],
+        "support_source_ids": [
+          253
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The user asked for the name of a Jamaican dish with snapper and fruit that the assistant recommended. In source 253, the assistant listed 'Grilled Snapper with Mango Salsa' which is a Jamaican dish featuring snapper and fruit (mango salsa). This matches the user's query."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    253,
+    256,
+    255,
+    254,
+    108,
+    19,
+    42,
+    252,
+    112,
+    110,
+    129,
+    177,
+    106,
+    257,
+    86,
+    77,
+    41
+  ],
+  "targeted_source_ids": [
+    21,
+    25,
+    41,
+    77,
+    86,
+    106,
+    208,
+    253,
+    254,
+    255,
+    256,
+    257,
+    252
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "game_play_sessions",
+        "query": "game play sessions with duration",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "game play sessions with duration"
+    ],
+    "output_constraints": [
+      "total hours as a number"
+    ],
+    "reason": "The question asks for total hours spent playing games, which requires summing durations of all game play sessions."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source provides a total sum of hours spent playing games. Only individual game playtimes are mentioned, but there is no evidence that these are the only games played or that the total can be computed from them."
+  },
+  "specialist_candidate": {
+    "answer": "140 hours",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d69f180b3ca0c5df9a9a",
+      "m_37b98d67c18dc4c63f72",
+      "m_7e870ebe504888ea0224",
+      "m_53a04b26c71fe258f462",
+      "m_25d7acab61941f733fb2"
+    ],
+    "support_source_ids": [
+      10,
+      106,
+      130,
+      63,
+      153
+    ],
+    "required_slots": [
+      {
+        "name": "game_play_sessions",
+        "value": "Assassin's Creed Odyssey: 70 hours; The Last of Us Part II (hard): 30 hours; Celeste: 10 hours; Hyper Light Drifter: 5 hours; The Last of Us Part II (normal): 25 hours",
+        "support_memory_ids": [
+          "m_d69f180b3ca0c5df9a9a",
+          "m_37b98d67c18dc4c63f72",
+          "m_7e870ebe504888ea0224",
+          "m_53a04b26c71fe258f462",
+          "m_25d7acab61941f733fb2"
+        ],
+        "support_source_ids": [
+          10,
+          106,
+          130,
+          63,
+          153
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        70,
+        30,
+        10,
+        5,
+        25
+      ],
+      "unit": "hours",
+      "result": "140 hours"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "played",
+        "object": "Assassin's Creed Odyssey",
+        "value": "70",
+        "unit": "hours",
+        "event_time": "",
+        "valid_from": "2023-05-20T14:21:02",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_d69f180b3ca0c5df9a9a"
+        ],
+        "support_source_ids": [
+          10
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "completed",
+        "object": "The Last of Us Part II on hard difficulty",
+        "value": "30",
+        "unit": "hours",
+        "event_time": "2023-05-25T14:10:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_37b98d67c18dc4c63f72"
+        ],
+        "support_source_ids": [
+          106
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "completed",
+        "object": "Celeste",
+        "value": "10",
+        "unit": "hours",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_7e870ebe504888ea0224"
+        ],
+        "support_source_ids": [
+          130
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "played",
+        "object": "Hyper Light Drifter",
+        "value": "5",
+        "unit": "hours",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_53a04b26c71fe258f462"
+        ],
+        "support_source_ids": [
+          63
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "completed",
+        "object": "The Last of Us Part II on normal difficulty",
+        "value": "25",
+        "unit": "hours",
+        "event_time": "2023-05-29T00:59:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_25d7acab61941f733fb2"
+        ],
+        "support_source_ids": [
+          153
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Summed all grounded game play durations: Assassin's Creed Odyssey (70h), The Last of Us Part II hard (30h), Celeste (10h), Hyper Light Drifter (5h), The Last of Us Part II normal (25h) = 140 hours. No overlapping or duplicate sessions.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    106,
+    10,
+    65,
+    132,
+    130,
+    153,
+    63,
+    109,
+    186,
+    131,
+    124,
+    41,
+    156,
+    7,
+    163,
+    64,
+    107,
+    11,
+    9
+  ],
+  "targeted_source_ids": [
+    10,
+    11,
+    63,
+    106,
+    109,
+    130,
+    134,
+    135,
+    153,
+    155,
+    157,
+    158,
+    9,
+    107,
+    108,
+    110
+  ]
+}

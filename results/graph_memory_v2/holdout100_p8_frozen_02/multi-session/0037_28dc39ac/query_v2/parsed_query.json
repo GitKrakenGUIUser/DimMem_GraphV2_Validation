@@ -1,0 +1,102 @@
+{
+  "question": "How many hours have I spent playing games in total?",
+  "question_date": "2023-05-30T23:42:00",
+  "hypotheses": [
+    {
+      "query_anchor": "total hours the user spent playing games",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "hours",
+        "playing games",
+        "total"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "total_game_hours"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "game play sessions the user logged",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "game",
+        "play",
+        "session",
+        "duration"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 5,
+      "missing_slots": [
+        "individual session durations"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user's gaming habits summary",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "gaming",
+        "hours",
+        "total",
+        "summary"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "total_game_hours"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.3
+    }
+  ]
+}

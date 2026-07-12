@@ -1,0 +1,192 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "relative",
+    "slots": [
+      {
+        "name": "date of meeting Emma",
+        "query": "met Emma",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "met Emma"
+    ],
+    "reason": "Need the date when user met Emma to compute days ago from question date.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "9 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b17a4a104080c7d380d8"
+    ],
+    "support_source_ids": [
+      60
+    ],
+    "required_slots": [
+      {
+        "name": "date of meeting Emma",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b17a4a104080c7d380d8"
+        ],
+        "support_source_ids": [
+          60
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-11",
+        "2023-04-20"
+      ],
+      "unit": "days",
+      "result": "9 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_b17a4a104080c7d380d8 states user had lunch with Emma on 2023-04-11 (event_start). The question date is 2023-04-20. The difference is 9 days."
+  },
+  "p7_candidate": {
+    "answer": "9 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b17a4a104080c7d380d8"
+    ],
+    "support_source_ids": [
+      60
+    ],
+    "required_slots": [
+      {
+        "name": "date of meeting Emma",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b17a4a104080c7d380d8"
+        ],
+        "support_source_ids": [
+          60
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-11",
+        "2023-04-20"
+      ],
+      "unit": "days",
+      "result": "9 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_b17a4a104080c7d380d8 states user had lunch with Emma on 2023-04-11 (today relative to that conversation). Question date is 2023-04-20. Difference is 9 days."
+  },
+  "specialist_candidate": {
+    "answer": "9 days ago",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b17a4a104080c7d380d8"
+    ],
+    "support_source_ids": [
+      60
+    ],
+    "required_slots": [
+      {
+        "name": "date of meeting Emma",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b17a4a104080c7d380d8"
+        ],
+        "support_source_ids": [
+          60
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-20",
+        "2023-04-11"
+      ],
+      "unit": "days",
+      "result": "9"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "User",
+        "predicate": "met",
+        "object": "Emma",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-04-11",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_b17a4a104080c7d380d8"
+        ],
+        "support_source_ids": [
+          60
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_b17a4a104080c7d380d8 states user had lunch with Emma on 2023-04-11. Question date is 2023-04-20. Difference is 9 days."
+  },
+  "choice": "p7",
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      }
+    },
+    "reason": "All candidates are supported and consistent. p7 has highest confidence (1.0) and matches the required answer format '9 days'."
+  },
+  "targeted_source_ids": [
+    200,
+    198,
+    63,
+    64,
+    196,
+    39,
+    201,
+    139,
+    199,
+    62,
+    197
+  ],
+  "v2_timeline_memory_ids": []
+}

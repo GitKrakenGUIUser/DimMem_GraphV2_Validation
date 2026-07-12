@@ -1,0 +1,220 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_preferred_genres",
+        "query": "user preferred documentary genres",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "recently_watched_documentaries",
+        "query": "recently watched documentaries",
+        "semantic_type": "event",
+        "required": false
+      },
+      {
+        "name": "previous_recommendations",
+        "query": "previous documentary recommendations",
+        "semantic_type": "assistant_reply",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "user preferred documentary genres",
+      "recently watched documentaries",
+      "previous documentary recommendations"
+    ],
+    "output_constraints": [
+      "recommend documentaries matching user preferences",
+      "avoid previously recommended or watched documentaries if possible"
+    ],
+    "reason": "User asks for documentary recommendations for tonight, requiring knowledge of user's genre preferences and possibly past recommendations to avoid repetition."
+  },
+  "base_candidate": {
+    "answer": "Based on your interest in nature and wildlife documentaries, I recommend 'Dynasties' and 'Chasing Coral' on Netflix. Both offer unique perspectives: 'Dynasties' focuses on animal family dynamics, while 'Chasing Coral' is an urgent call to action about coral reef decline.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_fd1ae13065c6ce42fce0",
+      "m_5db45cb10fab2e4cbaa2"
+    ],
+    "support_source_ids": [
+      192,
+      193
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.85,
+    "reasoning_summary": "User profile shows interest in nature/wildlife documentaries (memory m_fd1ae13065c6ce42fce0). User previously watched 'Our Planet', 'Free Solo', 'Tiger King' on Netflix (memory m_5db45cb10fab2e4cbaa2). Assistant previously recommended 'Dynasties' and 'Chasing Coral' as nature documentaries (source 193). These are suitable recommendations for tonight."
+  },
+  "specialist_candidate": {
+    "answer": "Based on your interest in nature and wildlife documentaries, I recommend 'Dynasties' and 'Chasing Coral' on Netflix. You haven't watched these yet, and they align with your preferences.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_fd1ae13065c6ce42fce0",
+      "m_5db45cb10fab2e4cbaa2"
+    ],
+    "support_source_ids": [
+      192,
+      193
+    ],
+    "required_slots": [
+      {
+        "name": "user_preferred_genres",
+        "value": "nature and wildlife documentaries",
+        "support_memory_ids": [
+          "m_fd1ae13065c6ce42fce0"
+        ],
+        "support_source_ids": [
+          193
+        ]
+      },
+      {
+        "name": "recently_watched_documentaries",
+        "value": "Our Planet, Free Solo, Tiger King",
+        "support_memory_ids": [
+          "m_5db45cb10fab2e4cbaa2"
+        ],
+        "support_source_ids": [
+          192
+        ]
+      },
+      {
+        "name": "previous_recommendations",
+        "value": "Dynasties and Chasing Coral were previously recommended but not watched",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          192,
+          193
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "interested in",
+        "object": "nature and wildlife documentaries",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_fd1ae13065c6ce42fce0"
+        ],
+        "support_source_ids": [
+          193
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "watched",
+        "object": "Our Planet, Free Solo, Tiger King",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-28T13:25:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_5db45cb10fab2e4cbaa2"
+        ],
+        "support_source_ids": [
+          192
+        ]
+      },
+      {
+        "subject": "assistant",
+        "predicate": "recommended",
+        "object": "Dynasties, Chasing Coral",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-28T13:25:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          192,
+          193
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "reasoning_summary": "User prefers nature/wildlife documentaries (memory m_fd1ae13065c6ce42fce0). Recently watched Our Planet, Free Solo, Tiger King (memory m_5db45cb10fab2e4cbaa2). Assistant previously recommended Dynasties and Chasing Coral (source 192, 193) which user hasn't watched. These match user's genre preference and are not yet watched, so they are suitable recommendations for tonight."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies preference_criteria contract",
+  "compact_source_ids": [
+    192,
+    133,
+    193,
+    54,
+    37,
+    39,
+    230,
+    244,
+    142,
+    120,
+    52,
+    73,
+    56,
+    149,
+    43,
+    74,
+    75,
+    76,
+    194,
+    231,
+    121,
+    143,
+    229,
+    141
+  ],
+  "targeted_source_ids": [
+    17,
+    56,
+    65,
+    73,
+    77,
+    91,
+    122,
+    149,
+    157,
+    158,
+    192,
+    193,
+    18,
+    159,
+    194
+  ]
+}

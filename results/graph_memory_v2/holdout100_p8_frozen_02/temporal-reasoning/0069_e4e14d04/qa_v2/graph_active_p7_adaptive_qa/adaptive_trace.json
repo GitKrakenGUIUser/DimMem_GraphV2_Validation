@@ -1,0 +1,208 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:temporal"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "other",
+    "operator": "date_difference_days",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "membership_start_date",
+        "query": "When did I become a member of Book Lovers Unite?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "meetup_date",
+        "query": "When did I attend the Book Lovers Unite meetup?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I become a member of Book Lovers Unite?",
+      "When did I attend the Book Lovers Unite meetup?"
+    ],
+    "output_constraints": [
+      "Answer must be a duration in days, weeks, months, or years."
+    ],
+    "reason": "The question asks for the duration between membership start and meetup attendance, requiring two time points and a date difference operation."
+  },
+  "base_candidate": {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9c5691e871c54e4dc593",
+      "m_e6c986b676db32f1a07f"
+    ],
+    "support_source_ids": [
+      54,
+      209
+    ],
+    "required_slots": [
+      {
+        "name": "membership_start_date",
+        "value": "2023-05-07",
+        "support_memory_ids": [
+          "m_9c5691e871c54e4dc593"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      },
+      {
+        "name": "meetup_date",
+        "value": "2023-05-21",
+        "support_memory_ids": [
+          "m_e6c986b676db32f1a07f"
+        ],
+        "support_source_ids": [
+          209
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-05-07",
+        "2023-05-21"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User joined Book Lovers Unite on 2023-05-07 (three weeks before question date 2023-05-28) and attended the meetup on 2023-05-21 (last week from question date). The difference is 14 days, which is 2 weeks."
+  },
+  "specialist_candidate": {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9c5691e871c54e4dc593",
+      "m_e6c986b676db32f1a07f"
+    ],
+    "support_source_ids": [
+      54,
+      209
+    ],
+    "required_slots": [
+      {
+        "name": "membership_start_date",
+        "value": "2023-05-07",
+        "support_memory_ids": [
+          "m_9c5691e871c54e4dc593"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      },
+      {
+        "name": "meetup_date",
+        "value": "2023-05-21",
+        "support_memory_ids": [
+          "m_e6c986b676db32f1a07f"
+        ],
+        "support_source_ids": [
+          209
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-05-07",
+        "2023-05-21"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "joined",
+        "object": "Book Lovers Unite",
+        "value": "2023-05-07",
+        "unit": "date",
+        "event_time": "2023-05-07",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_9c5691e871c54e4dc593"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "attended",
+        "object": "meetup by Book Lovers Unite",
+        "value": "2023-05-21",
+        "unit": "date",
+        "event_time": "2023-05-21",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e6c986b676db32f1a07f"
+        ],
+        "support_source_ids": [
+          209
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Membership start: 'three weeks ago' from question date 2023-05-28 gives 2023-05-07. Meetup: 'last week' from question date gives 2023-05-21. Difference = 14 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    209,
+    56,
+    54,
+    58,
+    214,
+    67,
+    170,
+    171,
+    100,
+    59,
+    206,
+    57,
+    212,
+    68,
+    55,
+    210
+  ],
+  "targeted_source_ids": [
+    10,
+    46,
+    54,
+    56,
+    57,
+    58,
+    59,
+    171,
+    209,
+    212,
+    213,
+    214,
+    55,
+    210
+  ]
+}

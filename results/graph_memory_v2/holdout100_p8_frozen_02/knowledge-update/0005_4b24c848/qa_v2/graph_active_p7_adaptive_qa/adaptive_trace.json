@@ -1,0 +1,148 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "count",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "purchase events",
+        "query": "purchases of tops from H&M before 2023-10-20",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "purchases of tops from H&M before 2023-10-20"
+    ],
+    "output_constraints": [
+      "single integer count"
+    ],
+    "reason": "The question asks for a count of tops bought from H&M so far, which is a historical count of distinct purchase events or items. The answer is a number, so count_distinct operator is appropriate."
+  },
+  "base_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e25b55c3291f1e60722e"
+    ],
+    "support_source_ids": [
+      234
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": "5"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_e25b55c3291f1e60722e explicitly states 'User has bought five tops from H&M so far', and source turn 234 confirms the user said 'I've already got five tops from H&M so far' on 2023-09-30, which is before the question date."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_e25b55c3291f1e60722e"
+    ],
+    "support_source_ids": [
+      234
+    ],
+    "required_slots": [
+      {
+        "name": "purchase events",
+        "value": "5 tops from H&M",
+        "support_memory_ids": [
+          "m_e25b55c3291f1e60722e"
+        ],
+        "support_source_ids": [
+          234
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [],
+      "unit": "tops",
+      "result": "5"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "has bought",
+        "object": "tops from H&M",
+        "value": "5",
+        "unit": "tops",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "2023-09-30",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e25b55c3291f1e60722e"
+        ],
+        "support_source_ids": [
+          234
+        ]
+      }
+    ],
+    "confidence": 0.2,
+    "reasoning_summary": "The user stated on 2023-09-30 that they have already got five tops from H&M so far. This is the most recent and directly relevant statement, and no later contradictory information exists. Therefore, the count is 5."
+  },
+  "choice": "base",
+  "choice_reason": "monotonic guard: expanded evidence only caused abstention",
+  "compact_source_ids": [
+    234,
+    36,
+    226,
+    35,
+    183,
+    179,
+    78,
+    122,
+    131,
+    242,
+    182,
+    255,
+    151,
+    256,
+    221,
+    130,
+    28,
+    37,
+    34,
+    235,
+    225
+  ],
+  "targeted_source_ids": [
+    35,
+    36,
+    40,
+    81,
+    82,
+    102,
+    155,
+    179,
+    226,
+    234,
+    253,
+    255,
+    34,
+    37,
+    80,
+    235
+  ]
+}

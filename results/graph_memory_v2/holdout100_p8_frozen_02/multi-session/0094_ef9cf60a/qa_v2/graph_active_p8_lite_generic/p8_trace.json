@@ -1,0 +1,235 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "p5_p7_disagree"
+  ],
+  "plan": {
+    "answer_contract": "direct_numeric",
+    "operator": "sum",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "gift_purchase_event",
+        "query": "gifts bought for sister",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "amount_spent",
+        "query": "cost of gift for sister",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "gifts for sister",
+      "spent on sister gift",
+      "gifts bought for sister",
+      "cost of gift for sister"
+    ],
+    "reason": "Need to sum amounts spent on gifts for sister from episodic or factual memories.",
+    "deterministic_contract_hint": "direct_value",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No evidence of actual spending on gifts for sister; only mentions of planned or past gift amounts (e.g., $100 gift card, $200 necklace) but no confirmed total spent."
+  },
+  "p7_candidate": {
+    "answer": "200 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5c45a9013bf00d6b97d2",
+      "m_a7f9704b6404f616d66e"
+    ],
+    "support_source_ids": [
+      57,
+      60
+    ],
+    "required_slots": [
+      {
+        "name": "gift_purchase_event",
+        "value": "silver necklace from Tiffany's for sister",
+        "support_memory_ids": [
+          "m_5c45a9013bf00d6b97d2",
+          "m_a7f9704b6404f616d66e"
+        ],
+        "support_source_ids": [
+          57,
+          60
+        ]
+      },
+      {
+        "name": "amount_spent",
+        "value": 200,
+        "support_memory_ids": [
+          "m_5c45a9013bf00d6b97d2",
+          "m_a7f9704b6404f616d66e"
+        ],
+        "support_source_ids": [
+          57,
+          60
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        200
+      ],
+      "unit": "USD",
+      "result": "200 USD"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User stated twice that they recently bought a silver necklace from Tiffany's for their sister costing around $200. This is the only grounded gift purchase for sister with a specific amount. The $100 spa gift card mentioned in planning is a past gift but not a recent purchase; it is referenced as a previous gift, not a new spend. Therefore, total spent on gifts for sister is $200."
+  },
+  "specialist_candidate": {
+    "answer": "300",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_fa1b82fcfce908f28506",
+      "m_5c45a9013bf00d6b97d2"
+    ],
+    "support_source_ids": [
+      246,
+      57,
+      60,
+      250
+    ],
+    "required_slots": [
+      {
+        "name": "gift_purchase_event",
+        "value": "gift card to sister's favorite spa; silver necklace from Tiffany's",
+        "support_memory_ids": [
+          "m_fa1b82fcfce908f28506",
+          "m_5c45a9013bf00d6b97d2"
+        ],
+        "support_source_ids": [
+          246,
+          57,
+          60
+        ]
+      },
+      {
+        "name": "amount_spent",
+        "value": "100; 200",
+        "support_memory_ids": [
+          "m_fa1b82fcfce908f28506",
+          "m_5c45a9013bf00d6b97d2"
+        ],
+        "support_source_ids": [
+          246,
+          57,
+          60,
+          250
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        100,
+        200
+      ],
+      "unit": "dollars",
+      "result": "300"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "spent on gift for sister",
+        "object": "gift card to sister's favorite spa",
+        "numeric_value": 100,
+        "unit": "dollars",
+        "event_time": "2023-05-30T03:24:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_fa1b82fcfce908f28506"
+        ],
+        "support_source_ids": [
+          246,
+          250
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "spent on gift for sister",
+        "object": "silver necklace from Tiffany's",
+        "numeric_value": 200,
+        "unit": "dollars",
+        "event_time": "2023-05-22T07:50:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_5c45a9013bf00d6b97d2"
+        ],
+        "support_source_ids": [
+          57,
+          60
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "User stated spending $100 on a gift card to sister's favorite spa (source 246, 250) and $200 on a silver necklace from Tiffany's for sister (source 57, 60). Sum is $300."
+  },
+  "choice": "p7",
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 0.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Evidence shows actual spending; answerable."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Only the $200 necklace is a confirmed recent purchase for sister; the $100 gift card is a past gift mentioned in planning, not a new spend."
+      },
+      "specialist": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "The $100 gift card is a past gift, not a new purchase; including it contradicts the temporal scope of 'spent' (recent purchases)."
+      }
+    },
+    "reason": "p7 correctly identifies the only confirmed recent gift purchase for sister ($200 necklace) and excludes the past gift card, matching the question's implied temporal scope."
+  },
+  "targeted_source_ids": [
+    57,
+    250,
+    246,
+    249,
+    60,
+    247,
+    58
+  ],
+  "v2_timeline_memory_ids": []
+}

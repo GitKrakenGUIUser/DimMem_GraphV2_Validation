@@ -1,0 +1,103 @@
+{
+  "question": "How many bikes do I currently own?",
+  "question_date": "2023-10-27T13:00:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's current bike ownership count",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "bike",
+        "own",
+        "count"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-10-27",
+        "end": "",
+        "raw": "currently"
+      },
+      "locations": [],
+      "state_keys": [
+        "bike_count"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's bike ownership history",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "bike",
+        "acquire",
+        "sell",
+        "own"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-10-27",
+        "raw": "currently"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "caused_by"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "events of acquiring or selling bikes"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's bike count from profile",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "bike",
+        "count",
+        "profile"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-10-27",
+        "end": "",
+        "raw": "currently"
+      },
+      "locations": [],
+      "state_keys": [
+        "bike_count"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    }
+  ]
+}

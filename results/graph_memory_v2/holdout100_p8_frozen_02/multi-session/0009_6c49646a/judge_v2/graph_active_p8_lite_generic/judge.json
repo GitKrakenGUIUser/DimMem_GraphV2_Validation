@@ -1,0 +1,86 @@
+{
+  "question_id": "6c49646a",
+  "question_type": "multi-session",
+  "question": "What is the total distance I covered in my four road trips?",
+  "question_date": "2023/05/30 (Tue) 22:17",
+  "gold_answer": "3,000 miles",
+  "prediction": "3000 miles",
+  "support_memory_ids": [
+    "m_d58d19cc4ce5f8e5f8e0",
+    "m_e526e6277c34a6439ed9"
+  ],
+  "support_source_ids": [
+    81,
+    140
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user stated covering 1,800 miles on three recent road trips (Durango, Breckenridge, Santa Fe) and 1,200 miles on a Yellowstone trip. These are the only four road trips mentioned. Summing gives 3,000 miles.",
+  "required_slots": [
+    {
+      "name": "individual road trip distances",
+      "value": "1800 miles (three trips) and 1200 miles (Yellowstone trip)",
+      "support_memory_ids": [
+        "m_d58d19cc4ce5f8e5f8e0",
+        "m_e526e6277c34a6439ed9"
+      ],
+      "support_source_ids": [
+        81,
+        140
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      1800,
+      1200
+    ],
+    "unit": "miles",
+    "result": "3000 miles"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "individual road trip distances",
+        "query": "road trip distance",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "road trip distance"
+    ],
+    "reason": "Need distances of each road trip to compute total.",
+    "deterministic_contract_hint": "sum",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 24357,
+    "completion_tokens": 661,
+    "elapsed_seconds": 5.425889730453491
+  },
+  "correct": true,
+  "judge_reason": "Equivalent numeric value and unit, minor formatting difference (no comma) is acceptable.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 137,
+    "completion_tokens": 31,
+    "elapsed_seconds": 0.8464882373809814
+  }
+}

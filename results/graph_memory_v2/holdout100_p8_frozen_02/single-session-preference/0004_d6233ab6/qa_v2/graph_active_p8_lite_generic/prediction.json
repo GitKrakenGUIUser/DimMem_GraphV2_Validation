@@ -1,0 +1,111 @@
+{
+  "question_id": "d6233ab6",
+  "question_type": "single-session-preference",
+  "question": "I've been feeling nostalgic lately. Do you think it would be a good idea to attend my high school reunion?",
+  "question_date": "2023/05/30 (Tue) 01:29",
+  "gold_answer": "The user would prefer responses that draw upon their personal experiences and memories, specifically their positive high school experiences such as being part of the debate team and taking advanced placement courses. They would prefer suggestions that highlight the potential benefits of attending the reunion, such as reconnecting with old friends and revisiting favorite subjects like history and economics. The user might not prefer generic or vague responses that do not take into account their individual experiences and interests.",
+  "prediction": "Based on your happy high school memories (debate team, AP economics) and your current nostalgia, attending your high school reunion seems like a good idea to reconnect with those positive experiences.",
+  "support_memory_ids": [
+    "m_5d7cb6a6702cc441ee52"
+  ],
+  "support_source_ids": [
+    57
+  ],
+  "confidence": 0.8,
+  "reasoning_summary": "User recalls happy high school memories (debate team, AP economics) and expresses nostalgia. This supports a positive recommendation for attending the reunion.",
+  "required_slots": [
+    {
+      "name": "user high school memories",
+      "value": "happy high school experiences: debate team and AP economics",
+      "support_memory_ids": [
+        "m_5d7cb6a6702cc441ee52"
+      ],
+      "support_source_ids": [
+        57
+      ]
+    },
+    {
+      "name": "user nostalgia level",
+      "value": "nostalgic (user states 'feeling nostalgic lately')",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:preference_criteria"
+  ],
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "user high school memories",
+        "query": "high school memories",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "user nostalgia level",
+        "query": "nostalgia feeling",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "high school memories",
+      "nostalgia feeling"
+    ],
+    "reason": "To decide if attending reunion is good, need user's high school memories and current nostalgia level.",
+    "deterministic_contract_hint": "preference_criteria",
+    "contract_overridden": false
+  },
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 0.5,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Missing required slot 'user nostalgia level' in support_memory_ids and unfilled_slots."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      }
+    },
+    "reason": "p7 has higher confidence (0.8) and explicitly fills both required slots with evidence, while p5 lacks explicit slot filling for nostalgia level."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 33426,
+    "completion_tokens": 801,
+    "elapsed_seconds": 7.383349895477295
+  }
+}

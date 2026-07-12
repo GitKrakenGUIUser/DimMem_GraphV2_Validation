@@ -1,0 +1,163 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "gift_purchase_event",
+        "query": "gifts for sister",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "amount_spent",
+        "query": "amount spent on gift for sister",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "gifts for sister",
+      "amount spent on gift for sister"
+    ],
+    "output_constraints": [
+      "The answer should be a numeric total amount spent on gifts for sister."
+    ],
+    "reason": "The question asks for total spending on gifts for sister, requiring sum of amounts from relevant events."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No evidence of actual spending on gifts for sister; only mentions of planned or past gift amounts (e.g., $100 gift card, $200 necklace) but no confirmed total spent."
+  },
+  "specialist_candidate": {
+    "answer": "200 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5c45a9013bf00d6b97d2",
+      "m_a7f9704b6404f616d66e"
+    ],
+    "support_source_ids": [
+      57,
+      60
+    ],
+    "required_slots": [
+      {
+        "name": "gift_purchase_event",
+        "value": "silver necklace from Tiffany's for sister",
+        "support_memory_ids": [
+          "m_5c45a9013bf00d6b97d2",
+          "m_a7f9704b6404f616d66e"
+        ],
+        "support_source_ids": [
+          57,
+          60
+        ]
+      },
+      {
+        "name": "amount_spent",
+        "value": 200,
+        "support_memory_ids": [
+          "m_5c45a9013bf00d6b97d2",
+          "m_a7f9704b6404f616d66e"
+        ],
+        "support_source_ids": [
+          57,
+          60
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        200
+      ],
+      "unit": "USD",
+      "result": "200 USD"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "spent on gift for sister",
+        "object": "silver necklace from Tiffany's",
+        "value": 200,
+        "unit": "USD",
+        "event_time": "2023-05-22T07:50:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_5c45a9013bf00d6b97d2",
+          "m_a7f9704b6404f616d66e"
+        ],
+        "support_source_ids": [
+          57,
+          60
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "User stated twice that they recently bought a silver necklace from Tiffany's for their sister costing around $200. This is the only grounded gift purchase for sister with a specific amount. The $100 spa gift card mentioned in planning is a past gift but not a recent purchase; it is referenced as a previous gift, not a new spend. Therefore, total spent on gifts for sister is $200.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    249,
+    250,
+    62,
+    60,
+    246,
+    57,
+    248,
+    181,
+    247,
+    192,
+    77,
+    19,
+    220,
+    58
+  ],
+  "targeted_source_ids": [
+    6,
+    57,
+    60,
+    90,
+    130,
+    164,
+    165,
+    166,
+    246,
+    247,
+    249,
+    250,
+    58
+  ]
+}

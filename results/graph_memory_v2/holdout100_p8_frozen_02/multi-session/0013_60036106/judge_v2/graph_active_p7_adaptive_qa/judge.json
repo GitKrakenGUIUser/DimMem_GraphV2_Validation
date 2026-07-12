@@ -1,0 +1,109 @@
+{
+  "question_id": "60036106",
+  "question_type": "multi-session",
+  "question": "What was the total number of people reached by my Facebook ad campaign and Instagram influencer collaboration?",
+  "question_date": "2023/05/30 (Tue) 11:00",
+  "gold_answer": "12,000",
+  "prediction": "12000 people",
+  "support_memory_ids": [
+    "m_df5c71a6f417e933a347",
+    "m_a9ee9b118039de4324fd"
+  ],
+  "support_source_ids": [
+    197,
+    208,
+    203
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The Facebook ad campaign reached 2000 people (source 197, 208). The Instagram influencer collaboration reached 10000 followers (source 203). Summing gives 12000 total people reached.",
+  "required_slots": [
+    {
+      "name": "Facebook ad campaign reach",
+      "value": 2000,
+      "support_memory_ids": [
+        "m_df5c71a6f417e933a347"
+      ],
+      "support_source_ids": [
+        197,
+        208
+      ]
+    },
+    {
+      "name": "Instagram influencer collaboration reach",
+      "value": 10000,
+      "support_memory_ids": [
+        "m_a9ee9b118039de4324fd"
+      ],
+      "support_source_ids": [
+        203
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      2000,
+      10000
+    ],
+    "unit": "people",
+    "result": "12000 people"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist filled an abstained base answer",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots",
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "Facebook ad campaign reach",
+        "query": "Facebook ad campaign reach",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "Instagram influencer collaboration reach",
+        "query": "Instagram influencer collaboration reach",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Facebook ad campaign reach",
+      "Instagram influencer collaboration reach"
+    ],
+    "output_constraints": [
+      "The answer must be a single number representing the sum of the two reach values."
+    ],
+    "reason": "The question asks for the total number of people reached by two separate campaigns, requiring a sum of two numeric values."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 33157,
+    "completion_tokens": 774,
+    "elapsed_seconds": 7.158097743988037
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer in value and unit, with acceptable formatting.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 141,
+    "completion_tokens": 30,
+    "elapsed_seconds": 0.9091846942901611
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "question_id": "b0479f84",
+  "question_type": "single-session-preference",
+  "question": "I've got some free time tonight, any documentary recommendations?",
+  "question_date": "2023/05/30 (Tue) 22:56",
+  "gold_answer": "The user would prefer documentary recommendations that are similar in style and theme to 'Our Planet', 'Free Solo', and 'Tiger King', which they have previously enjoyed. They might not prefer recommendations of documentaries that are vastly different in tone or subject matter from these titles. The preferred response utilizes the user's previously mentioned viewing history to suggest documentaries that cater to their tastes.",
+  "prediction": "Based on your interest in nature and wildlife documentaries, I recommend 'Dynasties' and 'Chasing Coral' on Netflix. You haven't watched these yet, and they align with your preferences.",
+  "support_memory_ids": [
+    "m_fd1ae13065c6ce42fce0",
+    "m_5db45cb10fab2e4cbaa2"
+  ],
+  "support_source_ids": [
+    192,
+    193
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "User prefers nature/wildlife documentaries (memory m_fd1ae13065c6ce42fce0). Recently watched Our Planet, Free Solo, Tiger King (memory m_5db45cb10fab2e4cbaa2). Assistant previously recommended Dynasties and Chasing Coral (source 192, 193) which user hasn't watched. These match user's genre preference and are not yet watched, so they are suitable recommendations for tonight.",
+  "required_slots": [
+    {
+      "name": "user_preferred_genres",
+      "value": "nature and wildlife documentaries",
+      "support_memory_ids": [
+        "m_fd1ae13065c6ce42fce0"
+      ],
+      "support_source_ids": [
+        193
+      ]
+    },
+    {
+      "name": "recently_watched_documentaries",
+      "value": "Our Planet, Free Solo, Tiger King",
+      "support_memory_ids": [
+        "m_5db45cb10fab2e4cbaa2"
+      ],
+      "support_source_ids": [
+        192
+      ]
+    },
+    {
+      "name": "previous_recommendations",
+      "value": "Dynasties and Chasing Coral were previously recommended but not watched",
+      "support_memory_ids": [],
+      "support_source_ids": [
+        192,
+        193
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "preference_inference",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies preference_criteria contract",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_preferred_genres",
+        "query": "user preferred documentary genres",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "recently_watched_documentaries",
+        "query": "recently watched documentaries",
+        "semantic_type": "event",
+        "required": false
+      },
+      {
+        "name": "previous_recommendations",
+        "query": "previous documentary recommendations",
+        "semantic_type": "assistant_reply",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "user preferred documentary genres",
+      "recently watched documentaries",
+      "previous documentary recommendations"
+    ],
+    "output_constraints": [
+      "recommend documentaries matching user preferences",
+      "avoid previously recommended or watched documentaries if possible"
+    ],
+    "reason": "User asks for documentary recommendations for tonight, requiring knowledge of user's genre preferences and possibly past recommendations to avoid repetition."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 40378,
+    "completion_tokens": 1072,
+    "elapsed_seconds": 9.509770154953003
+  },
+  "correct": true,
+  "judge_reason": "The prediction correctly infers the user's preference for nature/wildlife documentaries based on their viewing history and suggests relevant titles.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 241,
+    "completion_tokens": 40,
+    "elapsed_seconds": 2.2703745365142822
+  }
+}

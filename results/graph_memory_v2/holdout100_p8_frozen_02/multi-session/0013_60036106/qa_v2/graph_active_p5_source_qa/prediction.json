@@ -1,0 +1,78 @@
+{
+  "question_id": "60036106",
+  "question_type": "multi-session",
+  "question": "What was the total number of people reached by my Facebook ad campaign and Instagram influencer collaboration?",
+  "question_date": "2023/05/30 (Tue) 11:00",
+  "gold_answer": "12,000",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.0,
+  "reasoning_summary": "The Facebook ad campaign reached 2,000 people (memories m_df5c71a6f417e933a347 and m_cfe8bd5418b7711b6f8a). However, the Instagram influencer collaboration only mentions the influencer has 10,000 followers (memory m_a9ee9b118039de4324fd), but does not specify how many people were actually reached by the collaboration. Without the reach number for the Instagram influencer collaboration, the total cannot be calculated.",
+  "required_slots": [
+    {
+      "name": "Facebook ad campaign reach",
+      "value": "2,000",
+      "support_memory_ids": [
+        "m_df5c71a6f417e933a347",
+        "m_cfe8bd5418b7711b6f8a"
+      ],
+      "support_source_ids": [
+        197,
+        208
+      ]
+    },
+    {
+      "name": "Instagram influencer collaboration reach",
+      "value": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [
+    "Instagram influencer collaboration reach"
+  ],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      2000,
+      "unknown"
+    ],
+    "unit": "people",
+    "result": "unknown"
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    197,
+    208,
+    198,
+    203,
+    206,
+    161,
+    188,
+    183,
+    164,
+    136,
+    201,
+    207,
+    202,
+    199,
+    205,
+    204,
+    184
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    -0.7,
+    -1.4
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 87061,
+    "completion_tokens": 959,
+    "elapsed_seconds": 15.675467252731323
+  }
+}

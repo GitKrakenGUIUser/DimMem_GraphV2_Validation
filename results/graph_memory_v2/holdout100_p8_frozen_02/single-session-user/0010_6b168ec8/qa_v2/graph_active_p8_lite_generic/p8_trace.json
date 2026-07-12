@@ -1,0 +1,145 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "bike ownership state",
+        "query": "bikes owned count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "bikes owned count"
+    ],
+    "reason": "The question asks for a current count of owned bikes, which is a direct numeric state.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_47e257b850971cefac0f"
+    ],
+    "support_source_ids": [
+      164
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_47e257b850971cefac0f explicitly states 'User owns three bikes: a road bike, a mountain bike, and a commuter bike.' This is corroborated by source turn 164 where the user says 'I've got three of them - a road bike, a mountain bike, and a commuter bike'. No contradictory evidence exists."
+  },
+  "p7_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_47e257b850971cefac0f"
+    ],
+    "support_source_ids": [
+      164
+    ],
+    "required_slots": [
+      {
+        "name": "bike ownership state",
+        "value": "3",
+        "support_memory_ids": [
+          "m_47e257b850971cefac0f"
+        ],
+        "support_source_ids": [
+          164
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_47e257b850971cefac0f directly states 'User owns three bikes' and is supported by source 164 where user says 'I've got three of them'. No later evidence contradicts this, so the current count is 3."
+  },
+  "specialist_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_47e257b850971cefac0f"
+    ],
+    "support_source_ids": [
+      164
+    ],
+    "required_slots": [
+      {
+        "name": "bike ownership state",
+        "value": "3",
+        "support_memory_ids": [
+          "m_47e257b850971cefac0f"
+        ],
+        "support_source_ids": [
+          164
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "stated_count",
+    "calculation": {
+      "operator": "stated_count",
+      "operands": [
+        "3"
+      ],
+      "unit": "bikes",
+      "result": "3"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "owns",
+        "object": "three bikes: road, mountain, commuter",
+        "numeric_value": 3,
+        "unit": "bikes",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_47e257b850971cefac0f"
+        ],
+        "support_source_ids": [
+          164
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_47e257b850971cefac0f explicitly states 'User owns three bikes', and source 164 confirms the user said 'I've got three of them'. No contradictory or superseding evidence found."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    164,
+    165,
+    166,
+    10,
+    8,
+    4,
+    163,
+    167
+  ],
+  "v2_timeline_memory_ids": []
+}

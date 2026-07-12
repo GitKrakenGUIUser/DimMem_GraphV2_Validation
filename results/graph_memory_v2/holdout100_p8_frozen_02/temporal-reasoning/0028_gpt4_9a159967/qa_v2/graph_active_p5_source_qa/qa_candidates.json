@@ -1,0 +1,66 @@
+[
+  {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_42835616b591f744e8b1",
+      "m_50ccfad46da2837f10c8",
+      "m_961c9cc6c46a119e300c"
+    ],
+    "support_source_ids": [
+      30,
+      110,
+      144
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "United Airlines",
+        "Southwest Airlines",
+        "American Airlines"
+      ],
+      "unit": "airline",
+      "result": "3"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "In March, user flew United Airlines for a business trip to Chicago (4 flights). In March, user also flew Southwest Airlines to Las Vegas (2 flights). In April, user flew American Airlines to Hawaii (2 flights). United Airlines has the most flights (4) in March and April combined.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_42835616b591f744e8b1",
+      "m_50ccfad46da2837f10c8",
+      "m_961c9cc6c46a119e300c"
+    ],
+    "support_source_ids": [
+      30,
+      110,
+      144
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "United Airlines",
+        "Southwest Airlines",
+        "American Airlines"
+      ],
+      "unit": "airline",
+      "result": "3"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "In March, user flew United Airlines for a business trip to Chicago (2 flights each way, 4 segments). In March, user also flew Southwest Airlines to Las Vegas (1 round trip, 2 segments). In April, user flew American Airlines to Hawaii (2 segments: hometown to Honolulu, then to Maui). Counting flights: United: 4, Southwest: 2, American: 2. United Airlines was flown the most.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

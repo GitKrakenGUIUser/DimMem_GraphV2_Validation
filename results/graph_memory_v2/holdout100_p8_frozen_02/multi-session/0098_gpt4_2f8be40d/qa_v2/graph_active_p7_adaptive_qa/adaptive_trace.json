@@ -1,0 +1,207 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "wedding_event",
+        "query": "weddings attended in 2023",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "weddings attended in 2023"
+    ],
+    "output_constraints": [
+      "integer count of distinct wedding events"
+    ],
+    "reason": "Count distinct wedding events the user attended in 2023 up to question date."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [],
+      "unit": "weddings",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The user mentions attending multiple weddings (cousin's vineyard wedding in August, college roommate's wedding on 2023-10-15, friend Jen's wedding last weekend, sister's wedding, cousin Emily's wedding, cousin Rachel's wedding), but it is unclear which of these are distinct events and which are the same event described differently. For example, 'cousin's wedding at a vineyard in August' and 'cousin Rachel's vineyard wedding' likely refer to the same event, and 'college roommate's wedding' and 'cousin Emily's wedding' may also overlap. Without clear evidence to disambiguate, the exact count cannot be determined."
+  },
+  "specialist_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e1c23023a40f3b100681",
+      "m_3eefe866459a7ef1ce4f",
+      "m_64523b3d380a1f3a3681"
+    ],
+    "support_source_ids": [
+      47,
+      29,
+      119
+    ],
+    "required_slots": [
+      {
+        "name": "wedding_event",
+        "value": "cousin's vineyard wedding in August",
+        "support_memory_ids": [
+          "m_e1c23023a40f3b100681"
+        ],
+        "support_source_ids": [
+          47
+        ]
+      },
+      {
+        "name": "wedding_event",
+        "value": "college roommate's wedding on 2023-10-15",
+        "support_memory_ids": [
+          "m_3eefe866459a7ef1ce4f"
+        ],
+        "support_source_ids": [
+          29
+        ]
+      },
+      {
+        "name": "wedding_event",
+        "value": "sister's wedding (attended and helped plan)",
+        "support_memory_ids": [
+          "m_64523b3d380a1f3a3681"
+        ],
+        "support_source_ids": [
+          119
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "cousin's vineyard wedding in August",
+        "college roommate's wedding on 2023-10-15",
+        "sister's wedding"
+      ],
+      "unit": "weddings",
+      "result": "3"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "attended",
+        "object": "cousin's wedding at a vineyard",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-08",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e1c23023a40f3b100681"
+        ],
+        "support_source_ids": [
+          47
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "attended",
+        "object": "college roommate's wedding",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-10-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3eefe866459a7ef1ce4f"
+        ],
+        "support_source_ids": [
+          29
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "attended and helped plan",
+        "object": "sister's wedding",
+        "value": "",
+        "unit": "",
+        "event_time": "2023",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_64523b3d380a1f3a3681"
+        ],
+        "support_source_ids": [
+          119
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Three distinct weddings attended in 2023 are grounded: cousin's vineyard wedding in August, college roommate's wedding on 2023-10-15, and sister's wedding (attended and helped plan). No other weddings are confirmed. Count = 3.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    47,
+    86,
+    70,
+    87,
+    119,
+    169,
+    212,
+    29,
+    49,
+    48,
+    51,
+    50,
+    204,
+    33,
+    135,
+    41,
+    30,
+    43,
+    118,
+    120,
+    170
+  ],
+  "targeted_source_ids": [
+    29,
+    33,
+    34,
+    47,
+    63,
+    68,
+    86,
+    119,
+    169,
+    204,
+    212,
+    228,
+    32,
+    64
+  ]
+}

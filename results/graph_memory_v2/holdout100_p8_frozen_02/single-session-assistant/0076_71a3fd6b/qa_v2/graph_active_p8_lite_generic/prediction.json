@@ -1,0 +1,71 @@
+{
+  "question_id": "71a3fd6b",
+  "question_type": "single-session-assistant",
+  "question": "I'm planning my trip to Speyer again and I wanted to confirm, what's the phone number of the Speyer tourism board that you provided me earlier?",
+  "question_date": "2023/05/30 (Tue) 21:38",
+  "gold_answer": "+49 (0) 62 32 / 14 23 - 0",
+  "prediction": "+49 (0) 62 32 / 14 23 - 0",
+  "support_memory_ids": [
+    "m_9f45862752ac66bdea82"
+  ],
+  "support_source_ids": [
+    181
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The assistant previously provided the Speyer tourism board phone number in memory m_9f45862752ac66bdea82 (source 181). The user asks to confirm that number, so it is recalled directly.",
+  "required_slots": [
+    {
+      "name": "phone_number",
+      "value": "+49 (0) 62 32 / 14 23 - 0",
+      "support_memory_ids": [
+        "m_9f45862752ac66bdea82"
+      ],
+      "support_source_ids": [
+        181
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "phone_number",
+        "query": "Speyer tourism board phone number",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Speyer tourism board phone number"
+    ],
+    "reason": "User asks to confirm a phone number previously provided by the assistant.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 16576,
+    "completion_tokens": 490,
+    "elapsed_seconds": 4.522910833358765
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "baking events in the past two weeks",
+        "query": "baking events between 2023-05-16 and 2023-05-30",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "baking events between 2023-05-16 and 2023-05-30"
+    ],
+    "reason": "Need to count distinct baking events within the specified two-week period.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source explicitly states how many times the user baked in the past two weeks. The memories mention several baking events but do not provide a complete count for the specified period."
+  },
+  "p7_candidate": {
+    "answer": "4",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d7f0217477f916beac5f",
+      "m_7691b0d7487d936e3be3",
+      "m_3f1510948efda77c1bc0",
+      "m_78ba6d9a4e5867ded18d",
+      "m_918f9574ddaf29fd7b14",
+      "m_8d8740f06468979d429b"
+    ],
+    "support_source_ids": [
+      55,
+      208,
+      124,
+      120,
+      197,
+      122
+    ],
+    "required_slots": [
+      {
+        "name": "baking event",
+        "value": "4 distinct baking events between 2023-05-16T23:45 and 2023-05-30T23:45",
+        "support_memory_ids": [
+          "m_7691b0d7487d936e3be3",
+          "m_78ba6d9a4e5867ded18d",
+          "m_3f1510948efda77c1bc0",
+          "m_918f9574ddaf29fd7b14"
+        ],
+        "support_source_ids": [
+          208,
+          120,
+          124,
+          197
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "chocolate cake for sister's birthday (2023-05-20)",
+        "whole wheat baguette (2023-05-20)",
+        "sourdough bread (2023-05-23)",
+        "cookies (2023-05-25)"
+      ],
+      "unit": "events",
+      "result": "4"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Identified 4 distinct baking events within the past two weeks (2023-05-16T23:45 to 2023-05-30T23:45): chocolate cake on 2023-05-20, whole wheat baguette on 2023-05-20, sourdough bread on 2023-05-23, and cookies on 2023-05-25. The chocolate cake event appears in two memories but refers to the same event, so counted once. The answer is 4."
+  },
+  "specialist_candidate": {
+    "answer": "4",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d7f0217477f916beac5f",
+      "m_7691b0d7487d936e3be3",
+      "m_3f1510948efda77c1bc0",
+      "m_78ba6d9a4e5867ded18d",
+      "m_918f9574ddaf29fd7b14",
+      "m_8d8740f06468979d429b",
+      "m_595bc68b70f45ff7575d"
+    ],
+    "support_source_ids": [
+      55,
+      208,
+      124,
+      120,
+      197,
+      122,
+      211
+    ],
+    "required_slots": [
+      {
+        "name": "baking events in the past two weeks",
+        "value": "4",
+        "support_memory_ids": [
+          "m_7691b0d7487d936e3be3",
+          "m_3f1510948efda77c1bc0",
+          "m_78ba6d9a4e5867ded18d",
+          "m_918f9574ddaf29fd7b14"
+        ],
+        "support_source_ids": [
+          208,
+          124,
+          120,
+          197
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "unit": "events",
+      "result": "4"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "baked",
+        "object": "chocolate cake for sister's birthday",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-20",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_7691b0d7487d936e3be3"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "baked",
+        "object": "bread with sourdough starter",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-23",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3f1510948efda77c1bc0"
+        ],
+        "support_source_ids": [
+          124
+        ]
+      },
+      {
+        "fact_id": "f3",
+        "subject": "user",
+        "predicate": "baked",
+        "object": "whole wheat baguette",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-20",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_78ba6d9a4e5867ded18d"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "fact_id": "f4",
+        "subject": "user",
+        "predicate": "baked",
+        "object": "cookies using convection",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-25",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_918f9574ddaf29fd7b14"
+        ],
+        "support_source_ids": [
+          197
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "Identified 4 distinct baking events within the past two weeks (2023-05-16 to 2023-05-30): chocolate cake on 2023-05-20, whole wheat baguette on 2023-05-20, sourdough bread on 2023-05-23, and cookies on 2023-05-25. The chocolate cake event appears in two memories but refers to the same event (same date and purpose), so counted once. The whole wheat baguette event on 2023-05-20 is distinct from the chocolate cake. The cookies event on 2023-05-25 is distinct. The sourdough bread event on 2023-05-23 is distinct. Total distinct events: 4.",
+    "safe_executor_applied": true
+  },
+  "choice": "p7",
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 0.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "No evidence provided; answerable from sources."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Correctly counts 4 distinct baking events within the two-week period."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Also correct but uses abstract fact IDs; p7 is more direct."
+      }
+    },
+    "reason": "p7 provides a clear, supported count of 4 distinct baking events with explicit evidence."
+  },
+  "targeted_source_ids": [
+    197,
+    36,
+    55,
+    53,
+    122,
+    212,
+    54,
+    196,
+    35,
+    198
+  ],
+  "v2_timeline_memory_ids": []
+}

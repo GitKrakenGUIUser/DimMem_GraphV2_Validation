@@ -1,0 +1,90 @@
+{
+  "question_id": "1a8a66a6",
+  "question_type": "multi-session",
+  "question": "How many magazine subscriptions do I currently have?",
+  "question_date": "2023/04/01 (Sat) 23:49",
+  "gold_answer": "2",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_8014f27aa700933c33b1",
+    "m_65d871fbba1aa008a8fa"
+  ],
+  "support_source_ids": [
+    7,
+    45
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User subscribed to The New Yorker in early February 2023 (source 7) and subscribes to Architectural Digest (source 45). Forbes was canceled in early March 2023 (source 7). As of April 1, 2023, the active magazine subscriptions are The New Yorker and Architectural Digest, totaling 2.",
+  "required_slots": [
+    {
+      "name": "current magazine subscriptions",
+      "value": "The New Yorker, Architectural Digest",
+      "support_memory_ids": [
+        "m_8014f27aa700933c33b1",
+        "m_65d871fbba1aa008a8fa"
+      ],
+      "support_source_ids": [
+        7,
+        45
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "The New Yorker",
+      "Architectural Digest"
+    ],
+    "unit": "",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "current magazine subscriptions",
+        "query": "user's current magazine subscriptions",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user's current magazine subscriptions"
+    ],
+    "output_constraints": [
+      "count of distinct active subscriptions"
+    ],
+    "reason": "The question asks for the current count of magazine subscriptions, requiring a state resolution to determine which subscriptions are active as of the question date."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 29558,
+    "completion_tokens": 827,
+    "elapsed_seconds": 7.192906856536865
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 128,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7888858318328857
+  }
+}

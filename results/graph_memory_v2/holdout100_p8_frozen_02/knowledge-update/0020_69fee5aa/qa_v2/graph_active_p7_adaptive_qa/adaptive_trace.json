@@ -1,0 +1,169 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "collection_inventory",
+        "query": "pre-1920 American coins count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "pre-1920 American coins count"
+    ],
+    "output_constraints": [
+      "single integer"
+    ],
+    "reason": "The question asks for a current count of pre-1920 American coins in the user's collection, which is a state value. No composition or semantic bridge needed."
+  },
+  "base_candidate": {
+    "answer": "37",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c320fddac028cc256442"
+    ],
+    "support_source_ids": [
+      73
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": "37"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_c320fddac028cc256442 and source turn 73 both state the user has 37 pre-1920 American coins. No contradictory evidence found."
+  },
+  "specialist_candidate": {
+    "answer": "38 coins",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c320fddac028cc256442",
+      "m_cbd40604a7f0aefbc989"
+    ],
+    "support_source_ids": [
+      73,
+      187
+    ],
+    "required_slots": [
+      {
+        "name": "collection_inventory",
+        "value": "38",
+        "support_memory_ids": [
+          "m_c320fddac028cc256442",
+          "m_cbd40604a7f0aefbc989"
+        ],
+        "support_source_ids": [
+          73,
+          187
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        "37",
+        "1"
+      ],
+      "unit": "coins",
+      "result": "38 coins"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "has",
+        "object": "pre-1920 American coins",
+        "value": "37",
+        "unit": "coins",
+        "event_time": "2023-05-27T18:09:02.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_c320fddac028cc256442"
+        ],
+        "support_source_ids": [
+          73
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "added to collection",
+        "object": "1915-S Barber quarter",
+        "value": "1",
+        "unit": "coin",
+        "event_time": "2023-05-29T00:54:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_cbd40604a7f0aefbc989"
+        ],
+        "support_source_ids": [
+          187
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "User stated having 37 pre-1920 American coins on 2023-05-27. On 2023-05-29, user added a 1915-S Barber quarter (pre-1920) to that collection. No later removals or contradictions. Sum: 37 + 1 = 38.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    73,
+    187,
+    190,
+    69,
+    217,
+    70,
+    191,
+    71,
+    36,
+    37,
+    53,
+    6,
+    222,
+    74,
+    72,
+    188,
+    52,
+    54
+  ],
+  "targeted_source_ids": [
+    9,
+    69,
+    70,
+    72,
+    73,
+    74,
+    141,
+    187,
+    188,
+    189,
+    190,
+    239,
+    142,
+    191
+  ]
+}

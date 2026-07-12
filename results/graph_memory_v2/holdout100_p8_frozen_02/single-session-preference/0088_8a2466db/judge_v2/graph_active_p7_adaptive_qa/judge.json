@@ -1,0 +1,100 @@
+{
+  "question_id": "8a2466db",
+  "question_type": "single-session-preference",
+  "question": "Can you recommend some resources where I can learn more about video editing?",
+  "question_date": "2023/05/30 (Tue) 22:03",
+  "gold_answer": "The user would prefer responses that suggest resources specifically tailored to Adobe Premiere Pro, especially those that delve into its advanced settings. They might not prefer general video editing resources or resources related to other video editing software.",
+  "prediction": "Based on your interest in video editing with Adobe Premiere Pro, here are some resources to learn more:\n\n- **Adobe Premiere Pro official documentation and tutorials**\n- **YouTube channels**: Premiere Bro, Video Copilot, Adobe Creative Cloud\n- **Online courses**: Udemy, LinkedIn Learning, Skillshare\n- **Communities**: Reddit's r/premierepro, Adobe Premiere Pro forum\n\nThese were previously recommended to you on 2023-05-21.",
+  "support_memory_ids": [
+    "m_9edabfafde629982413c"
+  ],
+  "support_source_ids": [
+    43
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User asked for resources to learn video editing. Memory shows user enjoys Adobe Premiere Pro and previously received recommendations for learning advanced settings. The assistant's previous reply (source 43) listed specific resources. These are recalled and presented as the answer.",
+  "required_slots": [
+    {
+      "name": "user_interest",
+      "value": "User enjoys using Adobe Premiere Pro for video editing and wants to learn advanced settings.",
+      "support_memory_ids": [
+        "m_9edabfafde629982413c"
+      ],
+      "support_source_ids": [
+        43
+      ]
+    },
+    {
+      "name": "previous_recommendations",
+      "value": "Adobe Premiere Pro official documentation, YouTube channels (Premiere Bro, Video Copilot, Adobe Creative Cloud), online courses (Udemy, LinkedIn Learning, Skillshare), communities (Reddit r/premierepro, Adobe Premiere Pro forum)",
+      "support_memory_ids": [
+        "m_9edabfafde629982413c"
+      ],
+      "support_source_ids": [
+        43
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies preference_criteria contract",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_interest",
+        "query": "user interest in video editing",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "previous_recommendations",
+        "query": "previous assistant recommendations for video editing resources",
+        "semantic_type": "assistant_reply",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "user interest in video editing",
+      "previous assistant recommendations for video editing resources"
+    ],
+    "output_constraints": [
+      "Recommend resources based on user's interest and any prior recommendations."
+    ],
+    "reason": "The user asks for recommendations to learn video editing. The answer should be grounded in user's interest (state) and optionally previous assistant replies to avoid repetition."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 41852,
+    "completion_tokens": 950,
+    "elapsed_seconds": 9.01345419883728
+  },
+  "correct": false,
+  "judge_reason": "The prediction provides general video editing resources, not specifically tailored to Adobe Premiere Pro's advanced settings as preferred.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 269,
+    "completion_tokens": 37,
+    "elapsed_seconds": 0.9705121517181396
+  }
+}

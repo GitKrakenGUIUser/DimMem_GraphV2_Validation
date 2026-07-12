@@ -1,0 +1,4061 @@
+{
+  "initial": [
+    {
+      "memory_id": "m_fbef694d0a1c371a21d8",
+      "content": "User sold 40 dozen eggs in the current month (May 2023).",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "2023-05-01",
+          "event_end": "2023-05-22",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "this month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "egg production",
+          "40 dozen",
+          "sold",
+          "farm"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "farm egg production",
+        "relation": {
+          "subject": "User",
+          "predicate": "sold",
+          "object": "40 dozen eggs"
+        },
+        "state_key": "user.farm.egg_sales",
+        "state_value": "40 dozen eggs",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "neutral",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_2",
+        "session_index": 12,
+        "source_ids": [
+          67
+        ],
+        "source_uids": [
+          "s0012u0001"
+        ],
+        "source_times": [
+          "2023-05-22T07:16:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.04556466302367942,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 125.69133207588173,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.6808702960096177,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 30,
+          "raw_score": 0.6,
+          "rrf_contribution": 0.012777777777777777
+        },
+        {
+          "route": "active_state_chain",
+          "state_key": "user.farm.egg_sales",
+          "seed": "m_fbef694d0a1c371a21d8"
+        },
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 42.6004769697644,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.7264472838085254,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.5833333333333334,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 50.6657221177469,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.7483186793063771,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.6333333333333333,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 66.7962124137119,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.7271695952795035,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.6333333333333333,
+          "rrf_contribution": 0.01885245901639344
+        }
+      ],
+      "graph_paths": [
+        [
+          "state_chain",
+          "user.farm.egg_sales"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_a1f532ab20c9ac40b4a8",
+      "content": "User sells eggs from their chickens to their neighbor for $3 per dozen.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "sell eggs",
+          "$3 per dozen",
+          "neighbor",
+          "chickens"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          },
+          {
+            "name": "neighbor",
+            "entity_type": "person",
+            "role": "other"
+          }
+        ],
+        "topic": "farm business",
+        "relation": {
+          "subject": "User",
+          "predicate": "sells eggs to",
+          "object": "neighbor"
+        },
+        "state_key": "user.farm.egg_sale_price",
+        "state_value": "$3 per dozen",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_1",
+        "session_index": 34,
+        "source_ids": [
+          176
+        ],
+        "source_uids": [
+          "s0034u0001"
+        ],
+        "source_times": [
+          "2023-05-26T10:45:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.04492339644568713,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 35.88103115254333,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 3,
+          "raw_score": 0.45157650666893473,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dimension",
+          "rank": 29,
+          "raw_score": 0.6,
+          "rrf_contribution": 0.012921348314606741
+        },
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 4.6913497947835765,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.46463957215388446,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.5833333333333334,
+          "rrf_contribution": 0.018548387096774192
+        },
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 7.537688547072016,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.6136611157636855,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.5666666666666667,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 37.62844609043239,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.6522023147170206,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.5666666666666667,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "active_state_chain",
+          "state_key": "user.farm.egg_sale_price",
+          "seed": "m_a1f532ab20c9ac40b4a8"
+        }
+      ],
+      "graph_paths": [
+        [
+          "state_chain",
+          "user.farm.egg_sale_price"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_ab964d5bef21eacd9c86",
+      "content": "User bought a new moisturizer from Sephora last weekend (around 2023-05-20).",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-20",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "last weekend"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "moisturizer",
+          "Sephora",
+          "purchase",
+          "last weekend"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          },
+          {
+            "name": "Sephora",
+            "entity_type": "organization",
+            "role": "seller"
+          }
+        ],
+        "topic": "skincare purchase",
+        "relation": {
+          "subject": "User",
+          "predicate": "bought",
+          "object": "new moisturizer from Sephora"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "e1552412_1",
+        "session_index": 9,
+        "source_ids": [
+          53
+        ],
+        "source_uids": [
+          "s0009u0004"
+        ],
+        "source_times": [
+          "2023-05-21T18:50:02"
+        ],
+        "source_role": "user",
+        "window_index": 4
+      },
+      "score": 0.03919753086419753,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 20,
+          "raw_score": 9.937796680962503,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dense",
+          "rank": 20,
+          "raw_score": 0.2829584901460414,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dimension",
+          "rank": 21,
+          "raw_score": 0.625,
+          "rrf_contribution": 0.01419753086419753
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_11fb8302b8c0cc3160d8",
+      "content": "User just got back their favorite black pants from the dry cleaner, which they wore to a special event in January.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-22",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "just got back"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "black pants",
+          "dry cleaner",
+          "favorite",
+          "special event",
+          "January"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "clothing retrieval",
+        "relation": {
+          "subject": "User",
+          "predicate": "retrieved",
+          "object": "favorite black pants from dry cleaner"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "black pants",
+          "polarity": "positive",
+          "strength": 0.8,
+          "scope": "specific"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "02b99ec3_1",
+        "session_index": 13,
+        "source_ids": [
+          73
+        ],
+        "source_uids": [
+          "s0013u0001"
+        ],
+        "source_times": [
+          "2023-05-22T11:22:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.031767481767481766,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 14,
+          "raw_score": 11.686652257536116,
+          "rrf_contribution": 0.013513513513513514
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.625,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "active_time",
+          "start": "2023-05-01",
+          "end": "2023-05-30",
+          "operator": "between"
+        }
+      ],
+      "graph_paths": [
+        [
+          "time",
+          "between",
+          "2023-05-01",
+          "2023-05-30"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_6d0b9bf76cb7d9d6d4e2",
+      "content": "User spent $150 on chicken feed and $250 on goat feed this month.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "2023-05-01",
+          "event_end": "2023-05-22",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "this month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "chicken feed",
+          "goat feed",
+          "$150",
+          "$250",
+          "expense"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "farm feed costs",
+        "relation": {
+          "subject": "User",
+          "predicate": "spent",
+          "object": "$150 on chicken feed and $250 on goat feed"
+        },
+        "state_key": "user.farm.expense.feed",
+        "state_value": "$400 total",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "neutral",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_2",
+        "session_index": 12,
+        "source_ids": [
+          69
+        ],
+        "source_uids": [
+          "s0012u0003"
+        ],
+        "source_times": [
+          "2023-05-22T07:16:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.031754032258064516,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 4,
+          "raw_score": 26.409624075503075,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.5163920895992807,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 14.012985266412818,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 3,
+          "raw_score": 0.461045645318003,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dimension",
+          "rank": 17,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.014935064935064933
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_0646d81bfa94f56fda46",
+      "content": "User set up their new smart TV last weekend.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-13",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "last weekend"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "smart TV",
+          "set up",
+          "last weekend"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "electronics",
+        "relation": {
+          "subject": "user",
+          "predicate": "set up",
+          "object": "new smart TV"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "88793217",
+        "session_index": 4,
+        "source_ids": [
+          24
+        ],
+        "source_uids": [
+          "s0004u0002"
+        ],
+        "source_times": [
+          "2023-05-20T08:51:01"
+        ],
+        "source_role": "user",
+        "window_index": 1
+      },
+      "score": 0.031047580967612953,
+      "retrieval_sources": [
+        {
+          "route": "dense",
+          "rank": 22,
+          "raw_score": 0.2717412300861871,
+          "rrf_contribution": 0.012195121951219513
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.625,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "active_time",
+          "start": "2023-05-01",
+          "end": "2023-05-30",
+          "operator": "between"
+        }
+      ],
+      "graph_paths": [
+        [
+          "time",
+          "between",
+          "2023-05-01",
+          "2023-05-30"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_12d96054ffd90f39e50b",
+      "content": "User is thinking of upgrading their home internet plan because they work from home more often and need a more reliable connection.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [
+          "home"
+        ],
+        "reason": "working from home more often and needing reliable connection",
+        "purpose": "",
+        "keywords": [
+          "upgrade",
+          "home internet",
+          "work from home",
+          "reliable connection"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "planner"
+          }
+        ],
+        "topic": "internet",
+        "relation": {
+          "subject": "user",
+          "predicate": "considering upgrading",
+          "object": "home internet plan"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "88793217",
+        "session_index": 4,
+        "source_ids": [
+          25
+        ],
+        "source_uids": [
+          "s0004u0003"
+        ],
+        "source_times": [
+          "2023-05-20T08:51:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 1
+      },
+      "score": 0.030626977848101263,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 19,
+          "raw_score": 10.14399189768208,
+          "rrf_contribution": 0.012658227848101266
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.625,
+          "rrf_contribution": 0.01796875
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_f08f598716aad8c1b57e",
+      "content": "User discovered an online store last month that sells chunky wool blend.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-04-20",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "last month"
+        },
+        "locations": [
+          "online store"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "online store",
+          "chunky wool blend",
+          "discovered",
+          "last month"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "discoverer"
+          }
+        ],
+        "topic": "shopping",
+        "relation": {
+          "subject": "user",
+          "predicate": "discovered",
+          "object": "online store for chunky wool blend"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "a8ac3d1d_3",
+        "session_index": 2,
+        "source_ids": [
+          16
+        ],
+        "source_uids": [
+          "s0002u0006"
+        ],
+        "source_times": [
+          "2023-05-20T06:26:03"
+        ],
+        "source_role": "user",
+        "window_index": 1
+      },
+      "score": 0.028958333333333336,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 15,
+          "raw_score": 11.265612952740856,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dense",
+          "rank": 4,
+          "raw_score": 0.3771420957230321,
+          "rrf_contribution": 0.015625
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_ae1de0cc4cac86fbffe4",
+      "content": "User's family owns a beach house where they plan to vacation in July 2023.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [
+          "beach house"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "beach house",
+          "family",
+          "vacation",
+          "July"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          },
+          {
+            "name": "User's family",
+            "entity_type": "organization",
+            "role": "owner"
+          }
+        ],
+        "topic": "vacation property",
+        "relation": {
+          "subject": "User's family",
+          "predicate": "owns",
+          "object": "beach house"
+        },
+        "state_key": "user.family.beach_house",
+        "state_value": "owned",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "ae332229_2",
+        "session_index": 35,
+        "source_ids": [
+          182
+        ],
+        "source_uids": [
+          "s0035u0001"
+        ],
+        "source_times": [
+          "2023-05-26T10:49:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.028850145288501453,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 6,
+          "raw_score": 22.238715891332305,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dense",
+          "rank": 13,
+          "raw_score": 0.30907796882664884,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "bm25",
+          "rank": 7,
+          "raw_score": 9.36472901920647,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dense",
+          "rank": 13,
+          "raw_score": 0.33384067150595137,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "dimension",
+          "rank": 21,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.01419753086419753
+        },
+        {
+          "route": "bm25",
+          "rank": 7,
+          "raw_score": 9.36472901920647,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dense",
+          "rank": 12,
+          "raw_score": 0.33271523179050266,
+          "rrf_contribution": 0.013888888888888888
+        },
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 9.36472901920647,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 20,
+          "raw_score": 0.28457378176627474,
+          "rrf_contribution": 0.0125
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_f69d8fbc202407ee9063",
+      "content": "User makes their own chicken feed using grains from a local farm.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "to reduce costs",
+        "purpose": "",
+        "keywords": [
+          "homemade chicken feed",
+          "local farm",
+          "grains",
+          "cost reduction"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          },
+          {
+            "name": "local farm",
+            "entity_type": "organization",
+            "role": "supplier"
+          }
+        ],
+        "topic": "farm operations",
+        "relation": {
+          "subject": "User",
+          "predicate": "makes",
+          "object": "chicken feed from local grains"
+        },
+        "state_key": "user.farm.chicken_feed_source",
+        "state_value": "homemade from local farm grains",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_1",
+        "session_index": 34,
+        "source_ids": [
+          180
+        ],
+        "source_uids": [
+          "s0034u0005"
+        ],
+        "source_times": [
+          "2023-05-26T10:45:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.027972027972027972,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 18,
+          "raw_score": 10.432231431732705,
+          "rrf_contribution": 0.01282051282051282
+        },
+        {
+          "route": "dense",
+          "rank": 6,
+          "raw_score": 0.35261305128761344,
+          "rrf_contribution": 0.015151515151515152
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_bfbcb7ea6dfa8ca72d85",
+      "content": "User spent $100 on antibiotics for Boris the rooster last month.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "2023-04-01",
+          "event_end": "2023-04-30",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "last month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "antibiotics",
+          "Boris",
+          "rooster",
+          "$100",
+          "vet"
+        ],
+        "entities": [
+          {
+            "name": "Boris",
+            "entity_type": "object",
+            "role": "patient"
+          },
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "vet expenses",
+        "relation": {
+          "subject": "User",
+          "predicate": "spent",
+          "object": "$100 on antibiotics for Boris"
+        },
+        "state_key": "user.farm.expense.vet",
+        "state_value": "$100",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "neutral",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_2",
+        "session_index": 12,
+        "source_ids": [
+          71
+        ],
+        "source_uids": [
+          "s0012u0005"
+        ],
+        "source_times": [
+          "2023-05-22T07:16:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.027432808155699723,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 23,
+          "raw_score": 9.639476588287444,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dense",
+          "rank": 5,
+          "raw_score": 0.36809408726355936,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "bm25",
+          "rank": 25,
+          "raw_score": 0.014857447953212706,
+          "rrf_contribution": 0.011764705882352941
+        },
+        {
+          "route": "dense",
+          "rank": 6,
+          "raw_score": 0.38098779253170306,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dimension",
+          "rank": 23,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.013855421686746987
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_346d67f4186c12ea5e21",
+      "content": "User plans to plan a trip to Machu Picchu for May or October.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [
+          "Machu Picchu"
+        ],
+        "reason": "",
+        "purpose": "trip planning",
+        "keywords": [
+          "Machu Picchu",
+          "trip",
+          "May",
+          "October",
+          "plan"
+        ],
+        "entities": [
+          {
+            "name": "Machu Picchu",
+            "entity_type": "place",
+            "role": "destination"
+          }
+        ],
+        "topic": "travel planning",
+        "relation": {
+          "subject": "user",
+          "predicate": "plans to visit",
+          "object": "Machu Picchu"
+        },
+        "state_key": "user.travel_plan.machu_picchu",
+        "state_value": "May or October",
+        "state_status": "planned",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "ultrachat_350147",
+        "session_index": 24,
+        "source_ids": [
+          136
+        ],
+        "source_uids": [
+          "s0024u0003"
+        ],
+        "source_times": [
+          "2023-05-24T20:29:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 11
+      },
+      "score": 0.02728937728937729,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 5,
+          "raw_score": 25.44533030744427,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dense",
+          "rank": 24,
+          "raw_score": 0.26743676874862626,
+          "rrf_contribution": 0.011904761904761904
+        },
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 19.06707299310373,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 13,
+          "raw_score": 0.33187447578156054,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 19.06707299310373,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 15,
+          "raw_score": 0.30561314715979393,
+          "rrf_contribution": 0.013333333333333334
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_75c4cde1cecaa6057aed",
+      "content": "User is thinking about taking a scenic drive along the coast to see fall foliage later this year.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": "later this year"
+        },
+        "locations": [
+          "coast"
+        ],
+        "reason": "",
+        "purpose": "to see fall foliage",
+        "keywords": [
+          "scenic drive",
+          "coast",
+          "fall foliage",
+          "later this year"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          }
+        ],
+        "topic": "scenic drive",
+        "relation": {
+          "subject": "User",
+          "predicate": "is thinking about taking",
+          "object": "scenic drive along the coast to see fall foliage"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "hypothetical"
+      },
+      "provenance": {
+        "session_id": "ae332229_2",
+        "session_index": 35,
+        "source_ids": [
+          186
+        ],
+        "source_uids": [
+          "s0035u0005"
+        ],
+        "source_times": [
+          "2023-05-26T10:49:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 15
+      },
+      "score": 0.027247677531097463,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 27,
+          "raw_score": 9.227833963766063,
+          "rrf_contribution": 0.011494252873563218
+        },
+        {
+          "route": "dimension",
+          "rank": 13,
+          "raw_score": 0.625,
+          "rrf_contribution": 0.015753424657534244
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_0e6d226771b64f75ec1e",
+      "content": "User received asylum approval letter three months ago from 2023-05-20.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-02-20",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "three months since I received my asylum approval letter"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "asylum approval",
+          "three months ago",
+          "2023-02-20"
+        ],
+        "entities": [],
+        "topic": "asylum status",
+        "relation": {
+          "subject": "user",
+          "predicate": "received",
+          "object": "asylum approval letter"
+        },
+        "state_key": "user.asylum_approval_date",
+        "state_value": "2023-02-20",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "90f16f14_2",
+        "session_index": 5,
+        "source_ids": [
+          29
+        ],
+        "source_uids": [
+          "s0005u0001"
+        ],
+        "source_times": [
+          "2023-05-20T12:44:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 2
+      },
+      "score": 0.027222222222222224,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 12,
+          "raw_score": 11.901605637595388,
+          "rrf_contribution": 0.013888888888888888
+        },
+        {
+          "route": "dense",
+          "rank": 15,
+          "raw_score": 0.296683610103041,
+          "rrf_contribution": 0.013333333333333334
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_654bac73cee38306b788",
+      "content": "User has been dealing with a lingering cold for the past month as of 2023-05-26.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-04-26",
+          "valid_to": "2023-05-26",
+          "precision": "month",
+          "raw": "for the past month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "lingering cold",
+          "past month",
+          "health"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          }
+        ],
+        "topic": "health",
+        "relation": {
+          "subject": "User",
+          "predicate": "has",
+          "object": "lingering cold"
+        },
+        "state_key": "user.health.condition",
+        "state_value": "lingering cold",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "28741edc_1",
+        "session_index": 33,
+        "source_ids": [
+          173
+        ],
+        "source_uids": [
+          "s0033u0004"
+        ],
+        "source_times": [
+          "2023-05-26T08:08:02"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.027046783625730993,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 16,
+          "raw_score": 11.138260535207579,
+          "rrf_contribution": 0.013157894736842105
+        },
+        {
+          "route": "dense",
+          "rank": 12,
+          "raw_score": 0.313155717726793,
+          "rrf_contribution": 0.013888888888888888
+        },
+        {
+          "route": "bm25",
+          "rank": 23,
+          "raw_score": 0.014857447953212706,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dense",
+          "rank": 30,
+          "raw_score": 0.2869621284592121,
+          "rrf_contribution": 0.011111111111111112
+        },
+        {
+          "route": "dimension",
+          "rank": 16,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.01513157894736842
+        }
+      ],
+      "graph_paths": []
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "coverage_before": {
+        "must_continue": true,
+        "hard_gaps": [
+          "state_chain_not_checked",
+          "bridge_search_not_attempted",
+          "unresolved_slots_without_probe"
+        ],
+        "remaining_slots": [
+          "individual sale amounts"
+        ],
+        "expected_evidence_count": 5,
+        "current_evidence_count": 15,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "egg_sales_total"
+        ],
+        "state_chain_checked": false,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": false,
+        "time_evidence_present": true,
+        "visited_tools": []
+      },
+      "decision": {
+        "active_hypothesis": 0,
+        "mode": "navigate",
+        "actions": [
+          {
+            "tool": "follow_state_chain",
+            "args": {
+              "state_key": "user.farm.egg_sales",
+              "memory_id": "m_fbef694d0a1c371a21d8",
+              "limit": 12
+            }
+          },
+          {
+            "tool": "search_text",
+            "args": {
+              "query": "egg sales total earnings May 2023",
+              "entities": [
+                "user",
+                "egg"
+              ],
+              "keywords": [
+                "sell",
+                "earnings",
+                "total",
+                "May"
+              ],
+              "memory_types": [
+                "fact"
+              ],
+              "limit": 10
+            }
+          },
+          {
+            "tool": "expand_entity",
+            "args": {
+              "entity": "egg",
+              "limit": 10
+            }
+          }
+        ],
+        "updated_missing_slots": [
+          "individual sale amounts"
+        ],
+        "revised_constraints": {
+          "entities": [
+            "user",
+            "egg"
+          ],
+          "time_anchor": "2023-05-30T09:50:00",
+          "state_keys": [
+            "egg_sales_total"
+          ],
+          "relation_hints": []
+        },
+        "reason": "Need to follow state chain for egg_sales to find total earnings, search for explicit total, and expand egg entity to find related sale records."
+      },
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 9504,
+        "completion_tokens": 304,
+        "elapsed_seconds": 2.7957944869995117
+      },
+      "finish_overridden": false,
+      "tool_results": [
+        {
+          "tool": "follow_state_chain",
+          "args": {
+            "state_key": "user.farm.egg_sales",
+            "memory_id": "m_fbef694d0a1c371a21d8",
+            "limit": 12
+          },
+          "count": 1,
+          "memory_ids": [
+            "m_fbef694d0a1c371a21d8"
+          ]
+        },
+        {
+          "tool": "search_text",
+          "args": {
+            "query": "egg sales total earnings May 2023",
+            "entities": [
+              "user",
+              "egg"
+            ],
+            "keywords": [
+              "sell",
+              "earnings",
+              "total",
+              "May"
+            ],
+            "memory_types": [
+              "fact"
+            ],
+            "limit": 10
+          },
+          "count": 10,
+          "memory_ids": [
+            "m_fbef694d0a1c371a21d8",
+            "m_a1f532ab20c9ac40b4a8",
+            "m_6d0b9bf76cb7d9d6d4e2",
+            "m_192c4f07801d51a26865",
+            "m_ae1de0cc4cac86fbffe4",
+            "m_3a4b22fb14b9e73d2147",
+            "m_bfbcb7ea6dfa8ca72d85",
+            "m_654bac73cee38306b788",
+            "m_1035e992ae3398d8d095",
+            "m_83089fce6ee4f0933c34"
+          ]
+        },
+        {
+          "tool": "expand_entity",
+          "args": {
+            "entity": "egg",
+            "limit": 10
+          },
+          "count": 0,
+          "memory_ids": []
+        }
+      ],
+      "tool_parallel": {
+        "stage": "active-v3-tools-r1",
+        "total": 3,
+        "workers": 3,
+        "succeeded": 3,
+        "failed": 0,
+        "elapsed_seconds": 4.069509267807007
+      },
+      "new_memory_count": 4,
+      "total_tool_calls": 3,
+      "coverage_after": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "individual sale amounts"
+        ],
+        "expected_evidence_count": 5,
+        "current_evidence_count": 19,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "egg_sales_total"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_entity",
+          "follow_state_chain",
+          "search_text"
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "coverage_before": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "individual sale amounts"
+        ],
+        "expected_evidence_count": 5,
+        "current_evidence_count": 19,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "egg_sales_total"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_entity",
+          "follow_state_chain",
+          "search_text"
+        ]
+      },
+      "decision": {
+        "active_hypothesis": 0,
+        "mode": "navigate",
+        "actions": [
+          {
+            "tool": "search_text",
+            "args": {
+              "query": "individual egg sale amounts May 2023",
+              "entities": [
+                "user",
+                "egg"
+              ],
+              "keywords": [
+                "sale",
+                "amount",
+                "price",
+                "dozen",
+                "May"
+              ],
+              "memory_types": [
+                "fact",
+                "episodic"
+              ],
+              "limit": 10
+            }
+          },
+          {
+            "tool": "expand_time",
+            "args": {
+              "start": "2023-05-01",
+              "end": "2023-05-30",
+              "operator": "between",
+              "limit": 10
+            }
+          },
+          {
+            "tool": "follow_state_chain",
+            "args": {
+              "state_key": "user.farm.egg_sales",
+              "memory_id": "m_fbef694d0a1c371a21d8",
+              "limit": 12
+            }
+          }
+        ],
+        "updated_missing_slots": [
+          "individual sale amounts"
+        ],
+        "revised_constraints": {
+          "entities": [
+            "user",
+            "egg"
+          ],
+          "time_anchor": "2023-05-01 to 2023-05-30",
+          "state_keys": [
+            "user.farm.egg_sales",
+            "user.farm.egg_sale_price"
+          ],
+          "relation_hints": []
+        },
+        "reason": "Need individual sale amounts to compute total earnings. Current evidence gives total dozens sold (40) and price per dozen ($3), but no record of individual transactions. Searching for specific sale events, expanding time to capture all May events, and following the state chain for egg_sales to find updates."
+      },
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 12382,
+        "completion_tokens": 381,
+        "elapsed_seconds": 3.7455577850341797
+      },
+      "finish_overridden": false,
+      "tool_results": [
+        {
+          "tool": "search_text",
+          "args": {
+            "query": "individual egg sale amounts May 2023",
+            "entities": [
+              "user",
+              "egg"
+            ],
+            "keywords": [
+              "sale",
+              "amount",
+              "price",
+              "dozen",
+              "May"
+            ],
+            "memory_types": [
+              "fact",
+              "episodic"
+            ],
+            "limit": 10
+          },
+          "count": 10,
+          "memory_ids": [
+            "m_fbef694d0a1c371a21d8",
+            "m_a1f532ab20c9ac40b4a8",
+            "m_192c4f07801d51a26865",
+            "m_3a4b22fb14b9e73d2147",
+            "m_561f7aa555b973b0cf63",
+            "m_1035e992ae3398d8d095",
+            "m_e2409c3bb46bfce3f95a",
+            "m_346d67f4186c12ea5e21",
+            "m_010fb4385c19338dcf05",
+            "m_ae1de0cc4cac86fbffe4"
+          ]
+        },
+        {
+          "tool": "expand_time",
+          "args": {
+            "start": "2023-05-01",
+            "end": "2023-05-30",
+            "operator": "between",
+            "limit": 10
+          },
+          "count": 10,
+          "memory_ids": [
+            "m_0080cb4fc070792d41e5",
+            "m_04d2e9de5807b55d5d5b",
+            "m_0579ca01063ad37eedfc",
+            "m_0646d81bfa94f56fda46",
+            "m_11fb8302b8c0cc3160d8",
+            "m_12aaf58a8125752eda57",
+            "m_12d098591a0d7d0c0e73",
+            "m_15b6f560c515e242f8fa",
+            "m_15b79260cccec45e6090",
+            "m_1740bef5f7301449bc1a"
+          ]
+        }
+      ],
+      "tool_parallel": {
+        "stage": "active-v3-tools-r2",
+        "total": 2,
+        "workers": 2,
+        "succeeded": 2,
+        "failed": 0,
+        "elapsed_seconds": 0.4628732204437256
+      },
+      "new_memory_count": 11,
+      "total_tool_calls": 5,
+      "coverage_after": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "individual sale amounts"
+        ],
+        "expected_evidence_count": 5,
+        "current_evidence_count": 30,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "egg_sales_total"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_entity",
+          "expand_time",
+          "follow_state_chain",
+          "search_text"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "coverage_before": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "individual sale amounts"
+        ],
+        "expected_evidence_count": 5,
+        "current_evidence_count": 30,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "egg_sales_total"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_entity",
+          "expand_time",
+          "follow_state_chain",
+          "search_text"
+        ]
+      },
+      "decision": {
+        "active_hypothesis": 0,
+        "mode": "navigate",
+        "actions": [
+          {
+            "tool": "search_text",
+            "args": {
+              "query": "egg sale amount price per dozen May 2023",
+              "entities": [
+                "user",
+                "egg"
+              ],
+              "keywords": [
+                "sale",
+                "amount",
+                "price",
+                "dozen",
+                "May"
+              ],
+              "memory_types": [
+                "fact",
+                "episodic"
+              ],
+              "limit": 10
+            }
+          },
+          {
+            "tool": "follow_state_chain",
+            "args": {
+              "state_key": "user.farm.egg_sale_price",
+              "memory_id": "m_a1f532ab20c9ac40b4a8",
+              "limit": 12
+            }
+          }
+        ],
+        "updated_missing_slots": [
+          "individual sale amounts"
+        ],
+        "revised_constraints": {
+          "entities": [
+            "user",
+            "egg"
+          ],
+          "time_anchor": "2023-05-01 to 2023-05-30",
+          "state_keys": [
+            "egg_sales_total",
+            "user.farm.egg_sale_price"
+          ],
+          "relation_hints": []
+        },
+        "reason": "Need individual sale amounts to compute total. Found price $3/dozen but no per-sale records. Search for specific sale events and follow price state chain for updates."
+      },
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 13660,
+        "completion_tokens": 301,
+        "elapsed_seconds": 2.7819528579711914
+      },
+      "finish_overridden": false,
+      "tool_results": [
+        {
+          "tool": "search_text",
+          "args": {
+            "query": "egg sale amount price per dozen May 2023",
+            "entities": [
+              "user",
+              "egg"
+            ],
+            "keywords": [
+              "sale",
+              "amount",
+              "price",
+              "dozen",
+              "May"
+            ],
+            "memory_types": [
+              "fact",
+              "episodic"
+            ],
+            "limit": 10
+          },
+          "count": 10,
+          "memory_ids": [
+            "m_fbef694d0a1c371a21d8",
+            "m_a1f532ab20c9ac40b4a8",
+            "m_192c4f07801d51a26865",
+            "m_3a4b22fb14b9e73d2147",
+            "m_561f7aa555b973b0cf63",
+            "m_e2409c3bb46bfce3f95a",
+            "m_1035e992ae3398d8d095",
+            "m_346d67f4186c12ea5e21",
+            "m_010fb4385c19338dcf05",
+            "m_ae1de0cc4cac86fbffe4"
+          ]
+        },
+        {
+          "tool": "follow_state_chain",
+          "args": {
+            "state_key": "user.farm.egg_sale_price",
+            "memory_id": "m_a1f532ab20c9ac40b4a8",
+            "limit": 12
+          },
+          "count": 1,
+          "memory_ids": [
+            "m_a1f532ab20c9ac40b4a8"
+          ]
+        }
+      ],
+      "tool_parallel": {
+        "stage": "active-v3-tools-r3",
+        "total": 2,
+        "workers": 2,
+        "succeeded": 2,
+        "failed": 0,
+        "elapsed_seconds": 0.1045370101928711
+      },
+      "new_memory_count": 0,
+      "total_tool_calls": 7,
+      "coverage_after": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "individual sale amounts"
+        ],
+        "expected_evidence_count": 5,
+        "current_evidence_count": 30,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "egg_sales_total"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_entity",
+          "expand_time",
+          "follow_state_chain",
+          "search_text"
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "coverage_before": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "individual sale amounts"
+        ],
+        "expected_evidence_count": 5,
+        "current_evidence_count": 30,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "egg_sales_total"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_entity",
+          "expand_time",
+          "follow_state_chain",
+          "search_text"
+        ]
+      },
+      "decision": {
+        "active_hypothesis": 0,
+        "mode": "navigate",
+        "actions": [
+          {
+            "tool": "search_text",
+            "args": {
+              "query": "individual egg sale amounts May 2023",
+              "entities": [
+                "user",
+                "egg"
+              ],
+              "keywords": [
+                "sale",
+                "amount",
+                "price",
+                "dozen",
+                "May"
+              ],
+              "memory_types": [
+                "fact",
+                "episodic"
+              ],
+              "limit": 10
+            }
+          }
+        ],
+        "updated_missing_slots": [
+          "individual sale amounts"
+        ],
+        "revised_constraints": {
+          "entities": [
+            "user",
+            "egg"
+          ],
+          "time_anchor": "2023-05-01 to 2023-05-30",
+          "state_keys": [
+            "egg_sales_total"
+          ],
+          "relation_hints": []
+        },
+        "reason": "Need individual sale amounts to compute total earnings. Current evidence shows 40 dozen sold at $3/dozen but no per-sale breakdown. Searching for individual sale records."
+      },
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 15141,
+        "completion_tokens": 224,
+        "elapsed_seconds": 2.9094605445861816
+      },
+      "finish_overridden": false,
+      "tool_results": [],
+      "stopped_reason": "no_unvisited_action_or_tool_budget_exhausted"
+    }
+  ],
+  "router_mode": "llm",
+  "policy": {
+    "name": "active_v3",
+    "coverage_gate": true,
+    "all_hypotheses": false,
+    "diverse_actions": false,
+    "coverage_rerank": false,
+    "max_rounds": 4,
+    "max_total_tool_calls": 9,
+    "router_evidence_k": 18,
+    "max_actions_per_round": 3
+  },
+  "final": [
+    {
+      "memory_id": "m_fbef694d0a1c371a21d8",
+      "content": "User sold 40 dozen eggs in the current month (May 2023).",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "2023-05-01",
+          "event_end": "2023-05-22",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "this month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "egg production",
+          "40 dozen",
+          "sold",
+          "farm"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "farm egg production",
+        "relation": {
+          "subject": "User",
+          "predicate": "sold",
+          "object": "40 dozen eggs"
+        },
+        "state_key": "user.farm.egg_sales",
+        "state_value": "40 dozen eggs",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "neutral",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_2",
+        "session_index": 12,
+        "source_ids": [
+          67
+        ],
+        "source_uids": [
+          "s0012u0001"
+        ],
+        "source_times": [
+          "2023-05-22T07:16:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.23488420504813948,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 125.69133207588173,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.6808702960096177,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 30,
+          "raw_score": 0.6,
+          "rrf_contribution": 0.012777777777777777
+        },
+        {
+          "route": "active_state_chain",
+          "state_key": "user.farm.egg_sales",
+          "seed": "m_fbef694d0a1c371a21d8"
+        },
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 42.6004769697644,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.7264472838085254,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.5833333333333334,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 50.6657221177469,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.7483186793063771,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.6333333333333333,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 66.7962124137119,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.7271695952795035,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.6333333333333333,
+          "rrf_contribution": 0.01885245901639344
+        }
+      ],
+      "graph_paths": [
+        [
+          "state_chain",
+          "user.farm.egg_sales"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_a1f532ab20c9ac40b4a8",
+      "content": "User sells eggs from their chickens to their neighbor for $3 per dozen.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "sell eggs",
+          "$3 per dozen",
+          "neighbor",
+          "chickens"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          },
+          {
+            "name": "neighbor",
+            "entity_type": "person",
+            "role": "other"
+          }
+        ],
+        "topic": "farm business",
+        "relation": {
+          "subject": "User",
+          "predicate": "sells eggs to",
+          "object": "neighbor"
+        },
+        "state_key": "user.farm.egg_sale_price",
+        "state_value": "$3 per dozen",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_1",
+        "session_index": 34,
+        "source_ids": [
+          176
+        ],
+        "source_uids": [
+          "s0034u0001"
+        ],
+        "source_times": [
+          "2023-05-26T10:45:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.22890761378853824,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 35.88103115254333,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 3,
+          "raw_score": 0.45157650666893473,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dimension",
+          "rank": 29,
+          "raw_score": 0.6,
+          "rrf_contribution": 0.012921348314606741
+        },
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 4.6913497947835765,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.46463957215388446,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.5833333333333334,
+          "rrf_contribution": 0.018548387096774192
+        },
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 7.537688547072016,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.6136611157636855,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.5666666666666667,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 37.62844609043239,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.6522023147170206,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.5666666666666667,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "active_state_chain",
+          "state_key": "user.farm.egg_sale_price",
+          "seed": "m_a1f532ab20c9ac40b4a8"
+        }
+      ],
+      "graph_paths": [
+        [
+          "state_chain",
+          "user.farm.egg_sale_price"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_192c4f07801d51a26865",
+      "content": "User has a Leghorn hen named Luna.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "Luna",
+          "Leghorn",
+          "hen",
+          "chicken"
+        ],
+        "entities": [
+          {
+            "name": "Luna",
+            "entity_type": "object",
+            "role": "pet"
+          },
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "farm animals",
+        "relation": {
+          "subject": "User",
+          "predicate": "owns",
+          "object": "Luna (Leghorn hen)"
+        },
+        "state_key": "user.farm.chickens",
+        "state_value": "Luna (Leghorn)",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_1",
+        "session_index": 34,
+        "source_ids": [
+          177
+        ],
+        "source_uids": [
+          "s0034u0002"
+        ],
+        "source_times": [
+          "2023-05-26T10:45:01"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.12894625133873666,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 11,
+          "raw_score": 0.015750309054845407,
+          "rrf_contribution": 0.014084507042253521
+        },
+        {
+          "route": "dense",
+          "rank": 14,
+          "raw_score": 0.3325971885261321,
+          "rrf_contribution": 0.013513513513513514
+        },
+        {
+          "route": "dimension",
+          "rank": 7,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.017164179104477612
+        },
+        {
+          "route": "bm25",
+          "rank": 11,
+          "raw_score": 0.015750309054845407,
+          "rrf_contribution": 0.014084507042253521
+        },
+        {
+          "route": "dense",
+          "rank": 16,
+          "raw_score": 0.32262957503152556,
+          "rrf_contribution": 0.013157894736842105
+        },
+        {
+          "route": "dimension",
+          "rank": 17,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.014935064935064933
+        },
+        {
+          "route": "bm25",
+          "rank": 11,
+          "raw_score": 0.015750309054845407,
+          "rrf_contribution": 0.014084507042253521
+        },
+        {
+          "route": "dense",
+          "rank": 17,
+          "raw_score": 0.2891000631313002,
+          "rrf_contribution": 0.012987012987012988
+        },
+        {
+          "route": "dimension",
+          "rank": 17,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.014935064935064933
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_ae1de0cc4cac86fbffe4",
+      "content": "User's family owns a beach house where they plan to vacation in July 2023.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [
+          "beach house"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "beach house",
+          "family",
+          "vacation",
+          "July"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          },
+          {
+            "name": "User's family",
+            "entity_type": "organization",
+            "role": "owner"
+          }
+        ],
+        "topic": "vacation property",
+        "relation": {
+          "subject": "User's family",
+          "predicate": "owns",
+          "object": "beach house"
+        },
+        "state_key": "user.family.beach_house",
+        "state_value": "owned",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "ae332229_2",
+        "session_index": 35,
+        "source_ids": [
+          182
+        ],
+        "source_uids": [
+          "s0035u0001"
+        ],
+        "source_times": [
+          "2023-05-26T10:49:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.12769182380017208,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 6,
+          "raw_score": 22.238715891332305,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dense",
+          "rank": 13,
+          "raw_score": 0.30907796882664884,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "bm25",
+          "rank": 7,
+          "raw_score": 9.36472901920647,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dense",
+          "rank": 13,
+          "raw_score": 0.33384067150595137,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "dimension",
+          "rank": 21,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.01419753086419753
+        },
+        {
+          "route": "bm25",
+          "rank": 7,
+          "raw_score": 9.36472901920647,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dense",
+          "rank": 12,
+          "raw_score": 0.33271523179050266,
+          "rrf_contribution": 0.013888888888888888
+        },
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 9.36472901920647,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 20,
+          "raw_score": 0.28457378176627474,
+          "rrf_contribution": 0.0125
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_3a4b22fb14b9e73d2147",
+      "content": "User spent $200 on replacing fencing around the chicken coop.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "fencing",
+          "chicken coop",
+          "$200",
+          "expense"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "farm expenses",
+        "relation": {
+          "subject": "User",
+          "predicate": "spent",
+          "object": "$200 on chicken coop fencing"
+        },
+        "state_key": "user.farm.expense.fencing",
+        "state_value": "$200",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "neutral",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_2",
+        "session_index": 12,
+        "source_ids": [
+          68
+        ],
+        "source_uids": [
+          "s0012u0002"
+        ],
+        "source_times": [
+          "2023-05-22T07:16:01"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.12295577796220925,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 15,
+          "raw_score": 0.015290855646022852,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dense",
+          "rank": 21,
+          "raw_score": 0.31367902871545406,
+          "rrf_contribution": 0.012345679012345678
+        },
+        {
+          "route": "dimension",
+          "rank": 11,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.01619718309859155
+        },
+        {
+          "route": "bm25",
+          "rank": 15,
+          "raw_score": 0.015290855646022852,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dense",
+          "rank": 15,
+          "raw_score": 0.327380970818634,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dimension",
+          "rank": 24,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.013690476190476189
+        },
+        {
+          "route": "bm25",
+          "rank": 15,
+          "raw_score": 0.015290855646022852,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dense",
+          "rank": 13,
+          "raw_score": 0.30825034871847146,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "dimension",
+          "rank": 24,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.013690476190476189
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_1035e992ae3398d8d095",
+      "content": "User is concerned about Nanny the goat's limp and may need to take her to the vet.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "Nanny",
+          "goat",
+          "limp",
+          "vet",
+          "concern"
+        ],
+        "entities": [
+          {
+            "name": "Nanny",
+            "entity_type": "object",
+            "role": "patient"
+          },
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "goat health",
+        "relation": {
+          "subject": "User",
+          "predicate": "is concerned about",
+          "object": "Nanny's limp"
+        },
+        "state_key": "user.farm.goat_health.nanny",
+        "state_value": "limp, potential vet visit",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "neutral",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "uncertain"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_2",
+        "session_index": 12,
+        "source_ids": [
+          72
+        ],
+        "source_uids": [
+          "s0012u0006"
+        ],
+        "source_times": [
+          "2023-05-22T07:16:03"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.10141073688040073,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 6,
+          "raw_score": 11.389466210625388,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.5833333333333334,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "bm25",
+          "rank": 5,
+          "raw_score": 11.389466210625388,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.5666666666666667,
+          "rrf_contribution": 0.018548387096774192
+        },
+        {
+          "route": "bm25",
+          "rank": 7,
+          "raw_score": 11.389466210625388,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.5666666666666667,
+          "rrf_contribution": 0.018548387096774192
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_346d67f4186c12ea5e21",
+      "content": "User plans to plan a trip to Machu Picchu for May or October.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [
+          "Machu Picchu"
+        ],
+        "reason": "",
+        "purpose": "trip planning",
+        "keywords": [
+          "Machu Picchu",
+          "trip",
+          "May",
+          "October",
+          "plan"
+        ],
+        "entities": [
+          {
+            "name": "Machu Picchu",
+            "entity_type": "place",
+            "role": "destination"
+          }
+        ],
+        "topic": "travel planning",
+        "relation": {
+          "subject": "user",
+          "predicate": "plans to visit",
+          "object": "Machu Picchu"
+        },
+        "state_key": "user.travel_plan.machu_picchu",
+        "state_value": "May or October",
+        "state_status": "planned",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "ultrachat_350147",
+        "session_index": 24,
+        "source_ids": [
+          136
+        ],
+        "source_uids": [
+          "s0024u0003"
+        ],
+        "source_times": [
+          "2023-05-24T20:29:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 11
+      },
+      "score": 0.08632338889077731,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 5,
+          "raw_score": 25.44533030744427,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dense",
+          "rank": 24,
+          "raw_score": 0.26743676874862626,
+          "rrf_contribution": 0.011904761904761904
+        },
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 19.06707299310373,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 13,
+          "raw_score": 0.33187447578156054,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 19.06707299310373,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 15,
+          "raw_score": 0.30561314715979393,
+          "rrf_contribution": 0.013333333333333334
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_561f7aa555b973b0cf63",
+      "content": "User plans to sign up for a summer tennis league in June.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-06-01",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "June"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "tennis league",
+          "sign up",
+          "June",
+          "summer"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          }
+        ],
+        "topic": "tennis league",
+        "relation": {
+          "subject": "User",
+          "predicate": "plans to sign up for",
+          "object": "summer tennis league in June"
+        },
+        "state_key": "user.tennis_league_plan",
+        "state_value": "sign up in June",
+        "state_status": "planned",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "ae332229_2",
+        "session_index": 35,
+        "source_ids": [
+          185
+        ],
+        "source_uids": [
+          "s0035u0004"
+        ],
+        "source_times": [
+          "2023-05-26T10:49:02"
+        ],
+        "source_role": "user",
+        "window_index": 15
+      },
+      "score": 0.07861763704460334,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 29,
+          "raw_score": 0.014649828816184958,
+          "rrf_contribution": 0.011235955056179775
+        },
+        {
+          "route": "dense",
+          "rank": 6,
+          "raw_score": 0.37727662483826974,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dimension",
+          "rank": 29,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.012921348314606741
+        },
+        {
+          "route": "bm25",
+          "rank": 29,
+          "raw_score": 0.014649828816184958,
+          "rrf_contribution": 0.011235955056179775
+        },
+        {
+          "route": "dense",
+          "rank": 6,
+          "raw_score": 0.3592159971674695,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dimension",
+          "rank": 29,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.012921348314606741
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_6d0b9bf76cb7d9d6d4e2",
+      "content": "User spent $150 on chicken feed and $250 on goat feed this month.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "2023-05-01",
+          "event_end": "2023-05-22",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "this month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "chicken feed",
+          "goat feed",
+          "$150",
+          "$250",
+          "expense"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "farm feed costs",
+        "relation": {
+          "subject": "User",
+          "predicate": "spent",
+          "object": "$150 on chicken feed and $250 on goat feed"
+        },
+        "state_key": "user.farm.expense.feed",
+        "state_value": "$400 total",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "neutral",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_2",
+        "session_index": 12,
+        "source_ids": [
+          69
+        ],
+        "source_uids": [
+          "s0012u0003"
+        ],
+        "source_times": [
+          "2023-05-22T07:16:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.07843512893916119,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 4,
+          "raw_score": 26.409624075503075,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.5163920895992807,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 14.012985266412818,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 3,
+          "raw_score": 0.461045645318003,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dimension",
+          "rank": 17,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.014935064935064933
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_bfbcb7ea6dfa8ca72d85",
+      "content": "User spent $100 on antibiotics for Boris the rooster last month.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "2023-04-01",
+          "event_end": "2023-04-30",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "last month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "antibiotics",
+          "Boris",
+          "rooster",
+          "$100",
+          "vet"
+        ],
+        "entities": [
+          {
+            "name": "Boris",
+            "entity_type": "object",
+            "role": "patient"
+          },
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "vet expenses",
+        "relation": {
+          "subject": "User",
+          "predicate": "spent",
+          "object": "$100 on antibiotics for Boris"
+        },
+        "state_key": "user.farm.expense.vet",
+        "state_value": "$100",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "neutral",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_f56e6152_2",
+        "session_index": 12,
+        "source_ids": [
+          71
+        ],
+        "source_uids": [
+          "s0012u0005"
+        ],
+        "source_times": [
+          "2023-05-22T07:16:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.0682044508763148,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 23,
+          "raw_score": 9.639476588287444,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dense",
+          "rank": 5,
+          "raw_score": 0.36809408726355936,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "bm25",
+          "rank": 25,
+          "raw_score": 0.014857447953212706,
+          "rrf_contribution": 0.011764705882352941
+        },
+        {
+          "route": "dense",
+          "rank": 6,
+          "raw_score": 0.38098779253170306,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dimension",
+          "rank": 23,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.013855421686746987
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_e2409c3bb46bfce3f95a",
+      "content": "User currently uses a cloud storage service that offers 1TB of storage for a reasonable price, but is not satisfied with file organization and collaboration features.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "cloud storage",
+          "1TB",
+          "organization",
+          "collaboration",
+          "dissatisfied"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "user"
+          }
+        ],
+        "topic": "cloud storage",
+        "relation": {
+          "subject": "user",
+          "predicate": "uses",
+          "object": "cloud storage service with 1TB"
+        },
+        "state_key": "user.cloud_storage.service",
+        "state_value": "1TB storage, reasonable price, dissatisfied with organization and collaboration",
+        "state_status": "active",
+        "preference": {
+          "target": "cloud storage organization and collaboration features",
+          "polarity": "negative",
+          "strength": 0.6,
+          "scope": "contextual"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "88793217",
+        "session_index": 4,
+        "source_ids": [
+          27
+        ],
+        "source_uids": [
+          "s0004u0005"
+        ],
+        "source_times": [
+          "2023-05-20T08:51:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 1
+      },
+      "score": 0.0660552536231884,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 9,
+          "raw_score": 6.063985952230562,
+          "rrf_contribution": 0.014492753623188406
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.5666666666666667,
+          "rrf_contribution": 0.01796875
+        },
+        {
+          "route": "bm25",
+          "rank": 4,
+          "raw_score": 18.165381638774118,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.5666666666666667,
+          "rrf_contribution": 0.01796875
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_654bac73cee38306b788",
+      "content": "User has been dealing with a lingering cold for the past month as of 2023-05-26.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-04-26",
+          "valid_to": "2023-05-26",
+          "precision": "month",
+          "raw": "for the past month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "lingering cold",
+          "past month",
+          "health"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          }
+        ],
+        "topic": "health",
+        "relation": {
+          "subject": "User",
+          "predicate": "has",
+          "object": "lingering cold"
+        },
+        "state_key": "user.health.condition",
+        "state_value": "lingering cold",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "28741edc_1",
+        "session_index": 33,
+        "source_ids": [
+          173
+        ],
+        "source_uids": [
+          "s0033u0004"
+        ],
+        "source_times": [
+          "2023-05-26T08:08:02"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.06533766645529486,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 16,
+          "raw_score": 11.138260535207579,
+          "rrf_contribution": 0.013157894736842105
+        },
+        {
+          "route": "dense",
+          "rank": 12,
+          "raw_score": 0.313155717726793,
+          "rrf_contribution": 0.013888888888888888
+        },
+        {
+          "route": "bm25",
+          "rank": 23,
+          "raw_score": 0.014857447953212706,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dense",
+          "rank": 30,
+          "raw_score": 0.2869621284592121,
+          "rrf_contribution": 0.011111111111111112
+        },
+        {
+          "route": "dimension",
+          "rank": 16,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.01513157894736842
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_010fb4385c19338dcf05",
+      "content": "User experienced a cold winter from December to February with temperatures often below 25°F.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2022-12-01",
+          "event_end": "2023-02-28",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "from December to February"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "cold winter",
+          "December",
+          "February",
+          "below 25°F"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          }
+        ],
+        "topic": "weather",
+        "relation": {
+          "subject": "User",
+          "predicate": "experienced",
+          "object": "cold winter with temps below 25°F"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "ae332229_2",
+        "session_index": 35,
+        "source_ids": [
+          182
+        ],
+        "source_uids": [
+          "s0035u0001"
+        ],
+        "source_times": [
+          "2023-05-26T10:49:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 14
+      },
+      "score": 0.05785652549697493,
+      "retrieval_sources": [
+        {
+          "route": "dense",
+          "rank": 29,
+          "raw_score": 0.2773001193994691,
+          "rrf_contribution": 0.011235955056179775
+        },
+        {
+          "route": "dimension",
+          "rank": 5,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.01769230769230769
+        },
+        {
+          "route": "dense",
+          "rank": 29,
+          "raw_score": 0.2620084327510863,
+          "rrf_contribution": 0.011235955056179775
+        },
+        {
+          "route": "dimension",
+          "rank": 5,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.01769230769230769
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_ab964d5bef21eacd9c86",
+      "content": "User bought a new moisturizer from Sephora last weekend (around 2023-05-20).",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-20",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "last weekend"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "moisturizer",
+          "Sephora",
+          "purchase",
+          "last weekend"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "subject"
+          },
+          {
+            "name": "Sephora",
+            "entity_type": "organization",
+            "role": "seller"
+          }
+        ],
+        "topic": "skincare purchase",
+        "relation": {
+          "subject": "User",
+          "predicate": "bought",
+          "object": "new moisturizer from Sephora"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "e1552412_1",
+        "session_index": 9,
+        "source_ids": [
+          53
+        ],
+        "source_uids": [
+          "s0009u0004"
+        ],
+        "source_times": [
+          "2023-05-21T18:50:02"
+        ],
+        "source_role": "user",
+        "window_index": 4
+      },
+      "score": 0.03919753086419753,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 20,
+          "raw_score": 9.937796680962503,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dense",
+          "rank": 20,
+          "raw_score": 0.2829584901460414,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dimension",
+          "rank": 21,
+          "raw_score": 0.625,
+          "rrf_contribution": 0.01419753086419753
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_0646d81bfa94f56fda46",
+      "content": "User set up their new smart TV last weekend.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-13",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "last weekend"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "smart TV",
+          "set up",
+          "last weekend"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "electronics",
+        "relation": {
+          "subject": "user",
+          "predicate": "set up",
+          "object": "new smart TV"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "88793217",
+        "session_index": 4,
+        "source_ids": [
+          24
+        ],
+        "source_uids": [
+          "s0004u0002"
+        ],
+        "source_times": [
+          "2023-05-20T08:51:01"
+        ],
+        "source_role": "user",
+        "window_index": 1
+      },
+      "score": 0.03604758096761295,
+      "retrieval_sources": [
+        {
+          "route": "dense",
+          "rank": 22,
+          "raw_score": 0.2717412300861871,
+          "rrf_contribution": 0.012195121951219513
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.625,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "active_time",
+          "start": "2023-05-01",
+          "end": "2023-05-30",
+          "operator": "between"
+        }
+      ],
+      "graph_paths": [
+        [
+          "time",
+          "between",
+          "2023-05-01",
+          "2023-05-30"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_11fb8302b8c0cc3160d8",
+      "content": "User just got back their favorite black pants from the dry cleaner, which they wore to a special event in January.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-22",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "just got back"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "black pants",
+          "dry cleaner",
+          "favorite",
+          "special event",
+          "January"
+        ],
+        "entities": [
+          {
+            "name": "User",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "clothing retrieval",
+        "relation": {
+          "subject": "User",
+          "predicate": "retrieved",
+          "object": "favorite black pants from dry cleaner"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "black pants",
+          "polarity": "positive",
+          "strength": 0.8,
+          "scope": "specific"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "02b99ec3_1",
+        "session_index": 13,
+        "source_ids": [
+          73
+        ],
+        "source_uids": [
+          "s0013u0001"
+        ],
+        "source_times": [
+          "2023-05-22T11:22:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 5
+      },
+      "score": 0.03576748176748176,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 14,
+          "raw_score": 11.686652257536116,
+          "rrf_contribution": 0.013513513513513514
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.625,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "active_time",
+          "start": "2023-05-01",
+          "end": "2023-05-30",
+          "operator": "between"
+        }
+      ],
+      "graph_paths": [
+        [
+          "time",
+          "between",
+          "2023-05-01",
+          "2023-05-30"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_12d96054ffd90f39e50b",
+      "content": "User is thinking of upgrading their home internet plan because they work from home more often and need a more reliable connection.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [
+          "home"
+        ],
+        "reason": "working from home more often and needing reliable connection",
+        "purpose": "",
+        "keywords": [
+          "upgrade",
+          "home internet",
+          "work from home",
+          "reliable connection"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "planner"
+          }
+        ],
+        "topic": "internet",
+        "relation": {
+          "subject": "user",
+          "predicate": "considering upgrading",
+          "object": "home internet plan"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "88793217",
+        "session_index": 4,
+        "source_ids": [
+          25
+        ],
+        "source_uids": [
+          "s0004u0003"
+        ],
+        "source_times": [
+          "2023-05-20T08:51:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 1
+      },
+      "score": 0.030626977848101263,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 19,
+          "raw_score": 10.14399189768208,
+          "rrf_contribution": 0.012658227848101266
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.625,
+          "rrf_contribution": 0.01796875
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_f08f598716aad8c1b57e",
+      "content": "User discovered an online store last month that sells chunky wool blend.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-04-20",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "last month"
+        },
+        "locations": [
+          "online store"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "online store",
+          "chunky wool blend",
+          "discovered",
+          "last month"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "discoverer"
+          }
+        ],
+        "topic": "shopping",
+        "relation": {
+          "subject": "user",
+          "predicate": "discovered",
+          "object": "online store for chunky wool blend"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "a8ac3d1d_3",
+        "session_index": 2,
+        "source_ids": [
+          16
+        ],
+        "source_uids": [
+          "s0002u0006"
+        ],
+        "source_times": [
+          "2023-05-20T06:26:03"
+        ],
+        "source_role": "user",
+        "window_index": 1
+      },
+      "score": 0.028958333333333336,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 15,
+          "raw_score": 11.265612952740856,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dense",
+          "rank": 4,
+          "raw_score": 0.3771420957230321,
+          "rrf_contribution": 0.015625
+        }
+      ],
+      "graph_paths": []
+    }
+  ],
+  "visited_actions": [
+    "{\"args\": {\"end\": \"2023-05-30\", \"limit\": 10, \"operator\": \"between\", \"start\": \"2023-05-01\"}, \"tool\": \"expand_time\"}",
+    "{\"args\": {\"entities\": [\"user\", \"egg\"], \"keywords\": [\"sale\", \"amount\", \"price\", \"dozen\", \"May\"], \"limit\": 10, \"memory_types\": [\"fact\", \"episodic\"], \"query\": \"egg sale amount price per dozen May 2023\"}, \"tool\": \"search_text\"}",
+    "{\"args\": {\"entities\": [\"user\", \"egg\"], \"keywords\": [\"sale\", \"amount\", \"price\", \"dozen\", \"May\"], \"limit\": 10, \"memory_types\": [\"fact\", \"episodic\"], \"query\": \"individual egg sale amounts May 2023\"}, \"tool\": \"search_text\"}",
+    "{\"args\": {\"entities\": [\"user\", \"egg\"], \"keywords\": [\"sell\", \"earnings\", \"total\", \"May\"], \"limit\": 10, \"memory_types\": [\"fact\"], \"query\": \"egg sales total earnings May 2023\"}, \"tool\": \"search_text\"}",
+    "{\"args\": {\"entity\": \"egg\", \"limit\": 10}, \"tool\": \"expand_entity\"}",
+    "{\"args\": {\"limit\": 12, \"memory_id\": \"m_a1f532ab20c9ac40b4a8\", \"state_key\": \"user.farm.egg_sale_price\"}, \"tool\": \"follow_state_chain\"}",
+    "{\"args\": {\"limit\": 12, \"memory_id\": \"m_fbef694d0a1c371a21d8\", \"state_key\": \"user.farm.egg_sales\"}, \"tool\": \"follow_state_chain\"}"
+  ],
+  "total_tool_calls": 7,
+  "final_coverage": {
+    "must_continue": false,
+    "hard_gaps": [],
+    "remaining_slots": [
+      "individual sale amounts"
+    ],
+    "expected_evidence_count": 5,
+    "current_evidence_count": 18,
+    "needs_assistant_context": false,
+    "has_assistant_context": true,
+    "state_keys": [
+      "egg_sales_total"
+    ],
+    "state_chain_checked": true,
+    "state_evidence_present": false,
+    "needs_multi_hop": true,
+    "bridge_checked": true,
+    "time_evidence_present": true,
+    "visited_tools": [
+      "expand_entity",
+      "expand_time",
+      "follow_state_chain",
+      "search_text"
+    ]
+  }
+}

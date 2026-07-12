@@ -1,0 +1,105 @@
+{
+  "question_id": "2a1811e2",
+  "question_type": "temporal-reasoning",
+  "question": "How many days had passed between the Hindu festival of Holi and the Sunday mass at St. Mary's Church?",
+  "question_date": "2023/03/26 (Sun) 12:05",
+  "gold_answer": "21 days. 22 days (including the last day) is also acceptable.",
+  "prediction": "21 days",
+  "support_memory_ids": [
+    "m_329f0e35b1c702322df5",
+    "m_91b4ea6e66afb94028d3"
+  ],
+  "support_source_ids": [
+    90,
+    139
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From memory m_329f0e35b1c702322df5 (source 90), user attended Holi on February 26, 2023. From memory m_91b4ea6e66afb94028d3 (source 139), user attended Sunday mass at St. Mary's Church on March 19, 2023. The difference between March 19 and February 26 is 21 days.",
+  "required_slots": [
+    {
+      "name": "date of Holi",
+      "value": "2023-02-26",
+      "support_memory_ids": [
+        "m_329f0e35b1c702322df5"
+      ],
+      "support_source_ids": [
+        90
+      ]
+    },
+    {
+      "name": "date of Sunday mass at St. Mary's Church",
+      "value": "2023-03-19",
+      "support_memory_ids": [
+        "m_91b4ea6e66afb94028d3"
+      ],
+      "support_source_ids": [
+        139
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-02-26",
+      "2023-03-19"
+    ],
+    "unit": "days",
+    "result": "21 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of Holi",
+        "query": "Holi 2023 date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of Sunday mass at St. Mary's Church",
+        "query": "St. Mary's Church Sunday mass date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Holi 2023 date",
+      "St. Mary's Church Sunday mass date"
+    ],
+    "output_constraints": [
+      "The answer must be a number followed by ' days'."
+    ],
+    "reason": "The question asks for the number of days between two events, requiring their dates. Composition is allowed to bridge event to date."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 29039,
+    "completion_tokens": 859,
+    "elapsed_seconds": 7.348051309585571
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 158,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7771651744842529
+  }
+}

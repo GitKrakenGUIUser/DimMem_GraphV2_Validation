@@ -1,0 +1,256 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "date of Europe trip",
+        "query": "Europe family trip date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of Thailand trip",
+        "query": "solo Thailand trip date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Europe family trip date",
+      "solo Thailand trip date"
+    ],
+    "reason": "Need dates of both trips to determine which occurred first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "The solo trip to Thailand (last year, 2022) came before the Europe trip with family (last month, April 2023).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2ab9cb16708d360b1616",
+      "m_55d908005a83cda6b1fc"
+    ],
+    "support_source_ids": [
+      97,
+      22
+    ],
+    "required_slots": [
+      {
+        "name": "date of Europe trip",
+        "value": "April 2023",
+        "support_memory_ids": [
+          "m_55d908005a83cda6b1fc"
+        ],
+        "support_source_ids": [
+          22
+        ]
+      },
+      {
+        "name": "date of Thailand trip",
+        "value": "2022",
+        "support_memory_ids": [
+          "m_2ab9cb16708d360b1616"
+        ],
+        "support_source_ids": [
+          97
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The Thailand solo trip occurred in 2022 (last year relative to the question date of 2023-05-28), while the Europe family trip occurred in April 2023 (last month). Therefore, the Thailand trip was first."
+  },
+  "p7_candidate": {
+    "answer": "The solo trip to Thailand (last year, 2022) came before the Europe trip with family (last month, April 2023).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2ab9cb16708d360b1616",
+      "m_55d908005a83cda6b1fc"
+    ],
+    "support_source_ids": [
+      97,
+      22
+    ],
+    "required_slots": [
+      {
+        "name": "date of Europe trip",
+        "value": "April 2023",
+        "support_memory_ids": [
+          "m_55d908005a83cda6b1fc"
+        ],
+        "support_source_ids": [
+          22
+        ]
+      },
+      {
+        "name": "date of Thailand trip",
+        "value": "2022",
+        "support_memory_ids": [
+          "m_2ab9cb16708d360b1616"
+        ],
+        "support_source_ids": [
+          97
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The Thailand solo trip occurred in 2022 (last year relative to the question date of 2023-05-28), while the Europe family trip occurred in April 2023 (last month). Therefore, the Thailand trip was first."
+  },
+  "specialist_candidate": {
+    "answer": "The solo trip to Thailand (2022) occurred before the Europe family trip (April 2023).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2ab9cb16708d360b1616",
+      "m_55d908005a83cda6b1fc"
+    ],
+    "support_source_ids": [
+      22,
+      97
+    ],
+    "required_slots": [
+      {
+        "name": "date of Europe trip",
+        "value": "April 2023",
+        "support_memory_ids": [
+          "m_55d908005a83cda6b1fc"
+        ],
+        "support_source_ids": [
+          22
+        ]
+      },
+      {
+        "name": "date of Thailand trip",
+        "value": "2022",
+        "support_memory_ids": [
+          "m_2ab9cb16708d360b1616"
+        ],
+        "support_source_ids": [
+          97
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "comparison",
+      "operands": [
+        "2022",
+        "April 2023"
+      ],
+      "unit": "",
+      "result": "Thailand trip first"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "User",
+        "predicate": "traveled solo to",
+        "object": "Thailand",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2022",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_2ab9cb16708d360b1616"
+        ],
+        "support_source_ids": [
+          97
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "User",
+        "predicate": "went on a two-week trip to",
+        "object": "Europe with family",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "April 2023",
+        "valid_from": "2023-05-28T20:06:00.500000",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_55d908005a83cda6b1fc"
+        ],
+        "support_source_ids": [
+          22
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_2ab9cb16708d360b1616, the solo Thailand trip occurred in 2022. From memory m_55d908005a83cda6b1fc, the Europe family trip occurred in April 2023. Since 2022 is before April 2023, the Thailand trip was first."
+  },
+  "choice": "specialist",
+  "verification": {
+    "choice": "specialist",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      }
+    },
+    "reason": "All candidates are supported and consistent, but specialist has highest confidence (1.0) and explicitly performs the comparison operation as required by the plan."
+  },
+  "targeted_source_ids": [
+    22,
+    23,
+    26,
+    97,
+    25,
+    178,
+    177,
+    99,
+    98,
+    27,
+    24
+  ],
+  "v2_timeline_memory_ids": [
+    "m_3ff00a7b737dd9e49b1e",
+    "m_013e9c100ce8e71e5999",
+    "m_25f4184e7388f9257024",
+    "m_382094aec339503c2517",
+    "m_55d908005a83cda6b1fc",
+    "m_d4c26f0f3df5eed84753",
+    "m_09ba3cda9d1a94c9b71b",
+    "m_2ab9cb16708d360b1616"
+  ]
+}

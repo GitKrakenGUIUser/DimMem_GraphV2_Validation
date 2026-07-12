@@ -1,0 +1,86 @@
+{
+  "question_id": "gpt4_7ddcf75f",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I go on a whitewater rafting trip in the Oregon mountains?",
+  "question_date": "2023/06/20 (Tue) 16:30",
+  "gold_answer": "3 days ago. 4 days (including the last day) is also acceptable.",
+  "prediction": "3 days",
+  "support_memory_ids": [
+    "m_6d4ab3ca30681b5b3876"
+  ],
+  "support_source_ids": [
+    62
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Memory m_6d4ab3ca30681b5b3876 and source 62 state user returned from whitewater rafting trip in Oregon mountains 'today' (2023-06-17). Question date is 2023-06-20. Difference is 3 days.",
+  "required_slots": [
+    {
+      "name": "trip date",
+      "value": "2023-06-17",
+      "support_memory_ids": [
+        "m_6d4ab3ca30681b5b3876"
+      ],
+      "support_source_ids": [
+        62
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-06-17",
+      "2023-06-20"
+    ],
+    "unit": "days",
+    "result": "3 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "trip date",
+        "query": "whitewater rafting trip Oregon mountains date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "whitewater rafting trip Oregon mountains date"
+    ],
+    "output_constraints": [
+      "number of days"
+    ],
+    "reason": "The question asks for days ago, requiring the trip date to compute difference from question date."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32320,
+    "completion_tokens": 565,
+    "elapsed_seconds": 6.081554412841797
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer '3 days ago'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 155,
+    "completion_tokens": 26,
+    "elapsed_seconds": 0.9013993740081787
+  }
+}

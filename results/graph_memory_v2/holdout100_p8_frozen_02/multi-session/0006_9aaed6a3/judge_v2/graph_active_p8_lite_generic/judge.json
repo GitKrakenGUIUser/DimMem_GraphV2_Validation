@@ -1,0 +1,71 @@
+{
+  "question_id": "9aaed6a3",
+  "question_type": "multi-session",
+  "question": "How much cashback did I earn at SaveMart last Thursday?",
+  "question_date": "2023/05/30 (Tue) 23:17",
+  "gold_answer": "$0.75",
+  "prediction": "75.01 dollars",
+  "support_memory_ids": [
+    "m_6a099d8ff1860ffdb237",
+    "m_a8a73edb5987433762d5"
+  ],
+  "support_source_ids": [
+    70,
+    50
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User spent $75 at SaveMart last Thursday (source 70). User has a SaveMart membership earning 1% cashback (source 50). Cashback = $75 * 1% = $0.75.",
+  "required_slots": [
+    {
+      "name": "cashback amount",
+      "value": "$0.75",
+      "support_memory_ids": [
+        "m_6a099d8ff1860ffdb237",
+        "m_a8a73edb5987433762d5"
+      ],
+      "support_source_ids": [
+        70,
+        50
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      "75",
+      "0.01"
+    ],
+    "unit": "dollars",
+    "result": "75.01 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": false,
+  "judge_reason": "Predicted amount is 75.01 dollars, but reference answer is $0.75.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 137,
+    "completion_tokens": 34,
+    "elapsed_seconds": 0.6731610298156738
+  }
+}

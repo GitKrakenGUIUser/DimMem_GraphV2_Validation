@@ -1,0 +1,67 @@
+{
+  "question_id": "gpt4_8c8961ae",
+  "question_type": "temporal-reasoning",
+  "question": "Which trip did I take first, the one to Europe with family or the solo trip to Thailand?",
+  "question_date": "2023/05/28 (Sun) 13:10",
+  "gold_answer": "The solo trip to Thailand",
+  "prediction": "The solo trip to Thailand (last year, 2022) came before the Europe trip with family (last month, April 2023).",
+  "support_memory_ids": [
+    "m_2ab9cb16708d360b1616",
+    "m_55d908005a83cda6b1fc"
+  ],
+  "support_source_ids": [
+    97,
+    22
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The Thailand solo trip occurred in 2022 (last year relative to the question date of 2023-05-28), while the Europe family trip occurred in April 2023 (last month). Therefore, the Thailand trip was first.",
+  "required_slots": [
+    {
+      "name": "date of Europe trip",
+      "value": "April 2023",
+      "support_memory_ids": [
+        "m_55d908005a83cda6b1fc"
+      ],
+      "support_source_ids": [
+        22
+      ]
+    },
+    {
+      "name": "date of Thailand trip",
+      "value": "2022",
+      "support_memory_ids": [
+        "m_2ab9cb16708d360b1616"
+      ],
+      "support_source_ids": [
+        97
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "base candidate passed risk gate",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

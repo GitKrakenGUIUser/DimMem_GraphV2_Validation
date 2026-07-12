@@ -1,0 +1,90 @@
+{
+  "question_id": "69fee5aa",
+  "question_type": "knowledge-update",
+  "question": "How many pre-1920 American coins do I have in my collection?",
+  "question_date": "2023/06/09 (Fri) 11:14",
+  "gold_answer": "38",
+  "prediction": "38 coins",
+  "support_memory_ids": [
+    "m_c320fddac028cc256442",
+    "m_cbd40604a7f0aefbc989"
+  ],
+  "support_source_ids": [
+    73,
+    187
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User stated having 37 pre-1920 American coins on 2023-05-27. On 2023-05-29, user added a 1915-S Barber quarter (pre-1920) to that collection. No later removals or contradictions. Sum: 37 + 1 = 38.",
+  "required_slots": [
+    {
+      "name": "collection_inventory",
+      "value": "38",
+      "support_memory_ids": [
+        "m_c320fddac028cc256442",
+        "m_cbd40604a7f0aefbc989"
+      ],
+      "support_source_ids": [
+        73,
+        187
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      "37",
+      "1"
+    ],
+    "unit": "coins",
+    "result": "38 coins"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "collection_inventory",
+        "query": "pre-1920 American coins count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "pre-1920 American coins count"
+    ],
+    "output_constraints": [
+      "single integer"
+    ],
+    "reason": "The question asks for a current count of pre-1920 American coins in the user's collection, which is a state value. No composition or semantic bridge needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 29870,
+    "completion_tokens": 704,
+    "elapsed_seconds": 5.998602390289307
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer in value, and the additional word 'coins' is acceptable as it is consistent with the context.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 135,
+    "completion_tokens": 41,
+    "elapsed_seconds": 1.0096144676208496
+  }
+}

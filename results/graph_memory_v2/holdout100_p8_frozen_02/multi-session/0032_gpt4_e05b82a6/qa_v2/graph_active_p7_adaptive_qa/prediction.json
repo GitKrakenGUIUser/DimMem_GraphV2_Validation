@@ -1,0 +1,115 @@
+{
+  "question_id": "gpt4_e05b82a6",
+  "question_type": "multi-session",
+  "question": "How many times did I ride rollercoasters across all the events I attended from July to October?",
+  "question_date": "2023/11/04 (Sat) 23:49",
+  "gold_answer": "10 times",
+  "prediction": "10 rides",
+  "support_memory_ids": [
+    "m_90fd864e9bdd01cd02d8",
+    "m_31cc8db565f53f07646f",
+    "m_5e6e52cfdf0851ec396a",
+    "m_af39bdc05b1782c6260c"
+  ],
+  "support_source_ids": [
+    110,
+    25,
+    227,
+    199
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User rode 3 rollercoasters at SeaWorld San Diego in July, 3 times on Space Mountain: Ghost Galaxy at Disneyland on Sep 24, 1 time on Xcelerator at Knott's Berry Farm on Oct 8, and 3 times on Revenge of the Mummy at Universal Studios Hollywood on Oct 15. Sum = 10 rollercoaster rides across events from July to October.",
+  "required_slots": [
+    {
+      "name": "events_attended_july_to_october",
+      "value": "SeaWorld San Diego (July), Disneyland (September 24), Knott's Berry Farm (October 8), Universal Studios Hollywood (October 15)",
+      "support_memory_ids": [
+        "m_5e6e52cfdf0851ec396a",
+        "m_af39bdc05b1782c6260c",
+        "m_90fd864e9bdd01cd02d8",
+        "m_31cc8db565f53f07646f"
+      ],
+      "support_source_ids": [
+        227,
+        199,
+        110,
+        25
+      ]
+    },
+    {
+      "name": "rollercoaster_rides_per_event",
+      "value": "3 (Mako, Kraken, Manta) + 3 (Space Mountain: Ghost Galaxy) + 1 (Xcelerator) + 3 (Revenge of the Mummy) = 10",
+      "support_memory_ids": [
+        "m_5e6e52cfdf0851ec396a",
+        "m_af39bdc05b1782c6260c",
+        "m_90fd864e9bdd01cd02d8",
+        "m_31cc8db565f53f07646f"
+      ],
+      "support_source_ids": [
+        227,
+        199,
+        110,
+        25
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      3,
+      3,
+      1,
+      3
+    ],
+    "unit": "rides",
+    "result": "10 rides"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "events_attended_july_to_october",
+        "query": "events attended from July to October",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "rollercoaster_rides_per_event",
+        "query": "number of rollercoaster rides at each event",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "events attended from July to October",
+      "rollercoaster rides at each event"
+    ],
+    "output_constraints": [
+      "single integer count"
+    ],
+    "reason": "The question asks for total number of rollercoaster rides across events attended in a date range, requiring sum of counts per event. Two slots needed: list of events and rides per event."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34893,
+    "completion_tokens": 1280,
+    "elapsed_seconds": 9.85263729095459
+  }
+}

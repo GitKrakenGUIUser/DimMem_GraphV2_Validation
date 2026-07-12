@@ -1,0 +1,194 @@
+[2023-05-23T19:17:00.500000, Tue] 1.User: I'm looking for some recommendations on outdoor activities for the upcoming spring season. I've been enjoying winter sports like skiing, and I finally managed to ski down the beginner's slope without falling on January 17th, so I'm excited to explore more outdoor activities as the weather warms up.
+[2023-05-23T19:17:01, Tue] 2.User: I'm really interested in hiking. Can you give me some tips on what I should wear and what I should bring with me?
+[2023-05-23T19:17:01.500000, Tue] 3.User: I'm planning to start with shorter trails and gradually move to more challenging ones. Can you recommend some easy trails near my location?
+[2023-05-23T19:17:02, Tue] 4.User: I'm in the same area where I took my morning walks in the park to enjoy the fall foliage. The park is about an hour's walk from my place.
+[2023-05-23T19:17:02.500000, Tue] 5.User: I think I'll start with a loop trail that's around 2-3 miles long. I'd like to see some scenic views and maybe a lake or a stream. Are there any trails in the park that fit this description?
+[2023-05-23T19:17:03, Tue] 6.User: I think I'll give the Ridgeview Loop Trail a try. I'm excited to see the scenic views and the lake. Thanks for the recommendation!
+What's the best way to get to the trailhead from my location?
+[2023-05-24T00:00:00.500000, Wed] 7.User: I'm looking for some recommendations on new games to play. I've been playing a lot of video games lately, especially during the weekends, and I'm always up for something new. Do you have any suggestions?
+[2023-05-24T00:00:01, Wed] 8.User: I'm actually more interested in RPGs and action-adventure games. I've already played The Witcher 3, but I'll definitely check out Divinity: Original Sin 2 and Pillars of Eternity II: Deadfire. Have you heard about the new RPG "Eternity's Edge" that's coming out later this year? I got to play it at a gaming event a few weeks ago, and it looked really promising.
+[2023-05-24T00:00:01.500000, Wed] 9.User: I was really impressed with Eternity's Edge combat mechanics and storyline, and I'm definitely considering pre-ordering it when it comes out. I've also been watching YouTube tutorials and guides to improve my gaming skills, especially with Widowmaker in Overwatch. Do you have any tips on how to improve my aim in FPS games?
+[2023-05-24T00:00:02, Wed] 10.User: I've been thinking a lot about The Last of Us Part II lately, and I'm still emotional about the story and characters. Have you heard any rumors about a potential sequel or spin-off?
+[2023-05-24T00:00:02.500000, Wed] 11.User: I'd love to see more of Ellie and Joel's story, but at the same time, I think Neil Druckmann's approach of not wanting to do a sequel just for the sake of it is the right one. The Last of Us Part II's story felt very complete and satisfying, and I think it's okay to leave some things open to interpretation. If they do decide to explore more stories within the universe, I'd be interested in seeing something focused on the Seraphites or the Fireflies, like you mentioned. Their ideologies and motivations were really intriguing, and I think there's a lot of potential for depth and complexity there.
+[2023-05-24T00:00:03, Wed] 12.User: I've been thinking about my gaming setup lately, and I'm considering upgrading my console to either the PlayStation 5 or Xbox Series X. Do you have any thoughts on which one I should choose? I've been playing a lot of exclusive titles on my PlayStation 4, but I'm also interested in trying out some Xbox exclusives like Halo.
+[2023-05-24T23:33:00.500000, Wed] 13.User: how can i configure logrotate in tomcat with 30 days max and size of 50 mb and add cron
+[2023-05-25T08:28:00.500000, Thu] 14.User: Debug: ---------------------------------------------------------------------------
+ValueError Traceback (most recent call last)
+~\AppData\Local\Temp\ipykernel\_22232\3564592056.py in 
+ 1 for index, airport in airports\_ireland.iterrows():
+----> 2 plt.scatter(float(airport['latitude']), float(airport['longitude']), marker='o', color='red', transform=ccrs.Mercator())
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\pyplot.py in scatter(x, y, s, c, marker, cmap, norm, vmin, vmax, alpha, linewidths, edgecolors, plotnonfinite, data, \*\*kwargs)
+ 2817 vmin=None, vmax=None, alpha=None, linewidths=None, \*,
+ 2818 edgecolors=None, plotnonfinite=False, data=None, \*\*kwargs):
+-> 2819 \_\_ret = gca().scatter(
+ 2820 x, y, s=s, c=c, marker=marker, cmap=cmap, norm=norm,
+ 2821 vmin=vmin, vmax=vmax, alpha=alpha, linewidths=linewidths,
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\\_\_init\_\_.py in inner(ax, data, \*args, \*\*kwargs)
+ 1410 def inner(ax, \*args, data=None, \*\*kwargs):
+ 1411 if data is None:
+-> 1412 return func(ax, \*map(sanitize\_sequence, args), \*\*kwargs)
+ 1413 
+ 1414 bound = new\_sig.bind(ax, \*args, \*\*kwargs)
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\\_axes.py in scatter(self, x, y, s, c, marker, cmap, norm, vmin, vmax, alpha, linewidths, edgecolors, plotnonfinite, \*\*kwargs)
+ 4478 self.set\_ymargin(0.05)
+ 4479 
+-> 4480 self.add\_collection(collection)
+ 4481 self.\_request\_autoscale\_view()
+ 4482 
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\\_base.py in add\_collection(self, collection, autolim)
+ 2246 # pre-lazy-autoscale behavior, which is not really better).
+ 2247 self.\_unstale\_viewLim()
+-> 2248 datalim = collection.get\_datalim(self.transData)
+ 2249 points = datalim.get\_points()
+ 2250 if not np.isinf(datalim.minpos).all():
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in get\_datalim(self, transData)
+ 264 
+ 265 transform = self.get\_transform()
+--> 266 transOffset = self.get\_offset\_transform()
+ 267 if not (isinstance(transOffset, transforms.IdentityTransform)
+ 268 or transOffset.contains\_branch(transData)):
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in get\_offset\_transform(self)
+ 233 elif (not isinstance(self.\_transOffset, transforms.Transform)
+ 234 and hasattr(self.\_transOffset, '\_as\_mpl\_transform')):
+--> 235 self.\_transOffset = self.\_transOffset.\_as\_mpl\_transform(self.axes)
+ 236 return self.\_transOffset
+ 237 
+
+C:\ProgramData\Anaconda3\lib\site-packages\cartopy\crs.py in \_as\_mpl\_transform(self, axes)
+ 248 import cartopy.mpl.geoaxes as geoaxes
+ 249 if not isinstance(axes, geoaxes.GeoAxes):
+--> 250 raise ValueError(
+ 251 'Axes should be an instance of GeoAxes, got %s' % type(axes)
+ 252 )
+
+ValueError: Axes should be an instance of GeoAxes, got 
+
+---------------------------------------------------------------------------
+ValueError Traceback (most recent call last)
+C:\ProgramData\Anaconda3\lib\site-packages\IPython\core\formatters.py in \_\_call\_\_(self, obj)
+ 339 pass
+ 340 else:
+--> 341 return printer(obj)
+ 342 # Finally look for special method names
+ 343 method = get\_real\_method(obj, self.print\_method)
+
+C:\ProgramData\Anaconda3\lib\site-packages\IPython\core\pylabtools.py in print\_figure(fig, fmt, bbox\_inches, base64, \*\*kwargs)
+ 149 FigureCanvasBase(fig)
+ 150 
+--> 151 fig.canvas.print\_figure(bytes\_io, \*\*kw)
+ 152 data = bytes\_io.getvalue()
+ 153 if fmt == 'svg':
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backend\_bases.py in print\_figure(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox\_inches, pad\_inches, bbox\_extra\_artists, backend, \*\*kwargs)
+ 2293 )
+ 2294 with getattr(renderer, "\_draw\_disabled", nullcontext)():
+-> 2295 self.figure.draw(renderer)
+ 2296 
+ 2297 if bbox\_inches:
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py in draw\_wrapper(artist, renderer, \*args, \*\*kwargs)
+ 71 @wraps(draw)
+ 72 def draw\_wrapper(artist, renderer, \*args, \*\*kwargs):
+---> 73 result = draw(artist, renderer, \*args, \*\*kwargs)
+ 74 if renderer.\_rasterizing:
+ 75 renderer.stop\_rasterizing()
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py in draw\_wrapper(artist, renderer)
+ 48 renderer.start\_filter()
+ 49 
+---> 50 return draw(artist, renderer)
+ 51 finally:
+ 52 if artist.get\_agg\_filter() is not None:
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\figure.py in draw(self, renderer)
+ 2835 
+ 2836 self.patch.draw(renderer)
+-> 2837 mimage.\_draw\_list\_compositing\_images(
+ 2838 renderer, self, artists, self.suppressComposite)
+ 2839 
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\image.py in \_draw\_list\_compositing\_images(renderer, parent, artists, suppress\_composite)
+ 130 if not\_composite or not has\_images:
+ 131 for a in artists:
+--> 132 a.draw(renderer)
+ 133 else:
+ 134 # Composite any adjacent images together
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py in draw\_wrapper(artist, renderer)
+ 48 renderer.start\_filter()
+ 49 
+---> 50 return draw(artist, renderer)
+ 51 finally:
+ 52 if artist.get\_agg\_filter() is not None:
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\\_base.py in draw(self, renderer)
+ 3089 renderer.stop\_rasterizing()
+ 3090 
+-> 3091 mimage.\_draw\_list\_compositing\_images(
+ 3092 renderer, self, artists, self.figure.suppressComposite)
+ 3093 
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\image.py in \_draw\_list\_compositing\_images(renderer, parent, artists, suppress\_composite)
+ 130 if not\_composite or not has\_images:
+ 131 for a in artists:
+--> 132 a.draw(renderer)
+ 133 else:
+ 134 # Composite any adjacent images together
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py in draw\_wrapper(artist, renderer)
+ 48 renderer.start\_filter()
+ 49 
+---> 50 return draw(artist, renderer)
+ 51 finally:
+ 52 if artist.get\_agg\_filter() is not None:
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in draw(self, renderer)
+ 988 def draw(self, renderer):
+ 989 self.set\_sizes(self.\_sizes, self.figure.dpi)
+--> 990 super().draw(renderer)
+ 991 
+ 992 
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py in draw\_wrapper(artist, renderer)
+ 48 renderer.start\_filter()
+ 49 
+---> 50 return draw(artist, renderer)
+ 51 finally:
+ 52 if artist.get\_agg\_filter() is not None:
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in draw(self, renderer)
+ 364 self.update\_scalarmappable()
+ 365 
+--> 366 transform, transOffset, offsets, paths = self.\_prepare\_points()
+ 367 
+ 368 gc = renderer.new\_gc()
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in \_prepare\_points(self)
+ 324 
+ 325 transform = self.get\_transform()
+--> 326 transOffset = self.get\_offset\_transform()
+ 327 offsets = self.get\_offsets()
+ 328 paths = self.get\_paths()
+
+C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\collections.py in get\_offset\_transform(self)
+ 233 elif (not isinstance(self.\_transOffset, transforms.Transform)
+ 234 and hasattr(self.\_transOffset, '\_as\_mpl\_transform')):
+--> 235 self.\_transOffset = self.\_transOffset.\_as\_mpl\_transform(self.axes)
+ 236 return self.\_transOffset
+ 237 
+
+C:\ProgramData\Anaconda3\lib\site-packages\cartopy\crs.py in \_as\_mpl\_transform(self, axes)
+ 248 import cartopy.mpl.geoaxes as geoaxes
+ 249 if not isinstance(axes, geoaxes.GeoAxes):
+--> 250 raise ValueError(
+ 251 'Axes should be an instance of GeoAxes, got %s' % type(axes)
+ 252 )
+
+ValueError: Axes should be an instance of GeoAxes, got
+[2023-05-25T09:59:00.500000, Thu] 15.User: I'm trying to optimize my morning routine. Can you suggest some healthy breakfast options that'll give me energy throughout the morning?

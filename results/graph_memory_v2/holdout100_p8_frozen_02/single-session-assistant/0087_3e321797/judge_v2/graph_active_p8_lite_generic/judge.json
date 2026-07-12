@@ -1,0 +1,79 @@
+{
+  "question_id": "3e321797",
+  "question_type": "single-session-assistant",
+  "question": "I wanted to follow up on our previous conversation about natural remedies for dark circles under the eyes. You mentioned applying tomato juice mixed with lemon juice, how long did you say I should leave it on for?",
+  "question_date": "2023/05/30 (Tue) 23:45",
+  "gold_answer": "10 minutes",
+  "prediction": "10 minutes",
+  "support_memory_ids": [
+    "m_e63721e7170fe1bc1563"
+  ],
+  "support_source_ids": [
+    189
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The assistant's reply in source 189 states: 'Apply tomato juice mixed with lemon juice on your under-eye area and wash off after 10 minutes with cold water.' This directly answers the user's question about the duration.",
+  "required_slots": [
+    {
+      "name": "duration",
+      "value": "10 minutes",
+      "support_memory_ids": [
+        "m_e63721e7170fe1bc1563"
+      ],
+      "support_source_ids": [
+        189
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "plan": {
+    "answer_contract": "duration",
+    "operator": "date_difference_days",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "duration",
+        "query": "tomato juice lemon juice leave on duration",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "tomato juice lemon juice leave on duration"
+    ],
+    "reason": "User asks for duration previously mentioned by assistant.",
+    "deterministic_contract_hint": "duration",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 18638,
+    "completion_tokens": 473,
+    "elapsed_seconds": 4.658348083496094
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 164,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7231569290161133
+  }
+}

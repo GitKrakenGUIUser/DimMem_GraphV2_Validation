@@ -1,0 +1,71 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [],
+  "specialist_needed": false,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "base_candidate": {
+    "answer": "The user had an issue with their car's GPS system on 2023-03-22.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_09b728738125d24fe5c3"
+    ],
+    "support_source_ids": [
+      95
+    ],
+    "required_slots": [
+      {
+        "name": "first issue after first service",
+        "value": "GPS system issue",
+        "support_memory_ids": [
+          "m_09b728738125d24fe5c3"
+        ],
+        "support_source_ids": [
+          95
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_09b728738125d24fe5c3 and source 95 state that the user had a GPS issue on 2023-03-22. Memory m_7a6516e8b6084d9b2d38 and source 66 confirm the first service was on 2023-03-15. Since 2023-03-22 is after 2023-03-15, the GPS issue is the first issue after the first service."
+  },
+  "specialist_candidate": null,
+  "choice": "base",
+  "choice_reason": "base candidate passed risk gate",
+  "compact_source_ids": [
+    95,
+    71,
+    66,
+    99,
+    157,
+    96,
+    98,
+    201,
+    60,
+    200,
+    97,
+    199,
+    202,
+    149,
+    203,
+    62,
+    88,
+    65,
+    94,
+    67,
+    61
+  ],
+  "targeted_source_ids": []
+}

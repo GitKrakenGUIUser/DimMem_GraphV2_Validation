@@ -1,0 +1,114 @@
+{
+  "question": "How long have I been working before I started my current job at NovaTech?",
+  "question_date": "2023-05-25T19:17:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's work history before starting at NovaTech",
+      "target_memory_types": [
+        "fact",
+        "episodic",
+        "profile"
+      ],
+      "entities": [
+        "NovaTech"
+      ],
+      "keywords": [
+        "work",
+        "before",
+        "NovaTech",
+        "started"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-25T19:17:00",
+        "raw": "before I started my current job at NovaTech"
+      },
+      "locations": [],
+      "state_keys": [
+        "current_job_start_date",
+        "previous_jobs"
+      ],
+      "relation_hints": [
+        "precedes"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "start_date_at_NovaTech",
+        "previous_employment_periods"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's total work experience before NovaTech",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "NovaTech"
+      ],
+      "keywords": [
+        "total",
+        "work experience",
+        "before",
+        "NovaTech"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-25T19:17:00",
+        "raw": "before starting at NovaTech"
+      },
+      "locations": [],
+      "state_keys": [
+        "total_work_duration_before_NovaTech"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "start_date_at_NovaTech",
+        "previous_job_durations"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's first job start date",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [],
+      "keywords": [
+        "first job",
+        "start date"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-25T19:17:00",
+        "raw": "before NovaTech"
+      },
+      "locations": [],
+      "state_keys": [
+        "first_job_start_date"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "start_date_at_NovaTech",
+        "first_job_start_date"
+      ],
+      "confidence": 0.4
+    }
+  ]
+}

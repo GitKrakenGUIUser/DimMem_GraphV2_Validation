@@ -1,0 +1,68 @@
+[2023-05-25T06:22:00.500000, Thu] 1.User: I've been thinking about creating a budget for myself and I was wondering if you could help me track my expenses. Do you have any recommendations for budgeting apps or tools that are easy to use?
+[2023-05-25T06:22:01, Thu] 2.User: I'm interested in trying out Mint, but I'm curious - do you think it's possible to track purchases from cash-only vendors, like farmers markets or garage sales, within the app?
+[2023-05-25T06:22:01.500000, Thu] 3.User: I'm planning to start tracking my expenses more closely, and I was thinking about all the ways I've been trying to cut back on luxury spending. I recently switched from buying high-end toothpaste to a more affordable option at Target, which has made a big difference - I was spending $10 on name-brand toothpaste before!
+[2023-05-25T06:22:02, Thu] 4.User: I've been thinking about cutting back on luxury spending in other areas too. I used to love browsing through designer boutiques at the mall, but now I'm more drawn to fast fashion stores like H&M and Zara. What are your thoughts on fast fashion vs luxury fashion? Are there any pros and cons I should consider?
+[2023-05-25T06:22:02.500000, Thu] 5.User: I've been thinking about the environmental impact of fast fashion, and I was wondering if you could recommend any sustainable fashion brands that are also affordable?
+[2023-05-25T06:22:03, Thu] 6.User: (I'll respond as the user) I'm really interested in checking out Everlane and Patagonia. I've heard great things about their commitment to sustainability and transparency. Do you think it's possible to find stylish and affordable options on their websites, or are their prices generally on the higher side?
+[2023-05-25T14:02:00.500000, Thu] 7.User: As a first-time traveler to Europe, can you provide me with a comprehensive itinerary that covers the top cultural, historical, and natural attractions of the continent?
+[2023-05-25T14:02:01, Thu] 8.User: Wow, that sounds like an incredible itinerary! Which one of these cities did you personally enjoy the most?
+[2023-05-25T14:02:01.500000, Thu] 9.User: Do you have any tips on how to make the most out of my trip to Europe?
+[2023-05-25T14:02:02, Thu] 10.User: Do you have any recommendations for affordable accommodations in these cities?
+[2023-05-25T14:02:02.500000, Thu] 11.User: Would you happen to know of any budget-friendly restaurants in these cities that serve authentic local cuisine?
+[2023-05-25T16:59:00.500000, Thu] 12.User: from this code extract a method is\_upset(a,b) whic returns true if a beating b would be an upset
+
+ def select\_winner(self, i, round\_win\_counts, upset\_rates):
+ # Calculate the probability of an upset based on historical seed win rates
+ i\_team = self.teams[i]
+ j\_team = self.teams[i + 1]
+ i\_is\_better\_score = i\_team.ken\_pom\_score > j\_team.ken\_pom\_score
+ better\_index = i if i\_is\_better\_score else i + 1
+ worse\_index = i + 1 if i\_is\_better\_score else i
+ historical = upset\_rates[(i, i + 1)]
+ statistical = self.calculate\_win\_probability(
+ self.teams[worse\_index],
+ self.teams[better\_index]
+ )
+
+ # noise is added by using historical upset rates rather than team specific kenpom scores
+ probability = (1 - self.noise) \* statistical + self.noise \* historical
+
+ # If a random number is less than the probability of an upset, return the underdog
+ if np.random.rand() < probability:
+ index = i + 1 if i\_is\_better\_score else i
+ upset = True
+ # Otherwise, return the favorite
+ else:
+ index = i if round\_win\_counts[i] > round\_win\_counts[i + 1] else i + 1
+ upset = False
+
+ return index, upset
+[2023-05-25T16:59:01, Thu] 13.User: write an instance function in team that compares self to another team and returns is\_better then use is\_better for is\_upset
+[2023-05-25T16:59:01.500000, Thu] 14.User: clean this method up
+
+ @staticmethod
+ def get\_midpoint\_win\_rate(seed1, seed2):
+ if seed1 == seed2:
+ return 0.5
+
+ lower\_seed, higher\_seed = sorted((seed1, seed2))
+
+ left\_tuple\_win\_rate = None
+ right\_tuple\_win\_rate = None
+
+ for (lower, higher), win\_rate in HISTORICAL\_SEED\_WIN\_RATES.items():
+ if lower == lower\_seed:
+ left\_tuple\_win\_rate = win\_rate
+ if higher == higher\_seed:
+ right\_tuple\_win\_rate = win\_rate
+ if lower == higher\_seed:
+ right\_tuple\_win\_rate = 1 - win\_rate
+ if higher == lower\_seed:
+ left\_tuple\_win\_rate = 1 - win\_rate
+
+ if left\_tuple\_win\_rate is None or right\_tuple\_win\_rate is None:
+ raise ValueError(f"Win rate data not available for seeds {seed1} and {seed2}")
+
+ win\_rate = (left\_tuple\_win\_rate + right\_tuple\_win\_rate) / 2
+ return win\_rate
+[2023-05-25T23:09:00.500000, Thu] 15.User: Fantastic! I'm ready to move onto the next planning phase!

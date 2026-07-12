@@ -1,0 +1,102 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "p7_abstained",
+    "p7_no_support"
+  ],
+  "plan": {
+    "answer_contract": "direct_numeric",
+    "operator": "none",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "influencer marketing allocation amount",
+        "query": "DHL Wellness Retreats influencer marketing allocation",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "DHL Wellness Retreats influencer marketing budget",
+      "DHL Wellness Retreats influencer marketing allocation"
+    ],
+    "reason": "User asks for a specific numeric value from a previous chat about a campaign.",
+    "deterministic_contract_hint": "direct_value",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source turn mentions the DHL Wellness Retreats campaign or any allocation for influencer marketing."
+  },
+  "p7_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source turn mentions the DHL Wellness Retreats campaign or any allocation for influencer marketing."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "influencer marketing allocation amount",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "influencer marketing allocation amount"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [],
+    "confidence": 0.0,
+    "reasoning_summary": "No evidence in the provided memories or sources mentions the DHL Wellness Retreats campaign or any influencer marketing allocation.",
+    "grounding_failure": "assistant answer lacks a supported assistant reply"
+  },
+  "choice": "p7",
+  "verification": {},
+  "targeted_source_ids": [
+    204,
+    88,
+    89,
+    14,
+    18,
+    61,
+    202,
+    203
+  ],
+  "v2_timeline_memory_ids": []
+}

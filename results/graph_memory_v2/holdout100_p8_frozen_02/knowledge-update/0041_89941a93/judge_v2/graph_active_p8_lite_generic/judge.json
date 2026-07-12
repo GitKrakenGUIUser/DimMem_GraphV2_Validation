@@ -1,0 +1,81 @@
+{
+  "question_id": "89941a93",
+  "question_type": "knowledge-update",
+  "question": "How many bikes do I currently own?",
+  "question_date": "2023/10/27 (Fri) 13:00",
+  "gold_answer": "4",
+  "prediction": "4",
+  "support_memory_ids": [
+    "m_2b43d3aaad7c9d6ca50f"
+  ],
+  "support_source_ids": [
+    154
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user stated on 2023-10-10 that they have four bikes (road, mountain, commuter, hybrid). This is the most recent and valid state, superseding the earlier statement of three bikes from 2023-02-22.",
+  "required_slots": [
+    {
+      "name": "current bike count",
+      "value": "4",
+      "support_memory_ids": [
+        "m_2b43d3aaad7c9d6ca50f"
+      ],
+      "support_source_ids": [
+        154
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "stated_count",
+  "calculation": {
+    "operator": "stated_count",
+    "operands": [
+      "4"
+    ],
+    "unit": "bikes",
+    "result": "4"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "current bike count",
+        "query": "bike count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "bike count"
+    ],
+    "reason": "The question asks for the current number of bikes owned, which is a state value that can be directly retrieved from the user's profile or recent statements.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 20143,
+    "completion_tokens": 502,
+    "elapsed_seconds": 5.0440943241119385
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 127,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.6106452941894531
+  }
+}

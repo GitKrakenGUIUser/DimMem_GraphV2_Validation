@@ -1,0 +1,241 @@
+[2023-05-23T11:18:03, Tue] 1.User: I think I'll also clean my gray slipper, the one I lost and then found, to get it ready for future wear. Speaking of which, I'm glad I found it, but I'm still not sure where I left it when I was moving my furniture around on January 25th. Do you think it's possible to train myself to be more mindful of my belongings and avoid losing things in the future?
+[2023-05-23T21:14:00.500000, Tue] 2.User: How can philanthropy be used to address issues related to social justice and inequality?
+[2023-05-23T21:14:01, Tue] 3.User: That makes a lot of sense. Do you have any suggestions for organizations that I can donate to for social justice and equality causes?
+[2023-05-23T21:14:01.500000, Tue] 4.User: Thank you for the suggestions, I'll definitely look into these organizations! Do you know if there are any local organizations in my area that I can donate to as well?
+[2023-05-23T21:14:02, Tue] 5.User: I'll definitely use those resources to find some local organizations to support. Have you personally donated to any social justice causes before?
+[2023-05-23T21:14:02.500000, Tue] 6.User: Yeah, I totally agree. I think it's important to use our privilege and resources to help those who may not have the same advantages. It's really inspiring to see people and organizations fighting for social justice and equality.
+[2023-05-24T03:46:00.500000, Wed] 7.User: 1
+00:00:07,533 --> 00:00:09,599
+I found that nothing in life
+
+2
+00:00:10,100 --> 00:00:11,466
+is worthwhile
+
+3
+00:00:12,000 --> 00:00:13,700
+unless you take risks
+
+4
+00:00:14,400 --> 00:00:15,200
+nothing
+
+5
+00:00:16,366 --> 00:00:19,933
+Nelson Mandela said there is no passion to be found
+
+6
+00:00:20,133 --> 00:00:21,466
+playing small
+
+7
+00:00:21,866 --> 00:00:24,066
+in settling for a life that's less
+
+8
+00:00:24,400 --> 00:00:26,566
+than the one you're capable of living
+
+9
+00:00:27,300 --> 00:00
+...[TRUNCATED]...
+00 --> 00:05:08,666
+disappointed and upset
+
+109
+00:05:12,500 --> 00:05:14,400
+they say we we came to you
+
+110
+00:05:14,566 --> 00:05:17,499
+because you could have brought us to life they say
+
+111
+00:0
+...[TRUNCATED]...
+33
+never be discouraged
+
+208
+00:09:42,733 --> 00:09:44,066
+never hold back
+
+209
+00:09:45,100 --> 00:09:46,600
+give everything you got
+
+210
+00:09:48,066 --> 00:09:49,933
+and when you fall throughout light
+
+211
+00:09:50,200 --> 00:09:51,100
+remember this
+
+212
+00:09:52,766 --> 00:09:53,933
+fall forward
+[2023-05-24T09:01:00.500000, Wed] 8.User: following code not working while it comes to stock is available
+
+public function product\_search(WP\_REST\_Request $request)
+ {
+ $search = $request->get\_param('search');
+ $min\_price = $request->get\_param('min\_price');
+ $max\_price = $request->get\_param('max\_price');
+ $stock = $request->get\_param('stock');
+ $color = $request->get\_param('color');
+ $size = $request->get\_param('size');
+ $orderby = $request->get\_param('orderby');
+ $brand = $request->get\_param('brand');
+ $sale = $request->get\_param('sale');
+ $cat\_ids = $request->get\_param('cat\_ids');
+ $paged = ($request->get\_param('paged')) ? $request->get\_param('paged') : 1;
+
+ $args = [
+ 'post\_type' => 'product',
+ 'post\_status' => 'publish',
+ 'posts\_per\_page' => 12,
+ 'paged' => $paged,
+ 'fields' => 'ids',
+ 'meta\_query' => [
+ 'relation' => 'AND',
+ ]
+ ];
+ if ($min\_price and $max\_price) {
+ $args['meta\_query'][] = [
+ 'key' => '\_price',
+ 'value' => [$min\_price, $max\_price],
+ 'compare' => 'BETWEEN',
+ 'type' => 'numeric',
+ ];
+ } elseif ($min\_price) {
+ $args['meta\_query'][] = [
+ 'key' => '\_price',
+ 'value' => $min\_price,
+ 'compare' => '>=',
+ 'type' => 'NUMERIC'
+ ];
+ } elseif ($max\_price) {
+ $args['meta\_query'][] = [
+ 'key' => '\_price',
+ 'value' => $min\_price,
+ 'compare' => '<=',
+ 'type' => 'NUMERIC'
+ ];
+ }
+ if ($sale) {
+ $args['meta\_query'][] = [
+ 'key' => '\_sale\_price',
+ 'value' => 0,
+ 'compare' => '>',
+ 'type' => 'numeric'
+ ];
+ }
+ if (true) {
+ $args['meta\_query'][] = [
+ 'key' => '\_stock',
+ 'value' => 0,
+ 'compare' => '>',
+ ];
+ }
+ if ($size) {
+ $args['tax\_query'][] = [
+ 'taxonomy' => 'pa\_size',
+ 'field' => 'slug',
+ 'terms' => is\_array($size) ? $size : [$size],
+ 'operator' => 'IN',
+ ];
+ }
+ if ($brand) {
+ $args['tax\_query'][] = [
+ 'taxonomy' => 'pa\_brand',
+ 'field' => 'slug',
+ 'terms' => is\_array($brand) ? $brand : [$brand],
+ 'operator' => 'IN',
+ ];
+ }
+ if ($color) {
+ $args['tax\_query'][] = [
+ 'taxonomy' => 'pa\_color',
+ 'field' => 'slug',
+ 'terms' => is\_array($color) ? $color : [$color],
+ 'operator' => 'IN',
+ ];
+ }
+ if ($cat\_ids) {
+ $args['tax\_query'][] = [
+ 'taxonomy' => 'product\_cat',
+ 'field' => 'id',
+ 'terms' => is\_array($cat\_ids) ? $cat\_ids : [$cat\_ids],
+ 'operator' => 'IN',
+ ];
+ }
+
+ if ($orderby) {
+ $args['orderby'] = 'meta\_value\_num';
+ }
+ if ($orderby == 'price\_asc') {
+ $args['order'] = 'asc';
+ $args['meta\_key'] = '\_price';
+ } elseif ($orderby == 'price\_desc') {
+ $args['order'] = 'desc';
+ $args['meta\_key'] = '\_price';
+ } elseif ($orderby == 'rating') {
+ $args['order'] = 'desc';
+ $args['meta\_key'] = '\_wc\_average\_rating';
+ } elseif ($orderby == 'popularity') {
+ $args['order'] = 'desc';
+ $args['meta\_key'] = 'total\_sales';
+ } else {
+ $args['orderby'] = 'publish\_date';
+ $args['order'] = 'desc';
+ }
+
+ if ($search) {
+ $args['s'] = $search;
+ 
+ }
+ 
+ $query = new WP\_Query($args);
+ 
+ $products = [];
+ foreach ($query->get\_posts() as $key => $id) {
+ $products[] = display\_sample\_products($id, $this->user\_id);
+ }
+ if($search and !$products){
+ unset($args['s']);
+ $args['meta\_query'][]=[
+ 'key' => '\_sku',
+ 'value' => $search,
+ 'compare' => 'LIKE'
+
+ ];
+
+ }
+ $query = new WP\_Query($args);
+
+ foreach ($query->get\_posts() as $key => $id) {
+ $products[] = display\_sample\_products($id, $this->user\_id);
+ }
+
+ $args['posts\_per\_page'] = -1;
+ $query2 = new WP\_Query($args);
+ $ids = $query2->get\_posts();
+ $attribute = [];
+ $attribute['brand'] = wp\_get\_object\_terms($ids, 'pa\_brand');
+ $attribute['color'] = wp\_get\_object\_terms($ids, 'pa\_color');
+ $attribute['size'] = wp\_get\_object\_terms($ids, 'pa\_size');
+
+ return ['products' => $products, 'attribute' => $attribute];
+ }
+[2023-05-24T09:01:01, Wed] 9.User: i want to search for product on stock only
+[2023-05-24T09:01:01.500000, Wed] 10.User: still not working
+[2023-05-24T09:01:02, Wed] 11.User: if (true) {
+ $args['meta\_query'][] = [ 'key' => '\_stock', 'value' => 0, 'compare' => '>', ];
+ }
+
+is there any alternative instead of \_Stock
+[2023-05-24T10:56:00.500000, Wed] 12.User: I'm trying to get more organized with my daily routines and finances. Can you help me find some budgeting apps or tools to track my expenses? By the way, speaking of saving money, I recently started packing my lunch for work and it's been saving me around $10 a day.
+[2023-05-24T10:56:01, Wed] 13.User: I'm interested in trying out Mint. Can you walk me through the process of setting it up and linking my bank accounts?
+[2023-05-24T10:56:01.500000, Wed] 14.User: I'm also looking for some healthy meal prep ideas for my Sunday afternoon cooking sessions. Do you have any recommendations or resources for that?
+[2023-05-24T10:56:02, Wed] 15.User: I like the idea of grain bowls and salad jars. Can you give me some specific recipes or combinations that I can try? For example, what are some good protein sources that I can add to my grain bowls or salads?

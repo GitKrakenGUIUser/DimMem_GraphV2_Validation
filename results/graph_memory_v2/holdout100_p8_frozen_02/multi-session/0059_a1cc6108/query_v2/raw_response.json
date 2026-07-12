@@ -1,0 +1,114 @@
+{
+  "question": "How old was I when Alex was born?",
+  "question_date": "2023-05-30T20:23:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's age when Alex was born",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "Alex"
+      ],
+      "keywords": [
+        "Alex",
+        "born",
+        "age"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when Alex was born"
+      },
+      "locations": [],
+      "state_keys": [
+        "user_birth_date",
+        "alex_birth_date"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "user_birth_date",
+        "alex_birth_date"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's age at the time of Alex's birth",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Alex"
+      ],
+      "keywords": [
+        "Alex",
+        "born",
+        "age",
+        "remember"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when Alex was born"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user's age when Alex was born",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Alex"
+      ],
+      "keywords": [
+        "Alex",
+        "birth",
+        "age",
+        "difference"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when Alex was born"
+      },
+      "locations": [],
+      "state_keys": [
+        "user_birth_date",
+        "alex_birth_date"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "user_birth_date",
+        "alex_birth_date"
+      ],
+      "confidence": 0.7
+    }
+  ]
+}

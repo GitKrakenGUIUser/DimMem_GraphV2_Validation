@@ -1,0 +1,394 @@
+[
+  {
+    "memory_id": "m_35dfb78465201de5619c",
+    "content": "User is interested in booking a morning flight from New York to Paris with Air France.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2022-09-01T18:07:01.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [
+        "New York",
+        "Paris"
+      ],
+      "reason": "",
+      "purpose": "to have a full day in Paris upon arrival",
+      "keywords": [
+        "morning flight",
+        "New York",
+        "Paris",
+        "Air France",
+        "flight booking"
+      ],
+      "entities": [
+        {
+          "name": "Air France",
+          "entity_type": "organization",
+          "role": "airline"
+        },
+        {
+          "name": "New York",
+          "entity_type": "place",
+          "role": "departure city"
+        },
+        {
+          "name": "Paris",
+          "entity_type": "place",
+          "role": "arrival city"
+        }
+      ],
+      "topic": "flight booking",
+      "relation": {
+        "subject": "User",
+        "predicate": "interested in booking",
+        "object": "morning flight from New York to Paris with Air France"
+      },
+      "state_key": "user.flight_booking.preference",
+      "state_value": "morning flight from New York to Paris with Air France",
+      "state_status": "active",
+      "preference": {
+        "target": "morning flight",
+        "polarity": "positive",
+        "strength": 0.8,
+        "scope": "specific"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "95cb552e_1",
+      "session_index": 32,
+      "source_ids": [
+        160
+      ],
+      "source_uids": [
+        "s0032u0003"
+      ],
+      "source_times": [
+        "2022-09-01T18:07:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 0.9,
+    "evidence_span": "I'm thinking of booking a morning flight so I can have a full day in Paris when I arrive. Are there any morning flights available from New York to Paris with Air France?",
+    "assistant_replies": [
+      "A morning flight is a great idea to maximize your time in Paris.\n\nAir France operates multiple daily flights from New York to Paris, and they do have morning flights available. Here are a few options:\n\n**Morning Flights from New York (JFK) to Paris (CDG) with Air France:**\n\n1. **AF011**: Departs JFK at 8:30 AM (EST) and arrives at CDG at 10:35 AM (CET)\n2. **AF017**: Departs JFK at 9:30 AM (EST) and arrives at CDG at 11:35 AM (CET)\n3. **AF021**: Departs JFK at 10:30 AM (EST) and arrives at CDG at 12:35 PM (CET)\n\nPlease note that flight schedules are subject to change, and it's always best to check with Air France's website or a travel agent for the most up-to-date information.\n\nWhen booking your morning flight, keep in mind:\n\n* You'll need to arrive at JFK airport at least 2 hours prior to your scheduled departure time to allow for check-in, baggage drop-off, and security screening.\n* Paris is 6 hours ahead of New York, so you'll lose 6 hours when you travel. Plan your arrival accordingly, and consider booking a hotel or accommodation with an early check-in option.\n* If you're not a morning person, consider the jet lag and plan your activities accordingly. You might want to take a power nap or relax at your hotel before exploring the city.\n\nAre you ready to book your morning flight and start your Parisian adventure?"
+    ]
+  },
+  {
+    "memory_id": "m_618e8ab3f28b856ec803",
+    "content": "User selected Air France flight AF011 departing at 8:30 AM from New York to Paris.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2022-09-01T18:07:02",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [
+        "New York",
+        "Paris"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "AF011",
+        "8:30 AM",
+        "Air France",
+        "New York",
+        "Paris",
+        "flight selection"
+      ],
+      "entities": [
+        {
+          "name": "Air France",
+          "entity_type": "organization",
+          "role": "airline"
+        },
+        {
+          "name": "AF011",
+          "entity_type": "product",
+          "role": "flight number"
+        },
+        {
+          "name": "New York",
+          "entity_type": "place",
+          "role": "departure city"
+        },
+        {
+          "name": "Paris",
+          "entity_type": "place",
+          "role": "arrival city"
+        }
+      ],
+      "topic": "flight selection",
+      "relation": {
+        "subject": "User",
+        "predicate": "selected",
+        "object": "Air France flight AF011 at 8:30 AM from New York to Paris"
+      },
+      "state_key": "user.flight_booking.selected_flight",
+      "state_value": "AF011, 8:30 AM, New York to Paris",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "95cb552e_1",
+      "session_index": 32,
+      "source_ids": [
+        161
+      ],
+      "source_uids": [
+        "s0032u0004"
+      ],
+      "source_times": [
+        "2022-09-01T18:07:02"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 0.9,
+    "evidence_span": "I think I'll go with the 8:30 AM flight, AF011.",
+    "assistant_replies": [
+      "The 8:30 AM flight, AF011, is a popular choice for travelers who want to make the most of their day in Paris.\n\n**Check-in and Boarding Pass:**\n\nAir France offers several ways to check-in and obtain your boarding pass:\n\n1. **Online Check-in:** Visit Air France's website (airfrance.com) or mobile app 24 hours before your flight to check-in online. You'll need your booking reference or ticket number, as well as your passport details. Print or download your boarding pass to your mobile device.\n2. **Mobile Check-in:** If you have the Air France app, you can check-in and access your mobile boarding pass directly on your device.\n3. **Airport Check-in:** If you prefer, you can check-in at the airport using the self-service kiosks or at the designated check-in counters. Make sure to arrive at the airport with plenty of time to spare.\n\n**Required Documents:**\n\nTo check-in and board your flight, you'll need:\n\n1. **Valid Passport:** Ensure your new passport is valid for at least six months beyond your return date.\n2. **Visa (if required):** Check if you need a visa to enter France. As a US citizen, you don't need a visa for tourism or business stays up to 90 days.\n3. **Boarding Pass:** Print or download your boarding pass to your mobile device.\n\n**Tips:**\n\n1. **Check-in online:** Online check-in saves time and ensures you have your boarding pass ready.\n2. **Check your documents:** Double-check your passport, visa (if required), and travel documents to avoid any issues during check-in.\n3. **Plan your airport arrival:** Leave enough time for security screening, baggage drop-off, and reaching your gate before boarding starts.\n\nNow that you know the check-in process, are you ready to prepare for your Parisian adventure?"
+    ]
+  },
+  {
+    "memory_id": "m_7cb7dc1810ce6fae0686",
+    "content": "User received a new passport with updated name on 2022-09-01.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2022-09-01",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "day",
+        "raw": "today"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "new passport",
+        "updated name",
+        "received",
+        "2022-09-01"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "passport holder"
+        }
+      ],
+      "topic": "passport renewal",
+      "relation": {
+        "subject": "User",
+        "predicate": "received",
+        "object": "new passport with updated name"
+      },
+      "state_key": "user.passport.status",
+      "state_value": "new passport with updated name received",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "95cb552e_1",
+      "session_index": 32,
+      "source_ids": [
+        162
+      ],
+      "source_uids": [
+        "s0032u0005"
+      ],
+      "source_times": [
+        "2022-09-01T18:07:02.500000"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 0.9,
+    "evidence_span": "I just received my new passport with my updated name today",
+    "assistant_replies": [
+      "Congratulations on your new passport! It's great that you're double-checking the requirements.\n\nAs a US citizen traveling to France, you're correct that you'll need:\n\n1. **Valid Passport:** Your new passport with your updated name, which you've already received.\n2. **Boarding Pass:** Which you'll obtain through online check-in, mobile check-in, or at the airport.\n\nYou won't need to show any additional identification or documents at the airport, besides your passport and boarding pass. However, it's always a good idea to bring:\n\n1. **Government-issued ID:** A government-issued ID, such as a driver's license or state ID, can be useful in case you need to prove your identity.\n2. **Travel itinerary:** Bring a printed or digital copy of your flight itinerary, which includes your flight number, departure and arrival airports, and travel dates.\n3. **Travel insurance documents:** If you have travel insurance, bring the documents or policy number, in case you need to make a claim.\n\n**Important:** Make sure your passport is valid for at least six months beyond your return date. If your passport is due to expire soon, you might need to renew it before your trip.\n\n**Name Change:** Since you've recently updated your name, ensure that your passport, boarding pass, and any other travel documents reflect your new name. If there are any discrepancies, contact Air France or the relevant authorities to resolve the issue.\n\nNow that you've got all your documents in order, you're ready to embark on your Parisian adventure!"
+    ]
+  },
+  {
+    "memory_id": "m_a974b2b715928cd9cb05",
+    "content": "User is planning a trip to Chicago in a few weeks from 2022-09-01.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2022-09-01",
+        "valid_to": "",
+        "precision": "range",
+        "raw": "in a few weeks"
+      },
+      "locations": [
+        "Chicago"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "trip",
+        "Chicago",
+        "planning",
+        "few weeks"
+      ],
+      "entities": [
+        {
+          "name": "Chicago",
+          "entity_type": "place",
+          "role": "destination"
+        }
+      ],
+      "topic": "travel planning",
+      "relation": {
+        "subject": "User",
+        "predicate": "planning trip to",
+        "object": "Chicago"
+      },
+      "state_key": "user.travel_plan.destination",
+      "state_value": "Chicago",
+      "state_status": "planned",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "91c71874_2",
+      "session_index": 35,
+      "source_ids": [
+        171
+      ],
+      "source_uids": [
+        "s0035u0001"
+      ],
+      "source_times": [
+        "2022-09-01T20:49:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 0.9,
+    "evidence_span": "I'm planning a trip to Chicago in a few weeks",
+    "assistant_replies": [
+      "You've had a taste of Chicago's efficiency at O'Hare International Airport, one of the busiest airports in the world! Now, get ready to experience the vibrant city itself! Chicago is a world-class destination, offering a diverse range of attractions, landmarks, and activities. Here are some must-visit attractions to add to your itinerary:\n\n1. **Willis Tower (formerly Sears Tower)**: Take in panoramic views of the city from the Skydeck on the 103rd floor, and if you're feeling brave, step onto the Ledge, a glass balcony extending 4.3 feet outside the building.\n2. **Millennium Park**: Explore iconic landmarks like the \"Cloud Gate\" sculpture (known as \"The Bean\"), the Jay Pritzker Pavilion, and the beautiful Lurie Garden.\n3. **Navy Pier**: This lakefront attraction offers boat cruises, an amusement park, and entertainment options like the Chicago Shakespeare Theater. Don't miss the stunning views of Lake Michigan and the city skyline.\n4. **The Art Institute of Chicago**: One of the top art museums in the country, with a collection that spans 5,000 years of human creativity, including works by famous artists like Monet, Picasso, and van Gogh.\n5. **Shedd Aquarium**: Get up close and personal with dolphins, beluga whales, and other marine life from around the world.\n6. **Wrigley Field**: Catch a Cubs game at this historic baseball stadium, even if you're not a fan of the sport. The atmosphere is electric, and the surrounding neighborhood, Wrigleyville, is fun to explore.\n7. **The Magnificent Mile**: Stroll along Michigan Avenue, lined with high-end boutiques, restaurants, and iconic landmarks like the Tribune Tower and Water Tower Place.\n8. **Lincoln Park Zoo**: A free zoo in the heart of the city, home to over 1,100 animals from around the world.\n9. **Chicago Riverwalk**: Take a stroll along the river and enjoy the city's scenic views, public art installations, and boat tours.\n10. **The Field Museum**: One of the largest natural history museums in the world, featuring Sue, the largest T. rex skeleton ever found.\n11. **Chicago Architecture River Cruise**: Learn about the city's rich architectural history on a guided boat tour.\n12. **Deep-dish pizza**: Try a classic Chicago-style pizza at spots like Lou Malnati's, Pequod's, or Gino's East.\n\nSome additional tips:\n\n* Consider purchasing a Chicago CityPASS, which grants you discounted admission to several of these attractions.\n* Take advantage of the city's efficient public transportation system, including the 'L' train (elevated train) and buses.\n* Be prepared for variable Midwestern weather, with layers and comfortable shoes.\n* Explore Chicago's diverse neighborhoods, such as Chinatown, Little Italy, and Pilsen, for a taste of the city's cultural heritage.\n\nEnjoy your trip to Chicago!"
+    ]
+  },
+  {
+    "memory_id": "m_83473f16ad1b6aecb789",
+    "content": "User previously flew United Airlines from San Diego to New York with a layover in Chicago and was impressed by the airport's efficiency.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [
+        "San Diego",
+        "New York",
+        "Chicago"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "United Airlines",
+        "San Diego",
+        "New York",
+        "Chicago",
+        "layover",
+        "airport efficiency"
+      ],
+      "entities": [
+        {
+          "name": "United Airlines",
+          "entity_type": "organization",
+          "role": "airline"
+        },
+        {
+          "name": "San Diego",
+          "entity_type": "place",
+          "role": "departure city"
+        },
+        {
+          "name": "New York",
+          "entity_type": "place",
+          "role": "arrival city"
+        },
+        {
+          "name": "Chicago",
+          "entity_type": "place",
+          "role": "layover city"
+        }
+      ],
+      "topic": "past travel experience",
+      "relation": {
+        "subject": "User",
+        "predicate": "flew",
+        "object": "United Airlines from San Diego to New York with layover in Chicago"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "Chicago airport efficiency",
+        "polarity": "positive",
+        "strength": 0.7,
+        "scope": "specific"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "91c71874_2",
+      "session_index": 35,
+      "source_ids": [
+        171
+      ],
+      "source_uids": [
+        "s0035u0001"
+      ],
+      "source_times": [
+        "2022-09-01T20:49:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 13
+    },
+    "confidence": 0.9,
+    "evidence_span": "I've flown through Chicago before on a United Airlines flight from San Diego to New York, which was a great experience - the layover in Chicago was actually a major hub for the airline, and I was impressed by the airport's efficiency.",
+    "assistant_replies": [
+      "You've had a taste of Chicago's efficiency at O'Hare International Airport, one of the busiest airports in the world! Now, get ready to experience the vibrant city itself! Chicago is a world-class destination, offering a diverse range of attractions, landmarks, and activities. Here are some must-visit attractions to add to your itinerary:\n\n1. **Willis Tower (formerly Sears Tower)**: Take in panoramic views of the city from the Skydeck on the 103rd floor, and if you're feeling brave, step onto the Ledge, a glass balcony extending 4.3 feet outside the building.\n2. **Millennium Park**: Explore iconic landmarks like the \"Cloud Gate\" sculpture (known as \"The Bean\"), the Jay Pritzker Pavilion, and the beautiful Lurie Garden.\n3. **Navy Pier**: This lakefront attraction offers boat cruises, an amusement park, and entertainment options like the Chicago Shakespeare Theater. Don't miss the stunning views of Lake Michigan and the city skyline.\n4. **The Art Institute of Chicago**: One of the top art museums in the country, with a collection that spans 5,000 years of human creativity, including works by famous artists like Monet, Picasso, and van Gogh.\n5. **Shedd Aquarium**: Get up close and personal with dolphins, beluga whales, and other marine life from around the world.\n6. **Wrigley Field**: Catch a Cubs game at this historic baseball stadium, even if you're not a fan of the sport. The atmosphere is electric, and the surrounding neighborhood, Wrigleyville, is fun to explore.\n7. **The Magnificent Mile**: Stroll along Michigan Avenue, lined with high-end boutiques, restaurants, and iconic landmarks like the Tribune Tower and Water Tower Place.\n8. **Lincoln Park Zoo**: A free zoo in the heart of the city, home to over 1,100 animals from around the world.\n9. **Chicago Riverwalk**: Take a stroll along the river and enjoy the city's scenic views, public art installations, and boat tours.\n10. **The Field Museum**: One of the largest natural history museums in the world, featuring Sue, the largest T. rex skeleton ever found.\n11. **Chicago Architecture River Cruise**: Learn about the city's rich architectural history on a guided boat tour.\n12. **Deep-dish pizza**: Try a classic Chicago-style pizza at spots like Lou Malnati's, Pequod's, or Gino's East.\n\nSome additional tips:\n\n* Consider purchasing a Chicago CityPASS, which grants you discounted admission to several of these attractions.\n* Take advantage of the city's efficient public transportation system, including the 'L' train (elevated train) and buses.\n* Be prepared for variable Midwestern weather, with layers and comfortable shoes.\n* Explore Chicago's diverse neighborhoods, such as Chinatown, Little Italy, and Pilsen, for a taste of the city's cultural heritage.\n\nEnjoy your trip to Chicago!"
+    ]
+  }
+]

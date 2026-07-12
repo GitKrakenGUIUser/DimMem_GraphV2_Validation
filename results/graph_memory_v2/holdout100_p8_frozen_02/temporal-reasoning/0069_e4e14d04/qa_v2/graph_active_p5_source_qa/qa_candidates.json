@@ -1,0 +1,102 @@
+[
+  {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9c5691e871c54e4dc593",
+      "m_e6c986b676db32f1a07f"
+    ],
+    "support_source_ids": [
+      54,
+      209
+    ],
+    "required_slots": [
+      {
+        "name": "membership_start_date",
+        "value": "2023-05-07",
+        "support_memory_ids": [
+          "m_9c5691e871c54e4dc593"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      },
+      {
+        "name": "meetup_date",
+        "value": "2023-05-21",
+        "support_memory_ids": [
+          "m_e6c986b676db32f1a07f"
+        ],
+        "support_source_ids": [
+          209
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-05-07",
+        "2023-05-21"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User joined Book Lovers Unite on 2023-05-07 (three weeks before question date 2023-05-28) and attended the meetup on 2023-05-21 (last week from question date). The difference is 14 days, which is 2 weeks.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9c5691e871c54e4dc593",
+      "m_e6c986b676db32f1a07f"
+    ],
+    "support_source_ids": [
+      54,
+      209
+    ],
+    "required_slots": [
+      {
+        "name": "membership_start_date",
+        "value": "2023-05-07",
+        "support_memory_ids": [
+          "m_9c5691e871c54e4dc593"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      },
+      {
+        "name": "meetup_date",
+        "value": "2023-05-21",
+        "support_memory_ids": [
+          "m_e6c986b676db32f1a07f"
+        ],
+        "support_source_ids": [
+          209
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-05-07",
+        "2023-05-21"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User joined Book Lovers Unite three weeks before 2023-05-28, i.e., 2023-05-07. User attended a meetup last week before 2023-05-28, i.e., 2023-05-21. The difference is 14 days, which is 2 weeks.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

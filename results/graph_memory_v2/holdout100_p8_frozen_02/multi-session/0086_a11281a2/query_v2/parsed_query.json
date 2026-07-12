@@ -1,0 +1,44 @@
+{
+  "question": "What was the approximate increase in Instagram followers I experienced in two weeks?",
+  "question_date": "2023-05-30T23:16:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's Instagram follower count increase over two weeks",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user",
+        "Instagram"
+      ],
+      "keywords": [
+        "Instagram followers",
+        "increase",
+        "two weeks"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-05-16T23:16:00",
+        "end": "2023-05-30T23:16:00",
+        "raw": "in two weeks"
+      },
+      "locations": [],
+      "state_keys": [
+        "instagram_followers"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "follower count at start date",
+        "follower count at end date"
+      ],
+      "confidence": 0.8
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "question": "How many times did I ride rollercoasters across all the events I attended from July to October?",
+  "question_date": "2023-11-04T23:49:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's rollercoaster rides at events attended between July and October",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "rollercoaster",
+        "event"
+      ],
+      "keywords": [
+        "ride",
+        "rollercoaster",
+        "event",
+        "July",
+        "October"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-07-01",
+        "end": "2023-10-31",
+        "raw": "from July to October"
+      },
+      "locations": [],
+      "state_keys": [
+        "rollercoaster_ride_count"
+      ],
+      "relation_hints": [
+        "attended",
+        "rode"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "events attended in that period",
+        "rollercoaster rides at each event"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's rollercoaster rides at events attended from July to October",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "rollercoaster",
+        "event"
+      ],
+      "keywords": [
+        "ride",
+        "rollercoaster",
+        "event",
+        "July",
+        "October"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-07-01",
+        "end": "2023-10-31",
+        "raw": "from July to October"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "attended",
+        "rode"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "list of events attended July-October",
+        "number of rollercoaster rides per event"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user's rollercoaster rides at events attended between July and October",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "rollercoaster",
+        "event"
+      ],
+      "keywords": [
+        "ride",
+        "rollercoaster",
+        "event",
+        "July",
+        "October"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-07-01",
+        "end": "2023-10-31",
+        "raw": "from July to October"
+      },
+      "locations": [],
+      "state_keys": [
+        "rollercoaster_ride_count"
+      ],
+      "relation_hints": [
+        "attended",
+        "rode"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "aggregate count of rollercoaster rides"
+      ],
+      "confidence": 0.3
+    }
+  ]
+}

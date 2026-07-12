@@ -1,0 +1,152 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "phone_number",
+        "query": "Speyer tourism board phone number",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Speyer tourism board phone number"
+    ],
+    "reason": "User asks to confirm a phone number previously provided by the assistant.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "+49 (0) 62 32 / 14 23 - 0",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9f45862752ac66bdea82"
+    ],
+    "support_source_ids": [
+      181
+    ],
+    "required_slots": [
+      {
+        "name": "phone_number",
+        "value": "+49 (0) 62 32 / 14 23 - 0",
+        "support_memory_ids": [
+          "m_9f45862752ac66bdea82"
+        ],
+        "support_source_ids": [
+          181
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously provided the phone number of Speyer Tourismus Marketing GmbH as +49 (0) 62 32 / 14 23 - 0 in response to the user's earlier request for contact details. This is recorded in memory m_9f45862752ac66bdea82 and source turn 181."
+  },
+  "p7_candidate": {
+    "answer": "+49 (0) 62 32 / 14 23 - 0",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9f45862752ac66bdea82"
+    ],
+    "support_source_ids": [
+      181
+    ],
+    "required_slots": [
+      {
+        "name": "phone_number",
+        "value": "+49 (0) 62 32 / 14 23 - 0",
+        "support_memory_ids": [
+          "m_9f45862752ac66bdea82"
+        ],
+        "support_source_ids": [
+          181
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously provided the phone number of Speyer Tourismus Marketing GmbH as +49 (0) 62 32 / 14 23 - 0 in response to the user's earlier request for contact details. This is recorded in memory m_9f45862752ac66bdea82 and source turn 181."
+  },
+  "specialist_candidate": {
+    "answer": "+49 (0) 62 32 / 14 23 - 0",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9f45862752ac66bdea82"
+    ],
+    "support_source_ids": [
+      181
+    ],
+    "required_slots": [
+      {
+        "name": "phone_number",
+        "value": "+49 (0) 62 32 / 14 23 - 0",
+        "support_memory_ids": [
+          "m_9f45862752ac66bdea82"
+        ],
+        "support_source_ids": [
+          181
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "Speyer tourism board",
+        "predicate": "phone number",
+        "object": "+49 (0) 62 32 / 14 23 - 0",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_9f45862752ac66bdea82"
+        ],
+        "support_source_ids": [
+          181
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously provided the Speyer tourism board phone number in memory m_9f45862752ac66bdea82 (source 181). The user asks to confirm that number, so it is recalled directly."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    182,
+    181,
+    180,
+    21,
+    4,
+    56
+  ],
+  "v2_timeline_memory_ids": []
+}

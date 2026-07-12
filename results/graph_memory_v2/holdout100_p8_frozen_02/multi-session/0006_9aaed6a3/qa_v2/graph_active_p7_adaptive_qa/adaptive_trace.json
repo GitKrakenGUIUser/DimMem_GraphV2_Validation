@@ -1,0 +1,74 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [],
+  "specialist_needed": false,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "base_candidate": {
+    "answer": "75.01 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6a099d8ff1860ffdb237",
+      "m_a8a73edb5987433762d5"
+    ],
+    "support_source_ids": [
+      70,
+      50
+    ],
+    "required_slots": [
+      {
+        "name": "cashback amount",
+        "value": "$0.75",
+        "support_memory_ids": [
+          "m_6a099d8ff1860ffdb237",
+          "m_a8a73edb5987433762d5"
+        ],
+        "support_source_ids": [
+          70,
+          50
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        "75",
+        "0.01"
+      ],
+      "unit": "dollars",
+      "result": "75.01 dollars"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User spent $75 at SaveMart last Thursday (source 70). User has a SaveMart membership earning 1% cashback (source 50). Cashback = $75 * 1% = $0.75."
+  },
+  "specialist_candidate": null,
+  "choice": "base",
+  "choice_reason": "base candidate passed risk gate",
+  "compact_source_ids": [
+    50,
+    70,
+    51,
+    144,
+    52,
+    143,
+    148,
+    118,
+    119,
+    210,
+    71,
+    61,
+    146,
+    55,
+    145,
+    54,
+    53
+  ],
+  "targeted_source_ids": []
+}

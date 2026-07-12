@@ -1,0 +1,82 @@
+{
+  "question_id": "87f22b4a",
+  "question_type": "multi-session",
+  "question": "How much have I made from selling eggs this month?",
+  "question_date": "2023/05/30 (Tue) 09:50",
+  "gold_answer": "$120",
+  "prediction": "120 dollars",
+  "support_memory_ids": [
+    "m_fbef694d0a1c371a21d8",
+    "m_a1f532ab20c9ac40b4a8"
+  ],
+  "support_source_ids": [
+    67,
+    176
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User sold 40 dozen eggs in May 2023 (source 67) at $3 per dozen (source 176). 40 * $3 = $120. No other egg sales in May are recorded.",
+  "required_slots": [
+    {
+      "name": "egg sale transactions in May 2023",
+      "value": "40 dozen eggs sold at $3 per dozen",
+      "support_memory_ids": [
+        "m_fbef694d0a1c371a21d8",
+        "m_a1f532ab20c9ac40b4a8"
+      ],
+      "support_source_ids": [
+        67,
+        176
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      120
+    ],
+    "unit": "dollars",
+    "result": "120 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist filled an abstained base answer",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "egg sale transactions in May 2023",
+        "query": "egg sales May 2023",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "egg sales May 2023"
+    ],
+    "output_constraints": [
+      "sum of amounts in dollars"
+    ],
+    "reason": "The question asks for total earnings from selling eggs this month, which requires summing individual sale amounts. The time constraint is 'this month' (May 2023). Compositional reasoning may be needed if sales are recorded as events with amounts."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32475,
+    "completion_tokens": 711,
+    "elapsed_seconds": 6.355298757553101
+  }
+}

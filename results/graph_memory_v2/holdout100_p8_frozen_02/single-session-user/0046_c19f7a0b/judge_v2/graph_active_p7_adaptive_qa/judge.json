@@ -1,0 +1,84 @@
+{
+  "question_id": "c19f7a0b",
+  "question_type": "single-session-user",
+  "question": "What time do I usually get home from work on weeknights?",
+  "question_date": "2023/05/30 (Tue) 22:19",
+  "gold_answer": "6:30 pm",
+  "prediction": "around 6:30 pm",
+  "support_memory_ids": [
+    "m_583eddf1f241bd18cd67"
+  ],
+  "support_source_ids": [
+    98
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Memory m_583eddf1f241bd18cd67 directly states 'User usually gets home from work around 6:30 pm on weekdays.' Source 98 confirms this with user saying 'I usually get home from work around 6:30 pm on weekdays.' No contradictory evidence found.",
+  "required_slots": [
+    {
+      "name": "arrival_time_weeknight",
+      "value": "around 6:30 pm",
+      "support_memory_ids": [
+        "m_583eddf1f241bd18cd67"
+      ],
+      "support_source_ids": [
+        98
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:temporal",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "arrival_time_weeknight",
+        "query": "What time do I usually get home from work on weeknights?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What time do I usually get home from work on weeknights?"
+    ],
+    "output_constraints": [
+      "time of day"
+    ],
+    "reason": "Direct fact retrieval of typical arrival time on weeknights."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35210,
+    "completion_tokens": 541,
+    "elapsed_seconds": 5.788359880447388
+  },
+  "correct": true,
+  "judge_reason": "Equivalent wording, same time.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 140,
+    "completion_tokens": 21,
+    "elapsed_seconds": 0.8428769111633301
+  }
+}

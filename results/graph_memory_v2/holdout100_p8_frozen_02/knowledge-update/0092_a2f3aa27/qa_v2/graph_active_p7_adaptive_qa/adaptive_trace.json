@@ -1,0 +1,144 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "follower count state",
+        "query": "Instagram follower count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Instagram follower count"
+    ],
+    "output_constraints": [
+      "must be a number"
+    ],
+    "reason": "Question asks for current follower count, requiring state resolution."
+  },
+  "base_candidate": {
+    "answer": "1250",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_38102e74921d57497eab"
+    ],
+    "support_source_ids": [
+      67
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The most recent explicit follower count is 1250 from memory m_38102e74921d57497eab (source 67, timestamp 2023-05-25T05:26:01). A later memory (m_d6dae90b85a7412c3ec6) mentions 'close to 1300' but is vague and not a precise number. Therefore, the best supported answer is 1250."
+  },
+  "specialist_candidate": {
+    "answer": "1250",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_38102e74921d57497eab"
+    ],
+    "support_source_ids": [
+      67
+    ],
+    "required_slots": [
+      {
+        "name": "follower count state",
+        "value": "1250",
+        "support_memory_ids": [
+          "m_38102e74921d57497eab"
+        ],
+        "support_source_ids": [
+          67
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "has",
+        "object": "Instagram followers",
+        "value": "1250",
+        "unit": "count",
+        "event_time": "",
+        "valid_from": "2023-05-25T05:26:01",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_38102e74921d57497eab"
+        ],
+        "support_source_ids": [
+          67
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The most recent grounded follower count is 1250 from 2023-05-25. A later memory mentions 'close to 1300' but is vague and not a precise update. Therefore, the current state is 1250."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    67,
+    70,
+    69,
+    200,
+    204,
+    149,
+    55,
+    118,
+    201,
+    193,
+    52,
+    18,
+    203,
+    116,
+    66,
+    143,
+    202,
+    68
+  ],
+  "targeted_source_ids": [
+    66,
+    67,
+    69,
+    70,
+    92,
+    95,
+    145,
+    146,
+    147,
+    167,
+    200,
+    204,
+    68,
+    166,
+    168,
+    201
+  ]
+}

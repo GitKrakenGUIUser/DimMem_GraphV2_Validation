@@ -1,0 +1,102 @@
+{
+  "question": "Can you recommend some resources where I can learn more about video editing?",
+  "question_date": "2023-05-30T22:03:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user wants recommendations for resources to learn video editing",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "video editing"
+      ],
+      "keywords": [
+        "video editing",
+        "resources",
+        "learn"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "preferred_learning_resources"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user has previously asked about video editing resources",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "video editing"
+      ],
+      "keywords": [
+        "video editing",
+        "resources",
+        "learn",
+        "previous"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "2023-05-30T22:03:00",
+        "end": "",
+        "raw": "previously"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "same_topic"
+      ],
+      "answer_dim": "assistant_reply",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user has a profile indicating interest in video editing",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "video editing"
+      ],
+      "keywords": [
+        "video editing",
+        "interest",
+        "profile"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "interests",
+        "skills"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.3
+    }
+  ]
+}

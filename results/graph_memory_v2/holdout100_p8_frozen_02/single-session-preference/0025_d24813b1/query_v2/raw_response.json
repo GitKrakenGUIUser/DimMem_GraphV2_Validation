@@ -1,0 +1,110 @@
+{
+  "question": "I'm thinking of inviting my colleagues over for a small gathering. Any tips on what to bake?",
+  "question_date": "2023-05-30T17:57:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user wants baking tips for a small gathering with colleagues",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "baking tips",
+        "small gathering",
+        "colleagues"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "baking_skill_level",
+        "dietary_restrictions",
+        "preferred_baking_type"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "user's baking skill level",
+        "user's dietary restrictions",
+        "user's preferred baking type"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user has previously baked something for colleagues",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "baked",
+        "colleagues",
+        "gathering"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T17:57:00",
+        "raw": "previously"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "previous baking event details"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user has mentioned any dietary restrictions or preferences of colleagues",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user",
+        "colleagues"
+      ],
+      "keywords": [
+        "dietary restrictions",
+        "colleagues",
+        "preferences"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "colleagues_dietary_restrictions"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "colleagues' dietary restrictions"
+      ],
+      "confidence": 0.4
+    }
+  ]
+}

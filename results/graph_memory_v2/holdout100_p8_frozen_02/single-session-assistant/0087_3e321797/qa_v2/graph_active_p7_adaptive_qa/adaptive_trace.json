@@ -1,0 +1,154 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "duration",
+        "query": "tomato juice lemon juice dark circles leave on duration",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "tomato juice lemon juice dark circles leave on duration"
+    ],
+    "output_constraints": [
+      "answer must be a duration like 'X minutes'"
+    ],
+    "reason": "The user is asking about a specific duration mentioned in a previous assistant reply. The answer contract is assistant_recall, requiring retrieval of the assistant's prior statement. No composition or state projection needed."
+  },
+  "base_candidate": {
+    "answer": "10 minutes",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e63721e7170fe1bc1563"
+    ],
+    "support_source_ids": [
+      189
+    ],
+    "required_slots": [
+      {
+        "name": "duration",
+        "value": "10 minutes",
+        "support_memory_ids": [
+          "m_e63721e7170fe1bc1563"
+        ],
+        "support_source_ids": [
+          189
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "In the previous conversation (source 189), the assistant listed natural remedies for dark circles and stated: 'Tomato - Apply tomato juice mixed with lemon juice on your under-eye area and wash off after 10 minutes with cold water.' This directly answers the user's question about how long to leave the mixture on."
+  },
+  "specialist_candidate": {
+    "answer": "10 minutes",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e63721e7170fe1bc1563"
+    ],
+    "support_source_ids": [
+      189
+    ],
+    "required_slots": [
+      {
+        "name": "duration",
+        "value": "10 minutes",
+        "support_memory_ids": [
+          "m_e63721e7170fe1bc1563"
+        ],
+        "support_source_ids": [
+          189
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "assistant",
+        "predicate": "stated_duration_for",
+        "object": "tomato juice mixed with lemon juice on under-eye area",
+        "value": "10 minutes",
+        "unit": "minutes",
+        "event_time": "2023-05-28T14:59:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e63721e7170fe1bc1563"
+        ],
+        "support_source_ids": [
+          189
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's reply in source 189 explicitly states: 'Tomato - Apply tomato juice mixed with lemon juice on your under-eye area and wash off after 10 minutes with cold water for lightening dark circles.' This directly answers the user's question about how long to leave it on."
+  },
+  "choice": "base",
+  "choice_reason": "same answer; preserve compact candidate",
+  "compact_source_ids": [
+    189,
+    192,
+    1,
+    82,
+    77,
+    87,
+    49,
+    23,
+    191,
+    190,
+    116,
+    86,
+    90,
+    103,
+    117,
+    50,
+    76,
+    78
+  ],
+  "targeted_source_ids": [
+    1,
+    42,
+    86,
+    90,
+    103,
+    116,
+    117,
+    118,
+    151,
+    189,
+    192,
+    219,
+    115,
+    190,
+    191
+  ]
+}

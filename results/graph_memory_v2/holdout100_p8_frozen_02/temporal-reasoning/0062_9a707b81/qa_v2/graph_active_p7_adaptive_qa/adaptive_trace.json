@@ -1,0 +1,167 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of baking class",
+        "query": "When did I attend a baking class at a local culinary school to make my friend's birthday cake?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "baking class local culinary school friend birthday cake date"
+    ],
+    "output_constraints": [
+      "Answer must be a number of days."
+    ],
+    "reason": "The question asks for days ago, requiring a date difference between the event date and question date. Only one event date is needed."
+  },
+  "base_candidate": {
+    "answer": "26 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e7ec3f066e4d377e41de"
+    ],
+    "support_source_ids": [
+      89
+    ],
+    "required_slots": [
+      {
+        "name": "date of baking class",
+        "value": "2022-03-20",
+        "support_memory_ids": [
+          "m_e7ec3f066e4d377e41de"
+        ],
+        "support_source_ids": [
+          89
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2022-03-20",
+        "2022-04-15"
+      ],
+      "unit": "days",
+      "result": "26 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_e7ec3f066e4d377e41de states the user took a baking class at a local culinary school yesterday (2022-03-20). The question date is 2022-04-15. The difference is 26 days."
+  },
+  "specialist_candidate": {
+    "answer": "26 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e7ec3f066e4d377e41de"
+    ],
+    "support_source_ids": [
+      89
+    ],
+    "required_slots": [
+      {
+        "name": "date of baking class",
+        "value": "2022-03-20",
+        "support_memory_ids": [
+          "m_e7ec3f066e4d377e41de"
+        ],
+        "support_source_ids": [
+          89
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2022-03-20",
+        "2022-04-15"
+      ],
+      "unit": "days",
+      "result": "26 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "attended",
+        "object": "baking class at local culinary school",
+        "value": "",
+        "unit": "",
+        "event_time": "2022-03-20",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e7ec3f066e4d377e41de"
+        ],
+        "support_source_ids": [
+          89
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_e7ec3f066e4d377e41de and source 89 state user attended a baking class at a local culinary school yesterday relative to 2022-03-21, so the event date is 2022-03-20. Question date is 2022-04-15. Difference is 26 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    89,
+    70,
+    229,
+    233,
+    88,
+    30,
+    227,
+    83,
+    91,
+    224,
+    183,
+    228,
+    64,
+    260,
+    164,
+    31,
+    90,
+    225,
+    82,
+    226
+  ],
+  "targeted_source_ids": [
+    30,
+    48,
+    63,
+    64,
+    65,
+    83,
+    88,
+    89,
+    145,
+    229,
+    233,
+    238,
+    47,
+    49,
+    90,
+    228,
+    234
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "event_date",
+        "query": "bird watching workshop Audubon society date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "bird watching workshop Audubon society date"
+    ],
+    "output_constraints": [
+      "answer in weeks ago"
+    ],
+    "reason": "Need exact date of workshop to compute weeks ago from question date."
+  },
+  "base_candidate": {
+    "answer": "30 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a8036cb8f9c0f59ecee4"
+    ],
+    "support_source_ids": [
+      101
+    ],
+    "required_slots": [
+      {
+        "name": "event_date",
+        "value": "2023-04-01",
+        "support_memory_ids": [
+          "m_a8036cb8f9c0f59ecee4"
+        ],
+        "support_source_ids": [
+          101
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-01",
+        "2023-05-01"
+      ],
+      "unit": "weeks",
+      "result": "30 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user attended the bird watching workshop on 2023-04-01 (memory m_a8036cb8f9c0f59ecee4, source 101). The question date is 2023-05-01. The difference is 30 days, which is 4 weeks (30/7 ≈ 4.285, rounded down to 4 weeks ago)."
+  },
+  "specialist_candidate": {
+    "answer": "30 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a8036cb8f9c0f59ecee4"
+    ],
+    "support_source_ids": [
+      101
+    ],
+    "required_slots": [
+      {
+        "name": "event_date",
+        "value": "2023-04-01",
+        "support_memory_ids": [
+          "m_a8036cb8f9c0f59ecee4"
+        ],
+        "support_source_ids": [
+          101
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-01",
+        "2023-05-01"
+      ],
+      "unit": "days",
+      "result": "30 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "attended workshop",
+        "object": "bird watching workshop at local Audubon society",
+        "value": "2023-04-01",
+        "unit": "date",
+        "event_time": "2023-04-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_a8036cb8f9c0f59ecee4"
+        ],
+        "support_source_ids": [
+          101
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_a8036cb8f9c0f59ecee4 states user attended the workshop on 2023-04-01. Question date is 2023-05-01. Difference is 30 days, which is 4 weeks (30/7 ≈ 4.285, but weeks ago is typically floor or rounded; 30 days is exactly 4 weeks and 2 days, so '4 weeks ago' is the minimal answer).",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    101,
+    104,
+    103,
+    89,
+    105,
+    106,
+    74,
+    75,
+    79,
+    102,
+    160,
+    93,
+    176,
+    210,
+    212
+  ],
+  "targeted_source_ids": [
+    73,
+    74,
+    75,
+    89,
+    93,
+    101,
+    103,
+    104,
+    105,
+    170,
+    211,
+    212,
+    92,
+    94,
+    102
+  ]
+}

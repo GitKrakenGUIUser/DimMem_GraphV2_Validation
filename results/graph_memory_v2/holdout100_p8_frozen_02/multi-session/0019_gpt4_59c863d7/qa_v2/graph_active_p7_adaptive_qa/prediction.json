@@ -1,0 +1,83 @@
+{
+  "question_id": "gpt4_59c863d7",
+  "question_type": "multi-session",
+  "question": "How many model kits have I worked on or bought?",
+  "question_date": "2023/05/30 (Tue) 20:57",
+  "gold_answer": "I have worked on or bought five model kits. The scales of the models are: Revell F-15 Eagle (scale not mentioned), Tamiya 1/48 scale Spitfire Mk.V, 1/16 scale German Tiger I tank, 1/72 scale B-29 bomber, and 1/24 scale '69 Camaro.",
+  "prediction": "3",
+  "support_memory_ids": [
+    "m_c095ce14fa4c9473f960",
+    "m_c80c9c2e2ce958fd1d13"
+  ],
+  "support_source_ids": [
+    6,
+    164
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From memory m_c095ce14fa4c9473f960 (source 6), user acquired a 1/72 B-29 bomber model kit and a 1/24 '69 Camaro model kit at a model show last weekend (2023-05-13). From memory m_c80c9c2e2ce958fd1d13 (source 164), user finished building a Revell F-15 Eagle kit picked up in late April 2023. These are three distinct model kits worked on or bought. No other model kits are mentioned. Count = 3.",
+  "required_slots": [
+    {
+      "name": "model kits worked on or bought",
+      "value": "3",
+      "support_memory_ids": [
+        "m_c095ce14fa4c9473f960",
+        "m_c80c9c2e2ce958fd1d13"
+      ],
+      "support_source_ids": [
+        6,
+        164
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "1/72 scale B-29 bomber model kit",
+      "1/24 scale '69 Camaro model kit",
+      "Revell F-15 Eagle kit"
+    ],
+    "unit": "model kits",
+    "result": "3"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "model kits worked on or bought",
+        "query": "model kits worked on or bought",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "model kits worked on or bought"
+    ],
+    "output_constraints": [
+      "count of distinct model kits"
+    ],
+    "reason": "The question asks for a count of model kits worked on or bought, which is a direct count of distinct items from episodic memories."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 37363,
+    "completion_tokens": 899,
+    "elapsed_seconds": 6.9673473834991455
+  }
+}

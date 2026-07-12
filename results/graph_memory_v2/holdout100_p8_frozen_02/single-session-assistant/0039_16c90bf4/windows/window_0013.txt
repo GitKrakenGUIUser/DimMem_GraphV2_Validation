@@ -1,0 +1,62 @@
+[2023-05-27T19:26:02, Sat] 1.User: Can you tell me about any other castles with similar technological advancements?
+[2023-05-27T19:26:02.500000, Sat] 2.User: Wow, it's amazing how technologically advanced the Neuschwanstein Castle was for its time. I can't imagine what it must have been like to visit it back then.
+[2023-05-27T22:15:00.500000, Sat] 3.User: I think 
+
+from transformers import BertForSequenceClassification, BertTokenizerFast
+from datasets import load\_dataset
+from transformers import TrainingArguments, Trainer, EarlyStoppingCallback, ModelCheckpoint
+import torch
+
+# Load dataset
+dataset = load\_dataset("csv", data\_files={"train": "./data/train.csv", "validation": "./data/val.csv"}, delimiter=",")
+
+# Load tokenizer and encode the dataset
+tokenizer = BertTokenizerFast.from\_pretrained('bert-base-cased')
+def encode\_dataset(d):
+ return tokenizer(d['text'], padding='max\_length', truncation=True, max\_length=512)
+dataset = dataset.map(encode\_dataset)
+
+# Load model and prepare the Trainer
+model = BertForSequenceClassification.from\_pretrained('bert-base-cased', num\_labels=8)
+
+training\_args = TrainingArguments(
+ output\_dir='./results', # output directory
+ num\_train\_epochs=3, # total number of training epochs
+ per\_device\_train\_batch\_size=32, # batch size per device during training
+ per\_device\_eval\_batch\_size=64, # batch size for evaluation
+ warmup\_steps=500, # number of warmup steps for learning rate scheduler
+ weight\_decay=0.01, # strength of weight decay
+ logging\_dir='./logs', # directory for storing logs
+ logging\_steps=10,
+ evaluation\_strategy='steps', # evaluation strategy to adopt during training
+ save\_total\_limit=3, # maximum number of checkpoints to save
+ eval\_steps=500, # number of steps between evaluations
+ save\_strategy='steps', # save checkpoint every eval\_steps
+ load\_best\_model\_at\_end=True, # load the best model when finished training
+ metric\_for\_best\_model='accuracy',# use accuracy to evaluate the best model
+)
+
+trainer = Trainer(
+ model=model, # the instantiated Transformers model to be trained
+ args=training\_args, # training arguments, defined above
+ train\_dataset=dataset['train'], # training dataset
+ eval\_dataset=dataset['validation'], # evaluation dataset
+ callbacks=[EarlyStoppingCallback(early\_stopping\_patience=2), ModelCheckpoint(dirpath="./checkpoints", filename="checkpoint-{epoch}", monitor="eval\_accuracy")],
+)
+
+# Train the model
+trainer.train()
+
+this code is good , but please add Accelerator process in this code
+[2023-05-27T22:15:01, Sat] 4.User: How can use Accelerator? i should pip install?
+[2023-05-27T22:51:00.500000, Sat] 5.User: I'm looking for a good jewelry repair shop to fix my grandmother's old locket. Can you recommend any reliable places in my area?
+[2023-05-27T22:51:01, Sat] 6.User: My city is Springfield, and the locket needs its clasp fixed.
+[2023-05-27T22:51:01.500000, Sat] 7.User: What's the average cost to fix a broken clasp on a locket?
+[2023-05-27T22:51:02, Sat] 8.User: Can you help me find a good jewelry cleaning solution for my jewelry box? I want to clean my jewelry before organizing them.
+[2023-05-27T22:51:02.500000, Sat] 9.User: Do these cleaning solutions work for pearl jewelry as well, or do I need a special cleaner for my pearl necklace?
+[2023-05-27T22:51:03, Sat] 10.User: Can you recommend a good pearl cleaning cloth or a dry cleaning cloth that I can use to clean my pearl necklace?
+[2023-05-28T03:33:00.500000, Sun] 11.User: Can you provide an overview of the social work programs available at the University of Sydney, and how do they prepare students for careers in the helping professions?
+[2023-05-28T03:33:01, Sun] 12.User: That sounds great! Can you tell me more about the field placement component of the programs? Will I get to choose where I do my placement?
+[2023-05-28T03:33:01.500000, Sun] 13.User: Do you know if the social work programs at the University of Sydney have any specific areas of focus or specializations?
+[2023-05-28T03:33:02, Sun] 14.User: Wow, those specializations sound really interesting! I'm particularly intrigued by the Indigenous Social Work specialization. Can you tell me a bit more about what that program covers?
+[2023-05-28T03:33:02.500000, Sun] 15.User: This sounds like a really insightful program. How can I apply for the Indigenous Social Work specialization at the University of Sydney?

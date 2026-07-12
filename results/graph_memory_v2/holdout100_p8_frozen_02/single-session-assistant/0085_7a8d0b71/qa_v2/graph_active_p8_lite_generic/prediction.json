@@ -1,0 +1,58 @@
+{
+  "question_id": "7a8d0b71",
+  "question_type": "single-session-assistant",
+  "question": "I'm looking back at our previous chat about the DHL Wellness Retreats campaign. Can you remind me how much was allocated for influencer marketing in the campaign plan?",
+  "question_date": "2023/05/30 (Tue) 22:31",
+  "gold_answer": "$2,000",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.0,
+  "reasoning_summary": "No memory or source turn mentions the DHL Wellness Retreats campaign or any allocation for influencer marketing.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [
+    "p7_abstained",
+    "p7_no_support"
+  ],
+  "plan": {
+    "answer_contract": "direct_numeric",
+    "operator": "none",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "influencer marketing allocation amount",
+        "query": "DHL Wellness Retreats influencer marketing allocation",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "DHL Wellness Retreats influencer marketing budget",
+      "DHL Wellness Retreats influencer marketing allocation"
+    ],
+    "reason": "User asks for a specific numeric value from a previous chat about a campaign.",
+    "deterministic_contract_hint": "direct_value",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 19773,
+    "completion_tokens": 313,
+    "elapsed_seconds": 3.1875813007354736
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "trip date",
+        "query": "whitewater rafting trip Oregon mountains date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "whitewater rafting trip Oregon mountains date"
+    ],
+    "output_constraints": [
+      "number of days"
+    ],
+    "reason": "The question asks for days ago, requiring the trip date to compute difference from question date."
+  },
+  "base_candidate": {
+    "answer": "3 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6d4ab3ca30681b5b3876"
+    ],
+    "support_source_ids": [
+      62
+    ],
+    "required_slots": [
+      {
+        "name": "trip date",
+        "value": "2023-06-17",
+        "support_memory_ids": [
+          "m_6d4ab3ca30681b5b3876"
+        ],
+        "support_source_ids": [
+          62
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-06-17",
+        "2023-06-20"
+      ],
+      "unit": "days",
+      "result": "3 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated they 'just got back from an amazing whitewater rafting trip in the Oregon mountains with a group of coworkers today' on 2023-06-17 (source 62). The question date is 2023-06-20. The difference is 3 days."
+  },
+  "specialist_candidate": {
+    "answer": "3 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6d4ab3ca30681b5b3876"
+    ],
+    "support_source_ids": [
+      62
+    ],
+    "required_slots": [
+      {
+        "name": "trip date",
+        "value": "2023-06-17",
+        "support_memory_ids": [
+          "m_6d4ab3ca30681b5b3876"
+        ],
+        "support_source_ids": [
+          62
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-06-17",
+        "2023-06-20"
+      ],
+      "unit": "days",
+      "result": "3 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "went whitewater rafting",
+        "object": "in Oregon mountains with coworkers",
+        "value": "2023-06-17",
+        "unit": "day",
+        "event_time": "2023-06-17",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_6d4ab3ca30681b5b3876"
+        ],
+        "support_source_ids": [
+          62
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_6d4ab3ca30681b5b3876 and source 62 state user returned from whitewater rafting trip in Oregon mountains 'today' (2023-06-17). Question date is 2023-06-20. Difference is 3 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    62,
+    65,
+    64,
+    63,
+    27,
+    218,
+    212,
+    182,
+    163,
+    31,
+    184,
+    124,
+    176,
+    30,
+    66,
+    32,
+    217
+  ],
+  "targeted_source_ids": [
+    2,
+    9,
+    17,
+    27,
+    62,
+    63,
+    64,
+    65,
+    88,
+    177,
+    178,
+    225,
+    66,
+    176
+  ]
+}

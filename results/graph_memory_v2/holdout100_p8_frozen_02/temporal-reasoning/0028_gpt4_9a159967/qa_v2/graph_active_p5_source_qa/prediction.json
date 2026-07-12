@@ -1,0 +1,70 @@
+{
+  "question_id": "gpt4_9a159967",
+  "question_type": "temporal-reasoning",
+  "question": "Which airline did I fly with the most in March and April?",
+  "question_date": "2023/04/27 (Thu) 05:28",
+  "gold_answer": "United Airlines",
+  "prediction": "3",
+  "support_memory_ids": [
+    "m_42835616b591f744e8b1",
+    "m_50ccfad46da2837f10c8",
+    "m_961c9cc6c46a119e300c"
+  ],
+  "support_source_ids": [
+    30,
+    110,
+    144
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "In March, user flew United Airlines for a business trip to Chicago (4 flights). In March, user also flew Southwest Airlines to Las Vegas (2 flights). In April, user flew American Airlines to Hawaii (2 flights). United Airlines has the most flights (4) in March and April combined.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "United Airlines",
+      "Southwest Airlines",
+      "American Airlines"
+    ],
+    "unit": "airline",
+    "result": "3"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    111,
+    30,
+    110,
+    183,
+    113,
+    150,
+    138,
+    29,
+    216,
+    141,
+    144,
+    82,
+    147,
+    88,
+    218,
+    101,
+    149,
+    31,
+    217,
+    139,
+    112
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    6.08,
+    6.08
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 94185,
+    "completion_tokens": 824,
+    "elapsed_seconds": 16.677421808242798
+  }
+}

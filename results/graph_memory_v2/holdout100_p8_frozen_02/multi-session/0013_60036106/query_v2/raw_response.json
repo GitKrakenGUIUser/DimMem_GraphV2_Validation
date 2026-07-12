@@ -1,0 +1,102 @@
+{
+  "question": "What was the total number of people reached by my Facebook ad campaign and Instagram influencer collaboration?",
+  "question_date": "2023-05-30T11:00:00",
+  "hypotheses": [
+    {
+      "query_anchor": "total number of people reached by the user's Facebook ad campaign",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Facebook ad campaign"
+      ],
+      "keywords": [
+        "Facebook",
+        "ad campaign",
+        "reach"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "total number of people reached by the user's Instagram influencer collaboration",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Instagram influencer collaboration"
+      ],
+      "keywords": [
+        "Instagram",
+        "influencer",
+        "collaboration",
+        "reach"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "total number of people reached by the user's Facebook ad campaign and Instagram influencer collaboration combined",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Facebook ad campaign",
+        "Instagram influencer collaboration"
+      ],
+      "keywords": [
+        "Facebook",
+        "Instagram",
+        "ad campaign",
+        "influencer",
+        "collaboration",
+        "total reach"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "sum_of"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "individual reach numbers"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

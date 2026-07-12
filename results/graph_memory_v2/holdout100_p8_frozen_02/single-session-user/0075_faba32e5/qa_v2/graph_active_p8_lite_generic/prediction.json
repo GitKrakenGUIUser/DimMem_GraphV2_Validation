@@ -1,0 +1,71 @@
+{
+  "question_id": "faba32e5",
+  "question_type": "single-session-user",
+  "question": "How long did Alex marinate the BBQ ribs in special sauce?",
+  "question_date": "2023/05/30 (Tue) 22:10",
+  "gold_answer": "24 hours",
+  "prediction": "24 hours",
+  "support_memory_ids": [
+    "m_6b74d9c8eb937302c53d"
+  ],
+  "support_source_ids": [
+    136
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Memory m_6b74d9c8eb937302c53d directly states that Alex marinated BBQ ribs in special sauce for 24 hours before grilling. Source 136 confirms this.",
+  "required_slots": [
+    {
+      "name": "marination_duration",
+      "value": "24 hours",
+      "support_memory_ids": [
+        "m_6b74d9c8eb937302c53d"
+      ],
+      "support_source_ids": [
+        136
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "plan": {
+    "answer_contract": "duration",
+    "operator": "date_difference_days",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "marination_duration",
+        "query": "Alex marinate BBQ ribs special sauce duration",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Alex marinate BBQ ribs special sauce duration"
+    ],
+    "reason": "The question asks for a duration of marination, which is a state value. The evidence should directly state the time period.",
+    "deterministic_contract_hint": "duration",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 21543,
+    "completion_tokens": 472,
+    "elapsed_seconds": 4.7238852977752686
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "question_id": "ef9cf60a",
+  "question_type": "multi-session",
+  "question": "How much did I spend on gifts for my sister?",
+  "question_date": "2023/05/30 (Tue) 22:48",
+  "gold_answer": "$300",
+  "prediction": "200 USD",
+  "support_memory_ids": [
+    "m_5c45a9013bf00d6b97d2",
+    "m_a7f9704b6404f616d66e"
+  ],
+  "support_source_ids": [
+    57,
+    60
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User stated twice that they recently bought a silver necklace from Tiffany's for their sister costing around $200. This is the only grounded gift purchase for sister with a specific amount. The $100 spa gift card mentioned in planning is a past gift but not a recent purchase; it is referenced as a previous gift, not a new spend. Therefore, total spent on gifts for sister is $200.",
+  "required_slots": [
+    {
+      "name": "gift_purchase_event",
+      "value": "silver necklace from Tiffany's for sister",
+      "support_memory_ids": [
+        "m_5c45a9013bf00d6b97d2",
+        "m_a7f9704b6404f616d66e"
+      ],
+      "support_source_ids": [
+        57,
+        60
+      ]
+    },
+    {
+      "name": "amount_spent",
+      "value": 200,
+      "support_memory_ids": [
+        "m_5c45a9013bf00d6b97d2",
+        "m_a7f9704b6404f616d66e"
+      ],
+      "support_source_ids": [
+        57,
+        60
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      200
+    ],
+    "unit": "USD",
+    "result": "200 USD"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist filled an abstained base answer",
+  "risk_reasons": [
+    "base_abstained"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "gift_purchase_event",
+        "query": "gifts for sister",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "amount_spent",
+        "query": "amount spent on gift for sister",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "gifts for sister",
+      "amount spent on gift for sister"
+    ],
+    "output_constraints": [
+      "The answer should be a numeric total amount spent on gifts for sister."
+    ],
+    "reason": "The question asks for total spending on gifts for sister, requiring sum of amounts from relevant events."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 28721,
+    "completion_tokens": 755,
+    "elapsed_seconds": 7.620042562484741
+  }
+}

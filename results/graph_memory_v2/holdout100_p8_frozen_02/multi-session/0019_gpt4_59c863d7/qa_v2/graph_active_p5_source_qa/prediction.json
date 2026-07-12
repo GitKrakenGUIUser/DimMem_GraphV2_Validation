@@ -1,0 +1,82 @@
+{
+  "question_id": "gpt4_59c863d7",
+  "question_type": "multi-session",
+  "question": "How many model kits have I worked on or bought?",
+  "question_date": "2023/05/30 (Tue) 20:57",
+  "gold_answer": "I have worked on or bought five model kits. The scales of the models are: Revell F-15 Eagle (scale not mentioned), Tamiya 1/48 scale Spitfire Mk.V, 1/16 scale German Tiger I tank, 1/72 scale B-29 bomber, and 1/24 scale '69 Camaro.",
+  "prediction": "3",
+  "support_memory_ids": [
+    "m_c095ce14fa4c9473f960",
+    "m_c80c9c2e2ce958fd1d13"
+  ],
+  "support_source_ids": [
+    6,
+    164
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "From memory m_c80c9c2e2ce958fd1d13 (source 164), user finished a Revell F-15 Eagle kit. From memory m_c095ce14fa4c9473f960 (source 6), user acquired a 1/72 B-29 bomber and a 1/24 '69 Camaro at a model show. These are three distinct model kits worked on or bought. No other model kits are mentioned.",
+  "required_slots": [
+    {
+      "name": "count of model kits worked on or bought",
+      "value": "3",
+      "support_memory_ids": [
+        "m_c095ce14fa4c9473f960",
+        "m_c80c9c2e2ce958fd1d13"
+      ],
+      "support_source_ids": [
+        6,
+        164
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Revell F-15 Eagle kit",
+      "1/72 scale B-29 bomber model kit",
+      "1/24 scale '69 Camaro model kit"
+    ],
+    "unit": "model kits",
+    "result": "3"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    164,
+    6,
+    209,
+    167,
+    18,
+    224,
+    80,
+    226,
+    136,
+    182,
+    76,
+    174,
+    9,
+    11,
+    175,
+    166,
+    63,
+    165,
+    168,
+    183,
+    225,
+    7
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.279999999999999,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 98079,
+    "completion_tokens": 1334,
+    "elapsed_seconds": 18.482601165771484
+  }
+}

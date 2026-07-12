@@ -1,0 +1,215 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "faith-related activities in December",
+        "query": "faith-related activities December 2023",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "faith-related activities December 2023"
+    ],
+    "output_constraints": [
+      "count of distinct days"
+    ],
+    "reason": "The question asks for a count of days spent on faith-related activities in December, which is a historical count of distinct event days."
+  },
+  "base_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1878da2a96adf0513ebf",
+      "m_8dad7caf0e955ace7c3f",
+      "m_f7b1cc587b69e54a89ef"
+    ],
+    "support_source_ids": [
+      171,
+      125,
+      24
+    ],
+    "required_slots": [
+      {
+        "name": "faith-related activities in December",
+        "value": "3 days",
+        "support_memory_ids": [
+          "m_1878da2a96adf0513ebf",
+          "m_8dad7caf0e955ace7c3f",
+          "m_f7b1cc587b69e54a89ef"
+        ],
+        "support_source_ids": [
+          171,
+          125,
+          24
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "2023-12-10",
+        "2023-12-17",
+        "2023-12-24"
+      ],
+      "unit": "days",
+      "result": "3"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User participated in three distinct faith-related activities in December 2023: volunteering at a church food drive on Dec 10, leading a Bible study on Dec 17, and attending midnight mass on Dec 24. Each is a separate day, so total is 3 days."
+  },
+  "specialist_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1878da2a96adf0513ebf",
+      "m_8dad7caf0e955ace7c3f",
+      "m_f7b1cc587b69e54a89ef"
+    ],
+    "support_source_ids": [
+      171,
+      125,
+      24
+    ],
+    "required_slots": [
+      {
+        "name": "faith-related activities in December",
+        "value": "Bible study on December 17, midnight mass on December 24, food drive on December 10",
+        "support_memory_ids": [
+          "m_1878da2a96adf0513ebf",
+          "m_8dad7caf0e955ace7c3f",
+          "m_f7b1cc587b69e54a89ef"
+        ],
+        "support_source_ids": [
+          171,
+          125,
+          24
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "2023-12-10",
+        "2023-12-17",
+        "2023-12-24"
+      ],
+      "unit": "days",
+      "result": "3"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "volunteered at",
+        "object": "church's annual holiday food drive",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-12-10",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_f7b1cc587b69e54a89ef"
+        ],
+        "support_source_ids": [
+          24
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "led a Bible study on",
+        "object": "faith and its application to daily life",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-12-17",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_1878da2a96adf0513ebf"
+        ],
+        "support_source_ids": [
+          171
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "attended",
+        "object": "midnight mass at St. Mary's Church",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-12-24",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_8dad7caf0e955ace7c3f"
+        ],
+        "support_source_ids": [
+          125
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Three distinct faith-related activities in December 2023: food drive on Dec 10, Bible study on Dec 17, midnight mass on Dec 24. Each is a separate day, so count is 3.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    171,
+    125,
+    173,
+    172,
+    24,
+    195,
+    196,
+    192,
+    194,
+    113,
+    175,
+    180,
+    141,
+    1,
+    28,
+    174,
+    126,
+    25,
+    193
+  ],
+  "targeted_source_ids": [
+    24,
+    97,
+    125,
+    126,
+    134,
+    171,
+    172,
+    173,
+    180,
+    181,
+    195,
+    198,
+    25,
+    174
+  ]
+}

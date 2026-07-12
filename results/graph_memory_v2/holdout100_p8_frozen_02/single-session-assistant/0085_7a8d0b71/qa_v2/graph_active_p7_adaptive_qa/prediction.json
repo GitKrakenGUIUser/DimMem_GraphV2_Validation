@@ -1,0 +1,61 @@
+{
+  "question_id": "7a8d0b71",
+  "question_type": "single-session-assistant",
+  "question": "I'm looking back at our previous chat about the DHL Wellness Retreats campaign. Can you remind me how much was allocated for influencer marketing in the campaign plan?",
+  "question_date": "2023/05/30 (Tue) 22:31",
+  "gold_answer": "$2,000",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.0,
+  "reasoning_summary": "No memory or source turn mentions the DHL Wellness Retreats campaign or any allocation for influencer marketing.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "same answer; preserve compact candidate",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "influencer_marketing_allocation",
+        "query": "DHL Wellness Retreats campaign influencer marketing allocation",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "DHL Wellness Retreats campaign influencer marketing allocation"
+    ],
+    "output_constraints": [
+      "The answer should be a monetary amount (e.g., $X) or 'not specified'."
+    ],
+    "reason": "The user asks for a specific fact from a previous chat about the DHL Wellness Retreats campaign. This requires recalling an assistant reply that contained the allocation for influencer marketing."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 37716,
+    "completion_tokens": 401,
+    "elapsed_seconds": 5.060869932174683
+  }
+}

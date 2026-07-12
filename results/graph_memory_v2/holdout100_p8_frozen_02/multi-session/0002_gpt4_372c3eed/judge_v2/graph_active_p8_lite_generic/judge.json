@@ -1,0 +1,128 @@
+{
+  "question_id": "gpt4_372c3eed",
+  "question_type": "multi-session",
+  "question": "How many years in total did I spend in formal education from high school to the completion of my Bachelor's degree?",
+  "question_date": "2021/08/20 (Fri) 23:34",
+  "gold_answer": "10 years",
+  "prediction": "8 years",
+  "support_memory_ids": [
+    "m_44583d75eeb3ca4a42d9",
+    "m_f3264006bfebb15d17f9"
+  ],
+  "support_source_ids": [
+    18,
+    193
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "High school duration: 4 years (2010-2014). Bachelor duration: 4 years (stated explicitly). Sum = 8 years.",
+  "required_slots": [
+    {
+      "name": "high school duration",
+      "value": "4",
+      "support_memory_ids": [
+        "m_f3264006bfebb15d17f9"
+      ],
+      "support_source_ids": [
+        193
+      ]
+    },
+    {
+      "name": "bachelor duration",
+      "value": "4",
+      "support_memory_ids": [
+        "m_44583d75eeb3ca4a42d9"
+      ],
+      "support_source_ids": [
+        18
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      4,
+      4
+    ],
+    "unit": "years",
+    "result": "8 years"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "high school duration",
+        "query": "high school years",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "bachelor duration",
+        "query": "bachelor degree years",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "high school years",
+      "bachelor degree years"
+    ],
+    "reason": "Total years from high school to bachelor's completion is sum of durations.",
+    "deterministic_contract_hint": "sum",
+    "contract_overridden": false
+  },
+  "verification": {
+    "choice": "specialist",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      }
+    },
+    "reason": "All candidates are supported and consistent. The specialist candidate explicitly fills the required slots (high school duration and bachelor duration) with numeric values and performs the sum operation as specified in the plan, with high confidence and safe executor applied. p5 also sums durations but uses a less explicit slot structure. p7 computes date difference which does not match the plan's sum operation. Therefore, specialist is the best match."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 30725,
+    "completion_tokens": 938,
+    "elapsed_seconds": 7.930516242980957
+  },
+  "correct": false,
+  "judge_reason": "Predicted 8 years does not match reference answer of 10 years.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 144,
+    "completion_tokens": 30,
+    "elapsed_seconds": 0.6062726974487305
+  }
+}

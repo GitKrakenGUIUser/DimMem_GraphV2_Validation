@@ -1,0 +1,22 @@
+[2023-03-13T12:33:02.500000, Mon] 1.User: Thanks for the tips. I do have some experience planning a large group trip, actually. I worked with Custom Travel to plan a family reunion in Hawaii last month, and they were very accommodating with all the changes we made to the itinerary. We ended up splitting the total cost of $12,000 among the 15 family members attending, which was quite expensive, but it was worth it.
+[2023-03-13T12:33:03, Mon] 2.User: I'm thinking of having a guided tour in Europe, maybe a river cruise or a multi-city tour. Do you think it's a good idea, and can you recommend any good tour operators?
+[2023-03-13T09:47:00.500000, Mon] 3.User: Hey, I'm running a website 'gitbook.com' on Vercel. It allows my customers to create their own documentation websites. Those websites are created as a subdomain on my website: for example, my customer Dan can add his subdomain 'dans-gitbook.gitbook.com'. Does this all make sense so far and any clarifying questions?
+[2023-03-13T09:47:01, Mon] 4.User: Good question - Vercel will automatically generate a URL which will be something like 'dans-gitbook.vercel.app', but Vercel allows customers to assign custom domains to their Vercel deployments. In this case, I've assigned a custom domain of 'gitbook.com', as well as a wildcard subdomain of '\*.gitbook.com'. This allows for custom subdomains. Does that make sense?
+[2023-03-13T09:47:01.500000, Mon] 5.User: To add some more context to that, Vercel automatically configures SSL for its customers. When you deploy to Vercel, it will automatically provision SSL with Let's Encrypt for them.
+
+With that in mind, let's imagine that you're my Gitbook customer Dan. You want to have a better domain for your documentation site: instead of `dans-gitbook.gitbook.com`, you want them to be accessible under `docs.danfletcher.com`. You own the domain `danfletcher.com` and can change its DNS records. How should I go about enabling Dan to achieve this?
+[2023-03-13T09:47:02, Mon] 6.User: This is not quite accurate. The following numbers correspond to your own numbered points.
+
+2) I've added a wildcard subdomain, remember? That means I don't need to add this domain.
+3) What kind of DNS record are you talking about here?
+[2023-03-13T09:47:02.500000, Mon] 7.User: No, that's not correct. You do not need to add a TXT record for verification after adding a domain on Vercel. The exception - and the only time that is required - is when you're re-using a domain across multiple Vercel projects.
+[2023-03-13T09:47:03, Mon] 8.User: Are there any remaining errors in the above?
+[2023-03-13T09:47:03.500000, Mon] 9.User: Step 2 is no longer necessary, remember? We've got a wildcard subdomain.
+[2023-03-13T09:47:04, Mon] 10.User: No worries, this is a lot of new info. Let's think things through step-by-step and be careful - no rush.
+
+Let's imagine that `danfletcher.com` has a CAA record that disallows Let's Encrypt. He'll no longer be able to point it at Vercel, correct?
+[2023-03-13T09:47:04.500000, Mon] 11.User: OK, let's say we want to make some DNS changes to permit Dan pointing his domain at Vercel, even though it disallows Let's Encrypt. If I upload a new SSL certificate on `dans-gitbook.vercel.app` with Digicert instead, would that now allow him to point his domain at Gitbook?
+[2023-03-14T19:38:00.500000, Tue] 12.User: What is the Japanese term for sushi with rice on the outside?
+[2023-03-14T19:38:01, Tue] 13.User: Hmm, I wonder if there's any other way to enjoy sushi besides the traditional sushi rolls. Have you heard of any unique sushi creations?
+[2023-03-14T19:38:01.500000, Tue] 14.User: Wow, those unique sushi creations sound amazing! I'm definitely going to try making some at home. Do you have any tips for a beginner sushi chef like myself?
+[2023-03-14T19:38:02, Tue] 15.User: I'm excited to try making sushi bowls at home, but do you have any recommendations for sauces or toppings to add to the bowl? I want to elevate the flavors beyond just sushi ingredients.

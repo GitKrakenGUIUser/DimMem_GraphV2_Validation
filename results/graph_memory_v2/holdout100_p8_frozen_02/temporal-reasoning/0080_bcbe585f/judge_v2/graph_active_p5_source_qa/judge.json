@@ -1,0 +1,78 @@
+{
+  "question_id": "bcbe585f",
+  "question_type": "temporal-reasoning",
+  "question": "How many weeks ago did I attend a bird watching workshop at the local Audubon society?",
+  "question_date": "2023/05/01 (Mon) 23:16",
+  "gold_answer": "4",
+  "prediction": "30 days",
+  "support_memory_ids": [
+    "m_a8036cb8f9c0f59ecee4"
+  ],
+  "support_source_ids": [
+    101
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user attended the bird watching workshop on 2023-04-01 (memory m_a8036cb8f9c0f59ecee4, source 101). The question date is 2023-05-01. The difference is 30 days, which is 4 weeks (30/7 ≈ 4.285, rounded down to 4 weeks ago).",
+  "required_slots": [
+    {
+      "name": "event_date",
+      "value": "2023-04-01",
+      "support_memory_ids": [
+        "m_a8036cb8f9c0f59ecee4"
+      ],
+      "support_source_ids": [
+        101
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-04-01",
+      "2023-05-01"
+    ],
+    "unit": "weeks",
+    "result": "30 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    101,
+    104,
+    103,
+    89,
+    105,
+    106,
+    74,
+    75,
+    79,
+    102,
+    160,
+    93,
+    176,
+    210,
+    212
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    4.490000000000001,
+    4.490000000000001
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 63011,
+    "completion_tokens": 917,
+    "elapsed_seconds": 10.168931245803833
+  },
+  "correct": false,
+  "judge_reason": "30 days is approximately 4.3 weeks, not exactly 4 weeks.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 140,
+    "completion_tokens": 31,
+    "elapsed_seconds": 0.8943536281585693
+  }
+}

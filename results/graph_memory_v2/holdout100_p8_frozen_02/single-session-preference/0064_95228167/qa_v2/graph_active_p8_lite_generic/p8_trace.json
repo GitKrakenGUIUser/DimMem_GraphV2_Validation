@@ -1,0 +1,180 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:preference_criteria"
+  ],
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "user's guitar experience level",
+        "query": "user guitar experience level",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "user's preferred music style",
+        "query": "user preferred music style",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "user's budget",
+        "query": "user budget for guitar",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user guitar experience level",
+      "user preferred music style",
+      "user budget for guitar"
+    ],
+    "reason": "To provide personalized guitar buying tips, need user's experience, music style, and budget.",
+    "deterministic_contract_hint": "preference_criteria",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "When shopping for a new guitar, consider the following: 1) Body shape and construction (e.g., single-cut vs. double-cut, bolt-on vs. set neck). 2) Pickup type (single-coil vs. humbucker) and electronics (e.g., coil-splitting for versatility). 3) Neck profile and scale length for playability. 4) Weight and balance. 5) Tone characteristics (bright vs. warm). 6) Budget and brand reputation. Try out different models to see what feels and sounds best for your style.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ed03a790beea6aa98426",
+      "m_e782ef1e40aceb381bd9"
+    ],
+    "support_source_ids": [
+      134,
+      135
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user asks for tips on what to look for in a new guitar. From memory m_ed03a790beea6aa98426 and source 134, the assistant provided detailed differences between Stratocaster and Les Paul, covering body, pickups, neck, tone, etc. From memory m_e782ef1e40aceb381bd9 and source 135, the assistant listed genres suited to Les Paul, indicating tonal versatility. These are used to compile general buying tips."
+  },
+  "p7_candidate": {
+    "answer": "When shopping for a new guitar, consider the following: 1) Body shape and construction (e.g., single-cut vs. double-cut, bolt-on vs. set neck). 2) Pickup type (single-coil vs. humbucker) and electronics (e.g., coil-splitting for versatility). 3) Neck profile and scale length for playability. 4) Weight and balance. 5) Tone characteristics (bright vs. warm). 6) Budget and brand reputation. Try out different models to see what feels and sounds best for your style.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ed03a790beea6aa98426",
+      "m_e782ef1e40aceb381bd9"
+    ],
+    "support_source_ids": [
+      134,
+      135
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user asks for tips on what to look for in a new guitar. From memory m_ed03a790beea6aa98426 and source 134, the assistant provided detailed differences between Stratocaster and Les Paul, covering body, pickups, neck, tone, etc. From memory m_e782ef1e40aceb381bd9 and source 135, the assistant listed genres suited to Les Paul, indicating tonal versatility. These are used to compile general buying tips."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "user's guitar experience level",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "user's preferred music style",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "user's budget",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user's guitar experience level",
+      "user's preferred music style",
+      "user's budget"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [],
+    "confidence": 0.2,
+    "reasoning_summary": "The user asks for tips on what to look for in a new guitar. The reconciled plan requires three slots: user's guitar experience level, preferred music style, and budget. None of these are grounded in the evidence. The evidence shows the user has discussed Les Paul and Stratocaster differences, open D tuning, and fingerpicking, but no explicit experience level, music style preference, or budget for a new guitar is stated. Therefore, the answer is not answerable without filling the slots."
+  },
+  "choice": "specialist",
+  "verification": {
+    "choice": "specialist",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 0.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Required slots (experience, style, budget) are not filled; answer is generic and not personalized."
+      },
+      "p7": {
+        "supported": false,
+        "slot_coverage": 0.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Same as p5; required slots unfilled."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Correctly identifies that required slots are missing, so answer cannot be determined."
+      }
+    },
+    "reason": "The plan requires user's experience, music style, and budget, none of which are present in the evidence. The specialist correctly abstains."
+  },
+  "targeted_source_ids": [
+    138,
+    4,
+    135,
+    152,
+    115,
+    170,
+    116,
+    136,
+    113,
+    12,
+    139,
+    3,
+    134,
+    5
+  ],
+  "v2_timeline_memory_ids": [
+    "m_7ac37d26cca917ba2a3d",
+    "m_c8b26d455073de333e79",
+    "m_089b3afb43b12084c7c0",
+    "m_094b51e926b9efe0dc70",
+    "m_1960d2ca63bbb231e9df",
+    "m_6201ba6403142a3dfef9",
+    "m_6893f2233e8da4bb529a",
+    "m_7e8de883187f4fef8f20"
+  ]
+}

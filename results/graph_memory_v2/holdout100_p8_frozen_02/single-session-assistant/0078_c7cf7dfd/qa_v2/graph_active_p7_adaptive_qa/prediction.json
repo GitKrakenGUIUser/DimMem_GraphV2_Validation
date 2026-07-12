@@ -1,0 +1,75 @@
+{
+  "question_id": "c7cf7dfd",
+  "question_type": "single-session-assistant",
+  "question": "I'm going back to our previous conversation about traditional Indian embroidery and tailoring techniques. Can you remind me of the name of that online store based in India that sells traditional Indian fabrics, threads, and embellishments?",
+  "question_date": "2023/05/30 (Tue) 20:59",
+  "gold_answer": "Nostalgia",
+  "prediction": "Nostalgia",
+  "support_memory_ids": [
+    "m_4344b7daef370d6203cd"
+  ],
+  "support_source_ids": [
+    233
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The assistant previously recommended 'Nostalgia' as an online store based in India that sells traditional Indian fabrics, threads, and embellishments (source 233). This directly answers the user's recall question.",
+  "required_slots": [
+    {
+      "name": "store_name",
+      "value": "Nostalgia",
+      "support_memory_ids": [
+        "m_4344b7daef370d6203cd"
+      ],
+      "support_source_ids": [
+        233
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "store_name",
+        "query": "online store India traditional fabrics threads embellishments",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "online store India traditional fabrics threads embellishments"
+    ],
+    "output_constraints": [
+      "single entity name"
+    ],
+    "reason": "The question asks the assistant to recall a previously mentioned online store name from a prior conversation about Indian embroidery and tailoring."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 26041,
+    "completion_tokens": 534,
+    "elapsed_seconds": 6.623021841049194
+  }
+}

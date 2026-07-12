@@ -1,0 +1,93 @@
+{
+  "question_id": "2a1811e2",
+  "question_type": "temporal-reasoning",
+  "question": "How many days had passed between the Hindu festival of Holi and the Sunday mass at St. Mary's Church?",
+  "question_date": "2023/03/26 (Sun) 12:05",
+  "gold_answer": "21 days. 22 days (including the last day) is also acceptable.",
+  "prediction": "21 days",
+  "support_memory_ids": [
+    "m_329f0e35b1c702322df5",
+    "m_91b4ea6e66afb94028d3"
+  ],
+  "support_source_ids": [
+    90,
+    139
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From memory, Holi was on February 26, 2023, and Sunday mass at St. Mary's Church was on March 19, 2023. The difference is 21 days.",
+  "required_slots": [
+    {
+      "name": "date of Holi",
+      "value": "2023-02-26",
+      "support_memory_ids": [
+        "m_329f0e35b1c702322df5"
+      ],
+      "support_source_ids": [
+        90
+      ]
+    },
+    {
+      "name": "date of Sunday mass at St. Mary's Church",
+      "value": "2023-03-19",
+      "support_memory_ids": [
+        "m_91b4ea6e66afb94028d3"
+      ],
+      "support_source_ids": [
+        139
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-02-26",
+      "2023-03-19"
+    ],
+    "unit": "days",
+    "result": "21"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "date of Holi",
+        "query": "Holi 2023 date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of Sunday mass at St. Mary's Church",
+        "query": "St. Mary's Church Sunday mass date 2023",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Holi 2023 date",
+      "St. Mary's Church Sunday mass date 2023"
+    ],
+    "reason": "Need dates of Holi and Sunday mass to compute days between.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 20848,
+    "completion_tokens": 770,
+    "elapsed_seconds": 5.820997476577759
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "question_id": "4b24c848",
+  "question_type": "knowledge-update",
+  "question": "How many tops have I bought from H&M so far?",
+  "question_date": "2023/10/20 (Fri) 08:09",
+  "gold_answer": "five",
+  "prediction": "5",
+  "support_memory_ids": [
+    "m_e25b55c3291f1e60722e"
+  ],
+  "support_source_ids": [
+    234
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Memory m_e25b55c3291f1e60722e explicitly states 'User has bought five tops from H&M so far', and source turn 234 confirms the user said 'I've already got five tops from H&M so far' on 2023-09-30, which is before the question date.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": "5"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "monotonic guard: expanded evidence only caused abstention",
+  "risk_reasons": [
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "count",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "purchase events",
+        "query": "purchases of tops from H&M before 2023-10-20",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "purchases of tops from H&M before 2023-10-20"
+    ],
+    "output_constraints": [
+      "single integer count"
+    ],
+    "reason": "The question asks for a count of tops bought from H&M so far, which is a historical count of distinct purchase events or items. The answer is a number, so count_distinct operator is appropriate."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 30142,
+    "completion_tokens": 559,
+    "elapsed_seconds": 5.8227269649505615
+  },
+  "correct": true,
+  "judge_reason": "The prediction '5' is numerically equivalent to the reference answer 'five'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 130,
+    "completion_tokens": 31,
+    "elapsed_seconds": 0.8050894737243652
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "question_id": "c960da58",
+  "question_type": "single-session-user",
+  "question": "How many playlists do I have on Spotify?",
+  "question_date": "2023/05/30 (Tue) 18:45",
+  "gold_answer": "20",
+  "prediction": "20",
+  "support_memory_ids": [
+    "m_79fac2b009437b3df378"
+  ],
+  "support_source_ids": [
+    20
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user explicitly stated 'I have 20 playlists on Spotify' in source 20 on 2023-05-20. No later updates contradict this, so the current count is 20.",
+  "required_slots": [
+    {
+      "name": "spotify_playlist_count",
+      "value": "20",
+      "support_memory_ids": [
+        "m_79fac2b009437b3df378"
+      ],
+      "support_source_ids": [
+        20
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "spotify_playlist_count",
+        "query": "user's number of Spotify playlists",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user's number of Spotify playlists"
+    ],
+    "output_constraints": [
+      "must be a non-negative integer"
+    ],
+    "reason": "The question asks for the current count of playlists on Spotify, which is a state value. No composition or semantic bridge needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34332,
+    "completion_tokens": 507,
+    "elapsed_seconds": 5.114556312561035
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 130,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7316131591796875
+  }
+}

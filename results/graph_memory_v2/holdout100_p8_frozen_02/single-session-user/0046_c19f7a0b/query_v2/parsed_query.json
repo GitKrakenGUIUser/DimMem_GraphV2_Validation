@@ -1,0 +1,122 @@
+{
+  "question": "What time do I usually get home from work on weeknights?",
+  "question_date": "2023-05-30T22:19:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's typical arrival time home from work on weeknights",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "get home",
+        "work",
+        "weeknights",
+        "arrival time"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "weeknights"
+      },
+      "locations": [
+        "home",
+        "work"
+      ],
+      "state_keys": [
+        "arrival_time_weeknight"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's work schedule on weekdays",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "work schedule",
+        "weekdays",
+        "end time"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "weekdays"
+      },
+      "locations": [
+        "work"
+      ],
+      "state_keys": [
+        "work_end_time"
+      ],
+      "relation_hints": [
+        "caused_by"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "commute duration"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's commute duration from work to home",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "commute",
+        "work",
+        "home",
+        "duration"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [
+        "work",
+        "home"
+      ],
+      "state_keys": [
+        "commute_duration"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "work end time"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

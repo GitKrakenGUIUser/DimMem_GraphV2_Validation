@@ -1,0 +1,78 @@
+{
+  "question_id": "bcbe585f",
+  "question_type": "temporal-reasoning",
+  "question": "How many weeks ago did I attend a bird watching workshop at the local Audubon society?",
+  "question_date": "2023/05/01 (Mon) 23:16",
+  "gold_answer": "4",
+  "prediction": "30 days",
+  "support_memory_ids": [
+    "m_a8036cb8f9c0f59ecee4"
+  ],
+  "support_source_ids": [
+    101
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Memory m_a8036cb8f9c0f59ecee4 states user attended the workshop on 2023-04-01. Question date is 2023-05-01. Difference is 30 days, which is 4 weeks (30/7 ≈ 4.285, but weeks ago is typically floor or rounded; 30 days is exactly 4 weeks and 2 days, so '4 weeks ago' is the minimal answer).",
+  "required_slots": [
+    {
+      "name": "event_date",
+      "value": "2023-04-01",
+      "support_memory_ids": [
+        "m_a8036cb8f9c0f59ecee4"
+      ],
+      "support_source_ids": [
+        101
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-04-01",
+      "2023-05-01"
+    ],
+    "unit": "days",
+    "result": "30 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "event_date",
+        "query": "bird watching workshop Audubon society date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "bird watching workshop Audubon society date"
+    ],
+    "output_constraints": [
+      "answer in weeks ago"
+    ],
+    "reason": "Need exact date of workshop to compute weeks ago from question date."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 24677,
+    "completion_tokens": 598,
+    "elapsed_seconds": 5.359144926071167
+  }
+}

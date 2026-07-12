@@ -1,0 +1,86 @@
+[
+  {
+    "answer": "8 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1393a57d11c496682191",
+      "m_2f826047ced99447b5cf"
+    ],
+    "support_source_ids": [
+      161,
+      207
+    ],
+    "required_slots": [
+      {
+        "name": "total_camping_days",
+        "value": "8",
+        "support_memory_ids": [
+          "m_1393a57d11c496682191",
+          "m_2f826047ced99447b5cf"
+        ],
+        "support_source_ids": [
+          161,
+          207
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5,
+        3
+      ],
+      "unit": "days",
+      "result": "8 days"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "User took a 5-day camping trip to Yellowstone in March 2023 (memory m_1393a57d11c496682191, source 161) and a 3-day solo camping trip to Big Sur in early April 2023 (memory m_2f826047ced99447b5cf, source 207). Both trips are in the United States and occurred in 2023 before the question date. Total days = 5 + 3 = 8.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "8 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1393a57d11c496682191",
+      "m_2f826047ced99447b5cf"
+    ],
+    "support_source_ids": [
+      207,
+      161
+    ],
+    "required_slots": [
+      {
+        "name": "total_camping_days",
+        "value": "8",
+        "support_memory_ids": [
+          "m_1393a57d11c496682191",
+          "m_2f826047ced99447b5cf"
+        ],
+        "support_source_ids": [
+          207,
+          161
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5,
+        3
+      ],
+      "unit": "days",
+      "result": "8 days"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user went on a 5-day camping trip to Yellowstone National Park in March 2023 (memory m_1393a57d11c496682191, source 161) and a 3-day solo camping trip to Big Sur in early April 2023 (memory m_2f826047ced99447b5cf, source 207). Both trips are in the United States and occurred in 2023 before the question date. The total days spent camping is 5 + 3 = 8.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

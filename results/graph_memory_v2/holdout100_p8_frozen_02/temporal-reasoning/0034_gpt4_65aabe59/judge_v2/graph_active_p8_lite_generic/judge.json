@@ -1,0 +1,100 @@
+{
+  "question_id": "gpt4_65aabe59",
+  "question_type": "temporal-reasoning",
+  "question": "Which device did I set up first, the smart thermostat or the mesh network system?",
+  "question_date": "2023/05/25 (Thu) 11:29",
+  "gold_answer": "Smart thermostat",
+  "prediction": "smart thermostat",
+  "support_memory_ids": [
+    "m_83f50691cfd4896cadae",
+    "m_08cfef4d4fe9cf193ac8"
+  ],
+  "support_source_ids": [
+    192,
+    194,
+    101
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The smart thermostat was set up a month ago (2023-04-25) and the mesh network system was upgraded 3 weeks ago (2023-05-04). Since 2023-04-25 is earlier than 2023-05-04, the smart thermostat was set up first.",
+  "required_slots": [
+    {
+      "name": "setup event for first device",
+      "value": "set up smart thermostat",
+      "support_memory_ids": [
+        "m_83f50691cfd4896cadae"
+      ],
+      "support_source_ids": [
+        192,
+        194
+      ]
+    },
+    {
+      "name": "setup event for second device",
+      "value": "set up mesh network system",
+      "support_memory_ids": [
+        "m_08cfef4d4fe9cf193ac8"
+      ],
+      "support_source_ids": [
+        101
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "comparison",
+  "calculation": {
+    "operator": "comparison",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "setup event for first device",
+        "query": "set up smart thermostat",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "setup event for second device",
+        "query": "set up mesh network system",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "set up smart thermostat",
+      "set up mesh network system"
+    ],
+    "reason": "Need to compare setup times of two devices to determine which was first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 24312,
+    "completion_tokens": 731,
+    "elapsed_seconds": 5.919939279556274
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 137,
+    "completion_tokens": 22,
+    "elapsed_seconds": 0.9579603672027588
+  }
+}

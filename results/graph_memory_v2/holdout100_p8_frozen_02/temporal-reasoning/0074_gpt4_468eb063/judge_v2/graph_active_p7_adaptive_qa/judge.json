@@ -1,0 +1,86 @@
+{
+  "question_id": "gpt4_468eb063",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I meet Emma?",
+  "question_date": "2023/04/20 (Thu) 10:12",
+  "gold_answer": "9 days ago. 10 days (including the last day) is also acceptable.",
+  "prediction": "9 days",
+  "support_memory_ids": [
+    "m_b17a4a104080c7d380d8"
+  ],
+  "support_source_ids": [
+    60
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Memory m_b17a4a104080c7d380d8 states user had lunch with Emma on 2023-04-11 (today relative to that conversation). Question date is 2023-04-20. Difference is 9 days.",
+  "required_slots": [
+    {
+      "name": "date of meeting Emma",
+      "value": "2023-04-11",
+      "support_memory_ids": [
+        "m_b17a4a104080c7d380d8"
+      ],
+      "support_source_ids": [
+        60
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-04-11",
+      "2023-04-20"
+    ],
+    "unit": "days",
+    "result": "9 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of meeting Emma",
+        "query": "When did I meet Emma?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I meet Emma?"
+    ],
+    "output_constraints": [
+      "Answer must be a number of days."
+    ],
+    "reason": "The question asks for a count of days since a past event, requiring a single date slot and a date difference operation."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 30624,
+    "completion_tokens": 548,
+    "elapsed_seconds": 6.059117317199707
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer (9 days ago).",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 145,
+    "completion_tokens": 26,
+    "elapsed_seconds": 0.7329831123352051
+  }
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "answer": "75 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_07981ed9a42a23bb13fd",
+      "m_7f95f83dd83a5fc4adcf"
+    ],
+    "support_source_ids": [
+      219,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "vet_visit_cost",
+        "value": "50",
+        "support_memory_ids": [
+          "m_7f95f83dd83a5fc4adcf"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      },
+      {
+        "name": "flea_medication_cost",
+        "value": "25",
+        "support_memory_ids": [
+          "m_07981ed9a42a23bb13fd"
+        ],
+        "support_source_ids": [
+          219
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        50,
+        25
+      ],
+      "unit": "dollars",
+      "result": "75 dollars"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The vet visit cost $50 (discounted consultation fee) and the flea medication cost $25 for a 3-month supply. Sum is $75.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "75 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_07981ed9a42a23bb13fd",
+      "m_7f95f83dd83a5fc4adcf"
+    ],
+    "support_source_ids": [
+      219,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "vet_visit_cost",
+        "value": "50",
+        "support_memory_ids": [
+          "m_7f95f83dd83a5fc4adcf"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      },
+      {
+        "name": "flea_medication_cost",
+        "value": "25",
+        "support_memory_ids": [
+          "m_07981ed9a42a23bb13fd"
+        ],
+        "support_source_ids": [
+          219
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        50,
+        25
+      ],
+      "unit": "dollars",
+      "result": "75 dollars"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The vet visit cost $50 (discounted consultation fee) and the flea medication cost $25 for a 3-month supply. Summing these gives $75.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

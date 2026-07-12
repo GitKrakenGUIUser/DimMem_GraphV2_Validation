@@ -1,0 +1,114 @@
+{
+  "question": "How many tops have I bought from H&M so far?",
+  "question_date": "2023-10-20T08:09:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user bought tops from H&M",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "H&M",
+        "top"
+      ],
+      "keywords": [
+        "H&M",
+        "top",
+        "bought"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-10-20T08:09:00",
+        "raw": "so far"
+      },
+      "locations": [],
+      "state_keys": [
+        "purchase_history"
+      ],
+      "relation_hints": [
+        "purchased_from"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "list of purchases from H&M"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's purchases of tops from H&M",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "H&M",
+        "top"
+      ],
+      "keywords": [
+        "H&M",
+        "top",
+        "purchase"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-10-20T08:09:00",
+        "raw": "so far"
+      },
+      "locations": [],
+      "state_keys": [
+        "purchase_history"
+      ],
+      "relation_hints": [
+        "purchased_from"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "count of tops from H&M"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user bought tops from H&M",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "H&M",
+        "top"
+      ],
+      "keywords": [
+        "H&M",
+        "top",
+        "bought"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-10-20T08:09:00",
+        "raw": "so far"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "purchased_from"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "list of purchase events"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

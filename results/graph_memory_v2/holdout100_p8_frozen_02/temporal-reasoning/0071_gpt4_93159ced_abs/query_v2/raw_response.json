@@ -1,0 +1,113 @@
+{
+  "question": "How long have I been working before I started my current job at Google?",
+  "question_date": "2023-05-30T18:54:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's work history before starting at Google",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "Google"
+      ],
+      "keywords": [
+        "work history",
+        "previous job",
+        "before Google"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T18:54:00",
+        "raw": "before I started my current job at Google"
+      },
+      "locations": [],
+      "state_keys": [
+        "job_start_date_google"
+      ],
+      "relation_hints": [
+        "precedes"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "start date at Google",
+        "previous job start date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's total years of experience before joining Google",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Google"
+      ],
+      "keywords": [
+        "years of experience",
+        "before Google"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T18:54:00",
+        "raw": "before starting at Google"
+      },
+      "locations": [],
+      "state_keys": [
+        "total_experience_before_google"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "total_experience_before_google"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user's previous job duration before Google",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "Google"
+      ],
+      "keywords": [
+        "previous job",
+        "duration",
+        "before Google"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T18:54:00",
+        "raw": "before starting at Google"
+      },
+      "locations": [],
+      "state_keys": [
+        "previous_job_start_date",
+        "previous_job_end_date"
+      ],
+      "relation_hints": [
+        "same_as"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "previous job start date",
+        "previous job end date"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

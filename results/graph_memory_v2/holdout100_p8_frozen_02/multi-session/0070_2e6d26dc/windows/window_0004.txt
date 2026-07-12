@@ -1,0 +1,375 @@
+[2023-05-13T06:55:00.500000, Sat] 1.User: Write a story about A Sumerian screenwriter who sees a cloud in the shape of a desert island.
+[2023-05-13T07:08:00.500000, Sat] 2.User: I'm trying to get my jewelry organized and was wondering if you could help me create a list of the items I need to take care of, like my Fossil watch that needs a new battery and my engagement ring that needs cleaning.
+[2023-05-13T07:08:01, Sat] 3.User: My sister borrowed my crystal bracelet for her wedding, and I still need to get it back from her. Can you add that to the list under a new category, like "Items to Retrieve"?
+[2023-05-13T07:08:01.500000, Sat] 4.User: I also need to get my grandmother's pearl necklace appraised, can you add that to the list under "Appraisal/Insurance"?
+[2023-05-13T07:08:02, Sat] 5.User: I also need to search for a small diamond stud earring that I lost on February 20th while getting ready for a job interview, can you add that to the list under a new category, like "Lost Items"?
+[2023-05-13T07:08:02.500000, Sat] 6.User: I'm thinking of organizing my jewelry box and safety deposit box at the bank. Can you add a task to the list to make a list of the items stored in the safety deposit box, including my great aunt's locket and a gold chain my parents gave me?
+[2023-05-13T07:08:03, Sat] 7.User: I need to clean my new hoop earrings that I bought from a street vendor a few weeks ago. Can you add that to the list under "Cleaning"?
+[2023-05-13T07:14:00.500000, Sat] 8.User: Here is the JSON data file for that policy "{
+ "Resources": {
+ "myapp1": [
+ {
+ "Company": "CompanyA",
+ "Country": "Norway",
+ "InvoiceAmount": 200,
+ "Name": "Invoice1",
+ "ResourceID": "inv001",
+ "ResourceType": "Invoice"
+ },
+ {
+ "Company": "CompanyB",
+ "Country": "Sweden",
+ "InvoiceAmount": 300,
+ "Name": "Invoice2",
+ "ResourceID": "inv002",
+ "ResourceType": "Invoice"
+ },
+ {
+ "Amount": 1000,
+ "Company": "CompanyA",
+ "Country": "Norway",
+ "Name": "PurchaseOrder1",
+ "ResourceID": "po001",
+ "ResourceType": "PurchaseOrder"
+ },
+ {
+ "Amount": 1500,
+ "Company": "CompanyB",
+ "Country": "Sweden",
+ "Name": "PurchaseOrder2",
+ "ResourceID": "po002",
+ "ResourceType": "PurchaseOrder"
+ },
+ {
+ "Company": "CompanyA",
+ "Country": "Norway",
+ "Name": "Person1",
+ "ResourceID": "p001",
+ "ResourceType": "Person"
+ },
+ {
+ "Company": "CompanyB",
+ "Country": "Sweden",
+ "Name": "Person2",
+ "ResourceID": "p002",
+ "ResourceType": "Person"
+ }
+ ],
+ "myapp2": [
+ {
+ "Company": "CompanyC",
+ "Country": "Finland",
+ "InvoiceAmount": 400,
+ "Name": "Invoice3",
+ "ResourceID": "inv003",
+ "ResourceType": "Invoice"
+ },
+ {
+ "Company": "CompanyD",
+ "Country": "Denmark",
+ "InvoiceAmount": 500,
+ "Name": "Invoice4",
+ "ResourceID": "inv004",
+ "ResourceType": "Invoice"
+ },
+ {
+ "Amount": 2000,
+ "Company": "CompanyC",
+ "Country": "Finland",
+ "Name": "PurchaseOrder3",
+ "ResourceID": "po003",
+ "ResourceType": "PurchaseOrder"
+ },
+ {
+ "Amount": 2500,
+ "Company": "CompanyD",
+ "Country": "Denmark",
+ "Name": "PurchaseOrder4",
+ "ResourceID": "po004",
+ "ResourceType": "PurchaseOrder"
+ },
+ {
+ "Company": "CompanyC",
+ "Country": "Finland",
+ "Name": "Person3",
+ "ResourceID": "p003",
+ "ResourceType": "Person"
+ },
+ {
+ "Company": "CompanyD",
+ "Country": "Denmark",
+ "Name": "Person4",
+ "ResourceID": "p004",
+ "ResourceType": "Person"
+ }
+ ]
+ },
+ "applications": {
+ "myapp1": {
+ "ResourceTypes": {
+ "Invoice": {
+ "AzLocalRights": [
+ {
+ "AzLocalRightName": "CreateInvoice",
+ "FieldTypes": [
+ {
+ "FieldType": "InvoiceAmount",
+ "FieldTypeValues": [
+ 100,
+ 200,
+ 300
+ ]
+ },
+ {
+ "FieldType": "Country",
+ "FieldTypeValues": [
+ "Norway",
+ "Sweden",
+ "Finland"
+ ]
+ }
+ ]
+ },
+ {
+ "AzLocalRightName": "ReadInvoice",
+ "FieldTypes": []
+ },
+ {
+ "AzLocalRightName": "UpdateInvoice",
+ "FieldTypes": [
+ {
+ "FieldType": "InvoiceAmount",
+ "FieldTypeValues": [
+ 200,
+ 300
+ ]
+ }
+ ]
+ },
+ {
+ "AzLocalRightName": "DeleteInvoice",
+ "FieldTypes": []
+ }
+ ]
+ },
+ "Person": {
+ "AzLocalRights": [
+ {
+ "AzLocalRightName": "CreatePerson",
+ "FieldTypes": [
+ {
+ "FieldType": "Age",
+ "FieldTypeValues": [
+ 18,
+ 21,
+ 25,
+ 30,
+ 40
+ ]
+ },
+ {
+ "FieldType": "Country",
+ "FieldTypeValues": [
+ "Norway",
+ "Sweden",
+ "Finland"
+ ]
+ }
+ ]
+ },
+ {
+ "AzLocalRightName": "ReadPerson",
+ "FieldTypes": []
+ },
+ {
+ "AzLocalRightName": "UpdatePerson",
+ "FieldTypes": [
+ {
+ "FieldType": "Age",
+ "FieldTypeValues": [
+ 21,
+ 25,
+ 30
+ ]
+ }
+ ]
+ },
+ {
+ "AzLocalRightName": "DeletePerson",
+ "FieldTypes": []
+ }
+ ]
+ },
+ "PurchaseOrder": {
+ "AzLocalRights": [
+ {
+ "AzLocalRightName": "CreatePurchaseOrder",
+ "FieldTypes": [
+ {
+ "FieldType": "OrderAmount",
+ "FieldTypeValues": [
+ 500,
+ 1000,
+ 1500
+ ]
+ },
+ {
+ "FieldType": "Company",
+ "FieldTypeValues": [
+ "ABC Inc",
+ "XYZ Corp"
+ ]
+ }
+ ]
+ },
+ {
+ "AzLocalRightName": "ReadPurchaseOrder",
+ "FieldTypes": []
+ },
+ {
+ "AzLocalRightName": "UpdatePurchaseOrder",
+ "FieldTypes": [
+ {
+ "FieldType": "OrderAmount",
+ "FieldTypeValues": [
+ 1000,
+ 1500
+ ]
+ }
+ ]
+ },
+ {
+ "AzLocalRightName": "DeletePurchaseOrder",
+ "FieldTypes": []
+ }
+ ]
+ }
+ }
+ },
+ "myapp2": {
+ "ResourceTypes": {
+ "Invoices": {
+ "AzLocalRights": [
+ {
+ "AzLocalRightName": "ReadInvoice",
+ "FieldTypes": []
+ }
+ ]
+ },
+ "People": {
+ "AzLocalRights": [
+ {
+ "AzLocalRightName": "ReadPerson",
+ "FieldTypes": []
+ }
+ ]
+ },
+ "PurchaseOrders": {
+ "AzLocalRights": [
+ {
+ "AzLocalRightName": "ReadPurchaseOrder",
+ "FieldTypes": []
+ }
+ ]
+ }
+ }
+ }
+ },
+ "resourceAccesses": {
+ "myapp1": {
+ "user1": [
+ {
+ "AzLocalRightName": "Read",
+ "Constraints": {
+ "Country": "Norway",
+ "InvoiceAmount": 100
+ },
+ "Name": "Invoice 001",
+ "ResourceID": "2c1ed12e-038d-4f2f-b183-1aa8fcbcd6d4",
+ "ResourceType": "Invoice"
+ },
+ {
+ "AzLocalRightName": "Create",
+ "Constraints": {
+ "Country": "Sweden",
+ "PurchaseOrderAmount": 200
+ },
+ "Name": "Purchase Order 001",
+ "ResourceID": "559c6e04-ba0c-4c1d-9d57-7da755da28c7",
+ "ResourceType": "PurchaseOrder"
+ }
+ ],
+ "user2": [
+ {
+ "AzLocalRightName": "Create",
+ "Constraints": {
+ "Country": "Norway",
+ "InvoiceAmount": 200
+ },
+ "Name": "Invoice 002",
+ "ResourceID": "e56fa32c-9601-4c88-b9f9-02d66e0efbdb",
+ "ResourceType": "Invoice"
+ },
+ {
+ "AzLocalRightName": "Read",
+ "Constraints": {
+ "Country": "Finland",
+ "PurchaseOrderAmount": 100
+ },
+ "Name": "Purchase Order 002",
+ "ResourceID": "43e0e035-95d8-4c54-a4c4-4f3c0f37b57e",
+ "ResourceType": "PurchaseOrder"
+ }
+ ]
+ },
+ "myapp2": {
+ "user1": [
+ {
+ "AzLocalRightName": "Read",
+ "Constraints": {
+ "Country": "Norway"
+ },
+ "Name": "Document 001",
+ "ResourceID": "00cabb75-868c-4061-bf17-f39a0132dccb",
+ "ResourceType": "Document"
+ },
+ {
+ "AzLocalRightName": "Update",
+ "Constraints": {
+ "Country": "Sweden"
+ },
+ "Name": "Document 002",
+ "ResourceID": "2e4dfb4c-f8b7-4c51-9ca3-74ea6488618d",
+ "ResourceType": "Document"
+ }
+ ],
+ "user2": [
+ {
+ "AzLocalRightName": "Delete",
+ "Constraints": {
+ "Country": "Finland"
+ },
+ "Name": "Document 003",
+ "ResourceID": "b71f1f92-90eb-42c8-8a71-4969e9d2b2e8",
+ "ResourceType": "Document"
+ },
+ {
+ "AzLocalRightName": "Read",
+ "Constraints": {
+ "Country": "Norway"
+ },
+ "Name": "Document 004",
+ "ResourceID": "ae83b0a9-d925-4c4b-b2b4-3e3cde9813a1",
+ "ResourceType": "Document"
+ }
+ ]
+ }
+ }
+}"
+[2023-05-13T07:21:00.500000, Sat] 9.User: I'm planning to try out a new recipe for dinner tonight, something with chicken and vegetables. Do you have any suggestions for a healthy and easy stir-fry recipe? By the way, I need to get started on it soon since I have a yoga class at 7:30 pm.
+[2023-05-13T07:21:01, Sat] 10.User: I think I'll try that recipe out, thanks! By the way, I was thinking of planning my week ahead and making a to-do list for the next few days. Can you remind me what day of the week it is today?
+[2023-05-13T07:21:01.500000, Sat] 11.User: I think it's a weekday, probably Tuesday or Wednesday. Anyway, I have a yoga class tonight, and I was wondering if you can suggest some calming music or nature sounds to help me relax after the class.
+[2023-05-13T07:21:02, Sat] 12.User: I'll probably try out some calming music after my yoga class. By the way, I need to get going soon since I have to get home from work and start cooking dinner before my class. What's the best way to quickly cook the chicken for the stir-fry recipe you provided earlier?
+[2023-05-13T07:21:02.500000, Sat] 13.User: I need to get going, I usually get home from work around 6:30 pm, so I should start heading out soon. Thanks for the cooking tips!
+[2023-05-13T07:21:03, Sat] 14.User: I forgot to ask, can you suggest some good true crime podcasts to listen to? I just finished listening to a series on Ted Bundy and I'm looking for something new.
+[2023-05-13T07:22:00.500000, Sat] 15.User: What is Pfizer's current focus with regards to its research and development efforts?

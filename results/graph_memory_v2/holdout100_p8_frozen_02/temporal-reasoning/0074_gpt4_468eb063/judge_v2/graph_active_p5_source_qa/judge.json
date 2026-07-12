@@ -1,0 +1,86 @@
+{
+  "question_id": "gpt4_468eb063",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I meet Emma?",
+  "question_date": "2023/04/20 (Thu) 10:12",
+  "gold_answer": "9 days ago. 10 days (including the last day) is also acceptable.",
+  "prediction": "9 days",
+  "support_memory_ids": [
+    "m_b17a4a104080c7d380d8"
+  ],
+  "support_source_ids": [
+    60
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Memory m_b17a4a104080c7d380d8 states user had lunch with Emma on 2023-04-11 (event_start). The question date is 2023-04-20. The difference is 9 days.",
+  "required_slots": [
+    {
+      "name": "date of meeting Emma",
+      "value": "2023-04-11",
+      "support_memory_ids": [
+        "m_b17a4a104080c7d380d8"
+      ],
+      "support_source_ids": [
+        60
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-04-11",
+      "2023-04-20"
+    ],
+    "unit": "days",
+    "result": "9 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    200,
+    196,
+    198,
+    63,
+    60,
+    189,
+    156,
+    118,
+    109,
+    137,
+    201,
+    229,
+    139,
+    157,
+    99,
+    146,
+    147,
+    148,
+    64,
+    199,
+    61,
+    62,
+    197
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    4.490000000000001,
+    4.490000000000001
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 77409,
+    "completion_tokens": 694,
+    "elapsed_seconds": 9.578532218933105
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer '9 days ago'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 145,
+    "completion_tokens": 26,
+    "elapsed_seconds": 0.8371672630310059
+  }
+}

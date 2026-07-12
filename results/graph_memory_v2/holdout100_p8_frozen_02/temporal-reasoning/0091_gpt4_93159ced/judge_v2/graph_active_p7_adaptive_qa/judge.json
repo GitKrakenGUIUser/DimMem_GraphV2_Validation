@@ -1,0 +1,111 @@
+{
+  "question_id": "gpt4_93159ced",
+  "question_type": "temporal-reasoning",
+  "question": "How long have I been working before I started my current job at NovaTech?",
+  "question_date": "2023/05/25 (Thu) 19:17",
+  "gold_answer": "4 years and 9 months",
+  "prediction": "4 years 9 months",
+  "support_memory_ids": [
+    "m_f7040dda5915877930ed",
+    "m_1fc27287d29bd5550695"
+  ],
+  "support_source_ids": [
+    3,
+    126
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User stated total professional experience of 9 years (source 126) and tenure at NovaTech of 4 years 3 months (source 3). The time before starting at NovaTech is the difference: 9 years - 4 years 3 months = 4 years 9 months.",
+  "required_slots": [
+    {
+      "name": "total professional experience",
+      "value": "9 years",
+      "support_memory_ids": [
+        "m_1fc27287d29bd5550695"
+      ],
+      "support_source_ids": [
+        126
+      ]
+    },
+    {
+      "name": "tenure at NovaTech",
+      "value": "4 years 3 months",
+      "support_memory_ids": [
+        "m_f7040dda5915877930ed"
+      ],
+      "support_source_ids": [
+        3
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      {
+        "value": "9 years",
+        "unit": "years"
+      },
+      {
+        "value": "4 years 3 months",
+        "unit": "years_months"
+      }
+    ],
+    "unit": "years_months",
+    "result": "4 years 9 months"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "Specialist candidate provides a more natural and precise answer (4 years 9 months) directly answering the question, while compact candidate converts to days unnecessarily. Both are grounded, but specialist better follows the answer contract and fills required slots with clear units.",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "total professional experience",
+        "query": "total professional experience duration",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "tenure at NovaTech",
+        "query": "tenure at NovaTech",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "total professional experience duration",
+      "tenure at NovaTech"
+    ],
+    "output_constraints": [
+      "answer in days or years"
+    ],
+    "reason": "The question asks for duration before starting at NovaTech, which can be computed as total professional experience minus tenure at NovaTech. Two time slots are needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35143,
+    "completion_tokens": 897,
+    "elapsed_seconds": 8.44529914855957
+  },
+  "correct": true,
+  "judge_reason": "Equivalent wording and units, minor formatting difference acceptable.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 145,
+    "completion_tokens": 25,
+    "elapsed_seconds": 1.0888631343841553
+  }
+}
