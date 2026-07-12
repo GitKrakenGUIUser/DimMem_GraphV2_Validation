@@ -1,0 +1,148 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "p7_abstained",
+    "p7_unfilled_slots",
+    "p7_no_support"
+  ],
+  "plan": {
+    "answer_contract": "direct_numeric",
+    "operator": "date_difference_years",
+    "temporal_perspective": "relative",
+    "slots": [
+      {
+        "name": "marriage_date",
+        "query": "user marriage date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "birth_date",
+        "query": "Rachel birth date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user marriage date",
+      "Rachel birth date"
+    ],
+    "reason": "Need both dates to compute age at marriage.",
+    "deterministic_contract_hint": "direct_value",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "marriage_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "birth_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "marriage_date",
+      "birth_date"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No evidence found for the user's marriage date or Rachel's birth date. The conversation mentions Rachel's upcoming wedding (source 42) but does not provide the user's marriage date or Rachel's birth date."
+  },
+  "p7_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "marriage_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "birth_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "marriage_date",
+      "birth_date"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No evidence found for the user's marriage date or Rachel's birth date. The conversation mentions Rachel's upcoming wedding (source 42) but does not provide the user's marriage date or Rachel's birth date."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "marriage_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "birth_date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "marriage_date",
+      "birth_date"
+    ],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_years",
+      "operands": [],
+      "unit": "years",
+      "result": ""
+    },
+    "fact_table": [],
+    "confidence": 0.0,
+    "reasoning_summary": "Neither the user's marriage date nor Rachel's birth date are available in the evidence."
+  },
+  "choice": "p7",
+  "verification": {},
+  "targeted_source_ids": [
+    135,
+    42,
+    13,
+    14,
+    55,
+    57,
+    236,
+    134,
+    43
+  ],
+  "v2_timeline_memory_ids": []
+}

@@ -1,0 +1,127 @@
+{
+  "question_id": "gpt4_e414231e",
+  "question_type": "temporal-reasoning",
+  "question": "How many days passed between the day I fixed my mountain bike and the day I decided to upgrade my road bike's pedals?",
+  "question_date": "2023/04/10 (Mon) 20:29",
+  "gold_answer": "4 days. 5 days (including the last day) is also acceptable.",
+  "prediction": "4 days",
+  "support_memory_ids": [
+    "m_1388df59f2142b1b1fe3",
+    "m_35c76e851b83cd810e02"
+  ],
+  "support_source_ids": [
+    8,
+    139
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user fixed their mountain bike on 2023-03-15 (memory m_1388df59f2142b1b1fe3, source 8) and decided to upgrade their road bike's pedals on 2023-03-19 (memory m_35c76e851b83cd810e02, source 139). The difference is 4 days.",
+  "required_slots": [
+    {
+      "name": "date of fixing mountain bike",
+      "value": "2023-03-15",
+      "support_memory_ids": [
+        "m_1388df59f2142b1b1fe3"
+      ],
+      "support_source_ids": [
+        8
+      ]
+    },
+    {
+      "name": "date of deciding to upgrade pedals",
+      "value": "2023-03-19",
+      "support_memory_ids": [
+        "m_35c76e851b83cd810e02"
+      ],
+      "support_source_ids": [
+        139
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-03-15",
+      "2023-03-19"
+    ],
+    "unit": "days",
+    "result": "4 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p5",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "query": "fixed mountain bike date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of deciding to upgrade road bike pedals",
+        "query": "decided upgrade road bike pedals date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "fixed mountain bike date",
+      "decided upgrade road bike pedals date"
+    ],
+    "reason": "Need two dates to compute day difference.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {
+    "choice": "p5",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      }
+    },
+    "reason": "All candidates are equally supported, but p5 is the first valid candidate."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 31223,
+    "completion_tokens": 953,
+    "elapsed_seconds": 8.490032434463501
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 161,
+    "completion_tokens": 22,
+    "elapsed_seconds": 0.9453287124633789
+  }
+}

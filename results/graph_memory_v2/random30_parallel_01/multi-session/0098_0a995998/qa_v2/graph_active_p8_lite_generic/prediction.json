@@ -1,0 +1,91 @@
+{
+  "question_id": "0a995998",
+  "question_type": "multi-session",
+  "question": "How many items of clothing do I need to pick up or return from a store?",
+  "question_date": "2023/02/15 (Wed) 23:50",
+  "gold_answer": "3",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_185ab5767158c64113a9",
+    "m_f1f396f50b9c8c374bf4"
+  ],
+  "support_source_ids": [
+    176,
+    61
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From evidence, user needs to pick up new boots from Zara (memory m_185ab5767158c64113a9) and dry cleaning for navy blue blazer (memory m_f1f396f50b9c8c374bf4). No clothing items need to be returned. Total distinct clothing items to pick up or return = 2.",
+  "required_slots": [
+    {
+      "name": "pickup_items",
+      "value": "new pair of boots from Zara after exchange on 2/5, dry cleaning for navy blue blazer",
+      "support_memory_ids": [
+        "m_185ab5767158c64113a9",
+        "m_f1f396f50b9c8c374bf4"
+      ],
+      "support_source_ids": [
+        176,
+        61
+      ]
+    },
+    {
+      "name": "return_items",
+      "value": "none",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "new pair of boots from Zara after exchange on 2/5",
+      "dry cleaning for navy blue blazer"
+    ],
+    "unit": "items",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "pickup_items",
+        "query": "clothing items to pick up from store",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "return_items",
+        "query": "clothing items to return to store",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "clothing items to pick up from store",
+      "clothing items to return to store"
+    ],
+    "reason": "Need to count distinct clothing items to pick up or return from a store.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 21907,
+    "completion_tokens": 793,
+    "elapsed_seconds": 6.611130952835083
+  }
+}

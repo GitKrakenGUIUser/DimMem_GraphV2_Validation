@@ -1,0 +1,78 @@
+{
+  "question_id": "6cb6f249",
+  "question_type": "multi-session",
+  "question": "How many days did I take social media breaks in total?",
+  "question_date": "2023/03/14 (Tue) 23:56",
+  "gold_answer": "17 days",
+  "prediction": "17 days",
+  "support_memory_ids": [
+    "m_df096ec32d4c68140dec",
+    "m_e2def7ecc21213df4abc"
+  ],
+  "support_source_ids": [
+    129,
+    123
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Two social media breaks are recorded: a 7-day break in mid-January (source 129) and a 10-day break in mid-February (source 123). Summing gives 17 days total.",
+  "required_slots": [
+    {
+      "name": "break durations in days",
+      "value": "17",
+      "support_memory_ids": [
+        "m_df096ec32d4c68140dec",
+        "m_e2def7ecc21213df4abc"
+      ],
+      "support_source_ids": [
+        129,
+        123
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      7,
+      10
+    ],
+    "unit": "days",
+    "result": "17 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "break durations in days",
+        "query": "social media break duration days",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "social media break duration days"
+    ],
+    "reason": "The question asks for total days of social media breaks, which requires summing individual break durations.",
+    "deterministic_contract_hint": "sum",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 17795,
+    "completion_tokens": 622,
+    "elapsed_seconds": 6.361889362335205
+  }
+}

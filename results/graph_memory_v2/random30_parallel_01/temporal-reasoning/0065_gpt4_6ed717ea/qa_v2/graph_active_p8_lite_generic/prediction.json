@@ -1,0 +1,90 @@
+{
+  "question_id": "gpt4_6ed717ea",
+  "question_type": "temporal-reasoning",
+  "question": "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+  "question_date": "2023/05/29 (Mon) 08:51",
+  "gold_answer": "Training pads for Luna",
+  "prediction": "training pads for Luna",
+  "support_memory_ids": [
+    "m_cec49a32983828ba37d9",
+    "m_47a8f05c2678dbd89c28"
+  ],
+  "support_source_ids": [
+    109,
+    72
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The training pads for Luna were purchased on 2023-04-29, and the dog bed for Max was purchased on 2023-05-08. Since 2023-04-29 is earlier, the training pads were purchased first.",
+  "required_slots": [
+    {
+      "name": "purchase event for dog bed",
+      "value": "2023-05-08",
+      "support_memory_ids": [
+        "m_47a8f05c2678dbd89c28"
+      ],
+      "support_source_ids": [
+        72
+      ]
+    },
+    {
+      "name": "purchase event for training pads",
+      "value": "2023-04-29",
+      "support_memory_ids": [
+        "m_cec49a32983828ba37d9"
+      ],
+      "support_source_ids": [
+        109
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "comparison",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "purchase event for dog bed",
+        "query": "purchase dog bed Max",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "purchase event for training pads",
+        "query": "purchase training pads Luna",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "purchase dog bed Max",
+      "purchase training pads Luna"
+    ],
+    "reason": "Need to compare purchase times of two items to determine which was first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 23394,
+    "completion_tokens": 722,
+    "elapsed_seconds": 6.40515398979187
+  }
+}

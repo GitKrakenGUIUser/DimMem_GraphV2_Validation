@@ -1,0 +1,183 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:comparison",
+    "concrete_answer_with_uncertain_reasoning"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "date when Tom became a parent",
+        "query": "Tom became parent date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date when Alex became a parent",
+        "query": "Alex became parent date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Tom became parent date",
+      "Alex became parent date"
+    ],
+    "reason": "Need dates for both events to compare who became parent first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Alex",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_12bba7f3b7a19a1921d0",
+      "m_7153626a05f74c2cd99e"
+    ],
+    "support_source_ids": [
+      45,
+      49
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Evidence shows Alex adopted a baby girl in January 2023, making Alex a parent. No evidence of Tom becoming a parent. Therefore, Alex became a parent first."
+  },
+  "p7_candidate": {
+    "answer": "Alex",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_12bba7f3b7a19a1921d0",
+      "m_7153626a05f74c2cd99e"
+    ],
+    "support_source_ids": [
+      45,
+      49
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Evidence shows Alex adopted a baby girl in January 2023, making Alex a parent. No evidence of Tom becoming a parent. Therefore, Alex became a parent first."
+  },
+  "specialist_candidate": {
+    "answer": "Alex",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_12bba7f3b7a19a1921d0",
+      "m_7153626a05f74c2cd99e"
+    ],
+    "support_source_ids": [
+      45,
+      49
+    ],
+    "required_slots": [
+      {
+        "name": "date when Tom became a parent",
+        "value": "unknown",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "date when Alex became a parent",
+        "value": "January 2023",
+        "support_memory_ids": [
+          "m_12bba7f3b7a19a1921d0",
+          "m_7153626a05f74c2cd99e"
+        ],
+        "support_source_ids": [
+          45,
+          49
+        ]
+      }
+    ],
+    "unfilled_slots": [
+      "date when Tom became a parent"
+    ],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "Alex",
+        "predicate": "became parent",
+        "object": "adopted a baby girl from China",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_12bba7f3b7a19a1921d0",
+          "m_7153626a05f74c2cd99e"
+        ],
+        "support_source_ids": [
+          45,
+          49
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "Tom",
+        "predicate": "became parent",
+        "object": "unknown",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "uncertain",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "confidence": 0.9,
+    "reasoning_summary": "Alex became a parent in January 2023 (adopted a baby girl from China). No evidence found for Tom becoming a parent. Therefore, Alex became a parent first."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    49,
+    50,
+    45,
+    13,
+    15,
+    14,
+    17,
+    55,
+    48,
+    46
+  ],
+  "v2_timeline_memory_ids": [
+    "m_7153626a05f74c2cd99e",
+    "m_06d73a2ffe91fa55b519",
+    "m_10963c58256bbccd4cf6",
+    "m_12bba7f3b7a19a1921d0",
+    "m_303812cc7c7d9daf81f1",
+    "m_336bf11611850338b062",
+    "m_8d2ba640a1b6c0eee95d",
+    "m_a2c6431dac7e4752036c"
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "question_id": "gpt4_7f6b06db",
+  "question_type": "temporal-reasoning",
+  "question": "What is the order of the three trips I took in the past three months, from earliest to latest?",
+  "question_date": "2023/06/01 (Thu) 03:56",
+  "gold_answer": "I went on a day hike to Muir Woods National Monument with my family, then I went on a road trip with friends to Big Sur and Monterey, and finally I started my solo camping trip to Yosemite National Park.",
+  "prediction": "Yosemite road trip, Big Sur and Monterey road trip, Yosemite solo camping trip",
+  "support_memory_ids": [
+    "m_d1cf65733538a59fb29c",
+    "m_5ed5e89aaf7d7be4f110",
+    "m_3c9d2e746f1bd2388f85"
+  ],
+  "support_source_ids": [
+    65,
+    207,
+    225
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Identified three trips from evidence: Yosemite road trip (source 65, memory m_d1cf...), Big Sur/Monterey road trip (source 207, memory m_5ed5...), and Yosemite solo camping trip (source 225, memory m_3c9d...). Ordered chronologically by their dates: 2023-02-20, 2023-04-20, 2023-05-15.",
+  "required_slots": [
+    {
+      "name": "trip event",
+      "value": "Yosemite road trip, Big Sur and Monterey road trip, Yosemite solo camping trip",
+      "support_memory_ids": [
+        "m_d1cf65733538a59fb29c",
+        "m_5ed5e89aaf7d7be4f110",
+        "m_3c9d2e746f1bd2388f85"
+      ],
+      "support_source_ids": [
+        65,
+        207,
+        225
+      ]
+    },
+    {
+      "name": "trip date",
+      "value": "2023-02-20, 2023-04-20, 2023-05-15",
+      "support_memory_ids": [
+        "m_d1cf65733538a59fb29c",
+        "m_5ed5e89aaf7d7be4f110",
+        "m_3c9d2e746f1bd2388f85"
+      ],
+      "support_source_ids": [
+        65,
+        207,
+        225
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "timeline",
+    "operands": [
+      "Yosemite road trip (2023-02-20)",
+      "Big Sur and Monterey road trip (2023-04-20)",
+      "Yosemite solo camping trip (2023-05-15)"
+    ],
+    "unit": "",
+    "result": "Yosemite road trip, Big Sur and Monterey road trip, Yosemite solo camping trip"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:timeline"
+  ],
+  "plan": {
+    "answer_contract": "timeline",
+    "operator": "timeline",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "trip event",
+        "query": "trips in past three months",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "trip date",
+        "query": "trip return dates",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "trips in past three months",
+      "trip return dates"
+    ],
+    "reason": "Need trip events and their dates to order chronologically.",
+    "deterministic_contract_hint": "timeline",
+    "contract_overridden": false
+  },
+  "verification": {
+    "choice": "specialist",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 0.5,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "p5 includes Eastern Sierra as a trip, but evidence shows it is planned (future), not taken in past three months. Also, p5's order contradicts evidence: Big Sur/Monterey (Apr 20) is after Yosemite road trip (Feb 20)."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "p7 correctly identifies three trips and orders them chronologically: Yosemite road trip (Feb 20), Big Sur/Monterey (Apr 20), Yosemite solo camping (May 15)."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "specialist provides the same correct order as p7 with explicit dates and fact table."
+      }
+    },
+    "reason": "Both p7 and specialist are correct, but specialist provides more detailed evidence (fact table) and explicit dates, making it the best answer."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 29311,
+    "completion_tokens": 1407,
+    "elapsed_seconds": 11.492452144622803
+  }
+}

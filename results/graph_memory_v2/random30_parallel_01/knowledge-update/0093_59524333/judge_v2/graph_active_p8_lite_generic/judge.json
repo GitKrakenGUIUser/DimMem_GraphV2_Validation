@@ -1,0 +1,80 @@
+{
+  "question_id": "59524333",
+  "question_type": "knowledge-update",
+  "question": "What time do I usually go to the gym?",
+  "question_date": "2023/06/06 (Tue) 16:35",
+  "gold_answer": "6:00 pm",
+  "prediction": "7:00 pm on Mondays, Wednesdays, and Fridays",
+  "support_memory_ids": [
+    "m_23372f2d731067b628ff",
+    "m_e6110c1d63b413a9340c"
+  ],
+  "support_source_ids": [
+    32,
+    213,
+    214
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Memory m_23372f2d731067b628ff and source 32 explicitly state the user usually goes to the gym at 7:00 pm on Mondays, Wednesdays, and Fridays. Memory m_e6110c1d63b413a9340c and source 213 confirm the days. Source 214 also references gym at 6:00 pm, consistent with 7:00 pm start. No contradictory evidence found.",
+  "required_slots": [
+    {
+      "name": "time",
+      "value": "7:00 pm",
+      "support_memory_ids": [
+        "m_23372f2d731067b628ff"
+      ],
+      "support_source_ids": [
+        32,
+        214
+      ]
+    },
+    {
+      "name": "days",
+      "value": "Mondays, Wednesdays, and Fridays",
+      "support_memory_ids": [
+        "m_23372f2d731067b628ff",
+        "m_e6110c1d63b413a9340c"
+      ],
+      "support_source_ids": [
+        32,
+        213
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": false,
+  "judge_reason": "Predicted time 7:00 pm differs from reference 6:00 pm.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 145,
+    "completion_tokens": 32,
+    "elapsed_seconds": 1.490647554397583
+  }
+}

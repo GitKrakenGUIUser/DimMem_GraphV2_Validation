@@ -1,0 +1,86 @@
+{
+  "question_id": "81507db6",
+  "question_type": "multi-session",
+  "question": "How many graduation ceremonies have I attended in the past three months?",
+  "question_date": "2023/07/21 (Fri) 23:33",
+  "gold_answer": "3",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_ee98828d389262062ff4",
+    "m_9dad06dd132d07e4e0d3"
+  ],
+  "support_source_ids": [
+    157,
+    77
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Two distinct graduation ceremony attendance events are within the past three months from the question date (2023-07-21): Rachel's master's degree graduation (2023-07-07) and Emma's preschool graduation (2023-05-21). The missed event (Jack's) is not counted.",
+  "required_slots": [
+    {
+      "name": "graduation ceremony attendance events",
+      "value": "2",
+      "support_memory_ids": [
+        "m_ee98828d389262062ff4",
+        "m_9dad06dd132d07e4e0d3"
+      ],
+      "support_source_ids": [
+        157,
+        77
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "m_ee98828d389262062ff4",
+      "m_9dad06dd132d07e4e0d3"
+    ],
+    "unit": "",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "graduation ceremony attendance events",
+        "query": "graduation ceremony attended",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "graduation ceremony attended"
+    ],
+    "reason": "Count distinct graduation ceremonies attended in the past three months.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 21032,
+    "completion_tokens": 657,
+    "elapsed_seconds": 6.924832820892334
+  },
+  "correct": false,
+  "judge_reason": "Prediction is 2, but reference answer is 3.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 132,
+    "completion_tokens": 28,
+    "elapsed_seconds": 0.8421878814697266
+  }
+}

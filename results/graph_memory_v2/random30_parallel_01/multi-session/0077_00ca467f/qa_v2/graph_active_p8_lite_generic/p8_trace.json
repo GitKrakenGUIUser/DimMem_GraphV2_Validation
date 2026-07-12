@@ -1,0 +1,183 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "doctor appointments in March",
+        "query": "doctor appointment March 2023",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "doctor appointment March 2023"
+    ],
+    "reason": "Count distinct doctor appointments in March 2023.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_050dc065171646103968",
+      "m_fb996e810cc0ebe06e09"
+    ],
+    "support_source_ids": [
+      2,
+      207
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "follow-up with Dr. Thompson on March 20",
+        "diagnosis with Dr. Smith on March 3"
+      ],
+      "unit": "appointments",
+      "result": "2"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Two doctor's appointments in March 2023 are explicitly mentioned: a follow-up with Dr. Thompson on March 20 (memory m_050dc065171646103968, source 2) and a diagnosis with Dr. Smith on March 3 (memory m_fb996e810cc0ebe06e09, source 207). No other appointments in March are confirmed as attended."
+  },
+  "p7_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_050dc065171646103968",
+      "m_fb996e810cc0ebe06e09"
+    ],
+    "support_source_ids": [
+      2,
+      207
+    ],
+    "required_slots": [
+      {
+        "name": "doctor appointments in March",
+        "value": "2",
+        "support_memory_ids": [
+          "m_050dc065171646103968",
+          "m_fb996e810cc0ebe06e09"
+        ],
+        "support_source_ids": [
+          2,
+          207
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "follow-up with Dr. Thompson on March 20",
+        "diagnosis with Dr. Smith on March 3"
+      ],
+      "unit": "appointments",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Two distinct doctor appointments occurred in March 2023: a diagnosis with Dr. Smith on March 3 and a follow-up with Dr. Thompson on March 20. No other appointments in March are confirmed as attended; the planned appointments with Dr. Patel, Dr. Smith, and Dr. Johnson are not yet scheduled or occurred in March. Physical therapy is not a doctor's appointment. Thus, the count is 2."
+  },
+  "specialist_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_050dc065171646103968",
+      "m_fb996e810cc0ebe06e09"
+    ],
+    "support_source_ids": [
+      2
+    ],
+    "required_slots": [
+      {
+        "name": "doctor appointments in March",
+        "value": "2",
+        "support_memory_ids": [
+          "m_050dc065171646103968",
+          "m_fb996e810cc0ebe06e09"
+        ],
+        "support_source_ids": [
+          2,
+          207
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "f1",
+        "f2"
+      ],
+      "unit": "",
+      "result": "2"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "had appointment with",
+        "object": "Dr. Thompson",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-03-20",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_050dc065171646103968"
+        ],
+        "support_source_ids": [
+          2
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "had appointment with",
+        "object": "Dr. Smith",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-03-03",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_fb996e810cc0ebe06e09"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "From memory, user had a follow-up appointment with Dr. Thompson on March 20 (memory m_050dc065171646103968) and was diagnosed with bronchitis by Dr. Smith on March 3 (memory m_fb996e810cc0ebe06e09). These are two distinct doctor appointments in March 2023. No other doctor appointments in March are confirmed as attended; other mentions are plans or non-doctor events.",
+    "safe_executor_applied": true
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    67,
+    5,
+    210,
+    211,
+    2,
+    11,
+    4,
+    6,
+    230,
+    66,
+    209
+  ],
+  "v2_timeline_memory_ids": []
+}

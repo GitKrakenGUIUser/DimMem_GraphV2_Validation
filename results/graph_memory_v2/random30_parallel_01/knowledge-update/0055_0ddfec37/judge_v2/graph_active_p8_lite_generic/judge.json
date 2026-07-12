@@ -1,0 +1,98 @@
+{
+  "question_id": "0ddfec37",
+  "question_type": "knowledge-update",
+  "question": "How many autographed baseballs have I added to my collection in the first three months of collection?",
+  "question_date": "2024/01/08 (Mon) 09:27",
+  "gold_answer": "15",
+  "prediction": "15",
+  "support_memory_ids": [
+    "m_b911077e06b2e37de017"
+  ],
+  "support_source_ids": [
+    99
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Memory m_b911077e06b2e37de017 states user has 15 autographed baseballs and started collecting three months ago from 2023-07-11, implying collection start on 2023-04-11. The user explicitly said 'that's 15 autographed baseballs since I started collecting three months ago' in source 99, which directly answers the question. The first three months from 2023-04-11 to 2023-07-11 align with this statement. Thus, the stated count is 15.",
+  "required_slots": [
+    {
+      "name": "collection_start_date",
+      "value": "2023-04-11",
+      "support_memory_ids": [
+        "m_b911077e06b2e37de017"
+      ],
+      "support_source_ids": [
+        99
+      ]
+    },
+    {
+      "name": "additions_in_first_three_months",
+      "value": "15",
+      "support_memory_ids": [
+        "m_b911077e06b2e37de017"
+      ],
+      "support_source_ids": [
+        99
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "stated_count",
+  "calculation": {
+    "operator": "stated_count",
+    "operands": [
+      "15"
+    ],
+    "unit": "",
+    "result": "15"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "collection_start_date",
+        "query": "when did I start my autographed baseball collection",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "query": "how many autographed baseballs did I add in the first three months of collection",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "when did I start my autographed baseball collection",
+      "how many autographed baseballs did I add in the first three months of collection"
+    ],
+    "reason": "The question asks for a count of autographed baseballs added in the first three months of collection. This requires knowing the collection start date and the number added during that period. The answer is a direct numeric value, so the contract is direct_numeric with operator stated_count.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 21278,
+    "completion_tokens": 847,
+    "elapsed_seconds": 7.884798765182495
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 139,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7008833885192871
+  }
+}

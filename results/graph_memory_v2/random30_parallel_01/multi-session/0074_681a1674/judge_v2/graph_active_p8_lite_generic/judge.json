@@ -1,0 +1,86 @@
+{
+  "question_id": "681a1674",
+  "question_type": "multi-session",
+  "question": "How many Marvel movies did I re-watch?",
+  "question_date": "2023/05/30 (Tue) 21:31",
+  "gold_answer": "2",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_e3a5fbd5897fcadeee0f",
+    "m_49eab1ad3ab13b976a0b"
+  ],
+  "support_source_ids": [
+    164,
+    35
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From memory m_e3a5fbd5897fcadeee0f (source 164), user stated 'I also re-watched Spider-Man: No Way Home'. From memory m_49eab1ad3ab13b976a0b (source 35), user stated 'Since I just re-watched Avengers: Endgame yesterday'. Both are distinct Marvel movies re-watched, so count is 2.",
+  "required_slots": [
+    {
+      "name": "re-watched Marvel movies",
+      "value": "Spider-Man: No Way Home, Avengers: Endgame",
+      "support_memory_ids": [
+        "m_e3a5fbd5897fcadeee0f",
+        "m_49eab1ad3ab13b976a0b"
+      ],
+      "support_source_ids": [
+        164,
+        35
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Spider-Man: No Way Home",
+      "Avengers: Endgame"
+    ],
+    "unit": "",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "re-watched Marvel movies",
+        "query": "re-watched Marvel movies",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "re-watched Marvel movies"
+    ],
+    "reason": "The question asks for a count of distinct Marvel movies re-watched, requiring enumeration of such events.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 22377,
+    "completion_tokens": 720,
+    "elapsed_seconds": 6.8914384841918945
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 129,
+    "completion_tokens": 22,
+    "elapsed_seconds": 1.0986738204956055
+  }
+}

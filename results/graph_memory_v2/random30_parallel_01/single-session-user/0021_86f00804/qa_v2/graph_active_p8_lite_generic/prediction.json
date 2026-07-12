@@ -1,0 +1,71 @@
+{
+  "question_id": "86f00804",
+  "question_type": "single-session-user",
+  "question": "What book am I currently reading?",
+  "question_date": "2023/05/30 (Tue) 18:40",
+  "gold_answer": "The Seven Husbands of Evelyn Hugo",
+  "prediction": "The Seven Husbands of Evelyn Hugo",
+  "support_memory_ids": [
+    "m_a439e5a7f9668907c68c"
+  ],
+  "support_source_ids": [
+    54
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The state key 'user.currently_reading' with value 'The Seven Husbands of Evelyn Hugo' is active and valid from 2023-05-23, which is before the question date. No superseding state exists, so this is the current book.",
+  "required_slots": [
+    {
+      "name": "book_title",
+      "value": "The Seven Husbands of Evelyn Hugo",
+      "support_memory_ids": [
+        "m_a439e5a7f9668907c68c"
+      ],
+      "support_source_ids": [
+        54
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "book_title",
+        "query": "currently reading book",
+        "semantic_type": "entity",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "currently reading book"
+    ],
+    "reason": "The question asks for the current book, requiring state resolution to find the most recent mention of a book being read.",
+    "deterministic_contract_hint": "state_resolution",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 23183,
+    "completion_tokens": 485,
+    "elapsed_seconds": 5.505518913269043
+  }
+}

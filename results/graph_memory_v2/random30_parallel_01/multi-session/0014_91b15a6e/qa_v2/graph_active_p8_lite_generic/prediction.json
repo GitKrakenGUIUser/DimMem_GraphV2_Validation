@@ -1,0 +1,119 @@
+{
+  "question_id": "91b15a6e",
+  "question_type": "multi-session",
+  "question": "What is the minimum amount I could get if I sold the vintage diamond necklace and the antique vanity?",
+  "question_date": "2023/05/30 (Tue) 20:17",
+  "gold_answer": "$5,150",
+  "prediction": "5150 dollars",
+  "support_memory_ids": [
+    "m_ecb34a502e82c5b06ced",
+    "m_4a8ca5ccf1fb4518b83b"
+  ],
+  "support_source_ids": [
+    75,
+    155
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The vintage diamond necklace is valued at $5,000 (asserted fact). The user plans to sell the antique vanity for at least $150 (planned minimum). Summing these gives $5,150 as the minimum amount from selling both.",
+  "required_slots": [
+    {
+      "name": "minimum sale price of vintage diamond necklace",
+      "value": 5000,
+      "support_memory_ids": [
+        "m_ecb34a502e82c5b06ced"
+      ],
+      "support_source_ids": [
+        75
+      ]
+    },
+    {
+      "name": "minimum sale price of antique vanity",
+      "value": 150,
+      "support_memory_ids": [
+        "m_4a8ca5ccf1fb4518b83b"
+      ],
+      "support_source_ids": [
+        155
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      5000,
+      150
+    ],
+    "unit": "dollars",
+    "result": "5150 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [
+    "p5_p7_disagree"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "minimum sale price of vintage diamond necklace",
+        "query": "minimum sale price vintage diamond necklace",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "minimum sale price of antique vanity",
+        "query": "minimum sale price antique vanity",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "minimum sale price vintage diamond necklace",
+      "minimum sale price antique vanity"
+    ],
+    "reason": "The question asks for the minimum total amount from selling two items, requiring their individual minimum sale prices and summing them.",
+    "deterministic_contract_hint": "direct_value",
+    "contract_overridden": false
+  },
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 0.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Unfilled slots; no minimum sale prices provided."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Necklace valued at $5000 (source 75) and vanity minimum $150 (source 155) sum to $5150."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Same evidence as p7."
+      }
+    },
+    "reason": "p7 and specialist both supported; p7 is simpler and directly answers."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 30118,
+    "completion_tokens": 962,
+    "elapsed_seconds": 9.095044612884521
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "query": "fixed mountain bike date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of deciding to upgrade road bike pedals",
+        "query": "decided upgrade road bike pedals date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "fixed mountain bike date",
+      "decided upgrade road bike pedals date"
+    ],
+    "reason": "Need two dates to compute day difference.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "4 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1388df59f2142b1b1fe3",
+      "m_35c76e851b83cd810e02"
+    ],
+    "support_source_ids": [
+      8,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "value": "2023-03-15",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "name": "date of deciding to upgrade pedals",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-15",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "4 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user fixed their mountain bike on 2023-03-15 (memory m_1388df59f2142b1b1fe3, source 8) and decided to upgrade their road bike's pedals on 2023-03-19 (memory m_35c76e851b83cd810e02, source 139). The difference is 4 days."
+  },
+  "p7_candidate": {
+    "answer": "4 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1388df59f2142b1b1fe3",
+      "m_35c76e851b83cd810e02"
+    ],
+    "support_source_ids": [
+      8,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "value": "2023-03-15",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "name": "date of deciding to upgrade road bike pedals",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-15",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "4 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user fixed their mountain bike on 2023-03-15 (source 8) and decided to upgrade their road bike pedals on 2023-03-19 (source 139). The difference in days between these two dates is 4 days."
+  },
+  "specialist_candidate": {
+    "answer": "4",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1388df59f2142b1b1fe3",
+      "m_35c76e851b83cd810e02"
+    ],
+    "support_source_ids": [
+      8,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "value": "2023-03-15",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "name": "date of deciding to upgrade road bike pedals",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-15",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "4"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "fixed mountain bike",
+        "object": "flat tire",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-03-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "decided to upgrade road bike pedals",
+        "object": "Shimano Ultegra clipless pedals",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-03-19",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Fixed mountain bike date: 2023-03-15 (memory m_1388df59f2142b1b1fe3). Decided to upgrade road bike pedals date: 2023-03-19 (memory m_35c76e851b83cd810e02). Difference in days: 4."
+  },
+  "choice": "p5",
+  "verification": {
+    "choice": "p5",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      }
+    },
+    "reason": "All candidates are equally supported, but p5 is the first valid candidate."
+  },
+  "targeted_source_ids": [
+    139,
+    9,
+    8,
+    12,
+    140,
+    10
+  ],
+  "v2_timeline_memory_ids": []
+}

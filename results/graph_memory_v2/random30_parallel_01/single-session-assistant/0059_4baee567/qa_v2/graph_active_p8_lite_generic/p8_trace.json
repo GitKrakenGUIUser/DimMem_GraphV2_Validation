@@ -1,0 +1,146 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "assistant_previous_reply",
+        "query": "Chiefs Jaguars Arrowhead Stadium games count",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Chiefs Jaguars Arrowhead Stadium games count"
+    ],
+    "reason": "User asks to confirm a count previously stated by assistant.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "12",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_959729a90245c8bd491c"
+    ],
+    "support_source_ids": [
+      190
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The assistant previously stated that of the 23 Chiefs-Jaguars games, 12 were played at Arrowhead Stadium in Kansas City. This is directly from memory m_959729a90245c8bd491c and source turn 190."
+  },
+  "p7_candidate": {
+    "answer": "12",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_959729a90245c8bd491c"
+    ],
+    "support_source_ids": [
+      190
+    ],
+    "required_slots": [
+      {
+        "name": "assistant_previous_reply",
+        "value": "12",
+        "support_memory_ids": [
+          "m_959729a90245c8bd491c"
+        ],
+        "support_source_ids": [
+          190
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously stated that 12 games were played at Arrowhead Stadium. This directly answers the user's confirmation request."
+  },
+  "specialist_candidate": {
+    "answer": "12",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_959729a90245c8bd491c"
+    ],
+    "support_source_ids": [
+      190
+    ],
+    "required_slots": [
+      {
+        "name": "assistant_previous_reply",
+        "value": "12",
+        "support_memory_ids": [
+          "m_959729a90245c8bd491c"
+        ],
+        "support_source_ids": [
+          190
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "stated_count",
+    "calculation": {
+      "operator": "stated_count",
+      "operands": [
+        "12"
+      ],
+      "unit": "games",
+      "result": "12"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "Chiefs vs Jaguars at Arrowhead Stadium",
+        "predicate": "count",
+        "object": "12",
+        "numeric_value": 12,
+        "unit": "games",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_959729a90245c8bd491c"
+        ],
+        "support_source_ids": [
+          190
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously stated that 12 games were played at Arrowhead Stadium (source 190). The user asks to confirm that count."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    189,
+    191,
+    190,
+    14,
+    232,
+    19,
+    20,
+    192,
+    188
+  ],
+  "v2_timeline_memory_ids": []
+}

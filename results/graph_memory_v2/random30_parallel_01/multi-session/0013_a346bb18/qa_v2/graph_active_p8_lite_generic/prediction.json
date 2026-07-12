@@ -1,0 +1,120 @@
+{
+  "question_id": "a346bb18",
+  "question_type": "multi-session",
+  "question": "How many minutes did I exceed my target time by in the marathon?",
+  "question_date": "2023/05/30 (Tue) 22:30",
+  "gold_answer": "12",
+  "prediction": "12 minutes",
+  "support_memory_ids": [
+    "m_ffcc91a5de84670d186f",
+    "m_489bea28c229768c84d7"
+  ],
+  "support_source_ids": [
+    120,
+    7
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Actual marathon time is 4h22m (262 minutes), target time is 4h10m (250 minutes). Difference is 12 minutes.",
+  "required_slots": [
+    {
+      "name": "actual time",
+      "value": "4 hours 22 minutes",
+      "support_memory_ids": [
+        "m_ffcc91a5de84670d186f"
+      ],
+      "support_source_ids": [
+        120
+      ]
+    },
+    {
+      "name": "target time",
+      "value": "4 hours 10 minutes",
+      "support_memory_ids": [
+        "m_489bea28c229768c84d7"
+      ],
+      "support_source_ids": [
+        7
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "time_add",
+  "calculation": {
+    "operator": "time_add_minutes",
+    "operands": [
+      "4 hours 22 minutes",
+      "4 hours 10 minutes"
+    ],
+    "unit": "minutes",
+    "result": "12"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "actual time",
+        "query": "marathon actual time",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "target time",
+        "query": "marathon target time",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "marathon actual time",
+      "marathon target time"
+    ],
+    "reason": "Need actual and target marathon times to compute difference in minutes.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {
+    "choice": "specialist",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Answer is a time (4:22 AM) not a duration; does not directly answer the question."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Answer is numeric (12) but lacks unit; less precise than specialist."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Answer '12 minutes' correctly includes unit and directly answers the question."
+      }
+    },
+    "reason": "All candidates are supported and consistent, but specialist provides the most appropriate answer format (duration with unit)."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 29380,
+    "completion_tokens": 922,
+    "elapsed_seconds": 9.268436908721924
+  }
+}

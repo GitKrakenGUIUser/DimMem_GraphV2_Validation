@@ -1,0 +1,120 @@
+{
+  "question_id": "c18a7dc8",
+  "question_type": "multi-session",
+  "question": "How many years older am I than when I graduated from college?",
+  "question_date": "2023/05/30 (Tue) 23:37",
+  "gold_answer": "7",
+  "prediction": "7",
+  "support_memory_ids": [
+    "m_6e9eb5b3dc431855f875",
+    "m_9cec3a05163158001acb"
+  ],
+  "support_source_ids": [
+    132,
+    170
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User stated age 32 in source 132 and age at college graduation as 25 in source 170. Difference is 7 years.",
+  "required_slots": [
+    {
+      "name": "current_age",
+      "value": "32",
+      "support_memory_ids": [
+        "m_6e9eb5b3dc431855f875"
+      ],
+      "support_source_ids": [
+        132
+      ]
+    },
+    {
+      "name": "graduation_age",
+      "value": "25",
+      "support_memory_ids": [
+        "m_9cec3a05163158001acb"
+      ],
+      "support_source_ids": [
+        170
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_years",
+    "operands": [
+      "32",
+      "25"
+    ],
+    "unit": "years",
+    "result": "7"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "relative",
+    "slots": [
+      {
+        "name": "current_age",
+        "query": "user current age",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "graduation_age",
+        "query": "user age at college graduation",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user current age",
+      "user age at college graduation"
+    ],
+    "reason": "Need current age and age at graduation to compute difference in years.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Answer is in days but question asks for years; calculation uses dates not directly supported."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Directly answers the question in years with correct arithmetic."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Same as p7 but with extra fact table; p7 is simpler."
+      }
+    },
+    "reason": "p7 directly answers the question in years with correct calculation and high confidence."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 30769,
+    "completion_tokens": 928,
+    "elapsed_seconds": 8.603099822998047
+  }
+}

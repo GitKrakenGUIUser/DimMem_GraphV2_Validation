@@ -1,0 +1,79 @@
+{
+  "question_id": "e493bb7c",
+  "question_type": "knowledge-update",
+  "question": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+  "question_date": "2023/11/18 (Sat) 19:24",
+  "gold_answer": "in my bedroom",
+  "prediction": "above the user's bed",
+  "support_memory_ids": [
+    "m_4fbf676c267d1e52562c"
+  ],
+  "support_source_ids": [
+    157
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The most recent state (2023-10-30) indicates the painting was moved above the user's bed, superseding the earlier location above the living room sofa.",
+  "required_slots": [
+    {
+      "name": "location",
+      "value": "above the user's bed",
+      "support_memory_ids": [
+        "m_4fbf676c267d1e52562c"
+      ],
+      "support_source_ids": [
+        157
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "location",
+        "query": "Ethereal Dreams Emma Taylor painting location",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Ethereal Dreams Emma Taylor painting location"
+    ],
+    "reason": "Need to find the most recent location statement for the painting as of the question date.",
+    "deterministic_contract_hint": "state_resolution",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 23509,
+    "completion_tokens": 461,
+    "elapsed_seconds": 5.693849802017212
+  },
+  "correct": true,
+  "judge_reason": "Equivalent location: 'above the user's bed' is the same as 'in my bedroom'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 139,
+    "completion_tokens": 35,
+    "elapsed_seconds": 0.8569531440734863
+  }
+}

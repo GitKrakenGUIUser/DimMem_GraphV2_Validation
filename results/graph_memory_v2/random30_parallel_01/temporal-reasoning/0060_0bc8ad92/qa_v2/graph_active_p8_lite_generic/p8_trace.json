@@ -1,0 +1,175 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "date of last museum visit with friend",
+        "query": "last museum visit with friend date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "last museum visit with friend date"
+    ],
+    "reason": "Need the date of the last museum visit with a friend to compute months elapsed until question date.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "date of last museum visit with friend"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source provides a date for the user's last museum visit with a friend. The only museum visit with a friend (Science Museum) has an imprecise time 'today (2022-10-22)' but the question asks for the last visit, and there is no evidence that this is the most recent. Other museum visits are with different companions (dad) or solo. Therefore, the required date cannot be determined."
+  },
+  "p7_candidate": {
+    "answer": "36 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_0522e2638014f71ef9a2"
+    ],
+    "support_source_ids": [
+      129
+    ],
+    "required_slots": [
+      {
+        "name": "date of last museum visit with friend",
+        "value": "2023-02-17",
+        "support_memory_ids": [
+          "m_0522e2638014f71ef9a2"
+        ],
+        "support_source_ids": [
+          129
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-17",
+        "2023-03-25"
+      ],
+      "unit": "month",
+      "result": "36 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The last museum visit with a friend was on 2023-02-17 (Natural History Museum with dad). From that date to the question date 2023-03-25 is 1 month and 8 days, which rounds to 1 month. However, the question asks 'how many months have passed', and the difference is slightly over one month, so the answer is 1 month. But the plan expects integer months, and the difference is 1 month and 8 days, so 1 month has passed."
+  },
+  "specialist_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_04a39589a69f9da4dc77"
+    ],
+    "support_source_ids": [
+      49
+    ],
+    "required_slots": [
+      {
+        "name": "date of last museum visit with friend",
+        "value": "2022-10-22",
+        "support_memory_ids": [
+          "m_04a39589a69f9da4dc77"
+        ],
+        "support_source_ids": [
+          49
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_months",
+      "operands": [
+        "2022-10-22",
+        "2023-03-25"
+      ],
+      "unit": "months",
+      "result": "5"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "last museum visit with friend date",
+        "object": "2022-10-22",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2022-10-22",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_04a39589a69f9da4dc77"
+        ],
+        "support_source_ids": [
+          49
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The last museum visit with a friend was on 2022-10-22 (Science Museum with a chemistry professor friend). The question date is 2023-03-25. The difference in months from October 2022 to March 2023 is 5 months."
+  },
+  "choice": "specialist",
+  "verification": {
+    "choice": "specialist",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 0.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Required slot 'date of last museum visit with friend' is unfilled."
+      },
+      "p7": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": false,
+        "reason": "The last museum visit with a friend is on 2022-10-22 (Science Museum with friend), not 2023-02-17 (Natural History Museum with dad). Also, calculation returns days instead of months."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Correctly identifies last museum visit with friend as 2022-10-22 and computes 5 months to 2023-03-25."
+      }
+    },
+    "reason": "specialist correctly identifies the last museum visit with a friend (Science Museum on 2022-10-22) and computes 5 months elapsed. p7 uses an incorrect date (Natural History Museum with dad) and returns days instead of months. p5 cannot determine the date."
+  },
+  "targeted_source_ids": [
+    49,
+    167,
+    166,
+    46,
+    48,
+    7,
+    168,
+    50,
+    165
+  ],
+  "v2_timeline_memory_ids": []
+}

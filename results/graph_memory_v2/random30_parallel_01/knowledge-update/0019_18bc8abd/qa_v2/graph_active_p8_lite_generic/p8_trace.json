@@ -1,0 +1,154 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "preference:bbq_sauce_brand",
+        "query": "current obsession BBQ sauce brand",
+        "semantic_type": "preference",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "current obsession BBQ sauce brand"
+    ],
+    "reason": "The question asks for the user's current obsession with a BBQ sauce brand, which is a state that can be resolved from the most recent explicit statement or inferred from recent events.",
+    "deterministic_contract_hint": "state_resolution",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Kansas City Masterpiece BBQ sauce",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3339bc105c6178df0519"
+    ],
+    "support_source_ids": [
+      212
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce' in source turn 212, which is captured in memory m_3339bc105c6178df0519. This is the most recent and direct evidence of the user's current obsession."
+  },
+  "p7_candidate": {
+    "answer": "Kansas City Masterpiece BBQ sauce",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3339bc105c6178df0519"
+    ],
+    "support_source_ids": [
+      212
+    ],
+    "required_slots": [
+      {
+        "name": "preference:bbq_sauce_brand",
+        "value": "Kansas City Masterpiece BBQ sauce",
+        "support_memory_ids": [
+          "m_3339bc105c6178df0519"
+        ],
+        "support_source_ids": [
+          212
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce' on 2023-06-30, which is the most recent and direct evidence of current obsession. No later contradictory statements exist."
+  },
+  "specialist_candidate": {
+    "answer": "Kansas City Masterpiece BBQ sauce",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3339bc105c6178df0519"
+    ],
+    "support_source_ids": [
+      212
+    ],
+    "required_slots": [
+      {
+        "name": "preference:bbq_sauce_brand",
+        "value": "Kansas City Masterpiece BBQ sauce",
+        "support_memory_ids": [
+          "m_3339bc105c6178df0519"
+        ],
+        "support_source_ids": [
+          212
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "User",
+        "predicate": "is currently obsessed with",
+        "object": "Kansas City Masterpiece BBQ sauce",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3339bc105c6178df0519"
+        ],
+        "support_source_ids": [
+          212
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The user explicitly stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce on my ribs' on 2023-06-30, which is the most recent and relevant state for the current obsession."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    217,
+    94,
+    212,
+    92,
+    91,
+    11,
+    216,
+    95,
+    213,
+    93
+  ],
+  "v2_timeline_memory_ids": [
+    "m_3339bc105c6178df0519",
+    "m_eee372aa3e9aa25da297",
+    "m_337292f5cad1fd4b046b",
+    "m_3bfcd91e3887e38e57cd",
+    "m_8ec4f1d65d1f0f4c2b67",
+    "m_bff91f47f7712e1e912d",
+    "m_00a72c3769a86e076edd",
+    "m_062ada27be55a98c404c"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "question_id": "gpt4_fe651585_abs",
+  "question_type": "temporal-reasoning",
+  "question": "Who became a parent first, Tom or Alex?",
+  "question_date": "2023/03/17 (Fri) 03:09",
+  "gold_answer": "The information provided is not enough. You mentioned Alex becoming a parent in January, but you didn't mention anything about Tom.",
+  "prediction": "Alex",
+  "support_memory_ids": [
+    "m_12bba7f3b7a19a1921d0",
+    "m_7153626a05f74c2cd99e"
+  ],
+  "support_source_ids": [
+    45,
+    49
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Alex became a parent in January 2023 (adopted a baby girl from China). No evidence found for Tom becoming a parent. Therefore, Alex became a parent first.",
+  "required_slots": [
+    {
+      "name": "date when Tom became a parent",
+      "value": "unknown",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    },
+    {
+      "name": "date when Alex became a parent",
+      "value": "January 2023",
+      "support_memory_ids": [
+        "m_12bba7f3b7a19a1921d0",
+        "m_7153626a05f74c2cd99e"
+      ],
+      "support_source_ids": [
+        45,
+        49
+      ]
+    }
+  ],
+  "unfilled_slots": [
+    "date when Tom became a parent"
+  ],
+  "operation": "comparison",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:comparison",
+    "concrete_answer_with_uncertain_reasoning"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "date when Tom became a parent",
+        "query": "Tom became parent date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date when Alex became a parent",
+        "query": "Alex became parent date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Tom became parent date",
+      "Alex became parent date"
+    ],
+    "reason": "Need dates for both events to compare who became parent first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 22475,
+    "completion_tokens": 698,
+    "elapsed_seconds": 6.099382162094116
+  },
+  "correct": false,
+  "judge_reason": "Reference indicates insufficient information but prediction is concrete.",
+  "judge_meta": {
+    "mode": "deterministic_abstention_guard",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

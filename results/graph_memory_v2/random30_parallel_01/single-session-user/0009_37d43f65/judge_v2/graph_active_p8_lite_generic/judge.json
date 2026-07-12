@@ -1,0 +1,64 @@
+{
+  "question_id": "37d43f65",
+  "question_type": "single-session-user",
+  "question": "How much RAM did I upgrade my laptop to?",
+  "question_date": "2023/05/30 (Tue) 17:03",
+  "gold_answer": "16GB",
+  "prediction": "16GB",
+  "support_memory_ids": [
+    "m_0ce10724605d2ce62d81"
+  ],
+  "support_source_ids": [
+    217
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Memory m_0ce10724605d2ce62d81 and source turn 217 both state that the user's laptop has 16GB RAM after upgrade.",
+  "required_slots": [
+    {
+      "name": "ram_size",
+      "value": "16GB",
+      "support_memory_ids": [
+        "m_0ce10724605d2ce62d81"
+      ],
+      "support_source_ids": [
+        217
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 132,
+    "completion_tokens": 23,
+    "elapsed_seconds": 1.2916412353515625
+  }
+}

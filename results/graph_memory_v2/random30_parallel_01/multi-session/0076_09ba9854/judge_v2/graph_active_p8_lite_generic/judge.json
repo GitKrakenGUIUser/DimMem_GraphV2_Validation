@@ -1,0 +1,79 @@
+{
+  "question_id": "09ba9854",
+  "question_type": "multi-session",
+  "question": "How much will I save by taking the train from the airport to my hotel instead of a taxi?",
+  "question_date": "2023/05/30 (Tue) 11:49",
+  "gold_answer": "$50",
+  "prediction": "50 USD",
+  "support_memory_ids": [
+    "m_16e46ee3c3579461c883",
+    "m_09891a1b324f4e58d98a"
+  ],
+  "support_source_ids": [
+    148,
+    69
+  ],
+  "confidence": 0.8,
+  "reasoning_summary": "The user was told a taxi costs $60 (source 148) and a friend said the train costs $10 (source 69). The savings is $60 - $10 = $50.",
+  "required_slots": [
+    {
+      "name": "taxi_cost",
+      "value": "$60",
+      "support_memory_ids": [
+        "m_16e46ee3c3579461c883"
+      ],
+      "support_source_ids": [
+        148
+      ]
+    },
+    {
+      "name": "train_cost",
+      "value": "$10",
+      "support_memory_ids": [
+        "m_09891a1b324f4e58d98a"
+      ],
+      "support_source_ids": [
+        69
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      60,
+      -10
+    ],
+    "unit": "USD",
+    "result": "50 USD"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": true,
+  "judge_reason": "Equivalent wording and units; '50 USD' matches '$50'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 140,
+    "completion_tokens": 29,
+    "elapsed_seconds": 1.2273871898651123
+  }
+}

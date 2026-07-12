@@ -1,0 +1,71 @@
+{
+  "question_id": "18bc8abd",
+  "question_type": "knowledge-update",
+  "question": "What brand of BBQ sauce am I currently obsessed with?",
+  "question_date": "2023/07/15 (Sat) 07:37",
+  "gold_answer": "Kansas City Masterpiece",
+  "prediction": "Kansas City Masterpiece BBQ sauce",
+  "support_memory_ids": [
+    "m_3339bc105c6178df0519"
+  ],
+  "support_source_ids": [
+    212
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user explicitly stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce on my ribs' on 2023-06-30, which is the most recent and relevant state for the current obsession.",
+  "required_slots": [
+    {
+      "name": "preference:bbq_sauce_brand",
+      "value": "Kansas City Masterpiece BBQ sauce",
+      "support_memory_ids": [
+        "m_3339bc105c6178df0519"
+      ],
+      "support_source_ids": [
+        212
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "preference:bbq_sauce_brand",
+        "query": "current obsession BBQ sauce brand",
+        "semantic_type": "preference",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "current obsession BBQ sauce brand"
+    ],
+    "reason": "The question asks for the user's current obsession with a BBQ sauce brand, which is a state that can be resolved from the most recent explicit statement or inferred from recent events.",
+    "deterministic_contract_hint": "state_resolution",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 27013,
+    "completion_tokens": 493,
+    "elapsed_seconds": 5.7568488121032715
+  }
+}

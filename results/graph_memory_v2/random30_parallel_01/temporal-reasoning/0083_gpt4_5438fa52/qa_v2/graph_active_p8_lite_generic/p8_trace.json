@@ -1,0 +1,255 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "query": "cultural festival attendance date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date Spanish classes started",
+        "query": "Spanish classes start date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "cultural festival attendance date",
+      "Spanish classes start date"
+    ],
+    "reason": "Compare two dates to determine which event occurred first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "The start of my Spanish classes happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "required_slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "value": "2023-05-26",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "name": "date Spanish classes started",
+        "value": "2023-02-27",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The cultural festival was attended on 2023-05-26. Spanish classes started around 2023-02-27. Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first."
+  },
+  "p7_candidate": {
+    "answer": "The start of my Spanish classes happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "required_slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "value": "2023-05-26",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "name": "date Spanish classes started",
+        "value": "2023-02-27",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The cultural festival was attended on 2023-05-26. Spanish classes started around 2023-02-27. Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first."
+  },
+  "specialist_candidate": {
+    "answer": "The cultural festival attendance happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "required_slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "value": "2023-05-26",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "name": "date Spanish classes started",
+        "value": "2023-02-27",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "attended",
+        "object": "cultural festival in hometown",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-26",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "started",
+        "object": "Spanish classes",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-02-27",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_2d36ec3cf6b2b062ef8f, user attended a cultural festival on 2023-05-26. From memory m_35f976780725e5c6ad8f, user has been taking Spanish classes for the past three months relative to 2023-05-27, implying start date around 2023-02-27. Comparing dates, 2023-02-27 is earlier than 2023-05-26, so Spanish classes started first. However, the question asks which happened first: attendance at cultural festival or start of Spanish classes. Since Spanish classes started on 2023-02-27 and cultural festival attendance was on 2023-05-26, the start of Spanish classes happened first. But the answer in the output says cultural festival attendance happened first, which is incorrect based on the evidence. The correct answer should be that the start of Spanish classes happened first. I will correct the answer."
+  },
+  "choice": "p5",
+  "verification": {
+    "choice": "p5",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Both slots filled correctly; dates show Spanish classes started (2023-02-27) before cultural festival (2023-05-26)."
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Same as p5."
+      },
+      "specialist": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "Answer contradicts evidence: specialist says cultural festival first, but dates show Spanish classes started earlier."
+      }
+    },
+    "reason": "p5 and p7 are identical and correct; specialist is contradicted by evidence."
+  },
+  "targeted_source_ids": [
+    6,
+    18,
+    5,
+    81,
+    198,
+    97,
+    4,
+    113,
+    111,
+    100,
+    112,
+    109,
+    19
+  ],
+  "v2_timeline_memory_ids": [
+    "m_35f976780725e5c6ad8f",
+    "m_bd3eb0fc855f59eb1d11",
+    "m_c7abbb4e6ba7bef55433",
+    "m_2d36ec3cf6b2b062ef8f",
+    "m_5643558b8374cd5ee917",
+    "m_74a7403246ad203a5a56",
+    "m_0393a1c59e68c3f42e69",
+    "m_059696ec4045d84f3d7f"
+  ]
+}

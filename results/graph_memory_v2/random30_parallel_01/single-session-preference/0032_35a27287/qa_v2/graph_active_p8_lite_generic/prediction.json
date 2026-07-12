@@ -1,0 +1,87 @@
+{
+  "question_id": "35a27287",
+  "question_type": "single-session-preference",
+  "question": "Can you recommend some interesting cultural events happening around me this weekend?",
+  "question_date": "2023/05/30 (Tue) 22:15",
+  "gold_answer": "The user would prefer responses that suggest cultural events where they can practice their language skills, particularly Spanish and French. They would also appreciate if the event has a focus on language learning resources. They would not prefer events that do not provide opportunities for language practice or cultural exchange.",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [
+    "m_4af707e66f4f950767e0",
+    "m_c068ae39db0befb59e47"
+  ],
+  "support_source_ids": [
+    204,
+    209
+  ],
+  "confidence": 0.2,
+  "reasoning_summary": "User asked for cultural events this weekend. Evidence shows user is interested in cultural events celebrating language diversity and cultural exchange, and specifically French and Spanish language exchange events. However, user location is unknown, which is required to find local events. Therefore, answer is not yet possible; need to ask for location.",
+  "required_slots": [
+    {
+      "name": "user_location",
+      "value": null,
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [
+    "user_location"
+  ],
+  "operation": "preference_inference",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "p7_abstained",
+    "p7_unfilled_slots",
+    "audit_contract:preference_criteria"
+  ],
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "user_location",
+        "query": "user location",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "cultural_events_this_weekend",
+        "query": "cultural events near [user_location] this weekend",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "user_event_preferences",
+        "query": "user cultural event preferences",
+        "semantic_type": "preference",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "user location",
+      "cultural events near [user_location] this weekend",
+      "user cultural event preferences"
+    ],
+    "reason": "Need user location to find events, then optionally filter by preferences.",
+    "deterministic_contract_hint": "preference_criteria",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 25085,
+    "completion_tokens": 728,
+    "elapsed_seconds": 6.828829765319824
+  }
+}

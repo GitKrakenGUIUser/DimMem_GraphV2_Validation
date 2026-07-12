@@ -1,0 +1,175 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "relative",
+    "slots": [
+      {
+        "name": "temporal order of two trips",
+        "query": "solo trip to Europe date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "temporal order of two trips",
+        "query": "family road trip American Southwest date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "solo trip to Europe date",
+      "family road trip American Southwest date"
+    ],
+    "reason": "Need to compare the dates of the two trips to determine which occurred first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "family road trip across the American Southwest",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d3ca9c08ece1292a697c",
+      "m_79ef575404ca3e9bc6a5"
+    ],
+    "support_source_ids": [
+      145,
+      105
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The family road trip across the American Southwest occurred 'a few years ago' (memory m_d3ca9c08ece1292a697c, source 145), while the solo trip to Europe was 'last summer' (memory m_79ef575404ca3e9bc6a5, source 105). Since the question date is 2023/05/22, 'last summer' refers to summer 2022, and 'a few years ago' is earlier, so the family road trip came first."
+  },
+  "p7_candidate": {
+    "answer": "family road trip across the American Southwest",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d3ca9c08ece1292a697c",
+      "m_79ef575404ca3e9bc6a5"
+    ],
+    "support_source_ids": [
+      145,
+      105
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The family road trip across the American Southwest occurred 'a few years ago' (memory m_d3ca9c08ece1292a697c, source 145), while the solo trip to Europe was 'last summer' (memory m_79ef575404ca3e9bc6a5, source 105). Since the question date is 2023/05/22, 'last summer' refers to summer 2022, and 'a few years ago' is earlier, so the family road trip came first."
+  },
+  "specialist_candidate": {
+    "answer": "family road trip across the American Southwest",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d3ca9c08ece1292a697c",
+      "m_79ef575404ca3e9bc6a5"
+    ],
+    "support_source_ids": [
+      145,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "temporal order of two trips",
+        "value": "family road trip across the American Southwest occurred before solo trip to Europe",
+        "support_memory_ids": [
+          "m_d3ca9c08ece1292a697c",
+          "m_79ef575404ca3e9bc6a5"
+        ],
+        "support_source_ids": [
+          145,
+          105
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "family road trip across the American Southwest",
+        "predicate": "occurred",
+        "object": "a few years ago",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "a few years ago",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_d3ca9c08ece1292a697c"
+        ],
+        "support_source_ids": [
+          145
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "solo trip to Europe",
+        "predicate": "occurred",
+        "object": "last summer (2022)",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2022-06-01 to 2022-08-31",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_79ef575404ca3e9bc6a5"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The family road trip across the American Southwest occurred 'a few years ago' relative to the question date (2023), while the solo trip to Europe occurred 'last summer' (2022). Since 'a few years ago' is earlier than 2022, the family road trip happened first."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    145,
+    126,
+    105,
+    146,
+    149,
+    158,
+    127,
+    151,
+    104
+  ],
+  "v2_timeline_memory_ids": [
+    "m_d3ca9c08ece1292a697c",
+    "m_79ef575404ca3e9bc6a5",
+    "m_e12df2ce34a02c38a9bc",
+    "m_04dcfde77518332d1170",
+    "m_11c0019672575b780cdb",
+    "m_187c59a6cafecb48ebe8",
+    "m_9ef754946aee0ae88e04",
+    "m_b67901486b8eab67f32a"
+  ]
+}

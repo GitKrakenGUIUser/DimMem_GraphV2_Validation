@@ -1,0 +1,211 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "collection_start_date",
+        "query": "when did I start my autographed baseball collection",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "query": "how many autographed baseballs did I add in the first three months of collection",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "when did I start my autographed baseball collection",
+      "how many autographed baseballs did I add in the first three months of collection"
+    ],
+    "reason": "The question asks for a count of autographed baseballs added in the first three months of collection. This requires knowing the collection start date and the number added during that period. The answer is a direct numeric value, so the contract is direct_numeric with operator stated_count.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "15",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b911077e06b2e37de017"
+    ],
+    "support_source_ids": [
+      99
+    ],
+    "required_slots": [
+      {
+        "name": "collection_start_date",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "value": "15",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "From memory m_b911077e06b2e37de017 and source 99, the user stated they have 15 autographed baseballs since starting collecting three months ago (on 2023-04-11). This directly answers the question about additions in the first three months."
+  },
+  "p7_candidate": {
+    "answer": "15",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b911077e06b2e37de017"
+    ],
+    "support_source_ids": [
+      99
+    ],
+    "required_slots": [
+      {
+        "name": "collection_start_date",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "value": "15",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "From memory m_b911077e06b2e37de017 and source 99, the user stated they have 15 autographed baseballs since starting collecting three months ago (on 2023-04-11). This directly answers the question about additions in the first three months."
+  },
+  "specialist_candidate": {
+    "answer": "15",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b911077e06b2e37de017"
+    ],
+    "support_source_ids": [
+      99
+    ],
+    "required_slots": [
+      {
+        "name": "collection_start_date",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "value": "15",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "stated_count",
+    "calculation": {
+      "operator": "stated_count",
+      "operands": [
+        "15"
+      ],
+      "unit": "",
+      "result": "15"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "started collecting autographed baseballs",
+        "object": "2023-04-11",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-04-11",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "added autographed baseballs in first three months",
+        "object": "15",
+        "numeric_value": 15,
+        "unit": "",
+        "event_time": "2023-04-11 to 2023-07-11",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_b911077e06b2e37de017 states user has 15 autographed baseballs and started collecting three months ago from 2023-07-11, implying collection start on 2023-04-11. The user explicitly said 'that's 15 autographed baseballs since I started collecting three months ago' in source 99, which directly answers the question. The first three months from 2023-04-11 to 2023-07-11 align with this statement. Thus, the stated count is 15."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    158,
+    99,
+    162,
+    159,
+    143,
+    103,
+    100,
+    161
+  ],
+  "v2_timeline_memory_ids": []
+}

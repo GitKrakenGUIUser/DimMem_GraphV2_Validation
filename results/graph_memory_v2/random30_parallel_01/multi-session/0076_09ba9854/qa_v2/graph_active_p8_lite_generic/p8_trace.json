@@ -1,0 +1,109 @@
+{
+  "escalated": false,
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "p5_candidate": {
+    "answer": "50 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_16e46ee3c3579461c883",
+      "m_09891a1b324f4e58d98a"
+    ],
+    "support_source_ids": [
+      148,
+      69
+    ],
+    "required_slots": [
+      {
+        "name": "taxi_cost",
+        "value": "$60",
+        "support_memory_ids": [
+          "m_16e46ee3c3579461c883"
+        ],
+        "support_source_ids": [
+          148
+        ]
+      },
+      {
+        "name": "train_cost",
+        "value": "$10",
+        "support_memory_ids": [
+          "m_09891a1b324f4e58d98a"
+        ],
+        "support_source_ids": [
+          69
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        60,
+        -10
+      ],
+      "unit": "USD",
+      "result": "50 USD"
+    },
+    "confidence": 0.8,
+    "reasoning_summary": "The user was told a taxi costs $60 (source 148) and a friend said the train costs $10 (source 69). The savings is $60 - $10 = $50."
+  },
+  "p7_candidate": {
+    "answer": "50 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_16e46ee3c3579461c883",
+      "m_09891a1b324f4e58d98a"
+    ],
+    "support_source_ids": [
+      148,
+      69
+    ],
+    "required_slots": [
+      {
+        "name": "taxi_cost",
+        "value": "$60",
+        "support_memory_ids": [
+          "m_16e46ee3c3579461c883"
+        ],
+        "support_source_ids": [
+          148
+        ]
+      },
+      {
+        "name": "train_cost",
+        "value": "$10",
+        "support_memory_ids": [
+          "m_09891a1b324f4e58d98a"
+        ],
+        "support_source_ids": [
+          69
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        60,
+        -10
+      ],
+      "unit": "USD",
+      "result": "50 USD"
+    },
+    "confidence": 0.8,
+    "reasoning_summary": "The user was told a taxi costs $60 (source 148) and a friend said the train costs $10 (source 69). The savings is $60 - $10 = $50."
+  },
+  "specialist_candidate": {},
+  "choice": "p7",
+  "verification": {},
+  "targeted_source_ids": [],
+  "v2_timeline_memory_ids": []
+}

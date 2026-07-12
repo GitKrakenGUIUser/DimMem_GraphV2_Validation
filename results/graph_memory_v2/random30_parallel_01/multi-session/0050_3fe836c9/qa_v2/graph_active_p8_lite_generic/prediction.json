@@ -1,0 +1,68 @@
+{
+  "question_id": "3fe836c9",
+  "question_type": "multi-session",
+  "question": "How much more was the pre-approval amount than the final sale price of the house?",
+  "question_date": "2023/05/30 (Tue) 18:41",
+  "gold_answer": "$25,000",
+  "prediction": "$25,000",
+  "support_memory_ids": [
+    "m_af71b9d632e4faa08cc9",
+    "m_14f923f7b119a074b7a9"
+  ],
+  "support_source_ids": [
+    200,
+    80
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The pre-approval amount is $350,000 (memory m_af71b9d632e4faa08cc9, source 200). The final sale price is $325,000 (memory m_14f923f7b119a074b7a9, source 80). The difference is $350,000 - $325,000 = $25,000.",
+  "required_slots": [
+    {
+      "name": "pre_approval_amount",
+      "value": "$350,000",
+      "support_memory_ids": [
+        "m_af71b9d632e4faa08cc9"
+      ],
+      "support_source_ids": [
+        200
+      ]
+    },
+    {
+      "name": "final_sale_price",
+      "value": "$325,000",
+      "support_memory_ids": [
+        "m_14f923f7b119a074b7a9"
+      ],
+      "support_source_ids": [
+        80
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "other",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "dollars",
+    "result": "25000"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

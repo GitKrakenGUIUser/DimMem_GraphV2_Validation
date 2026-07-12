@@ -1,0 +1,64 @@
+{
+  "question_id": "4c36ccef",
+  "question_type": "single-session-assistant",
+  "question": "Can you remind me of the name of the romantic Italian restaurant in Rome you recommended for dinner?",
+  "question_date": "2023/05/30 (Tue) 23:29",
+  "gold_answer": "Roscioli",
+  "prediction": "Roscioli",
+  "support_memory_ids": [
+    "m_e4afd1e44d976d9a8f65"
+  ],
+  "support_source_ids": [
+    256
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user asked for the name of the romantic Italian restaurant in Rome that was previously recommended. In memory m_e4afd1e44d976d9a8f65 (source 256), the assistant explicitly recommended Roscioli for a romantic dinner in Rome. This directly answers the question.",
+  "required_slots": [
+    {
+      "name": "restaurant_name",
+      "value": "Roscioli",
+      "support_memory_ids": [
+        "m_e4afd1e44d976d9a8f65"
+      ],
+      "support_source_ids": [
+        256
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 142,
+    "completion_tokens": 22,
+    "elapsed_seconds": 1.385423183441162
+  }
+}

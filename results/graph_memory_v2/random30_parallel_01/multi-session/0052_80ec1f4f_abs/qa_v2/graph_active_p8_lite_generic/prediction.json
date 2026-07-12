@@ -1,0 +1,65 @@
+{
+  "question_id": "80ec1f4f_abs",
+  "question_type": "multi-session",
+  "question": "How many different museums or galleries did I visit in December?",
+  "question_date": "2023/03/03 (Fri) 23:44",
+  "gold_answer": "0. You did not mention visitng any museum in December",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.2,
+  "reasoning_summary": "No memories or sources mention any museum or gallery visit in December 2022. All visits are in January, February, or unspecified months.",
+  "required_slots": [
+    {
+      "name": "museum or gallery visit in December",
+      "value": "none",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [],
+    "unit": "",
+    "result": "0"
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [
+    "p7_abstained",
+    "p7_no_support",
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "museum or gallery visit in December",
+        "query": "museum gallery visit December",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "museum gallery visit December"
+    ],
+    "reason": "Need to count distinct museums/galleries visited in December.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 18989,
+    "completion_tokens": 290,
+    "elapsed_seconds": 4.433146715164185
+  }
+}

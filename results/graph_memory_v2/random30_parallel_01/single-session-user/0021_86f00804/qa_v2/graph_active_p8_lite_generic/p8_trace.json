@@ -1,0 +1,161 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "book_title",
+        "query": "currently reading book",
+        "semantic_type": "entity",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "currently reading book"
+    ],
+    "reason": "The question asks for the current book, requiring state resolution to find the most recent mention of a book being read.",
+    "deterministic_contract_hint": "state_resolution",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "The Seven Husbands of Evelyn Hugo",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a439e5a7f9668907c68c"
+    ],
+    "support_source_ids": [
+      54
+    ],
+    "required_slots": [
+      {
+        "name": "book_title",
+        "value": "The Seven Husbands of Evelyn Hugo",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-23 that they are currently reading 'The Seven Husbands of Evelyn Hugo'. This fact is stored in memory m_a439e5a7f9668907c68c and confirmed by source turn 54. No later update contradicts this, so it remains the current book."
+  },
+  "p7_candidate": {
+    "answer": "The Seven Husbands of Evelyn Hugo",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a439e5a7f9668907c68c"
+    ],
+    "support_source_ids": [
+      54
+    ],
+    "required_slots": [
+      {
+        "name": "book_title",
+        "value": "The Seven Husbands of Evelyn Hugo",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "On 2023-05-23, user stated they are currently reading 'The Seven Husbands of Evelyn Hugo'. No later update contradicts this, so the state is still active as of 2023-05-30."
+  },
+  "specialist_candidate": {
+    "answer": "The Seven Husbands of Evelyn Hugo",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a439e5a7f9668907c68c"
+    ],
+    "support_source_ids": [
+      54
+    ],
+    "required_slots": [
+      {
+        "name": "book_title",
+        "value": "The Seven Husbands of Evelyn Hugo",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "currently reading",
+        "object": "The Seven Husbands of Evelyn Hugo",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-23",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The state key 'user.currently_reading' with value 'The Seven Husbands of Evelyn Hugo' is active and valid from 2023-05-23, which is before the question date. No superseding state exists, so this is the current book."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    55,
+    54,
+    58,
+    56,
+    57,
+    59
+  ],
+  "v2_timeline_memory_ids": [
+    "m_a439e5a7f9668907c68c",
+    "m_05a7edd52e8be8d3729e",
+    "m_120296a1adc9ebd881bb",
+    "m_14315f2a2f52ca37f0b1",
+    "m_1cf77f8dc0e512e8321b",
+    "m_28ef5c60fce2c9266fac",
+    "m_4c2693c04f7aa1e70a24",
+    "m_5cd5a4629c6c8239a88c"
+  ]
+}

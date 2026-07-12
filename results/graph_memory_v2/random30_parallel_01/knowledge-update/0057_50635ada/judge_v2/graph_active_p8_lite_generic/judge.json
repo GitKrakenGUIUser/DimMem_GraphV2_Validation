@@ -1,0 +1,115 @@
+{
+  "question_id": "50635ada",
+  "question_type": "knowledge-update",
+  "question": "What was my previous frequent flyer status on United Airlines before I got the current status?",
+  "question_date": "2023/06/29 (Thu) 04:09",
+  "gold_answer": "Premier Silver",
+  "prediction": "Premier Silver",
+  "support_memory_ids": [
+    "m_7c50681107f4b578243b",
+    "m_afa3913a0942ce02a7bd"
+  ],
+  "support_source_ids": [
+    103,
+    232
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Current status is Premier Gold (as of 2023-05-30). Previous status was Premier Silver (as of 2022-09-16). No other statuses found between these dates.",
+  "required_slots": [
+    {
+      "name": "current_status",
+      "value": "Premier Gold",
+      "support_memory_ids": [
+        "m_afa3913a0942ce02a7bd"
+      ],
+      "support_source_ids": [
+        232
+      ]
+    },
+    {
+      "name": "status_change_date",
+      "value": "2023-05-30T08:58:01",
+      "support_memory_ids": [
+        "m_afa3913a0942ce02a7bd"
+      ],
+      "support_source_ids": [
+        232
+      ]
+    },
+    {
+      "name": "previous_status",
+      "value": "Premier Silver",
+      "support_memory_ids": [
+        "m_7c50681107f4b578243b"
+      ],
+      "support_source_ids": [
+        103
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "current_status",
+        "query": "current United Airlines status",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "status_change_date",
+        "query": "date of current status change",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "previous_status",
+        "query": "previous United Airlines status",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "current United Airlines status",
+      "date of current status change",
+      "previous United Airlines status"
+    ],
+    "reason": "Need to resolve the previous status by identifying the current status and its change date, then finding the status that immediately preceded it.",
+    "deterministic_contract_hint": "state_resolution",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 24637,
+    "completion_tokens": 814,
+    "elapsed_seconds": 7.263519287109375
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 137,
+    "completion_tokens": 22,
+    "elapsed_seconds": 0.6790966987609863
+  }
+}

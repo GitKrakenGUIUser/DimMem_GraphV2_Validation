@@ -1,0 +1,3971 @@
+{
+  "initial": [
+    {
+      "memory_id": "m_0e3a46d066100683e8d0",
+      "content": "User has four bikes: road bike, mountain bike, commuter bike, and a new hybrid bike they just purchased.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-28T13:41:01.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "four bikes",
+          "road bike",
+          "mountain bike",
+          "commuter bike",
+          "hybrid bike",
+          "new"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "bike collection",
+        "relation": {
+          "subject": "user",
+          "predicate": "owns",
+          "object": "four bikes"
+        },
+        "state_key": "user.bikes.owned",
+        "state_value": "road bike, mountain bike, commuter bike, new hybrid bike",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_2",
+        "session_index": 44,
+        "source_ids": [
+          250
+        ],
+        "source_uids": [
+          "s0044u0003"
+        ],
+        "source_times": [
+          "2023-05-28T13:41:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.05163934426229508,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 188.67075099122496,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.6758885695372083,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.27777777777777773,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 22.604786323497606,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.4664999194568069,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.01796875
+        },
+        {
+          "route": "active_state_chain",
+          "state_key": "user.bikes.owned",
+          "seed": "m_0e3a46d066100683e8d0"
+        },
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 16.953589742623205,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 5,
+          "raw_score": 0.3833418263271852,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.01796875
+        },
+        {
+          "route": "bm25",
+          "rank": 4,
+          "raw_score": 16.953589742623205,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dense",
+          "rank": 6,
+          "raw_score": 0.37674297171831234,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.4166666666666667,
+          "rrf_contribution": 0.01796875
+        }
+      ],
+      "graph_paths": [
+        [
+          "state_chain",
+          "user.bikes.owned"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_74899da97ccfa57d1730",
+      "content": "User plans to use road bike for century ride, uses mountain bike for trail rides and commuter bike for daily commutes. User currently has three bikes and wonders if that's too many.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-25T15:36:02",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "century ride",
+          "road bike",
+          "mountain bike",
+          "commuter bike",
+          "three bikes",
+          "bike usage"
+        ],
+        "entities": [],
+        "topic": "bike usage and quantity",
+        "relation": {
+          "subject": "user",
+          "predicate": "uses",
+          "object": "road bike for long rides, mountain bike for trails, commuter bike for commutes"
+        },
+        "state_key": "user.bike_usage",
+        "state_value": "road: long rides; mountain: trails; commuter: commutes",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_1",
+        "session_index": 30,
+        "source_ids": [
+          169
+        ],
+        "source_uids": [
+          "s0030u0004"
+        ],
+        "source_times": [
+          "2023-05-25T15:36:02"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.048913812836962736,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 167.06982661190654,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 3,
+          "raw_score": 0.5069840906749548,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dimension",
+          "rank": 8,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.016911764705882352
+        },
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 21.24107546235399,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 7,
+          "raw_score": 0.4207567421572877,
+          "rrf_contribution": 0.014925373134328358
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_b374820ba910e02fa60c",
+      "content": "User is thinking of doing a century ride soon and wonders if current road bike is ready, having done 2,000 miles on it. User also has two other bikes: a mountain bike and a commuter bike.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-25T15:36:01.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "century ride",
+          "road bike",
+          "2,000 miles",
+          "mountain bike",
+          "commuter bike",
+          "three bikes"
+        ],
+        "entities": [],
+        "topic": "cycling goals and equipment",
+        "relation": {
+          "subject": "user",
+          "predicate": "owns",
+          "object": "three bikes: road, mountain, commuter"
+        },
+        "state_key": "user.bike_collection",
+        "state_value": "road bike, mountain bike, commuter bike",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_1",
+        "session_index": 30,
+        "source_ids": [
+          168
+        ],
+        "source_uids": [
+          "s0030u0003"
+        ],
+        "source_times": [
+          "2023-05-25T15:36:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.04733538146441372,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 166.70107420780073,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.5086847877120535,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 15,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.015333333333333332
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_0f2d23ba9dda82df9e01",
+      "content": "User is driving from San Francisco to New York City in about 10 days, wants to cycle for at least 3-4 days on low-traffic scenic routes, and needs accommodations with bike storage for their road bike.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-06-28",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "next month"
+        },
+        "locations": [
+          "San Francisco",
+          "New York City"
+        ],
+        "reason": "",
+        "purpose": "to cycle and explore",
+        "keywords": [
+          "San Francisco",
+          "New York City",
+          "road trip",
+          "10 days",
+          "cycling",
+          "scenic routes",
+          "bike storage"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "traveler"
+          }
+        ],
+        "topic": "road trip itinerary",
+        "relation": {
+          "subject": "user",
+          "predicate": "driving from",
+          "object": "San Francisco to New York City"
+        },
+        "state_key": "user.trip.itinerary",
+        "state_value": "SF to NYC, 10 days, cycle 3-4 days, low-traffic scenic routes, bike storage needed",
+        "state_status": "planned",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_2",
+        "session_index": 44,
+        "source_ids": [
+          249
+        ],
+        "source_uids": [
+          "s0044u0002"
+        ],
+        "source_times": [
+          "2023-05-28T13:41:01"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.046658480743895725,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 13,
+          "raw_score": 81.72765788710629,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "dense",
+          "rank": 8,
+          "raw_score": 0.4260928259202622,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "bm25",
+          "rank": 15,
+          "raw_score": 15.457746538220844,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dense",
+          "rank": 15,
+          "raw_score": 0.312540195511312,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dimension",
+          "rank": 30,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.012777777777777777
+        },
+        {
+          "route": "bm25",
+          "rank": 19,
+          "raw_score": 11.593309903665633,
+          "rrf_contribution": 0.012658227848101266
+        },
+        {
+          "route": "dense",
+          "rank": 22,
+          "raw_score": 0.28613530221674227,
+          "rrf_contribution": 0.012195121951219513
+        },
+        {
+          "route": "dimension",
+          "rank": 27,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.013218390804597701
+        },
+        {
+          "route": "bm25",
+          "rank": 19,
+          "raw_score": 11.593309903665633,
+          "rrf_contribution": 0.012658227848101266
+        },
+        {
+          "route": "dense",
+          "rank": 24,
+          "raw_score": 0.2831333150605128,
+          "rrf_contribution": 0.011904761904761904
+        },
+        {
+          "route": "dimension",
+          "rank": 29,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.012921348314606741
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_023f9602fd10654d0d8c",
+      "content": "User is in the San Francisco Bay Area and is considering upgrading road bike wheels to carbon fiber.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-25T15:36:01",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [
+          "San Francisco Bay Area"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "San Francisco Bay Area",
+          "carbon fiber wheels",
+          "road bike upgrade",
+          "cycling"
+        ],
+        "entities": [
+          {
+            "name": "San Francisco Bay Area",
+            "entity_type": "place",
+            "role": "residence"
+          }
+        ],
+        "topic": "cycling location and upgrade",
+        "relation": {
+          "subject": "user",
+          "predicate": "lives in",
+          "object": "San Francisco Bay Area"
+        },
+        "state_key": "user.residence",
+        "state_value": "San Francisco Bay Area",
+        "state_status": "active",
+        "preference": {
+          "target": "carbon fiber wheels",
+          "polarity": "positive",
+          "strength": 0.5,
+          "scope": "contextual"
+        },
+        "modality": "uncertain"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_1",
+        "session_index": 30,
+        "source_ids": [
+          167
+        ],
+        "source_uids": [
+          "s0030u0002"
+        ],
+        "source_times": [
+          "2023-05-25T15:36:01"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.046554654233476114,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 14,
+          "raw_score": 73.79512022210545,
+          "rrf_contribution": 0.013513513513513514
+        },
+        {
+          "route": "dense",
+          "rank": 9,
+          "raw_score": 0.4186569755031351,
+          "rrf_contribution": 0.014492753623188406
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.018548387096774192
+        },
+        {
+          "route": "bm25",
+          "rank": 18,
+          "raw_score": 13.116403207781026,
+          "rrf_contribution": 0.01282051282051282
+        },
+        {
+          "route": "dense",
+          "rank": 4,
+          "raw_score": 0.44148832282897027,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dimension",
+          "rank": 17,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.014935064935064933
+        },
+        {
+          "route": "bm25",
+          "rank": 20,
+          "raw_score": 9.83730240583577,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dense",
+          "rank": 10,
+          "raw_score": 0.35298090219864914,
+          "rrf_contribution": 0.014285714285714285
+        },
+        {
+          "route": "dimension",
+          "rank": 14,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01554054054054054
+        },
+        {
+          "route": "bm25",
+          "rank": 20,
+          "raw_score": 9.83730240583577,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dense",
+          "rank": 15,
+          "raw_score": 0.33274870063565676,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dimension",
+          "rank": 16,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01513157894736842
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_6bb982cb79098cc22fe3",
+      "content": "User planned a bike trip next month (as of 2023-04-29) and asked for route recommendations.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-29",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "next month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "bike trip",
+          "planning",
+          "next month"
+        ],
+        "entities": [],
+        "topic": "bike trip planning",
+        "relation": {
+          "subject": "user",
+          "predicate": "planned",
+          "object": "bike trip next month"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "de275215_3",
+        "session_index": 5,
+        "source_ids": [
+          31
+        ],
+        "source_uids": [
+          "s0005u0001"
+        ],
+        "source_times": [
+          "2023-04-29T23:29:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 2
+      },
+      "score": 0.046048245695557086,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 7,
+          "raw_score": 99.22211205837121,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dense",
+          "rank": 13,
+          "raw_score": 0.386852906265503,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "dimension",
+          "rank": 6,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.017424242424242422
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_b6886324a724a74bb6f3",
+      "content": "User is looking forward to trying out their new hybrid bike on scenic routes and wants to know about bike shops along the route that offer bike rentals or guided tours.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-28T13:41:02",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "to explore local trails",
+        "keywords": [
+          "new hybrid bike",
+          "scenic routes",
+          "bike shops",
+          "bike rentals",
+          "guided tours"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "traveler"
+          }
+        ],
+        "topic": "trip activities",
+        "relation": {
+          "subject": "user",
+          "predicate": "interested in",
+          "object": "bike rentals and guided tours"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_2",
+        "session_index": 44,
+        "source_ids": [
+          251
+        ],
+        "source_uids": [
+          "s0044u0004"
+        ],
+        "source_times": [
+          "2023-05-28T13:41:02"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.04524505345400868,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 5,
+          "raw_score": 109.67777043909555,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dense",
+          "rank": 7,
+          "raw_score": 0.4349356103949985,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dimension",
+          "rank": 17,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.014935064935064933
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_7cd5f57cf7b542afa53e",
+      "content": "User has a new bike computer and has been tracking progress on Strava.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-28T13:41:02.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "to track progress",
+        "keywords": [
+          "bike computer",
+          "Strava",
+          "tracking progress"
+        ],
+        "entities": [
+          {
+            "name": "Strava",
+            "entity_type": "tool",
+            "role": "tracking platform"
+          }
+        ],
+        "topic": "cycling accessories",
+        "relation": {
+          "subject": "user",
+          "predicate": "uses",
+          "object": "bike computer and Strava"
+        },
+        "state_key": "user.cycling.tracking",
+        "state_value": "bike computer and Strava",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_2",
+        "session_index": 44,
+        "source_ids": [
+          252
+        ],
+        "source_uids": [
+          "s0044u0005"
+        ],
+        "source_times": [
+          "2023-05-28T13:41:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.04363445378151261,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 97.42673895188993,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 20,
+          "raw_score": 0.3255456907883234,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dimension",
+          "rank": 10,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.016428571428571428
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_b49617662a30607a7a89",
+      "content": "User is considering upgrading road bike wheels to carbon fiber, having done 2,000 miles on current wheels and doing long rides on weekends.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-25T15:36:02.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "2,000 miles on current wheels and long weekend rides",
+        "purpose": "",
+        "keywords": [
+          "carbon fiber wheels",
+          "road bike upgrade",
+          "2,000 miles",
+          "long rides",
+          "weekend"
+        ],
+        "entities": [],
+        "topic": "bike wheel upgrade",
+        "relation": {
+          "subject": "user",
+          "predicate": "considering upgrading",
+          "object": "road bike wheels to carbon fiber"
+        },
+        "state_key": "user.bike_upgrade_consideration",
+        "state_value": "carbon fiber wheels for road bike",
+        "state_status": "active",
+        "preference": {
+          "target": "carbon fiber wheels",
+          "polarity": "positive",
+          "strength": 0.5,
+          "scope": "contextual"
+        },
+        "modality": "uncertain"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_1",
+        "session_index": 30,
+        "source_ids": [
+          170
+        ],
+        "source_uids": [
+          "s0030u0005"
+        ],
+        "source_times": [
+          "2023-05-25T15:36:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.043513221459445715,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 9,
+          "raw_score": 91.32308321111041,
+          "rrf_contribution": 0.014492753623188406
+        },
+        {
+          "route": "dense",
+          "rank": 12,
+          "raw_score": 0.3924704514268391,
+          "rrf_contribution": 0.013888888888888888
+        },
+        {
+          "route": "dimension",
+          "rank": 16,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.01513157894736842
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_5de94a1d4674a1d8e962",
+      "content": "User did a 30-mile ride with friends to a nearby state park last weekend (as of 2023-04-29).",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-04-22",
+          "event_end": "2023-04-23",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "last weekend"
+        },
+        "locations": [
+          "nearby state park"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "30-mile ride",
+          "state park",
+          "friends"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "participant"
+          },
+          {
+            "name": "friends",
+            "entity_type": "person",
+            "role": "companion"
+          }
+        ],
+        "topic": "bike ride",
+        "relation": {
+          "subject": "user",
+          "predicate": "completed",
+          "object": "30-mile ride to state park"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "de275215_3",
+        "session_index": 5,
+        "source_ids": [
+          31
+        ],
+        "source_uids": [
+          "s0005u0001"
+        ],
+        "source_times": [
+          "2023-04-29T23:29:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 2
+      },
+      "score": 0.04333754852742194,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 17,
+          "raw_score": 56.23351728245834,
+          "rrf_contribution": 0.012987012987012988
+        },
+        {
+          "route": "dense",
+          "rank": 19,
+          "raw_score": 0.32743881472067526,
+          "rrf_contribution": 0.012658227848101266
+        },
+        {
+          "route": "dimension",
+          "rank": 5,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.01769230769230769
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_c5f71b08042616e9e88d",
+      "content": "User is planning a long road trip next month and wants bike-friendly routes along the way to bring their road bike for exercise.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-06-28",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "next month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "to get exercise",
+        "keywords": [
+          "road trip",
+          "next month",
+          "bike-friendly routes",
+          "road bike",
+          "exercise"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "traveler"
+          }
+        ],
+        "topic": "road trip planning",
+        "relation": {
+          "subject": "user",
+          "predicate": "planning",
+          "object": "road trip with bike-friendly routes"
+        },
+        "state_key": "user.trip.plan",
+        "state_value": "road trip next month with road bike",
+        "state_status": "planned",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_2",
+        "session_index": 44,
+        "source_ids": [
+          248
+        ],
+        "source_uids": [
+          "s0044u0001"
+        ],
+        "source_times": [
+          "2023-05-28T13:41:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.042912603828096786,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 11,
+          "raw_score": 86.23805570783306,
+          "rrf_contribution": 0.014084507042253521
+        },
+        {
+          "route": "dense",
+          "rank": 11,
+          "raw_score": 0.39722122567219154,
+          "rrf_contribution": 0.014084507042253521
+        },
+        {
+          "route": "dimension",
+          "rank": 18,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.014743589743589743
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_a124cc921d2c4303f7c6",
+      "content": "User stated they will check the local tourist board and online forums before their trip to Rivera, and asked about popular transportation apps used by locals.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-24T04:41:01.500000",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [
+          "Rivera"
+        ],
+        "reason": "",
+        "purpose": "trip to Rivera",
+        "keywords": [
+          "tourist board",
+          "online forums",
+          "Rivera",
+          "transportation apps",
+          "locals"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "subject"
+          },
+          {
+            "name": "Rivera",
+            "entity_type": "place",
+            "role": "location"
+          }
+        ],
+        "topic": "travel planning",
+        "relation": {
+          "subject": "user",
+          "predicate": "plans to check",
+          "object": "local tourist board and online forums for Rivera"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "ultrachat_312851",
+        "session_index": 24,
+        "source_ids": [
+          131
+        ],
+        "source_uids": [
+          "s0024u0003"
+        ],
+        "source_times": [
+          "2023-05-24T04:41:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 10
+      },
+      "score": 0.03992517689806846,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 24,
+          "raw_score": 18.573632011546028,
+          "rrf_contribution": 0.011904761904761904
+        },
+        {
+          "route": "dense",
+          "rank": 23,
+          "raw_score": 0.3124080960053769,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dimension",
+          "rank": 12,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.01597222222222222
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_6e30304cd6ecfecc94f4",
+      "content": "User is interested in joining a guided tour in Jackson Hole to explore challenging mountain bike trails.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-28T13:41:02.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [
+          "Jackson Hole"
+        ],
+        "reason": "",
+        "purpose": "to explore challenging mountain bike trails",
+        "keywords": [
+          "Jackson Hole",
+          "guided tour",
+          "mountain bike trails",
+          "challenging"
+        ],
+        "entities": [
+          {
+            "name": "Jackson Hole",
+            "entity_type": "place",
+            "role": "destination"
+          }
+        ],
+        "topic": "guided tour interest",
+        "relation": {
+          "subject": "user",
+          "predicate": "interested in",
+          "object": "guided tour in Jackson Hole"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_2",
+        "session_index": 44,
+        "source_ids": [
+          252
+        ],
+        "source_uids": [
+          "s0044u0005"
+        ],
+        "source_times": [
+          "2023-05-28T13:41:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.03278917910447761,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 4,
+          "raw_score": 114.05755762069803,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dimension",
+          "rank": 7,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.017164179104477612
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_065844f9fcc7a0b31467",
+      "content": "User will research and consider budget before deciding on carbon fiber wheels, and wants recommendations on bike computers and GPS devices instead of using phone GPS.",
+      "dimension": {
+        "memory_type": "profile",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-25T15:36:03",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "to make informed purchase decision",
+        "keywords": [
+          "carbon fiber wheels",
+          "budget",
+          "bike computer",
+          "GPS device",
+          "phone GPS",
+          "recommendations"
+        ],
+        "entities": [],
+        "topic": "cycling gear research",
+        "relation": {
+          "subject": "user",
+          "predicate": "plans to research",
+          "object": "carbon fiber wheels and bike computers"
+        },
+        "state_key": "user.cycling_gear_interest",
+        "state_value": "carbon fiber wheels and bike computers/GPS",
+        "state_status": "planned",
+        "preference": {
+          "target": "dedicated bike computer/GPS",
+          "polarity": "positive",
+          "strength": 0.5,
+          "scope": "contextual"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_1",
+        "session_index": 30,
+        "source_ids": [
+          171
+        ],
+        "source_uids": [
+          "s0030u0006"
+        ],
+        "source_times": [
+          "2023-05-25T15:36:03"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.030536130536130537,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 6,
+          "raw_score": 106.93769811670067,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dense",
+          "rank": 5,
+          "raw_score": 0.44472433249919946,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 25.38368349311711,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 3,
+          "raw_score": 0.4492270968266441,
+          "rrf_contribution": 0.015873015873015872
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_4004cae77878d5f55d99",
+      "content": "User prefers paved roads with rolling hills for bike rides.",
+      "dimension": {
+        "memory_type": "profile",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "paved roads",
+          "rolling hills",
+          "bike route preference"
+        ],
+        "entities": [],
+        "topic": "bike route preference",
+        "relation": {
+          "subject": "user",
+          "predicate": "prefers",
+          "object": "paved roads with rolling hills"
+        },
+        "state_key": "user.bike_route_preference",
+        "state_value": "paved roads with rolling hills",
+        "state_status": "active",
+        "preference": {
+          "target": "paved roads with rolling hills",
+          "polarity": "positive",
+          "strength": 0.8,
+          "scope": "specific"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "de275215_3",
+        "session_index": 5,
+        "source_ids": [
+          32
+        ],
+        "source_uids": [
+          "s0005u0002"
+        ],
+        "source_times": [
+          "2023-04-29T23:29:01"
+        ],
+        "source_role": "user",
+        "window_index": 2
+      },
+      "score": 0.029910714285714284,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 10,
+          "raw_score": 87.0546610052702,
+          "rrf_contribution": 0.014285714285714285
+        },
+        {
+          "route": "dense",
+          "rank": 4,
+          "raw_score": 0.4686325013544013,
+          "rrf_contribution": 0.015625
+        }
+      ],
+      "graph_paths": []
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "coverage_before": {
+        "must_continue": true,
+        "hard_gaps": [
+          "state_chain_not_checked",
+          "bridge_search_not_attempted",
+          "unresolved_slots_without_probe"
+        ],
+        "remaining_slots": [
+          "purchase date of gravel bike"
+        ],
+        "expected_evidence_count": 1,
+        "current_evidence_count": 15,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "bike_ownership"
+        ],
+        "state_chain_checked": false,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": false,
+        "time_evidence_present": true,
+        "visited_tools": []
+      },
+      "decision": {
+        "active_hypothesis": 0,
+        "mode": "navigate",
+        "actions": [
+          {
+            "tool": "search_text",
+            "args": {
+              "query": "purchase gravel bike",
+              "entities": [
+                "gravel bike"
+              ],
+              "keywords": [
+                "purchase",
+                "buy",
+                "gravel bike"
+              ],
+              "memory_types": [
+                "fact",
+                "episodic"
+              ],
+              "limit": 10
+            }
+          },
+          {
+            "tool": "follow_state_chain",
+            "args": {
+              "state_key": "user.bikes.owned",
+              "memory_id": "m_0e3a46d066100683e8d0",
+              "limit": 12
+            }
+          },
+          {
+            "tool": "expand_time",
+            "args": {
+              "start": "",
+              "end": "2023-06-21T02:24:00",
+              "operator": "before",
+              "limit": 10
+            }
+          }
+        ],
+        "updated_missing_slots": [
+          "purchase date of gravel bike"
+        ],
+        "revised_constraints": {
+          "entities": [
+            "gravel bike",
+            "mountain bike",
+            "commuter bike"
+          ],
+          "time_anchor": "before purchase of gravel bike",
+          "state_keys": [
+            "bike_ownership"
+          ],
+          "relation_hints": [
+            "owned_before"
+          ]
+        },
+        "reason": "Need to find purchase date of gravel bike to anchor time constraint. Also need to check state chain for bike ownership to see if other bikes existed before that purchase. Expanding time may reveal events before the question date."
+      },
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 10256,
+        "completion_tokens": 346,
+        "elapsed_seconds": 4.1128058433532715
+      },
+      "finish_overridden": false,
+      "tool_results": [
+        {
+          "tool": "search_text",
+          "args": {
+            "query": "purchase gravel bike",
+            "entities": [
+              "gravel bike"
+            ],
+            "keywords": [
+              "purchase",
+              "buy",
+              "gravel bike"
+            ],
+            "memory_types": [
+              "fact",
+              "episodic"
+            ],
+            "limit": 10
+          },
+          "count": 10,
+          "memory_ids": [
+            "m_0e3a46d066100683e8d0",
+            "m_a5527252cf5a6618dc1b",
+            "m_b1d952d5e8e3b81d6ff1",
+            "m_023f9602fd10654d0d8c",
+            "m_8ebd91fd742cb615ebd0",
+            "m_d3a1666c340b816f0c5a",
+            "m_0f2d23ba9dda82df9e01",
+            "m_c1e59a70004bee67e463",
+            "m_065844f9fcc7a0b31467",
+            "m_74899da97ccfa57d1730"
+          ]
+        },
+        {
+          "tool": "follow_state_chain",
+          "args": {
+            "state_key": "user.bikes.owned",
+            "memory_id": "m_0e3a46d066100683e8d0",
+            "limit": 12
+          },
+          "count": 1,
+          "memory_ids": [
+            "m_0e3a46d066100683e8d0"
+          ]
+        },
+        {
+          "tool": "expand_time",
+          "args": {
+            "start": "",
+            "end": "2023-06-21T02:24:00",
+            "operator": "before",
+            "limit": 10
+          },
+          "count": 0,
+          "memory_ids": []
+        }
+      ],
+      "tool_parallel": {
+        "stage": "active-v3-tools-r1",
+        "total": 3,
+        "workers": 3,
+        "succeeded": 3,
+        "failed": 0,
+        "elapsed_seconds": 2.76749849319458
+      },
+      "new_memory_count": 5,
+      "total_tool_calls": 3,
+      "coverage_after": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "purchase date of gravel bike"
+        ],
+        "expected_evidence_count": 1,
+        "current_evidence_count": 20,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "bike_ownership"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_time",
+          "follow_state_chain",
+          "search_text"
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "coverage_before": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "purchase date of gravel bike"
+        ],
+        "expected_evidence_count": 1,
+        "current_evidence_count": 20,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "bike_ownership"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_time",
+          "follow_state_chain",
+          "search_text"
+        ]
+      },
+      "decision": {
+        "active_hypothesis": 0,
+        "mode": "navigate",
+        "actions": [
+          {
+            "tool": "search_text",
+            "args": {
+              "query": "gravel bike purchase date",
+              "entities": [
+                "gravel bike"
+              ],
+              "keywords": [
+                "purchase",
+                "bought",
+                "acquired"
+              ],
+              "memory_types": [
+                "fact",
+                "episodic"
+              ],
+              "limit": 10
+            }
+          },
+          {
+            "tool": "expand_time",
+            "args": {
+              "start": "",
+              "end": "2023-06-21T02:24:00",
+              "operator": "before",
+              "limit": 10
+            }
+          },
+          {
+            "tool": "follow_state_chain",
+            "args": {
+              "state_key": "user.bikes.owned",
+              "memory_id": "m_0e3a46d066100683e8d0",
+              "limit": 12
+            }
+          }
+        ],
+        "updated_missing_slots": [
+          "purchase date of gravel bike"
+        ],
+        "revised_constraints": {
+          "entities": [
+            "gravel bike",
+            "mountain bike",
+            "commuter bike"
+          ],
+          "time_anchor": "before purchase of gravel bike",
+          "state_keys": [
+            "bike_ownership"
+          ],
+          "relation_hints": [
+            "owned_before"
+          ]
+        },
+        "reason": "Need to find the purchase date of the gravel bike to anchor the 'before' time constraint. Current evidence shows bike inventory at various times but no gravel bike purchase event. Searching for purchase date, expanding time range, and following state chain to find temporal ordering."
+      },
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 13274,
+        "completion_tokens": 357,
+        "elapsed_seconds": 4.099008560180664
+      },
+      "finish_overridden": false,
+      "tool_results": [
+        {
+          "tool": "search_text",
+          "args": {
+            "query": "gravel bike purchase date",
+            "entities": [
+              "gravel bike"
+            ],
+            "keywords": [
+              "purchase",
+              "bought",
+              "acquired"
+            ],
+            "memory_types": [
+              "fact",
+              "episodic"
+            ],
+            "limit": 10
+          },
+          "count": 10,
+          "memory_ids": [
+            "m_7f7bda68cc4bf0180336",
+            "m_9f8c935b2a34e85eb9ef",
+            "m_0e3a46d066100683e8d0",
+            "m_c1e59a70004bee67e463",
+            "m_dc83e9885ffdc0f1b98a",
+            "m_b1d952d5e8e3b81d6ff1",
+            "m_023f9602fd10654d0d8c",
+            "m_8ebd91fd742cb615ebd0",
+            "m_a5527252cf5a6618dc1b",
+            "m_0f2d23ba9dda82df9e01"
+          ]
+        }
+      ],
+      "tool_parallel": {
+        "stage": "active-v3-tools-r2",
+        "total": 1,
+        "workers": 1,
+        "succeeded": 1,
+        "failed": 0,
+        "elapsed_seconds": 0.20250725746154785
+      },
+      "new_memory_count": 3,
+      "total_tool_calls": 4,
+      "coverage_after": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "purchase date of gravel bike"
+        ],
+        "expected_evidence_count": 1,
+        "current_evidence_count": 23,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "bike_ownership"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_time",
+          "follow_state_chain",
+          "search_text"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "coverage_before": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "purchase date of gravel bike"
+        ],
+        "expected_evidence_count": 1,
+        "current_evidence_count": 23,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "bike_ownership"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_time",
+          "follow_state_chain",
+          "search_text"
+        ]
+      },
+      "decision": {
+        "active_hypothesis": 0,
+        "mode": "navigate",
+        "actions": [
+          {
+            "tool": "search_text",
+            "args": {
+              "query": "gravel bike purchase date",
+              "entities": [
+                "gravel bike"
+              ],
+              "keywords": [
+                "purchase",
+                "bought",
+                "acquired",
+                "date"
+              ],
+              "memory_types": [
+                "fact",
+                "episodic"
+              ],
+              "limit": 10
+            }
+          }
+        ],
+        "updated_missing_slots": [
+          "purchase date of gravel bike"
+        ],
+        "revised_constraints": {
+          "entities": [
+            "gravel bike",
+            "mountain bike",
+            "commuter bike"
+          ],
+          "time_anchor": "before gravel bike purchase",
+          "state_keys": [
+            "bike_ownership"
+          ],
+          "relation_hints": [
+            "owned_before"
+          ]
+        },
+        "reason": "Need to find the purchase date of the gravel bike to anchor the time constraint. Current evidence shows bike inventory at various times but no gravel bike purchase event. Searching specifically for gravel bike purchase date."
+      },
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 14380,
+        "completion_tokens": 228,
+        "elapsed_seconds": 3.0214202404022217
+      },
+      "finish_overridden": false,
+      "tool_results": [
+        {
+          "tool": "search_text",
+          "args": {
+            "query": "gravel bike purchase date",
+            "entities": [
+              "gravel bike"
+            ],
+            "keywords": [
+              "purchase",
+              "bought",
+              "acquired",
+              "date"
+            ],
+            "memory_types": [
+              "fact",
+              "episodic"
+            ],
+            "limit": 10
+          },
+          "count": 10,
+          "memory_ids": [
+            "m_7f7bda68cc4bf0180336",
+            "m_9f8c935b2a34e85eb9ef",
+            "m_0e3a46d066100683e8d0",
+            "m_c1e59a70004bee67e463",
+            "m_dc83e9885ffdc0f1b98a",
+            "m_a5527252cf5a6618dc1b",
+            "m_b1d952d5e8e3b81d6ff1",
+            "m_8ebd91fd742cb615ebd0",
+            "m_023f9602fd10654d0d8c",
+            "m_0f2d23ba9dda82df9e01"
+          ]
+        }
+      ],
+      "tool_parallel": {
+        "stage": "active-v3-tools-r3",
+        "total": 1,
+        "workers": 1,
+        "succeeded": 1,
+        "failed": 0,
+        "elapsed_seconds": 0.12769007682800293
+      },
+      "new_memory_count": 0,
+      "total_tool_calls": 5,
+      "coverage_after": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "purchase date of gravel bike"
+        ],
+        "expected_evidence_count": 1,
+        "current_evidence_count": 23,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "bike_ownership"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_time",
+          "follow_state_chain",
+          "search_text"
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "coverage_before": {
+        "must_continue": false,
+        "hard_gaps": [],
+        "remaining_slots": [
+          "purchase date of gravel bike"
+        ],
+        "expected_evidence_count": 1,
+        "current_evidence_count": 23,
+        "needs_assistant_context": false,
+        "has_assistant_context": true,
+        "state_keys": [
+          "bike_ownership"
+        ],
+        "state_chain_checked": true,
+        "state_evidence_present": false,
+        "needs_multi_hop": true,
+        "bridge_checked": true,
+        "time_evidence_present": true,
+        "visited_tools": [
+          "expand_time",
+          "follow_state_chain",
+          "search_text"
+        ]
+      },
+      "decision": {
+        "active_hypothesis": 0,
+        "mode": "navigate",
+        "actions": [
+          {
+            "tool": "search_text",
+            "args": {
+              "query": "gravel bike purchase date",
+              "entities": [
+                "gravel bike"
+              ],
+              "keywords": [
+                "purchase",
+                "bought",
+                "acquired",
+                "date"
+              ],
+              "memory_types": [
+                "fact",
+                "episodic"
+              ],
+              "limit": 10
+            }
+          }
+        ],
+        "updated_missing_slots": [
+          "purchase date of gravel bike"
+        ],
+        "revised_constraints": {
+          "entities": [
+            "gravel bike",
+            "mountain bike",
+            "commuter bike"
+          ],
+          "time_anchor": "before gravel bike purchase",
+          "state_keys": [
+            "bike_ownership"
+          ],
+          "relation_hints": [
+            "owned_before"
+          ]
+        },
+        "reason": "Need to find the purchase date of the gravel bike to determine the time window for 'before I purchased the gravel bike'. Current evidence shows user had three bikes (road, mountain, commuter) as of 2023-05-25, and later four bikes including a new hybrid as of 2023-05-28, but no mention of gravel bike purchase date. Searching for gravel bike purchase date to fill missing slot."
+      },
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 15980,
+        "completion_tokens": 276,
+        "elapsed_seconds": 9.335233688354492
+      },
+      "finish_overridden": false,
+      "tool_results": [],
+      "stopped_reason": "no_unvisited_action_or_tool_budget_exhausted"
+    }
+  ],
+  "router_mode": "llm",
+  "policy": {
+    "name": "active_v3",
+    "coverage_gate": true,
+    "all_hypotheses": false,
+    "diverse_actions": false,
+    "coverage_rerank": false,
+    "max_rounds": 4,
+    "max_total_tool_calls": 9,
+    "router_evidence_k": 18,
+    "max_actions_per_round": 3
+  },
+  "final": [
+    {
+      "memory_id": "m_0e3a46d066100683e8d0",
+      "content": "User has four bikes: road bike, mountain bike, commuter bike, and a new hybrid bike they just purchased.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-28T13:41:01.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "four bikes",
+          "road bike",
+          "mountain bike",
+          "commuter bike",
+          "hybrid bike",
+          "new"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "owner"
+          }
+        ],
+        "topic": "bike collection",
+        "relation": {
+          "subject": "user",
+          "predicate": "owns",
+          "object": "four bikes"
+        },
+        "state_key": "user.bikes.owned",
+        "state_value": "road bike, mountain bike, commuter bike, new hybrid bike",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_2",
+        "session_index": 44,
+        "source_ids": [
+          250
+        ],
+        "source_uids": [
+          "s0044u0003"
+        ],
+        "source_times": [
+          "2023-05-28T13:41:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.23483780518757053,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 188.67075099122496,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.6758885695372083,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.27777777777777773,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 22.604786323497606,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.4664999194568069,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.01796875
+        },
+        {
+          "route": "active_state_chain",
+          "state_key": "user.bikes.owned",
+          "seed": "m_0e3a46d066100683e8d0"
+        },
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 16.953589742623205,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 5,
+          "raw_score": 0.3833418263271852,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.01796875
+        },
+        {
+          "route": "bm25",
+          "rank": 4,
+          "raw_score": 16.953589742623205,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dense",
+          "rank": 6,
+          "raw_score": 0.37674297171831234,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dimension",
+          "rank": 4,
+          "raw_score": 0.4166666666666667,
+          "rrf_contribution": 0.01796875
+        }
+      ],
+      "graph_paths": [
+        [
+          "state_chain",
+          "user.bikes.owned"
+        ]
+      ]
+    },
+    {
+      "memory_id": "m_023f9602fd10654d0d8c",
+      "content": "User is in the San Francisco Bay Area and is considering upgrading road bike wheels to carbon fiber.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-25T15:36:01",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [
+          "San Francisco Bay Area"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "San Francisco Bay Area",
+          "carbon fiber wheels",
+          "road bike upgrade",
+          "cycling"
+        ],
+        "entities": [
+          {
+            "name": "San Francisco Bay Area",
+            "entity_type": "place",
+            "role": "residence"
+          }
+        ],
+        "topic": "cycling location and upgrade",
+        "relation": {
+          "subject": "user",
+          "predicate": "lives in",
+          "object": "San Francisco Bay Area"
+        },
+        "state_key": "user.residence",
+        "state_value": "San Francisco Bay Area",
+        "state_status": "active",
+        "preference": {
+          "target": "carbon fiber wheels",
+          "polarity": "positive",
+          "strength": 0.5,
+          "scope": "contextual"
+        },
+        "modality": "uncertain"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_1",
+        "session_index": 30,
+        "source_ids": [
+          167
+        ],
+        "source_uids": [
+          "s0030u0002"
+        ],
+        "source_times": [
+          "2023-05-25T15:36:01"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.17322639909601045,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 14,
+          "raw_score": 73.79512022210545,
+          "rrf_contribution": 0.013513513513513514
+        },
+        {
+          "route": "dense",
+          "rank": 9,
+          "raw_score": 0.4186569755031351,
+          "rrf_contribution": 0.014492753623188406
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.018548387096774192
+        },
+        {
+          "route": "bm25",
+          "rank": 18,
+          "raw_score": 13.116403207781026,
+          "rrf_contribution": 0.01282051282051282
+        },
+        {
+          "route": "dense",
+          "rank": 4,
+          "raw_score": 0.44148832282897027,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dimension",
+          "rank": 17,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.014935064935064933
+        },
+        {
+          "route": "bm25",
+          "rank": 20,
+          "raw_score": 9.83730240583577,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dense",
+          "rank": 10,
+          "raw_score": 0.35298090219864914,
+          "rrf_contribution": 0.014285714285714285
+        },
+        {
+          "route": "dimension",
+          "rank": 14,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01554054054054054
+        },
+        {
+          "route": "bm25",
+          "rank": 20,
+          "raw_score": 9.83730240583577,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dense",
+          "rank": 15,
+          "raw_score": 0.33274870063565676,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dimension",
+          "rank": 16,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.01513157894736842
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_0f2d23ba9dda82df9e01",
+      "content": "User is driving from San Francisco to New York City in about 10 days, wants to cycle for at least 3-4 days on low-traffic scenic routes, and needs accommodations with bike storage for their road bike.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-06-28",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "next month"
+        },
+        "locations": [
+          "San Francisco",
+          "New York City"
+        ],
+        "reason": "",
+        "purpose": "to cycle and explore",
+        "keywords": [
+          "San Francisco",
+          "New York City",
+          "road trip",
+          "10 days",
+          "cycling",
+          "scenic routes",
+          "bike storage"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "traveler"
+          }
+        ],
+        "topic": "road trip itinerary",
+        "relation": {
+          "subject": "user",
+          "predicate": "driving from",
+          "object": "San Francisco to New York City"
+        },
+        "state_key": "user.trip.itinerary",
+        "state_value": "SF to NYC, 10 days, cycle 3-4 days, low-traffic scenic routes, bike storage needed",
+        "state_status": "planned",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_2",
+        "session_index": 44,
+        "source_ids": [
+          249
+        ],
+        "source_uids": [
+          "s0044u0002"
+        ],
+        "source_times": [
+          "2023-05-28T13:41:01"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.16165900385972856,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 13,
+          "raw_score": 81.72765788710629,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "dense",
+          "rank": 8,
+          "raw_score": 0.4260928259202622,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "bm25",
+          "rank": 15,
+          "raw_score": 15.457746538220844,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dense",
+          "rank": 15,
+          "raw_score": 0.312540195511312,
+          "rrf_contribution": 0.013333333333333334
+        },
+        {
+          "route": "dimension",
+          "rank": 30,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.012777777777777777
+        },
+        {
+          "route": "bm25",
+          "rank": 19,
+          "raw_score": 11.593309903665633,
+          "rrf_contribution": 0.012658227848101266
+        },
+        {
+          "route": "dense",
+          "rank": 22,
+          "raw_score": 0.28613530221674227,
+          "rrf_contribution": 0.012195121951219513
+        },
+        {
+          "route": "dimension",
+          "rank": 27,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.013218390804597701
+        },
+        {
+          "route": "bm25",
+          "rank": 19,
+          "raw_score": 11.593309903665633,
+          "rrf_contribution": 0.012658227848101266
+        },
+        {
+          "route": "dense",
+          "rank": 24,
+          "raw_score": 0.2831333150605128,
+          "rrf_contribution": 0.011904761904761904
+        },
+        {
+          "route": "dimension",
+          "rank": 29,
+          "raw_score": 0.3333333333333333,
+          "rrf_contribution": 0.012921348314606741
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_c1e59a70004bee67e463",
+      "content": "User bought a Samsung Galaxy Watch Active2 on February 10th from Best Buy for $200, which was $50 less than the usual price.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-02-10",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "February 10th"
+        },
+        "locations": [
+          "Best Buy"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "Samsung Galaxy Watch Active2",
+          "Best Buy",
+          "purchase",
+          "February 10th",
+          "$200",
+          "sale"
+        ],
+        "entities": [
+          {
+            "name": "Samsung Galaxy Watch Active2",
+            "entity_type": "product",
+            "role": "purchased item"
+          },
+          {
+            "name": "Best Buy",
+            "entity_type": "organization",
+            "role": "retailer"
+          }
+        ],
+        "topic": "personal purchase",
+        "relation": {
+          "subject": "user",
+          "predicate": "purchased",
+          "object": "Samsung Galaxy Watch Active2"
+        },
+        "state_key": "user.purchases.samsung_watch",
+        "state_value": "Samsung Galaxy Watch Active2 bought on 2023-02-10 from Best Buy for $200",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "74b0227e_2",
+        "session_index": 43,
+        "source_ids": [
+          246
+        ],
+        "source_uids": [
+          "s0043u0005"
+        ],
+        "source_times": [
+          "2023-05-28T05:43:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.13010865798673085,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 18.58247847908549,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.5555555555555555,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "bm25",
+          "rank": 4,
+          "raw_score": 16.783813974857615,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "route": "dense",
+          "rank": 8,
+          "raw_score": 0.3675895233385972,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.5555555555555555,
+          "rrf_contribution": 0.01825396825396825
+        },
+        {
+          "route": "bm25",
+          "rank": 5,
+          "raw_score": 16.783813974857615,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dense",
+          "rank": 7,
+          "raw_score": 0.3682024987319379,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dimension",
+          "rank": 3,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.01825396825396825
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_b1d952d5e8e3b81d6ff1",
+      "content": "User will check Best Buy's website and store for bundle deals on the Fitbit Inspire HR.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-28T05:43:03",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [
+          "Best Buy website",
+          "Best Buy store"
+        ],
+        "reason": "",
+        "purpose": "to find bundle deals on Fitbit Inspire HR",
+        "keywords": [
+          "Best Buy",
+          "Fitbit Inspire HR",
+          "bundle deals",
+          "check"
+        ],
+        "entities": [
+          {
+            "name": "Fitbit Inspire HR",
+            "entity_type": "product",
+            "role": "gift candidate"
+          },
+          {
+            "name": "Best Buy",
+            "entity_type": "organization",
+            "role": "retailer"
+          }
+        ],
+        "topic": "purchase plan",
+        "relation": {
+          "subject": "user",
+          "predicate": "plans to check",
+          "object": "Best Buy for bundle deals"
+        },
+        "state_key": "user.gift_purchase.retailer_plan",
+        "state_value": "Best Buy",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "74b0227e_2",
+        "session_index": 43,
+        "source_ids": [
+          247
+        ],
+        "source_uids": [
+          "s0043u0006"
+        ],
+        "source_times": [
+          "2023-05-28T05:43:03"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.12856887048908405,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 14,
+          "raw_score": 15.488524693023514,
+          "rrf_contribution": 0.013513513513513514
+        },
+        {
+          "route": "dense",
+          "rank": 22,
+          "raw_score": 0.253946434686893,
+          "rrf_contribution": 0.012195121951219513
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.5555555555555555,
+          "rrf_contribution": 0.018548387096774192
+        },
+        {
+          "route": "bm25",
+          "rank": 25,
+          "raw_score": 8.234285715161915,
+          "rrf_contribution": 0.011764705882352941
+        },
+        {
+          "route": "dense",
+          "rank": 9,
+          "raw_score": 0.3559730762728989,
+          "rrf_contribution": 0.014492753623188406
+        },
+        {
+          "route": "dimension",
+          "rank": 10,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.016428571428571428
+        },
+        {
+          "route": "bm25",
+          "rank": 25,
+          "raw_score": 8.234285715161915,
+          "rrf_contribution": 0.011764705882352941
+        },
+        {
+          "route": "dense",
+          "rank": 12,
+          "raw_score": 0.350860719690395,
+          "rrf_contribution": 0.013888888888888888
+        },
+        {
+          "route": "dimension",
+          "rank": 12,
+          "raw_score": 0.4166666666666667,
+          "rrf_contribution": 0.01597222222222222
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_a5527252cf5a6618dc1b",
+      "content": "User plans to ask staff about return and exchange policies when buying a new phone case.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "unknown",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "in case of changes",
+        "keywords": [
+          "ask",
+          "staff",
+          "return",
+          "exchange",
+          "policies",
+          "phone case"
+        ],
+        "entities": [],
+        "topic": "phone case purchase",
+        "relation": {
+          "subject": "user",
+          "predicate": "plans to ask about",
+          "object": "return and exchange policies"
+        },
+        "state_key": "user.plan.ask_return_policy",
+        "state_value": "ask about return and exchange policies",
+        "state_status": "planned",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "6a7d7055_2",
+        "session_index": 40,
+        "source_ids": [
+          229
+        ],
+        "source_uids": [
+          "s0040u0006"
+        ],
+        "source_times": [
+          "2023-05-28T17:22:03"
+        ],
+        "source_role": "user",
+        "window_index": 18
+      },
+      "score": 0.12786485636212414,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 24,
+          "raw_score": 9.298474808891383,
+          "rrf_contribution": 0.011904761904761904
+        },
+        {
+          "route": "dense",
+          "rank": 14,
+          "raw_score": 0.3129534652648052,
+          "rrf_contribution": 0.013513513513513514
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.5555555555555555,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "bm25",
+          "rank": 21,
+          "raw_score": 9.298474808891383,
+          "rrf_contribution": 0.012345679012345678
+        },
+        {
+          "route": "dense",
+          "rank": 18,
+          "raw_score": 0.30894636863639613,
+          "rrf_contribution": 0.01282051282051282
+        },
+        {
+          "route": "dimension",
+          "rank": 9,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.016666666666666666
+        },
+        {
+          "route": "bm25",
+          "rank": 21,
+          "raw_score": 9.298474808891383,
+          "rrf_contribution": 0.012345679012345678
+        },
+        {
+          "route": "dense",
+          "rank": 17,
+          "raw_score": 0.3060153257623364,
+          "rrf_contribution": 0.012987012987012988
+        },
+        {
+          "route": "dimension",
+          "rank": 10,
+          "raw_score": 0.4166666666666667,
+          "rrf_contribution": 0.016428571428571428
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_8ebd91fd742cb615ebd0",
+      "content": "User is considering purchasing the Fitbit Inspire HR from Amazon and wants to know about bundle deals or discounts with accessories like a screen protector or band.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-28T05:43:02",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [
+          "Amazon"
+        ],
+        "reason": "",
+        "purpose": "to get bundle deals",
+        "keywords": [
+          "Fitbit Inspire HR",
+          "Amazon",
+          "bundle deals",
+          "accessories",
+          "screen protector",
+          "band"
+        ],
+        "entities": [
+          {
+            "name": "Fitbit Inspire HR",
+            "entity_type": "product",
+            "role": "gift candidate"
+          },
+          {
+            "name": "Amazon",
+            "entity_type": "organization",
+            "role": "retailer"
+          }
+        ],
+        "topic": "purchase inquiry",
+        "relation": {
+          "subject": "user",
+          "predicate": "considering purchasing from",
+          "object": "Amazon"
+        },
+        "state_key": "user.gift_purchase.retailer",
+        "state_value": "Amazon",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "74b0227e_2",
+        "session_index": 43,
+        "source_ids": [
+          245
+        ],
+        "source_uids": [
+          "s0043u0004"
+        ],
+        "source_times": [
+          "2023-05-28T05:43:02"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.12314947211126016,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 27,
+          "raw_score": 8.37115129321628,
+          "rrf_contribution": 0.011494252873563218
+        },
+        {
+          "route": "dense",
+          "rank": 30,
+          "raw_score": 0.22840513235474588,
+          "rrf_contribution": 0.011111111111111112
+        },
+        {
+          "route": "dimension",
+          "rank": 7,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.017164179104477612
+        },
+        {
+          "route": "bm25",
+          "rank": 23,
+          "raw_score": 8.37115129321628,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dense",
+          "rank": 20,
+          "raw_score": 0.30424675254545663,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dimension",
+          "rank": 6,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.017424242424242422
+        },
+        {
+          "route": "bm25",
+          "rank": 23,
+          "raw_score": 8.37115129321628,
+          "rrf_contribution": 0.012048192771084338
+        },
+        {
+          "route": "dense",
+          "rank": 22,
+          "raw_score": 0.28947412404209394,
+          "rrf_contribution": 0.012195121951219513
+        },
+        {
+          "route": "dimension",
+          "rank": 7,
+          "raw_score": 0.4166666666666667,
+          "rrf_contribution": 0.017164179104477612
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_7f7bda68cc4bf0180336",
+      "content": "User bought silver earrings last weekend and asked for more care information.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-26T01:22:03",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": "2023-05-26T01:22:03"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "silver earrings",
+          "care",
+          "purchase"
+        ],
+        "entities": [
+          {
+            "name": "silver earrings",
+            "entity_type": "object",
+            "role": "purchased item"
+          }
+        ],
+        "topic": "jewelry care",
+        "relation": {
+          "subject": "user",
+          "predicate": "bought",
+          "object": "silver earrings last weekend"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "f2df24cd_1",
+        "session_index": 34,
+        "source_ids": [
+          191
+        ],
+        "source_uids": [
+          "s0034u0006"
+        ],
+        "source_times": [
+          "2023-05-26T01:22:03"
+        ],
+        "source_role": "user",
+        "window_index": 15
+      },
+      "score": 0.10001695468281102,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 17.22713038806039,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 7,
+          "raw_score": 0.378934166908407,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.5555555555555555,
+          "rrf_contribution": 0.01885245901639344
+        },
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 17.22713038806039,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 5,
+          "raw_score": 0.38909165571424464,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dimension",
+          "rank": 1,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.01885245901639344
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_9f8c935b2a34e85eb9ef",
+      "content": "User bought previous phone case from a new phone accessories store near office that opened on 2023-02-12.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-02-12",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "February 12th"
+        },
+        "locations": [
+          "near office"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "phone case",
+          "bought",
+          "new store",
+          "February 12",
+          "office"
+        ],
+        "entities": [
+          {
+            "name": "phone accessories store",
+            "entity_type": "organization",
+            "role": "store"
+          }
+        ],
+        "topic": "phone case purchase",
+        "relation": {
+          "subject": "user",
+          "predicate": "bought previous case from",
+          "object": "new phone accessories store near office"
+        },
+        "state_key": "user.device.phone.case_purchase_store",
+        "state_value": "new phone accessories store near office",
+        "state_status": "historical",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "6a7d7055_2",
+        "session_index": 40,
+        "source_ids": [
+          227
+        ],
+        "source_uids": [
+          "s0040u0004"
+        ],
+        "source_times": [
+          "2023-05-28T17:22:02"
+        ],
+        "source_role": "user",
+        "window_index": 18
+      },
+      "score": 0.09908229541557961,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 14.900999914472735,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.4334480488596067,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.5555555555555555,
+          "rrf_contribution": 0.018548387096774192
+        },
+        {
+          "route": "bm25",
+          "rank": 9,
+          "raw_score": 14.900999914472735,
+          "rrf_contribution": 0.014492753623188406
+        },
+        {
+          "route": "dense",
+          "rank": 1,
+          "raw_score": 0.448731892847876,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dimension",
+          "rank": 2,
+          "raw_score": 0.5,
+          "rrf_contribution": 0.018548387096774192
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_dc83e9885ffdc0f1b98a",
+      "content": "User is considering purchasing a Fitbit Inspire HR for a friend's birthday gift.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-28T05:43:01.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "friend's birthday gift",
+        "keywords": [
+          "Fitbit Inspire HR",
+          "gift",
+          "purchase",
+          "friend",
+          "birthday"
+        ],
+        "entities": [
+          {
+            "name": "Fitbit Inspire HR",
+            "entity_type": "product",
+            "role": "gift candidate"
+          }
+        ],
+        "topic": "gift purchase",
+        "relation": {
+          "subject": "user",
+          "predicate": "considering purchasing",
+          "object": "Fitbit Inspire HR"
+        },
+        "state_key": "user.gift_purchase.candidate",
+        "state_value": "Fitbit Inspire HR",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "74b0227e_2",
+        "session_index": 43,
+        "source_ids": [
+          244
+        ],
+        "source_uids": [
+          "s0043u0003"
+        ],
+        "source_times": [
+          "2023-05-28T05:43:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.08568303450585607,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 12,
+          "raw_score": 13.728108468159647,
+          "rrf_contribution": 0.013888888888888888
+        },
+        {
+          "route": "dense",
+          "rank": 17,
+          "raw_score": 0.310097090909741,
+          "rrf_contribution": 0.012987012987012988
+        },
+        {
+          "route": "dimension",
+          "rank": 11,
+          "raw_score": 0.4444444444444444,
+          "rrf_contribution": 0.01619718309859155
+        },
+        {
+          "route": "bm25",
+          "rank": 13,
+          "raw_score": 13.728108468159647,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "dense",
+          "rank": 16,
+          "raw_score": 0.3115068769690619,
+          "rrf_contribution": 0.013157894736842105
+        },
+        {
+          "route": "dimension",
+          "rank": 13,
+          "raw_score": 0.4166666666666667,
+          "rrf_contribution": 0.015753424657534244
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_74899da97ccfa57d1730",
+      "content": "User plans to use road bike for century ride, uses mountain bike for trail rides and commuter bike for daily commutes. User currently has three bikes and wonders if that's too many.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-25T15:36:02",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "century ride",
+          "road bike",
+          "mountain bike",
+          "commuter bike",
+          "three bikes",
+          "bike usage"
+        ],
+        "entities": [],
+        "topic": "bike usage and quantity",
+        "relation": {
+          "subject": "user",
+          "predicate": "uses",
+          "object": "road bike for long rides, mountain bike for trails, commuter bike for commutes"
+        },
+        "state_key": "user.bike_usage",
+        "state_value": "road: long rides; mountain: trails; commuter: commutes",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_1",
+        "session_index": 30,
+        "source_ids": [
+          169
+        ],
+        "source_uids": [
+          "s0030u0004"
+        ],
+        "source_times": [
+          "2023-05-25T15:36:02"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.07971220184430697,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 2,
+          "raw_score": 167.06982661190654,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dense",
+          "rank": 3,
+          "raw_score": 0.5069840906749548,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dimension",
+          "rank": 8,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.016911764705882352
+        },
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 21.24107546235399,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 7,
+          "raw_score": 0.4207567421572877,
+          "rrf_contribution": 0.014925373134328358
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_065844f9fcc7a0b31467",
+      "content": "User will research and consider budget before deciding on carbon fiber wheels, and wants recommendations on bike computers and GPS devices instead of using phone GPS.",
+      "dimension": {
+        "memory_type": "profile",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-25T15:36:03",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "to make informed purchase decision",
+        "keywords": [
+          "carbon fiber wheels",
+          "budget",
+          "bike computer",
+          "GPS device",
+          "phone GPS",
+          "recommendations"
+        ],
+        "entities": [],
+        "topic": "cycling gear research",
+        "relation": {
+          "subject": "user",
+          "predicate": "plans to research",
+          "object": "carbon fiber wheels and bike computers"
+        },
+        "state_key": "user.cycling_gear_interest",
+        "state_value": "carbon fiber wheels and bike computers/GPS",
+        "state_status": "planned",
+        "preference": {
+          "target": "dedicated bike computer/GPS",
+          "polarity": "positive",
+          "strength": 0.5,
+          "scope": "contextual"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_1",
+        "session_index": 30,
+        "source_ids": [
+          171
+        ],
+        "source_uids": [
+          "s0030u0006"
+        ],
+        "source_times": [
+          "2023-05-25T15:36:03"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.06280258903209723,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 6,
+          "raw_score": 106.93769811670067,
+          "rrf_contribution": 0.015151515151515152
+        },
+        {
+          "route": "dense",
+          "rank": 5,
+          "raw_score": 0.44472433249919946,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "bm25",
+          "rank": 1,
+          "raw_score": 25.38368349311711,
+          "rrf_contribution": 0.01639344262295082
+        },
+        {
+          "route": "dense",
+          "rank": 3,
+          "raw_score": 0.4492270968266441,
+          "rrf_contribution": 0.015873015873015872
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_b374820ba910e02fa60c",
+      "content": "User is thinking of doing a century ride soon and wonders if current road bike is ready, having done 2,000 miles on it. User also has two other bikes: a mountain bike and a commuter bike.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-25T15:36:01.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "century ride",
+          "road bike",
+          "2,000 miles",
+          "mountain bike",
+          "commuter bike",
+          "three bikes"
+        ],
+        "entities": [],
+        "topic": "cycling goals and equipment",
+        "relation": {
+          "subject": "user",
+          "predicate": "owns",
+          "object": "three bikes: road, mountain, commuter"
+        },
+        "state_key": "user.bike_collection",
+        "state_value": "road bike, mountain bike, commuter bike",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_1",
+        "session_index": 30,
+        "source_ids": [
+          168
+        ],
+        "source_uids": [
+          "s0030u0003"
+        ],
+        "source_times": [
+          "2023-05-25T15:36:01.500000"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.04733538146441372,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 3,
+          "raw_score": 166.70107420780073,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "route": "dense",
+          "rank": 2,
+          "raw_score": 0.5086847877120535,
+          "rrf_contribution": 0.016129032258064516
+        },
+        {
+          "route": "dimension",
+          "rank": 15,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.015333333333333332
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_6bb982cb79098cc22fe3",
+      "content": "User planned a bike trip next month (as of 2023-04-29) and asked for route recommendations.",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-05-29",
+          "event_end": "",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "month",
+          "raw": "next month"
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "bike trip",
+          "planning",
+          "next month"
+        ],
+        "entities": [],
+        "topic": "bike trip planning",
+        "relation": {
+          "subject": "user",
+          "predicate": "planned",
+          "object": "bike trip next month"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "planned"
+      },
+      "provenance": {
+        "session_id": "de275215_3",
+        "session_index": 5,
+        "source_ids": [
+          31
+        ],
+        "source_uids": [
+          "s0005u0001"
+        ],
+        "source_times": [
+          "2023-04-29T23:29:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 2
+      },
+      "score": 0.046048245695557086,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 7,
+          "raw_score": 99.22211205837121,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dense",
+          "rank": 13,
+          "raw_score": 0.386852906265503,
+          "rrf_contribution": 0.0136986301369863
+        },
+        {
+          "route": "dimension",
+          "rank": 6,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.017424242424242422
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_b6886324a724a74bb6f3",
+      "content": "User is looking forward to trying out their new hybrid bike on scenic routes and wants to know about bike shops along the route that offer bike rentals or guided tours.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-28T13:41:02",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "to explore local trails",
+        "keywords": [
+          "new hybrid bike",
+          "scenic routes",
+          "bike shops",
+          "bike rentals",
+          "guided tours"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "traveler"
+          }
+        ],
+        "topic": "trip activities",
+        "relation": {
+          "subject": "user",
+          "predicate": "interested in",
+          "object": "bike rentals and guided tours"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_2",
+        "session_index": 44,
+        "source_ids": [
+          251
+        ],
+        "source_uids": [
+          "s0044u0004"
+        ],
+        "source_times": [
+          "2023-05-28T13:41:02"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.04524505345400868,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 5,
+          "raw_score": 109.67777043909555,
+          "rrf_contribution": 0.015384615384615385
+        },
+        {
+          "route": "dense",
+          "rank": 7,
+          "raw_score": 0.4349356103949985,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "route": "dimension",
+          "rank": 17,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.014935064935064933
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_7cd5f57cf7b542afa53e",
+      "content": "User has a new bike computer and has been tracking progress on Strava.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-28T13:41:02.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "",
+        "purpose": "to track progress",
+        "keywords": [
+          "bike computer",
+          "Strava",
+          "tracking progress"
+        ],
+        "entities": [
+          {
+            "name": "Strava",
+            "entity_type": "tool",
+            "role": "tracking platform"
+          }
+        ],
+        "topic": "cycling accessories",
+        "relation": {
+          "subject": "user",
+          "predicate": "uses",
+          "object": "bike computer and Strava"
+        },
+        "state_key": "user.cycling.tracking",
+        "state_value": "bike computer and Strava",
+        "state_status": "active",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_2",
+        "session_index": 44,
+        "source_ids": [
+          252
+        ],
+        "source_uids": [
+          "s0044u0005"
+        ],
+        "source_times": [
+          "2023-05-28T13:41:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 20
+      },
+      "score": 0.04363445378151261,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 8,
+          "raw_score": 97.42673895188993,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "route": "dense",
+          "rank": 20,
+          "raw_score": 0.3255456907883234,
+          "rrf_contribution": 0.0125
+        },
+        {
+          "route": "dimension",
+          "rank": 10,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.016428571428571428
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_b49617662a30607a7a89",
+      "content": "User is considering upgrading road bike wheels to carbon fiber, having done 2,000 miles on current wheels and doing long rides on weekends.",
+      "dimension": {
+        "memory_type": "fact",
+        "time": {
+          "event_start": "",
+          "event_end": "",
+          "valid_from": "2023-05-25T15:36:02.500000",
+          "valid_to": "",
+          "precision": "datetime",
+          "raw": ""
+        },
+        "locations": [],
+        "reason": "2,000 miles on current wheels and long weekend rides",
+        "purpose": "",
+        "keywords": [
+          "carbon fiber wheels",
+          "road bike upgrade",
+          "2,000 miles",
+          "long rides",
+          "weekend"
+        ],
+        "entities": [],
+        "topic": "bike wheel upgrade",
+        "relation": {
+          "subject": "user",
+          "predicate": "considering upgrading",
+          "object": "road bike wheels to carbon fiber"
+        },
+        "state_key": "user.bike_upgrade_consideration",
+        "state_value": "carbon fiber wheels for road bike",
+        "state_status": "active",
+        "preference": {
+          "target": "carbon fiber wheels",
+          "polarity": "positive",
+          "strength": 0.5,
+          "scope": "contextual"
+        },
+        "modality": "uncertain"
+      },
+      "provenance": {
+        "session_id": "answer_e1403127_1",
+        "session_index": 30,
+        "source_ids": [
+          170
+        ],
+        "source_uids": [
+          "s0030u0005"
+        ],
+        "source_times": [
+          "2023-05-25T15:36:02.500000"
+        ],
+        "source_role": "user",
+        "window_index": 13
+      },
+      "score": 0.043513221459445715,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 9,
+          "raw_score": 91.32308321111041,
+          "rrf_contribution": 0.014492753623188406
+        },
+        {
+          "route": "dense",
+          "rank": 12,
+          "raw_score": 0.3924704514268391,
+          "rrf_contribution": 0.013888888888888888
+        },
+        {
+          "route": "dimension",
+          "rank": 16,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.01513157894736842
+        }
+      ],
+      "graph_paths": []
+    },
+    {
+      "memory_id": "m_5de94a1d4674a1d8e962",
+      "content": "User did a 30-mile ride with friends to a nearby state park last weekend (as of 2023-04-29).",
+      "dimension": {
+        "memory_type": "episodic",
+        "time": {
+          "event_start": "2023-04-22",
+          "event_end": "2023-04-23",
+          "valid_from": "",
+          "valid_to": "",
+          "precision": "day",
+          "raw": "last weekend"
+        },
+        "locations": [
+          "nearby state park"
+        ],
+        "reason": "",
+        "purpose": "",
+        "keywords": [
+          "30-mile ride",
+          "state park",
+          "friends"
+        ],
+        "entities": [
+          {
+            "name": "user",
+            "entity_type": "person",
+            "role": "participant"
+          },
+          {
+            "name": "friends",
+            "entity_type": "person",
+            "role": "companion"
+          }
+        ],
+        "topic": "bike ride",
+        "relation": {
+          "subject": "user",
+          "predicate": "completed",
+          "object": "30-mile ride to state park"
+        },
+        "state_key": "",
+        "state_value": "",
+        "state_status": "unknown",
+        "preference": {
+          "target": "",
+          "polarity": "unknown",
+          "strength": 0.0,
+          "scope": "unknown"
+        },
+        "modality": "asserted"
+      },
+      "provenance": {
+        "session_id": "de275215_3",
+        "session_index": 5,
+        "source_ids": [
+          31
+        ],
+        "source_uids": [
+          "s0005u0001"
+        ],
+        "source_times": [
+          "2023-04-29T23:29:00.500000"
+        ],
+        "source_role": "user",
+        "window_index": 2
+      },
+      "score": 0.04333754852742194,
+      "retrieval_sources": [
+        {
+          "route": "bm25",
+          "rank": 17,
+          "raw_score": 56.23351728245834,
+          "rrf_contribution": 0.012987012987012988
+        },
+        {
+          "route": "dense",
+          "rank": 19,
+          "raw_score": 0.32743881472067526,
+          "rrf_contribution": 0.012658227848101266
+        },
+        {
+          "route": "dimension",
+          "rank": 5,
+          "raw_score": 0.2222222222222222,
+          "rrf_contribution": 0.01769230769230769
+        }
+      ],
+      "graph_paths": []
+    }
+  ],
+  "visited_actions": [
+    "{\"args\": {\"end\": \"2023-06-21T02:24:00\", \"limit\": 10, \"operator\": \"before\", \"start\": \"\"}, \"tool\": \"expand_time\"}",
+    "{\"args\": {\"entities\": [\"gravel bike\"], \"keywords\": [\"purchase\", \"bought\", \"acquired\", \"date\"], \"limit\": 10, \"memory_types\": [\"fact\", \"episodic\"], \"query\": \"gravel bike purchase date\"}, \"tool\": \"search_text\"}",
+    "{\"args\": {\"entities\": [\"gravel bike\"], \"keywords\": [\"purchase\", \"bought\", \"acquired\"], \"limit\": 10, \"memory_types\": [\"fact\", \"episodic\"], \"query\": \"gravel bike purchase date\"}, \"tool\": \"search_text\"}",
+    "{\"args\": {\"entities\": [\"gravel bike\"], \"keywords\": [\"purchase\", \"buy\", \"gravel bike\"], \"limit\": 10, \"memory_types\": [\"fact\", \"episodic\"], \"query\": \"purchase gravel bike\"}, \"tool\": \"search_text\"}",
+    "{\"args\": {\"limit\": 12, \"memory_id\": \"m_0e3a46d066100683e8d0\", \"state_key\": \"user.bikes.owned\"}, \"tool\": \"follow_state_chain\"}"
+  ],
+  "total_tool_calls": 5,
+  "final_coverage": {
+    "must_continue": false,
+    "hard_gaps": [],
+    "remaining_slots": [
+      "purchase date of gravel bike"
+    ],
+    "expected_evidence_count": 1,
+    "current_evidence_count": 18,
+    "needs_assistant_context": false,
+    "has_assistant_context": true,
+    "state_keys": [
+      "bike_ownership"
+    ],
+    "state_chain_checked": true,
+    "state_evidence_present": false,
+    "needs_multi_hop": true,
+    "bridge_checked": true,
+    "time_evidence_present": true,
+    "visited_tools": [
+      "expand_time",
+      "follow_state_chain",
+      "search_text"
+    ]
+  }
+}

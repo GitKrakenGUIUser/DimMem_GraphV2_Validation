@@ -1,0 +1,90 @@
+{
+  "question_id": "gpt4_d31cdae3",
+  "question_type": "temporal-reasoning",
+  "question": "Which trip did the narrator take first, the solo trip to Europe or the family road trip across the American Southwest?",
+  "question_date": "2023/05/22 (Mon) 16:56",
+  "gold_answer": "The family road trip across the American Southwest",
+  "prediction": "family road trip across the American Southwest",
+  "support_memory_ids": [
+    "m_d3ca9c08ece1292a697c",
+    "m_79ef575404ca3e9bc6a5"
+  ],
+  "support_source_ids": [
+    145,
+    105
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The family road trip across the American Southwest occurred 'a few years ago' relative to the question date (2023), while the solo trip to Europe occurred 'last summer' (2022). Since 'a few years ago' is earlier than 2022, the family road trip happened first.",
+  "required_slots": [
+    {
+      "name": "temporal order of two trips",
+      "value": "family road trip across the American Southwest occurred before solo trip to Europe",
+      "support_memory_ids": [
+        "m_d3ca9c08ece1292a697c",
+        "m_79ef575404ca3e9bc6a5"
+      ],
+      "support_source_ids": [
+        145,
+        105
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "comparison",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "relative",
+    "slots": [
+      {
+        "name": "temporal order of two trips",
+        "query": "solo trip to Europe date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "temporal order of two trips",
+        "query": "family road trip American Southwest date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "solo trip to Europe date",
+      "family road trip American Southwest date"
+    ],
+    "reason": "Need to compare the dates of the two trips to determine which occurred first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 22472,
+    "completion_tokens": 717,
+    "elapsed_seconds": 6.353646516799927
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 154,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.9413049221038818
+  }
+}

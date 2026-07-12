@@ -1,0 +1,227 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "plan": {
+    "answer_contract": "duration",
+    "operator": "date_difference_days",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "start date of guitar lessons",
+        "query": "started guitar lessons",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of buying guitar amp",
+        "query": "bought new guitar amp",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "started guitar lessons",
+      "bought new guitar amp"
+    ],
+    "reason": "Need two dates to compute duration between starting lessons and buying amp.",
+    "deterministic_contract_hint": "duration",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "28 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_712360bcc39440216f23",
+      "m_9c82704730683325b421"
+    ],
+    "support_source_ids": [
+      140,
+      143
+    ],
+    "required_slots": [
+      {
+        "name": "start date of guitar lessons",
+        "value": "2023-04-13",
+        "support_memory_ids": [
+          "m_712360bcc39440216f23"
+        ],
+        "support_source_ids": [
+          140
+        ]
+      },
+      {
+        "name": "date of buying guitar amp",
+        "value": "2023-05-11",
+        "support_memory_ids": [
+          "m_9c82704730683325b421"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-13",
+        "2023-05-11"
+      ],
+      "unit": "weeks",
+      "result": "28 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User started guitar lessons with Alex on 2023-04-13 (six weeks before 2023-05-25) and bought a new guitar amp on 2023-05-11 (two weeks before 2023-05-25). The difference between these dates is 28 days, which is 4 weeks."
+  },
+  "p7_candidate": {
+    "answer": "28 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_712360bcc39440216f23",
+      "m_9c82704730683325b421"
+    ],
+    "support_source_ids": [
+      140,
+      143
+    ],
+    "required_slots": [
+      {
+        "name": "start date of guitar lessons",
+        "value": "2023-04-13",
+        "support_memory_ids": [
+          "m_712360bcc39440216f23"
+        ],
+        "support_source_ids": [
+          140
+        ]
+      },
+      {
+        "name": "date of buying guitar amp",
+        "value": "2023-05-11",
+        "support_memory_ids": [
+          "m_9c82704730683325b421"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-13",
+        "2023-05-11"
+      ],
+      "unit": "days",
+      "result": "28 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User stated taking weekly guitar lessons for six weeks as of 2023-05-25, implying start date 2023-04-13. User stated buying new guitar amp two weeks ago as of 2023-05-25, implying purchase date 2023-05-11. Difference is 28 days."
+  },
+  "specialist_candidate": {
+    "answer": "28 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_712360bcc39440216f23",
+      "m_9c82704730683325b421"
+    ],
+    "support_source_ids": [
+      140,
+      143
+    ],
+    "required_slots": [
+      {
+        "name": "start date of guitar lessons",
+        "value": "2023-04-13",
+        "support_memory_ids": [
+          "m_712360bcc39440216f23"
+        ],
+        "support_source_ids": [
+          140
+        ]
+      },
+      {
+        "name": "date of buying guitar amp",
+        "value": "2023-05-11",
+        "support_memory_ids": [
+          "m_9c82704730683325b421"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-13",
+        "2023-05-11"
+      ],
+      "unit": "days",
+      "result": "28 days"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "started guitar lessons",
+        "object": "2023-04-13",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-04-13",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_712360bcc39440216f23"
+        ],
+        "support_source_ids": [
+          140
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "bought new guitar amp",
+        "object": "2023-05-11",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-11",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_9c82704730683325b421"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_712360bcc39440216f23, user has been taking weekly guitar lessons for six weeks as of 2023-05-25, implying start date 2023-04-13. From memory m_9c82704730683325b421, user bought a new guitar amp two weeks ago as of 2023-05-25, implying date 2023-05-11. Duration between 2023-04-13 and 2023-05-11 is 28 days? Wait, recalc: April 13 to May 11 is 28 days? Actually April has 30 days, so from April 13 to April 30 is 17 days, plus 11 days in May = 28 days. But the memory says six weeks (42 days) from start to May 25, so start is April 13. Amp bought May 11, so from April 13 to May 11 is 28 days. However, the question asks 'how long had I been taking guitar lessons when I bought the new guitar amp?' That is the duration from start of lessons to amp purchase. So 28 days. But the calculation in the plan says date_difference_days. Let's compute: 2023-04-13 to 2023-05-11 is 28 days. However, the memory says 'for six weeks now' as of May 25, which is consistent with start April 13. So answer should be 28 days. But the output above says 42 days, which is incorrect. I need to correct. Actually, let's recalc: April 13 to May 11: April 13 to April 30 = 18 days (including 13? No, difference: from April 13 to April 30 is 17 days if we count exclusive? Better to compute: April 13 to May 11 is 28 days. For example, April 13 to April 14 is 1 day, so to May 11 is 28 days. So answer is 28 days. I will correct the answer.",
+    "safe_executor_applied": true
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    140,
+    81,
+    143,
+    145,
+    82,
+    144,
+    84,
+    141,
+    86,
+    142
+  ],
+  "v2_timeline_memory_ids": []
+}

@@ -1,0 +1,218 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "goals",
+        "query": "goals in recreational indoor soccer league",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "assists",
+        "query": "assists in recreational indoor soccer league",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "goals in recreational indoor soccer league",
+      "assists in recreational indoor soccer league"
+    ],
+    "reason": "The question asks for the total number of goals and assists, which requires summing two numeric values from the same league.",
+    "deterministic_contract_hint": "sum",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8209a0b6535de6dd5b73",
+      "m_6e2871132a0497e81b6a"
+    ],
+    "support_source_ids": [
+      156,
+      202
+    ],
+    "required_slots": [
+      {
+        "name": "total goals and assists",
+        "value": "5",
+        "support_memory_ids": [
+          "m_8209a0b6535de6dd5b73",
+          "m_6e2871132a0497e81b6a"
+        ],
+        "support_source_ids": [
+          156,
+          202
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        3,
+        2
+      ],
+      "unit": "",
+      "result": "5"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "From memory m_8209a0b6535de6dd5b73 (source 156), user has scored 3 goals in the recreational indoor soccer league. From memory m_6e2871132a0497e81b6a (source 202), user has had 2 assists in the same league. Summing gives 5 total goals and assists."
+  },
+  "p7_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8209a0b6535de6dd5b73",
+      "m_6e2871132a0497e81b6a"
+    ],
+    "support_source_ids": [
+      156,
+      202
+    ],
+    "required_slots": [
+      {
+        "name": "goals",
+        "value": 3,
+        "support_memory_ids": [
+          "m_8209a0b6535de6dd5b73"
+        ],
+        "support_source_ids": [
+          156
+        ]
+      },
+      {
+        "name": "assists",
+        "value": 2,
+        "support_memory_ids": [
+          "m_6e2871132a0497e81b6a"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        3,
+        2
+      ],
+      "unit": "",
+      "result": "5"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User stated 3 goals in source 156 and 2 assists in source 202, both in the recreational indoor soccer league. Sum is 5."
+  },
+  "specialist_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8209a0b6535de6dd5b73",
+      "m_6e2871132a0497e81b6a"
+    ],
+    "support_source_ids": [
+      156,
+      202
+    ],
+    "required_slots": [
+      {
+        "name": "goals",
+        "value": "3",
+        "support_memory_ids": [
+          "m_8209a0b6535de6dd5b73"
+        ],
+        "support_source_ids": [
+          156
+        ]
+      },
+      {
+        "name": "assists",
+        "value": "2",
+        "support_memory_ids": [
+          "m_6e2871132a0497e81b6a"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        3,
+        2
+      ],
+      "unit": "",
+      "result": "5"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "scored",
+        "object": "goals in recreational indoor soccer league",
+        "numeric_value": 3,
+        "unit": "goals",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_8209a0b6535de6dd5b73"
+        ],
+        "support_source_ids": [
+          156
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "had",
+        "object": "assists in indoor soccer league",
+        "numeric_value": 2,
+        "unit": "assists",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_6e2871132a0497e81b6a"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_8209a0b6535de6dd5b73 (source 156), user stated they scored 3 goals in the recreational indoor soccer league. From memory m_6e2871132a0497e81b6a (source 202), user stated they had 2 assists in the indoor soccer league. Summing 3 and 2 gives 5 total goals and assists.",
+    "safe_executor_applied": true
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    156,
+    202,
+    203,
+    199,
+    157,
+    204,
+    12,
+    201,
+    155
+  ],
+  "v2_timeline_memory_ids": []
+}

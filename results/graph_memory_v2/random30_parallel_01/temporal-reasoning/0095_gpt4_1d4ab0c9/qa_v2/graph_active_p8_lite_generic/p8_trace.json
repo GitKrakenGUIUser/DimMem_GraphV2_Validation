@@ -1,0 +1,224 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "start date",
+        "query": "started watering herb garden",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "harvest date",
+        "query": "harvested first batch fresh herbs",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "started watering herb garden",
+      "harvested first batch fresh herbs"
+    ],
+    "reason": "Need two dates to compute days between.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "p5_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ce4d803830b3bb69f8db",
+      "m_e46b06b944edf380f752"
+    ],
+    "support_source_ids": [
+      61,
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "start date",
+        "value": "2023-03-22",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "name": "harvest date",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-22",
+        "2023-04-15"
+      ],
+      "unit": "days",
+      "result": "24 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user started watering their herb garden on 2023-03-22 (memory m_ce4d803830b3bb69f8db, source 61) and harvested their first batch on 2023-04-15 (memory m_e46b06b944edf380f752, source 136). The difference is 24 days."
+  },
+  "p7_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ce4d803830b3bb69f8db",
+      "m_e46b06b944edf380f752"
+    ],
+    "support_source_ids": [
+      61,
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "start date",
+        "value": "2023-03-22",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "name": "harvest date",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-22",
+        "2023-04-15"
+      ],
+      "unit": "days",
+      "result": "24 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User started watering herb garden on 2023-03-22 (source 61) and harvested first batch on 2023-04-15 (source 136). Difference is 24 days."
+  },
+  "specialist_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ce4d803830b3bb69f8db",
+      "m_e46b06b944edf380f752"
+    ],
+    "support_source_ids": [
+      61,
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "start date",
+        "value": "2023-03-22",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "name": "harvest date",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-22",
+        "2023-04-15"
+      ],
+      "unit": "days",
+      "result": "24"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "started watering herb garden",
+        "object": "2023-03-22",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-03-22",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "harvested first batch fresh herbs",
+        "object": "2023-04-15",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-04-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From memory, user started watering herb garden on 2023-03-22 and harvested first batch on 2023-04-15. The difference is 24 days."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    61,
+    136,
+    64,
+    137,
+    65,
+    138,
+    62,
+    63
+  ],
+  "v2_timeline_memory_ids": []
+}

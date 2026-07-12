@@ -1,0 +1,261 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "art-related events attended in past month",
+        "query": "art event attended 2023-02-08 to 2023-03-08",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "art event attended 2023-02-08 to 2023-03-08"
+    ],
+    "reason": "Need to count distinct art-related events attended within the past month from question date.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_35799a5b57aae517bed8",
+      "m_d37bcaab5e917c6d47aa",
+      "m_e033ec9f87dd6b48c3c8"
+    ],
+    "support_source_ids": [
+      188,
+      34,
+      121
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Women in Art exhibition",
+        "Art Afternoon event",
+        "lecture on 'The Evolution of Street Art'"
+      ],
+      "unit": "events",
+      "result": "3"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Three distinct art-related events attended in the past month (Feb 8 – Mar 8, 2023): 'Women in Art' exhibition on Feb 10, 'Art Afternoon' volunteer event on Feb 17, and lecture on 'The Evolution of Street Art' on Mar 3. All are explicitly art-related and within the time window."
+  },
+  "p7_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_35799a5b57aae517bed8",
+      "m_d37bcaab5e917c6d47aa",
+      "m_e033ec9f87dd6b48c3c8"
+    ],
+    "support_source_ids": [
+      188,
+      34,
+      121
+    ],
+    "required_slots": [
+      {
+        "name": "art-related events attended in past month",
+        "value": "3 distinct events",
+        "support_memory_ids": [
+          "m_35799a5b57aae517bed8",
+          "m_d37bcaab5e917c6d47aa",
+          "m_e033ec9f87dd6b48c3c8"
+        ],
+        "support_source_ids": [
+          188,
+          34,
+          121
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Women in Art exhibition on 2023-02-10",
+        "Art Afternoon event at Children's Museum on 2023-02-17",
+        "Lecture on 'The Evolution of Street Art' at Art Gallery on 2023-03-03"
+      ],
+      "unit": "events",
+      "result": "3"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Three distinct art-related events attended between 2023-02-08 and 2023-03-08: 'Women in Art' exhibition on Feb 10, 'Art Afternoon' at Children's Museum on Feb 17, and lecture on 'The Evolution of Street Art' at Art Gallery on Mar 3. The guided tour at History Museum on Feb 24 is not explicitly art-related (history museum), and other memories are not events attended within the time window. Count = 3."
+  },
+  "specialist_candidate": {
+    "answer": "4",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_35799a5b57aae517bed8",
+      "m_6baf6070906a41fab86b",
+      "m_d37bcaab5e917c6d47aa",
+      "m_e033ec9f87dd6b48c3c8"
+    ],
+    "support_source_ids": [
+      188,
+      198,
+      34,
+      121
+    ],
+    "required_slots": [
+      {
+        "name": "art-related events attended in past month",
+        "value": "4 distinct events",
+        "support_memory_ids": [
+          "m_35799a5b57aae517bed8",
+          "m_6baf6070906a41fab86b",
+          "m_d37bcaab5e917c6d47aa",
+          "m_e033ec9f87dd6b48c3c8"
+        ],
+        "support_source_ids": [
+          188,
+          198,
+          34,
+          121
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Women in Art exhibition",
+        "guided tour at History Museum",
+        "Art Afternoon event at Children's Museum",
+        "lecture on 'The Evolution of Street Art' at Art Gallery"
+      ],
+      "unit": "events",
+      "result": "4"
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "user",
+        "predicate": "attended",
+        "object": "Women in Art exhibition",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-02-10",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_35799a5b57aae517bed8"
+        ],
+        "support_source_ids": [
+          188
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "user",
+        "predicate": "attended guided tour at",
+        "object": "History Museum",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-02-24",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_6baf6070906a41fab86b"
+        ],
+        "support_source_ids": [
+          198
+        ]
+      },
+      {
+        "fact_id": "f3",
+        "subject": "user",
+        "predicate": "volunteered at",
+        "object": "Art Afternoon event at Children's Museum",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-02-17",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_d37bcaab5e917c6d47aa"
+        ],
+        "support_source_ids": [
+          34
+        ]
+      },
+      {
+        "fact_id": "f4",
+        "subject": "user",
+        "predicate": "attended",
+        "object": "lecture on 'The Evolution of Street Art' at Art Gallery",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-03-03",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e033ec9f87dd6b48c3c8"
+        ],
+        "support_source_ids": [
+          121
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From the evidence, the user attended four distinct art-related events between February 8 and March 8, 2023: 'Women in Art' exhibition on Feb 10, 'Art Afternoon' at Children's Museum on Feb 17, guided tour at History Museum on Feb 24, and lecture on 'The Evolution of Street Art' at Art Gallery on Mar 3. All are within the past month from the question date (2023-03-08).",
+    "safe_executor_applied": true
+  },
+  "choice": "p7",
+  "verification": {
+    "choice": "p7",
+    "assessments": {
+      "p5": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "p7": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": ""
+      },
+      "specialist": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "Includes guided tour at History Museum which is not explicitly art-related."
+      }
+    },
+    "reason": "p7 correctly excludes the History Museum tour (not art-related) and has higher confidence and explicit date details."
+  },
+  "targeted_source_ids": [
+    188,
+    121,
+    198,
+    189,
+    187,
+    123,
+    122,
+    199
+  ],
+  "v2_timeline_memory_ids": []
+}

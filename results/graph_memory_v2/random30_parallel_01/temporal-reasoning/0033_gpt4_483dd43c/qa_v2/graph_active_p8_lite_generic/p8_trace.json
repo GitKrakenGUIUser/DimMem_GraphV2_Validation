@@ -1,0 +1,226 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "start date of watching Game of Thrones",
+        "query": "started watching Game of Thrones date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "start date of watching The Crown",
+        "query": "started watching The Crown date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "started watching Game of Thrones date",
+      "started watching The Crown date"
+    ],
+    "reason": "Need start dates for both shows to determine which was started first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "Game of Thrones",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033ee78d9739b76c4fe8",
+      "m_38f8a2cc5ef0ab4ef49f"
+    ],
+    "support_source_ids": [
+      197,
+      92
+    ],
+    "required_slots": [
+      {
+        "name": "start date of watching Game of Thrones",
+        "value": "2023-04-29",
+        "support_memory_ids": [
+          "m_033ee78d9739b76c4fe8"
+        ],
+        "support_source_ids": [
+          197
+        ]
+      },
+      {
+        "name": "start date of watching The Crown",
+        "value": "2023-05-15",
+        "support_memory_ids": [
+          "m_38f8a2cc5ef0ab4ef49f"
+        ],
+        "support_source_ids": [
+          92
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User started watching Game of Thrones about a month before May 29, 2023, i.e., around April 29, 2023. User started watching The Crown on a Sunday afternoon and finished in 14 days, with the finish on May 29, 2023, so the start was May 15, 2023. Since April 29 is earlier than May 15, Game of Thrones was started first."
+  },
+  "p7_candidate": {
+    "answer": "Game of Thrones",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033ee78d9739b76c4fe8",
+      "m_38f8a2cc5ef0ab4ef49f"
+    ],
+    "support_source_ids": [
+      197,
+      92
+    ],
+    "required_slots": [
+      {
+        "name": "start date of watching Game of Thrones",
+        "value": "2023-04-29",
+        "support_memory_ids": [
+          "m_033ee78d9739b76c4fe8"
+        ],
+        "support_source_ids": [
+          197
+        ]
+      },
+      {
+        "name": "start date of watching The Crown",
+        "value": "2023-05-15",
+        "support_memory_ids": [
+          "m_38f8a2cc5ef0ab4ef49f"
+        ],
+        "support_source_ids": [
+          92
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User started watching Game of Thrones about a month before May 29, 2023, i.e., around April 29, 2023. User started watching The Crown on a Sunday afternoon and finished in 14 days, with the finish on May 29, 2023, so the start was May 15, 2023. Since April 29 is earlier than May 15, Game of Thrones was started first."
+  },
+  "specialist_candidate": {
+    "answer": "Game of Thrones",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033ee78d9739b76c4fe8",
+      "m_38f8a2cc5ef0ab4ef49f"
+    ],
+    "support_source_ids": [
+      197,
+      92
+    ],
+    "required_slots": [
+      {
+        "name": "start date of watching Game of Thrones",
+        "value": "2023-04-29",
+        "support_memory_ids": [
+          "m_033ee78d9739b76c4fe8"
+        ],
+        "support_source_ids": [
+          197
+        ]
+      },
+      {
+        "name": "start date of watching The Crown",
+        "value": "2023-05-15",
+        "support_memory_ids": [
+          "m_38f8a2cc5ef0ab4ef49f"
+        ],
+        "support_source_ids": [
+          92
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "User",
+        "predicate": "started watching",
+        "object": "Game of Thrones",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-04-29",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_033ee78d9739b76c4fe8"
+        ],
+        "support_source_ids": [
+          197
+        ]
+      },
+      {
+        "fact_id": "f2",
+        "subject": "User",
+        "predicate": "started watching",
+        "object": "The Crown",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "2023-05-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_38f8a2cc5ef0ab4ef49f"
+        ],
+        "support_source_ids": [
+          92
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "From memory, user started watching Game of Thrones about a month before 2023-05-29, i.e., around 2023-04-29. User started watching The Crown on a Sunday afternoon, and finished season 3 in 14 days ending 2023-05-29, so start date is 2023-05-15. Comparing dates, Game of Thrones (2023-04-29) was started before The Crown (2023-05-15)."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    92,
+    197,
+    96,
+    201,
+    93,
+    202,
+    94,
+    95,
+    198,
+    97
+  ],
+  "v2_timeline_memory_ids": [
+    "m_033ee78d9739b76c4fe8",
+    "m_38f8a2cc5ef0ab4ef49f",
+    "m_3c12acddc8a57d45fa63",
+    "m_6dae3c90ac77ce9ca2d8",
+    "m_c09d77bb5c0677f23b06",
+    "m_175394bf842c570f54c1",
+    "m_3cfacb828d80777c1194",
+    "m_5bfbd692300664c4549e"
+  ]
+}

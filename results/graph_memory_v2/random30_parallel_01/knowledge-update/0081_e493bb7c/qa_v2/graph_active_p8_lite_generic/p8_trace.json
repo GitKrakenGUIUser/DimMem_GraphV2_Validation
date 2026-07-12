@@ -1,0 +1,165 @@
+{
+  "escalated": true,
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "location",
+        "query": "Ethereal Dreams Emma Taylor painting location",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Ethereal Dreams Emma Taylor painting location"
+    ],
+    "reason": "Need to find the most recent location statement for the painting as of the question date.",
+    "deterministic_contract_hint": "state_resolution",
+    "contract_overridden": false
+  },
+  "p5_candidate": {
+    "answer": "above the user's bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4fbf676c267d1e52562c"
+    ],
+    "support_source_ids": [
+      157
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "above the user's bed",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user stated on 2023-10-30 that they recently moved the 'Ethereal Dreams' painting by Emma Taylor above their bed. This is the most recent and specific location evidence."
+  },
+  "p7_candidate": {
+    "answer": "above the user's bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4fbf676c267d1e52562c"
+    ],
+    "support_source_ids": [
+      157
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "above the user's bed",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-10-30 that they recently moved the 'Ethereal Dreams' painting by Emma Taylor above their bed. This is the most recent and specific location statement, and no later relocation has been mentioned. Therefore, as of the question date (2023-11-18), the painting is hanging above the user's bed."
+  },
+  "specialist_candidate": {
+    "answer": "above the user's bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4fbf676c267d1e52562c"
+    ],
+    "support_source_ids": [
+      157
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "above the user's bed",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "fact_id": "f1",
+        "subject": "Ethereal Dreams painting by Emma Taylor",
+        "predicate": "located_at",
+        "object": "above the user's bed",
+        "numeric_value": null,
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The most recent state (2023-10-30) indicates the painting was moved above the user's bed, superseding the earlier location above the living room sofa."
+  },
+  "choice": "specialist",
+  "verification": {},
+  "targeted_source_ids": [
+    157,
+    154,
+    42,
+    40,
+    158,
+    27,
+    41,
+    43,
+    156,
+    155
+  ],
+  "v2_timeline_memory_ids": [
+    "m_4fbf676c267d1e52562c",
+    "m_27a700848d3e9aa7d113",
+    "m_426912eece8a64bdf874",
+    "m_f808bea57c3d08ac0889",
+    "m_004fb14ccd64fd0cdf69",
+    "m_00c645c74ea5886f5ad2",
+    "m_00ec124387fc864df36d",
+    "m_0116f9ffbc3581d1ef22"
+  ]
+}

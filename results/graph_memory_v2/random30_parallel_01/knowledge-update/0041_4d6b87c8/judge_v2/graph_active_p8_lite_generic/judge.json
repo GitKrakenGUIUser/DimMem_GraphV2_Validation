@@ -1,0 +1,85 @@
+{
+  "question_id": "4d6b87c8",
+  "question_type": "knowledge-update",
+  "question": "How many titles are currently on my to-watch list?",
+  "question_date": "2023/06/03 (Sat) 15:47",
+  "gold_answer": "25",
+  "prediction": "25",
+  "support_memory_ids": [
+    "m_369e393afb314209e13c",
+    "m_6c74b48dbbe6eb840e87"
+  ],
+  "support_source_ids": [
+    228,
+    232
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user explicitly stated 'currently 25' and 'I've got 25 titles on it right now' on 2023-05-22, which is the latest valid state before the question date. No superseding state was found.",
+  "required_slots": [
+    {
+      "name": "to-watch list count",
+      "value": "25",
+      "support_memory_ids": [
+        "m_369e393afb314209e13c",
+        "m_6c74b48dbbe6eb840e87"
+      ],
+      "support_source_ids": [
+        228,
+        232
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "stated_count",
+  "calculation": {
+    "operator": "stated_count",
+    "operands": [
+      "25"
+    ],
+    "unit": "titles",
+    "result": "25"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "current",
+    "slots": [
+      {
+        "name": "to-watch list count",
+        "query": "to-watch list count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "to-watch list count"
+    ],
+    "reason": "The question asks for the current number of titles on the user's to-watch list, which is a state value that can be resolved from the most recent explicit statement.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": true
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 20026,
+    "completion_tokens": 663,
+    "elapsed_seconds": 30.570574045181274
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 131,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.9376118183135986
+  }
+}

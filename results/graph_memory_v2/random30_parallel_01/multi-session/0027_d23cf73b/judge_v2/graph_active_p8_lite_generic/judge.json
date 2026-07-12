@@ -1,0 +1,123 @@
+{
+  "question_id": "d23cf73b",
+  "question_type": "multi-session",
+  "question": "How many different cuisines have I learned to cook or tried out in the past few months?",
+  "question_date": "2023/05/30 (Tue) 16:04",
+  "gold_answer": "4",
+  "prediction": "4",
+  "support_memory_ids": [
+    "m_8148708b1d662b2a6be0",
+    "m_f25feb300a6e2053ac63",
+    "m_dd44015133834e17819b",
+    "m_d345c51341abc9bb53f8"
+  ],
+  "support_source_ids": [
+    102,
+    222,
+    236,
+    167
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From evidence, user tried Ethiopian restaurant (source 102), Korean bibimbap (source 222), attended vegan cuisine class (source 236), and learned Indian cuisine (source 167). These are four distinct cuisines in the past few months. Count distinct = 4.",
+  "required_slots": [
+    {
+      "name": "cuisine_events",
+      "value": "Ethiopian, Korean, Vegan, Indian",
+      "support_memory_ids": [
+        "m_8148708b1d662b2a6be0",
+        "m_f25feb300a6e2053ac63",
+        "m_dd44015133834e17819b",
+        "m_d345c51341abc9bb53f8"
+      ],
+      "support_source_ids": [
+        102,
+        222,
+        236,
+        167
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Ethiopian",
+      "Korean",
+      "Vegan",
+      "Indian"
+    ],
+    "unit": "cuisines",
+    "result": "4"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "p5_p7_disagree",
+    "audit_contract:enumerate_count"
+  ],
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operator": "count_distinct",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "cuisine_events",
+        "query": "cuisines learned to cook or tried out past few months",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "cuisines learned to cook or tried out past few months"
+    ],
+    "reason": "Count distinct cuisines from events in the past few months.",
+    "deterministic_contract_hint": "enumerate_count",
+    "contract_overridden": false
+  },
+  "verification": {
+    "choice": "specialist",
+    "assessments": {
+      "p5": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "Includes fermentation (sauerkraut/kimchi) as a distinct cuisine, but fermentation is a technique, not a cuisine; also includes 'Vegan' which is a dietary preference, not a cuisine. Overcounts."
+      },
+      "p7": {
+        "supported": false,
+        "slot_coverage": 1.0,
+        "contradicted": true,
+        "calculation_consistent": true,
+        "reason": "Includes 'vegan' and 'fermentation' as cuisines, which are not cuisines. Overcounts."
+      },
+      "specialist": {
+        "supported": true,
+        "slot_coverage": 1.0,
+        "contradicted": false,
+        "calculation_consistent": true,
+        "reason": "Correctly identifies four distinct cuisines: Ethiopian, Korean, Vegan, Indian. All events are within the past few months and supported by evidence."
+      }
+    },
+    "reason": "Specialist candidate correctly counts 4 distinct cuisines (Ethiopian, Korean, Vegan, Indian) with full support and no contradictions. p5 and p7 incorrectly count fermentation and vegan as separate cuisines, leading to overcount."
+  },
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 30847,
+    "completion_tokens": 1315,
+    "elapsed_seconds": 11.132721424102783
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 139,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.8556723594665527
+  }
+}

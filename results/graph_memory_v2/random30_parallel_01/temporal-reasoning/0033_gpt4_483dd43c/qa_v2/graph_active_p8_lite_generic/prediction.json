@@ -1,0 +1,90 @@
+{
+  "question_id": "gpt4_483dd43c",
+  "question_type": "temporal-reasoning",
+  "question": "Which show did I start watching first, 'The Crown' or 'Game of Thrones'?",
+  "question_date": "2023/05/29 (Mon) 08:33",
+  "gold_answer": "'Game of Thrones'",
+  "prediction": "Game of Thrones",
+  "support_memory_ids": [
+    "m_033ee78d9739b76c4fe8",
+    "m_38f8a2cc5ef0ab4ef49f"
+  ],
+  "support_source_ids": [
+    197,
+    92
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "From memory, user started watching Game of Thrones about a month before 2023-05-29, i.e., around 2023-04-29. User started watching The Crown on a Sunday afternoon, and finished season 3 in 14 days ending 2023-05-29, so start date is 2023-05-15. Comparing dates, Game of Thrones (2023-04-29) was started before The Crown (2023-05-15).",
+  "required_slots": [
+    {
+      "name": "start date of watching Game of Thrones",
+      "value": "2023-04-29",
+      "support_memory_ids": [
+        "m_033ee78d9739b76c4fe8"
+      ],
+      "support_source_ids": [
+        197
+      ]
+    },
+    {
+      "name": "start date of watching The Crown",
+      "value": "2023-05-15",
+      "support_memory_ids": [
+        "m_38f8a2cc5ef0ab4ef49f"
+      ],
+      "support_source_ids": [
+        92
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "comparison",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "plan": {
+    "answer_contract": "comparison",
+    "operator": "comparison",
+    "temporal_perspective": "historical",
+    "slots": [
+      {
+        "name": "start date of watching Game of Thrones",
+        "query": "started watching Game of Thrones date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "start date of watching The Crown",
+        "query": "started watching The Crown date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "started watching Game of Thrones date",
+      "started watching The Crown date"
+    ],
+    "reason": "Need start dates for both shows to determine which was started first.",
+    "deterministic_contract_hint": "comparison",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 24829,
+    "completion_tokens": 789,
+    "elapsed_seconds": 6.188281774520874
+  }
+}

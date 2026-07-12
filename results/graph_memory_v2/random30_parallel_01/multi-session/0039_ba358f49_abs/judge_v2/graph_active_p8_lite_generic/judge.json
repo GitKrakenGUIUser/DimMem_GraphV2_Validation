@@ -1,0 +1,89 @@
+{
+  "question_id": "ba358f49_abs",
+  "question_type": "multi-session",
+  "question": "How old will Rachel be when I get married?",
+  "question_date": "2023/05/30 (Tue) 22:29",
+  "gold_answer": "The information provided is not enough. You did not mention how old Rachel is right now, nor when will you get married.",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.0,
+  "reasoning_summary": "No evidence found for the user's marriage date or Rachel's birth date. The conversation mentions Rachel's upcoming wedding (source 42) but does not provide the user's marriage date or Rachel's birth date.",
+  "required_slots": [
+    {
+      "name": "marriage_date",
+      "value": null,
+      "support_memory_ids": [],
+      "support_source_ids": []
+    },
+    {
+      "name": "birth_date",
+      "value": null,
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [
+    "marriage_date",
+    "birth_date"
+  ],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p8_lite_generic",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_choice": "p7",
+  "risk_reasons": [
+    "p7_abstained",
+    "p7_unfilled_slots",
+    "p7_no_support"
+  ],
+  "plan": {
+    "answer_contract": "direct_numeric",
+    "operator": "date_difference_years",
+    "temporal_perspective": "relative",
+    "slots": [
+      {
+        "name": "marriage_date",
+        "query": "user marriage date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "birth_date",
+        "query": "Rachel birth date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user marriage date",
+      "Rachel birth date"
+    ],
+    "reason": "Need both dates to compute age at marriage.",
+    "deterministic_contract_hint": "direct_value",
+    "contract_overridden": false
+  },
+  "verification": {},
+  "meta": {
+    "mode": "p8_lite_generic",
+    "prompt_tokens": 21098,
+    "completion_tokens": 357,
+    "elapsed_seconds": 4.2420735359191895
+  },
+  "correct": true,
+  "judge_reason": "Both reference and prediction indicate insufficient information.",
+  "judge_meta": {
+    "mode": "deterministic_abstention_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}
