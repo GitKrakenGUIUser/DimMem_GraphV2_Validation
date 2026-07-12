@@ -1,0 +1,187 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "break duration in days",
+        "query": "social media break days",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "social media break days"
+    ],
+    "output_constraints": [
+      "integer"
+    ],
+    "reason": "The question asks for total days of social media breaks, which requires summing individual break durations."
+  },
+  "base_candidate": {
+    "answer": "17 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_df096ec32d4c68140dec",
+      "m_e2def7ecc21213df4abc"
+    ],
+    "support_source_ids": [
+      129,
+      123
+    ],
+    "required_slots": [
+      {
+        "name": "total days",
+        "value": "17",
+        "support_memory_ids": [
+          "m_df096ec32d4c68140dec",
+          "m_e2def7ecc21213df4abc"
+        ],
+        "support_source_ids": [
+          129,
+          123
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        7,
+        10
+      ],
+      "unit": "days",
+      "result": "17 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_df096ec32d4c68140dec states a week-long break (7 days) in mid-January 2023. Memory m_e2def7ecc21213df4abc states a 10-day break in mid-February 2023. Summing gives 17 total days."
+  },
+  "specialist_candidate": {
+    "answer": "17 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_df096ec32d4c68140dec",
+      "m_e2def7ecc21213df4abc"
+    ],
+    "support_source_ids": [
+      129,
+      123
+    ],
+    "required_slots": [
+      {
+        "name": "break duration in days",
+        "value": 17,
+        "support_memory_ids": [
+          "m_df096ec32d4c68140dec",
+          "m_e2def7ecc21213df4abc"
+        ],
+        "support_source_ids": [
+          129,
+          123
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        7,
+        10
+      ],
+      "unit": "days",
+      "result": "17 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "took_break_from",
+        "object": "social media",
+        "value": "7",
+        "unit": "days",
+        "event_time": "2023-01-14 to 2023-01-21",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_df096ec32d4c68140dec"
+        ],
+        "support_source_ids": [
+          129
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "took_break_from",
+        "object": "social media",
+        "value": "10",
+        "unit": "days",
+        "event_time": "mid-February 2023",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e2def7ecc21213df4abc"
+        ],
+        "support_source_ids": [
+          123
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Two social media breaks are grounded: a 7-day break in mid-January 2023 (source 129) and a 10-day break in mid-February 2023 (source 123). Summing gives 17 total days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    161,
+    160,
+    163,
+    165,
+    129,
+    162,
+    166,
+    123,
+    164,
+    124,
+    140,
+    7,
+    94,
+    132,
+    131,
+    133,
+    130
+  ],
+  "targeted_source_ids": [
+    123,
+    124,
+    129,
+    132,
+    159,
+    160,
+    161,
+    163,
+    164,
+    165,
+    166,
+    220,
+    130,
+    158,
+    219
+  ]
+}

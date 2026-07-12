@@ -1,0 +1,1101 @@
+[
+  {
+    "memory_id": "m_4236d986c959ca4969cb",
+    "content": "User is using Windows operating system.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-20T12:20:03",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "user",
+        "Windows",
+        "operating system"
+      ],
+      "entities": [
+        {
+          "name": "user",
+          "entity_type": "person",
+          "role": "user"
+        },
+        {
+          "name": "Windows",
+          "entity_type": "product",
+          "role": "operating system"
+        }
+      ],
+      "topic": "user environment",
+      "relation": {
+        "subject": "user",
+        "predicate": "uses operating system",
+        "object": "Windows"
+      },
+      "state_key": "user.os",
+      "state_value": "Windows",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_LgJ688S_0",
+      "session_index": 1,
+      "source_ids": [
+        16
+      ],
+      "source_uids": [
+        "s0001u0006"
+      ],
+      "source_times": [
+        "2023-05-20T12:20:03"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "i am using windows",
+    "assistant_replies": [
+      "If you are using Windows, you can follow these steps to update the hosts file:\n\n1. Open Notepad or any other text editor as an administrator.\n2. Click on File -> Open, and navigate to the `C:\\Windows\\System32\\drivers\\etc` directory.\n3. In the \"File name\" field, type `hosts` and click on \"Open\".\n4. Add a new line at the end of the file with the IP address of your local machine, followed by a space and then the hostname you want to use for your Flask application. For example:\n```\n127.0.0.1   medicalsite\n```\nThis will map the `medicalsite` hostname to your local machine's IP address.\n5. Save the file and close the text editor.\n\nNow, when you run your Flask application with `app.run(host='medicalsite', port=8080)`, you should be able to access it in your web browser by going to `http://medicalsite:8080/`.\n\nNote that you need to run the text editor as an administrator to be able to save changes to the hosts file. Also, make sure that you do not change or remove any existing entries in the hosts file, as they may be necessary for your system to function properly."
+    ]
+  },
+  {
+    "memory_id": "m_e78fd8f3e7cb37d889ca",
+    "content": "User resolved getaddrinfo and TypeError by modifying hosts file and using app.run(host='aira.aramis.ai', port=8080).",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-20T12:20:04",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "getaddrinfo",
+        "TypeError",
+        "hosts file",
+        "app.run",
+        "aira.aramis.ai",
+        "port 8080"
+      ],
+      "entities": [
+        {
+          "name": "user",
+          "entity_type": "person",
+          "role": "user"
+        },
+        {
+          "name": "aira.aramis.ai",
+          "entity_type": "other",
+          "role": "hostname"
+        }
+      ],
+      "topic": "debugging web app",
+      "relation": {
+        "subject": "user",
+        "predicate": "resolved error by",
+        "object": "modifying hosts file and using app.run(host='aira.aramis.ai', port=8080)"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_LgJ688S_0",
+      "session_index": 1,
+      "source_ids": [
+        18
+      ],
+      "source_uids": [
+        "s0001u0008"
+      ],
+      "source_times": [
+        "2023-05-20T12:20:04"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "okay, this works \"app.run(host='aira.aramis.ai', port=8080)\" after changing my hosts file. thanks",
+    "assistant_replies": [
+      "You're welcome! I'm glad to hear that it worked for you. Don't hesitate to ask if you have any further questions or issues."
+    ]
+  },
+  {
+    "memory_id": "m_c20292fadbfaa426299b",
+    "content": "User wants to hide the port number in the URL of their web app.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-20T12:20:04.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to have cleaner URL without port number",
+      "keywords": [
+        "hide port",
+        "URL",
+        "web app",
+        "port number"
+      ],
+      "entities": [
+        {
+          "name": "user",
+          "entity_type": "person",
+          "role": "user"
+        }
+      ],
+      "topic": "web app configuration",
+      "relation": {
+        "subject": "user",
+        "predicate": "wants to",
+        "object": "hide port number in URL"
+      },
+      "state_key": "user.goal.hide_port",
+      "state_value": "true",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_LgJ688S_0",
+      "session_index": 1,
+      "source_ids": [
+        19
+      ],
+      "source_uids": [
+        "s0001u0009"
+      ],
+      "source_times": [
+        "2023-05-20T12:20:04.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "now the url is like medicalsite/8080/ , the name of my function. Is there any way i can hide the port num as well",
+    "assistant_replies": [
+      "Yes, you can configure your Flask application to run on the default HTTP port (80) instead of port 8080. This way, you don't need to specify the port number in the URL when accessing your application.\n\nTo do this, you can modify your `app.run()` statement as follows:\n```arduino\napp.run(host='aira.aramis.ai', port=80)\n```\nNote that on Unix-based systems, you need root privileges to bind to ports below 1024, so you may need to run your application as a superuser by using `sudo`.\n\nAfter running the application with the modified `app.run()` statement, you should be able to access it in your web browser by going to `http://aira.aramis.ai/`.\n\nIf you still see the port number in the URL after making this change, you may need to update your web server configuration to proxy requests to your Flask application. For example, if you are using Apache or Nginx, you can configure them to proxy requests from `http://aira.aramis.ai/` to `http://127.0.0.1:80/`. This way, the user's browser will not see the port number in the URL."
+    ]
+  },
+  {
+    "memory_id": "m_406a47c093464679c1be",
+    "content": "Jo Peninsulas invited Samuel Ofoe Atichogbe to participate in EarthDay 2023 event.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-05T21:32:00",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "MAR 5 9:32 PM"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to have Samuel be part of EarthDay 2023",
+      "keywords": [
+        "Jo Peninsulas",
+        "Samuel Ofoe Atichogbe",
+        "EarthDay 2023",
+        "invitation"
+      ],
+      "entities": [
+        {
+          "name": "Jo Peninsulas",
+          "entity_type": "person",
+          "role": "sender"
+        },
+        {
+          "name": "Samuel Ofoe Atichogbe",
+          "entity_type": "person",
+          "role": "recipient"
+        },
+        {
+          "name": "EarthDay 2023",
+          "entity_type": "event",
+          "role": "event"
+        }
+      ],
+      "topic": "EarthDay 2023 invitation",
+      "relation": {
+        "subject": "Jo Peninsulas",
+        "predicate": "invited",
+        "object": "Samuel Ofoe Atichogbe to EarthDay 2023"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_Wi7Op1u_112",
+      "session_index": 2,
+      "source_ids": [
+        20
+      ],
+      "source_uids": [
+        "s0002u0001"
+      ],
+      "source_times": [
+        "2023-05-20T17:39:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "Samuel, EarthDay 2023 is scheduled to be the biggest environmental event in history. ... Would love to connect",
+    "assistant_replies": [
+      "Jo Peninsulas 7:12 AM\nHi Samuel,\n\nThank you for your enthusiasm and interest in Earth Day 2023! Here are the details:\n\n1. Earth Day 2023 is a global event that will take place on April 22, 2023.\n2. The event will be a combination of in-person and virtual activities to ensure the highest level of participation and engagement worldwide.\n3. The main focus will be on tree planting, clean energy initiatives, and spreading awareness about environmental conservation.\n4. The event will feature speakers from various industries, including environmentalists, business leaders, policymakers, and other experts in the field.\n5. More detailed information about the schedule, speakers, and how to participate will be shared closer to the event date.\n\nTo stay updated and be among the first to receive the latest information, I encourage you to follow our LinkedIn page or sign up for our newsletter at <https://www.earthday2023.org/>.\n\nWe're excited to have you on board, and we look forward to working together to make Earth Day 2023 a massive success!\n\nBest regards,\nJo"
+    ]
+  },
+  {
+    "memory_id": "m_a42cc764427dd8efd7b7",
+    "content": "Samuel Ofoe Atichogbe accepted invitation to EarthDay 2023 and asked for details (summit, in-person/zoom, data span, speakers, dates).",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-05T21:32:00",
+        "event_end": "2023-03-06T07:03:00",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "MAR 5 9:32 PM to MAR 6 7:03 AM"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to get more information about EarthDay 2023",
+      "keywords": [
+        "Samuel Ofoe Atichogbe",
+        "EarthDay 2023",
+        "accepted",
+        "details",
+        "summit",
+        "zoom",
+        "speakers",
+        "dates"
+      ],
+      "entities": [
+        {
+          "name": "Samuel Ofoe Atichogbe",
+          "entity_type": "person",
+          "role": "respondent"
+        },
+        {
+          "name": "EarthDay 2023",
+          "entity_type": "event",
+          "role": "event"
+        }
+      ],
+      "topic": "EarthDay 2023 participation",
+      "relation": {
+        "subject": "Samuel Ofoe Atichogbe",
+        "predicate": "accepted invitation and requested details",
+        "object": "EarthDay 2023"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_Wi7Op1u_112",
+      "session_index": 2,
+      "source_ids": [
+        20
+      ],
+      "source_uids": [
+        "s0002u0001"
+      ],
+      "source_times": [
+        "2023-05-20T17:39:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "Absolutely I would love to be a part of it ... Will it be a summit Please In person, zoom How many data span ? Speakers Dates ?",
+    "assistant_replies": [
+      "Jo Peninsulas 7:12 AM\nHi Samuel,\n\nThank you for your enthusiasm and interest in Earth Day 2023! Here are the details:\n\n1. Earth Day 2023 is a global event that will take place on April 22, 2023.\n2. The event will be a combination of in-person and virtual activities to ensure the highest level of participation and engagement worldwide.\n3. The main focus will be on tree planting, clean energy initiatives, and spreading awareness about environmental conservation.\n4. The event will feature speakers from various industries, including environmentalists, business leaders, policymakers, and other experts in the field.\n5. More detailed information about the schedule, speakers, and how to participate will be shared closer to the event date.\n\nTo stay updated and be among the first to receive the latest information, I encourage you to follow our LinkedIn page or sign up for our newsletter at <https://www.earthday2023.org/>.\n\nWe're excited to have you on board, and we look forward to working together to make Earth Day 2023 a massive success!\n\nBest regards,\nJo"
+    ]
+  },
+  {
+    "memory_id": "m_2102c8cf3de39361ca69",
+    "content": "earthday2023.org is not the official website for EarthDay 2023; the correct community link is https://bit.ly/Earth-Day-Community.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-20T17:39:01",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "earthday2023.org",
+        "not official",
+        "EarthDay 2023",
+        "community link",
+        "https://bit.ly/Earth-Day-Community"
+      ],
+      "entities": [
+        {
+          "name": "earthday2023.org",
+          "entity_type": "other",
+          "role": "website"
+        },
+        {
+          "name": "EarthDay 2023",
+          "entity_type": "event",
+          "role": "event"
+        },
+        {
+          "name": "https://bit.ly/Earth-Day-Community",
+          "entity_type": "other",
+          "role": "community link"
+        }
+      ],
+      "topic": "EarthDay 2023 website",
+      "relation": {
+        "subject": "earthday2023.org",
+        "predicate": "is not the official website for",
+        "object": "EarthDay 2023"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_Wi7Op1u_112",
+      "session_index": 2,
+      "source_ids": [
+        21
+      ],
+      "source_uids": [
+        "s0002u0002"
+      ],
+      "source_times": [
+        "2023-05-20T17:39:01"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "earthday2023.org is not our website. You should encourage them to join the community if they want to see the latest information",
+    "assistant_replies": [
+      "Jo Peninsulas 7:12 AM\nHi Samuel,\n\nThank you for your enthusiasm and interest in Earth Day 2023! Here are the details:\n\n1. Earth Day 2023 is a global event that will take place on April 22, 2023.\n2. The event will be a combination of in-person and virtual activities to ensure the highest level of participation and engagement worldwide.\n3. The main focus will be on tree planting, clean energy initiatives, and spreading awareness about environmental conservation.\n4. The event will feature speakers from various industries, including environmentalists, business leaders, policymakers, and other experts in the field.\n5. More detailed information about the schedule, speakers, and how to participate will be shared closer to the event date.\n\nTo stay updated and be among the first to receive the latest information, I encourage you to join our LinkedIn community where we regularly share news, updates, and opportunities for collaboration.\n\nWe're excited to have you on board, and we look forward to working together to make Earth Day 2023 a massive success!\n\nBest regards,\nJo"
+    ]
+  },
+  {
+    "memory_id": "m_91c02d6a9bcfa90044f8",
+    "content": "Jo Peninsulas invited Ros Tregurtha to EarthDay 2023 via LinkedIn message.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-05T09:04:00",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "MAR 5 9:04 AM"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to discuss EarthDay 2023",
+      "keywords": [
+        "Jo Peninsulas",
+        "Ros Tregurtha",
+        "EarthDay 2023",
+        "invitation",
+        "LinkedIn"
+      ],
+      "entities": [
+        {
+          "name": "Jo Peninsulas",
+          "entity_type": "person",
+          "role": "sender"
+        },
+        {
+          "name": "Ros Tregurtha",
+          "entity_type": "person",
+          "role": "recipient"
+        },
+        {
+          "name": "EarthDay 2023",
+          "entity_type": "event",
+          "role": "event"
+        }
+      ],
+      "topic": "EarthDay 2023 invitation",
+      "relation": {
+        "subject": "Jo Peninsulas",
+        "predicate": "invited",
+        "object": "Ros Tregurtha to EarthDay 2023"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_Wi7Op1u_112",
+      "session_index": 2,
+      "source_ids": [
+        22
+      ],
+      "source_uids": [
+        "s0002u0003"
+      ],
+      "source_times": [
+        "2023-05-20T17:39:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "Ros, EarthDay 2023 is scheduled to be the biggest environmental event in history. ... What’s the best way to get some time on the calendar to discuss Earth Day 2023?",
+    "assistant_replies": [
+      "Jo Peninsulas 10:03 AM\nHi Ros,\n\nThank you for your response. No worries at all! If you're interested in staying informed about Earth Day 2023 and future opportunities to participate, feel free to join our LinkedIn community where we share updates and news related to the event.\n\nWishing you the best in your job search, and we hope you'll consider joining us for Earth Day 2023 once you settle into a new role.\n\nTake care and all the best,\nJo"
+    ]
+  },
+  {
+    "memory_id": "m_407f50742e0b05990d5d",
+    "content": "Ros Tregurtha declined invitation to EarthDay 2023 because she is currently not in a role.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-05T09:29:00",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "MAR 5 9:29 AM"
+      },
+      "locations": [],
+      "reason": "currently not in a role",
+      "purpose": "",
+      "keywords": [
+        "Ros Tregurtha",
+        "declined",
+        "EarthDay 2023",
+        "not in a role"
+      ],
+      "entities": [
+        {
+          "name": "Ros Tregurtha",
+          "entity_type": "person",
+          "role": "respondent"
+        },
+        {
+          "name": "EarthDay 2023",
+          "entity_type": "event",
+          "role": "event"
+        }
+      ],
+      "topic": "EarthDay 2023 decline",
+      "relation": {
+        "subject": "Ros Tregurtha",
+        "predicate": "declined invitation because",
+        "object": "currently not in a role"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_Wi7Op1u_112",
+      "session_index": 2,
+      "source_ids": [
+        22
+      ],
+      "source_uids": [
+        "s0002u0003"
+      ],
+      "source_times": [
+        "2023-05-20T17:39:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "Thanks Jo but I’m currently not in a role.",
+    "assistant_replies": [
+      "Jo Peninsulas 10:03 AM\nHi Ros,\n\nThank you for your response. No worries at all! If you're interested in staying informed about Earth Day 2023 and future opportunities to participate, feel free to join our LinkedIn community where we share updates and news related to the event.\n\nWishing you the best in your job search, and we hope you'll consider joining us for Earth Day 2023 once you settle into a new role.\n\nTake care and all the best,\nJo"
+    ]
+  },
+  {
+    "memory_id": "m_2badd00798118a9b1b34",
+    "content": "The WhatsApp group for EarthDay 2023 community is https://bit.ly/Earth-Day-Community.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-20T17:39:02",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "WhatsApp group",
+        "EarthDay 2023",
+        "community",
+        "https://bit.ly/Earth-Day-Community"
+      ],
+      "entities": [
+        {
+          "name": "EarthDay 2023",
+          "entity_type": "event",
+          "role": "event"
+        },
+        {
+          "name": "https://bit.ly/Earth-Day-Community",
+          "entity_type": "other",
+          "role": "WhatsApp group link"
+        }
+      ],
+      "topic": "EarthDay 2023 community",
+      "relation": {
+        "subject": "EarthDay 2023 WhatsApp group",
+        "predicate": "is at",
+        "object": "https://bit.ly/Earth-Day-Community"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_Wi7Op1u_112",
+      "session_index": 2,
+      "source_ids": [
+        23
+      ],
+      "source_uids": [
+        "s0002u0004"
+      ],
+      "source_times": [
+        "2023-05-20T17:39:02"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "you're forgetting the whatsapp group: https://bit.ly/Earth-Day-Community",
+    "assistant_replies": [
+      "Jo Peninsulas 10:03 AM\nHi Ros,\n\nThank you for your response. No worries at all! If you're interested in staying informed about Earth Day 2023 and future opportunities to participate, feel free to join our LinkedIn community where we share updates and news related to the event. Additionally, we have a WhatsApp group where you can connect with others who are passionate about the cause. You can join by following this link: <https://bit.ly/Earth-Day-Community>\n\nWishing you the best in your job search, and we hope you'll consider joining us for Earth Day 2023 once you settle into a new role.\n\nTake care and all the best,\nJo"
+    ]
+  },
+  {
+    "memory_id": "m_bcc726765e15bb1d21b9",
+    "content": "User is @sustainable_sarah on Instagram and experiments with hashtags for eco-friendly living posts.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-20T23:09:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [
+        "Instagram"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "@sustainable_sarah",
+        "Instagram",
+        "hashtags",
+        "eco-friendly"
+      ],
+      "entities": [
+        {
+          "name": "user",
+          "entity_type": "person",
+          "role": "user"
+        },
+        {
+          "name": "@sustainable_sarah",
+          "entity_type": "other",
+          "role": "Instagram handle"
+        }
+      ],
+      "topic": "Instagram hashtag strategy",
+      "relation": {
+        "subject": "user",
+        "predicate": "is Instagram user",
+        "object": "@sustainable_sarah"
+      },
+      "state_key": "user.instagram_handle",
+      "state_value": "@sustainable_sarah",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "8084c441_2",
+      "session_index": 3,
+      "source_ids": [
+        24
+      ],
+      "source_uids": [
+        "s0003u0001"
+      ],
+      "source_times": [
+        "2023-05-20T23:09:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "By the way, I'm @sustainable_sarah, nice to chat with you!",
+    "assistant_replies": [
+      "Nice to meet you too, @sustainable_sarah! I'm happy to help you brainstorm some hashtags for your eco-friendly and sustainable living content.\n\nYou're on the right track by combining niche-specific hashtags with more popular ones. Here are some suggestions for eco-friendly living and sustainable product-related hashtags that might help you grow your audience:\n\n**Eco-Friendly Living:**\n\n1. #ecofriendlyliving\n2. #sustainabilitymatters\n3. #greenlivingtips\n4. #ecolifestyle\n5. #environmentallyfriendly\n6. #ecofriendlyhabits\n7. #zerowasteliving (or #zerowaste for a broader audience)\n8. #ecofriendlyhome\n9. #sustainablelifestyle\n10. #ecologicalawareness\n\n**Sustainable Products:**\n\n1. #sustainableproducts\n2. #ecofriendlyproducts\n3. #greenproducts\n4. #sustainablelivingproducts\n5. #ecofriendlyshopping\n6. #sustainablefashion (if you post about clothing or accessories)\n7. #ecofriendlybeauty (if you post about skincare or makeup)\n8. #sustainablehomegoods\n9. #ecofriendlykitchen\n10. #sustainablepackaging\n\n**Additional Tips:**\n\n1. Use seasonal hashtags, like #springcleaning or #summervibes, to tie in with current events or holidays.\n2. Create a branded hashtag specific to your account, like #sustainable_sarahapproved, to encourage engagement and user-generated content.\n3. Experiment with long-tail hashtags, like #ecofriendlydecoronabudget or #sustainablefashionforwomen, to target specific sub-niches.\n4. Use Instagram's \"Reels\" feature and include relevant hashtags to increase your reach.\n5. Monitor your analytics to see which hashtags perform well for you and adjust your strategy accordingly.\n\nRemember to keep your hashtags relevant to the content of your post, and don't overdo it – 5-10 hashtags per post is a good rule of thumb.\n\nI hope these suggestions help you attract more like-minded followers and grow your community, @sustainable_sarah!"
+    ]
+  },
+  {
+    "memory_id": "m_f30890864edae94489c2",
+    "content": "User uses niche-specific hashtags like #plantlady and #minimalistdecor along with popular ones like #homeinspo and #plantsmakepeoplehappy for Instagram posts.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-05-20T23:09:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [
+        "Instagram"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "hashtags",
+        "#plantlady",
+        "#minimalistdecor",
+        "#homeinspo",
+        "#plantsmakepeoplehappy",
+        "Instagram"
+      ],
+      "entities": [
+        {
+          "name": "user",
+          "entity_type": "person",
+          "role": "user"
+        },
+        {
+          "name": "#plantlady",
+          "entity_type": "other",
+          "role": "hashtag"
+        },
+        {
+          "name": "#minimalistdecor",
+          "entity_type": "other",
+          "role": "hashtag"
+        },
+        {
+          "name": "#homeinspo",
+          "entity_type": "other",
+          "role": "hashtag"
+        },
+        {
+          "name": "#plantsmakepeoplehappy",
+          "entity_type": "other",
+          "role": "hashtag"
+        }
+      ],
+      "topic": "Instagram hashtag usage",
+      "relation": {
+        "subject": "user",
+        "predicate": "uses hashtags",
+        "object": "niche-specific and popular hashtags"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "8084c441_2",
+      "session_index": 3,
+      "source_ids": [
+        24
+      ],
+      "source_uids": [
+        "s0003u0001"
+      ],
+      "source_times": [
+        "2023-05-20T23:09:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "I've been experimenting with different combinations and noticed that using niche-specific ones like #plantlady or #minimalistdecor along with more popular ones like #homeinspo or #plantsmakepeoplehappy tends to work well.",
+    "assistant_replies": [
+      "Nice to meet you too, @sustainable_sarah! I'm happy to help you brainstorm some hashtags for your eco-friendly and sustainable living content.\n\nYou're on the right track by combining niche-specific hashtags with more popular ones. Here are some suggestions for eco-friendly living and sustainable product-related hashtags that might help you grow your audience:\n\n**Eco-Friendly Living:**\n\n1. #ecofriendlyliving\n2. #sustainabilitymatters\n3. #greenlivingtips\n4. #ecolifestyle\n5. #environmentallyfriendly\n6. #ecofriendlyhabits\n7. #zerowasteliving (or #zerowaste for a broader audience)\n8. #ecofriendlyhome\n9. #sustainablelifestyle\n10. #ecologicalawareness\n\n**Sustainable Products:**\n\n1. #sustainableproducts\n2. #ecofriendlyproducts\n3. #greenproducts\n4. #sustainablelivingproducts\n5. #ecofriendlyshopping\n6. #sustainablefashion (if you post about clothing or accessories)\n7. #ecofriendlybeauty (if you post about skincare or makeup)\n8. #sustainablehomegoods\n9. #ecofriendlykitchen\n10. #sustainablepackaging\n\n**Additional Tips:**\n\n1. Use seasonal hashtags, like #springcleaning or #summervibes, to tie in with current events or holidays.\n2. Create a branded hashtag specific to your account, like #sustainable_sarahapproved, to encourage engagement and user-generated content.\n3. Experiment with long-tail hashtags, like #ecofriendlydecoronabudget or #sustainablefashionforwomen, to target specific sub-niches.\n4. Use Instagram's \"Reels\" feature and include relevant hashtags to increase your reach.\n5. Monitor your analytics to see which hashtags perform well for you and adjust your strategy accordingly.\n\nRemember to keep your hashtags relevant to the content of your post, and don't overdo it – 5-10 hashtags per post is a good rule of thumb.\n\nI hope these suggestions help you attract more like-minded followers and grow your community, @sustainable_sarah!"
+    ]
+  },
+  {
+    "memory_id": "m_360c91b5ab166915eb0b",
+    "content": "User asked for suggestions for hashtags related to eco-friendly living or sustainable products.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-20T23:09:00.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to improve Instagram posts",
+      "keywords": [
+        "hashtag suggestions",
+        "eco-friendly",
+        "sustainable products",
+        "Instagram"
+      ],
+      "entities": [
+        {
+          "name": "user",
+          "entity_type": "person",
+          "role": "user"
+        }
+      ],
+      "topic": "hashtag suggestions",
+      "relation": {
+        "subject": "user",
+        "predicate": "asked for",
+        "object": "hashtag suggestions for eco-friendly living"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "8084c441_2",
+      "session_index": 3,
+      "source_ids": [
+        24
+      ],
+      "source_uids": [
+        "s0003u0001"
+      ],
+      "source_times": [
+        "2023-05-20T23:09:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "Do you have any suggestions for hashtags related to eco-friendly living or sustainable products?",
+    "assistant_replies": [
+      "Nice to meet you too, @sustainable_sarah! I'm happy to help you brainstorm some hashtags for your eco-friendly and sustainable living content.\n\nYou're on the right track by combining niche-specific hashtags with more popular ones. Here are some suggestions for eco-friendly living and sustainable product-related hashtags that might help you grow your audience:\n\n**Eco-Friendly Living:**\n\n1. #ecofriendlyliving\n2. #sustainabilitymatters\n3. #greenlivingtips\n4. #ecolifestyle\n5. #environmentallyfriendly\n6. #ecofriendlyhabits\n7. #zerowasteliving (or #zerowaste for a broader audience)\n8. #ecofriendlyhome\n9. #sustainablelifestyle\n10. #ecologicalawareness\n\n**Sustainable Products:**\n\n1. #sustainableproducts\n2. #ecofriendlyproducts\n3. #greenproducts\n4. #sustainablelivingproducts\n5. #ecofriendlyshopping\n6. #sustainablefashion (if you post about clothing or accessories)\n7. #ecofriendlybeauty (if you post about skincare or makeup)\n8. #sustainablehomegoods\n9. #ecofriendlykitchen\n10. #sustainablepackaging\n\n**Additional Tips:**\n\n1. Use seasonal hashtags, like #springcleaning or #summervibes, to tie in with current events or holidays.\n2. Create a branded hashtag specific to your account, like #sustainable_sarahapproved, to encourage engagement and user-generated content.\n3. Experiment with long-tail hashtags, like #ecofriendlydecoronabudget or #sustainablefashionforwomen, to target specific sub-niches.\n4. Use Instagram's \"Reels\" feature and include relevant hashtags to increase your reach.\n5. Monitor your analytics to see which hashtags perform well for you and adjust your strategy accordingly.\n\nRemember to keep your hashtags relevant to the content of your post, and don't overdo it – 5-10 hashtags per post is a good rule of thumb.\n\nI hope these suggestions help you attract more like-minded followers and grow your community, @sustainable_sarah!"
+    ]
+  },
+  {
+    "memory_id": "m_ec074306f97201434c8e",
+    "content": "User considered using hashtags related to wellness or self-care for sustainable living posts.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-20T23:09:01",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "sustainable living is also about taking care of ourselves and the planet",
+      "purpose": "",
+      "keywords": [
+        "wellness",
+        "self-care",
+        "hashtags",
+        "sustainable living"
+      ],
+      "entities": [
+        {
+          "name": "user",
+          "entity_type": "person",
+          "role": "user"
+        }
+      ],
+      "topic": "hashtag strategy",
+      "relation": {
+        "subject": "user",
+        "predicate": "considered using",
+        "object": "wellness or self-care hashtags"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "8084c441_2",
+      "session_index": 3,
+      "source_ids": [
+        25
+      ],
+      "source_uids": [
+        "s0003u0002"
+      ],
+      "source_times": [
+        "2023-05-20T23:09:01"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "Do you think I could also use hashtags related to wellness or self-care, since sustainable living is also about taking care of ourselves and the planet?",
+    "assistant_replies": [
+      "What a great connection to make, @sustainable_sarah! Sustainable living and self-care are indeed intertwined, and using hashtags related to wellness and self-care can help you tap into a broader audience interested in holistic living. Here are some suggestions:\n\n**Wellness and Self-Care Hashtags:**\n\n1. #selfcare\n2. #wellness\n3. #mindfulness\n4. #holisticliving\n5. #healthyliving\n6. #naturalhealth\n7. #wellnessjourney\n8. #selflove\n9. #mindfuliving\n10. #healthyhabits\n\nYou can also explore sub-niches like:\n\n1. #mentalhealthmatters (if you post about mental wellness)\n2. #physicalhealth (if you post about fitness or nutrition)\n3. #spiritualwellness (if you post about spirituality or meditation)\n4. #bodypositivity (if you post about self-acceptance)\n\n**Connecting Wellness to Sustainable Living:**\n\n1. #ecofriendlywellness\n2. #sustainableselfcare\n3. #greenwellness\n4. #naturalliving\n5. #holisticlifestyle\n6. #wellnessfortheplanet\n7. #sustainablehealth\n8. #ecofriendlylifestyle\n9. #healthyplanet\n10. #wellness forthefuture\n\nRemember to keep your hashtags relevant to the content of your post. If you're posting about a sustainable beauty product, for example, you could use #ecofriendlybeauty and #selfcare.\n\nBy incorporating wellness and self-care hashtags, you can attract like-minded individuals who are interested in living a more balanced, holistic lifestyle. This can help you build a community that resonates with your values and message, @sustainable_sarah!"
+    ]
+  },
+  {
+    "memory_id": "m_6e9fb8382f4e64b7d39e",
+    "content": "User asked for tips on creating engaging captions for Instagram posts.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-20T23:09:01.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to improve Instagram posts",
+      "keywords": [
+        "captions",
+        "Instagram",
+        "engaging",
+        "tips"
+      ],
+      "entities": [
+        {
+          "name": "user",
+          "entity_type": "person",
+          "role": "user"
+        }
+      ],
+      "topic": "Instagram caption tips",
+      "relation": {
+        "subject": "user",
+        "predicate": "asked for",
+        "object": "tips on creating engaging captions"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "8084c441_2",
+      "session_index": 3,
+      "source_ids": [
+        26
+      ],
+      "source_uids": [
+        "s0003u0003"
+      ],
+      "source_times": [
+        "2023-05-20T23:09:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "Can you give me some tips on how to create engaging captions for my Instagram posts? I sometimes struggle to come up with something that's not too long or too short.",
+    "assistant_replies": [
+      "Crafting engaging captions is an art, @sustainable_sarah! Here are some tips to help you write captions that resonate with your audience:\n\n**1. Keep it concise:** Aim for a length of 125-150 characters (about 1-2 short sentences). This ensures your caption is easy to read and understand.\n\n**2. Start with a hook:** Begin your caption with a question, a surprising fact, or a personal anecdote to grab the reader's attention.\n\n**3. Be authentic and conversational:** Write in your voice, using a friendly, approachable tone. Avoid jargon or overly technical terms.\n\n**4. Focus on benefits:** Instead of just listing features, explain how your sustainable living tip or product can benefit your audience's lives.\n\n**5. Add a call-to-action (CTA):** Encourage engagement by asking a question, requesting feedback, or suggesting a task.\n\n**6. Use humor and personality:** Inject your personality into your captions to make them more relatable and entertaining.\n\n**7. Include relevant emojis:** Emojis can help convey tone, add visual interest, and make your captions more engaging.\n\n**8. Use Instagram's features:** Take advantage of Instagram's features, such as polls, quizzes, and question stickers, to increase engagement.\n\n**9. Edit and proofread:** Ensure your captions are free of typos and grammatical errors to maintain a professional image.\n\n**10. Experiment and adapt:** Analyze your caption performance using Instagram Insights, and adjust your style based on what works best for your audience.\n\nHere's an example of a caption that incorporates some of these tips:\n\n\"🌎 Did you know that swapping to reusable bags can reduce plastic waste by up to 70%? 📦️ I've made the switch and it's been a game-changer! 💚 What's one eco-friendly habit you're committed to this month? Share in the comments below and let's inspire each other to live more sustainably! 💬 #sustainableliving #ecofriendly #reusablebags\"\n\nRemember, the key is to be authentic, engaging, and concise. Don't be afraid to experiment and try out different caption styles to find what works best for your audience, @sustainable_sarah!"
+    ]
+  },
+  {
+    "memory_id": "m_c3af4407d63c3f42b307",
+    "content": "User asked whether to include a story or personal anecdote in Instagram captions to make them more relatable.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-20T23:09:02",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to make captions more relatable and engaging",
+      "keywords": [
+        "story",
+        "personal anecdote",
+        "captions",
+        "relatable",
+        "engaging"
+      ],
+      "entities": [
+        {
+          "name": "user",
+          "entity_type": "person",
+          "role": "user"
+        }
+      ],
+      "topic": "Instagram caption strategy",
+      "relation": {
+        "subject": "user",
+        "predicate": "asked about",
+        "object": "including story or personal anecdote in captions"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "neutral",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "8084c441_2",
+      "session_index": 3,
+      "source_ids": [
+        27
+      ],
+      "source_uids": [
+        "s0003u0004"
+      ],
+      "source_times": [
+        "2023-05-20T23:09:02"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "Do you think I should also include a story or a personal anecdote in my captions to make them more relatable and engaging?",
+    "assistant_replies": [
+      "What a great question, @sustainable_sarah! Yes, including a personal story or anecdote in your captions can make them more relatable, engaging, and authentic. Storytelling is a powerful way to connect with your audience and make your content more memorable.\n\nHere are some benefits of sharing personal stories in your captions:\n\n1. **Builds trust and connection:** When you share your personal experiences, you're showing your audience that you're genuine and vulnerable, which can help build trust and a sense of connection.\n2. **Makes your content more relatable:** When your audience can relate to your story, they're more likely to engage with your content and feel invested in your message.\n3. **Adds emotional depth:** Personal anecdotes can add an emotional layer to your captions, making them more engaging and memorable.\n4. **Shows your personality:** Sharing personal stories can help your audience get to know you better and understand your values and passions.\n\nHere are some tips for incorporating personal stories into your captions:\n\n1. **Keep it brief:** Remember to keep your caption concise, so try to keep your story brief and to the point.\n2. **Make it relevant:** Ensure your story is relevant to the content of your post and the message you're trying to convey.\n3. **Be authentic:** Only share stories that are true and authentic to your experience. Your audience will be able to tell if you're being insincere.\n4. **Use a conversational tone:** Write your caption in a conversational tone, as if you're sharing your story with a friend.\n\nHere's an example of a caption that includes a personal story:\n\n\"🌱 I still remember the first time I realized the impact of single-use plastics on our environment. I was on a beach vacation and saw the amount of trash washing up on the shore. It was heartbreaking. 💔 From that moment on, I made a commitment to reduce my plastic use and live more sustainably. 💚 Today, I want to share one of my favorite eco-friendly hacks with you: reusable straws! 🎉 What's one way you've made a change in your daily life to reduce waste? Share in the comments below! 💬 #sustainability #ecofriendly #reducingwaste\"\n\nBy sharing your personal story, you're making your content more relatable, engaging, and memorable. Give it a try, @sustainable_sarah, and see how it resonates with your audience!"
+    ]
+  }
+]

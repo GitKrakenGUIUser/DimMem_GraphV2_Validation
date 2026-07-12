@@ -1,0 +1,186 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:preference_criteria"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_preferred_genre",
+        "query": "user preferred genre",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "user_mood",
+        "query": "user mood",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "recently_watched",
+        "query": "recently watched shows or movies",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user preferred genre",
+      "user mood",
+      "recently watched shows or movies"
+    ],
+    "output_constraints": [
+      "recommend a specific show or movie title"
+    ],
+    "reason": "Recommendation grounded in user preferences; need genre, mood, and recently watched to avoid repetition."
+  },
+  "base_candidate": {
+    "answer": "Based on your interest in ancient Egypt and your enjoyment of John Mulaney's storytelling, I recommend the documentary series 'Ancient Egypt: Life and Death in the Valley of the Kings' (BBC, 2016) for tonight. It combines your fascination with ancient Egypt with strong narrative storytelling.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c324c5615c5f7b531074",
+      "m_d28fd3e6a863f4779210"
+    ],
+    "support_source_ids": [
+      163
+    ],
+    "required_slots": [
+      {
+        "name": "recommendation",
+        "value": "Ancient Egypt: Life and Death in the Valley of the Kings",
+        "support_memory_ids": [
+          "m_c324c5615c5f7b531074"
+        ],
+        "support_source_ids": [
+          163
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.8,
+    "reasoning_summary": "User has a strong interest in ancient Egypt (memory rank 7) and enjoys storytelling in comedy specials like John Mulaney's (memory rank 18). The recommended documentary combines both interests."
+  },
+  "specialist_candidate": {
+    "answer": "Based on your interests, I recommend watching a documentary about ancient Egypt, such as 'Ancient Egypt: Life and Death in the Valley of the Kings' (BBC, 2016).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c324c5615c5f7b531074"
+    ],
+    "support_source_ids": [
+      163
+    ],
+    "required_slots": [
+      {
+        "name": "user_preferred_genre",
+        "value": "documentary, ancient Egypt",
+        "support_memory_ids": [
+          "m_c324c5615c5f7b531074"
+        ],
+        "support_source_ids": [
+          163
+        ]
+      },
+      {
+        "name": "user_mood",
+        "value": "interested in learning",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "recently_watched",
+        "value": "none mentioned",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "interested in",
+        "object": "ancient Egypt",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_c324c5615c5f7b531074"
+        ],
+        "support_source_ids": [
+          163
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "reasoning_summary": "User expressed strong interest in ancient Egypt (memory rank 7, source 163). No other genre or mood preferences are available. The recommendation is grounded in that interest, using a documentary from the assistant's earlier reply."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies preference_criteria contract",
+  "compact_source_ids": [
+    196,
+    163,
+    205,
+    169,
+    44,
+    203,
+    176,
+    48,
+    142,
+    31,
+    121,
+    12,
+    143,
+    201,
+    129,
+    67,
+    208,
+    124,
+    123,
+    156,
+    168,
+    202,
+    204,
+    43
+  ],
+  "targeted_source_ids": [
+    30,
+    62,
+    78,
+    106,
+    114,
+    116,
+    117,
+    127,
+    155,
+    163,
+    168,
+    208,
+    77,
+    169
+  ]
+}

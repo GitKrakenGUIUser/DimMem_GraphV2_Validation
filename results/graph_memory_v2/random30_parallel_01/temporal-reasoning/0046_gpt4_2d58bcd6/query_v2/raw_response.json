@@ -1,0 +1,101 @@
+{
+  "question": "Which book did I finish reading first, 'The Hate U Give' or 'The Nightingale'?",
+  "question_date": "2023-05-30T22:18:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user finished reading 'The Hate U Give'",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "The Hate U Give"
+      ],
+      "keywords": [
+        "finished reading",
+        "The Hate U Give"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T22:18:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user finished reading 'The Nightingale'",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "The Nightingale"
+      ],
+      "keywords": [
+        "finished reading",
+        "The Nightingale"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T22:18:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's reading history of books",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "The Hate U Give",
+        "The Nightingale"
+      ],
+      "keywords": [
+        "reading history",
+        "finished",
+        "books"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T22:18:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "reading_list",
+        "completed_books"
+      ],
+      "relation_hints": [
+        "chronological_order"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 2,
+      "missing_slots": [],
+      "confidence": 0.6
+    }
+  ]
+}

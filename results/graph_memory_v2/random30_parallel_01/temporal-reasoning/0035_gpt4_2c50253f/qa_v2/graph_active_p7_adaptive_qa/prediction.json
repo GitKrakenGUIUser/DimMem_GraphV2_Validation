@@ -1,0 +1,79 @@
+{
+  "question_id": "gpt4_2c50253f",
+  "question_type": "temporal-reasoning",
+  "question": "What time do I wake up on Tuesdays and Thursdays?",
+  "question_date": "2023/05/27 (Sat) 19:21",
+  "gold_answer": "6:45 AM",
+  "prediction": "6:45 AM",
+  "support_memory_ids": [
+    "m_666c34dad79983703db0",
+    "m_199b17d52ee77ff7375a"
+  ],
+  "support_source_ids": [
+    212,
+    47
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User's general wake-up time is 7:00 AM (source 47). On Tuesdays and Thursdays, user wakes up 15 minutes earlier (source 212). 7:00 AM minus 15 minutes = 6:45 AM.",
+  "required_slots": [
+    {
+      "name": "wake_up_time",
+      "value": "6:45 AM",
+      "support_memory_ids": [
+        "m_666c34dad79983703db0",
+        "m_199b17d52ee77ff7375a"
+      ],
+      "support_source_ids": [
+        212,
+        47
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:temporal"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "wake_up_time",
+        "query": "wake up time on Tuesdays and Thursdays",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "wake up time on Tuesdays and Thursdays"
+    ],
+    "output_constraints": [
+      "time format HH:MM AM/PM"
+    ],
+    "reason": "The question asks for a specific time on recurring days, which is a current state (profile) fact."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31596,
+    "completion_tokens": 723,
+    "elapsed_seconds": 6.8975183963775635
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "question": "How old will Rachel be when I get married?",
+  "question_date": "2023/05/30",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's marriage date",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "marriage",
+        "date"
+      ],
+      "time_constraint": {
+        "operator": "after",
+        "start": "2023-05-30",
+        "end": "",
+        "raw": "future"
+      },
+      "locations": [],
+      "state_keys": [
+        "marriage_date"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "marriage_date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "Rachel's birth date",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "Rachel"
+      ],
+      "keywords": [
+        "Rachel",
+        "birth date"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30",
+        "raw": "past"
+      },
+      "locations": [],
+      "state_keys": [
+        "birth_date"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "birth_date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "Rachel's age at the user's marriage",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Rachel",
+        "the user"
+      ],
+      "keywords": [
+        "Rachel",
+        "age",
+        "marriage"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when the user gets married"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "marriage_date",
+        "birth_date"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

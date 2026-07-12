@@ -1,0 +1,88 @@
+{
+  "question": "Where did I attend the Imagine Dragons concert?",
+  "question_date": "2023-05-30T18:25:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user attended an Imagine Dragons concert",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Imagine Dragons"
+      ],
+      "keywords": [
+        "Imagine Dragons",
+        "concert"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T18:25:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "location",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's favorite concert venue",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [],
+      "keywords": [
+        "favorite",
+        "concert venue"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "favorite_concert_venue"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.3
+    },
+    {
+      "query_anchor": "the user's recent concert attendance",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [],
+      "keywords": [
+        "concert",
+        "attended"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T18:25:00",
+        "raw": "recent"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "location",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.2
+    }
+  ]
+}

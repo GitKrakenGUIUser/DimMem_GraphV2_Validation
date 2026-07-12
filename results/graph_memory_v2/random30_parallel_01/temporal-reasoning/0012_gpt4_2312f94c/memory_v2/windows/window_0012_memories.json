@@ -1,0 +1,683 @@
+[
+  {
+    "memory_id": "m_90fed3595ee3c318b512",
+    "content": "User wants to get engagement ring resized.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "engagement ring",
+        "resize",
+        "jewelry"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "owner"
+        }
+      ],
+      "topic": "jewelry",
+      "relation": {
+        "subject": "User",
+        "predicate": "has_engagement_ring_to_resize",
+        "object": "true"
+      },
+      "state_key": "user.engagement_ring_resize",
+      "state_value": "needs resizing",
+      "state_status": "planned",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "85a49fe0_2",
+      "session_index": 28,
+      "source_ids": [
+        148
+      ],
+      "source_uids": [
+        "s0028u0005"
+      ],
+      "source_times": [
+        "2023-03-15T08:53:02.500000"
+      ],
+      "source_role": "user",
+      "window_index": 12
+    },
+    "confidence": 1.0,
+    "evidence_span": "I've been meaning to get my engagement ring resized anyway",
+    "assistant_replies": [
+      "Excellent plan! Getting your engagement ring resized is a great opportunity to find a local jeweler who can help you with that and also show you some beautiful peridot necklaces.\n\nFor ring resizing, you'll want to find a jeweler who specializes in custom work, repairs, and resizing. Here are some tips to help you find the right jeweler:\n\n**1. Ask for referrals:**\nAsk friends, family, or coworkers who have had similar work done for recommendations. They can provide valuable insights into the jeweler's work quality, communication, and customer service.\n\n**2. Check online reviews:**\nLook up local jewelers on review platforms like Yelp, Google, or Facebook. Pay attention to the overall rating and read the reviews to get a sense of the jeweler's reputation.\n\n**3. Check for certifications:**\nLook for jewelers who are certified by organizations like the American Gem Society (AGS) or the Gemological Institute of America (GIA). These certifications ensure the jeweler has the necessary expertise and training.\n\n**4. Check their website and social media:**\nVisit the jeweler's website and social media pages to get a sense of their work, services, and style. This can give you an idea of whether they specialize in custom work and resizing.\n\n**5. Make a phone call:**\nCall the jeweler and ask about their experience with ring resizing, their process, and their turnaround time. This will give you an idea of their expertise and communication style.\n\nSome popular types of jewelers who may specialize in ring resizing include:\n\n**1. Independent jewelers:**\nFamily-owned or independent jewelers often have the expertise and flexibility to take on custom work and resizing.\n\n**2. Custom jewelers:**\nJewelers who specialize in custom designs and engagement rings may also offer resizing services.\n\n**3. Repair-oriented jewelers:**\nJewelers who focus on repairs and restoration may have the necessary skills and equipment to resize rings.\n\nWhen you visit the jeweler, be sure to ask questions like:\n\n* What is the process for resizing my ring?\n* How long will it take?\n* What is the cost?\n* Do you offer any warranties or guarantees?\n* Can I see examples of your previous work?\n\nBy doing your research and asking the right questions, you'll be able to find a trustworthy jeweler who can help you with your ring resizing and show you some beautiful peridot necklaces. Good luck!"
+    ]
+  },
+  {
+    "memory_id": "m_399644272eed28e0cd6a",
+    "content": "User wants GPT to act as a Terraform teacher, starting with basics and concise code examples.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "learn Terraform from basics",
+      "keywords": [
+        "Terraform",
+        "teacher",
+        "basics",
+        "code examples"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "learner"
+        }
+      ],
+      "topic": "Terraform learning",
+      "relation": {
+        "subject": "User",
+        "predicate": "wants_to_learn",
+        "object": "Terraform"
+      },
+      "state_key": "user.learning_terraform",
+      "state_value": "active",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_pKsBWQ8_0",
+      "session_index": 29,
+      "source_ids": [
+        150
+      ],
+      "source_uids": [
+        "s0029u0001"
+      ],
+      "source_times": [
+        "2023-03-15T04:17:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 12
+    },
+    "confidence": 1.0,
+    "evidence_span": "i want you to be a Terraform teacher today. you will start with the basics and walk me through how to get started with terraform. show me concise code examples also.",
+    "assistant_replies": [
+      "Sure thing! Terraform is an infrastructure as code (IAC) tool that enables you to manage and provision your infrastructure resources using configuration files written in HashiCorp Configuration Language (HCL).\n\nHere's how to get started with Terraform:\n\n1. Install Terraform: You can download Terraform from the official website (<https://www.terraform.io/downloads.html>) and install it on your local machine.\n2. Write your first configuration file: Terraform configuration files have the `.tf` extension and consist of Terraform blocks that define the infrastructure resources you want to create. Here's an example that creates an AWS EC2 instance:\n```python\nprovider \"aws\" {\n  region = \"us-west-2\"\n}\n\nresource \"aws_instance\" \"example\" {\n  ami           = \"ami-0c55b159cbfafe1f0\"\n  instance_type = \"t2.micro\"\n}\n```\n3. Initialize Terraform: Once you have written your configuration file, you need to initialize Terraform to download the required plugins and dependencies. Run the following command in your terminal:\n```csharp\nterraform init\n```\n4. Plan your changes: Before you apply your configuration, you need to see what changes Terraform is going to make to your infrastructure. You can do this by running the following command:\n```\nterraform plan\n```\n5. Apply your changes: If the plan looks good, you can apply the changes to your infrastructure by running the following command:\n```\nterraform apply\n```\nThat's it! You've just created your first EC2 instance using Terraform. You can now repeat the process to create more resources and manage them using Terraform.\n\nI hope this helps! Let me know if you have any questions."
+    ]
+  },
+  {
+    "memory_id": "m_db6916474e8a9b89415f",
+    "content": "User encountered error: no AWS profile activated.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-15T04:17:01",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Terraform",
+        "AWS profile",
+        "error"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "user"
+        }
+      ],
+      "topic": "Terraform error",
+      "relation": {
+        "subject": "Terraform",
+        "predicate": "complained_about",
+        "object": "missing AWS profile"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_pKsBWQ8_0",
+      "session_index": 29,
+      "source_ids": [
+        151
+      ],
+      "source_uids": [
+        "s0029u0002"
+      ],
+      "source_times": [
+        "2023-03-15T04:17:01"
+      ],
+      "source_role": "user",
+      "window_index": 12
+    },
+    "confidence": 1.0,
+    "evidence_span": "it's complaining that i don't have aws profile activated",
+    "assistant_replies": [
+      "You will need to have an AWS profile set up and activated on your local machine in order to use the AWS provider in Terraform.\n\nYou can set up an AWS profile by creating a `~/.aws/credentials` file with the following format:\n```makefile\n[profile_name]\naws_access_key_id = YOUR_ACCESS_KEY\naws_secret_access_key = YOUR_SECRET_KEY\n```\nReplace `profile_name` with the name you want to use for your profile and `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` with your actual AWS access key and secret key, respectively.\n\nOnce you have created the `credentials` file, you can activate your profile by setting the `AWS_PROFILE` environment variable:\n```javascript\nexport AWS_PROFILE=profile_name\n```\nYou should then be able to run Terraform without encountering the error you mentioned."
+    ]
+  },
+  {
+    "memory_id": "m_aea433f0a017780a4ffa",
+    "content": "User resolved AWS profile issue and wants to continue Terraform lesson.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-15T04:17:01.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "AWS profile",
+        "resolved",
+        "continue lesson"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "user"
+        }
+      ],
+      "topic": "Terraform learning",
+      "relation": {
+        "subject": "User",
+        "predicate": "resolved_issue",
+        "object": "AWS profile"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_pKsBWQ8_0",
+      "session_index": 29,
+      "source_ids": [
+        152
+      ],
+      "source_uids": [
+        "s0029u0003"
+      ],
+      "source_times": [
+        "2023-03-15T04:17:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 12
+    },
+    "confidence": 1.0,
+    "evidence_span": "alright i got that working. continue your lesson.",
+    "assistant_replies": [
+      "Awesome! You're making great progress.\n\nNext, let's talk about state management in Terraform. Terraform maintains a state file that tracks the resources it creates and their current state. This state file is used by Terraform to determine what changes need to be made to your infrastructure during each plan and apply operation.\n\nBy default, Terraform stores the state file locally on your machine, but it's often recommended to use a remote state backend instead, such as AWS S3. This way, you can ensure that your state file is safe and that multiple people working on the same infrastructure can access the same state information.\n\nHere's an example of how you can configure a remote state backend in Terraform:\n```vbnet\nterraform {\n  backend \"s3\" {\n    bucket = \"my-terraform-state\"\n    key    = \"state.tfstate\"\n    region = \"us-west-2\"\n  }\n}\n```\nThis example uses the S3 backend to store the state file in a bucket named `my-terraform-state` in the `us-west-2` region. The key is set to `state.tfstate`, but you can choose any name you like.\n\nNext, you need to run `terraform init` to initialize the backend and migrate your state to the remote backend. After that, Terraform will automatically use the remote backend for all future operations.\n\nI hope this gives you a good understanding of state management in Terraform. Let me know if you have any questions."
+    ]
+  },
+  {
+    "memory_id": "m_879b3dea5a7ea7a96a28",
+    "content": "User wants to work on Terraform modules.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "learn Terraform modules",
+      "keywords": [
+        "Terraform",
+        "modules",
+        "learn"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "learner"
+        }
+      ],
+      "topic": "Terraform modules",
+      "relation": {
+        "subject": "User",
+        "predicate": "wants_to_learn",
+        "object": "Terraform modules"
+      },
+      "state_key": "user.terraform_learning_topic",
+      "state_value": "modules",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_pKsBWQ8_0",
+      "session_index": 29,
+      "source_ids": [
+        154
+      ],
+      "source_uids": [
+        "s0029u0005"
+      ],
+      "source_times": [
+        "2023-03-15T04:17:02.500000"
+      ],
+      "source_role": "user",
+      "window_index": 12
+    },
+    "confidence": 1.0,
+    "evidence_span": "now let's work on modules",
+    "assistant_replies": [
+      "Definitely! Modules are a way to organize your Terraform code and promote code reusability. A module is a collection of Terraform resources that can be combined and reused as a single unit.\n\nHere's a simple example of how you can create a module in Terraform:\n```javascript\nmodule \"web_server\" {\n  source = \"./web_server_module\"\n\n  instance_type = \"t2.micro\"\n}\n```\nIn this example, the `module` block declares a module named `web_server`. The `source` argument specifies the path to the directory containing the module code, in this case `./web_server_module`. The `instance_type` argument is passed to the module and can be used within the module code to specify the instance type for the web server.\n\nHere's an example of what the module code in the `./web_server_module` directory might look like:\n```javascript\nprovider \"aws\" {\n  region = \"us-west-2\"\n}\n\nresource \"aws_instance\" \"web_server\" {\n  ami           = \"ami-0c55b159cbfafe1f0\"\n  instance_type = var.instance_type\n}\n```\nIn this example, the module code creates an AWS EC2 instance using the `aws_instance` resource. The instance type is set to the value of the `instance_type` argument passed to the module.\n\nYou can use the module in your Terraform code just like any other resource, and you can even call the same module multiple times with different arguments to create multiple instances of the same resources.\n\nThis is a simple example, but modules can become much more complex and powerful as you work with Terraform. They're a great way to make your Terraform code more organized and reusable."
+    ]
+  },
+  {
+    "memory_id": "m_7cfd059f771205c90f18",
+    "content": "User provided a script about Kimbo Slice and requested analysis of tone and format only, replying with DONE.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-15T09:43:00.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "analyze tone and format",
+      "keywords": [
+        "script",
+        "Kimbo Slice",
+        "tone",
+        "format",
+        "analysis"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "user"
+        },
+        {
+          "name": "Kimbo Slice",
+          "entity_type": "person",
+          "role": "subject"
+        }
+      ],
+      "topic": "script analysis",
+      "relation": {
+        "subject": "User",
+        "predicate": "requested_analysis_of",
+        "object": "Kimbo Slice script"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_jE25Ibo_0",
+      "session_index": 30,
+      "source_ids": [
+        155
+      ],
+      "source_uids": [
+        "s0030u0001"
+      ],
+      "source_times": [
+        "2023-03-15T09:43:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 12
+    },
+    "confidence": 1.0,
+    "evidence_span": "Analyze this Script for TONE and FORMAT only and Reply with DONE only",
+    "assistant_replies": [
+      "DONE"
+    ]
+  },
+  {
+    "memory_id": "m_fd20311304c58e7139a1",
+    "content": "User wants help creating a simple spreadsheet to track sales and expenses for small business.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "track sales and expenses",
+      "keywords": [
+        "spreadsheet",
+        "sales",
+        "expenses",
+        "small business"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "business owner"
+        }
+      ],
+      "topic": "small business finance",
+      "relation": {
+        "subject": "User",
+        "predicate": "needs_help_with",
+        "object": "spreadsheet for sales and expenses"
+      },
+      "state_key": "user.finance_spreadsheet",
+      "state_value": "needs creation",
+      "state_status": "planned",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "00ebfcf5",
+      "session_index": 31,
+      "source_ids": [
+        156
+      ],
+      "source_uids": [
+        "s0031u0001"
+      ],
+      "source_times": [
+        "2023-03-15T05:55:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 12
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm trying to organize my finances for my small business. Can you help me create a simple spreadsheet to track my sales and expenses?",
+    "assistant_replies": [
+      "I'd be happy to help you create a simple spreadsheet to track your sales and expenses for your small business.\n\nHere's a basic template you can use as a starting point:\n\n**Sales Tracker**\n\n| Date | Sales Type | Amount | Description |\n| --- | --- | --- | --- |\n|  |  |  |  |\n\n**Expenses Tracker**\n\n| Date | Category | Amount | Description |\n| --- | --- | --- | --- |\n|  |  |  |  |\n\n** Totals**\n\n|  | Sales | Expenses | Profit/Loss |\n| --- | --- | --- | --- |\n| Total | =SUM(B2:B50) | =SUM(D2:D50) | =B51-D51 |\n\nHere's how to set it up:\n\n1. Create a new spreadsheet in Google Sheets or Microsoft Excel.\n2. Set up the columns as shown above. You can add more columns if you need to track additional information.\n3. In the **Sales Tracker** section:\n\t* Date: Enter the date of each sale.\n\t* Sales Type: Enter the type of sale (e.g., product, service, consulting, etc.).\n\t* Amount: Enter the amount of each sale.\n\t* Description: Enter a brief description of each sale.\n4. In the **Expenses Tracker** section:\n\t* Date: Enter the date of each expense.\n\t* Category: Enter the category of each expense (e.g., rent, supplies, marketing, etc.).\n\t* Amount: Enter the amount of each expense.\n\t* Description: Enter a brief description of each expense.\n5. In the **Totals** section:\n\t* Sales: Use the formula `=SUM(B2:B50)` to calculate the total sales amount.\n\t* Expenses: Use the formula `=SUM(D2:D50)` to calculate the total expenses amount.\n\t* Profit/Loss: Use the formula `=B51-D51` to calculate the profit or loss (sales - expenses).\n\nTips:\n\n* Set up a regular schedule to update your spreadsheet, e.g., daily, weekly, or monthly.\n* Use formulas to calculate totals and percentages to make it easier to analyze your data.\n* Consider adding more columns to track additional information, such as customer names, payment methods, or tax rates.\n* You can also use conditional formatting to highlight important data, such as overdue invoices or high-value sales.\n\nThis is a basic template, and you can customize it to fit your specific business needs. Remember to keep your spreadsheet organized, and don't hesitate to ask if you have any questions or need further assistance!"
+    ]
+  },
+  {
+    "memory_id": "m_3148f2745d5e38344916",
+    "content": "User sold lavender candles at farmers' market last Saturday and wants to calculate profit margin.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-11T00:00:00",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "day",
+        "raw": "last Saturday"
+      },
+      "locations": [
+        "farmers' market"
+      ],
+      "reason": "",
+      "purpose": "calculate profit margin",
+      "keywords": [
+        "lavender candles",
+        "farmers' market",
+        "profit margin"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "seller"
+        },
+        {
+          "name": "lavender candles",
+          "entity_type": "product",
+          "role": "product"
+        }
+      ],
+      "topic": "small business sales",
+      "relation": {
+        "subject": "User",
+        "predicate": "sold",
+        "object": "lavender candles at farmers' market"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "00ebfcf5",
+      "session_index": 31,
+      "source_ids": [
+        157
+      ],
+      "source_uids": [
+        "s0031u0002"
+      ],
+      "source_times": [
+        "2023-03-15T05:55:01"
+      ],
+      "source_role": "user",
+      "window_index": 12
+    },
+    "confidence": 1.0,
+    "evidence_span": "the lavender candles I sold at the farmers' market last Saturday",
+    "assistant_replies": [
+      "Calculating the profit margin for each sale is a great way to understand the profitability of your products. To calculate the profit margin, you'll need to know the selling price and the cost of goods sold (COGS) for each item.\n\nHere's the formula:\n\n**Profit Margin = (Selling Price - COGS) / Selling Price**\n\nLet's use the example of your lavender candles. Let's say you sold 10 lavender candles at the farmers' market last Saturday, and you want to calculate the profit margin for each candle.\n\n**Selling Price:** $15 per candle (the price you sold each candle for)\n**COGS:** $8 per candle (the cost of making each candle, including materials, labor, and overhead)\n\n**Profit Margin Calculation:**\n\nProfit Margin = ($15 - $8) / $15\n= $7 / $15\n= 0.47 or 47%\n\nThis means that for each lavender candle you sold, you made a 47% profit margin.\n\nYou can add a new column to your Sales Tracker to calculate the profit margin for each sale. Here's an updated template:\n\n**Sales Tracker**\n\n| Date | Sales Type | Amount | Description | COGS | Profit Margin |\n| --- | --- | --- | --- | --- | --- |\n| 2023-03-18 | Lavender Candles | $150 | Farmers' Market | $80 | = (B2-C2)/B2 |\n|  |  |  |  |  |  |\n\nIn this example, the formula `= (B2-C2)/B2` calculates the profit margin for each sale, where:\n\n* B2 is the selling price ($150)\n* C2 is the COGS ($80)\n\nYou can copy and paste this formula down the column to calculate the profit margin for each sale.\n\nTips:\n\n* Make sure to update your COGS regularly to reflect changes in material costs, labor rates, or overhead expenses.\n* Consider calculating the profit margin for each product category or sales channel to identify areas for improvement.\n* You can also use the profit margin calculation to set prices for new products or to determine the minimum price you need to charge to break even.\n\nI hope this helps! Let me know if you have any more questions."
+    ]
+  },
+  {
+    "memory_id": "m_c96bcebb21664dd57be1",
+    "content": "User needs a wholesale pricing sheet template for a local boutique owner interested in carrying products.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "prepare for boutique owner",
+      "keywords": [
+        "wholesale pricing sheet",
+        "template",
+        "boutique owner"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "seller"
+        },
+        {
+          "name": "local boutique owner",
+          "entity_type": "person",
+          "role": "potential buyer"
+        }
+      ],
+      "topic": "wholesale pricing",
+      "relation": {
+        "subject": "User",
+        "predicate": "needs_template_for",
+        "object": "wholesale pricing sheet"
+      },
+      "state_key": "user.wholesale_pricing_sheet",
+      "state_value": "needs template",
+      "state_status": "planned",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "00ebfcf5",
+      "session_index": 31,
+      "source_ids": [
+        158
+      ],
+      "source_uids": [
+        "s0031u0003"
+      ],
+      "source_times": [
+        "2023-03-15T05:55:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 12
+    },
+    "confidence": 1.0,
+    "evidence_span": "do you have a template for a wholesale pricing sheet? I need to prepare one for a local boutique owner who's interested in carrying my products.",
+    "assistant_replies": [
+      "I've got you covered! A wholesale pricing sheet is an essential tool for communicating your pricing and product information to retailers. Here's a basic template you can use as a starting point:\n\n**Wholesale Pricing Sheet Template**\n\n**Company Information**\n\n* Company Name: [Your Company Name]\n* Contact Information: [Your Name, Email, Phone Number, Website]\n\n**Product Information**\n\n| Product | Wholesale Price | MSRP | Minimum Order Quantity | Packaging |\n| --- | --- | --- | --- | --- |\n| Lavender Candles | $10.00 | $15.00 | 12 | 12-count case |\n| Soy Wax Melts | $8.00 | $12.00 | 24 | 24-count bag |\n| Handmade Soaps | $12.00 | $18.00 | 18 | 18-count box |\n\n**Wholesale Terms and Conditions**\n\n* Payment Terms: Net 30 days\n* Shipping: FOB [Your Location]\n* Returns: Accepted within 30 days with prior approval\n* Damaged Goods: Replacements or credits issued upon receipt of damaged goods\n\n**Ordering Information**\n\n* Orders can be placed via email, phone, or online portal\n* Lead time: [insert lead time, e.g., 2-3 weeks]\n* Shipping estimates: [insert shipping estimates, e.g., 3-5 business days]\n\n**Additional Information**\n\n* Product images and descriptions available upon request\n* Product packaging and labeling can be customized for retailers\n* We offer [insert any additional services, e.g., product training, in-store displays]\n\nThis template provides the essential information retailers need to make informed purchasing decisions. You can customize it to fit your specific business needs and product offerings.\n\nTips:\n\n* Make sure to clearly outline your wholesale terms and conditions to avoid any misunderstandings.\n* Consider offering different pricing tiers or discounts for larger orders to incentivize retailers to purchase more products.\n* Include high-quality product images and detailed product descriptions to help retailers sell your products effectively.\n* Be prepared to provide additional information or answer questions from retailers, such as product certifications, ingredients, or packaging materials.\n\nI hope this template helps you create a professional and effective wholesale pricing sheet for the boutique owner!"
+    ]
+  },
+  {
+    "memory_id": "m_37d1ebcf6de3a3e7d217",
+    "content": "User asks how to calculate wholesale price, wondering if halving retail price is correct.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "determine wholesale price",
+      "keywords": [
+        "wholesale price",
+        "calculate",
+        "halve retail"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "seller"
+        }
+      ],
+      "topic": "wholesale pricing",
+      "relation": {
+        "subject": "User",
+        "predicate": "asks_about",
+        "object": "wholesale price calculation"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "uncertain"
+    },
+    "provenance": {
+      "session_id": "00ebfcf5",
+      "session_index": 31,
+      "source_ids": [
+        159
+      ],
+      "source_uids": [
+        "s0031u0004"
+      ],
+      "source_times": [
+        "2023-03-15T05:55:02"
+      ],
+      "source_role": "user",
+      "window_index": 12
+    },
+    "confidence": 1.0,
+    "evidence_span": "what's the best way to calculate the wholesale price for my products? Should I just halve the retail price?",
+    "assistant_replies": [
+      "Calculating the wholesale price is a crucial step in creating a profitable and competitive pricing strategy.\n\nHalving the retail price is a common approach, but it's not always the best method. Here's a more nuanced approach to calculate your wholesale price:\n\n**Wholesale Price Calculation Formula:**\n\nWholesale Price = (Total Cost + Desired Profit Margin) / (1 - Desired Gross Margin Percentage)\n\nLet's break it down:\n\n* **Total Cost:** This includes the cost of goods sold (COGS), including materials, labor, overhead, and any other expenses directly related to producing your product.\n* **Desired Profit Margin:** This is the amount you want to earn as profit from each wholesale sale. A higher profit margin means more revenue for your business, but it may also make your products less competitive.\n* **Desired Gross Margin Percentage:** This is the percentage of revenue that you want to retain as gross profit. A higher gross margin percentage means more revenue is available for operating expenses, marketing, and other business needs.\n\n**Example:**\n\nLet's say you want to calculate the wholesale price for your lavender candles.\n\n* **Total Cost:** $8 per candle (COGS)\n* **Desired Profit Margin:** $2 per candle (25% of $8)\n* **Desired Gross Margin Percentage:** 50% (you want to retain 50% of revenue as gross profit)\n\nWholesale Price = ($8 + $2) / (1 - 0.5) = $10.00\n\nIn this example, your wholesale price would be $10.00 per candle.\n\n**Why not just halve the retail price?**\n\nHalving the retail price might result in a wholesale price that's too low, leaving you with slim profit margins or even losses. By using the formula above, you can ensure you're earning a fair profit margin while still being competitive in the market.\n\n**Tips:**\n\n* Research your competition to determine a competitive wholesale price range for your products.\n* Consider offering different wholesale pricing tiers or discounts for larger orders to incentivize retailers to purchase more products.\n* Regularly review and adjust your wholesale prices as your business costs, market conditions, and competition change.\n\nI hope this helps you calculate your wholesale prices effectively!"
+    ]
+  }
+]

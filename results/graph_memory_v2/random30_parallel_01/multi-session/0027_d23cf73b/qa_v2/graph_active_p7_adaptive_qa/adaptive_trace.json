@@ -1,0 +1,237 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "cuisine_events",
+        "query": "cuisines learned to cook or tried out in the past few months",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "cuisines learned to cook or tried out in the past few months"
+    ],
+    "output_constraints": [
+      "count of distinct cuisines"
+    ],
+    "reason": "The question asks for a count of distinct cuisines learned or tried in the past few months, requiring retrieval of relevant events and counting distinct cuisine types."
+  },
+  "base_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8148708b1d662b2a6be0",
+      "m_f25feb300a6e2053ac63",
+      "m_d345c51341abc9bb53f8",
+      "m_dd44015133834e17819b",
+      "m_f207b4dc2f8643bb03bc"
+    ],
+    "support_source_ids": [
+      102,
+      222,
+      167,
+      236,
+      235
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Ethiopian",
+        "Korean",
+        "Indian",
+        "Vegan",
+        "Fermentation (sauerkraut/kimchi)"
+      ],
+      "unit": "cuisines",
+      "result": "5"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "From memories and source turns within the past few months (Feb 28 to May 30, 2023), the user tried Ethiopian cuisine (source 102), Korean bibimbap (source 222), learned Indian cuisine (source 167), attended a vegan cuisine class (source 236), and attended a fermentation workshop making sauerkraut and kimchi (source 235). These represent 5 distinct cuisines: Ethiopian, Korean, Indian, Vegan, and Fermented foods (Korean/European)."
+  },
+  "specialist_candidate": {
+    "answer": "4",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8148708b1d662b2a6be0",
+      "m_f25feb300a6e2053ac63",
+      "m_dd44015133834e17819b",
+      "m_f207b4dc2f8643bb03bc"
+    ],
+    "support_source_ids": [
+      102,
+      222,
+      236,
+      235
+    ],
+    "required_slots": [
+      {
+        "name": "cuisine_events",
+        "value": "Ethiopian, Korean, vegan, fermentation (sauerkraut/kimchi)",
+        "support_memory_ids": [
+          "m_8148708b1d662b2a6be0",
+          "m_f25feb300a6e2053ac63",
+          "m_dd44015133834e17819b",
+          "m_f207b4dc2f8643bb03bc"
+        ],
+        "support_source_ids": [
+          102,
+          222,
+          236,
+          235
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Ethiopian",
+        "Korean",
+        "vegan",
+        "fermentation (sauerkraut/kimchi)"
+      ],
+      "unit": "cuisines",
+      "result": "4"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "tried",
+        "object": "Ethiopian cuisine",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-24T14:34:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_8148708b1d662b2a6be0"
+        ],
+        "support_source_ids": [
+          102
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "tried",
+        "object": "Korean cuisine (bibimbap)",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-29T15:26:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_f25feb300a6e2053ac63"
+        ],
+        "support_source_ids": [
+          222
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "learned to cook",
+        "object": "vegan cuisine (vegan lasagna)",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-30T02:40:02.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_dd44015133834e17819b"
+        ],
+        "support_source_ids": [
+          236
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "learned to cook",
+        "object": "fermented foods (sauerkraut and kimchi)",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-30T02:40:02",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_f207b4dc2f8643bb03bc"
+        ],
+        "support_source_ids": [
+          235
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From the memories, the user tried Ethiopian cuisine (source 102), tried Korean bibimbap (source 222), learned vegan cuisine (source 236), and learned fermentation making sauerkraut/kimchi (source 235). These are four distinct cuisines: Ethiopian, Korean, vegan, and fermented foods. All events occurred within the past few months relative to the question date (2023/05/30).",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist candidate correctly excludes 'Indian cuisine' (source 167) which is not within the past few months (event date 2023-02-28 is more than 3 months before question date 2023-05-30). Compact candidate includes it, overcounting. Specialist also provides deterministic calculation and fills required slots.",
+  "compact_source_ids": [
+    222,
+    172,
+    31,
+    236,
+    102,
+    225,
+    32,
+    167,
+    220,
+    166,
+    33,
+    235,
+    104,
+    237,
+    10,
+    170,
+    232,
+    103,
+    224,
+    221,
+    219,
+    223,
+    226,
+    34
+  ],
+  "targeted_source_ids": [
+    49,
+    59,
+    82,
+    102,
+    127,
+    167,
+    171,
+    184,
+    222,
+    230,
+    235,
+    239,
+    183,
+    185,
+    223,
+    231,
+    238,
+    240
+  ]
+}

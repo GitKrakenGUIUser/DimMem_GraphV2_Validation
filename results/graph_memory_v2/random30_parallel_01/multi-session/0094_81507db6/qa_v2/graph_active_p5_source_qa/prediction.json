@@ -1,0 +1,81 @@
+{
+  "question_id": "81507db6",
+  "question_type": "multi-session",
+  "question": "How many graduation ceremonies have I attended in the past three months?",
+  "question_date": "2023/07/21 (Fri) 23:33",
+  "gold_answer": "3",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_ee98828d389262062ff4",
+    "m_9dad06dd132d07e4e0d3"
+  ],
+  "support_source_ids": [
+    157,
+    77
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Two graduation ceremonies attended within the past three months: Rachel's master's degree graduation (about two weeks before July 21, 2023) and Emma's preschool graduation (about two months before July 21, 2023).",
+  "required_slots": [
+    {
+      "name": "count",
+      "value": "2",
+      "support_memory_ids": [
+        "m_ee98828d389262062ff4",
+        "m_9dad06dd132d07e4e0d3"
+      ],
+      "support_source_ids": [
+        157,
+        77
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Rachel's master's degree graduation ceremony",
+      "Emma's preschool graduation"
+    ],
+    "unit": "ceremonies",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    77,
+    235,
+    149,
+    42,
+    8,
+    110,
+    162,
+    157,
+    166,
+    23,
+    31,
+    175,
+    67,
+    159,
+    161,
+    253,
+    145,
+    158,
+    78,
+    167,
+    43,
+    24
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.279999999999999,
+    5.279999999999999
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 79956,
+    "completion_tokens": 752,
+    "elapsed_seconds": 9.797700881958008
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "question": "How many pieces of jewelry did I acquire in the last two months?",
+  "question_date": "2023-05-30T15:43:00",
+  "hypotheses": [
+    {
+      "query_anchor": "jewelry acquisitions by the user in the last two months",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "jewelry"
+      ],
+      "keywords": [
+        "acquire",
+        "jewelry",
+        "purchase",
+        "receive"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-03-30T00:00:00",
+        "end": "2023-05-30T15:43:00",
+        "raw": "last two months"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "user's jewelry collection count",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "jewelry"
+      ],
+      "keywords": [
+        "jewelry",
+        "collection",
+        "count"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-05-30",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "jewelry_count"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "recent jewelry acquisitions by the user",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "jewelry"
+      ],
+      "keywords": [
+        "acquire",
+        "jewelry",
+        "recent"
+      ],
+      "time_constraint": {
+        "operator": "after",
+        "start": "2023-03-30T00:00:00",
+        "end": "",
+        "raw": "last two months"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "question_id": "bb7c3b45",
+  "question_type": "multi-session",
+  "question": "How much did I save on the Jimmy Choo heels?",
+  "question_date": "2023/05/30 (Tue) 23:31",
+  "gold_answer": "$300",
+  "prediction": "300",
+  "support_memory_ids": [
+    "m_a8eb775236f68ffad3ca",
+    "m_7b416d5560ea76d2c594"
+  ],
+  "support_source_ids": [
+    221,
+    78
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Original retail price $500 (memory m_a8eb775236f68ffad3ca, source 221) minus purchase price $200 (memory m_7b416d5560ea76d2c594, source 78) equals $300 saved.",
+  "required_slots": [
+    {
+      "name": "original_price",
+      "value": "500",
+      "support_memory_ids": [
+        "m_a8eb775236f68ffad3ca"
+      ],
+      "support_source_ids": [
+        221
+      ]
+    },
+    {
+      "name": "purchase_price",
+      "value": "200",
+      "support_memory_ids": [
+        "m_7b416d5560ea76d2c594"
+      ],
+      "support_source_ids": [
+        78
+      ]
+    },
+    {
+      "name": "savings_amount",
+      "value": "300",
+      "support_memory_ids": [
+        "m_a8eb775236f68ffad3ca",
+        "m_7b416d5560ea76d2c594"
+      ],
+      "support_source_ids": [
+        221,
+        78
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "other",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "dollars",
+    "result": "300"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    78,
+    79,
+    83,
+    221,
+    52,
+    3,
+    236,
+    220,
+    21,
+    141,
+    182,
+    25,
+    81,
+    82,
+    123,
+    80,
+    222,
+    237,
+    219
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    3.8000000000000003,
+    3.8000000000000003
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 69827,
+    "completion_tokens": 903,
+    "elapsed_seconds": 15.151931285858154
+  }
+}

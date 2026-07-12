@@ -1,0 +1,114 @@
+{
+  "question": "How many years older am I than when I graduated from college?",
+  "question_date": "2023-05-30T23:37:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's current age",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "current age",
+        "age now"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-05-30",
+        "end": "2023-05-30",
+        "raw": "now"
+      },
+      "locations": [],
+      "state_keys": [
+        "age"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "current_age"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's age at college graduation",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "age",
+        "college graduation",
+        "graduation year"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when I graduated from college"
+      },
+      "locations": [],
+      "state_keys": [
+        "age",
+        "graduation_year"
+      ],
+      "relation_hints": [
+        "same_person"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "graduation_year",
+        "current_age"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's age difference between now and college graduation",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "years older",
+        "age difference",
+        "since graduation"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "",
+        "end": "2023-05-30",
+        "raw": "from graduation to now"
+      },
+      "locations": [],
+      "state_keys": [
+        "age",
+        "graduation_year"
+      ],
+      "relation_hints": [
+        "difference"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "graduation_year",
+        "current_age"
+      ],
+      "confidence": 0.7
+    }
+  ]
+}

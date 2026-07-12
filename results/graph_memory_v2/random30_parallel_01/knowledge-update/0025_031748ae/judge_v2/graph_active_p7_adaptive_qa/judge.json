@@ -1,0 +1,102 @@
+{
+  "question_id": "031748ae",
+  "question_type": "knowledge-update",
+  "question": "How many engineers do I lead when I just started my new role as Senior Software Engineer? How many engineers do I lead now?",
+  "question_date": "2023/11/10 (Fri) 04:20",
+  "gold_answer": "When you just started your new role as Senior Software Engineer, you led 4 engineers. Now, you lead 5 engineers",
+  "prediction": "When I started as Senior Software Engineer, I led 4 engineers. Now I lead 5 engineers.",
+  "support_memory_ids": [
+    "m_01839a4e1936f85624dd",
+    "m_365f720d4b92a7e94da2"
+  ],
+  "support_source_ids": [
+    6,
+    34
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Source 6 (2023-05-11) states user leads 4 engineers as Senior Software Engineer. Source 34 (2023-10-24) states user leads a team of five engineers. Both are asserted facts. The question asks for count at start and now. The start count is 4, the current count is 5.",
+  "required_slots": [
+    {
+      "name": "team_size_at_start",
+      "value": 4,
+      "support_memory_ids": [
+        "m_01839a4e1936f85624dd"
+      ],
+      "support_source_ids": [
+        6
+      ]
+    },
+    {
+      "name": "team_size_now",
+      "value": 5,
+      "support_memory_ids": [
+        "m_365f720d4b92a7e94da2"
+      ],
+      "support_source_ids": [
+        34
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "none",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "team_size_at_start",
+        "query": "team size when started as Senior Software Engineer",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "team_size_now",
+        "query": "current team size as Senior Software Engineer",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "team size when started as Senior Software Engineer",
+      "current team size as Senior Software Engineer"
+    ],
+    "output_constraints": [
+      "answer must include both numbers"
+    ],
+    "reason": "The question asks for two separate counts: one at the start of the role and one now. Both are state values that can be retrieved directly from memory. No composition or bridging needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32533,
+    "completion_tokens": 849,
+    "elapsed_seconds": 11.431848764419556
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer in meaning and numbers.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 186,
+    "completion_tokens": 26,
+    "elapsed_seconds": 0.8024685382843018
+  }
+}

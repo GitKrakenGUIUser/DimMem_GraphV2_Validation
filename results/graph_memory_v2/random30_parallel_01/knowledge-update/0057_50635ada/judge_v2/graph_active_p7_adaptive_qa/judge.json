@@ -1,0 +1,119 @@
+{
+  "question_id": "50635ada",
+  "question_type": "knowledge-update",
+  "question": "What was my previous frequent flyer status on United Airlines before I got the current status?",
+  "question_date": "2023/06/29 (Thu) 04:09",
+  "gold_answer": "Premier Silver",
+  "prediction": "Premier Silver",
+  "support_memory_ids": [
+    "m_7c50681107f4b578243b",
+    "m_afa3913a0942ce02a7bd"
+  ],
+  "support_source_ids": [
+    103,
+    232
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User stated Premier Silver status on 2022-09-16 (source 103) and later stated Premier Gold status on 2023-05-30 (source 232). Since the question date is 2023/06/29, the current status is Premier Gold, and the previous status before that is Premier Silver.",
+  "required_slots": [
+    {
+      "name": "current_status",
+      "value": "Premier Gold",
+      "support_memory_ids": [
+        "m_afa3913a0942ce02a7bd"
+      ],
+      "support_source_ids": [
+        232
+      ]
+    },
+    {
+      "name": "status_change_date",
+      "value": "2023-05-30T08:58:01",
+      "support_memory_ids": [
+        "m_afa3913a0942ce02a7bd"
+      ],
+      "support_source_ids": [
+        232
+      ]
+    },
+    {
+      "name": "previous_status",
+      "value": "Premier Silver",
+      "support_memory_ids": [
+        "m_7c50681107f4b578243b"
+      ],
+      "support_source_ids": [
+        103
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "current_status",
+        "query": "current frequent flyer status on United Airlines",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "status_change_date",
+        "query": "date when current frequent flyer status was obtained on United Airlines",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "previous_status",
+        "query": "previous frequent flyer status on United Airlines before current status",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "current frequent flyer status on United Airlines",
+      "date when current frequent flyer status was obtained on United Airlines",
+      "previous frequent flyer status on United Airlines before current status"
+    ],
+    "output_constraints": [
+      "answer must be a single status name (e.g., Premier Silver, Premier Gold)"
+    ],
+    "reason": "The question asks for the previous status before the current one, requiring resolution of the current status and its acquisition date to infer the prior state."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32959,
+    "completion_tokens": 960,
+    "elapsed_seconds": 10.341073751449585
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 137,
+    "completion_tokens": 22,
+    "elapsed_seconds": 1.0616109371185303
+  }
+}

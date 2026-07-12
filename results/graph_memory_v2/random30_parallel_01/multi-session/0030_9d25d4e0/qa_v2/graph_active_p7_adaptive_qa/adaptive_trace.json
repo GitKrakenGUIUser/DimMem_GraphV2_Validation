@@ -1,0 +1,104 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "count_distinct",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "jewelry acquisition events",
+        "query": "jewelry acquisitions between 2023-03-30 and 2023-05-30",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "jewelry acquisitions between 2023-03-30 and 2023-05-30"
+    ],
+    "output_constraints": [
+      "count of distinct jewelry items acquired in the time range"
+    ],
+    "reason": "The question asks for a count of jewelry acquisitions in the last two months, which is a relative time range. The answer requires counting distinct acquisition events or items within that period."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source explicitly states the total number of jewelry pieces acquired in the last two months. Only individual acquisitions are mentioned (silver necklace, emerald earrings, engagement ring, inherited estate pieces), but the total count is not provided."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "confidence": 0.0,
+    "grounding_failure": "concrete answer has no valid support IDs",
+    "answerable": false
+  },
+  "choice": "base",
+  "choice_reason": "same answer; preserve compact candidate",
+  "compact_source_ids": [
+    180,
+    178,
+    162,
+    182,
+    181,
+    34,
+    39,
+    36,
+    38,
+    75,
+    177,
+    164,
+    179,
+    163,
+    35,
+    37
+  ],
+  "targeted_source_ids": [
+    21,
+    34,
+    36,
+    38,
+    39,
+    63,
+    80,
+    136,
+    162,
+    165,
+    178,
+    220,
+    35,
+    37,
+    163
+  ]
+}

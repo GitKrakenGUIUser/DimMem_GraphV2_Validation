@@ -1,0 +1,75 @@
+{
+  "question_id": "e3fc4d6e",
+  "question_type": "single-session-assistant",
+  "question": "I wanted to follow up on our previous conversation about the fusion breakthrough at Lawrence Livermore National Laboratory. Can you remind me who is the President's Chief Advisor for Science and Technology mentioned in the article?",
+  "question_date": "2023/05/30 (Tue) 22:22",
+  "gold_answer": "Dr. Arati Prabhakar",
+  "prediction": "Dr. Arati Prabhakar",
+  "support_memory_ids": [
+    "m_da3a7ea366f105473f60"
+  ],
+  "support_source_ids": [
+    161
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The assistant's prior reply (source 161) explicitly lists 'Dr. Arati Prabhakar' as 'President's Chief Advisor for Science and Technology' in the context of the fusion breakthrough article. Memory m_da3a7ea366f105473f60 also records this entity with role 'Chief Advisor for Science and Technology'. Therefore, the answer is directly recalled.",
+  "required_slots": [
+    {
+      "name": "person name",
+      "value": "Dr. Arati Prabhakar",
+      "support_memory_ids": [
+        "m_da3a7ea366f105473f60"
+      ],
+      "support_source_ids": [
+        161
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "person name",
+        "query": "President's Chief Advisor for Science and Technology mentioned in article about fusion breakthrough at Lawrence Livermore National Laboratory",
+        "semantic_type": "entity",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "President's Chief Advisor for Science and Technology fusion breakthrough Lawrence Livermore National Laboratory"
+    ],
+    "output_constraints": [
+      "single person name"
+    ],
+    "reason": "The user asks to be reminded of a name mentioned in a previous conversation about a specific article. This requires recalling the assistant's own prior reply, so the answer contract is assistant_recall."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 38820,
+    "completion_tokens": 481,
+    "elapsed_seconds": 6.660869121551514
+  }
+}

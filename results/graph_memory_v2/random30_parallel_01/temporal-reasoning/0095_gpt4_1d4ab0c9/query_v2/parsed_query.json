@@ -1,0 +1,102 @@
+{
+  "question": "How many days passed between the day I started watering my herb garden and the day I harvested my first batch of fresh herbs?",
+  "question_date": "2023-04-18",
+  "hypotheses": [
+    {
+      "query_anchor": "the user started watering their herb garden",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "herb garden"
+      ],
+      "keywords": [
+        "started watering",
+        "herb garden"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-04-18",
+        "raw": "before question date"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "start date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user harvested their first batch of fresh herbs",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "herb garden",
+        "fresh herbs"
+      ],
+      "keywords": [
+        "harvested",
+        "first batch",
+        "fresh herbs"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-04-18",
+        "raw": "before question date"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "harvest date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's herb garden watering and harvesting timeline",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "herb garden"
+      ],
+      "keywords": [
+        "watering",
+        "harvesting",
+        "herb garden"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "",
+        "end": "",
+        "raw": "between start watering and first harvest"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "temporal_sequence"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "start date",
+        "harvest date"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

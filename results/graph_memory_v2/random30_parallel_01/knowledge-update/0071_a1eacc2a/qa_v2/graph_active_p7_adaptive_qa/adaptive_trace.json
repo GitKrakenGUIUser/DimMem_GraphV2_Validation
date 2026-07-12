@@ -1,0 +1,199 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "count_distinct",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "writing_regularly_start_date",
+        "query": "When did I start writing regularly?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "short_stories_list",
+        "query": "What short stories have I written?",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I start writing regularly?",
+      "What short stories have I written?"
+    ],
+    "output_constraints": [
+      "Answer must be a non-negative integer."
+    ],
+    "reason": "The question asks for a count of short stories written since a specific start date. This requires first retrieving the start date (state_resolution) and then counting distinct short story events after that date (count_distinct). Composition is needed to combine the two pieces of evidence."
+  },
+  "base_candidate": {
+    "answer": "7",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_396676e93ceb05fc26e1"
+    ],
+    "support_source_ids": [
+      159
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user stated on 2023-05-30 that they have been writing regularly for three months and completed 7 short stories. This is the most recent and specific count. The earlier mention of 4 stories (2023-05-23) is superseded. No later updates indicate additional completed stories, so the count remains 7."
+  },
+  "specialist_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_396676e93ceb05fc26e1",
+      "m_e33b625af13933381d5b"
+    ],
+    "support_source_ids": [
+      159,
+      84
+    ],
+    "required_slots": [
+      {
+        "name": "writing_regularly_start_date",
+        "value": "2023-02-28",
+        "support_memory_ids": [
+          "m_396676e93ceb05fc26e1"
+        ],
+        "support_source_ids": [
+          159
+        ]
+      },
+      {
+        "name": "short_stories_list",
+        "value": "7 short stories completed by 2023-05-30",
+        "support_memory_ids": [
+          "m_396676e93ceb05fc26e1"
+        ],
+        "support_source_ids": [
+          159
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "7 short stories (as of 2023-05-30)"
+      ],
+      "unit": "short stories",
+      "result": "1"
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "started writing regularly",
+        "object": "2023-02-28",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-02-28",
+        "valid_from": "2023-02-28",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_396676e93ceb05fc26e1"
+        ],
+        "support_source_ids": [
+          159
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "has written",
+        "object": "7 short stories",
+        "value": "7",
+        "unit": "short stories",
+        "event_time": "2023-05-30",
+        "valid_from": "2023-05-30",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_396676e93ceb05fc26e1"
+        ],
+        "support_source_ids": [
+          159
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "has written",
+        "object": "4 short stories",
+        "value": "4",
+        "unit": "short stories",
+        "event_time": "2023-05-23",
+        "valid_from": "2023-05-23",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e33b625af13933381d5b"
+        ],
+        "support_source_ids": [
+          84
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-30 that they have been writing regularly for three months (start date ~2023-02-28) and completed 7 short stories. This is the most recent and comprehensive count. The earlier statement of 4 stories (2023-05-23) is subsumed by the later count. No later contradictory evidence exists. Therefore, the answer is 7.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist has deterministic calculation",
+  "compact_source_ids": [
+    84,
+    163,
+    159,
+    83,
+    224,
+    229,
+    226,
+    228,
+    230,
+    204,
+    162,
+    85,
+    50,
+    225,
+    227,
+    160
+  ],
+  "targeted_source_ids": [
+    52,
+    83,
+    84,
+    85,
+    150,
+    151,
+    159,
+    163,
+    164,
+    224,
+    227,
+    229,
+    160,
+    162
+  ]
+}

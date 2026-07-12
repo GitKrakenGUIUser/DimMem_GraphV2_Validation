@@ -1,0 +1,191 @@
+[
+  {
+    "source_id": 16,
+    "source_uid": "s0002u0004",
+    "session_id": "sharegpt_Clr6oyu_0",
+    "timestamp": "2023-01-20T19:17:02",
+    "user_content": "I had the idea for the hook. I would say,\" do you want to experience the game in the best way imaginable? Do you want tools that your favorite YouTubers are using? Or do you simply want to...\" I'm not sure where to go from there or if what I've written is any good",
+    "selection_reasons": [
+      "dense_0.105",
+      "lexical_23.167",
+      "target_rank_6"
+    ]
+  },
+  {
+    "source_id": 32,
+    "source_uid": "s0006u0003",
+    "session_id": "answer_b28f2c7a_1",
+    "timestamp": "2023-02-11T07:00:01.500000",
+    "user_content": "I'm leaning towards Todoist since I already use it for task management, but I want to make sure it can fit into my daily routine. Can you suggest the best way to set reminders for my gym sessions, which I usually go to at 7:00 pm on Mondays, Wednesdays, and Fridays?",
+    "selection_reasons": [
+      "adjacent_to_target_rank_2",
+      "already_in_compact",
+      "dense_0.486",
+      "lexical_25.713",
+      "target_rank_2"
+    ]
+  },
+  {
+    "source_id": 62,
+    "source_uid": "s0011u0001",
+    "session_id": "sharegpt_NYFuCmY_0",
+    "timestamp": "2023-03-01T11:16:00.500000",
+    "user_content": "This is part of a ros package and in the path rospy/src/rospy/topics.py\nclass Subscriber(Topic):\n \"\"\"\n Class for registering as a subscriber to a specified topic, where\n the messages are of a given type.\n \"\"\"\n def \\_\\_init\\_\\_(self, name, data\\_class, callback=None, callback\\_args=None,\n queue\\_size=None, buff\\_size=DEFAULT\\_BUFF\\_SIZE, tcp\\_nodelay=False):\n super(Subscriber, self).\\_\\_init\\_\\_(name, data\\_class, Registration.SUB)\n #add in args that factory cannot pass in\n\n # last person to set these to non-defaults wins, not much way\n # around this\n if queue\\_size is not None:\n self.impl.set\\_queue\\_size(queue\\_size)\n if buff\\_size != DEFAULT\\_BUFF\\_SIZE:\n self.impl.set\\_buff\\_size(buff\\_size)\n\n if callback is not None:\n # #1852\n # it's important that we call add\\_callback so that the\n # callback can be invoked with any latched messages\n self.impl.add\\_callback(callback, callback\\_args)\n # save arguments for unregister\n self.callback = callback\n self.callback\\_args = callback\\_args\n else:\n # initialize fields\n self.callback = self.callback\\_args = None \n if tcp\\_nodelay:\n self.impl.set\\_tcp\\_nodelay(tcp\\_nodelay) \n \nclass \\_SubscriberImpl(\\_TopicImpl):\n \"\"\"\n Underyling L{\\_TopicImpl} implementation for subscriptions.\n \"\"\"\n def \\_\\_init\\_\\_(self, name, data\\_class):\n \n super(\\_SubscriberImpl, self).\\_\\_init\\_\\_(name, data\\_class)\n # client-methods to invoke on new messages. should only modify\n # under lock. This is a list of 2-tuples (fn, args), where\n # args are additional arguments for the callback, or None\n self.callbacks = [] \n self.queue\\_size = Non …[truncated]",
+    "selection_reasons": [
+      "adjacent_to_target_rank_4",
+      "dense_0.077",
+      "lexical_28.716",
+      "target_rank_4"
+    ]
+  },
+  {
+    "source_id": 65,
+    "source_uid": "s0012u0003",
+    "session_id": "ultrachat_458180",
+    "timestamp": "2023-03-01T14:38:01.500000",
+    "user_content": "Wow, that all sounds amazing! I'll definitely have to visit Moffat one day. Do you have any recommendations for the best time of year to go?",
+    "selection_reasons": [
+      "already_in_compact",
+      "dense_0.166",
+      "lexical_14.814",
+      "target_rank_10"
+    ]
+  },
+  {
+    "source_id": 71,
+    "source_uid": "s0013u0004",
+    "session_id": "sharegpt_KhxXaow_0",
+    "timestamp": "2023-03-08T20:38:02",
+    "user_content": "\"The person who mentions OFA has to write an apology letter or email to the other person.\"\n\nThat will not work because we would just use PhraseExpress and not be genuine with our apology letters.\n\n\"The person who mentions OFA has to perform a random act of kindness for someone else.\"\n\nThat will not work because we won't believe each other without proof. Filming would take too mich time and be too complicated.\n\n\"The person who mentions OFA has to donate a small amount of money to a charity or cause that the other person supports.\"\n\nThat will not work because we are too poor.\n\n\"The person who mentions OFA has to go without their favorite snack or treat for a certain amount of time.\"\n\nThat will not work because we can't just start monitoring eachother that close.\n\nAsk me 3-4 questions in order to gather information about the situation. After I have given my answers, suggest solutions or do whatever I say in the next prompt.",
+    "selection_reasons": [
+      "dense_0.118",
+      "lexical_25.321",
+      "target_rank_5"
+    ]
+  },
+  {
+    "source_id": 77,
+    "source_uid": "s0015u0002",
+    "session_id": "sharegpt_dRn7b5l_293",
+    "timestamp": "2023-03-11T06:47:01",
+    "user_content": "next i have created the page for the semester based notes inside the StudIQ project .\nonce the user selects the branch from the Browser page .The User will directed to the home page of Semerters.\nthis page will have all semester button at the left side . the 5th sem will be the home page .therefor the the center of the page contains the subject of the 5Th semester .",
+    "selection_reasons": [
+      "dense_0.024",
+      "lexical_17.486",
+      "target_rank_9"
+    ]
+  },
+  {
+    "source_id": 90,
+    "source_uid": "s0017u0002",
+    "session_id": "sharegpt_5FHWj0a_0",
+    "timestamp": "2023-03-18T20:34:01",
+    "user_content": "simplify this text: he Commonpoint Challenge is similar to a walkathon, but you get to choose your own challenge activity and complete it anywhere, any time between April 1 - April 21, 2023. \n\n100% of all proceeds will provide critical financial support for the programs and services that help our community. It is because of supporters like YOU that we can provide the food, mental health services, employment support, and so much more to our friends and neighbors.\n\nPrizes for the top three fundraisers!",
+    "selection_reasons": [
+      "dense_0.312",
+      "lexical_12.503",
+      "target_rank_8"
+    ]
+  },
+  {
+    "source_id": 91,
+    "source_uid": "s0017u0003",
+    "session_id": "sharegpt_5FHWj0a_0",
+    "timestamp": "2023-03-18T20:34:01.500000",
+    "user_content": "simplify the following text: The Commonpoint Challenge is similar to a walkathon, but you get to choose your own challenge activity and complete it anywhere, any time between April 1 - April 21, 2023. \n\n100% of all proceeds will provide critical financial support for the programs and services that help our community. It is because of supporters like YOU that we can provide the food, mental health services, employment support, and so much more to our friends and neighbors.\n\nPrizes for the top three fundraisers!\n\nLearn more and view our Challenge suggestions: CommonpointQueens.org/Challenge\n\nDon't forget to Post your Challenge Stories and tag Commonpoint Queens using hashtag #CommonpointChallenge",
+    "selection_reasons": [
+      "dense_0.262",
+      "lexical_12.503",
+      "target_rank_12"
+    ]
+  },
+  {
+    "source_id": 127,
+    "source_uid": "s0025u0002",
+    "session_id": "f535d93b_2",
+    "timestamp": "2023-04-23T11:42:01",
+    "user_content": "I'm interested in the Explainable AI (XAI) courses you mentioned. Can you provide more information on the \"Explainable AI\" course by University of Michigan on Coursera? What are the prerequisites for this course, and how much time do I need to dedicate to it each week?",
+    "selection_reasons": [
+      "dense_0.167",
+      "lexical_18.942",
+      "target_rank_7"
+    ]
+  },
+  {
+    "source_id": 212,
+    "source_uid": "s0040u0001",
+    "session_id": "answer_b28f2c7a_2",
+    "timestamp": "2023-05-30T07:52:00.500000",
+    "user_content": "I'm trying to plan out my week and was wondering if you could help me figure out the best time to schedule a meeting with a potential client.",
+    "selection_reasons": [
+      "adjacent_to_target_rank_1",
+      "already_in_compact",
+      "dense_0.507",
+      "lexical_8.235",
+      "target_rank_11"
+    ]
+  },
+  {
+    "source_id": 213,
+    "source_uid": "s0040u0002",
+    "session_id": "answer_b28f2c7a_2",
+    "timestamp": "2023-05-30T07:52:01",
+    "user_content": "I'm pretty flexible, but I do have a few commitments already. I usually go to the gym on Mondays, Wednesdays, and Fridays, so I'd prefer to avoid scheduling the meeting during those times. How about we focus on Tuesday or Thursday?",
+    "selection_reasons": [
+      "adjacent_to_target_rank_1",
+      "adjacent_to_target_rank_3",
+      "already_in_compact",
+      "dense_0.629",
+      "lexical_32.793",
+      "target_rank_1"
+    ]
+  },
+  {
+    "source_id": 214,
+    "source_uid": "s0040u0003",
+    "session_id": "answer_b28f2c7a_2",
+    "timestamp": "2023-05-30T07:52:01.500000",
+    "user_content": "I think Tuesday afternoon at 2:00 pm could work well. I need to make sure I'm done with the meeting before I head to the gym, which is usually at 6:00 pm.",
+    "selection_reasons": [
+      "adjacent_to_target_rank_1",
+      "adjacent_to_target_rank_3",
+      "already_in_compact",
+      "dense_0.712",
+      "lexical_21.214",
+      "target_rank_3"
+    ]
+  },
+  {
+    "source_id": 31,
+    "source_uid": "s0006u0002",
+    "session_id": "answer_b28f2c7a_1",
+    "timestamp": "2023-02-11T07:00:01",
+    "user_content": "I'm particularly interested in Todoist and Trello. Can you tell me more about how they integrate with Google Calendar?",
+    "selection_reasons": [
+      "adjacent_to_target_rank_2",
+      "already_in_compact"
+    ]
+  },
+  {
+    "source_id": 33,
+    "source_uid": "s0006u0004",
+    "session_id": "answer_b28f2c7a_1",
+    "timestamp": "2023-02-11T07:00:02",
+    "user_content": "What are some good ways to organize my tasks in Todoist? I have a lot of projects going on at the same time, and I want to make sure I'm prioritizing the right tasks.",
+    "selection_reasons": [
+      "adjacent_to_target_rank_2",
+      "already_in_compact"
+    ]
+  },
+  {
+    "source_id": 215,
+    "source_uid": "s0040u0004",
+    "session_id": "answer_b28f2c7a_2",
+    "timestamp": "2023-05-30T07:52:02",
+    "user_content": "I need to send some files to the potential client before the meeting. Can you help me figure out the best way to share them?",
+    "selection_reasons": [
+      "adjacent_to_target_rank_3",
+      "already_in_compact"
+    ]
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "question_id": "b29f3365",
+  "question_type": "temporal-reasoning",
+  "question": "How long had I been taking guitar lessons when I bought the new guitar amp?",
+  "question_date": "2023/05/25 (Thu) 19:07",
+  "gold_answer": "Four weeks",
+  "prediction": "28 days",
+  "support_memory_ids": [
+    "m_712360bcc39440216f23",
+    "m_9c82704730683325b421"
+  ],
+  "support_source_ids": [
+    140,
+    143
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User started guitar lessons with Alex on 2023-04-13 (six weeks before 2023-05-25) and bought a new guitar amp on 2023-05-11 (two weeks before 2023-05-25). The difference between these dates is 28 days, which is 4 weeks.",
+  "required_slots": [
+    {
+      "name": "start date of guitar lessons",
+      "value": "2023-04-13",
+      "support_memory_ids": [
+        "m_712360bcc39440216f23"
+      ],
+      "support_source_ids": [
+        140
+      ]
+    },
+    {
+      "name": "date of buying guitar amp",
+      "value": "2023-05-11",
+      "support_memory_ids": [
+        "m_9c82704730683325b421"
+      ],
+      "support_source_ids": [
+        143
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-04-13",
+      "2023-05-11"
+    ],
+    "unit": "weeks",
+    "result": "28 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    140,
+    145,
+    143,
+    81,
+    144,
+    202,
+    78,
+    85,
+    141,
+    219,
+    69,
+    23,
+    84,
+    82,
+    75,
+    205,
+    70,
+    142
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 83483,
+    "completion_tokens": 849,
+    "elapsed_seconds": 11.242640256881714
+  }
+}

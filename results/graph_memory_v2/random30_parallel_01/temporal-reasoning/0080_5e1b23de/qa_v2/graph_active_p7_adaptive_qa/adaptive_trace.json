@@ -1,0 +1,169 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of photography workshop attendance",
+        "query": "photography workshop attendance date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "photography workshop attendance date"
+    ],
+    "output_constraints": [
+      "answer in months"
+    ],
+    "reason": "The question asks for a time difference in months from a past event to the question date. The answer is a direct computation from the event date."
+  },
+  "base_candidate": {
+    "answer": "92 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_fcaf300162fc7c96953a"
+    ],
+    "support_source_ids": [
+      79
+    ],
+    "required_slots": [
+      {
+        "name": "date of photography workshop attendance",
+        "value": "2023-11-01",
+        "support_memory_ids": [
+          "m_fcaf300162fc7c96953a"
+        ],
+        "support_source_ids": [
+          79
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-11-01",
+        "2024-02-01"
+      ],
+      "unit": "months",
+      "result": "92 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user attended a 3-day photography workshop on 2023-11-01 (memory m_fcaf300162fc7c96953a, source 79). The question date is 2024-02-01. The difference is exactly 3 months."
+  },
+  "specialist_candidate": {
+    "answer": "92 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_fcaf300162fc7c96953a"
+    ],
+    "support_source_ids": [
+      79
+    ],
+    "required_slots": [
+      {
+        "name": "date of photography workshop attendance",
+        "value": "2023-11-01",
+        "support_memory_ids": [
+          "m_fcaf300162fc7c96953a"
+        ],
+        "support_source_ids": [
+          79
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-11-01",
+        "2024-02-01"
+      ],
+      "unit": "months",
+      "result": "92 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "attended",
+        "object": "photography workshop",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-11-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_fcaf300162fc7c96953a"
+        ],
+        "support_source_ids": [
+          79
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The user attended a 3-day photography workshop on 2023-11-01 (source 79). The question date is 2024-02-01. The difference is 3 months (from November to February).",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    79,
+    81,
+    70,
+    84,
+    25,
+    20,
+    95,
+    23,
+    7,
+    97,
+    168,
+    173,
+    83,
+    138,
+    197,
+    80,
+    71,
+    96,
+    78,
+    98,
+    172
+  ],
+  "targeted_source_ids": [
+    70,
+    73,
+    76,
+    79,
+    81,
+    84,
+    85,
+    95,
+    97,
+    139,
+    177,
+    214,
+    72,
+    74,
+    78,
+    80,
+    83,
+    86
+  ]
+}

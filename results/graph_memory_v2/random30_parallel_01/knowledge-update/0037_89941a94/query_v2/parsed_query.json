@@ -1,0 +1,118 @@
+{
+  "question": "Before I purchased the gravel bike, do I have other bikes in addition to my mountain bike and my commuter bike?",
+  "question_date": "2023-06-21T02:24:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's bike inventory before purchasing the gravel bike",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "gravel bike",
+        "mountain bike",
+        "commuter bike"
+      ],
+      "keywords": [
+        "bike",
+        "purchase",
+        "inventory"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-06-21T02:24:00",
+        "raw": "before I purchased the gravel bike"
+      },
+      "locations": [],
+      "state_keys": [
+        "bike_ownership"
+      ],
+      "relation_hints": [
+        "owned_before"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "purchase date of gravel bike"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's bike collection prior to gravel bike purchase",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "gravel bike",
+        "mountain bike",
+        "commuter bike"
+      ],
+      "keywords": [
+        "bike",
+        "collection",
+        "before"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-06-21T02:24:00",
+        "raw": "before I purchased the gravel bike"
+      },
+      "locations": [],
+      "state_keys": [
+        "bike_ownership"
+      ],
+      "relation_hints": [
+        "owned_before"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "purchase date of gravel bike"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's bike ownership timeline",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "gravel bike",
+        "mountain bike",
+        "commuter bike"
+      ],
+      "keywords": [
+        "bike",
+        "ownership",
+        "timeline"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-06-21T02:24:00",
+        "raw": "before I purchased the gravel bike"
+      },
+      "locations": [],
+      "state_keys": [
+        "bike_ownership"
+      ],
+      "relation_hints": [
+        "owned_before"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "purchase date of gravel bike"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

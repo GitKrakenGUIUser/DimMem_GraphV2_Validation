@@ -1,0 +1,88 @@
+{
+  "question_id": "6071bd76",
+  "question_type": "knowledge-update",
+  "question": "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+  "question_date": "2023/07/30 (Sun) 05:53",
+  "gold_answer": "You switched to less water (5 ounces) per tablespoon of coffee.",
+  "prediction": "less water per tablespoon of coffee",
+  "support_memory_ids": [
+    "m_f4c802478fd10b33c52c",
+    "m_d09a2cc4c692616bf60f"
+  ],
+  "support_source_ids": [
+    7,
+    105
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user previously used 1 tbsp per 6 oz water (Feb 11, 2023) and later switched to 1 tbsp per 5 oz water (Jun 30, 2023). Since 5 oz is less water than 6 oz for the same amount of coffee, the ratio has less water per tablespoon (more concentrated). The candidate answer incorrectly stated 'more water per tablespoon'.",
+  "required_slots": [
+    {
+      "name": "previous ratio",
+      "value": "1 tbsp per 6 oz water",
+      "support_memory_ids": [
+        "m_f4c802478fd10b33c52c"
+      ],
+      "support_source_ids": [
+        7
+      ]
+    },
+    {
+      "name": "current ratio",
+      "value": "1 tbsp per 5 oz water",
+      "support_memory_ids": [
+        "m_d09a2cc4c692616bf60f"
+      ],
+      "support_source_ids": [
+        105
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    7,
+    109,
+    105,
+    12,
+    92,
+    9,
+    8,
+    10,
+    127,
+    18,
+    142,
+    11,
+    89,
+    108,
+    106,
+    110
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    3.79,
+    3.79
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 73874,
+    "completion_tokens": 1267,
+    "elapsed_seconds": 19.124542474746704
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer: less water per tablespoon of coffee.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 159,
+    "completion_tokens": 28,
+    "elapsed_seconds": 1.1974973678588867
+  }
+}

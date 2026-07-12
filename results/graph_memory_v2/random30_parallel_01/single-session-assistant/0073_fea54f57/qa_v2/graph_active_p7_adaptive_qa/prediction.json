@@ -1,0 +1,75 @@
+{
+  "question_id": "fea54f57",
+  "question_type": "single-session-assistant",
+  "question": "I was thinking about our previous conversation about the Fifth Album, and I was wondering if you could remind me what song you said best exemplified the band's growth and development as artists?",
+  "question_date": "2023/05/30 (Tue) 15:26",
+  "gold_answer": "Evolution",
+  "prediction": "Evolution",
+  "support_memory_ids": [
+    "m_873364de1a1f79a2a2da"
+  ],
+  "support_source_ids": [
+    129
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user asks to recall a song previously mentioned by the assistant that best exemplifies the band's growth on the Fifth Album. In source 129, the assistant explicitly stated that the song 'Evolution' best exemplifies the band's growth and development as artists. This is a direct recall from a prior assistant reply.",
+  "required_slots": [
+    {
+      "name": "song name",
+      "value": "Evolution",
+      "support_memory_ids": [
+        "m_873364de1a1f79a2a2da"
+      ],
+      "support_source_ids": [
+        129
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "song name",
+        "query": "song best exemplified growth development artists Fifth Album",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "song best exemplified growth development artists Fifth Album"
+    ],
+    "output_constraints": [
+      "single song name"
+    ],
+    "reason": "The user asks to recall a song previously mentioned by the assistant that best exemplifies the band's growth on the Fifth Album. This is an assistant recall question requiring episodic memory of a prior assistant reply."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31174,
+    "completion_tokens": 436,
+    "elapsed_seconds": 6.581423759460449
+  }
+}

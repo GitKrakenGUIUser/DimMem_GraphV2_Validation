@@ -1,0 +1,66 @@
+{
+  "question_id": "45dc21b6",
+  "question_type": "knowledge-update",
+  "question": "How many of Emma's recipes have I tried out?",
+  "question_date": "2023/06/16 (Fri) 17:33",
+  "gold_answer": "3",
+  "prediction": "1",
+  "support_memory_ids": [
+    "m_6f3d02597a9de582946f"
+  ],
+  "support_source_ids": [
+    213
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Source 213 explicitly states 'I've tried out 3 of Emma's recipes so far'. Memory m_6f3d02597a9de582946f also states 'User has tried 3 of Emma's recipes'. No contradictory evidence found.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Emma's recipes tried"
+    ],
+    "unit": "recipes",
+    "result": "1"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "monotonic guard: expanded evidence only caused abstention",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "Emma's recipes tried",
+        "query": "Emma's recipes tried by user",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Emma's recipes tried by user"
+    ],
+    "output_constraints": [
+      "single integer"
+    ],
+    "reason": "The question asks for a count of recipes tried, which is a direct value from memory."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31400,
+    "completion_tokens": 706,
+    "elapsed_seconds": 7.28048300743103
+  }
+}

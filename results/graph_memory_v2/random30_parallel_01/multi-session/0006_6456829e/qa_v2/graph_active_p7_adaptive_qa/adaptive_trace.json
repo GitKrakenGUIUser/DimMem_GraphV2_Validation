@@ -1,0 +1,200 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "tomato_initial_count",
+        "query": "initial number of tomato plants planted",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "cucumber_initial_count",
+        "query": "initial number of cucumber plants planted",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "initial number of tomato plants planted",
+      "initial number of cucumber plants planted"
+    ],
+    "output_constraints": [
+      "answer must include both counts, e.g., '5 tomato plants and 3 cucumber plants'"
+    ],
+    "reason": "The question asks for the initial count of two specific plants, requiring two separate numeric values from historical evidence."
+  },
+  "base_candidate": {
+    "answer": "5 tomato plants and 3 cucumber plants",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d35e3acd5fdc9b004209",
+      "m_c704ce6ac5c50cca2f71"
+    ],
+    "support_source_ids": [
+      218,
+      199
+    ],
+    "required_slots": [
+      {
+        "name": "tomato_initial_count",
+        "value": "5",
+        "support_memory_ids": [
+          "m_d35e3acd5fdc9b004209"
+        ],
+        "support_source_ids": [
+          218
+        ]
+      },
+      {
+        "name": "cucumber_initial_count",
+        "value": "3",
+        "support_memory_ids": [
+          "m_c704ce6ac5c50cca2f71"
+        ],
+        "support_source_ids": [
+          199
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User stated 'I planted 5 tomato plants initially' (source 218) and 'I've got 3 plants [cucumbers]' (source 199). Both are initial counts as of the question date."
+  },
+  "specialist_candidate": {
+    "answer": "5 tomato plants and 3 cucumber plants",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d35e3acd5fdc9b004209",
+      "m_c704ce6ac5c50cca2f71"
+    ],
+    "support_source_ids": [
+      218,
+      199
+    ],
+    "required_slots": [
+      {
+        "name": "tomato_initial_count",
+        "value": 5,
+        "support_memory_ids": [
+          "m_d35e3acd5fdc9b004209"
+        ],
+        "support_source_ids": [
+          218
+        ]
+      },
+      {
+        "name": "cucumber_initial_count",
+        "value": 3,
+        "support_memory_ids": [
+          "m_c704ce6ac5c50cca2f71"
+        ],
+        "support_source_ids": [
+          199
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "planted initially",
+        "object": "5 tomato plants",
+        "value": 5,
+        "unit": "plants",
+        "event_time": "2023-05-29T16:07:03",
+        "valid_from": "2023-05-29T16:07:03",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_d35e3acd5fdc9b004209"
+        ],
+        "support_source_ids": [
+          218
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "has growing",
+        "object": "3 cucumber plants",
+        "value": 3,
+        "unit": "plants",
+        "event_time": "2023-05-28T06:58:00.500000",
+        "valid_from": "2023-05-28T06:58:00.500000",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_c704ce6ac5c50cca2f71"
+        ],
+        "support_source_ids": [
+          199
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "User explicitly stated planting 5 tomato plants initially (source 218). User stated having 3 cucumber plants producing a lot (source 199), which is the initial count as no earlier count is given. Both counts are directly asserted."
+  },
+  "choice": "base",
+  "choice_reason": "same answer; preserve compact candidate",
+  "compact_source_ids": [
+    173,
+    218,
+    217,
+    216,
+    199,
+    177,
+    176,
+    172,
+    200,
+    202,
+    115,
+    203,
+    213,
+    215,
+    201,
+    174
+  ],
+  "targeted_source_ids": [
+    153,
+    161,
+    172,
+    173,
+    176,
+    177,
+    192,
+    199,
+    202,
+    216,
+    217,
+    218,
+    174,
+    175
+  ]
+}

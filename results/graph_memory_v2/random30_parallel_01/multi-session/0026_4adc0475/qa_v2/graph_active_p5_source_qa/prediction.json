@@ -1,0 +1,80 @@
+{
+  "question_id": "4adc0475",
+  "question_type": "multi-session",
+  "question": "What is the total number of goals and assists I have in the recreational indoor soccer league?",
+  "question_date": "2023/05/30 (Tue) 18:44",
+  "gold_answer": "5",
+  "prediction": "5",
+  "support_memory_ids": [
+    "m_8209a0b6535de6dd5b73",
+    "m_6e2871132a0497e81b6a"
+  ],
+  "support_source_ids": [
+    156,
+    202
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "From memory m_8209a0b6535de6dd5b73 (source 156), user has scored 3 goals in the recreational indoor soccer league. From memory m_6e2871132a0497e81b6a (source 202), user has had 2 assists in the same league. Summing gives 5 total goals and assists.",
+  "required_slots": [
+    {
+      "name": "total goals and assists",
+      "value": "5",
+      "support_memory_ids": [
+        "m_8209a0b6535de6dd5b73",
+        "m_6e2871132a0497e81b6a"
+      ],
+      "support_source_ids": [
+        156,
+        202
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      3,
+      2
+    ],
+    "unit": "",
+    "result": "5"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    202,
+    156,
+    199,
+    12,
+    157,
+    239,
+    113,
+    160,
+    159,
+    43,
+    82,
+    34,
+    8,
+    91,
+    31,
+    79,
+    203,
+    200,
+    155,
+    201,
+    158
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 85956,
+    "completion_tokens": 807,
+    "elapsed_seconds": 16.987992763519287
+  }
+}

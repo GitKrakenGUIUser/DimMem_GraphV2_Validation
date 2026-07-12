@@ -1,0 +1,758 @@
+[
+  {
+    "memory_id": "m_31ef3277b369bb580425",
+    "content": "User wants a 'Type' column in the expense table to specify vehicle type (car vs bike).",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "expense table",
+        "Type column",
+        "vehicle type",
+        "car",
+        "bike"
+      ],
+      "entities": [],
+      "topic": "expense tracking",
+      "relation": {
+        "subject": "user",
+        "predicate": "requested feature",
+        "object": "Type column in expense table"
+      },
+      "state_key": "expense_table.columns",
+      "state_value": "Type column added",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "f7835917_1",
+      "session_index": 3,
+      "source_ids": [
+        16
+      ],
+      "source_uids": [
+        "s0003u0003"
+      ],
+      "source_times": [
+        "2023-05-20T21:42:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "add a 'Type' column to specify the type of vehicle",
+    "assistant_replies": [
+      "Excellent ideas!\n\nHere's the updated table with the added \"Type\" column and the new parking ticket expense:\n\n**Transportation Expenses**\n\n| Date | Type | Category | Description | Amount |\n| --- | --- | --- | --- | --- |\n| 2023-01-05 | Car | Parking | Parking ticket | $50.00 |\n| 2023-01-25 | Bike | Bike Maintenance | Replace worn-out cables | $40.00 |\n| 2023-02-10 | Car | Car Maintenance | Replace air filter | $25.00 |\n| 2023-02-10 | Car | Gas | Fill up gas tank | $30.00 |\n\nWith the \"Type\" column, you can now easily filter or sort your expenses by vehicle type to see how much you're spending on each.\n\nI'll keep the table organized and tidy, and we can add more expenses as you remember them. Do you have any other expenses to add, or would you like to start tracking any other categories (e.g., food, entertainment, housing)?"
+    ]
+  },
+  {
+    "memory_id": "m_8917d88c62eac6a6bb2e",
+    "content": "User received a parking ticket on January 5th for $50.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-01-05",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "day",
+        "raw": "January 5th"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "parking ticket",
+        "$50",
+        "January 5th",
+        "expense"
+      ],
+      "entities": [],
+      "topic": "expenses",
+      "relation": {
+        "subject": "user",
+        "predicate": "incurred expense",
+        "object": "parking ticket $50"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "f7835917_1",
+      "session_index": 3,
+      "source_ids": [
+        16
+      ],
+      "source_uids": [
+        "s0003u0003"
+      ],
+      "source_times": [
+        "2023-05-20T21:42:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "parking ticket on January 5th for $50",
+    "assistant_replies": [
+      "Excellent ideas!\n\nHere's the updated table with the added \"Type\" column and the new parking ticket expense:\n\n**Transportation Expenses**\n\n| Date | Type | Category | Description | Amount |\n| --- | --- | --- | --- | --- |\n| 2023-01-05 | Car | Parking | Parking ticket | $50.00 |\n| 2023-01-25 | Bike | Bike Maintenance | Replace worn-out cables | $40.00 |\n| 2023-02-10 | Car | Car Maintenance | Replace air filter | $25.00 |\n| 2023-02-10 | Car | Gas | Fill up gas tank | $30.00 |\n\nWith the \"Type\" column, you can now easily filter or sort your expenses by vehicle type to see how much you're spending on each.\n\nI'll keep the table organized and tidy, and we can add more expenses as you remember them. Do you have any other expenses to add, or would you like to start tracking any other categories (e.g., food, entertainment, housing)?"
+    ]
+  },
+  {
+    "memory_id": "m_0f5fbaa6ae1e2d5b62dc",
+    "content": "User filled up the gas tank before dropping off mom at the airport on December 28th.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2022-12-28",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "day",
+        "raw": "December 28th"
+      },
+      "locations": [
+        "airport"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "gas tank",
+        "December 28th",
+        "airport",
+        "mom",
+        "expense"
+      ],
+      "entities": [
+        {
+          "name": "user's mom",
+          "entity_type": "person",
+          "role": "other"
+        }
+      ],
+      "topic": "expenses",
+      "relation": {
+        "subject": "user",
+        "predicate": "filled gas tank",
+        "object": "before dropping off mom at airport"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "f7835917_1",
+      "session_index": 3,
+      "source_ids": [
+        17
+      ],
+      "source_uids": [
+        "s0003u0004"
+      ],
+      "source_times": [
+        "2023-05-20T21:42:02"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "filling up the gas tank before dropping off my mom at the airport on December 28th",
+    "assistant_replies": [
+      "Here's the updated table:\n\n**Transportation Expenses**\n\n| Date | Type | Category | Description | Amount |\n| --- | --- | --- | --- | --- |\n| 2022-12-28 | Car | Gas | Fill up gas tank | ? |\n| 2023-01-05 | Car | Parking | Parking ticket | $50.00 |\n| 2023-01-25 | Bike | Bike Maintenance | Replace worn-out cables | $40.00 |\n| 2023-02-10 | Car | Car Maintenance | Replace air filter | $25.00 |\n| 2023-02-10 | Car | Gas | Fill up gas tank | $30.00 |\n\nI added the new entry, but I didn't fill in the amount for the December 28th gas fill-up. Can you tell me how much you spent on gas that day?\n\nAlso, I noticed that the date is in December, which is a different month from the others. If you'd like, we can create a separate table or section for each month to keep things organized. Let me know your preference!"
+    ]
+  },
+  {
+    "memory_id": "m_2a782ffe0f51f3c2b7fb",
+    "content": "User wants separate tables for each month for expense tracking.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "separate tables",
+        "each month",
+        "expense tracking"
+      ],
+      "entities": [],
+      "topic": "expense tracking",
+      "relation": {
+        "subject": "user",
+        "predicate": "prefers",
+        "object": "separate tables per month"
+      },
+      "state_key": "expense_table.organization",
+      "state_value": "separate tables per month",
+      "state_status": "active",
+      "preference": {
+        "target": "expense table organization",
+        "polarity": "positive",
+        "strength": 0.8,
+        "scope": "specific"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "f7835917_1",
+      "session_index": 3,
+      "source_ids": [
+        18
+      ],
+      "source_uids": [
+        "s0003u0005"
+      ],
+      "source_times": [
+        "2023-05-20T21:42:02.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "creating a separate table for each month sounds like a good idea",
+    "assistant_replies": [
+      "We can leave the amount blank for now, and you can fill it in later if you find the receipt or remember the exact amount.\n\nHere's the updated table, with separate sections for each month:\n\n**December 2022**\n\n| Date | Type | Category | Description | Amount |\n| --- | --- | --- | --- | --- |\n| 2022-12-28 | Car | Gas | Fill up gas tank |  |\n\n**January 2023**\n\n| Date | Type | Category | Description | Amount |\n| --- | --- | --- | --- | --- |\n| 2023-01-05 | Car | Parking | Parking ticket | $50.00 |\n| 2023-01-25 | Bike | Bike Maintenance | Replace worn-out cables | $40.00 |\n\n**February 2023**\n\n| Date | Type | Category | Description | Amount |\n| --- | --- | --- | --- | --- |\n| 2023-02-10 | Car | Car Maintenance | Replace air filter | $25.00 |\n| 2023-02-10 | Car | Gas | Fill up gas tank | $30.00 |\n\nNow it's easier to see your expenses by month, and you can add more entries as you remember them. If you need to add a new month, just let me know!\n\nDo you have any other expenses to add, or would you like to start tracking other categories?"
+    ]
+  },
+  {
+    "memory_id": "m_6f7111de1095cfdcf5e0",
+    "content": "User washed car at local car wash on February 3rd, spent $15 on deluxe package.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-02-03",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "day",
+        "raw": "February 3rd"
+      },
+      "locations": [
+        "local car wash"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "car wash",
+        "February 3rd",
+        "$15",
+        "deluxe package",
+        "expense"
+      ],
+      "entities": [],
+      "topic": "expenses",
+      "relation": {
+        "subject": "user",
+        "predicate": "spent",
+        "object": "$15 on car wash deluxe package"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "f7835917_1",
+      "session_index": 3,
+      "source_ids": [
+        19
+      ],
+      "source_uids": [
+        "s0003u0006"
+      ],
+      "source_times": [
+        "2023-05-20T21:42:03"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "washing my car at the local car wash on February 3rd and spent $15 on the deluxe package",
+    "assistant_replies": [
+      "Here's the updated table:\n\n**December 2022**\n\n| Date | Type | Category | Description | Amount |\n| --- | --- | --- | --- | --- |\n| 2022-12-28 | Car | Gas | Fill up gas tank |  |\n\n**January 2023**\n\n| Date | Type | Category | Description | Amount |\n| --- | --- | --- | --- | --- |\n| 2023-01-05 | Car | Parking | Parking ticket | $50.00 |\n| 2023-01-25 | Bike | Bike Maintenance | Replace worn-out cables | $40.00 |\n\n**February 2023**\n\n| Date | Type | Category | Description | Amount |\n| --- | --- | --- | --- | --- |\n| 2023-02-03 | Car | Car Wash | Deluxe package | $15.00 |\n| 2023-02-10 | Car | Car Maintenance | Replace air filter | $25.00 |\n| 2023-02-10 | Car | Gas | Fill up gas tank | $30.00 |\n\nI added the new entry for the car wash on February 3rd.\n\nLet me know if you remember any other expenses or if you'd like to add any other categories!"
+    ]
+  },
+  {
+    "memory_id": "m_ae5e06bf5ff5b4e60e1c",
+    "content": "User participated in company's annual basketball tournament three weeks ago (around 2023-04-30).",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-04-30",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "day",
+        "raw": "three weeks ago"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "basketball tournament",
+        "company",
+        "annual",
+        "three weeks ago"
+      ],
+      "entities": [],
+      "topic": "basketball",
+      "relation": {
+        "subject": "user",
+        "predicate": "participated in",
+        "object": "company's annual basketball tournament"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "2655efcc_1",
+      "session_index": 4,
+      "source_ids": [
+        20
+      ],
+      "source_uids": [
+        "s0004u0001"
+      ],
+      "source_times": [
+        "2023-05-21T09:25:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "participated in the company's annual basketball tournament three weeks ago",
+    "assistant_replies": [
+      "That sounds like a great idea! Organizing a friendly game of basketball can be a fantastic way to bond with your colleagues and get some exercise. I'd be happy to help you find a suitable venue for your team-building event.\n\nSince you didn't mention a specific location, I'll provide some general suggestions that can be applied to various cities. You can search for these types of venues in your area:\n\n1. **Local Community Centers**: Many community centers have indoor basketball courts that can be rented for private events. They usually have affordable pricing and offer amenities like changing rooms, showers, and parking.\n2. **Recreation Centers**: Similar to community centers, recreation centers often have basketball courts and other facilities that can be reserved for group events.\n3. **Sports Complexes**: Look for sports complexes or athletic facilities that offer basketball courts for rent. These might be privately owned or operated by local schools or universities.\n4. **YMCA or YWCA**: Many YMCAs and YWCAs have basketball courts and offer group rentals for events like team-building activities.\n5. **Private Basketball Facilities**: Some cities have dedicated basketball facilities that offer court rentals, training sessions, and event hosting. These might be a bit pricier, but they often provide a more professional and dedicated basketball experience.\n6. **School Gyms**: If you have a connection with a local school, you might be able to rent their gymnasium for your event.\n\nWhen searching for a venue, be sure to consider factors like:\n\n* Court availability and scheduling\n* Rental fees and equipment costs (e.g., basketballs, scoreboards)\n* Parking and accessibility\n* Amenities like changing rooms, showers, and refreshment options\n* Capacity and court size (ensure it can accommodate your group of 10-12 people)\n\nI'm glad to hear that you had a great time at your company's annual basketball tournament! This team-building event is a great way to keep the momentum going and foster camaraderie among your colleagues.\n\nDo you have a specific budget in mind for the venue rental and any additional costs?"
+    ]
+  },
+  {
+    "memory_id": "m_4d6f4e28d12f248aec2b",
+    "content": "User's team 'Slam Dunkers' made it to semifinals in the tournament, lost to 'Hoop Heroes'.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Slam Dunkers",
+        "semifinals",
+        "Hoop Heroes",
+        "tournament"
+      ],
+      "entities": [
+        {
+          "name": "Slam Dunkers",
+          "entity_type": "organization",
+          "role": "team"
+        },
+        {
+          "name": "Hoop Heroes",
+          "entity_type": "organization",
+          "role": "team"
+        }
+      ],
+      "topic": "basketball",
+      "relation": {
+        "subject": "Slam Dunkers",
+        "predicate": "lost to",
+        "object": "Hoop Heroes in semifinals"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "2655efcc_1",
+      "session_index": 4,
+      "source_ids": [
+        21
+      ],
+      "source_uids": [
+        "s0004u0002"
+      ],
+      "source_times": [
+        "2023-05-21T09:25:01"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "our team, 'Slam Dunkers,' made it to the semifinals ... lost to the eventual champions, 'Hoop Heroes'",
+    "assistant_replies": [
+      "Congratulations to you and the \"Slam Dunkers\" on making it to the semifinals! That's an impressive achievement, and I'm sure it was a thrilling experience.\n\nRegarding your budget, $200 should be feasible for a small-scale team-building event like this. Here's a rough breakdown of how you could allocate your budget:\n\n* Venue rental: $50-$100 (depending on the location and amenities)\n* Equipment rental (basketballs, scorekeeping equipment, etc.): $20-$50\n* Refreshments (snacks, water, etc.): $30-$50\n* Miscellaneous (scoreboard, first aid kit, etc.): $10-$20\n\nKeep in mind that these are rough estimates, and actual costs may vary depending on your location and choices.\n\nTo stay within your budget, consider the following tips:\n\n1. Look for community centers or recreation centers with affordable rental rates.\n2. Opt for a shorter rental period (e.g., 1-2 hours) to save on costs.\n3. Bring your own equipment (if you have access to basketballs, etc.) to avoid rental fees.\n4. Keep refreshments simple and cost-effective (e.g., water, granola bars, fruit).\n5. Consider having the event during off-peak hours (e.g., weekday evenings) when rates might be lower.\n\nTo get the most out of your budget, I recommend reaching out to local venues and inquiring about their prices and packages. Be sure to ask about any discounts or promotions they might offer for group events.\n\nRemember to also plan some fun activities or games to make the event more engaging and enjoyable for your colleagues. You could consider organizing a mini tournament, shooting competitions, or even a friendly game of \"H-O-R-S-E\" to keep things light-hearted and entertaining."
+    ]
+  },
+  {
+    "memory_id": "m_a040463aaba574244fa7",
+    "content": "User plans team-building basketball event on a Saturday morning, 2 hours, for 10-12 people, budget under $200.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": "Saturday morning"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "team-building",
+      "keywords": [
+        "team-building",
+        "basketball",
+        "Saturday morning",
+        "2 hours",
+        "10-12 people",
+        "budget $200"
+      ],
+      "entities": [],
+      "topic": "team-building",
+      "relation": {
+        "subject": "user",
+        "predicate": "plans",
+        "object": "basketball event for colleagues"
+      },
+      "state_key": "team_building_event.status",
+      "state_value": "planned",
+      "state_status": "planned",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "2655efcc_1",
+      "session_index": 4,
+      "source_ids": [
+        22
+      ],
+      "source_uids": [
+        "s0004u0003"
+      ],
+      "source_times": [
+        "2023-05-21T09:25:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "plan a team-building event ... friendly game of basketball ... Saturday morning ... 2 hours ... 10-12 people ... budget under $200",
+    "assistant_replies": [
+      "Having the event on a Saturday morning is a great idea, as it's a convenient time for most people.\n\nTwo hours is a good amount of time for a friendly game of basketball with 10-12 people. Here's a rough outline of how you could structure the event:\n\n* Warm-up and introductions (15-20 minutes): Allow players to get comfortable on the court, shoot some hoops, and get to know each other.\n* Game play (1 hour): Divide the group into two teams and play a friendly game of basketball. You could play a standard game with four quarters, or consider a more relaxed format like a \"pick-up game\" style where players can rotate in and out.\n* Break and refreshments (15-20 minutes): Take a break to grab a snack, rehydrate, and socialize. This is a great opportunity to encourage team bonding and chat about the game so far.\n* Additional game play or activities (30-40 minutes): You could continue playing a second game, or consider other activities like a shooting competition, a game of \"Around the World,\" or even a fun basketball-themed challenge like a \"dunk contest\" (if the venue allows it).\n\nHaving two hours will give you enough time to fit in some quality game play, socializing, and relaxation. You can always adjust the format to suit your group's preferences and pace.\n\nRemember to also consider the following:\n\n* Make sure to schedule some buffer time before and after the event to allow for setup, cleanup, and any unexpected delays.\n* Plan for some flexibility in your schedule in case the game runs longer or shorter than expected.\n* Encourage players to arrive 10-15 minutes before the scheduled start time to get settled and ready to play.\n\nOverall, two hours should provide a great balance of activity, socializing, and relaxation for your team-building event."
+    ]
+  },
+  {
+    "memory_id": "m_4fd08d7c309a5c574063",
+    "content": "User wants tips on improving free throw shooting.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "improve basketball game",
+      "keywords": [
+        "free throw",
+        "shooting tips",
+        "basketball",
+        "improve"
+      ],
+      "entities": [],
+      "topic": "basketball skills",
+      "relation": {
+        "subject": "user",
+        "predicate": "wants tips on",
+        "object": "free throw shooting"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "2655efcc_1",
+      "session_index": 4,
+      "source_ids": [
+        25
+      ],
+      "source_uids": [
+        "s0004u0006"
+      ],
+      "source_times": [
+        "2023-05-21T09:25:03"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "give me some tips on how to improve my free throw shooting",
+    "assistant_replies": [
+      "I'm glad you're excited about the tournament idea!\n\nNow, let's talk about improving your free throw shooting. I'd be happy to provide some tips to help you become a master of the free throw line!\n\n1. **Consistency is key**: Develop a consistent pre-shot routine to help you focus and get into a rhythm. This could be something as simple as taking deep breaths, visualizing the shot going in, or bouncing the ball a few times.\n2. **Stance and alignment**: Make sure your feet are shoulder-width apart, with your dominant foot forward. Your shooting shoulder should be aligned with the hoop, and your elbow should be under the ball.\n3. **Grip it and rip it**: Hold the ball with your fingertips, making sure your shooting hand is under the ball and your non-shooting hand is on the side. Your grip should be firm but not overly tight.\n4. **Aim small, miss small**: Focus on a specific spot on the rim, such as the center or the back of the rim. This will help you develop a more accurate shot.\n5. **Follow through**: Extend your shooting arm fully, keeping your wrist and forearm straight. Follow through with your shooting hand, keeping your fingers spread and your wrist cocked back.\n6. **Practice under game-like conditions**: Practice your free throws with a defender in your face, or with a clock running down. This will help you simulate the pressure of a real game.\n7. **Analyze your misses**: If you're missing free throws consistently, try to identify the pattern. Are you rushing your shot? Are you pushing the ball instead of shooting it? Make adjustments accordingly.\n8. **Stay relaxed and focused**: Take your time at the line, and try to stay relaxed. Avoid getting anxious or tense, as this can affect your shot.\n9. **Practice, practice, practice**: The more you practice your free throws, the more comfortable and confident you'll become.\n10. **Film yourself**: Record yourself shooting free throws and analyze your form. This can help you identify areas for improvement and track your progress over time.\n\nRemember, improving your free throw shooting takes time and practice. Be patient, stay consistent, and you'll see improvement over time.\n\nNow, go out there and show off your skills on the court!"
+    ]
+  },
+  {
+    "memory_id": "m_f510744e016ef2448e36",
+    "content": "User had a breakthrough on product development on May 15th.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-05-15",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "day",
+        "raw": "May 15th"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "breakthrough",
+        "product development",
+        "May 15th"
+      ],
+      "entities": [],
+      "topic": "product development",
+      "relation": {
+        "subject": "user",
+        "predicate": "had breakthrough on",
+        "object": "product development"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "53949711_2",
+      "session_index": 5,
+      "source_ids": [
+        26
+      ],
+      "source_uids": [
+        "s0005u0001"
+      ],
+      "source_times": [
+        "2023-05-21T15:17:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "breakthrough on my product development on May 15th",
+    "assistant_replies": [
+      "Congratulations on your breakthrough on May 15th! I'd be happy to help you organize your to-do list and build on that momentum.\n\nTo get started, can you please share your tasks with me? You can share as many or as few tasks as you have, and I'll help you categorize, prioritize, and organize them.\n\nAdditionally, it might be helpful to know:\n\n1. What kind of product are you working on (software, hardware, service, etc.)?\n2. What are your short-term and long-term goals for the product?\n3. Are there any specific areas you're struggling with or feeling overwhelmed about?\n\nOnce I have a better understanding of your tasks and goals, I can help you:\n\n* Categorize tasks into themes or groups\n* Identify dependencies between tasks\n* Prioritize tasks based on importance and urgency\n* Break down large tasks into smaller, manageable chunks\n* Create a rough timeline for completing tasks\n\nLet's get started!"
+    ]
+  },
+  {
+    "memory_id": "m_bbf35f1f305eedf00717",
+    "content": "User is working on a software product, short-term goal is to get MVP to pilot customers.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "short-term goal",
+      "keywords": [
+        "software product",
+        "MVP",
+        "pilot customers",
+        "short-term goal"
+      ],
+      "entities": [],
+      "topic": "product development",
+      "relation": {
+        "subject": "user",
+        "predicate": "goal",
+        "object": "get MVP to pilot customers"
+      },
+      "state_key": "product.goal",
+      "state_value": "MVP to pilot customers",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "53949711_2",
+      "session_index": 5,
+      "source_ids": [
+        27
+      ],
+      "source_uids": [
+        "s0005u0002"
+      ],
+      "source_times": [
+        "2023-05-21T15:17:01"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "short-term goal is to get a minimum viable product (MVP) out to some pilot customers",
+    "assistant_replies": [
+      "Let's get your tasks organized to help you achieve your short-term goal of getting an MVP out to pilot customers.\n\nTo start, can you share the tasks you have in mind for your MVP development? These can be high-level or detailed, and don't worry too much about their order or priority at this point. Just brain dump everything that comes to mind.\n\nSome examples to get you started:\n\n* Development tasks: features to build, bugs to fix, infrastructure setup, etc.\n* Team-building tasks: finding developers, conducting interviews, onboarding new team members, etc.\n* Design tasks: user experience, user interface, branding, etc.\n* Business tasks: marketing, sales, customer acquisition, etc.\n\nOnce you share your tasks, I can help you:\n\n* Group similar tasks together (e.g., all development tasks, all team-building tasks, etc.)\n* Identify dependencies between tasks (e.g., you need to finish the infrastructure setup before building certain features)\n* Prioritize tasks based on their importance and urgency for your MVP\n* Break down large tasks into smaller, manageable chunks\n* Create a rough timeline for completing tasks, assuming you find the right team members soon\n\nRemember, this is a collaborative process, and we can refine your task list as needed.\n\nType away, and let's get started!"
+    ]
+  },
+  {
+    "memory_id": "m_73a65333c19734a8ac1c",
+    "content": "User is struggling to find team members for software development.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "unknown",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "struggling",
+        "team members",
+        "development",
+        "software product"
+      ],
+      "entities": [],
+      "topic": "product development",
+      "relation": {
+        "subject": "user",
+        "predicate": "struggling with",
+        "object": "finding team members for development"
+      },
+      "state_key": "product.team_status",
+      "state_value": "struggling to find members",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "53949711_2",
+      "session_index": 5,
+      "source_ids": [
+        27
+      ],
+      "source_uids": [
+        "s0005u0002"
+      ],
+      "source_times": [
+        "2023-05-21T15:17:01"
+      ],
+      "source_role": "user",
+      "window_index": 1
+    },
+    "confidence": 1.0,
+    "evidence_span": "struggling a bit with finding the right team members to help me with development",
+    "assistant_replies": [
+      "Let's get your tasks organized to help you achieve your short-term goal of getting an MVP out to pilot customers.\n\nTo start, can you share the tasks you have in mind for your MVP development? These can be high-level or detailed, and don't worry too much about their order or priority at this point. Just brain dump everything that comes to mind.\n\nSome examples to get you started:\n\n* Development tasks: features to build, bugs to fix, infrastructure setup, etc.\n* Team-building tasks: finding developers, conducting interviews, onboarding new team members, etc.\n* Design tasks: user experience, user interface, branding, etc.\n* Business tasks: marketing, sales, customer acquisition, etc.\n\nOnce you share your tasks, I can help you:\n\n* Group similar tasks together (e.g., all development tasks, all team-building tasks, etc.)\n* Identify dependencies between tasks (e.g., you need to finish the infrastructure setup before building certain features)\n* Prioritize tasks based on their importance and urgency for your MVP\n* Break down large tasks into smaller, manageable chunks\n* Create a rough timeline for completing tasks, assuming you find the right team members soon\n\nRemember, this is a collaborative process, and we can refine your task list as needed.\n\nType away, and let's get started!"
+    ]
+  }
+]

@@ -1,0 +1,120 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "count_distinct",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "museum or gallery visit in December",
+        "query": "museum or gallery visit in December 2022",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "museum or gallery visit in December 2022"
+    ],
+    "output_constraints": [
+      "integer count of distinct museums or galleries"
+    ],
+    "reason": "The question asks for a count of distinct museums or galleries visited in December, requiring episodic or fact memories of visits during that month."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memories or source turns mention any museum or gallery visit in December 2022. The only museum visits mentioned are in January 2023 (Modern Art Museum), February 2023 (Natural History Museum, The Art Cube), and a planned Toyota Museum Tour with no date specified. Therefore, the number of different museums or galleries visited in December cannot be determined."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "museum or gallery visit in December",
+        "value": "none",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [],
+      "unit": "",
+      "result": "0"
+    },
+    "fact_table": [],
+    "confidence": 0.2,
+    "reasoning_summary": "No memories or sources mention any museum or gallery visit in December 2022. All visits are in January, February, or unspecified months."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist has deterministic calculation",
+  "compact_source_ids": [
+    50,
+    208,
+    73,
+    52,
+    5,
+    6,
+    1,
+    213,
+    2,
+    157,
+    217,
+    137,
+    156,
+    210,
+    171,
+    4,
+    3,
+    194,
+    175,
+    209,
+    51,
+    136
+  ],
+  "targeted_source_ids": [
+    4,
+    5,
+    6,
+    50,
+    91,
+    150,
+    171,
+    194,
+    210,
+    211,
+    212,
+    213,
+    51,
+    151,
+    193,
+    195
+  ]
+}

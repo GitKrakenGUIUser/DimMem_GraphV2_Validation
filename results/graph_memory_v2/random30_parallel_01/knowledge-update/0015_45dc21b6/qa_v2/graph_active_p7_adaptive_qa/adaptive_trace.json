@@ -1,0 +1,169 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "Emma's recipes tried",
+        "query": "Emma's recipes tried by user",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Emma's recipes tried by user"
+    ],
+    "output_constraints": [
+      "single integer"
+    ],
+    "reason": "The question asks for a count of recipes tried, which is a direct value from memory."
+  },
+  "base_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6f3d02597a9de582946f"
+    ],
+    "support_source_ids": [
+      213
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Emma's recipes tried"
+      ],
+      "unit": "recipes",
+      "result": "1"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Source 213 explicitly states 'I've tried out 3 of Emma's recipes so far'. Memory m_6f3d02597a9de582946f also states 'User has tried 3 of Emma's recipes'. No contradictory evidence found."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_6f3d02597a9de582946f",
+      "m_71a3de10070621e9d4e9"
+    ],
+    "support_source_ids": [
+      213,
+      66
+    ],
+    "required_slots": [
+      {
+        "name": "Emma's recipes tried",
+        "value": 3,
+        "support_memory_ids": [
+          "m_6f3d02597a9de582946f",
+          "m_71a3de10070621e9d4e9"
+        ],
+        "support_source_ids": [
+          213,
+          66
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [],
+      "unit": "",
+      "result": "3"
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "tried recipes from",
+        "object": "Emma",
+        "value": "3",
+        "unit": "recipes",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_6f3d02597a9de582946f"
+        ],
+        "support_source_ids": [
+          213
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "tried recipes from",
+        "object": "Emma",
+        "value": "2",
+        "unit": "recipes",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_71a3de10070621e9d4e9"
+        ],
+        "support_source_ids": [
+          66
+        ]
+      }
+    ],
+    "confidence": 0.2,
+    "reasoning_summary": "Memory m_6f3d02597a9de582946f (source 213) states user tried 3 of Emma's recipes. Memory m_71a3de10070621e9d4e9 (source 66) states user tried 2 of Emma's recipes. The later statement (source 213, timestamp 2023-05-30) supersedes the earlier (source 66, timestamp 2023-05-29) as an update. Thus the current count is 3."
+  },
+  "choice": "base",
+  "choice_reason": "monotonic guard: expanded evidence only caused abstention",
+  "compact_source_ids": [
+    213,
+    66,
+    115,
+    80,
+    117,
+    32,
+    67,
+    239,
+    114,
+    36,
+    220,
+    238,
+    240,
+    35,
+    214,
+    79,
+    68,
+    37,
+    212
+  ],
+  "targeted_source_ids": [
+    18,
+    36,
+    48,
+    66,
+    67,
+    71,
+    80,
+    115,
+    117,
+    119,
+    213,
+    239,
+    47,
+    116,
+    118,
+    212,
+    214
+  ]
+}

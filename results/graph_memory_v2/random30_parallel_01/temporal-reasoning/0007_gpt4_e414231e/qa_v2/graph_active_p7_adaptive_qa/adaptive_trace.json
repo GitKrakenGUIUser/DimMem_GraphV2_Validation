@@ -1,0 +1,204 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "query": "When did I fix my mountain bike?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of deciding to upgrade road bike pedals",
+        "query": "When did I decide to upgrade my road bike's pedals?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I fix my mountain bike?",
+      "When did I decide to upgrade my road bike's pedals?"
+    ],
+    "output_constraints": [
+      "Answer must be a number of days."
+    ],
+    "reason": "The question asks for the number of days between two events, requiring retrieval of both dates and computing the difference."
+  },
+  "base_candidate": {
+    "answer": "4 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1388df59f2142b1b1fe3",
+      "m_35c76e851b83cd810e02"
+    ],
+    "support_source_ids": [
+      8,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "value": "2023-03-15",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "name": "date of deciding to upgrade pedals",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-15",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "4 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user fixed their mountain bike on 2023-03-15 (memory m_1388df59f2142b1b1fe3, source 8) and decided to upgrade their road bike's pedals on 2023-03-19 (memory m_35c76e851b83cd810e02, source 139). The difference is 4 days."
+  },
+  "specialist_candidate": {
+    "answer": "4 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1388df59f2142b1b1fe3",
+      "m_35c76e851b83cd810e02"
+    ],
+    "support_source_ids": [
+      8,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "value": "2023-03-15",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "name": "date of deciding to upgrade road bike pedals",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-15",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "4 days"
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "fixed",
+        "object": "mountain bike",
+        "value": "2023-03-15",
+        "unit": "date",
+        "event_time": "2023-03-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "decided to upgrade",
+        "object": "road bike pedals to Shimano Ultegra clipless pedals",
+        "value": "2023-03-19",
+        "unit": "date",
+        "event_time": "2023-03-19",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The user fixed their mountain bike on 2023-03-15 (source 8) and decided to upgrade their road bike pedals on 2023-03-19 (source 139). The difference in days between these two dates is 4 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    10,
+    139,
+    8,
+    9,
+    53,
+    11,
+    140,
+    231,
+    41,
+    42,
+    12,
+    144,
+    143
+  ],
+  "targeted_source_ids": [
+    8,
+    9,
+    10,
+    12,
+    53,
+    111,
+    139,
+    140,
+    144,
+    162,
+    204,
+    213,
+    11
+  ]
+}

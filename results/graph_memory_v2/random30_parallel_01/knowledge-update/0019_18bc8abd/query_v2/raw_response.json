@@ -1,0 +1,106 @@
+{
+  "question": "What brand of BBQ sauce am I currently obsessed with?",
+  "question_date": "2023/07/15 (Sat) 07:37",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's current obsession with a brand of BBQ sauce",
+      "target_memory_types": [
+        "preference",
+        "fact"
+      ],
+      "entities": [
+        "BBQ sauce"
+      ],
+      "keywords": [
+        "obsessed",
+        "BBQ sauce",
+        "brand"
+      ],
+      "time_constraint": {
+        "operator": "around",
+        "start": "2023-07-15",
+        "end": "2023-07-15",
+        "raw": "currently"
+      },
+      "locations": [],
+      "state_keys": [
+        "preference:bbq_sauce_brand"
+      ],
+      "relation_hints": [],
+      "answer_dim": "preference",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's recent purchase or mention of a BBQ sauce brand",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "BBQ sauce"
+      ],
+      "keywords": [
+        "BBQ sauce",
+        "brand",
+        "bought",
+        "tried",
+        "mentioned"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-07-15",
+        "raw": "currently"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "caused_by"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "recent event involving BBQ sauce"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's stated favorite BBQ sauce brand",
+      "target_memory_types": [
+        "profile",
+        "fact"
+      ],
+      "entities": [
+        "BBQ sauce"
+      ],
+      "keywords": [
+        "favorite",
+        "BBQ sauce",
+        "brand"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-07-15",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "preference:bbq_sauce_brand"
+      ],
+      "relation_hints": [],
+      "answer_dim": "preference",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    }
+  ]
+}

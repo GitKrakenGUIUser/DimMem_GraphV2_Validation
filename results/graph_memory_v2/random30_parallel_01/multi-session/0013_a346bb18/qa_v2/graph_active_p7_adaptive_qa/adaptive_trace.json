@@ -1,0 +1,209 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "time_add_minutes",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "actual time",
+        "query": "marathon actual time",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "target time",
+        "query": "marathon target time",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "marathon actual time",
+      "marathon target time"
+    ],
+    "output_constraints": [
+      "answer in minutes"
+    ],
+    "reason": "The question asks for the difference in minutes between actual and target marathon times, requiring two time values and a subtraction."
+  },
+  "base_candidate": {
+    "answer": "4:22 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ffcc91a5de84670d186f",
+      "m_489bea28c229768c84d7"
+    ],
+    "support_source_ids": [
+      120,
+      7
+    ],
+    "required_slots": [
+      {
+        "name": "actual time",
+        "value": "4 hours 22 minutes",
+        "support_memory_ids": [
+          "m_ffcc91a5de84670d186f"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "name": "target time",
+        "value": "4 hours 10 minutes",
+        "support_memory_ids": [
+          "m_489bea28c229768c84d7"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "time_add",
+    "calculation": {
+      "operator": "time_add_minutes",
+      "operands": [
+        "4:10",
+        "12"
+      ],
+      "unit": "minutes",
+      "result": "4:22 AM"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Actual marathon time is 4h22m (memory m_ffcc91a5de84670d186f, source 120). Target time is 4h10m (memory m_489bea28c229768c84d7, source 7). Difference is 12 minutes."
+  },
+  "specialist_candidate": {
+    "answer": "12",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ffcc91a5de84670d186f",
+      "m_489bea28c229768c84d7"
+    ],
+    "support_source_ids": [
+      7,
+      120
+    ],
+    "required_slots": [
+      {
+        "name": "actual time",
+        "value": "4 hours 22 minutes",
+        "support_memory_ids": [
+          "m_ffcc91a5de84670d186f"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "name": "target time",
+        "value": "4 hours 10 minutes",
+        "support_memory_ids": [
+          "m_489bea28c229768c84d7"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "time_add_minutes",
+    "calculation": {
+      "operator": "time_add_minutes",
+      "operands": [
+        "4 hours 22 minutes",
+        "4 hours 10 minutes"
+      ],
+      "unit": "minutes",
+      "result": "12"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "completed first full marathon in",
+        "object": "4 hours 22 minutes",
+        "value": "4 hours 22 minutes",
+        "unit": "time",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_ffcc91a5de84670d186f"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "target marathon time",
+        "object": "4 hours 10 minutes",
+        "value": "4 hours 10 minutes",
+        "unit": "time",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_489bea28c229768c84d7"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Actual marathon time is 4h22min (memory m_ffcc91a5de84670d186f, source 120). Target time is 4h10min (memory m_489bea28c229768c84d7, source 7). Difference = 12 minutes."
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist candidate directly answers the question with the numeric difference in minutes (12), fulfilling the answer contract and output constraints, while compact candidate incorrectly returns a time value (4:22 AM) and uses wrong operator (time_add instead of subtraction).",
+  "compact_source_ids": [
+    7,
+    236,
+    8,
+    235,
+    120,
+    175,
+    239,
+    187,
+    231,
+    123,
+    122,
+    52,
+    189,
+    179,
+    22,
+    9,
+    121,
+    124,
+    237
+  ],
+  "targeted_source_ids": [
+    7,
+    8,
+    9,
+    11,
+    108,
+    120,
+    179,
+    186,
+    231,
+    235,
+    236,
+    239,
+    121,
+    180,
+    237
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "question_id": "f0853d11",
+  "question_type": "temporal-reasoning",
+  "question": "How many days had passed between the 'Walk for Hunger' event and the 'Coastal Cleanup' event?",
+  "question_date": "2023/03/14 (Tue) 21:24",
+  "gold_answer": "14 days. 8 days (including the last day) is also acceptable.",
+  "prediction": "14 days",
+  "support_memory_ids": [
+    "m_c6f6379260744d7c5ca2",
+    "m_4353b64a50f03923affd"
+  ],
+  "support_source_ids": [
+    124,
+    99
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Walk for Hunger occurred on February 21, 2023 (source 124). Coastal Cleanup occurred on March 7, 2023 (source 99). The difference in days is 14 days.",
+  "required_slots": [
+    {
+      "name": "Walk for Hunger date",
+      "value": "2023-02-21",
+      "support_memory_ids": [
+        "m_c6f6379260744d7c5ca2"
+      ],
+      "support_source_ids": [
+        124
+      ]
+    },
+    {
+      "name": "Coastal Cleanup date",
+      "value": "2023-03-07",
+      "support_memory_ids": [
+        "m_4353b64a50f03923affd"
+      ],
+      "support_source_ids": [
+        99
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-02-21",
+      "2023-03-07"
+    ],
+    "unit": "days",
+    "result": "14 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "Walk for Hunger date",
+        "query": "Walk for Hunger event date",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "Coastal Cleanup date",
+        "query": "Coastal Cleanup event date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Walk for Hunger event date",
+      "Coastal Cleanup event date"
+    ],
+    "output_constraints": [
+      "The answer must be a number of days."
+    ],
+    "reason": "The question asks for the number of days between two events, requiring their dates and a date difference calculation."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34876,
+    "completion_tokens": 778,
+    "elapsed_seconds": 7.8987438678741455
+  }
+}

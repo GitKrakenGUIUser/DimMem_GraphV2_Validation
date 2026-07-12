@@ -1,0 +1,163 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "internet_plan_speed",
+        "query": "user's current internet plan speed",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user's internet plan speed"
+    ],
+    "output_constraints": [
+      "value in Mbps or Gbps"
+    ],
+    "reason": "The question asks for the speed of the user's new internet plan, which is a current state value. The most recent fact about the plan speed should be retrieved."
+  },
+  "base_candidate": {
+    "answer": "500 Mbps",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4c4a636c43114ea01b22"
+    ],
+    "support_source_ids": [
+      88
+    ],
+    "required_slots": [
+      {
+        "name": "internet_plan_speed",
+        "value": "500 Mbps",
+        "support_memory_ids": [
+          "m_4c4a636c43114ea01b22"
+        ],
+        "support_source_ids": [
+          88
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated they upgraded to 500 Mbps about three weeks before 2023-05-24, which is the most recent and relevant fact about their internet plan speed. The question asks for the speed of the 'new' plan, and this upgrade is the latest change."
+  },
+  "specialist_candidate": {
+    "answer": "500 Mbps",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4c4a636c43114ea01b22"
+    ],
+    "support_source_ids": [
+      88
+    ],
+    "required_slots": [
+      {
+        "name": "internet_plan_speed",
+        "value": "500 Mbps",
+        "support_memory_ids": [
+          "m_4c4a636c43114ea01b22"
+        ],
+        "support_source_ids": [
+          88
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "upgraded internet speed to",
+        "object": "500 Mbps",
+        "value": "500",
+        "unit": "Mbps",
+        "event_time": "2023-05-03",
+        "valid_from": "2023-05-03",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_4c4a636c43114ea01b22"
+        ],
+        "support_source_ids": [
+          88
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated they upgraded to 500 Mbps about three weeks before 2023-05-24, which is the most recent fact about internet plan speed. No later contradiction exists, so the current speed is 500 Mbps."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    88,
+    224,
+    68,
+    65,
+    124,
+    213,
+    231,
+    19,
+    207,
+    128,
+    34,
+    31,
+    220,
+    90,
+    6,
+    45,
+    171,
+    78,
+    225,
+    232,
+    129,
+    87,
+    230,
+    127
+  ],
+  "targeted_source_ids": [
+    6,
+    14,
+    58,
+    88,
+    90,
+    93,
+    95,
+    96,
+    110,
+    111,
+    220,
+    224,
+    87,
+    89,
+    92,
+    94,
+    223,
+    225
+  ]
+}

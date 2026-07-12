@@ -1,0 +1,102 @@
+{
+  "question": "How many short stories have I written since I started writing regularly?",
+  "question_date": "2023-06-20T17:03:00",
+  "hypotheses": [
+    {
+      "query_anchor": "short stories written by the user since they started writing regularly",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "short stories",
+        "written",
+        "started writing regularly"
+      ],
+      "time_constraint": {
+        "operator": "after",
+        "start": "unknown",
+        "end": "2023-06-20T17:03:00",
+        "raw": "since I started writing regularly"
+      },
+      "locations": [],
+      "state_keys": [
+        "writing_regularly_start_date"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "writing_regularly_start_date",
+        "list_of_short_stories"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "when the user started writing regularly",
+      "target_memory_types": [
+        "profile",
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "started writing regularly",
+        "date"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "writing_regularly_start_date"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "number of short stories written by the user",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "short stories",
+        "count"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "short_story_count"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.3
+    }
+  ]
+}

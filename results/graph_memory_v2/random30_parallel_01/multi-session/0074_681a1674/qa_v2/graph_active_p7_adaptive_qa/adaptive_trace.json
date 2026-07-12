@@ -1,0 +1,164 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "count",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "re-watched Marvel movies",
+        "query": "Marvel movies re-watched",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Marvel movies re-watched"
+    ],
+    "output_constraints": [
+      "answer is a number"
+    ],
+    "reason": "The question asks for a count of distinct Marvel movies re-watched, which is a historical episodic memory query."
+  },
+  "base_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e3a5fbd5897fcadeee0f",
+      "m_49eab1ad3ab13b976a0b"
+    ],
+    "support_source_ids": [
+      164,
+      35
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "movies",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user explicitly stated re-watching Spider-Man: No Way Home (source 164) and Avengers: Endgame (source 35). These are the only two Marvel movies mentioned as re-watched. The question asks for the total number of Marvel movies re-watched, and the evidence supports exactly two."
+  },
+  "specialist_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e3a5fbd5897fcadeee0f",
+      "m_49eab1ad3ab13b976a0b"
+    ],
+    "support_source_ids": [
+      164,
+      35
+    ],
+    "required_slots": [
+      {
+        "name": "re-watched Marvel movies",
+        "value": "Spider-Man: No Way Home, Avengers: Endgame",
+        "support_memory_ids": [
+          "m_e3a5fbd5897fcadeee0f",
+          "m_49eab1ad3ab13b976a0b"
+        ],
+        "support_source_ids": [
+          164,
+          35
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Spider-Man: No Way Home",
+        "Avengers: Endgame"
+      ],
+      "unit": "",
+      "result": "2"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "re-watched",
+        "object": "Spider-Man: No Way Home",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-27T13:09:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e3a5fbd5897fcadeee0f"
+        ],
+        "support_source_ids": [
+          164
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "re-watched",
+        "object": "Avengers: Endgame",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-20T00:00:00",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_49eab1ad3ab13b976a0b"
+        ],
+        "support_source_ids": [
+          35
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "User explicitly stated re-watching Spider-Man: No Way Home (source 164) and re-watched Avengers: Endgame yesterday (source 35). Both are Marvel movies. Count distinct = 2.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist has deterministic calculation",
+  "compact_source_ids": [
+    164,
+    33,
+    34,
+    38,
+    165,
+    35,
+    169,
+    36,
+    37,
+    47,
+    128,
+    138,
+    218
+  ],
+  "targeted_source_ids": [
+    9,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    164,
+    165,
+    168,
+    169,
+    218
+  ]
+}

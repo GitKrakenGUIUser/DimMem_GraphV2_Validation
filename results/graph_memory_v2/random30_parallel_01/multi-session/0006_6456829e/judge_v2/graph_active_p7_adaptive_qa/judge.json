@@ -1,0 +1,103 @@
+{
+  "question_id": "6456829e",
+  "question_type": "multi-session",
+  "question": "How many plants did I initially plant for tomatoes and cucumbers?",
+  "question_date": "2023/05/30 (Tue) 23:46",
+  "gold_answer": "8",
+  "prediction": "5 tomato plants and 3 cucumber plants",
+  "support_memory_ids": [
+    "m_d35e3acd5fdc9b004209",
+    "m_c704ce6ac5c50cca2f71"
+  ],
+  "support_source_ids": [
+    218,
+    199
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User stated 'I planted 5 tomato plants initially' (source 218) and 'I've got 3 plants [cucumbers]' (source 199). Both are initial counts as of the question date.",
+  "required_slots": [
+    {
+      "name": "tomato_initial_count",
+      "value": "5",
+      "support_memory_ids": [
+        "m_d35e3acd5fdc9b004209"
+      ],
+      "support_source_ids": [
+        218
+      ]
+    },
+    {
+      "name": "cucumber_initial_count",
+      "value": "3",
+      "support_memory_ids": [
+        "m_c704ce6ac5c50cca2f71"
+      ],
+      "support_source_ids": [
+        199
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "same answer; preserve compact candidate",
+  "risk_reasons": [
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "tomato_initial_count",
+        "query": "initial number of tomato plants planted",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "cucumber_initial_count",
+        "query": "initial number of cucumber plants planted",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "initial number of tomato plants planted",
+      "initial number of cucumber plants planted"
+    ],
+    "output_constraints": [
+      "answer must include both counts, e.g., '5 tomato plants and 3 cucumber plants'"
+    ],
+    "reason": "The question asks for the initial count of two specific plants, requiring two separate numeric values from historical evidence."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31122,
+    "completion_tokens": 815,
+    "elapsed_seconds": 6.840850353240967
+  },
+  "correct": false,
+  "judge_reason": "Prediction gives counts for each type but does not provide the total number of plants.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 138,
+    "completion_tokens": 32,
+    "elapsed_seconds": 1.3395483493804932
+  }
+}

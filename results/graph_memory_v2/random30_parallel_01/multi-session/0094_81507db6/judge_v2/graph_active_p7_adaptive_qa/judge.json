@@ -1,0 +1,90 @@
+{
+  "question_id": "81507db6",
+  "question_type": "multi-session",
+  "question": "How many graduation ceremonies have I attended in the past three months?",
+  "question_date": "2023/07/21 (Fri) 23:33",
+  "gold_answer": "3",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_ee98828d389262062ff4",
+    "m_9dad06dd132d07e4e0d3"
+  ],
+  "support_source_ids": [
+    157,
+    77
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The question asks for the number of graduation ceremonies attended in the past three months from 2023/07/21. Two distinct graduation ceremonies are grounded: Rachel's master's degree graduation ceremony on 2023-07-07 (within 3 months) and Emma's preschool graduation on 2023-05-21 (within 3 months). The missed ceremony for Jack is not counted as attended. Thus, the count is 2.",
+  "required_slots": [
+    {
+      "name": "graduation ceremony attendance",
+      "value": "2",
+      "support_memory_ids": [
+        "m_ee98828d389262062ff4",
+        "m_9dad06dd132d07e4e0d3"
+      ],
+      "support_source_ids": [
+        157,
+        77
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Rachel's master's degree graduation ceremony (2023-07-07)",
+      "Emma's preschool graduation (2023-05-21)"
+    ],
+    "unit": "events",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "graduation ceremony attendance",
+        "query": "graduation ceremony attended",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "graduation ceremony attended"
+    ],
+    "output_constraints": [
+      "count of distinct events"
+    ],
+    "reason": "The question asks for a count of graduation ceremonies attended in the past three months, which is a direct count of episodic memories."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31137,
+    "completion_tokens": 726,
+    "elapsed_seconds": 9.087929964065552
+  },
+  "correct": false,
+  "judge_reason": "Prediction is 2, but reference answer is 3.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 132,
+    "completion_tokens": 28,
+    "elapsed_seconds": 0.7647128105163574
+  }
+}

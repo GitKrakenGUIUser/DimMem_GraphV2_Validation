@@ -1,0 +1,109 @@
+{
+  "question": "How much more was the pre-approval amount than the final sale price of the house?",
+  "question_date": "2023-05-30T18:41:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's pre-approval amount for the house",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "pre-approval amount",
+        "house"
+      ],
+      "keywords": [
+        "pre-approval amount",
+        "house"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T18:41:00",
+        "raw": "before the question date"
+      },
+      "locations": [],
+      "state_keys": [
+        "pre_approval_amount"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "final sale price of the house"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the final sale price of the house the user was interested in",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "final sale price",
+        "house"
+      ],
+      "keywords": [
+        "final sale price",
+        "house"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T18:41:00",
+        "raw": "before the question date"
+      },
+      "locations": [],
+      "state_keys": [
+        "final_sale_price"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "pre-approval amount"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the difference between the pre-approval amount and the final sale price of the house",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "pre-approval amount",
+        "final sale price",
+        "house"
+      ],
+      "keywords": [
+        "difference",
+        "pre-approval amount",
+        "final sale price",
+        "house"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T18:41:00",
+        "raw": "before the question date"
+      },
+      "locations": [],
+      "state_keys": [
+        "pre_approval_amount",
+        "final_sale_price"
+      ],
+      "relation_hints": [
+        "difference"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [],
+      "confidence": 0.6
+    }
+  ]
+}

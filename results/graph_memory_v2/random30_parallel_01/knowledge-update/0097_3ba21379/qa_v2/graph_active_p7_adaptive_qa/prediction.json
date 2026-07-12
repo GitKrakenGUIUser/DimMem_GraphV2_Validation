@@ -1,0 +1,75 @@
+{
+  "question_id": "3ba21379",
+  "question_type": "knowledge-update",
+  "question": "What type of vehicle model am I currently working on?",
+  "question_date": "2023/06/01 (Thu) 05:09",
+  "gold_answer": "Ford F-150 pickup truck",
+  "prediction": "pickup truck",
+  "support_memory_ids": [
+    "m_40463146c1e18adf2184"
+  ],
+  "support_source_ids": [
+    36
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user stated on 2023-05-26 that they switched to a Ford F-150 pickup truck model. No later memory contradicts this, so the current project is a pickup truck.",
+  "required_slots": [
+    {
+      "name": "current_project",
+      "value": "pickup truck",
+      "support_memory_ids": [
+        "m_40463146c1e18adf2184"
+      ],
+      "support_source_ids": [
+        36
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "current_project",
+        "query": "current project vehicle model type",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "current project vehicle model type"
+    ],
+    "output_constraints": [
+      "The answer should be a vehicle model type (e.g., pickup truck, sedan, SUV)."
+    ],
+    "reason": "The question asks for the type of vehicle model the user is currently working on, which requires resolving the current state of the user's project."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34836,
+    "completion_tokens": 525,
+    "elapsed_seconds": 8.507530927658081
+  }
+}

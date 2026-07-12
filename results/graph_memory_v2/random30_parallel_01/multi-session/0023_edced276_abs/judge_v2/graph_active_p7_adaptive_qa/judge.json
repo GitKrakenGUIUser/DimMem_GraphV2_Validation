@@ -1,0 +1,102 @@
+{
+  "question_id": "edced276_abs",
+  "question_type": "multi-session",
+  "question": "How many days did I spend in total traveling in Hawaii and in Seattle?",
+  "question_date": "2023/05/30 (Tue) 20:59",
+  "gold_answer": "The information provided is not enough. You mentioned traveling for 10 days in Hawaii but did not mention abything about the trip to Seattle.",
+  "prediction": "5",
+  "support_memory_ids": [
+    "m_a70c2d4add5c63196cd8",
+    "m_b05e4cd7e41ed11b7b47"
+  ],
+  "support_source_ids": [
+    52,
+    110
+  ],
+  "confidence": 0.0,
+  "reasoning_summary": "No memory contains any information about days spent in Hawaii or Seattle. The user mentioned returning from a Hawaii trip but did not specify duration. No mention of Seattle at all. Therefore both slots are unfilled, and the sum is 0.",
+  "required_slots": [
+    {
+      "name": "total days in Hawaii",
+      "value": "0",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    },
+    {
+      "name": "total days in Seattle",
+      "value": "0",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [
+    "total days in Hawaii",
+    "total days in Seattle"
+  ],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      0,
+      0
+    ],
+    "unit": "days",
+    "result": "0"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist filled an abstained base answer",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots",
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "total days in Hawaii",
+        "query": "days spent in Hawaii",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "total days in Seattle",
+        "query": "days spent in Seattle",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "days spent in Hawaii",
+      "days spent in Seattle"
+    ],
+    "output_constraints": [
+      "sum of two numbers in days"
+    ],
+    "reason": "The question asks for total days spent in Hawaii and Seattle combined, requiring summing two separate counts."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34613,
+    "completion_tokens": 728,
+    "elapsed_seconds": 8.156332731246948
+  },
+  "correct": false,
+  "judge_reason": "Reference indicates insufficient information but prediction is concrete.",
+  "judge_meta": {
+    "mode": "deterministic_abstention_guard",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "question_id": "gpt4_4cd9eba1",
+  "question_type": "temporal-reasoning",
+  "question": "How many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?",
+  "question_date": "2023/04/19 (Wed) 00:38",
+  "gold_answer": "one week",
+  "prediction": "7 days",
+  "support_memory_ids": [
+    "m_f13aa0a56cd56a812374",
+    "m_7912efeefba5ce1459c1"
+  ],
+  "support_source_ids": [
+    118,
+    69
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User was accepted on March 20, 2023, and started orientation on March 27, 2023. The difference is 7 days, which is exactly 1 week. The question asks 'how many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?' This means the number of weeks from acceptance to the start of orientation. Since the orientation started exactly 1 week after acceptance, the answer is 1 week.",
+  "required_slots": [
+    {
+      "name": "acceptance date",
+      "value": "2023-03-20",
+      "support_memory_ids": [
+        "m_f13aa0a56cd56a812374"
+      ],
+      "support_source_ids": [
+        118
+      ]
+    },
+    {
+      "name": "orientation start date",
+      "value": "2023-03-27",
+      "support_memory_ids": [
+        "m_7912efeefba5ce1459c1"
+      ],
+      "support_source_ids": [
+        69
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-03-20",
+      "2023-03-27"
+    ],
+    "unit": "weeks",
+    "result": "7 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    69,
+    118,
+    131,
+    64,
+    87,
+    175,
+    50,
+    230,
+    89,
+    179,
+    117,
+    146,
+    62,
+    112,
+    63,
+    70,
+    40,
+    119,
+    51,
+    90,
+    88
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.3
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 93641,
+    "completion_tokens": 1125,
+    "elapsed_seconds": 17.986257553100586
+  },
+  "correct": false,
+  "judge_reason": "The prediction '7 days' is equivalent to one week, but the reference answer specifies 'one week' as the unit. However, the instruction says 'Equivalent wording, units and formatting are acceptable', so this should be considered correct. Wait, the instruction says 'Equivalent wording, units and formatting are acceptable', so '7 days' is equivalent to 'one week'. But the instruction also says 'A partial multi-part answer is wrong', which is not applicable here. So it should be CORRECT. However, the prediction is '7 days' which is a different unit but equivalent. I need to re-evaluate: The instruction says 'Equivalent wording, units and formatting are acceptable', so '7 days' is acceptable. Therefore, label should be CORRECT.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 144,
+    "completion_tokens": 169,
+    "elapsed_seconds": 2.2558481693267822
+  }
+}

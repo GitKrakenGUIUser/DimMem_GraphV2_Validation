@@ -1,0 +1,84 @@
+{
+  "question_id": "577d4d32",
+  "question_type": "single-session-user",
+  "question": "What time do I stop checking work emails and messages?",
+  "question_date": "2023/05/30 (Tue) 23:54",
+  "gold_answer": "7 pm",
+  "prediction": "7 pm",
+  "support_memory_ids": [
+    "m_6120baa42ff84394143b"
+  ],
+  "support_source_ids": [
+    216
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user explicitly stated in source 216 that they stop checking work emails and messages by 7 pm as part of their evening routine. This is a direct, asserted fact with high confidence.",
+  "required_slots": [
+    {
+      "name": "time",
+      "value": "7 pm",
+      "support_memory_ids": [
+        "m_6120baa42ff84394143b"
+      ],
+      "support_source_ids": [
+        216
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:temporal",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "time",
+        "query": "What time do I stop checking work emails and messages?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What time do I stop checking work emails and messages?"
+    ],
+    "output_constraints": [
+      "Answer must be a time of day (e.g., '7 pm')."
+    ],
+    "reason": "The question asks for a direct fact about the user's typical stop time for work emails, which is a current preference or rule. The compact candidate provides a direct answer with supporting memory."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 33566,
+    "completion_tokens": 520,
+    "elapsed_seconds": 7.131057977676392
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 133,
+    "completion_tokens": 22,
+    "elapsed_seconds": 1.1151010990142822
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "question": "Can you recommend some recent publications or conferences that I might find interesting?",
+  "question_date": "2023-05-30T13:53:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's recent publications or conferences of interest",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [],
+      "keywords": [
+        "publications",
+        "conferences",
+        "interest"
+      ],
+      "time_constraint": {
+        "operator": "after",
+        "start": "2023-01-01",
+        "end": "",
+        "raw": "recent"
+      },
+      "locations": [],
+      "state_keys": [
+        "research_interests",
+        "preferred_conferences"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "user's research interests",
+        "user's preferred conferences"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's field of study or work",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [],
+      "keywords": [
+        "field",
+        "research",
+        "work"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "occupation",
+        "research_field"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "user's field of study or work"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's past recommendations from assistant",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [],
+      "keywords": [
+        "recommended",
+        "publications",
+        "conferences"
+      ],
+      "time_constraint": {
+        "operator": "after",
+        "start": "2023-01-01",
+        "end": "",
+        "raw": "recent"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "assistant_recommended"
+      ],
+      "answer_dim": "assistant_reply",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "previous assistant recommendations"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "question_id": "00ca467f",
+  "question_type": "multi-session",
+  "question": "How many doctor's appointments did I go to in March?",
+  "question_date": "2023/03/27 (Mon) 23:35",
+  "gold_answer": "2",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_050dc065171646103968",
+    "m_fb996e810cc0ebe06e09"
+  ],
+  "support_source_ids": [
+    2,
+    207
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Two distinct doctor appointments occurred in March 2023: a diagnosis with Dr. Smith on March 3 and a follow-up with Dr. Thompson on March 20. No other appointments in March are confirmed as attended; the planned appointments with Dr. Patel, Dr. Smith, and Dr. Johnson are not yet scheduled or occurred in March. Physical therapy is not a doctor's appointment. Thus, the count is 2.",
+  "required_slots": [
+    {
+      "name": "doctor appointments in March",
+      "value": "2",
+      "support_memory_ids": [
+        "m_050dc065171646103968",
+        "m_fb996e810cc0ebe06e09"
+      ],
+      "support_source_ids": [
+        2,
+        207
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "follow-up with Dr. Thompson on March 20",
+      "diagnosis with Dr. Smith on March 3"
+    ],
+    "unit": "appointments",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "doctor appointments in March",
+        "query": "doctor appointment March 2023",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "doctor appointment March 2023"
+    ],
+    "output_constraints": [
+      "count of distinct appointments"
+    ],
+    "reason": "The question asks for a count of doctor's appointments in March, which is a direct count of distinct events."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34464,
+    "completion_tokens": 707,
+    "elapsed_seconds": 9.189780235290527
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 131,
+    "completion_tokens": 23,
+    "elapsed_seconds": 1.0598130226135254
+  }
+}

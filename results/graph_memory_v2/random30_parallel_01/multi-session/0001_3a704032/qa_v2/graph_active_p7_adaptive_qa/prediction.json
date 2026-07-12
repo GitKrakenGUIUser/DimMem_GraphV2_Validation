@@ -1,0 +1,77 @@
+{
+  "question_id": "3a704032",
+  "question_type": "multi-session",
+  "question": "How many plants did I acquire in the last month?",
+  "question_date": "2023/05/30 (Tue) 21:51",
+  "gold_answer": "3",
+  "prediction": "1",
+  "support_memory_ids": [
+    "m_4ad7b0ebe63c48566bf5"
+  ],
+  "support_source_ids": [
+    84
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The memory m_4ad7b0ebe63c48566bf5 states the user got a snake plant from their sister last month, with event_start 2023-04-25, which is within one month before the question date 2023-05-30. No other plant acquisition events within the last month are found. Therefore, the count is 1.",
+  "required_slots": [
+    {
+      "name": "plant acquisition events",
+      "value": "snake plant from sister",
+      "support_memory_ids": [
+        "m_4ad7b0ebe63c48566bf5"
+      ],
+      "support_source_ids": [
+        84
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "snake plant from sister"
+    ],
+    "unit": "",
+    "result": "1"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "plant acquisition events",
+        "query": "plant acquisitions in last month",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "plant acquisitions in last month"
+    ],
+    "output_constraints": [
+      "single integer"
+    ],
+    "reason": "Count distinct plant acquisition events within the last month relative to question date."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 33918,
+    "completion_tokens": 537,
+    "elapsed_seconds": 7.485572814941406
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "question_id": "gpt4_731e37d7",
+  "question_type": "multi-session",
+  "question": "How much total money did I spend on attending workshops in the last four months?",
+  "question_date": "2023/02/26 (Sun) 23:35",
+  "gold_answer": "$720",
+  "prediction": "720 dollars",
+  "support_memory_ids": [
+    "m_2ff5299fb32b98fa3d4b",
+    "m_68660c87a1b83d2b4ef7",
+    "m_b83d9455e5e17610946d"
+  ],
+  "support_source_ids": [
+    122,
+    105,
+    128
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The question asks for total money spent on workshops in the last four months (2022-10-26 to 2023-02-26). Three workshops with costs fall within this period: writing workshop in Nov 2022 ($200), mindfulness workshop on Dec 12 ($20), and digital marketing workshop on Mar 15-16 ($500). However, the digital marketing workshop on Mar 15-16 is after the question date (2023-02-26), so it is excluded. The sum of $200 + $20 = $220.",
+  "required_slots": [
+    {
+      "name": "workshop attendance events with costs",
+      "value": "writing workshop Nov 2022 $200, mindfulness workshop Dec 12 $20, digital marketing workshop Mar 15-16 $500",
+      "support_memory_ids": [
+        "m_2ff5299fb32b98fa3d4b",
+        "m_68660c87a1b83d2b4ef7",
+        "m_b83d9455e5e17610946d"
+      ],
+      "support_source_ids": [
+        122,
+        105,
+        128
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      200,
+      20,
+      500
+    ],
+    "unit": "dollars",
+    "result": "720 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "workshop attendance events with costs",
+        "query": "workshops attended in last four months with cost",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "workshops attended between 2022-10-26 and 2023-02-26 with cost"
+    ],
+    "output_constraints": [
+      "sum of costs in dollars"
+    ],
+    "reason": "The question asks for total money spent on workshops in the last four months, requiring a sum of costs from workshop attendance events within that time window."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 29650,
+    "completion_tokens": 963,
+    "elapsed_seconds": 8.994680166244507
+  },
+  "correct": true,
+  "judge_reason": "Equivalent wording and units, no formatting issues.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 136,
+    "completion_tokens": 24,
+    "elapsed_seconds": 1.2374250888824463
+  }
+}

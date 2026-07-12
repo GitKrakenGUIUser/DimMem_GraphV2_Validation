@@ -1,0 +1,85 @@
+{
+  "question_id": "gpt4_5438fa52",
+  "question_type": "temporal-reasoning",
+  "question": "Which event happened first, my attendance at a cultural festival or the start of my Spanish classes?",
+  "question_date": "2023/05/27 (Sat) 16:21",
+  "gold_answer": "Spanish classes",
+  "prediction": "The start of my Spanish classes happened first.",
+  "support_memory_ids": [
+    "m_2d36ec3cf6b2b062ef8f",
+    "m_35f976780725e5c6ad8f"
+  ],
+  "support_source_ids": [
+    18,
+    111
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The cultural festival was attended on 2023-05-26. Spanish classes started around 2023-02-27. Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first.",
+  "required_slots": [
+    {
+      "name": "date of cultural festival attendance",
+      "value": "2023-05-26",
+      "support_memory_ids": [
+        "m_2d36ec3cf6b2b062ef8f"
+      ],
+      "support_source_ids": [
+        18
+      ]
+    },
+    {
+      "name": "date Spanish classes started",
+      "value": "2023-02-27",
+      "support_memory_ids": [
+        "m_35f976780725e5c6ad8f"
+      ],
+      "support_source_ids": [
+        111
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    109,
+    80,
+    18,
+    81,
+    111,
+    228,
+    199,
+    200,
+    231,
+    112,
+    131,
+    117,
+    150,
+    83,
+    113,
+    140,
+    79,
+    82,
+    230,
+    110,
+    232
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    3.79,
+    3.79
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 82466,
+    "completion_tokens": 1199,
+    "elapsed_seconds": 13.53353214263916
+  }
+}

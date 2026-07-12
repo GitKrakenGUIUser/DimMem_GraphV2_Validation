@@ -1,0 +1,102 @@
+{
+  "question": "How much total money did I spend on attending workshops in the last four months?",
+  "question_date": "2023-02-26T23:35:00",
+  "hypotheses": [
+    {
+      "query_anchor": "total money the user spent on attending workshops in the last four months",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "workshop"
+      ],
+      "keywords": [
+        "spent",
+        "workshop",
+        "attending"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2022-10-26",
+        "end": "2023-02-26",
+        "raw": "last four months"
+      },
+      "locations": [],
+      "state_keys": [
+        "workshop_expenses"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "list of workshop attendance events with costs"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "workshops the user attended in the last four months and their costs",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "workshop"
+      ],
+      "keywords": [
+        "attended",
+        "workshop",
+        "cost"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2022-10-26",
+        "end": "2023-02-26",
+        "raw": "last four months"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "individual workshop costs"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "total workshop spending by the user in the last four months",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "workshop"
+      ],
+      "keywords": [
+        "total",
+        "spending",
+        "workshop"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2022-10-26",
+        "end": "2023-02-26",
+        "raw": "last four months"
+      },
+      "locations": [],
+      "state_keys": [
+        "workshop_expenses"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.6
+    }
+  ]
+}

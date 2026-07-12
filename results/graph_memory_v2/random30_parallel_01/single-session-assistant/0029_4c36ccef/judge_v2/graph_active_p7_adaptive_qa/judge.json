@@ -1,0 +1,83 @@
+{
+  "question_id": "4c36ccef",
+  "question_type": "single-session-assistant",
+  "question": "Can you remind me of the name of the romantic Italian restaurant in Rome you recommended for dinner?",
+  "question_date": "2023/05/30 (Tue) 23:29",
+  "gold_answer": "Roscioli",
+  "prediction": "Roscioli",
+  "support_memory_ids": [
+    "m_e4afd1e44d976d9a8f65"
+  ],
+  "support_source_ids": [
+    256
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user asked for the name of the romantic Italian restaurant in Rome that was previously recommended. In memory m_e4afd1e44d976d9a8f65 (source 256), the assistant explicitly recommended Roscioli for a romantic dinner in Rome. This directly answers the question.",
+  "required_slots": [
+    {
+      "name": "restaurant_name",
+      "value": "Roscioli",
+      "support_memory_ids": [
+        "m_e4afd1e44d976d9a8f65"
+      ],
+      "support_source_ids": [
+        256
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "restaurant_name",
+        "query": "romantic Italian restaurant Rome recommended dinner",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "romantic Italian restaurant Rome recommended dinner"
+    ],
+    "output_constraints": [
+      "single restaurant name"
+    ],
+    "reason": "The user asks for a previously recommended restaurant name, requiring assistant recall of a past recommendation."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 28158,
+    "completion_tokens": 537,
+    "elapsed_seconds": 6.482893228530884
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 142,
+    "completion_tokens": 23,
+    "elapsed_seconds": 1.236633062362671
+  }
+}

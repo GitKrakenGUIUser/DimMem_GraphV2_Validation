@@ -1,0 +1,75 @@
+{
+  "question_id": "c8f1aeed",
+  "question_type": "single-session-assistant",
+  "question": "I wanted to follow up on our previous conversation about fracking in the Marcellus Shale region. You mentioned that some states require fracking companies to monitor groundwater quality at nearby wells before drilling and for a certain period after drilling is complete. Can you remind me which state you mentioned as an example that has this requirement?",
+  "question_date": "2023/05/30 (Tue) 13:40",
+  "gold_answer": "Pennsylvania",
+  "prediction": "Pennsylvania",
+  "support_memory_ids": [
+    "m_7b3db689322e6a9c57e1"
+  ],
+  "support_source_ids": [
+    43
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The assistant's previous reply (source 43) explicitly states: 'For example, Pennsylvania requires fracking companies to monitor groundwater quality at nearby wells before drilling and for a certain period after drilling is complete.' This directly answers the user's recall question.",
+  "required_slots": [
+    {
+      "name": "state_name",
+      "value": "Pennsylvania",
+      "support_memory_ids": [
+        "m_7b3db689322e6a9c57e1"
+      ],
+      "support_source_ids": [
+        43
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "state_name",
+        "query": "state requiring groundwater monitoring before and after fracking in Marcellus Shale",
+        "semantic_type": "entity",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "state requiring groundwater monitoring before and after fracking in Marcellus Shale"
+    ],
+    "output_constraints": [
+      "single state name"
+    ],
+    "reason": "The user asks to recall a state mentioned in a previous conversation as an example of requiring groundwater monitoring before and after fracking in the Marcellus Shale region. This is an assistant recall question, requiring retrieval from assistant's memory of past conversation."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32778,
+    "completion_tokens": 571,
+    "elapsed_seconds": 7.210207939147949
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "question_id": "45dc21b6",
+  "question_type": "knowledge-update",
+  "question": "How many of Emma's recipes have I tried out?",
+  "question_date": "2023/06/16 (Fri) 17:33",
+  "gold_answer": "3",
+  "prediction": "1",
+  "support_memory_ids": [
+    "m_6f3d02597a9de582946f"
+  ],
+  "support_source_ids": [
+    213
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Source 213 explicitly states 'I've tried out 3 of Emma's recipes so far'. Memory m_6f3d02597a9de582946f also states 'User has tried 3 of Emma's recipes'. No contradictory evidence found.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Emma's recipes tried"
+    ],
+    "unit": "recipes",
+    "result": "1"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    213,
+    66,
+    115,
+    80,
+    117,
+    32,
+    67,
+    239,
+    114,
+    36,
+    220,
+    238,
+    240,
+    35,
+    214,
+    79,
+    68,
+    37,
+    212
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    4.490000000000001,
+    4.490000000000001
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 80980,
+    "completion_tokens": 729,
+    "elapsed_seconds": 14.234608888626099
+  }
+}

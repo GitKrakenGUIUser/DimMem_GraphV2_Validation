@@ -1,0 +1,54 @@
+{
+  "question_id": "gpt4_2d58bcd6",
+  "question_type": "temporal-reasoning",
+  "question": "Which book did I finish reading first, 'The Hate U Give' or 'The Nightingale'?",
+  "question_date": "2023/05/30 (Tue) 22:18",
+  "gold_answer": "'The Hate U Give'",
+  "prediction": "The Hate U Give",
+  "support_memory_ids": [
+    "m_004047183f67b3e3e857",
+    "m_d362be8e9a70bf6f2935"
+  ],
+  "support_source_ids": [
+    28,
+    27
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "The user finished 'The Hate U Give' a few days before May 30, 2023 (source 27), and finished 'The Nightingale' last weekend (May 27-28, 2023) (source 28). Since 'a few days before' May 30 is earlier than 'last weekend' (May 27-28), 'The Hate U Give' was finished first.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "base candidate passed risk gate",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 146,
+    "completion_tokens": 23,
+    "elapsed_seconds": 1.3765020370483398
+  }
+}

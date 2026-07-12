@@ -1,0 +1,72 @@
+[2023-05-25T18:07:00.500000, Thu] 1.User: I'm looking for some tips on how to achieve a realistic rust effect on my model tank. I've tried using oil washes, but it's not quite giving me the look I want.
+[2023-05-25T18:07:01, Thu] 2.User: I've been using Vallejo Model Color paints for my current projects, but I've heard good things about Mig Productions' rust paints. Do you think they're worth trying out?
+[2023-05-25T18:07:01.500000, Thu] 3.User: I've been using Vallejo Model Color for my tank model, but I've heard good things about Mig Productions' rust paints. Do you think they're worth trying out, especially for a more realistic rust effect on my T-34?
+[2023-05-25T18:07:02, Thu] 4.User: I'm actually pretty new to model building, been doing it for about 3 months now. Started with a 1/48 scale F-16C Fighting Falcon and have been hooked ever since. Currently working on a 1/35 scale T-34 tank and a 1/24 scale Ford Mustang GT500. What are some common mistakes beginners make when it comes to weathering and rust effects?
+[2023-05-25T18:07:02.500000, Thu] 5.User: Yeah, I've been trying to be patient and take my time with the weathering process. I've been using Vallejo Model Color washes and have been experimenting with different techniques like streaking and drybrushing. I've also been trying to reference real-world examples of weathered tanks and cars to get a sense of how the rust and dirt accumulate. But I think I might need to try out some new products, like Mig Productions' rust paints, to get a more realistic look. Do you think I should start with their "Russian Rust" set for my T-34?
+[2023-05-25T18:07:03, Thu] 6.User: I'm planning to focus on specific areas, like the tracks, hull, and turret, to create a more realistic weathered look. I want to add rust and dirt to the areas that would naturally accumulate it, like the tracks and lower hull, and then blend it into the surrounding areas to create a subtle, nuanced effect. I've also been thinking about adding some mud and dust to the wheels and tracks to give it a more battle-worn look.
+
+I've been looking at reference images of real T-34s and trying to study how the rust and dirt accumulate on the different surfaces. It's amazing how much detail and texture you can add to a model just by paying attention to the way the weathering forms in real life.
+
+Do you think I should try to add any additional details, like scratches or chipping, to the model to make it look more realistic? I've seen some models with really subtle scratches and chips that add a lot of character to the model.
+[2023-05-25T18:51:00.500000, Thu] 7.User: I'm trying to track my expenses for the past month. Can you help me categorize my spending into different areas like food, gifts, and miscellaneous?
+[2023-05-25T18:51:01, Thu] 8.User: Here's a rough list of my expenses. I remember buying gifts for my sister's birthday, my friend's baby shower, and my neighbor who just moved in. I also got some stuff for my grandma's visit, and some essentials for my roommate when she was sick. And then there was the office potluck lunch where I got snacks and drinks for my coworkers - I spent around $50 on chips and dips from Costco, and soda and water from the convenience store near my apartment.
+[2023-05-25T18:51:01.500000, Thu] 9.User: I spent around $150 on my sister's birthday gift, $40 on my friend's baby shower gift, and $20 on the gift for my neighbor. The gift for my grandma's visit was around $60. As for my roommate, I got her some chicken soup, orange juice, and veggies, which came out to around $30.
+[2023-05-25T18:51:02, Thu] 10.User: Now it's your turn! Please respond with the next message from the user's perspective.
+[2023-05-25T18:51:02.500000, Thu] 11.User: Here's the next message from the user's perspective:
+
+"I also realized I didn't mention that the $50 I spent on snacks and drinks for the office potluck lunch included chips and dips from Costco, and soda and water from the convenience store near my apartment. Maybe we can categorize that under 'office expenses' or something?"
+[2023-05-25T18:51:03, Thu] 12.User: Here's the next message from the user's perspective:
+
+"Yeah, I think that's it for now. I'm a bit surprised by how much I spent on food and dining out. Do you have any suggestions on how I can cut back on those expenses? Maybe some tips on meal planning or finding cheaper alternatives?"
+[2023-05-25T19:03:00.500000, Thu] 13.User: Generate in form of api documentation 
+1. To receive a token a wallet has to be generated, 
+the endpoint is = POST /account/wallet 
+the parameters are token, coin and network. 
+eg token: user token to accessthe api, , coin=BTC , network=BTC. 
+resposes are : address, memo and network,coin
+[2023-05-25T19:03:01, Thu] 14.User: you can get alist of network you can use from market data endpoint 
+results all assets has an array of networks you can use
+endpoint is GET /general/market\_data response example is is 
+ "name": "Bitcoin",
+ "coin": "BTC",
+ "\_24hrs": "1.046",
+ "network": [
+ {
+ "id": 4060,
+ "coin": "BTC",
+ "network": "BNB",
+ "name": "Binance Chain (BEP2)",
+ },
+ 
+ ]
+[2023-05-25T19:03:01.500000, Thu] 15.User: To send a token u will need to firstly get the breaakdown this will show the fee charged and the amount 
+the user will received if it send the token. 
+ the endpoint is /account/trade\_breakdown , is a post request , 
+ params are token: user token to access, type="withdraw", 
+ amount="amount of token to send out" , asset = the name of the coin , network = the network response are 
+ assetUnits: number;
+ withdrawFee: number;
+
+ seconly send a confirmation OTP email to user email before you submit it
+the endpoint is POST /account/withdrawal\_otp
+the params are asset\_units, address, memo, asset, asset\_units: is the amount of token token sending out e.g 0.00045
+address; the recipient address, memo= optional but if the network of the coin selected has a memoRegex as a value u will need to provide it 
+while asset is the name of the token sending out eg BTC
+
+ thirdly, is to send a token out
+ the endpoint is /account/send\_token , is a post request , 
+ params are token: user token to access, 
+ amount="50" , 
+ asset =USDT ,
+ network = TRX,
+ address=TNesdhhhsiiiiiieggelins
+memo= optional but if the network of the coin selected has a memoRegex as a value u will need to provide 
+otp= is the code received by the user in step 2
+
+ this.response.data = {
+ amount: `the amount of token user will received`,
+ asset,
+ address,
+ memo,
+ description=Your payment has been sent to address
+ };

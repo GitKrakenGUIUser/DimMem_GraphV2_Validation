@@ -1,0 +1,75 @@
+{
+  "question_id": "18bc8abd",
+  "question_type": "knowledge-update",
+  "question": "What brand of BBQ sauce am I currently obsessed with?",
+  "question_date": "2023/07/15 (Sat) 07:37",
+  "gold_answer": "Kansas City Masterpiece",
+  "prediction": "Kansas City Masterpiece BBQ sauce",
+  "support_memory_ids": [
+    "m_3339bc105c6178df0519"
+  ],
+  "support_source_ids": [
+    212
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user explicitly stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce' on 2023-06-30, which is the most recent and direct evidence of current obsession. No later contradictory statements exist.",
+  "required_slots": [
+    {
+      "name": "preference:bbq_sauce_brand",
+      "value": "Kansas City Masterpiece BBQ sauce",
+      "support_memory_ids": [
+        "m_3339bc105c6178df0519"
+      ],
+      "support_source_ids": [
+        212
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "preference:bbq_sauce_brand",
+        "query": "user's current obsession with BBQ sauce brand",
+        "semantic_type": "preference",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What brand of BBQ sauce is the user currently obsessed with?"
+    ],
+    "output_constraints": [
+      "single brand name"
+    ],
+    "reason": "The question asks for the user's current obsession with a BBQ sauce brand, which is a state resolution query. The most direct evidence is a recent statement of obsession."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 38780,
+    "completion_tokens": 536,
+    "elapsed_seconds": 6.207279205322266
+  }
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "answer": "My attendance at a cultural festival happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "required_slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "value": "2023-05-26",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "name": "date Spanish classes started",
+        "value": "2023-02-27",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The cultural festival was attended on 2023-05-26 (yesterday from question date). Spanish classes started around 2023-02-27 (three months before 2023-05-27). Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first. Wait, re-evaluating: 2023-02-27 is before 2023-05-26, so Spanish classes started first. Correction: The evidence shows Spanish classes started about three months before May 27, i.e., around February 27, which is before the cultural festival on May 26. Therefore, the start of Spanish classes happened first."
+  },
+  {
+    "answer": "My attendance at a cultural festival happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "required_slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "value": "2023-05-26",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "name": "date Spanish classes started",
+        "value": "2023-02-27",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The cultural festival was attended on 2023-05-26 (yesterday from question date 2023-05-27). Spanish classes started around 2023-02-27 (three months before 2023-05-27). Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first. Wait, that contradicts the answer. Let me re-evaluate: The festival was on 2023-05-26, Spanish classes started on 2023-02-27. So Spanish classes started first. I need to correct the answer."
+  }
+]

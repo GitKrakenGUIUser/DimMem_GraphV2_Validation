@@ -1,0 +1,96 @@
+{
+  "question_id": "3fe836c9",
+  "question_type": "multi-session",
+  "question": "How much more was the pre-approval amount than the final sale price of the house?",
+  "question_date": "2023/05/30 (Tue) 18:41",
+  "gold_answer": "$25,000",
+  "prediction": "$25,000",
+  "support_memory_ids": [
+    "m_af71b9d632e4faa08cc9",
+    "m_14f923f7b119a074b7a9"
+  ],
+  "support_source_ids": [
+    200,
+    80
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The pre-approval amount is $350,000 (memory m_af71b9d632e4faa08cc9, source 200). The final sale price is $325,000 (memory m_14f923f7b119a074b7a9, source 80). The difference is $350,000 - $325,000 = $25,000.",
+  "required_slots": [
+    {
+      "name": "pre_approval_amount",
+      "value": "$350,000",
+      "support_memory_ids": [
+        "m_af71b9d632e4faa08cc9"
+      ],
+      "support_source_ids": [
+        200
+      ]
+    },
+    {
+      "name": "final_sale_price",
+      "value": "$325,000",
+      "support_memory_ids": [
+        "m_14f923f7b119a074b7a9"
+      ],
+      "support_source_ids": [
+        80
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "other",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "dollars",
+    "result": "25000"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    80,
+    200,
+    61,
+    24,
+    33,
+    89,
+    134,
+    21,
+    121,
+    2,
+    178,
+    31,
+    201,
+    127,
+    202,
+    138,
+    224,
+    205,
+    81,
+    25,
+    22,
+    88,
+    90,
+    23
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    3.8000000000000003,
+    3.8000000000000003
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 97231,
+    "completion_tokens": 1084,
+    "elapsed_seconds": 16.823354244232178
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 142,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.9990270137786865
+  }
+}

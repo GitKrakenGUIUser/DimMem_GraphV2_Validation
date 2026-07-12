@@ -1,0 +1,98 @@
+{
+  "question_id": "c18a7dc8",
+  "question_type": "multi-session",
+  "question": "How many years older am I than when I graduated from college?",
+  "question_date": "2023/05/30 (Tue) 23:37",
+  "gold_answer": "7",
+  "prediction": "2556 days",
+  "support_memory_ids": [
+    "m_6e9eb5b3dc431855f875",
+    "m_9cec3a05163158001acb"
+  ],
+  "support_source_ids": [
+    132,
+    170
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User is currently 32 years old (memory m_6e9eb5b3dc431855f875, source 132) and graduated college at age 25 (memory m_9cec3a05163158001acb, source 170). The difference is 7 years.",
+  "required_slots": [
+    {
+      "name": "current_age",
+      "value": "32",
+      "support_memory_ids": [
+        "m_6e9eb5b3dc431855f875"
+      ],
+      "support_source_ids": [
+        132
+      ]
+    },
+    {
+      "name": "graduation_age",
+      "value": "25",
+      "support_memory_ids": [
+        "m_9cec3a05163158001acb"
+      ],
+      "support_source_ids": [
+        170
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-05-30",
+      "2016-05-30"
+    ],
+    "unit": "years",
+    "result": "2556 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    174,
+    230,
+    53,
+    173,
+    170,
+    114,
+    128,
+    145,
+    132,
+    172,
+    54,
+    143,
+    52,
+    136,
+    195,
+    116,
+    97,
+    36,
+    131,
+    113,
+    115,
+    129,
+    171
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 85059,
+    "completion_tokens": 1004,
+    "elapsed_seconds": 11.94274115562439
+  },
+  "correct": false,
+  "judge_reason": "Prediction is in days, not years, and does not match the reference answer of 7 years.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 134,
+    "completion_tokens": 36,
+    "elapsed_seconds": 1.289372444152832
+  }
+}

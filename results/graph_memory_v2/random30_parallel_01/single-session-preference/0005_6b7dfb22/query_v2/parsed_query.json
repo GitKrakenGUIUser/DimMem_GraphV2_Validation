@@ -1,0 +1,103 @@
+{
+  "question": "I've been feeling a bit stuck with my paintings lately. Do you have any ideas on how I can find new inspiration?",
+  "question_date": "2023-05-30T13:57:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user feeling stuck with paintings and seeking inspiration ideas",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "stuck",
+        "paintings",
+        "inspiration"
+      ],
+      "time_constraint": {
+        "operator": "around",
+        "start": "2023-05-30T13:57:00",
+        "end": "",
+        "raw": "lately"
+      },
+      "locations": [],
+      "state_keys": [
+        "creative_block",
+        "art_medium"
+      ],
+      "relation_hints": [],
+      "answer_dim": "assistant_reply",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's preferences or interests related to art",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "art",
+        "preferences",
+        "interests"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "art_style",
+        "favorite_artists",
+        "preferred_subjects"
+      ],
+      "relation_hints": [],
+      "answer_dim": "preference",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 3,
+      "missing_slots": [],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's past painting experiences or sources of inspiration",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "painting",
+        "inspiration",
+        "past"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "2023-05-30T13:57:00",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "caused_by"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 3,
+      "missing_slots": [],
+      "confidence": 0.5
+    }
+  ]
+}

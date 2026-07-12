@@ -1,0 +1,159 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date when user read the issue",
+        "query": "When did I read the March 15th issue of The New Yorker?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I read the March 15th issue of The New Yorker?"
+    ],
+    "output_constraints": [
+      "Answer must be a number of days."
+    ],
+    "reason": "The question asks for days ago, requiring a date difference between the reading date and the question date."
+  },
+  "base_candidate": {
+    "answer": "12 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_077f5c7b3f72ae66b656"
+    ],
+    "support_source_ids": [
+      28
+    ],
+    "required_slots": [
+      {
+        "name": "date when user read the issue",
+        "value": "2023-03-20",
+        "support_memory_ids": [
+          "m_077f5c7b3f72ae66b656"
+        ],
+        "support_source_ids": [
+          28
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-01",
+        "2023-03-20"
+      ],
+      "unit": "days",
+      "result": "12 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user read the March 15th issue of The New Yorker on March 20, 2023 (source 28, memory m_077f5c7b3f72ae66b656). The question date is April 1, 2023. The difference is 12 days."
+  },
+  "specialist_candidate": {
+    "answer": "12 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_077f5c7b3f72ae66b656"
+    ],
+    "support_source_ids": [
+      28
+    ],
+    "required_slots": [
+      {
+        "name": "date when user read the issue",
+        "value": "2023-03-20",
+        "support_memory_ids": [
+          "m_077f5c7b3f72ae66b656"
+        ],
+        "support_source_ids": [
+          28
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-20",
+        "2023-04-01"
+      ],
+      "unit": "days",
+      "result": "12 days"
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "read",
+        "object": "March 15th issue of The New Yorker",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-03-20",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_077f5c7b3f72ae66b656"
+        ],
+        "support_source_ids": [
+          28
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_077f5c7b3f72ae66b656 and source 28 state that user read the March 15th issue of The New Yorker on 2023-03-20. The question date is 2023-04-01. The difference is 12 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    28,
+    32,
+    7,
+    33,
+    31,
+    54,
+    50,
+    249,
+    56,
+    30,
+    60,
+    74,
+    53,
+    110,
+    29
+  ],
+  "targeted_source_ids": [
+    7,
+    11,
+    28,
+    29,
+    31,
+    32,
+    54,
+    120,
+    121,
+    122,
+    123,
+    161,
+    30,
+    33
+  ]
+}

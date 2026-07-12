@@ -1,0 +1,60 @@
+[
+  {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_050dc065171646103968",
+      "m_fb996e810cc0ebe06e09"
+    ],
+    "support_source_ids": [
+      2,
+      207
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "follow-up with Dr. Thompson on March 20",
+        "diagnosis with Dr. Smith on March 3"
+      ],
+      "unit": "appointments",
+      "result": "2"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Two doctor's appointments in March 2023 are explicitly mentioned: a follow-up with Dr. Thompson on March 20 (memory m_050dc065171646103968, source 2) and a diagnosis with Dr. Smith on March 3 (memory m_fb996e810cc0ebe06e09, source 207). No other appointments in March are confirmed as attended.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_050dc065171646103968",
+      "m_fb996e810cc0ebe06e09"
+    ],
+    "support_source_ids": [
+      2,
+      207
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "doctor appointment on March 3rd",
+        "doctor appointment on March 20th"
+      ],
+      "unit": "appointments",
+      "result": "2"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user had a doctor's appointment with Dr. Smith on March 3rd (diagnosed with bronchitis) and a follow-up appointment with Dr. Thompson on March 20th (knee healing well). No other doctor appointments in March are mentioned. Thus, the count is 2.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

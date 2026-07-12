@@ -1,0 +1,140 @@
+{
+  "question_id": "75832dbd",
+  "question_type": "single-session-preference",
+  "question": "Can you recommend some recent publications or conferences that I might find interesting?",
+  "question_date": "2023/05/30 (Tue) 13:53",
+  "gold_answer": "The user would prefer suggestions related to recent research papers, articles, or conferences that focus on artificial intelligence in healthcare, particularly those that involve deep learning for medical image analysis. They would not be interested in general AI topics or those unrelated to healthcare.",
+  "prediction": "Based on your interests in intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging, I recommend recent publications and conferences in these fields. For intersectional feminism and LGBTQ+ issues, consider the journal 'Gender & Society' and conferences like the National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging, look into the 'Medical Image Analysis' journal and conferences such as MICCAI (Medical Image Computing and Computer Assisted Intervention) and IEEE ISBI (International Symposium on Biomedical Imaging).",
+  "support_memory_ids": [
+    "m_2b3ded5503ef5aad0c1c",
+    "m_eb489beb01c52a58302c",
+    "m_3583f1b7745703717aba",
+    "m_ed3f09d5810ae144695d"
+  ],
+  "support_source_ids": [
+    126,
+    127,
+    128,
+    42
+  ],
+  "confidence": 0.85,
+  "reasoning_summary": "User's research interests are intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging. No preferred conferences specified. Recent publications and conferences in these fields are recommended based on common academic venues. The answer is grounded in user's stated interests.",
+  "required_slots": [
+    {
+      "name": "user_research_interests",
+      "value": "intersectional feminism, LGBTQ+ issues, explainable AI in medical image analysis",
+      "support_memory_ids": [
+        "m_2b3ded5503ef5aad0c1c",
+        "m_eb489beb01c52a58302c",
+        "m_3583f1b7745703717aba",
+        "m_ed3f09d5810ae144695d"
+      ],
+      "support_source_ids": [
+        126,
+        127,
+        128,
+        42
+      ]
+    },
+    {
+      "name": "user_preferred_conferences",
+      "value": "not specified",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    },
+    {
+      "name": "recent_publications_in_field",
+      "value": "For intersectional feminism: 'Gender & Society' journal. For explainable AI in medical imaging: 'Medical Image Analysis' journal.",
+      "support_memory_ids": [
+        "m_2b3ded5503ef5aad0c1c",
+        "m_eb489beb01c52a58302c"
+      ],
+      "support_source_ids": [
+        127,
+        42
+      ]
+    },
+    {
+      "name": "recent_conferences_in_field",
+      "value": "For intersectional feminism: National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging: MICCAI, IEEE ISBI.",
+      "support_memory_ids": [
+        "m_2b3ded5503ef5aad0c1c",
+        "m_eb489beb01c52a58302c"
+      ],
+      "support_source_ids": [
+        127,
+        42
+      ]
+    }
+  ],
+  "unfilled_slots": [
+    "user_preferred_conferences"
+  ],
+  "operation": "preference_inference",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies preference_criteria contract",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "relative",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_research_interests",
+        "query": "user's research interests",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "user_preferred_conferences",
+        "query": "user's preferred conferences",
+        "semantic_type": "preference",
+        "required": false
+      },
+      {
+        "name": "recent_publications_in_field",
+        "query": "recent publications in user's field",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "recent_conferences_in_field",
+        "query": "recent conferences in user's field",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user's research interests",
+      "user's preferred conferences",
+      "recent publications in user's field",
+      "recent conferences in user's field"
+    ],
+    "output_constraints": [
+      "Recommend publications and conferences that are recent (after 2023-01-01) and match user's interests."
+    ],
+    "reason": "The question asks for recommendations based on user's interests, requiring preference_criteria. Slots capture user's interests and recent events in that field."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 44593,
+    "completion_tokens": 1564,
+    "elapsed_seconds": 16.41702175140381
+  }
+}

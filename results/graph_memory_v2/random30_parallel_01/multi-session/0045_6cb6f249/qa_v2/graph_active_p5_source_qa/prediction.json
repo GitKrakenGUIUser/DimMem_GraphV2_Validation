@@ -1,0 +1,76 @@
+{
+  "question_id": "6cb6f249",
+  "question_type": "multi-session",
+  "question": "How many days did I take social media breaks in total?",
+  "question_date": "2023/03/14 (Tue) 23:56",
+  "gold_answer": "17 days",
+  "prediction": "17 days",
+  "support_memory_ids": [
+    "m_df096ec32d4c68140dec",
+    "m_e2def7ecc21213df4abc"
+  ],
+  "support_source_ids": [
+    129,
+    123
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Memory m_df096ec32d4c68140dec states a week-long break (7 days) in mid-January 2023. Memory m_e2def7ecc21213df4abc states a 10-day break in mid-February 2023. Summing gives 17 total days.",
+  "required_slots": [
+    {
+      "name": "total days",
+      "value": "17",
+      "support_memory_ids": [
+        "m_df096ec32d4c68140dec",
+        "m_e2def7ecc21213df4abc"
+      ],
+      "support_source_ids": [
+        129,
+        123
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      7,
+      10
+    ],
+    "unit": "days",
+    "result": "17 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    161,
+    160,
+    163,
+    165,
+    129,
+    162,
+    166,
+    123,
+    164,
+    124,
+    140,
+    7,
+    94,
+    132,
+    131,
+    133,
+    130
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 68436,
+    "completion_tokens": 728,
+    "elapsed_seconds": 14.663666009902954
+  }
+}

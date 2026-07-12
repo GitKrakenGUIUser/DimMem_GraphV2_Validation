@@ -1,0 +1,102 @@
+[
+  {
+    "answer": "4:22 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ffcc91a5de84670d186f",
+      "m_489bea28c229768c84d7"
+    ],
+    "support_source_ids": [
+      120,
+      7
+    ],
+    "required_slots": [
+      {
+        "name": "actual time",
+        "value": "4 hours 22 minutes",
+        "support_memory_ids": [
+          "m_ffcc91a5de84670d186f"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "name": "target time",
+        "value": "4 hours 10 minutes",
+        "support_memory_ids": [
+          "m_489bea28c229768c84d7"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "time_add",
+    "calculation": {
+      "operator": "time_add_minutes",
+      "operands": [
+        "4:10",
+        "12"
+      ],
+      "unit": "minutes",
+      "result": "4:22 AM"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Actual marathon time is 4h22m (memory m_ffcc91a5de84670d186f, source 120). Target time is 4h10m (memory m_489bea28c229768c84d7, source 7). Difference is 12 minutes.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "4:22 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ffcc91a5de84670d186f",
+      "m_489bea28c229768c84d7"
+    ],
+    "support_source_ids": [
+      120,
+      7
+    ],
+    "required_slots": [
+      {
+        "name": "actual time",
+        "value": "4 hours 22 minutes",
+        "support_memory_ids": [
+          "m_ffcc91a5de84670d186f"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "name": "target time",
+        "value": "4 hours 10 minutes",
+        "support_memory_ids": [
+          "m_489bea28c229768c84d7"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "time_add",
+    "calculation": {
+      "operator": "time_add_minutes",
+      "operands": [
+        "4:10",
+        "12"
+      ],
+      "unit": "minutes",
+      "result": "4:22 AM"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Actual marathon time is 4h22m (memory m_ffcc91a5de84670d186f, source 120). Target time is 4h10m (memory m_489bea28c229768c84d7, source 7). Difference is 12 minutes.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

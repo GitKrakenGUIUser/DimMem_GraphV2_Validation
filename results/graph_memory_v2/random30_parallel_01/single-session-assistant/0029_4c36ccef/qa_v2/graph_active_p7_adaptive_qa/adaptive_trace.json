@@ -1,0 +1,136 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "restaurant_name",
+        "query": "romantic Italian restaurant Rome recommended dinner",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "romantic Italian restaurant Rome recommended dinner"
+    ],
+    "output_constraints": [
+      "single restaurant name"
+    ],
+    "reason": "The user asks for a previously recommended restaurant name, requiring assistant recall of a past recommendation."
+  },
+  "base_candidate": {
+    "answer": "Roscioli",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e4afd1e44d976d9a8f65"
+    ],
+    "support_source_ids": [
+      256
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The assistant recommended Roscioli for a romantic dinner in Rome in response to the user's question about the best Italian restaurant for a romantic dinner (source 256)."
+  },
+  "specialist_candidate": {
+    "answer": "Roscioli",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e4afd1e44d976d9a8f65"
+    ],
+    "support_source_ids": [
+      256
+    ],
+    "required_slots": [
+      {
+        "name": "restaurant_name",
+        "value": "Roscioli",
+        "support_memory_ids": [
+          "m_e4afd1e44d976d9a8f65"
+        ],
+        "support_source_ids": [
+          256
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "assistant",
+        "predicate": "recommended",
+        "object": "Roscioli",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-30T12:20:01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e4afd1e44d976d9a8f65"
+        ],
+        "support_source_ids": [
+          256
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The user asked for the name of the romantic Italian restaurant in Rome that was previously recommended. In memory m_e4afd1e44d976d9a8f65 (source 256), the assistant explicitly recommended Roscioli for a romantic dinner in Rome. This directly answers the question."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    255,
+    17,
+    258,
+    63,
+    64,
+    62,
+    256,
+    15,
+    61,
+    229,
+    257,
+    53,
+    227
+  ],
+  "targeted_source_ids": [
+    17,
+    53,
+    61,
+    62,
+    63,
+    64,
+    160,
+    227,
+    245,
+    255,
+    256,
+    258,
+    257
+  ]
+}

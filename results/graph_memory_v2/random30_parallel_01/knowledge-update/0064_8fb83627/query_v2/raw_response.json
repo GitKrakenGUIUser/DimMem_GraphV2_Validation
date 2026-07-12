@@ -1,0 +1,104 @@
+{
+  "question": "How many issues of National Geographic have I finished reading?",
+  "question_date": "2023/08/14",
+  "hypotheses": [
+    {
+      "query_anchor": "the user finished reading issues of National Geographic",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "National Geographic"
+      ],
+      "keywords": [
+        "finished reading",
+        "issues"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "reading_progress"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "list of completed issues"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's reading history of National Geographic issues",
+      "target_memory_types": [
+        "episodic",
+        "profile"
+      ],
+      "entities": [
+        "National Geographic"
+      ],
+      "keywords": [
+        "reading history",
+        "issues"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "reading_history"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "count of completed issues"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's completed reading list for National Geographic",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "National Geographic"
+      ],
+      "keywords": [
+        "completed reading",
+        "list"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "completed_reading_list"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "number of issues"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

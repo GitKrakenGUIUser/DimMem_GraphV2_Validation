@@ -1,0 +1,105 @@
+{
+  "question_id": "a1eacc2a",
+  "question_type": "knowledge-update",
+  "question": "How many short stories have I written since I started writing regularly?",
+  "question_date": "2023/06/20 (Tue) 17:03",
+  "gold_answer": "seven",
+  "prediction": "1",
+  "support_memory_ids": [
+    "m_396676e93ceb05fc26e1",
+    "m_e33b625af13933381d5b"
+  ],
+  "support_source_ids": [
+    159,
+    84
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user stated on 2023-05-30 that they have been writing regularly for three months (start date ~2023-02-28) and completed 7 short stories. This is the most recent and comprehensive count. The earlier statement of 4 stories (2023-05-23) is subsumed by the later count. No later contradictory evidence exists. Therefore, the answer is 7.",
+  "required_slots": [
+    {
+      "name": "writing_regularly_start_date",
+      "value": "2023-02-28",
+      "support_memory_ids": [
+        "m_396676e93ceb05fc26e1"
+      ],
+      "support_source_ids": [
+        159
+      ]
+    },
+    {
+      "name": "short_stories_list",
+      "value": "7 short stories completed by 2023-05-30",
+      "support_memory_ids": [
+        "m_396676e93ceb05fc26e1"
+      ],
+      "support_source_ids": [
+        159
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "7 short stories (as of 2023-05-30)"
+    ],
+    "unit": "short stories",
+    "result": "1"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist has deterministic calculation",
+  "risk_reasons": [
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "count_distinct",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "writing_regularly_start_date",
+        "query": "When did I start writing regularly?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "short_stories_list",
+        "query": "What short stories have I written?",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I start writing regularly?",
+      "What short stories have I written?"
+    ],
+    "output_constraints": [
+      "Answer must be a non-negative integer."
+    ],
+    "reason": "The question asks for a count of short stories written since a specific start date. This requires first retrieving the start date (state_resolution) and then counting distinct short story events after that date (count_distinct). Composition is needed to combine the two pieces of evidence."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 30886,
+    "completion_tokens": 993,
+    "elapsed_seconds": 10.563353061676025
+  },
+  "correct": false,
+  "judge_reason": "Prediction is 1, but reference answer is seven.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 131,
+    "completion_tokens": 27,
+    "elapsed_seconds": 1.0230987071990967
+  }
+}

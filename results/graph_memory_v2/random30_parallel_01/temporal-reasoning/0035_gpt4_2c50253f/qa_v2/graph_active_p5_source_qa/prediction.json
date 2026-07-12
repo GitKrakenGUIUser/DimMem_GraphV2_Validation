@@ -1,0 +1,79 @@
+{
+  "question_id": "gpt4_2c50253f",
+  "question_type": "temporal-reasoning",
+  "question": "What time do I wake up on Tuesdays and Thursdays?",
+  "question_date": "2023/05/27 (Sat) 19:21",
+  "gold_answer": "6:45 AM",
+  "prediction": "6:45 AM",
+  "support_memory_ids": [
+    "m_199b17d52ee77ff7375a",
+    "m_666c34dad79983703db0"
+  ],
+  "support_source_ids": [
+    47,
+    212
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User wakes up at 7:00 AM on regular days (source 47). On Tuesdays and Thursdays, user wakes up 15 minutes earlier for meditation and yoga (source 212). Therefore, wake-up time on those days is 6:45 AM.",
+  "required_slots": [
+    {
+      "name": "wake_up_time",
+      "value": "6:45 AM",
+      "support_memory_ids": [
+        "m_199b17d52ee77ff7375a",
+        "m_666c34dad79983703db0"
+      ],
+      "support_source_ids": [
+        47,
+        212
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "time_add",
+  "calculation": {
+    "operator": "time_add_minutes",
+    "operands": [
+      "7:00 AM",
+      -15
+    ],
+    "unit": "minutes",
+    "result": "6:45 AM"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    47,
+    212,
+    215,
+    119,
+    280,
+    281,
+    240,
+    168,
+    71,
+    256,
+    117,
+    238,
+    180,
+    127,
+    216,
+    282,
+    214,
+    213,
+    169,
+    48
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 79295,
+    "completion_tokens": 801,
+    "elapsed_seconds": 15.93066954612732
+  }
+}

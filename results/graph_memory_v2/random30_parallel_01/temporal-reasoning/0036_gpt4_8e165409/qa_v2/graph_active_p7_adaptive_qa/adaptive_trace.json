@@ -1,0 +1,218 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of repotting",
+        "query": "When did I repot the previous spider plant?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of giving cuttings",
+        "query": "When did I give Mrs. Johnson cuttings from my spider plant?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "repot previous spider plant date",
+      "give Mrs. Johnson spider plant cuttings date"
+    ],
+    "output_constraints": [
+      "answer must be a number of days"
+    ],
+    "reason": "The question asks for the number of days between two events, requiring two dates and a date difference calculation."
+  },
+  "base_candidate": {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc12acaa84b303407978",
+      "m_b12667337e8c4247cf22"
+    ],
+    "support_source_ids": [
+      19,
+      154
+    ],
+    "required_slots": [
+      {
+        "name": "date of repotting",
+        "value": "2023-03-04",
+        "support_memory_ids": [
+          "m_cc12acaa84b303407978"
+        ],
+        "support_source_ids": [
+          19
+        ]
+      },
+      {
+        "name": "date of giving cuttings",
+        "value": "2023-03-18",
+        "support_memory_ids": [
+          "m_b12667337e8c4247cf22"
+        ],
+        "support_source_ids": [
+          154
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-04",
+        "2023-03-18"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user repotted the spider plant on 2023-03-04 (source 19) and gave cuttings to Mrs. Johnson on 2023-03-18 (source 154). The difference is 14 days."
+  },
+  "specialist_candidate": {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc12acaa84b303407978",
+      "m_b12667337e8c4247cf22"
+    ],
+    "support_source_ids": [
+      19,
+      154
+    ],
+    "required_slots": [
+      {
+        "name": "date of repotting",
+        "value": "2023-03-04",
+        "support_memory_ids": [
+          "m_cc12acaa84b303407978"
+        ],
+        "support_source_ids": [
+          19
+        ]
+      },
+      {
+        "name": "date of giving cuttings",
+        "value": "2023-03-18",
+        "support_memory_ids": [
+          "m_b12667337e8c4247cf22"
+        ],
+        "support_source_ids": [
+          154
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-04",
+        "2023-03-18"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "repotted",
+        "object": "previous spider plant",
+        "value": "2023-03-04",
+        "unit": "date",
+        "event_time": "2023-03-04",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_cc12acaa84b303407978"
+        ],
+        "support_source_ids": [
+          19
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "gave",
+        "object": "spider plant cuttings to Mrs. Johnson",
+        "value": "2023-03-18",
+        "unit": "date",
+        "event_time": "2023-03-18",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_b12667337e8c4247cf22"
+        ],
+        "support_source_ids": [
+          154
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_cc12acaa84b303407978 (source 19), user repotted the previous spider plant on 2023-03-04. From memory m_b12667337e8c4247cf22 (source 154), user gave Mrs. Johnson cuttings from the spider plant on 2023-03-18. The number of days between these two dates is 14 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    154,
+    19,
+    108,
+    150,
+    109,
+    172,
+    23,
+    26,
+    56,
+    194,
+    185,
+    155,
+    21,
+    125,
+    213,
+    169,
+    153,
+    107,
+    193,
+    195,
+    151,
+    20
+  ],
+  "targeted_source_ids": [
+    11,
+    19,
+    21,
+    30,
+    31,
+    32,
+    34,
+    95,
+    128,
+    154,
+    170,
+    213,
+    20,
+    33,
+    153,
+    155,
+    212,
+    214
+  ]
+}

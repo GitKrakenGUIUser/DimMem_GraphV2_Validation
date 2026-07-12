@@ -1,0 +1,117 @@
+{
+  "question": "How many days did I spend in total traveling in Hawaii and in Seattle?",
+  "question_date": "2023-05-30T20:59:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's total days spent traveling in Hawaii",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "Hawaii"
+      ],
+      "keywords": [
+        "Hawaii",
+        "travel",
+        "days",
+        "spent"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [
+        "Hawaii"
+      ],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "total days in Hawaii"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's total days spent traveling in Seattle",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "Seattle"
+      ],
+      "keywords": [
+        "Seattle",
+        "travel",
+        "days",
+        "spent"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [
+        "Seattle"
+      ],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "total days in Seattle"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's total days spent traveling in Hawaii and Seattle combined",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "Hawaii",
+        "Seattle"
+      ],
+      "keywords": [
+        "Hawaii",
+        "Seattle",
+        "total",
+        "days",
+        "travel"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [
+        "Hawaii",
+        "Seattle"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "sum"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "total days in Hawaii",
+        "total days in Seattle"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

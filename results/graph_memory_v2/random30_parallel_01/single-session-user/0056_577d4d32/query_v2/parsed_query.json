@@ -1,0 +1,104 @@
+{
+  "question": "What time do I stop checking work emails and messages?",
+  "question_date": "2023-05-30T23:54:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's typical time to stop checking work emails and messages",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "stop checking",
+        "work emails",
+        "messages",
+        "time"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "work_email_check_end_time"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's rule or policy for stopping work email checks",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "rule",
+        "policy",
+        "stop",
+        "work emails",
+        "messages"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "work_email_stop_rule"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user's recent behavior of stopping work email checks",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "recent",
+        "stop",
+        "checking",
+        "work emails",
+        "messages"
+      ],
+      "time_constraint": {
+        "operator": "after",
+        "start": "2023-05-23T00:00:00",
+        "end": "",
+        "raw": "recent"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 3,
+      "missing_slots": [],
+      "confidence": 0.3
+    }
+  ]
+}

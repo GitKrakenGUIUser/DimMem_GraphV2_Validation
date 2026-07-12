@@ -1,0 +1,76 @@
+{
+  "question_id": "gpt4_d12ceb0e",
+  "question_type": "multi-session",
+  "question": "What is the average age of me, my parents, and my grandparents?",
+  "question_date": "2023/05/30 (Tue) 22:44",
+  "gold_answer": "59.6",
+  "prediction": "59.6",
+  "support_memory_ids": [
+    "m_3ba0df9ef304412d1973",
+    "m_344dc153bffda95e3e4f",
+    "m_ebc83b2dfbfe09c4fc7b",
+    "m_0b7d36727e7b06ccdf5c"
+  ],
+  "support_source_ids": [
+    139,
+    90,
+    29
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "All required ages are supported: user (32), mother (55), father (58), grandpa (78), grandma (75). Sum = 298, count = 5, average = 59.6.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "average",
+  "calculation": {
+    "operator": "average",
+    "operands": [
+      32,
+      55,
+      58,
+      78,
+      75
+    ],
+    "unit": "years",
+    "result": "59.6"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    90,
+    29,
+    139,
+    219,
+    6,
+    4,
+    36,
+    3,
+    1,
+    20,
+    191,
+    187,
+    173,
+    30,
+    140,
+    91
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    -2.0999999999999996,
+    -2.0999999999999996
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 79269,
+    "completion_tokens": 1277,
+    "elapsed_seconds": 15.008901834487915
+  },
+  "correct": true,
+  "judge_reason": "Matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 138,
+    "completion_tokens": 20,
+    "elapsed_seconds": 1.0604801177978516
+  }
+}

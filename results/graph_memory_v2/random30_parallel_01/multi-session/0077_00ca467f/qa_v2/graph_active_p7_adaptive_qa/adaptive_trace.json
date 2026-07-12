@@ -1,0 +1,181 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "doctor appointments in March",
+        "query": "doctor appointment March 2023",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "doctor appointment March 2023"
+    ],
+    "output_constraints": [
+      "count of distinct appointments"
+    ],
+    "reason": "The question asks for a count of doctor's appointments in March, which is a direct count of distinct events."
+  },
+  "base_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_050dc065171646103968",
+      "m_fb996e810cc0ebe06e09"
+    ],
+    "support_source_ids": [
+      2,
+      207
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "follow-up with Dr. Thompson on March 20",
+        "diagnosis with Dr. Smith on March 3"
+      ],
+      "unit": "appointments",
+      "result": "2"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Two doctor's appointments in March 2023 are explicitly mentioned: a follow-up with Dr. Thompson on March 20 (memory m_050dc065171646103968, source 2) and a diagnosis with Dr. Smith on March 3 (memory m_fb996e810cc0ebe06e09, source 207). No other appointments in March are confirmed as attended."
+  },
+  "specialist_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_050dc065171646103968",
+      "m_fb996e810cc0ebe06e09"
+    ],
+    "support_source_ids": [
+      2,
+      207
+    ],
+    "required_slots": [
+      {
+        "name": "doctor appointments in March",
+        "value": "2",
+        "support_memory_ids": [
+          "m_050dc065171646103968",
+          "m_fb996e810cc0ebe06e09"
+        ],
+        "support_source_ids": [
+          2,
+          207
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "follow-up with Dr. Thompson on March 20",
+        "diagnosis with Dr. Smith on March 3"
+      ],
+      "unit": "appointments",
+      "result": "2"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "had follow-up appointment with",
+        "object": "Dr. Thompson",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-03-20",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_050dc065171646103968"
+        ],
+        "support_source_ids": [
+          2
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "was diagnosed by",
+        "object": "Dr. Smith",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-03-03",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_fb996e810cc0ebe06e09"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Two distinct doctor appointments occurred in March 2023: a diagnosis with Dr. Smith on March 3 and a follow-up with Dr. Thompson on March 20. No other appointments in March are confirmed as attended; the planned appointments with Dr. Patel, Dr. Smith, and Dr. Johnson are not yet scheduled or occurred in March. Physical therapy is not a doctor's appointment. Thus, the count is 2.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    210,
+    5,
+    149,
+    9,
+    67,
+    211,
+    2,
+    153,
+    157,
+    30,
+    207,
+    64,
+    1,
+    47,
+    161,
+    4,
+    3,
+    237,
+    236,
+    6,
+    208,
+    66,
+    209
+  ],
+  "targeted_source_ids": [
+    1,
+    2,
+    4,
+    11,
+    12,
+    33,
+    67,
+    75,
+    151,
+    214,
+    230,
+    237,
+    10,
+    32,
+    34,
+    150
+  ]
+}

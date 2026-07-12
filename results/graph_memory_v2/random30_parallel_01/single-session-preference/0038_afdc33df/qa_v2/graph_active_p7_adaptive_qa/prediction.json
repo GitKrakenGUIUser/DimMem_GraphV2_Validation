@@ -1,0 +1,87 @@
+{
+  "question_id": "afdc33df",
+  "question_type": "single-session-preference",
+  "question": "My kitchen's becoming a bit of a mess again. Any tips for keeping it clean?",
+  "question_date": "2023/05/30 (Tue) 19:03",
+  "gold_answer": "The user would prefer responses that acknowledge and build upon their existing efforts to organize their kitchen, such as utilizing their new utensil holder to keep countertops clutter-free. They would also appreciate tips that address their concern for maintaining their granite surface, particularly around the sink area. Preferred responses would provide practical and actionable steps to maintain cleanliness, leveraging the user's current tools and setup. They might not prefer generic or vague suggestions that do not take into account their specific kitchen setup or concerns.",
+  "prediction": "Based on our previous conversations, here are some kitchen cleaning tips: \n\n- **Garbage disposal**: Clean with baking soda and vinegar, ice and rock salt, or lemon juice and baking soda. Run cold water while grinding. Deodorize with lemon or orange peels. Replace if over 10-15 years old, frequent clogs, leaks, odors, noise, or corrosion.\n- **Kitchen faucet**: Fix leaks by checking aerator, O-rings, gaskets, valve seats, and handle. Replace if over 10-15 years, frequent leaks, corrosion, or hard-to-find parts.\n- **Granite countertop**: Remove scratches with baking soda paste, stone soap, mineral oil, or a repair kit. For deep scratches, consider professional refinishing. Prevent scratches with coasters, cutting boards, and regular sealing.\n- **Utensil holder**: Purge duplicates, categorize, use dividers, store frequently used items front and center, utilize vertical space, and label sections.\n- **General**: Clean regularly, avoid harsh chemicals, and maintain appliances to prevent mess.",
+  "support_memory_ids": [
+    "m_264d0389a8302ecc1745",
+    "m_1a1fda5cc914a4c6dc62",
+    "m_3dfe0ce55343749f8e2d",
+    "m_eec8716000c8690ef2c5"
+  ],
+  "support_source_ids": [
+    37,
+    38,
+    39,
+    40
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user asked for kitchen cleaning tips. The assistant recall plan retrieved previous assistant replies about kitchen-related issues: garbage disposal cleaning, faucet repair, granite countertop scratch removal, and utensil holder organization. These are directly relevant to keeping a kitchen clean. The answer compiles the key tips from those replies.",
+  "required_slots": [
+    {
+      "name": "previous assistant reply about kitchen cleaning",
+      "value": "Based on our previous conversations, here are some kitchen cleaning tips: \n\n- **Garbage disposal**: Clean with baking soda and vinegar, ice and rock salt, or lemon juice and baking soda. Run cold water while grinding. Deodorize with lemon or orange peels. Replace if over 10-15 years old, frequent clogs, leaks, odors, noise, or corrosion.\n- **Kitchen faucet**: Fix leaks by checking aerator, O-rings, gaskets, valve seats, and handle. Replace if over 10-15 years, frequent leaks, corrosion, or hard-to-find parts.\n- **Granite countertop**: Remove scratches with baking soda paste, stone soap, mineral oil, or a repair kit. For deep scratches, consider professional refinishing. Prevent scratches with coasters, cutting boards, and regular sealing.\n- **Utensil holder**: Purge duplicates, categorize, use dividers, store frequently used items front and center, utilize vertical space, and label sections.\n- **General**: Clean regularly, avoid harsh chemicals, and maintain appliances to prevent mess.",
+      "support_memory_ids": [
+        "m_264d0389a8302ecc1745",
+        "m_1a1fda5cc914a4c6dc62",
+        "m_3dfe0ce55343749f8e2d",
+        "m_eec8716000c8690ef2c5"
+      ],
+      "support_source_ids": [
+        37,
+        38,
+        39,
+        40
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "The specialist candidate fills the required slot with a detailed, grounded answer directly from past assistant replies, while the compact candidate incorrectly states 'Cannot be determined' and has lower confidence.",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "previous assistant reply about kitchen cleaning",
+        "query": "kitchen cleaning tips advice",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "kitchen cleaning tips advice"
+    ],
+    "output_constraints": [
+      "Provide a list of practical kitchen cleaning tips based on past assistant advice."
+    ],
+    "reason": "The question asks for tips, which is best answered by recalling previous assistant advice on kitchen cleaning. The candidate answer uses past memories about specific issues (faucet, garbage disposal, etc.) to generate general tips."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 44374,
+    "completion_tokens": 1547,
+    "elapsed_seconds": 14.749234437942505
+  }
+}

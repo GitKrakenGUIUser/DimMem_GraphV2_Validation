@@ -1,0 +1,102 @@
+[
+  {
+    "answer": "2556 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6e9eb5b3dc431855f875",
+      "m_9cec3a05163158001acb"
+    ],
+    "support_source_ids": [
+      132,
+      170
+    ],
+    "required_slots": [
+      {
+        "name": "current_age",
+        "value": "32",
+        "support_memory_ids": [
+          "m_6e9eb5b3dc431855f875"
+        ],
+        "support_source_ids": [
+          132
+        ]
+      },
+      {
+        "name": "graduation_age",
+        "value": "25",
+        "support_memory_ids": [
+          "m_9cec3a05163158001acb"
+        ],
+        "support_source_ids": [
+          170
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-05-30",
+        "2016-05-30"
+      ],
+      "unit": "years",
+      "result": "2556 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User is currently 32 years old (memory m_6e9eb5b3dc431855f875, source 132) and graduated college at age 25 (memory m_9cec3a05163158001acb, source 170). The difference is 7 years.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "2556 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6e9eb5b3dc431855f875",
+      "m_9cec3a05163158001acb"
+    ],
+    "support_source_ids": [
+      132,
+      170
+    ],
+    "required_slots": [
+      {
+        "name": "current_age",
+        "value": "32",
+        "support_memory_ids": [
+          "m_6e9eb5b3dc431855f875"
+        ],
+        "support_source_ids": [
+          132
+        ]
+      },
+      {
+        "name": "graduation_age",
+        "value": "25",
+        "support_memory_ids": [
+          "m_9cec3a05163158001acb"
+        ],
+        "support_source_ids": [
+          170
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-05-30",
+        "2016-05-30"
+      ],
+      "unit": "years",
+      "result": "2556 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User is currently 32 years old (memory m_6e9eb5b3dc431855f875, source 132). User graduated college at age 25 (memory m_9cec3a05163158001acb, source 170). The difference is 7 years.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

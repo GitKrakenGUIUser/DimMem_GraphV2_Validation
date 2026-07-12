@@ -1,0 +1,212 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:temporal"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "start date of guitar lessons",
+        "query": "When did I start taking guitar lessons?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of buying guitar amp",
+        "query": "When did I buy the new guitar amp?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I start taking guitar lessons?",
+      "When did I buy the new guitar amp?"
+    ],
+    "output_constraints": [
+      "Answer must be a duration in days or weeks."
+    ],
+    "reason": "The question asks for the time interval between two events: starting guitar lessons and buying a guitar amp. Both events are historical and need to be retrieved. The answer is computed as the difference in days between the two dates."
+  },
+  "base_candidate": {
+    "answer": "28 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_712360bcc39440216f23",
+      "m_9c82704730683325b421"
+    ],
+    "support_source_ids": [
+      140,
+      143
+    ],
+    "required_slots": [
+      {
+        "name": "start date of guitar lessons",
+        "value": "2023-04-13",
+        "support_memory_ids": [
+          "m_712360bcc39440216f23"
+        ],
+        "support_source_ids": [
+          140
+        ]
+      },
+      {
+        "name": "date of buying guitar amp",
+        "value": "2023-05-11",
+        "support_memory_ids": [
+          "m_9c82704730683325b421"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-13",
+        "2023-05-11"
+      ],
+      "unit": "weeks",
+      "result": "28 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User started guitar lessons with Alex on 2023-04-13 (six weeks before 2023-05-25) and bought a new guitar amp on 2023-05-11 (two weeks before 2023-05-25). The difference between these dates is 28 days, which is 4 weeks."
+  },
+  "specialist_candidate": {
+    "answer": "28 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_712360bcc39440216f23",
+      "m_9c82704730683325b421"
+    ],
+    "support_source_ids": [
+      140,
+      143
+    ],
+    "required_slots": [
+      {
+        "name": "start date of guitar lessons",
+        "value": "2023-04-13",
+        "support_memory_ids": [
+          "m_712360bcc39440216f23"
+        ],
+        "support_source_ids": [
+          140
+        ]
+      },
+      {
+        "name": "date of buying guitar amp",
+        "value": "2023-05-11",
+        "support_memory_ids": [
+          "m_9c82704730683325b421"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-13",
+        "2023-05-11"
+      ],
+      "unit": "days",
+      "result": "28 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "started guitar lessons",
+        "object": "weekly lessons with Alex",
+        "value": "2023-04-13",
+        "unit": "date",
+        "event_time": "2023-04-13",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_712360bcc39440216f23"
+        ],
+        "support_source_ids": [
+          140
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "bought new guitar amp",
+        "object": "guitar amp",
+        "value": "2023-05-11",
+        "unit": "date",
+        "event_time": "2023-05-11",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_9c82704730683325b421"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "User stated taking weekly guitar lessons for six weeks as of 2023-05-25, implying start date 2023-04-13. User stated buying new guitar amp two weeks ago as of 2023-05-25, implying purchase date 2023-05-11. Difference is 28 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    140,
+    145,
+    143,
+    81,
+    144,
+    202,
+    78,
+    85,
+    141,
+    219,
+    69,
+    23,
+    84,
+    82,
+    75,
+    205,
+    70,
+    142
+  ],
+  "targeted_source_ids": [
+    75,
+    78,
+    81,
+    82,
+    84,
+    86,
+    118,
+    140,
+    141,
+    143,
+    145,
+    220,
+    83,
+    85,
+    142,
+    144
+  ]
+}

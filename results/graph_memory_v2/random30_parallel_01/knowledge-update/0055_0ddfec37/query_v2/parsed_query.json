@@ -1,0 +1,111 @@
+{
+  "question": "How many autographed baseballs have I added to my collection in the first three months of collection?",
+  "question_date": "2024-01-08T09:27:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's collection start date",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "collection"
+      ],
+      "keywords": [
+        "collection",
+        "start date",
+        "began"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "collection_start_date"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's autographed baseball collection additions in the first three months of collection",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "autographed baseball",
+        "collection"
+      ],
+      "keywords": [
+        "autographed baseball",
+        "collection",
+        "added",
+        "first three months"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "unknown",
+        "end": "unknown",
+        "raw": "first three months of collection"
+      },
+      "locations": [],
+      "state_keys": [
+        "collection_start_date",
+        "autographed_baseball_count"
+      ],
+      "relation_hints": [
+        "added_to"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "collection_start_date",
+        "additions within first three months"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "autographed baseballs added to the user's collection between collection start and three months later",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "autographed baseball",
+        "collection"
+      ],
+      "keywords": [
+        "autographed baseball",
+        "added",
+        "collection"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "unknown",
+        "end": "unknown",
+        "raw": "first three months of collection"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "added_to"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "collection_start_date"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:temporal"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "wake_up_time",
+        "query": "wake up time on Tuesdays and Thursdays",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "wake up time on Tuesdays and Thursdays"
+    ],
+    "output_constraints": [
+      "time format HH:MM AM/PM"
+    ],
+    "reason": "The question asks for a specific time on recurring days, which is a current state (profile) fact."
+  },
+  "base_candidate": {
+    "answer": "6:45 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_199b17d52ee77ff7375a",
+      "m_666c34dad79983703db0"
+    ],
+    "support_source_ids": [
+      47,
+      212
+    ],
+    "required_slots": [
+      {
+        "name": "wake_up_time",
+        "value": "6:45 AM",
+        "support_memory_ids": [
+          "m_199b17d52ee77ff7375a",
+          "m_666c34dad79983703db0"
+        ],
+        "support_source_ids": [
+          47,
+          212
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "time_add",
+    "calculation": {
+      "operator": "time_add_minutes",
+      "operands": [
+        "7:00 AM",
+        -15
+      ],
+      "unit": "minutes",
+      "result": "6:45 AM"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User wakes up at 7:00 AM on regular days (source 47). On Tuesdays and Thursdays, user wakes up 15 minutes earlier for meditation and yoga (source 212). Therefore, wake-up time on those days is 6:45 AM."
+  },
+  "specialist_candidate": {
+    "answer": "6:45 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_666c34dad79983703db0",
+      "m_199b17d52ee77ff7375a"
+    ],
+    "support_source_ids": [
+      212,
+      47
+    ],
+    "required_slots": [
+      {
+        "name": "wake_up_time",
+        "value": "6:45 AM",
+        "support_memory_ids": [
+          "m_666c34dad79983703db0",
+          "m_199b17d52ee77ff7375a"
+        ],
+        "support_source_ids": [
+          212,
+          47
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "wake-up time",
+        "object": "7:00 AM",
+        "value": "7:00 AM",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-27T18:20:00.500000",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_199b17d52ee77ff7375a"
+        ],
+        "support_source_ids": [
+          47
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "has morning routine",
+        "object": "30-minute walk before work; Tuesdays and Thursdays: 15 min earlier for meditation and yoga",
+        "value": "15 min earlier on Tuesdays and Thursdays",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-27T07:56:00.500000",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_666c34dad79983703db0"
+        ],
+        "support_source_ids": [
+          212
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "User's general wake-up time is 7:00 AM (source 47). On Tuesdays and Thursdays, user wakes up 15 minutes earlier (source 212). 7:00 AM minus 15 minutes = 6:45 AM."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    47,
+    212,
+    215,
+    119,
+    280,
+    281,
+    240,
+    168,
+    71,
+    256,
+    117,
+    238,
+    180,
+    127,
+    216,
+    282,
+    214,
+    213,
+    169,
+    48
+  ],
+  "targeted_source_ids": [
+    39,
+    47,
+    70,
+    120,
+    127,
+    212,
+    215,
+    238,
+    243,
+    249,
+    263,
+    280,
+    48,
+    213,
+    214,
+    216
+  ]
+}

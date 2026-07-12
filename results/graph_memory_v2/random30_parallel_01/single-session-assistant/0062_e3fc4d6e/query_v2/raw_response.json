@@ -1,0 +1,111 @@
+{
+  "question": "I wanted to follow up on our previous conversation about the fusion breakthrough at Lawrence Livermore National Laboratory. Can you remind me who is the President's Chief Advisor for Science and Technology mentioned in the article?",
+  "question_date": "2023-05-30T22:22:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user wants to know the name of the President's Chief Advisor for Science and Technology mentioned in an article about the fusion breakthrough at Lawrence Livermore National Laboratory",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "President's Chief Advisor for Science and Technology",
+        "Lawrence Livermore National Laboratory",
+        "fusion breakthrough"
+      ],
+      "keywords": [
+        "President's Chief Advisor for Science and Technology",
+        "fusion breakthrough",
+        "Lawrence Livermore National Laboratory"
+      ],
+      "time_constraint": {
+        "operator": "around",
+        "start": "2022-12-01",
+        "end": "2023-05-30",
+        "raw": "around the time of the fusion breakthrough announcement (December 2022)"
+      },
+      "locations": [
+        "Lawrence Livermore National Laboratory"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "mentioned_in"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "the specific article discussed in previous conversation"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user is asking about the President's Chief Advisor for Science and Technology who was mentioned in a previous conversation about the fusion breakthrough",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "President's Chief Advisor for Science and Technology",
+        "fusion breakthrough",
+        "Lawrence Livermore National Laboratory"
+      ],
+      "keywords": [
+        "President's Chief Advisor for Science and Technology",
+        "fusion breakthrough",
+        "previous conversation"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T22:22:00",
+        "raw": "before the current question date"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "mentioned_in_conversation"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "the specific previous conversation"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user wants to know the name of the President's Chief Advisor for Science and Technology as of the time of the fusion breakthrough article",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "President's Chief Advisor for Science and Technology",
+        "fusion breakthrough",
+        "Lawrence Livermore National Laboratory"
+      ],
+      "keywords": [
+        "President's Chief Advisor for Science and Technology",
+        "fusion breakthrough",
+        "Lawrence Livermore National Laboratory"
+      ],
+      "time_constraint": {
+        "operator": "around",
+        "start": "2022-12-01",
+        "end": "2022-12-31",
+        "raw": "around December 2022"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "held_position"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "question_id": "gpt4_fa19884d",
+  "question_type": "temporal-reasoning",
+  "question": "What is the artist that I started to listen to last Friday?",
+  "question_date": "2023/04/05 (Wed) 19:25",
+  "gold_answer": "a bluegrass band that features a banjo player",
+  "prediction": "a bluegrass band featuring a banjo player",
+  "support_memory_ids": [
+    "m_8305387e85239c10dd66"
+  ],
+  "support_source_ids": [
+    187
+  ],
+  "confidence": 0.8,
+  "reasoning_summary": "Memory m_8305387e85239c10dd66 (event_start 2023-03-31, which is last Friday relative to question date 2023-04-05) states: 'User recently discovered a bluegrass band featuring a banjo player and started enjoying their music today.' Source turn 187 confirms the user said 'I recently discovered a bluegrass band that features a banjo player and started enjoying their music today.' The event date matches last Friday (2023-03-31).",
+  "required_slots": [
+    {
+      "name": "artist",
+      "value": "a bluegrass band featuring a banjo player",
+      "support_memory_ids": [
+        "m_8305387e85239c10dd66"
+      ],
+      "support_source_ids": [
+        187
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "base candidate passed risk gate",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

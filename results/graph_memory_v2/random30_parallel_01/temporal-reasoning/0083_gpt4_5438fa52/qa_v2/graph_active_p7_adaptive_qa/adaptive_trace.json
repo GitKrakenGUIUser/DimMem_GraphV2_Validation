@@ -1,0 +1,83 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [],
+  "specialist_needed": false,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "base_candidate": {
+    "answer": "The start of my Spanish classes happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "required_slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "value": "2023-05-26",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "name": "date Spanish classes started",
+        "value": "2023-02-27",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The cultural festival was attended on 2023-05-26. Spanish classes started around 2023-02-27. Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first."
+  },
+  "specialist_candidate": null,
+  "choice": "base",
+  "choice_reason": "base candidate passed risk gate",
+  "compact_source_ids": [
+    109,
+    80,
+    18,
+    81,
+    111,
+    228,
+    199,
+    200,
+    231,
+    112,
+    131,
+    117,
+    150,
+    83,
+    113,
+    140,
+    79,
+    82,
+    230,
+    110,
+    232
+  ],
+  "targeted_source_ids": []
+}

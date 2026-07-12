@@ -1,0 +1,102 @@
+[
+  {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc12acaa84b303407978",
+      "m_b12667337e8c4247cf22"
+    ],
+    "support_source_ids": [
+      19,
+      154
+    ],
+    "required_slots": [
+      {
+        "name": "date of repotting",
+        "value": "2023-03-04",
+        "support_memory_ids": [
+          "m_cc12acaa84b303407978"
+        ],
+        "support_source_ids": [
+          19
+        ]
+      },
+      {
+        "name": "date of giving cuttings",
+        "value": "2023-03-18",
+        "support_memory_ids": [
+          "m_b12667337e8c4247cf22"
+        ],
+        "support_source_ids": [
+          154
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-04",
+        "2023-03-18"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user repotted the spider plant on 2023-03-04 (source 19) and gave cuttings to Mrs. Johnson on 2023-03-18 (source 154). The difference is 14 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc12acaa84b303407978",
+      "m_b12667337e8c4247cf22"
+    ],
+    "support_source_ids": [
+      19,
+      154
+    ],
+    "required_slots": [
+      {
+        "name": "repotting date",
+        "value": "2023-03-04",
+        "support_memory_ids": [
+          "m_cc12acaa84b303407978"
+        ],
+        "support_source_ids": [
+          19
+        ]
+      },
+      {
+        "name": "giving cuttings date",
+        "value": "2023-03-18",
+        "support_memory_ids": [
+          "m_b12667337e8c4247cf22"
+        ],
+        "support_source_ids": [
+          154
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-04",
+        "2023-03-18"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user repotted the previous spider plant on 2023-03-04 (memory m_cc12acaa84b303407978, source 19). The user gave cuttings to Mrs. Johnson on 2023-03-18 (memory m_b12667337e8c4247cf22, source 154). The difference is 14 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

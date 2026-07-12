@@ -1,0 +1,105 @@
+{
+  "question_id": "0db4c65d",
+  "question_type": "temporal-reasoning",
+  "question": "How many days had passed since I finished reading 'The Seven Husbands of Evelyn Hugo' when I attended the book reading event at the local library, where the author of 'The Silent Patient' is discussing her latest thriller novel?",
+  "question_date": "2023/02/10 (Fri) 18:44",
+  "gold_answer": "18 days. 19 days (including the last day) is also acceptable.",
+  "prediction": "18 days",
+  "support_memory_ids": [
+    "m_b878f3137d45584f7bf6",
+    "m_9f29f41b64d0449a5b1b"
+  ],
+  "support_source_ids": [
+    148,
+    208
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User finished reading 'The Seven Husbands of Evelyn Hugo' on 2022-12-28 (source 148). User attended the book reading event on 2023-01-15 (source 208). The difference in days from 2022-12-28 to 2023-01-15 is 18 days.",
+  "required_slots": [
+    {
+      "name": "date finished reading 'The Seven Husbands of Evelyn Hugo'",
+      "value": "2022-12-28",
+      "support_memory_ids": [
+        "m_b878f3137d45584f7bf6"
+      ],
+      "support_source_ids": [
+        148
+      ]
+    },
+    {
+      "name": "date of book reading event at local library",
+      "value": "2023-01-15",
+      "support_memory_ids": [
+        "m_9f29f41b64d0449a5b1b"
+      ],
+      "support_source_ids": [
+        208
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2022-12-28",
+      "2023-01-15"
+    ],
+    "unit": "days",
+    "result": "18 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "count_distinct",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date finished reading 'The Seven Husbands of Evelyn Hugo'",
+        "query": "When did I finish reading 'The Seven Husbands of Evelyn Hugo'?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of book reading event at local library",
+        "query": "When did I attend the book reading event at the local library where the author of 'The Silent Patient' discussed her latest thriller novel?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I finish reading 'The Seven Husbands of Evelyn Hugo'?",
+      "When did I attend the book reading event at the local library where the author of 'The Silent Patient' discussed her latest thriller novel?"
+    ],
+    "output_constraints": [
+      "Answer must be a number of days."
+    ],
+    "reason": "The question asks for the number of days between two events, requiring two dates and a date difference calculation."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32627,
+    "completion_tokens": 907,
+    "elapsed_seconds": 9.121628522872925
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 181,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7050032615661621
+  }
+}

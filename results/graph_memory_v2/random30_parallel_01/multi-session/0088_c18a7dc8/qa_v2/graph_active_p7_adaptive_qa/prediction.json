@@ -1,0 +1,97 @@
+{
+  "question_id": "c18a7dc8",
+  "question_type": "multi-session",
+  "question": "How many years older am I than when I graduated from college?",
+  "question_date": "2023/05/30 (Tue) 23:37",
+  "gold_answer": "7",
+  "prediction": "7",
+  "support_memory_ids": [
+    "m_6e9eb5b3dc431855f875",
+    "m_9cec3a05163158001acb"
+  ],
+  "support_source_ids": [
+    132,
+    170
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User stated age 32 in source 132 and age at college graduation as 25 in source 170. Difference is 7 years.",
+  "required_slots": [
+    {
+      "name": "current_age",
+      "value": "32",
+      "support_memory_ids": [
+        "m_6e9eb5b3dc431855f875"
+      ],
+      "support_source_ids": [
+        132
+      ]
+    },
+    {
+      "name": "graduation_age",
+      "value": "25",
+      "support_memory_ids": [
+        "m_9cec3a05163158001acb"
+      ],
+      "support_source_ids": [
+        170
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_years",
+    "operands": [
+      "32",
+      "25"
+    ],
+    "unit": "years",
+    "result": "7"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "Specialist candidate directly answers in years as required, with higher confidence and deterministic calculation from ages, while compact candidate incorrectly outputs days and uses unnecessary date conversion.",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "current_age",
+        "query": "user current age",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "graduation_age",
+        "query": "user age at college graduation",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user current age",
+      "user age at college graduation"
+    ],
+    "output_constraints": [
+      "answer in years"
+    ],
+    "reason": "The question asks for the difference in years between current age and age at college graduation. Two state values are needed: current age and graduation age. The operation is date difference (in years). Composition is allowed because both slots refer to the same person."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35175,
+    "completion_tokens": 776,
+    "elapsed_seconds": 9.655301094055176
+  }
+}

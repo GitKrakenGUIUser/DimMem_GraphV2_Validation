@@ -1,0 +1,86 @@
+{
+  "question_id": "a346bb18",
+  "question_type": "multi-session",
+  "question": "How many minutes did I exceed my target time by in the marathon?",
+  "question_date": "2023/05/30 (Tue) 22:30",
+  "gold_answer": "12",
+  "prediction": "4:22 AM",
+  "support_memory_ids": [
+    "m_ffcc91a5de84670d186f",
+    "m_489bea28c229768c84d7"
+  ],
+  "support_source_ids": [
+    120,
+    7
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Actual marathon time is 4h22m (memory m_ffcc91a5de84670d186f, source 120). Target time is 4h10m (memory m_489bea28c229768c84d7, source 7). Difference is 12 minutes.",
+  "required_slots": [
+    {
+      "name": "actual time",
+      "value": "4 hours 22 minutes",
+      "support_memory_ids": [
+        "m_ffcc91a5de84670d186f"
+      ],
+      "support_source_ids": [
+        120
+      ]
+    },
+    {
+      "name": "target time",
+      "value": "4 hours 10 minutes",
+      "support_memory_ids": [
+        "m_489bea28c229768c84d7"
+      ],
+      "support_source_ids": [
+        7
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "time_add",
+  "calculation": {
+    "operator": "time_add_minutes",
+    "operands": [
+      "4:10",
+      "12"
+    ],
+    "unit": "minutes",
+    "result": "4:22 AM"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    7,
+    236,
+    8,
+    235,
+    120,
+    175,
+    239,
+    187,
+    231,
+    123,
+    122,
+    52,
+    189,
+    179,
+    22,
+    9,
+    121,
+    124,
+    237
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.3,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 83563,
+    "completion_tokens": 1054,
+    "elapsed_seconds": 16.92319416999817
+  }
+}

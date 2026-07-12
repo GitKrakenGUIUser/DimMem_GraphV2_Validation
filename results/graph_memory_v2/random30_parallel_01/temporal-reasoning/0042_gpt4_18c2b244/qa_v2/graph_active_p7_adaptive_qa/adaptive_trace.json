@@ -1,0 +1,219 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:timeline"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "timeline",
+    "operator": "timeline",
+    "target_count": 3,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "event_time_1",
+        "query": "When did I sign up for the rewards program at ShopRite?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "event_time_2",
+        "query": "When did I use a Buy One Get One Free coupon on Luvs diapers at Walmart?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "event_time_3",
+        "query": "When did I redeem $12 cashback for a $10 Amazon gift card from Ibotta?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I sign up for the rewards program at ShopRite?",
+      "When did I use a Buy One Get One Free coupon on Luvs diapers at Walmart?",
+      "When did I redeem $12 cashback for a $10 Amazon gift card from Ibotta?"
+    ],
+    "output_constraints": [
+      "List the three events in chronological order from earliest to latest."
+    ],
+    "reason": "The question asks for the order of three events, which requires their timestamps. Each event is independent and has a specific date in memory. No composition or state projection needed."
+  },
+  "base_candidate": {
+    "answer": "1. Used a Buy One Get One Free coupon on Luvs diapers at Walmart (2023-04-01)\n2. Redeemed $12 cashback for a $10 Amazon gift card from Ibotta (2023-04-10)\n3. Signed up for the rewards program at ShopRite (2023-04-15)",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3dde8f4d763cad985c98",
+      "m_e9a99ad54656417f9dcb",
+      "m_585f0428fa546b550873"
+    ],
+    "support_source_ids": [
+      141,
+      202,
+      208
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The three events have explicit dates in structured memories: coupon use on 2023-04-01, Ibotta redemption on 2023-04-10, ShopRite sign-up on 2023-04-15. Chronological order is therefore: coupon use first, then Ibotta redemption, then ShopRite sign-up."
+  },
+  "specialist_candidate": {
+    "answer": "The chronological order is: 1. Used a Buy One Get One Free coupon on Luvs diapers at Walmart (2023-04-01), 2. Redeemed $12 cashback for a $10 Amazon gift card from Ibotta (2023-04-10), 3. Signed up for the rewards program at ShopRite (2023-04-15).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3dde8f4d763cad985c98",
+      "m_e9a99ad54656417f9dcb",
+      "m_585f0428fa546b550873"
+    ],
+    "support_source_ids": [
+      141,
+      202,
+      208
+    ],
+    "required_slots": [
+      {
+        "name": "event_time_1",
+        "value": "2023-04-01",
+        "support_memory_ids": [
+          "m_3dde8f4d763cad985c98"
+        ],
+        "support_source_ids": [
+          141
+        ]
+      },
+      {
+        "name": "event_time_2",
+        "value": "2023-04-10",
+        "support_memory_ids": [
+          "m_e9a99ad54656417f9dcb"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      },
+      {
+        "name": "event_time_3",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_585f0428fa546b550873"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "used coupon",
+        "object": "Buy One Get One Free on Luvs diapers at Walmart",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-04-01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3dde8f4d763cad985c98"
+        ],
+        "support_source_ids": [
+          141
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "redeemed",
+        "object": "$12 cashback for $10 Amazon gift card from Ibotta",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-04-10",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e9a99ad54656417f9dcb"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "signed up for",
+        "object": "ShopRite rewards program",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-04-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_585f0428fa546b550873"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Each event has a grounded date from memory: Walmart coupon on 2023-04-01, Ibotta redemption on 2023-04-10, ShopRite signup on 2023-04-15. Chronological order is therefore: Walmart coupon, Ibotta redemption, ShopRite signup."
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist candidate fills all required slots with explicit timestamps and provides a fact table, adhering to the answer contract for timeline ordering.",
+  "compact_source_ids": [
+    141,
+    202,
+    208,
+    206,
+    143,
+    207,
+    144,
+    145,
+    214,
+    205,
+    182,
+    14,
+    204,
+    209,
+    203,
+    142,
+    215
+  ],
+  "targeted_source_ids": [
+    49,
+    112,
+    135,
+    141,
+    144,
+    145,
+    202,
+    204,
+    207,
+    208,
+    210,
+    212,
+    50,
+    142,
+    203,
+    209
+  ]
+}

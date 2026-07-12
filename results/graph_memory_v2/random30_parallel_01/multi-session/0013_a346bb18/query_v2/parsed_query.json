@@ -1,0 +1,42 @@
+{
+  "question": "How many minutes did I exceed my target time by in the marathon?",
+  "question_date": "2023-05-30T22:30:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's marathon target time and actual time",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "marathon"
+      ],
+      "keywords": [
+        "marathon",
+        "target time",
+        "actual time",
+        "exceed"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T22:30:00",
+        "raw": "before now"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "same_event"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "target time",
+        "actual time"
+      ],
+      "confidence": 0.9
+    }
+  ]
+}

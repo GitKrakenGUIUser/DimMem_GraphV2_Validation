@@ -1,0 +1,128 @@
+{
+  "question": "How much did I save on the Jimmy Choo heels?",
+  "question_date": "2023-05-30T23:31:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user saved money on Jimmy Choo heels",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "Jimmy Choo heels"
+      ],
+      "keywords": [
+        "Jimmy Choo",
+        "heels",
+        "saved",
+        "discount",
+        "price"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "savings_amount",
+        "purchase_price",
+        "original_price"
+      ],
+      "relation_hints": [
+        "purchase_of",
+        "discount_on"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "original_price",
+        "purchase_price"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user bought Jimmy Choo heels and saved money",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "Jimmy Choo heels"
+      ],
+      "keywords": [
+        "Jimmy Choo",
+        "heels",
+        "bought",
+        "saved",
+        "cost"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T23:31:00",
+        "raw": "before now"
+      },
+      "locations": [],
+      "state_keys": [
+        "savings_amount",
+        "purchase_price",
+        "original_price"
+      ],
+      "relation_hints": [
+        "purchase_of",
+        "discount_on"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "original_price",
+        "purchase_price"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's savings on Jimmy Choo heels",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "Jimmy Choo heels"
+      ],
+      "keywords": [
+        "Jimmy Choo",
+        "heels",
+        "savings",
+        "discount"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "savings_amount"
+      ],
+      "relation_hints": [
+        "discount_on"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "original_price",
+        "purchase_price"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

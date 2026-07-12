@@ -1,0 +1,145 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "current_project",
+        "query": "current project vehicle model type",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "current project vehicle model type"
+    ],
+    "output_constraints": [
+      "The answer should be a vehicle model type (e.g., pickup truck, sedan, SUV)."
+    ],
+    "reason": "The question asks for the type of vehicle model the user is currently working on, which requires resolving the current state of the user's project."
+  },
+  "base_candidate": {
+    "answer": "Ford F-150 pickup truck model",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_40463146c1e18adf2184"
+    ],
+    "support_source_ids": [
+      36
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The candidate answer incorrectly states 'Ford Mustang Shelby GT350R model' as the current project. However, memory m_40463146c1e18adf2184 (source turn 36) explicitly states that the user switched to a Ford F-150 pickup truck model on 2023-05-26, and this memory has state_status 'active'. The question date is 2023-06-01, and there is no evidence of a switch back to the Mustang. Therefore, the correct current project is the Ford F-150 pickup truck model."
+  },
+  "specialist_candidate": {
+    "answer": "pickup truck",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_40463146c1e18adf2184"
+    ],
+    "support_source_ids": [
+      36
+    ],
+    "required_slots": [
+      {
+        "name": "current_project",
+        "value": "pickup truck",
+        "support_memory_ids": [
+          "m_40463146c1e18adf2184"
+        ],
+        "support_source_ids": [
+          36
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "current project vehicle model type",
+        "object": "pickup truck",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-26T04:47:01",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_40463146c1e18adf2184"
+        ],
+        "support_source_ids": [
+          36
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-26 that they switched to a Ford F-150 pickup truck model. No later memory contradicts this, so the current project is a pickup truck."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    79,
+    36,
+    29,
+    32,
+    31,
+    33,
+    34,
+    186,
+    211,
+    214,
+    77,
+    183,
+    28,
+    30,
+    106,
+    89,
+    127,
+    83,
+    35,
+    37,
+    187
+  ],
+  "targeted_source_ids": [
+    28,
+    29,
+    31,
+    32,
+    34,
+    35,
+    36,
+    79,
+    140,
+    141,
+    142,
+    143,
+    78,
+    139
+  ]
+}

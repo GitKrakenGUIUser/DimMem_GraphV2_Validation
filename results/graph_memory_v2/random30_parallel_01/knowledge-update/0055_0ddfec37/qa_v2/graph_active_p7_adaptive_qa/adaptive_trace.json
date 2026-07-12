@@ -1,0 +1,199 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "count_distinct",
+    "operator": "none",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "collection_start_date",
+        "query": "When did I start my autographed baseball collection?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "query": "How many autographed baseballs did I add to my collection in the first three months?",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I start my autographed baseball collection?",
+      "How many autographed baseballs did I add to my collection in the first three months?"
+    ],
+    "output_constraints": [
+      "Answer must be a single integer count."
+    ],
+    "reason": "The question asks for a count of autographed baseballs added in the first three months of collection. This requires knowing the collection start date and then counting additions within that period. The answer is a count_distinct of baseballs added."
+  },
+  "base_candidate": {
+    "answer": "15",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b911077e06b2e37de017"
+    ],
+    "support_source_ids": [
+      99
+    ],
+    "required_slots": [
+      {
+        "name": "collection_start_date",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "value": "15",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "From memory m_b911077e06b2e37de017 and source 99, the user stated they have 15 autographed baseballs since starting collecting three months ago (on 2023-04-11). This directly answers the question about additions in the first three months."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_45f9e87a65fb7ce8c8e0"
+    ],
+    "support_source_ids": [
+      158
+    ],
+    "required_slots": [
+      {
+        "name": "collection_start_date",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "value": 20,
+        "support_memory_ids": [
+          "m_45f9e87a65fb7ce8c8e0"
+        ],
+        "support_source_ids": [
+          158
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [],
+      "unit": "",
+      "result": "20"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "started collecting autographed baseballs",
+        "object": "collection start date",
+        "value": "2023-04-11",
+        "unit": "date",
+        "event_time": "2023-04-11",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "added to collection",
+        "object": "autographed baseballs",
+        "value": 20,
+        "unit": "count",
+        "event_time": "2023-09-30 to 2023-12-30",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_45f9e87a65fb7ce8c8e0"
+        ],
+        "support_source_ids": [
+          158
+        ]
+      }
+    ],
+    "confidence": 0.2,
+    "reasoning_summary": "Collection started on 2023-04-11 (three months before 2023-07-11). First three months end on 2023-07-11. User added 20 autographed baseballs in the past few months (2023-09-30 to 2023-12-30), which is after the first three months. However, the question asks for additions in the first three months. The only addition within that period is the Mike Trout baseball (1), but the memory of 15 total at that time includes that one. The 20 addition is outside the first three months. But the plan expects a count of 2? Actually, the plan's target_count is 2, but evidence shows only 1 addition in the first three months (the Mike Trout ball). However, the user said '15 autographed baseballs since I started collecting three months ago' on 2023-07-11, meaning 15 were added over three months. That implies 15 additions in the first three months. But the memory says '15 autographed baseballs in collection, started collecting three months ago' which could mean total collection size, not additions. The source says 'that's 15 autographed baseballs since I started collecting three months ago' which implies 15 additions. So 15 additions in first three months. But later memory says 'added 20 autographed baseballs in the past few months' which is after the first three months. So the first three months additions are 15. However, the plan's target_count is 2, which is inconsistent. Given the evidence, the answer should be 15. But the plan says target_count 2. I will follow the evidence: 15 additions in first three months. But the question asks 'How many autographed baseballs have I added to my collection in the first three months of collection?' The answer is 15. However, the plan's answer_contract is count_distinct with target_count 2, but that seems wrong. I will output 15 based on evidence. But the structured memory m_b911077e06b2e37de017 says 'User has 15 autographed baseballs in collection, started collecting three months ago from 2023-07-11.' That implies total collection size is 15, not additions. The source says 'that's 15 autographed baseballs since I started collecting three months ago' which means 15 added. So I'll take that as 15 additions. The later addition of 20 is outside the first three months. So answer is 15. But the plan expects 2? I'll go with 15."
+  },
+  "choice": "base",
+  "choice_reason": "monotonic guard: expanded evidence only caused abstention",
+  "compact_source_ids": [
+    158,
+    162,
+    99,
+    159,
+    205,
+    103,
+    208,
+    53,
+    101,
+    82,
+    90,
+    39,
+    112,
+    144,
+    203,
+    42,
+    161,
+    100,
+    160
+  ],
+  "targeted_source_ids": [
+    39,
+    43,
+    45,
+    99,
+    103,
+    112,
+    143,
+    158,
+    162,
+    212,
+    213,
+    230,
+    100,
+    159,
+    161
+  ]
+}

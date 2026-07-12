@@ -1,0 +1,192 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "graduation ceremony attendance",
+        "query": "graduation ceremony attended",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "graduation ceremony attended"
+    ],
+    "output_constraints": [
+      "count of distinct events"
+    ],
+    "reason": "The question asks for a count of graduation ceremonies attended in the past three months, which is a direct count of episodic memories."
+  },
+  "base_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ee98828d389262062ff4",
+      "m_9dad06dd132d07e4e0d3"
+    ],
+    "support_source_ids": [
+      157,
+      77
+    ],
+    "required_slots": [
+      {
+        "name": "count",
+        "value": "2",
+        "support_memory_ids": [
+          "m_ee98828d389262062ff4",
+          "m_9dad06dd132d07e4e0d3"
+        ],
+        "support_source_ids": [
+          157,
+          77
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Rachel's master's degree graduation ceremony",
+        "Emma's preschool graduation"
+      ],
+      "unit": "ceremonies",
+      "result": "2"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Two graduation ceremonies attended within the past three months: Rachel's master's degree graduation (about two weeks before July 21, 2023) and Emma's preschool graduation (about two months before July 21, 2023)."
+  },
+  "specialist_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ee98828d389262062ff4",
+      "m_9dad06dd132d07e4e0d3"
+    ],
+    "support_source_ids": [
+      157,
+      77
+    ],
+    "required_slots": [
+      {
+        "name": "graduation ceremony attendance",
+        "value": "2",
+        "support_memory_ids": [
+          "m_ee98828d389262062ff4",
+          "m_9dad06dd132d07e4e0d3"
+        ],
+        "support_source_ids": [
+          157,
+          77
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Rachel's master's degree graduation ceremony (2023-07-07)",
+        "Emma's preschool graduation (2023-05-21)"
+      ],
+      "unit": "events",
+      "result": "2"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "attended",
+        "object": "Rachel's master's degree graduation ceremony",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-07-07",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_ee98828d389262062ff4"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "attended",
+        "object": "Emma's preschool graduation",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-21",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_9dad06dd132d07e4e0d3"
+        ],
+        "support_source_ids": [
+          77
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The question asks for the number of graduation ceremonies attended in the past three months from 2023/07/21. Two distinct graduation ceremonies are grounded: Rachel's master's degree graduation ceremony on 2023-07-07 (within 3 months) and Emma's preschool graduation on 2023-05-21 (within 3 months). The missed ceremony for Jack is not counted as attended. Thus, the count is 2.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    77,
+    235,
+    149,
+    42,
+    8,
+    110,
+    162,
+    157,
+    166,
+    23,
+    31,
+    175,
+    67,
+    159,
+    161,
+    253,
+    145,
+    158,
+    78,
+    167,
+    43,
+    24
+  ],
+  "targeted_source_ids": [
+    8,
+    26,
+    54,
+    77,
+    82,
+    110,
+    140,
+    149,
+    157,
+    162,
+    250,
+    253,
+    9,
+    78,
+    161
+  ]
+}

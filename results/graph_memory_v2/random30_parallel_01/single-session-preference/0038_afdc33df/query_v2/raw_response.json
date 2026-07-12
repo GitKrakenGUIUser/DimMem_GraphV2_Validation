@@ -1,0 +1,111 @@
+{
+  "question": "My kitchen's becoming a bit of a mess again. Any tips for keeping it clean?",
+  "question_date": "2023-05-30T19:03:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's kitchen cleaning tips",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "kitchen",
+        "cleaning",
+        "tips",
+        "mess"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [
+        "kitchen"
+      ],
+      "state_keys": [
+        "kitchen_cleanliness"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's previous kitchen cleaning advice from assistant",
+      "target_memory_types": [
+        "episodic",
+        "assistant_reply"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "kitchen",
+        "cleaning",
+        "advice",
+        "previous"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T19:03:00",
+        "raw": "previous"
+      },
+      "locations": [
+        "kitchen"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "supersedes"
+      ],
+      "answer_dim": "assistant_reply",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user's kitchen cleaning habits or preferences",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "kitchen",
+        "cleaning",
+        "habits",
+        "preferences"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [
+        "kitchen"
+      ],
+      "state_keys": [
+        "cleaning_frequency",
+        "cleaning_method"
+      ],
+      "relation_hints": [],
+      "answer_dim": "preference",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.4
+    }
+  ]
+}

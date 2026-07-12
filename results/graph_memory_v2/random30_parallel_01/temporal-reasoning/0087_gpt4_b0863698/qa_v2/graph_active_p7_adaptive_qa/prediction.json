@@ -1,0 +1,78 @@
+{
+  "question_id": "gpt4_b0863698",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I participate in the 5K charity run?",
+  "question_date": "2023/03/26 (Sun) 04:13",
+  "gold_answer": "7 days ago. 8 days (including the last day) is also acceptable.",
+  "prediction": "7 days",
+  "support_memory_ids": [
+    "m_59690e0e8b021b17c810"
+  ],
+  "support_source_ids": [
+    198
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Memory m_59690e0e8b021b17c810 states the user completed a 5K charity run on 2023-03-19. The question date is 2023-03-26. The difference is 7 days.",
+  "required_slots": [
+    {
+      "name": "event_date",
+      "value": "2023-03-19",
+      "support_memory_ids": [
+        "m_59690e0e8b021b17c810"
+      ],
+      "support_source_ids": [
+        198
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-03-19",
+      "2023-03-26"
+    ],
+    "unit": "days",
+    "result": "7 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "event_date",
+        "query": "date of 5K charity run participation",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "5K charity run participation date"
+    ],
+    "output_constraints": [
+      "answer in days"
+    ],
+    "reason": "The question asks for the number of days since a past event. The answer is a direct calculation from the event date to the question date."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32227,
+    "completion_tokens": 555,
+    "elapsed_seconds": 7.039844512939453
+  }
+}

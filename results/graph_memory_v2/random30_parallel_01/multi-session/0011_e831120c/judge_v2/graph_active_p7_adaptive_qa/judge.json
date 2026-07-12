@@ -1,0 +1,105 @@
+{
+  "question_id": "e831120c",
+  "question_type": "multi-session",
+  "question": "How many weeks did it take me to watch all the Marvel Cinematic Universe movies and the main Star Wars films?",
+  "question_date": "2023/05/30 (Tue) 18:41",
+  "gold_answer": "3.5 weeks",
+  "prediction": "3.5 weeks",
+  "support_memory_ids": [
+    "m_7705bbef5076f0f5ef05",
+    "m_b281a1dbfce85a37ed3c"
+  ],
+  "support_source_ids": [
+    66,
+    120
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User stated watching all 22 MCU movies in two weeks (source 66) and all main Star Wars films in a week and a half (source 120). Summing these durations gives 3.5 weeks.",
+  "required_slots": [
+    {
+      "name": "MCU watch duration",
+      "value": "2",
+      "support_memory_ids": [
+        "m_7705bbef5076f0f5ef05"
+      ],
+      "support_source_ids": [
+        66
+      ]
+    },
+    {
+      "name": "Star Wars watch duration",
+      "value": "1.5",
+      "support_memory_ids": [
+        "m_b281a1dbfce85a37ed3c"
+      ],
+      "support_source_ids": [
+        120
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      2,
+      1.5
+    ],
+    "unit": "weeks",
+    "result": "3.5 weeks"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "MCU watch duration",
+        "query": "How long did it take to watch all MCU movies?",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "Star Wars watch duration",
+        "query": "How long did it take to watch main Star Wars films?",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "MCU watch duration",
+      "Star Wars watch duration"
+    ],
+    "output_constraints": [
+      "result in weeks"
+    ],
+    "reason": "The question asks for total weeks to watch both sets, requiring sum of two durations."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 28746,
+    "completion_tokens": 755,
+    "elapsed_seconds": 7.150732755661011
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 148,
+    "completion_tokens": 22,
+    "elapsed_seconds": 0.9808902740478516
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "question": "How many days passed between the day I repotted the previous spider plant and the day I gave my neighbor, Mrs. Johnson, a few cuttings from my spider plant?",
+  "question_date": "2023-03-26T15:53:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user repotted the previous spider plant",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "spider plant"
+      ],
+      "keywords": [
+        "repot",
+        "previous spider plant"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "the day I repotted the previous spider plant"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user gave Mrs. Johnson cuttings from spider plant",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Mrs. Johnson",
+        "spider plant"
+      ],
+      "keywords": [
+        "give",
+        "cuttings",
+        "neighbor",
+        "Mrs. Johnson"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "the day I gave my neighbor, Mrs. Johnson, a few cuttings from my spider plant"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user repotted the previous spider plant and gave cuttings to Mrs. Johnson",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "spider plant",
+        "Mrs. Johnson"
+      ],
+      "keywords": [
+        "repot",
+        "previous spider plant",
+        "cuttings",
+        "Mrs. Johnson"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "",
+        "end": "",
+        "raw": "between the day I repotted the previous spider plant and the day I gave my neighbor, Mrs. Johnson, a few cuttings"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "temporal_order"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "date of repotting",
+        "date of giving cuttings"
+      ],
+      "confidence": 0.8
+    }
+  ]
+}

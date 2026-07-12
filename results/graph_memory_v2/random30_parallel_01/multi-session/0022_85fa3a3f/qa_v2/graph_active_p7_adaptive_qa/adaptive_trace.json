@@ -1,0 +1,298 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 4,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "food bowl cost",
+        "query": "cost of food bowl for Max",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "measuring cup cost",
+        "query": "cost of measuring cup for Max",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "dental chews cost",
+        "query": "cost of dental chews for Max",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "flea and tick collar cost",
+        "query": "cost of flea and tick collar for Max",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "cost of food bowl for Max",
+      "cost of measuring cup for Max",
+      "cost of dental chews for Max",
+      "cost of flea and tick collar for Max"
+    ],
+    "output_constraints": [
+      "sum of four numbers in dollars"
+    ],
+    "reason": "The question asks for total cost of four specific items purchased for Max. Each item's cost is a separate numeric fact. The answer is the sum of these four costs."
+  },
+  "base_candidate": {
+    "answer": "50 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3e5016c580e853ce95da",
+      "m_5e09ae07dda3792077f0",
+      "m_85d8d36224a264de16ac"
+    ],
+    "support_source_ids": [
+      147,
+      40,
+      41
+    ],
+    "required_slots": [
+      {
+        "name": "food bowl cost",
+        "value": "15",
+        "support_memory_ids": [
+          "m_3e5016c580e853ce95da"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      },
+      {
+        "name": "measuring cup cost",
+        "value": "5",
+        "support_memory_ids": [
+          "m_3e5016c580e853ce95da"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      },
+      {
+        "name": "dental chews cost",
+        "value": "10",
+        "support_memory_ids": [
+          "m_5e09ae07dda3792077f0"
+        ],
+        "support_source_ids": [
+          40
+        ]
+      },
+      {
+        "name": "flea and tick collar cost",
+        "value": "20",
+        "support_memory_ids": [
+          "m_85d8d36224a264de16ac"
+        ],
+        "support_source_ids": [
+          41
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        15,
+        5,
+        10,
+        20
+      ],
+      "unit": "dollars",
+      "result": "50 dollars"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user bought a stainless steel food bowl for $15 and a measuring cup for $5 (source 147). Dental chews cost $10 per pack (source 40). A flea and tick collar cost $20 (source 41). Summing these gives $50."
+  },
+  "specialist_candidate": {
+    "answer": "50 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3e5016c580e853ce95da",
+      "m_5e09ae07dda3792077f0",
+      "m_85d8d36224a264de16ac"
+    ],
+    "support_source_ids": [
+      147,
+      39,
+      41
+    ],
+    "required_slots": [
+      {
+        "name": "food bowl cost",
+        "value": "15",
+        "support_memory_ids": [
+          "m_3e5016c580e853ce95da"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      },
+      {
+        "name": "measuring cup cost",
+        "value": "5",
+        "support_memory_ids": [
+          "m_3e5016c580e853ce95da"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      },
+      {
+        "name": "dental chews cost",
+        "value": "10",
+        "support_memory_ids": [
+          "m_5e09ae07dda3792077f0"
+        ],
+        "support_source_ids": [
+          39
+        ]
+      },
+      {
+        "name": "flea and tick collar cost",
+        "value": "20",
+        "support_memory_ids": [
+          "m_85d8d36224a264de16ac"
+        ],
+        "support_source_ids": [
+          41
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        "15",
+        "5",
+        "10",
+        "20"
+      ],
+      "unit": "dollars",
+      "result": "50 dollars"
+    },
+    "fact_table": [
+      {
+        "subject": "food bowl",
+        "predicate": "cost",
+        "object": "15",
+        "value": "15",
+        "unit": "dollars",
+        "event_time": "2023-05-26",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3e5016c580e853ce95da"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      },
+      {
+        "subject": "measuring cup",
+        "predicate": "cost",
+        "object": "5",
+        "value": "5",
+        "unit": "dollars",
+        "event_time": "2023-05-26",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3e5016c580e853ce95da"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      },
+      {
+        "subject": "dental chews",
+        "predicate": "cost",
+        "object": "10",
+        "value": "10",
+        "unit": "dollars",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_5e09ae07dda3792077f0"
+        ],
+        "support_source_ids": [
+          39
+        ]
+      },
+      {
+        "subject": "flea and tick collar",
+        "predicate": "cost",
+        "object": "20",
+        "value": "20",
+        "unit": "dollars",
+        "event_time": "2023-05-22",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_85d8d36224a264de16ac"
+        ],
+        "support_source_ids": [
+          41
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The user stated the food bowl cost $15 (source 147), measuring cup $5 (source 147), dental chews $10 per pack (source 39), and flea and tick collar $20 (source 41). Summing these four amounts gives $50.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    41,
+    147,
+    40,
+    39,
+    148,
+    151,
+    38,
+    171,
+    42,
+    154,
+    143
+  ],
+  "targeted_source_ids": [
+    38,
+    39,
+    40,
+    41,
+    42,
+    44,
+    134,
+    147,
+    151,
+    172,
+    187,
+    199,
+    148
+  ]
+}

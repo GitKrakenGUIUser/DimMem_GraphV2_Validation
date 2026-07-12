@@ -1,28 +1,32 @@
 {
   "baseline": "graph_active_p5_source_qa",
   "candidate": "graph_active_p7_adaptive_qa",
-  "paired_n": 30,
-  "baseline_accuracy": 0.7666666666666667,
-  "candidate_accuracy": 0.8666666666666667,
-  "delta": 0.09999999999999998,
+  "paired_n": 100,
+  "baseline_accuracy": 0.73,
+  "candidate_accuracy": 0.74,
+  "delta": 0.010000000000000009,
   "delta_bootstrap_95ci": [
-    -0.03333333333333333,
-    0.23333333333333334
+    -0.05,
+    0.07
   ],
-  "paired_binomial_p_value": 0.375,
-  "fixed_count": 4,
-  "broken_count": 1,
+  "paired_binomial_p_value": 1.0,
+  "fixed_count": 5,
+  "broken_count": 4,
   "fixed_question_ids": [
-    "0edc2aef",
-    "1da05512",
-    "3fdac837",
-    "gpt4_7abb270c"
+    "91b15a6e",
+    "a346bb18",
+    "c18a7dc8",
+    "d23cf73b",
+    "ec81a493"
   ],
   "broken_question_ids": [
-    "031748ae_abs"
+    "3ba21379",
+    "6071bd76",
+    "a1eacc2a",
+    "edced276_abs"
   ],
-  "unchanged_correct": 22,
-  "unchanged_wrong": 3,
+  "unchanged_correct": 69,
+  "unchanged_wrong": 22,
   "parallel": {
     "report_loading": {
       "stage": "compare-report-load",
@@ -30,15 +34,15 @@
       "workers": 2,
       "succeeded": 2,
       "failed": 0,
-      "elapsed_seconds": 0.005286455154418945
+      "elapsed_seconds": 0.01226353645324707
     },
     "paired_cases": {
       "stage": "compare-graph_active_p5_source_qa-vs-graph_active_p7_adaptive_qa",
-      "total": 30,
-      "workers": 8,
-      "succeeded": 30,
+      "total": 100,
+      "workers": 100,
+      "succeeded": 100,
       "failed": 0,
-      "elapsed_seconds": 0.002040863037109375
+      "elapsed_seconds": 0.004776716232299805
     }
   }
 }

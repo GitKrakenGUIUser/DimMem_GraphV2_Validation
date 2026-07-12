@@ -1,0 +1,113 @@
+{
+  "question_id": "gpt4_18c2b244",
+  "question_type": "temporal-reasoning",
+  "question": "What is the order of the three events: 'I signed up for the rewards program at ShopRite', 'I used a Buy One Get One Free coupon on Luvs diapers at Walmart', and 'I redeemed $12 cashback for a $10 Amazon gift card from Ibotta'?",
+  "question_date": "2023/05/10 (Wed) 21:38",
+  "gold_answer": "First, I used a Buy One Get One Free coupon on Luvs diapers at Walmart. Then, I redeemed $12 cashback for a $10 Amazon gift card from Ibotta. Finally, I signed up for the rewards program at ShopRite.",
+  "prediction": "The chronological order is: 1. Used a Buy One Get One Free coupon on Luvs diapers at Walmart (2023-04-01), 2. Redeemed $12 cashback for a $10 Amazon gift card from Ibotta (2023-04-10), 3. Signed up for the rewards program at ShopRite (2023-04-15).",
+  "support_memory_ids": [
+    "m_3dde8f4d763cad985c98",
+    "m_e9a99ad54656417f9dcb",
+    "m_585f0428fa546b550873"
+  ],
+  "support_source_ids": [
+    141,
+    202,
+    208
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Each event has a grounded date from memory: Walmart coupon on 2023-04-01, Ibotta redemption on 2023-04-10, ShopRite signup on 2023-04-15. Chronological order is therefore: Walmart coupon, Ibotta redemption, ShopRite signup.",
+  "required_slots": [
+    {
+      "name": "event_time_1",
+      "value": "2023-04-01",
+      "support_memory_ids": [
+        "m_3dde8f4d763cad985c98"
+      ],
+      "support_source_ids": [
+        141
+      ]
+    },
+    {
+      "name": "event_time_2",
+      "value": "2023-04-10",
+      "support_memory_ids": [
+        "m_e9a99ad54656417f9dcb"
+      ],
+      "support_source_ids": [
+        202
+      ]
+    },
+    {
+      "name": "event_time_3",
+      "value": "2023-04-15",
+      "support_memory_ids": [
+        "m_585f0428fa546b550873"
+      ],
+      "support_source_ids": [
+        208
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "Specialist candidate fills all required slots with explicit timestamps and provides a fact table, adhering to the answer contract for timeline ordering.",
+  "risk_reasons": [
+    "specialist_contract:timeline"
+  ],
+  "plan": {
+    "answer_contract": "timeline",
+    "operator": "timeline",
+    "target_count": 3,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "event_time_1",
+        "query": "When did I sign up for the rewards program at ShopRite?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "event_time_2",
+        "query": "When did I use a Buy One Get One Free coupon on Luvs diapers at Walmart?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "event_time_3",
+        "query": "When did I redeem $12 cashback for a $10 Amazon gift card from Ibotta?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I sign up for the rewards program at ShopRite?",
+      "When did I use a Buy One Get One Free coupon on Luvs diapers at Walmart?",
+      "When did I redeem $12 cashback for a $10 Amazon gift card from Ibotta?"
+    ],
+    "output_constraints": [
+      "List the three events in chronological order from earliest to latest."
+    ],
+    "reason": "The question asks for the order of three events, which requires their timestamps. Each event is independent and has a specific date in memory. No composition or state projection needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32157,
+    "completion_tokens": 1226,
+    "elapsed_seconds": 13.861577987670898
+  }
+}

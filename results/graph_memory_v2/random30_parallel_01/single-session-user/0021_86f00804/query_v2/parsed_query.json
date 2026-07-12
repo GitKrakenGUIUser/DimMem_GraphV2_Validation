@@ -1,0 +1,96 @@
+{
+  "question": "What book am I currently reading?",
+  "question_date": "2023-05-30T18:40:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user is currently reading a book",
+      "target_memory_types": [
+        "episodic",
+        "profile"
+      ],
+      "entities": [
+        "user"
+      ],
+      "keywords": [
+        "currently reading",
+        "book"
+      ],
+      "time_constraint": {
+        "operator": "around",
+        "start": "2023-05-30T18:40:00",
+        "end": "",
+        "raw": "currently"
+      },
+      "locations": [],
+      "state_keys": [
+        "current_book"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user has a book they are reading",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "user"
+      ],
+      "keywords": [
+        "reading",
+        "book"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T18:40:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "current_book"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user mentioned a book they are reading",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "user"
+      ],
+      "keywords": [
+        "book",
+        "reading"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T18:40:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    }
+  ]
+}

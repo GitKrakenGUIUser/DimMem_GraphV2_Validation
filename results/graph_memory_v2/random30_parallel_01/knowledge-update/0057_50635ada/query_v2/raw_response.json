@@ -1,0 +1,44 @@
+{
+  "question": "What was my previous frequent flyer status on United Airlines before I got the current status?",
+  "question_date": "2023-06-29T04:09:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's previous frequent flyer status on United Airlines before the current status",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "United Airlines",
+        "frequent flyer status"
+      ],
+      "keywords": [
+        "previous",
+        "frequent flyer status",
+        "United Airlines"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-06-29T04:09:00",
+        "raw": "before I got the current status"
+      },
+      "locations": [],
+      "state_keys": [
+        "frequent_flyer_status"
+      ],
+      "relation_hints": [
+        "precedes"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "current status",
+        "date of status change"
+      ],
+      "confidence": 0.8
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "question_id": "gpt4_2312f94c",
+  "question_type": "temporal-reasoning",
+  "question": "Which device did I got first, the Samsung Galaxy S22 or the Dell XPS 13?",
+  "question_date": "2023/03/15 (Wed) 04:45",
+  "gold_answer": "Samsung Galaxy S22",
+  "prediction": "5 days",
+  "support_memory_ids": [
+    "m_3c3a2f6b62b8ce47fba6",
+    "m_5cccf1329f52cfdab95a"
+  ],
+  "support_source_ids": [
+    98,
+    42
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The Samsung Galaxy S22 was purchased on February 20, 2023, and the Dell XPS 13 arrived on February 25, 2023. Therefore, the Samsung Galaxy S22 was acquired first.",
+  "required_slots": [
+    {
+      "name": "acquisition date of Samsung Galaxy S22",
+      "value": "2023-02-20",
+      "support_memory_ids": [
+        "m_3c3a2f6b62b8ce47fba6"
+      ],
+      "support_source_ids": [
+        98
+      ]
+    },
+    {
+      "name": "acquisition date of Dell XPS 13",
+      "value": "2023-02-25",
+      "support_memory_ids": [
+        "m_5cccf1329f52cfdab95a"
+      ],
+      "support_source_ids": [
+        42
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-02-20",
+      "2023-02-25"
+    ],
+    "unit": "days",
+    "result": "5 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    42,
+    98,
+    100,
+    99,
+    125,
+    54,
+    123,
+    101,
+    31,
+    138,
+    43,
+    126,
+    155,
+    118,
+    124,
+    102
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 81780,
+    "completion_tokens": 1133,
+    "elapsed_seconds": 17.07948112487793
+  }
+}

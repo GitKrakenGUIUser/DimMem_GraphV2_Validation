@@ -1,0 +1,153 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "to-watch list count",
+        "query": "to-watch list count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "to-watch list count"
+    ],
+    "output_constraints": [
+      "answer must be a number"
+    ],
+    "reason": "The question asks for the current number of titles on the user's to-watch list, which is a state value that can be resolved from the most recent evidence."
+  },
+  "base_candidate": {
+    "answer": "25",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_369e393afb314209e13c",
+      "m_6c74b48dbbe6eb840e87"
+    ],
+    "support_source_ids": [
+      228,
+      232
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": "25"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-22 that their to-watch list contains 25 titles (source 228, memory m_369e393afb314209e13c). This is the most recent and consistent evidence; no later updates indicate a change. Therefore, as of the question date (2023-06-03), the count remains 25."
+  },
+  "specialist_candidate": {
+    "answer": "25",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_369e393afb314209e13c",
+      "m_6c74b48dbbe6eb840e87"
+    ],
+    "support_source_ids": [
+      228,
+      232
+    ],
+    "required_slots": [
+      {
+        "name": "to-watch list count",
+        "value": "25",
+        "support_memory_ids": [
+          "m_369e393afb314209e13c",
+          "m_6c74b48dbbe6eb840e87"
+        ],
+        "support_source_ids": [
+          228,
+          232
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "has to-watch list count",
+        "object": "25",
+        "value": "25",
+        "unit": "titles",
+        "event_time": "",
+        "valid_from": "2023-05-22T03:27:01",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_369e393afb314209e13c",
+          "m_6c74b48dbbe6eb840e87"
+        ],
+        "support_source_ids": [
+          228,
+          232
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-22 that their to-watch list has 25 titles (sources 228 and 232). No later evidence contradicts or updates this count. Therefore, as of the question date 2023-06-03, the current count remains 25."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    228,
+    232,
+    82,
+    231,
+    222,
+    230,
+    206,
+    71,
+    257,
+    6,
+    215,
+    256,
+    19,
+    121,
+    83,
+    81,
+    229,
+    227
+  ],
+  "targeted_source_ids": [
+    30,
+    81,
+    82,
+    119,
+    121,
+    128,
+    188,
+    209,
+    228,
+    231,
+    232,
+    256,
+    83,
+    120,
+    122,
+    227,
+    229
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "question": "What is the average age of me, my parents, and my grandparents?",
+  "question_date": "2023-05-30T22:44:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's age",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "the user"
+      ],
+      "keywords": [
+        "age",
+        "birthdate"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-05-30",
+        "end": "",
+        "raw": "current"
+      },
+      "locations": [],
+      "state_keys": [
+        "age"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's parents' ages",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "the user's parents"
+      ],
+      "keywords": [
+        "age",
+        "birthdate",
+        "parent"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-05-30",
+        "end": "",
+        "raw": "current"
+      },
+      "locations": [],
+      "state_keys": [
+        "age"
+      ],
+      "relation_hints": [
+        "parent_of"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 2,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's grandparents' ages",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "the user's grandparents"
+      ],
+      "keywords": [
+        "age",
+        "birthdate",
+        "grandparent"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-05-30",
+        "end": "",
+        "raw": "current"
+      },
+      "locations": [],
+      "state_keys": [
+        "age"
+      ],
+      "relation_hints": [
+        "grandparent_of"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 4,
+      "missing_slots": [],
+      "confidence": 0.7
+    }
+  ]
+}

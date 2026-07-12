@@ -1,0 +1,207 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "current_status",
+        "query": "current frequent flyer status on United Airlines",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "status_change_date",
+        "query": "date when current frequent flyer status was obtained on United Airlines",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "previous_status",
+        "query": "previous frequent flyer status on United Airlines before current status",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "current frequent flyer status on United Airlines",
+      "date when current frequent flyer status was obtained on United Airlines",
+      "previous frequent flyer status on United Airlines before current status"
+    ],
+    "output_constraints": [
+      "answer must be a single status name (e.g., Premier Silver, Premier Gold)"
+    ],
+    "reason": "The question asks for the previous status before the current one, requiring resolution of the current status and its acquisition date to infer the prior state."
+  },
+  "base_candidate": {
+    "answer": "Premier Silver",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_7c50681107f4b578243b"
+    ],
+    "support_source_ids": [
+      103
+    ],
+    "required_slots": [
+      {
+        "name": "previous_status",
+        "value": "Premier Silver",
+        "support_memory_ids": [
+          "m_7c50681107f4b578243b"
+        ],
+        "support_source_ids": [
+          103
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated they hit 20,000 miles and became eligible for Premier Silver status on 2022-09-16. Later, on 2023-05-30, they mentioned having Premier Gold status. Therefore, the previous status before the current Gold was Premier Silver."
+  },
+  "specialist_candidate": {
+    "answer": "Premier Silver",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_7c50681107f4b578243b",
+      "m_afa3913a0942ce02a7bd"
+    ],
+    "support_source_ids": [
+      103,
+      232
+    ],
+    "required_slots": [
+      {
+        "name": "current_status",
+        "value": "Premier Gold",
+        "support_memory_ids": [
+          "m_afa3913a0942ce02a7bd"
+        ],
+        "support_source_ids": [
+          232
+        ]
+      },
+      {
+        "name": "status_change_date",
+        "value": "2023-05-30T08:58:01",
+        "support_memory_ids": [
+          "m_afa3913a0942ce02a7bd"
+        ],
+        "support_source_ids": [
+          232
+        ]
+      },
+      {
+        "name": "previous_status",
+        "value": "Premier Silver",
+        "support_memory_ids": [
+          "m_7c50681107f4b578243b"
+        ],
+        "support_source_ids": [
+          103
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "has frequent flyer status",
+        "object": "Premier Silver",
+        "value": "",
+        "unit": "",
+        "event_time": "2022-09-16T17:22:01.500000",
+        "valid_from": "2022-09-16T17:22:01.500000",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_7c50681107f4b578243b"
+        ],
+        "support_source_ids": [
+          103
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "has frequent flyer status",
+        "object": "Premier Gold",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-30T08:58:01",
+        "valid_from": "2023-05-30T08:58:01",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_afa3913a0942ce02a7bd"
+        ],
+        "support_source_ids": [
+          232
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "User stated Premier Silver status on 2022-09-16 (source 103) and later stated Premier Gold status on 2023-05-30 (source 232). Since the question date is 2023/06/29, the current status is Premier Gold, and the previous status before that is Premier Silver."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    232,
+    103,
+    231,
+    106,
+    254,
+    101,
+    234,
+    173,
+    250,
+    122,
+    117,
+    15,
+    102,
+    105,
+    192,
+    233,
+    104,
+    118,
+    235
+  ],
+  "targeted_source_ids": [
+    91,
+    92,
+    102,
+    103,
+    104,
+    105,
+    133,
+    207,
+    212,
+    231,
+    232,
+    254,
+    101,
+    253
+  ]
+}

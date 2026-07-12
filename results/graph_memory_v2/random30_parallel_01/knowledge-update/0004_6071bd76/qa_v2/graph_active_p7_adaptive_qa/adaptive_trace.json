@@ -1,0 +1,200 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "previous ratio",
+        "query": "previous French press coffee-to-water ratio",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "current ratio",
+        "query": "current French press coffee-to-water ratio",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "previous French press coffee-to-water ratio",
+      "current French press coffee-to-water ratio"
+    ],
+    "output_constraints": [
+      "answer must be 'more water per tablespoon' or 'less water per tablespoon'"
+    ],
+    "reason": "The question asks whether the user switched to more or less water per tablespoon, requiring comparison of previous and current ratios."
+  },
+  "base_candidate": {
+    "answer": "less water per tablespoon of coffee",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f4c802478fd10b33c52c",
+      "m_d09a2cc4c692616bf60f"
+    ],
+    "support_source_ids": [
+      7,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "previous ratio",
+        "value": "1 tbsp per 6 oz water",
+        "support_memory_ids": [
+          "m_f4c802478fd10b33c52c"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "name": "current ratio",
+        "value": "1 tbsp per 5 oz water",
+        "support_memory_ids": [
+          "m_d09a2cc4c692616bf60f"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user previously used 1 tbsp per 6 oz water (Feb 11, 2023) and later switched to 1 tbsp per 5 oz water (Jun 30, 2023). Since 5 oz is less water than 6 oz for the same amount of coffee, the ratio has less water per tablespoon (more concentrated). The candidate answer incorrectly stated 'more water per tablespoon'."
+  },
+  "specialist_candidate": {
+    "answer": "more water per tablespoon",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f4c802478fd10b33c52c",
+      "m_d09a2cc4c692616bf60f"
+    ],
+    "support_source_ids": [
+      7,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "previous ratio",
+        "value": "1 tbsp per 6 oz water",
+        "support_memory_ids": [
+          "m_f4c802478fd10b33c52c"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "name": "current ratio",
+        "value": "1 tbsp per 5 oz water",
+        "support_memory_ids": [
+          "m_d09a2cc4c692616bf60f"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "preferred",
+        "object": "French press ratio",
+        "value": "1 tbsp per 6 oz water",
+        "unit": "",
+        "event_time": "2023-02-11T11:41:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_f4c802478fd10b33c52c"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "uses",
+        "object": "French press ratio",
+        "value": "1 tbsp per 5 oz water",
+        "unit": "",
+        "event_time": "2023-06-30T13:14:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_d09a2cc4c692616bf60f"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Previous ratio (Feb 2023): 1 tbsp per 6 oz water. Current ratio (Jun 2023): 1 tbsp per 5 oz water. Since 5 oz is less water than 6 oz for the same amount of coffee, the user switched to less water per tablespoon, i.e., more water per tablespoon? Wait: 1 tbsp per 5 oz means more coffee per water, so less water per tablespoon. The question asks 'more water per tablespoon' or 'less water per tablespoon'. 1 tbsp per 5 oz has less water per tablespoon than 1 tbsp per 6 oz. So the switch is to less water per tablespoon. But the answer must be one of the two options. The user went from 6 oz water per tbsp to 5 oz water per tbsp, so less water per tablespoon. However, the output constraint says answer must be 'more water per tablespoon' or 'less water per tablespoon'. The correct answer is 'less water per tablespoon'. But the plan says 'more water per tablespoon'? Let's re-evaluate: 1 tbsp per 6 oz means 6 oz water per tbsp. 1 tbsp per 5 oz means 5 oz water per tbsp. So the amount of water per tablespoon decreased. So the user switched to less water per tablespoon. Therefore answer is 'less water per tablespoon'."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    7,
+    109,
+    105,
+    12,
+    92,
+    9,
+    8,
+    10,
+    127,
+    18,
+    142,
+    11,
+    89,
+    108,
+    106,
+    110
+  ],
+  "targeted_source_ids": [
+    7,
+    8,
+    9,
+    11,
+    12,
+    89,
+    92,
+    93,
+    105,
+    109,
+    142,
+    192,
+    106,
+    108,
+    110
+  ]
+}

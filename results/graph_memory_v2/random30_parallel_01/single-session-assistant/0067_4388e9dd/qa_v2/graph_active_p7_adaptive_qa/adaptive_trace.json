@@ -1,0 +1,146 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "character clothing",
+        "query": "Andy wearing script comedy movie scene",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Andy wearing script comedy movie scene"
+    ],
+    "output_constraints": [
+      "answer must be a description of clothing"
+    ],
+    "reason": "The question asks about a detail from a script the assistant wrote, requiring recall of assistant's own previous reply."
+  },
+  "base_candidate": {
+    "answer": "Andy was wearing an untidy, stained white shirt.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5726a6bee6baa44a3799"
+    ],
+    "support_source_ids": [
+      13
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's script explicitly states 'He wears an untidy, stained white shirt.' in the reconstructed source turn for source_id 13, which is also captured in memory m_5726a6bee6baa44a3799."
+  },
+  "specialist_candidate": {
+    "answer": "an untidy, stained white shirt",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5726a6bee6baa44a3799"
+    ],
+    "support_source_ids": [
+      13
+    ],
+    "required_slots": [
+      {
+        "name": "character clothing",
+        "value": "an untidy, stained white shirt",
+        "support_memory_ids": [
+          "m_5726a6bee6baa44a3799"
+        ],
+        "support_source_ids": [
+          13
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "Andy",
+        "predicate": "wearing",
+        "object": "untidy, stained white shirt",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-20T10:04:00.500000",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_5726a6bee6baa44a3799"
+        ],
+        "support_source_ids": [
+          13
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's reply in source 13 describes Andy wearing an untidy, stained white shirt in the comedy movie script scene."
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist candidate fills the required slot 'character clothing' with a structured value, follows the answer contract 'assistant_recall', and provides a fact table with temporal details, while compact candidate lacks slot structure and operation field.",
+  "compact_source_ids": [
+    13,
+    27,
+    108,
+    59,
+    44,
+    19,
+    3,
+    219,
+    95,
+    17,
+    209,
+    90,
+    15,
+    20,
+    14,
+    217,
+    16,
+    147,
+    218,
+    28,
+    208,
+    210,
+    45
+  ],
+  "targeted_source_ids": [
+    7,
+    13,
+    14,
+    15,
+    16,
+    20,
+    27,
+    144,
+    147,
+    190,
+    217,
+    218,
+    19
+  ]
+}

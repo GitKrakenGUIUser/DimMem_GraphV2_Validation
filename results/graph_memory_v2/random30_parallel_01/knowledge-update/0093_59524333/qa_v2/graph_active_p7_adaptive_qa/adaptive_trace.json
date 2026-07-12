@@ -1,0 +1,209 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:temporal",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "time",
+        "query": "gym time",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "days",
+        "query": "gym days",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "gym time",
+      "gym days"
+    ],
+    "output_constraints": [
+      "time of day and days of week"
+    ],
+    "reason": "The question asks for the user's usual gym time, which is a stored state (profile). The answer includes both time and days, so two slots are needed."
+  },
+  "base_candidate": {
+    "answer": "7:00 pm on Mondays, Wednesdays, and Fridays",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_23372f2d731067b628ff"
+    ],
+    "support_source_ids": [
+      32
+    ],
+    "required_slots": [
+      {
+        "name": "time",
+        "value": "7:00 pm",
+        "support_memory_ids": [
+          "m_23372f2d731067b628ff"
+        ],
+        "support_source_ids": [
+          32
+        ]
+      },
+      {
+        "name": "days",
+        "value": "Mondays, Wednesdays, and Fridays",
+        "support_memory_ids": [
+          "m_23372f2d731067b628ff"
+        ],
+        "support_source_ids": [
+          32
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated in source 32 that they usually go to the gym at 7:00 pm on Mondays, Wednesdays, and Fridays. This is stored in memory m_23372f2d731067b628ff."
+  },
+  "specialist_candidate": {
+    "answer": "7:00 pm on Mondays, Wednesdays, and Fridays",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_23372f2d731067b628ff",
+      "m_e6110c1d63b413a9340c"
+    ],
+    "support_source_ids": [
+      32,
+      213,
+      214
+    ],
+    "required_slots": [
+      {
+        "name": "time",
+        "value": "7:00 pm",
+        "support_memory_ids": [
+          "m_23372f2d731067b628ff"
+        ],
+        "support_source_ids": [
+          32,
+          214
+        ]
+      },
+      {
+        "name": "days",
+        "value": "Mondays, Wednesdays, and Fridays",
+        "support_memory_ids": [
+          "m_23372f2d731067b628ff",
+          "m_e6110c1d63b413a9340c"
+        ],
+        "support_source_ids": [
+          32,
+          213
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "goes to gym",
+        "object": "7:00 pm on Mondays, Wednesdays, and Fridays",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_23372f2d731067b628ff"
+        ],
+        "support_source_ids": [
+          32
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "has gym schedule",
+        "object": "Mondays, Wednesdays, Fridays",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e6110c1d63b413a9340c"
+        ],
+        "support_source_ids": [
+          213
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_23372f2d731067b628ff and source 32 explicitly state the user usually goes to the gym at 7:00 pm on Mondays, Wednesdays, and Fridays. Memory m_e6110c1d63b413a9340c and source 213 confirm the days. Source 214 also references gym at 6:00 pm, consistent with 7:00 pm start. No contradictory evidence found."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    32,
+    213,
+    214,
+    65,
+    220,
+    95,
+    107,
+    93,
+    146,
+    221,
+    159,
+    147,
+    106,
+    72,
+    194,
+    212,
+    31,
+    215,
+    145,
+    33,
+    94,
+    96
+  ],
+  "targeted_source_ids": [
+    16,
+    32,
+    62,
+    65,
+    71,
+    77,
+    90,
+    91,
+    127,
+    212,
+    213,
+    214,
+    31,
+    33,
+    215
+  ]
+}

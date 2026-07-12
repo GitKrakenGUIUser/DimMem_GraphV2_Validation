@@ -1,17 +1,17 @@
 # Report: graph_active_p7_adaptive_qa
 
-- N: 30
-- Correct: 26
-- Accuracy: 0.8667
-- Case workers: 8
-- Gold-session recall: 0.9166666666666666
-- Mean retrieval seconds: 18.517001620928447
+- N: 100
+- Correct: 74
+- Accuracy: 0.7400
+- Case workers: 100
+- Gold-session recall: 0.986
+- Mean retrieval seconds: 49.86267955541611
 
 | Question type | N | Correct | Accuracy |
 |---|---:|---:|---:|
-| knowledge-update | 5 | 3 | 0.6000 |
-| multi-session | 8 | 7 | 0.8750 |
-| single-session-assistant | 3 | 3 | 1.0000 |
-| single-session-preference | 2 | 2 | 1.0000 |
-| single-session-user | 4 | 4 | 1.0000 |
-| temporal-reasoning | 8 | 7 | 0.8750 |
+| knowledge-update | 15 | 9 | 0.6000 |
+| multi-session | 27 | 19 | 0.7037 |
+| single-session-assistant | 11 | 11 | 1.0000 |
+| single-session-preference | 6 | 2 | 0.3333 |
+| single-session-user | 14 | 12 | 0.8571 |
+| temporal-reasoning | 27 | 21 | 0.7778 |

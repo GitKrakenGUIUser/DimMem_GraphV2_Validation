@@ -1,0 +1,83 @@
+{
+  "question_id": "fca762bc",
+  "question_type": "single-session-assistant",
+  "question": "I wanted to follow up on our previous conversation about language learning apps. You mentioned a few options, and I was wondering if you could remind me of the one that uses mnemonics to help learners memorize words and phrases?",
+  "question_date": "2023/05/30 (Tue) 21:25",
+  "gold_answer": "Memrise",
+  "prediction": "Memrise",
+  "support_memory_ids": [
+    "m_32b1fe4c7579d5adedb9"
+  ],
+  "support_source_ids": [
+    91
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "In source 91, the assistant listed Memrise as a language learning app that uses mnemonics. This directly answers the user's recall question.",
+  "required_slots": [
+    {
+      "name": "app_name",
+      "value": "Memrise",
+      "support_memory_ids": [
+        "m_32b1fe4c7579d5adedb9"
+      ],
+      "support_source_ids": [
+        91
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "app_name",
+        "query": "language learning app that uses mnemonics",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "language learning app mnemonics previous conversation"
+    ],
+    "output_constraints": [
+      "single app name"
+    ],
+    "reason": "User asks to recall a specific app mentioned in a previous conversation, requiring assistant_reply evidence."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35761,
+    "completion_tokens": 504,
+    "elapsed_seconds": 7.249099969863892
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 166,
+    "completion_tokens": 22,
+    "elapsed_seconds": 0.7666299343109131
+  }
+}

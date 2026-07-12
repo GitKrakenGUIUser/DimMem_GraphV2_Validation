@@ -1,0 +1,75 @@
+{
+  "question_id": "b759caee",
+  "question_type": "single-session-assistant",
+  "question": "I was looking back at our previous conversation about buying unique engagement rings directly from designers. Can you remind me of the Instagram handle of the UK-based designer who works with unusual gemstones?",
+  "question_date": "2023/05/30 (Tue) 23:50",
+  "gold_answer": "@jessica_poole_jewellery",
+  "prediction": "@jessica_poole_jewellery",
+  "support_memory_ids": [
+    "m_8ace567a1dc92a3eceb5"
+  ],
+  "support_source_ids": [
+    181
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The assistant's previous reply (source 181) listed Jessica Poole as a UK-based designer who works with unusual gemstones, with Instagram handle @jessica_poole_jewellery. This directly answers the user's recall question.",
+  "required_slots": [
+    {
+      "name": "Instagram handle",
+      "value": "@jessica_poole_jewellery",
+      "support_memory_ids": [
+        "m_8ace567a1dc92a3eceb5"
+      ],
+      "support_source_ids": [
+        181
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "Instagram handle",
+        "query": "UK-based designer unusual gemstones engagement rings Instagram handle",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "UK-based designer unusual gemstones engagement rings Instagram handle"
+    ],
+    "output_constraints": [
+      "Instagram handle starting with @"
+    ],
+    "reason": "The question asks to recall an Instagram handle from a previous conversation, which is an assistant-recall question. The evidence is a single fact from a prior assistant reply."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 40105,
+    "completion_tokens": 570,
+    "elapsed_seconds": 7.492832899093628
+  }
+}

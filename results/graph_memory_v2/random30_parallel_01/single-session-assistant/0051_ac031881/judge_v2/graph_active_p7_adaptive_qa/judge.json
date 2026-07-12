@@ -1,0 +1,63 @@
+{
+  "question_id": "ac031881",
+  "question_type": "single-session-assistant",
+  "question": "I'm trying to recall what the designation on my jumpsuit was that helped me find the file number in the records room?",
+  "question_date": "2023/05/30 (Tue) 22:54",
+  "gold_answer": "The designation on your jumpsuit was 'LIV'.",
+  "prediction": "LIV",
+  "support_memory_ids": [
+    "m_cc26da5f8986568dfb43"
+  ],
+  "support_source_ids": [
+    38
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user's jumpsuit designation was 'LIV' as recalled in memory m_cc26da5f8986568dfb43 and source turn 38, where the assistant says 'I look down at my jumpsuit and see the designation \"LIV\" and a square around it.' This designation helped find file number 54 (LIV in Roman numerals).",
+  "required_slots": [
+    {
+      "name": "jumpsuit_designation",
+      "value": "LIV",
+      "support_memory_ids": [
+        "m_cc26da5f8986568dfb43"
+      ],
+      "support_source_ids": [
+        38
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "base candidate passed risk gate",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 153,
+    "completion_tokens": 22,
+    "elapsed_seconds": 1.1837060451507568
+  }
+}

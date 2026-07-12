@@ -1,0 +1,69 @@
+{
+  "question_id": "80ec1f4f_abs",
+  "question_type": "multi-session",
+  "question": "How many different museums or galleries did I visit in December?",
+  "question_date": "2023/03/03 (Fri) 23:44",
+  "gold_answer": "0. You did not mention visitng any museum in December",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.2,
+  "reasoning_summary": "No memories or sources mention any museum or gallery visit in December 2022. All visits are in January, February, or unspecified months.",
+  "required_slots": [
+    {
+      "name": "museum or gallery visit in December",
+      "value": "none",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [],
+    "unit": "",
+    "result": "0"
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist has deterministic calculation",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "count_distinct",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "museum or gallery visit in December",
+        "query": "museum or gallery visit in December 2022",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "museum or gallery visit in December 2022"
+    ],
+    "output_constraints": [
+      "integer count of distinct museums or galleries"
+    ],
+    "reason": "The question asks for a count of distinct museums or galleries visited in December, requiring episodic or fact memories of visits during that month."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 29051,
+    "completion_tokens": 369,
+    "elapsed_seconds": 5.469435214996338
+  }
+}

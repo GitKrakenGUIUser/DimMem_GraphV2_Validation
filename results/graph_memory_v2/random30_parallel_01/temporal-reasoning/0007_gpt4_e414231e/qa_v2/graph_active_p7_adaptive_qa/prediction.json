@@ -1,0 +1,97 @@
+{
+  "question_id": "gpt4_e414231e",
+  "question_type": "temporal-reasoning",
+  "question": "How many days passed between the day I fixed my mountain bike and the day I decided to upgrade my road bike's pedals?",
+  "question_date": "2023/04/10 (Mon) 20:29",
+  "gold_answer": "4 days. 5 days (including the last day) is also acceptable.",
+  "prediction": "4 days",
+  "support_memory_ids": [
+    "m_1388df59f2142b1b1fe3",
+    "m_35c76e851b83cd810e02"
+  ],
+  "support_source_ids": [
+    8,
+    139
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user fixed their mountain bike on 2023-03-15 (source 8) and decided to upgrade their road bike pedals on 2023-03-19 (source 139). The difference in days between these two dates is 4 days.",
+  "required_slots": [
+    {
+      "name": "date of fixing mountain bike",
+      "value": "2023-03-15",
+      "support_memory_ids": [
+        "m_1388df59f2142b1b1fe3"
+      ],
+      "support_source_ids": [
+        8
+      ]
+    },
+    {
+      "name": "date of deciding to upgrade road bike pedals",
+      "value": "2023-03-19",
+      "support_memory_ids": [
+        "m_35c76e851b83cd810e02"
+      ],
+      "support_source_ids": [
+        139
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-03-15",
+      "2023-03-19"
+    ],
+    "unit": "days",
+    "result": "4 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "query": "When did I fix my mountain bike?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of deciding to upgrade road bike pedals",
+        "query": "When did I decide to upgrade my road bike's pedals?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I fix my mountain bike?",
+      "When did I decide to upgrade my road bike's pedals?"
+    ],
+    "output_constraints": [
+      "Answer must be a number of days."
+    ],
+    "reason": "The question asks for the number of days between two events, requiring retrieval of both dates and computing the difference."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 29955,
+    "completion_tokens": 839,
+    "elapsed_seconds": 8.233752965927124
+  }
+}

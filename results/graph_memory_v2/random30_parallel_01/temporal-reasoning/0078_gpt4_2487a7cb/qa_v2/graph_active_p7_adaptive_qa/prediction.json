@@ -1,0 +1,59 @@
+{
+  "question_id": "gpt4_2487a7cb",
+  "question_type": "temporal-reasoning",
+  "question": "Which event did I attend first, the 'Effective Time Management' workshop or the 'Data Analysis using Python' webinar?",
+  "question_date": "2023/05/24 (Wed) 08:02",
+  "gold_answer": "'Data Analysis using Python' webinar",
+  "prediction": "Data Analysis using Python webinar",
+  "support_memory_ids": [
+    "m_409c03b67b8afd2e44f0",
+    "m_947d11f59187b18a8d78"
+  ],
+  "support_source_ids": [
+    214,
+    99
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The 'Data Analysis using Python' webinar occurred two months before the conversation date (2023-05-24), i.e., around 2023-03-24. The 'Effective Time Management' workshop occurred last Saturday from the conversation date, i.e., 2023-05-20. Since 2023-03-24 is earlier than 2023-05-20, the webinar was attended first.",
+  "required_slots": [
+    {
+      "name": "first event",
+      "value": "Data Analysis using Python webinar",
+      "support_memory_ids": [
+        "m_409c03b67b8afd2e44f0",
+        "m_947d11f59187b18a8d78"
+      ],
+      "support_source_ids": [
+        214,
+        99
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "base candidate passed risk gate",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

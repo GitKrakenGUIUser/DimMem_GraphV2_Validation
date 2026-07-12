@@ -1,0 +1,48 @@
+[2023-02-20T19:42:01, Mon] 1.User: How much is the school lunch program in Texas?
+[2023-02-20T19:42:01.500000, Mon] 2.User: Could the state of Texas use the state bullion Depository to supplant the us dollar?
+[2023-02-20T19:42:02, Mon] 3.User: Which federal law?
+[2023-02-20T19:42:02.500000, Mon] 4.User: Is paper coinage?
+[2023-02-20T19:42:03, Mon] 5.User: If paper isn't coinage, how does paper out digital money fall under the United States Constitution?
+[2023-02-20T19:42:03.500000, Mon] 6.User: Who has interpreted article I section 8 to include paper and digital currency?
+[2023-02-20T19:42:04, Mon] 7.User: You claim that a court has. Which court?
+[2023-02-20T19:42:04.500000, Mon] 8.User: How does issuing notes backed by the gold held in the Texas State depository threaten congress's power to coin money?
+[2023-02-26T03:13:00.500000, Sun] 9.User: How does the structure of The Odyssey contribute to its themes and messages?
+[2023-02-26T03:13:01, Sun] 10.User: I love how The Odyssey balances action and reflection. It's not just an adventure story, but also a tale of personal growth and discovery.
+[2023-02-26T03:13:01.500000, Sun] 11.User: Yeah, and even the gods themselves go through personal growth throughout the story. It's interesting to see how they interact with mortals and influence the overall narrative.
+[2023-02-26T03:13:02, Sun] 12.User: I also appreciate how The Odyssey explores the idea of hospitality and how it was viewed in ancient Greek society. It's interesting to see how different characters respond to the expectations of being a good host or guest.
+[2023-02-26T03:13:02.500000, Sun] 13.User: It's fascinating how The Odyssey is so timeless and can still be enjoyed and learned from today. Have you read any modern books that draw inspiration from The Odyssey?
+[2023-03-01T11:16:00.500000, Wed] 14.User: This is part of a ros package and in the path rospy/src/rospy/topics.py
+class Subscriber(Topic):
+ """
+ Class for registering as a subscriber to a specified topic, where
+ the messages are of a given type.
+ """
+ def \_\_init\_\_(self, name, data\_class, callback=None, callback\_args=None,
+ queue\_size=None, buff\_size=DEFAULT\_BUFF\_SIZE, tcp\_nodelay=False):
+ super(Subscriber, self).\_\_init\_\_(name, data\_class, Registration.SUB)
+ #add in args that factory cannot pass in
+
+ # last person to set 
+...[TRUNCATED]...
+shed to the topic
+ serialize\_message(b, self.seq, message)
+
+ # send the buffer to all connections
+ err\_con = []
+ data = b.getvalue()
+
+ for c in conns:
+ try:
+ if not is\_shutdown():
+ c.write\_data(da
+...[TRUNCATED]...
+ubs)
+
+set\_topic\_manager(\_TopicManager())
+
+I want to make a new package that inherits this package but overwrites these two functions :
+
+\_PublisherImpl.publish and \_SubscriberImpl.\_invoke\_callback
+
+How should i structure my ros package and what src files should I have and how should they look?
+[2023-03-01T14:38:00.500000, Wed] 15.User: What are the cultural practices unique to Moffat?

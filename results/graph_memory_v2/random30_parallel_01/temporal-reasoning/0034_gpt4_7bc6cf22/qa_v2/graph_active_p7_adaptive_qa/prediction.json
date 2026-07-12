@@ -1,0 +1,78 @@
+{
+  "question_id": "gpt4_7bc6cf22",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I read the March 15th issue of The New Yorker?",
+  "question_date": "2023/04/01 (Sat) 08:36",
+  "gold_answer": "12 days ago. 13 days (including the last day) is also acceptable.",
+  "prediction": "12 days",
+  "support_memory_ids": [
+    "m_077f5c7b3f72ae66b656"
+  ],
+  "support_source_ids": [
+    28
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Memory m_077f5c7b3f72ae66b656 and source 28 state that user read the March 15th issue of The New Yorker on 2023-03-20. The question date is 2023-04-01. The difference is 12 days.",
+  "required_slots": [
+    {
+      "name": "date when user read the issue",
+      "value": "2023-03-20",
+      "support_memory_ids": [
+        "m_077f5c7b3f72ae66b656"
+      ],
+      "support_source_ids": [
+        28
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-03-20",
+      "2023-04-01"
+    ],
+    "unit": "days",
+    "result": "12 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date when user read the issue",
+        "query": "When did I read the March 15th issue of The New Yorker?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I read the March 15th issue of The New Yorker?"
+    ],
+    "output_constraints": [
+      "Answer must be a number of days."
+    ],
+    "reason": "The question asks for days ago, requiring a date difference between the reading date and the question date."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32403,
+    "completion_tokens": 584,
+    "elapsed_seconds": 6.995427131652832
+  }
+}

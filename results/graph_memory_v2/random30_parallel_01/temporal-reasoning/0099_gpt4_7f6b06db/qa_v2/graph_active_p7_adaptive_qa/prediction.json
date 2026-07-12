@@ -1,0 +1,136 @@
+{
+  "question_id": "gpt4_7f6b06db",
+  "question_type": "temporal-reasoning",
+  "question": "What is the order of the three trips I took in the past three months, from earliest to latest?",
+  "question_date": "2023/06/01 (Thu) 03:56",
+  "gold_answer": "I went on a day hike to Muir Woods National Monument with my family, then I went on a road trip with friends to Big Sur and Monterey, and finally I started my solo camping trip to Yosemite National Park.",
+  "prediction": "Yosemite road trip, Big Sur and Monterey road trip, Yosemite solo camping trip",
+  "support_memory_ids": [
+    "m_d1cf65733538a59fb29c",
+    "m_5ed5e89aaf7d7be4f110",
+    "m_3c9d2e746f1bd2388f85"
+  ],
+  "support_source_ids": [
+    65,
+    207,
+    225
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Three trips identified: Yosemite road trip (mentioned on 2023-02-20 as past experience), Big Sur and Monterey road trip (returned 2023-04-20), and Yosemite solo camping trip (returned 2023-05-15). Chronological order: earliest is Yosemite road trip, then Big Sur/Monterey, then Yosemite solo camping trip.",
+  "required_slots": [
+    {
+      "name": "trip event",
+      "value": "Yosemite road trip",
+      "support_memory_ids": [
+        "m_d1cf65733538a59fb29c"
+      ],
+      "support_source_ids": [
+        65
+      ]
+    },
+    {
+      "name": "trip event",
+      "value": "Big Sur and Monterey road trip",
+      "support_memory_ids": [
+        "m_5ed5e89aaf7d7be4f110"
+      ],
+      "support_source_ids": [
+        207
+      ]
+    },
+    {
+      "name": "trip event",
+      "value": "Yosemite solo camping trip",
+      "support_memory_ids": [
+        "m_3c9d2e746f1bd2388f85"
+      ],
+      "support_source_ids": [
+        225
+      ]
+    },
+    {
+      "name": "trip date",
+      "value": "2023-02-20 (mentioned as past road trip to Yosemite)",
+      "support_memory_ids": [
+        "m_d1cf65733538a59fb29c"
+      ],
+      "support_source_ids": [
+        65
+      ]
+    },
+    {
+      "name": "trip date",
+      "value": "2023-04-20 (returned today)",
+      "support_memory_ids": [
+        "m_5ed5e89aaf7d7be4f110"
+      ],
+      "support_source_ids": [
+        207
+      ]
+    },
+    {
+      "name": "trip date",
+      "value": "2023-05-15 (returned today)",
+      "support_memory_ids": [
+        "m_3c9d2e746f1bd2388f85"
+      ],
+      "support_source_ids": [
+        225
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "Specialist fills required slots with concrete dates and resolves timeline correctly, including an earlier Yosemite trip missed by compact candidate.",
+  "risk_reasons": [
+    "specialist_contract:timeline"
+  ],
+  "plan": {
+    "answer_contract": "timeline",
+    "operator": "timeline",
+    "target_count": 3,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "trip event",
+        "query": "trips in past three months",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "trip date",
+        "query": "trip dates in past three months",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "trips in past three months",
+      "trip dates in past three months"
+    ],
+    "output_constraints": [
+      "list of trip names in chronological order"
+    ],
+    "reason": "The question asks for the chronological order of three trips taken in the past three months, requiring timeline operation with event and time slots."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35145,
+    "completion_tokens": 1252,
+    "elapsed_seconds": 13.769163131713867
+  }
+}

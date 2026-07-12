@@ -1,0 +1,75 @@
+{
+  "question_id": "5809eb10",
+  "question_type": "single-session-assistant",
+  "question": "I'm looking back at our previous conversation about the Bajimaya v Reward Homes Pty Ltd case. Can you remind me what year the construction of the house began?",
+  "question_date": "2023/05/30 (Tue) 23:23",
+  "gold_answer": "2014.",
+  "prediction": "2014",
+  "support_memory_ids": [
+    "m_759239eedd1b00c8ffd3"
+  ],
+  "support_source_ids": [
+    295
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Source 295 (user content) explicitly states 'The construction of the house began in 2014' for the Bajimaya v Reward Homes Pty Ltd case.",
+  "required_slots": [
+    {
+      "name": "year construction began",
+      "value": "2014",
+      "support_memory_ids": [
+        "m_759239eedd1b00c8ffd3"
+      ],
+      "support_source_ids": [
+        295
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "year construction began",
+        "query": "Bajimaya v Reward Homes Pty Ltd construction began year",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Bajimaya v Reward Homes Pty Ltd construction began year"
+    ],
+    "output_constraints": [
+      "answer must be a year"
+    ],
+    "reason": "The question asks for a specific year from a previous conversation about a case, requiring direct recall of a fact."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 33596,
+    "completion_tokens": 510,
+    "elapsed_seconds": 6.923249244689941
+  }
+}

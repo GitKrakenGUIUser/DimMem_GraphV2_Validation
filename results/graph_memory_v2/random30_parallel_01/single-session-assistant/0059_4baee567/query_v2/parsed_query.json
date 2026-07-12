@@ -1,0 +1,119 @@
+{
+  "question": "I was looking back at our previous chat and I wanted to confirm, how many times did the Chiefs play the Jaguars at Arrowhead Stadium?",
+  "question_date": "2023-05-30T23:21:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user wants to know the number of times the Chiefs played the Jaguars at Arrowhead Stadium",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Kansas City Chiefs",
+        "Jacksonville Jaguars",
+        "Arrowhead Stadium"
+      ],
+      "keywords": [
+        "Chiefs",
+        "Jaguars",
+        "Arrowhead Stadium",
+        "games",
+        "count"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30",
+        "raw": "before now"
+      },
+      "locations": [
+        "Arrowhead Stadium"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "played_at"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user wants a count of all Chiefs home games against Jaguars at Arrowhead Stadium",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Kansas City Chiefs",
+        "Jacksonville Jaguars",
+        "Arrowhead Stadium"
+      ],
+      "keywords": [
+        "Chiefs",
+        "Jaguars",
+        "Arrowhead",
+        "home games",
+        "count"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30",
+        "raw": "before now"
+      },
+      "locations": [
+        "Arrowhead Stadium"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "home_team",
+        "opponent"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user is referring to a previous conversation about Chiefs vs Jaguars games at Arrowhead",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Kansas City Chiefs",
+        "Jacksonville Jaguars",
+        "Arrowhead Stadium"
+      ],
+      "keywords": [
+        "previous chat",
+        "Chiefs",
+        "Jaguars",
+        "Arrowhead"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30",
+        "raw": "before now"
+      },
+      "locations": [
+        "Arrowhead Stadium"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "mentioned_in"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "previous conversation context"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

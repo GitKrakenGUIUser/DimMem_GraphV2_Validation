@@ -1,0 +1,110 @@
+[2023-02-15T11:13:01.500000, Wed] 1.User: I was thinking of wearing my yellow sundress to the concert, but I'm not sure if it's too early in the season for it. What do you think?
+[2023-02-15T11:13:02, Wed] 2.User: I need to return some boots to Zara, actually. I got them on February 5th, but they were too small, so I exchanged them for a larger size. I just haven't had a chance to pick them up yet.
+[2023-02-15T11:13:02.500000, Wed] 3.User: I'm also planning to do a load of laundry this weekend, do you have any tips on how to prevent losing socks in the wash?
+[2023-02-15T11:13:03, Wed] 4.User: I also need to wash my favourite yoga pants, which I wore to the gym last Thursday. Do you have any tips on how to keep them looking their best?
+[2023-02-15T11:14:00.500000, Wed] 5.User: I just need the JS file
+[2023-02-15T11:14:01, Wed] 6.User: Let's go back to the JS file from before. Here it is:
+
+const buttonList = document.querySelectorAll('input[type=button]')
+const telInput = document.querySelector('input[type=tel]')
+telInput.tabIndex = -1
+telInput.focus()
+
+function setupButtonEventListeners(button) {
+ const events = [
+ {event: "mousedown", action: () => button.classList.add("ativa")},
+ {event: "mouseup", action: () => button.classList.remove("ativa")},
+ {event: "keydown", action: (e) => {
+ if (e.key === " " || e.key === "Enter") button.classList.add("ativa")
+ }},
+ {event: "keyup", action: () => button.classList.remove("ativa")},
+ {event: "click", action: () => telInput.value += button.value},
+ ];
+
+ events.forEach(({event, action}) => {
+ button.addEventListener(event, action);
+ });
+}
+
+for (let index = 0; index < buttonList.length; index++) {
+ const button = buttonList[index]
+ button.tabIndex = index + 1
+ setupButtonEventListeners(button)
+}
+
+const firstButton = buttonList[0]
+firstButton.addEventListener("keydown", e => {
+ if (e.key === "Tab" && e.shiftKey) {
+ e.preventDefault()
+ telInput.focus()
+ }
+})
+
+telInput.addEventListener("keydown", e => {
+ if (e.key === " " || e.key === "Enter") telInput.classList.add("ativa")
+});
+
+telInput.addEventListener("keyup", () => telInput.classList.remove("ativa"))
+
+How do I use a forEach method in the following lines?:
+
+telInput.addEventListener("keydown", e => {
+ if (e.key === " " || e.key === "Enter") telInput.classList.add("ativa")
+});
+
+telInput.addEventListener("keyup", () => telInput.classList.remove("ativa"))
+[2023-02-15T11:14:01.500000, Wed] 7.User: Wonderful! Here's the complete JS code as it stands:
+
+const buttonList = document.querySelectorAll('input[type=button]')
+const telInput = document.querySelector('input[type=tel]')
+telInput.tabIndex = -1
+telInput.focus()
+
+function setupButtonEventListeners(button) {
+ const events = [
+ {event: "mousedown", action: () => button.classList.add("ativa")},
+ {event: "mouseup", action: () => button.classList.remove("ativa")},
+ {event: "keydown", action: (e) => {
+ if (e.key === " " || e.key === "Enter") button.classList.add("ativa")
+ }},
+ {event: "keyup", action: () => button.classList.remove("ativa")},
+ {event: "click", action: () => telInput.value += button.value},
+ ];
+
+ events.forEach(({event, action}) => {
+ button.addEventListener(event, action);
+ });
+}
+
+for (let index = 0; index < buttonList.length; index++) {
+ const button = buttonList[index]
+ button.tabIndex = index + 1
+ setupButtonEventListeners(button)
+}
+
+const firstButton = buttonList[0]
+firstButton.addEventListener("keydown", e => {
+ if (e.key === "Tab" && e.shiftKey) {
+ e.preventDefault()
+ telInput.focus()
+ }
+})
+
+const telEvents = [
+ {event: "keydown", action: e => {
+ if (e.key === " " || e.key === "Enter") telInput.classList.add("ativa")
+ }},
+ {event: "keyup", action: () => telInput.classList.remove("ativa")},
+];
+
+telEvents.forEach(({event, action}) => {
+ telInput.addEventListener(event, action);
+});
+[2023-02-15T11:14:02, Wed] 8.User: So how can we further refactor the entire code to make it more readable?
+[2023-02-15T11:14:02.500000, Wed] 9.User: So what would the full code look like with this latest refactoring considered?
+[2023-02-15T11:31:00.500000, Wed] 10.User: I'm looking for some tips on organizing my sewing space. I've been working on a few projects lately and my table is a mess. By the way, I received the DMC floss I ordered online today, so I'm all set for my cross-stitch pattern.
+[2023-02-15T11:31:01, Wed] 11.User: I think the thread organization system is a great idea. I've already sorted my embroidery floss and beads into small containers and stored them in a separate box, so I'll look into a thread sorter or rack to keep my threads organized and easily accessible. Do you have any recommendations on how to organize my fabric stash, as I have a lot of scraps from old projects that I'd like to use up in my next quilt?
+[2023-02-15T11:31:01.500000, Wed] 12.User: I like the idea of sorting my fabrics by color, type, and value. I also think a fabric categorization system would be helpful. I have a lot of scraps from old projects, so I'll set up a scrap bin with separate compartments for different colors. I also need to organize my sewing book collection, including the old sewing book I found that belonged to my aunt. Do you have any suggestions on how to organize my sewing books and patterns?
+[2023-02-15T11:31:02, Wed] 13.User: I'm thinking of organizing my sewing patterns by type, and then storing them in a dedicated organizer or storage box. I have a lot of garment patterns, so I might sort them by size or skill level as well. Do you have any suggestions on how to organize my sewing notions, like buttons, zippers, and threads?
+[2023-02-15T11:31:02.500000, Wed] 14.User: I think I'll organize my buttons by type and size, and store them in a dedicated button organizer. I also like the idea of using small storage containers for my other notions, like needles and pins. I'll label each container so I can easily find what I need. I'm glad I received the DMC floss I ordered online today, so I can focus on organizing my sewing space now.
+[2023-02-15T11:31:03, Wed] 15.User: I'm thinking of organizing my sewing machine accessories, like presser feet and needles. Do you have any suggestions on how to store them?

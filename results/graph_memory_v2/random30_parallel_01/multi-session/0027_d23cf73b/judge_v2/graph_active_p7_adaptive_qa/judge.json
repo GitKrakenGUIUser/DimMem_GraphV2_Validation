@@ -1,0 +1,100 @@
+{
+  "question_id": "d23cf73b",
+  "question_type": "multi-session",
+  "question": "How many different cuisines have I learned to cook or tried out in the past few months?",
+  "question_date": "2023/05/30 (Tue) 16:04",
+  "gold_answer": "4",
+  "prediction": "4",
+  "support_memory_ids": [
+    "m_8148708b1d662b2a6be0",
+    "m_f25feb300a6e2053ac63",
+    "m_dd44015133834e17819b",
+    "m_f207b4dc2f8643bb03bc"
+  ],
+  "support_source_ids": [
+    102,
+    222,
+    236,
+    235
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From the memories, the user tried Ethiopian cuisine (source 102), tried Korean bibimbap (source 222), learned vegan cuisine (source 236), and learned fermentation making sauerkraut/kimchi (source 235). These are four distinct cuisines: Ethiopian, Korean, vegan, and fermented foods. All events occurred within the past few months relative to the question date (2023/05/30).",
+  "required_slots": [
+    {
+      "name": "cuisine_events",
+      "value": "Ethiopian, Korean, vegan, fermentation (sauerkraut/kimchi)",
+      "support_memory_ids": [
+        "m_8148708b1d662b2a6be0",
+        "m_f25feb300a6e2053ac63",
+        "m_dd44015133834e17819b",
+        "m_f207b4dc2f8643bb03bc"
+      ],
+      "support_source_ids": [
+        102,
+        222,
+        236,
+        235
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "Ethiopian",
+      "Korean",
+      "vegan",
+      "fermentation (sauerkraut/kimchi)"
+    ],
+    "unit": "cuisines",
+    "result": "4"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "Specialist candidate correctly excludes 'Indian cuisine' (source 167) which is not within the past few months (event date 2023-02-28 is more than 3 months before question date 2023-05-30). Compact candidate includes it, overcounting. Specialist also provides deterministic calculation and fills required slots.",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "cuisine_events",
+        "query": "cuisines learned to cook or tried out in the past few months",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "cuisines learned to cook or tried out in the past few months"
+    ],
+    "output_constraints": [
+      "count of distinct cuisines"
+    ],
+    "reason": "The question asks for a count of distinct cuisines learned or tried in the past few months, requiring retrieval of relevant events and counting distinct cuisine types."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 36453,
+    "completion_tokens": 1172,
+    "elapsed_seconds": 12.790809154510498
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 139,
+    "completion_tokens": 23,
+    "elapsed_seconds": 1.1401939392089844
+  }
+}

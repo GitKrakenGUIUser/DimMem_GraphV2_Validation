@@ -1,0 +1,73 @@
+{
+  "question_id": "gpt4_731e37d7",
+  "question_type": "multi-session",
+  "question": "How much total money did I spend on attending workshops in the last four months?",
+  "question_date": "2023/02/26 (Sun) 23:35",
+  "gold_answer": "$720",
+  "prediction": "720 dollars",
+  "support_memory_ids": [
+    "m_2ff5299fb32b98fa3d4b",
+    "m_68660c87a1b83d2b4ef7",
+    "m_b83d9455e5e17610946d"
+  ],
+  "support_source_ids": [
+    122,
+    105,
+    128
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "The question asks for total money spent on workshops in the last four months. The current date is 2023-02-26, so the last four months are November 2022 to February 2023. The user attended five workshops in the last three months (as of Feb 26), but only three have explicit costs: writing workshop in November ($200), mindfulness workshop on Dec 12 ($20), and digital marketing workshop on March 15-16 ($500). The March workshop is outside the four-month window (March is after February), so it should be excluded. However, the digital marketing workshop is mentioned as 'recently' and on March 15-16, which is after the current date? Actually, the current date is Feb 26, 2023, so March 15-16 is in the future. That seems inconsistent. But the source says 'I just attended a digital marketing workshop at the city convention center on March 15-16' on Feb 26, which is impossible. Likely a data inconsistency. Assuming the workshop dates are correct, the March workshop is not within the last four months from Feb 26. The last four months would be Nov 2022, Dec 2022, Jan 2023, Feb 2023. The writing workshop in Nov ($200) and mindfulness workshop in Dec ($20) are within that period. The entrepreneurship workshop in Jan has no cost. The photography workshop on Feb 22 was free. The digital marketing workshop in March is outside. So total is $220. But the candidate answer says cannot be determined. However, we have costs for two workshops within the period. The user also mentioned five workshops, but only three have costs, and one of those (digital marketing) is outside the period. So we can sum the two known costs: $200 + $20 = $220. The answer should be $220. But the candidate answer says cannot be determined. I will correct it to $220.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      200,
+      20,
+      500
+    ],
+    "unit": "dollars",
+    "result": "720 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    148,
+    144,
+    149,
+    102,
+    105,
+    100,
+    125,
+    122,
+    225,
+    124,
+    128,
+    145,
+    103,
+    127,
+    123,
+    104
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    0.0,
+    0.0
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 73429,
+    "completion_tokens": 1052,
+    "elapsed_seconds": 19.96795153617859
+  },
+  "correct": true,
+  "judge_reason": "Equivalent wording and units, no formatting difference.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 136,
+    "completion_tokens": 24,
+    "elapsed_seconds": 1.3220412731170654
+  }
+}

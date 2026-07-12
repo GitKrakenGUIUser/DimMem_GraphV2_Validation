@@ -1,0 +1,146 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "preference:bbq_sauce_brand",
+        "query": "user's current obsession with BBQ sauce brand",
+        "semantic_type": "preference",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What brand of BBQ sauce is the user currently obsessed with?"
+    ],
+    "output_constraints": [
+      "single brand name"
+    ],
+    "reason": "The question asks for the user's current obsession with a BBQ sauce brand, which is a state resolution query. The most direct evidence is a recent statement of obsession."
+  },
+  "base_candidate": {
+    "answer": "Kansas City Masterpiece BBQ sauce",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3339bc105c6178df0519"
+    ],
+    "support_source_ids": [
+      212
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce' in source turn 212, which is captured in memory m_3339bc105c6178df0519. This is the most recent and direct evidence of the user's current obsession."
+  },
+  "specialist_candidate": {
+    "answer": "Kansas City Masterpiece BBQ sauce",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3339bc105c6178df0519"
+    ],
+    "support_source_ids": [
+      212
+    ],
+    "required_slots": [
+      {
+        "name": "preference:bbq_sauce_brand",
+        "value": "Kansas City Masterpiece BBQ sauce",
+        "support_memory_ids": [
+          "m_3339bc105c6178df0519"
+        ],
+        "support_source_ids": [
+          212
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "is obsessed with",
+        "object": "Kansas City Masterpiece BBQ sauce",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3339bc105c6178df0519"
+        ],
+        "support_source_ids": [
+          212
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce' on 2023-06-30, which is the most recent and direct evidence of current obsession. No later contradictory statements exist."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    212,
+    217,
+    92,
+    215,
+    95,
+    214,
+    185,
+    10,
+    11,
+    99,
+    63,
+    94,
+    170,
+    184,
+    91,
+    216,
+    213,
+    93,
+    9,
+    96
+  ],
+  "targeted_source_ids": [
+    25,
+    71,
+    77,
+    92,
+    94,
+    114,
+    116,
+    134,
+    170,
+    204,
+    212,
+    217,
+    91,
+    93,
+    213,
+    216
+  ]
+}

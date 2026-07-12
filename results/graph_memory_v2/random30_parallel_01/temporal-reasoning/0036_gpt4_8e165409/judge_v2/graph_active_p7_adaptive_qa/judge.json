@@ -1,0 +1,105 @@
+{
+  "question_id": "gpt4_8e165409",
+  "question_type": "temporal-reasoning",
+  "question": "How many days passed between the day I repotted the previous spider plant and the day I gave my neighbor, Mrs. Johnson, a few cuttings from my spider plant?",
+  "question_date": "2023/03/26 (Sun) 15:53",
+  "gold_answer": "14 days. 15 days (including the last day) is also acceptable.",
+  "prediction": "14 days",
+  "support_memory_ids": [
+    "m_cc12acaa84b303407978",
+    "m_b12667337e8c4247cf22"
+  ],
+  "support_source_ids": [
+    19,
+    154
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From memory m_cc12acaa84b303407978 (source 19), user repotted the previous spider plant on 2023-03-04. From memory m_b12667337e8c4247cf22 (source 154), user gave Mrs. Johnson cuttings from the spider plant on 2023-03-18. The number of days between these two dates is 14 days.",
+  "required_slots": [
+    {
+      "name": "date of repotting",
+      "value": "2023-03-04",
+      "support_memory_ids": [
+        "m_cc12acaa84b303407978"
+      ],
+      "support_source_ids": [
+        19
+      ]
+    },
+    {
+      "name": "date of giving cuttings",
+      "value": "2023-03-18",
+      "support_memory_ids": [
+        "m_b12667337e8c4247cf22"
+      ],
+      "support_source_ids": [
+        154
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-03-04",
+      "2023-03-18"
+    ],
+    "unit": "days",
+    "result": "14 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of repotting",
+        "query": "When did I repot the previous spider plant?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of giving cuttings",
+        "query": "When did I give Mrs. Johnson cuttings from my spider plant?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "repot previous spider plant date",
+      "give Mrs. Johnson spider plant cuttings date"
+    ],
+    "output_constraints": [
+      "answer must be a number of days"
+    ],
+    "reason": "The question asks for the number of days between two events, requiring two dates and a date difference calculation."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35957,
+    "completion_tokens": 839,
+    "elapsed_seconds": 8.39240550994873
+  },
+  "correct": true,
+  "judge_reason": "Matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 169,
+    "completion_tokens": 20,
+    "elapsed_seconds": 1.1599702835083008
+  }
+}

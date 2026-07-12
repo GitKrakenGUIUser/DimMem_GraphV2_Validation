@@ -1,0 +1,72 @@
+[
+  {
+    "answer": "50 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_16e46ee3c3579461c883",
+      "m_09891a1b324f4e58d98a"
+    ],
+    "support_source_ids": [
+      148,
+      69
+    ],
+    "required_slots": [
+      {
+        "name": "taxi_cost",
+        "value": "$60",
+        "support_memory_ids": [
+          "m_16e46ee3c3579461c883"
+        ],
+        "support_source_ids": [
+          148
+        ]
+      },
+      {
+        "name": "train_cost",
+        "value": "$10",
+        "support_memory_ids": [
+          "m_09891a1b324f4e58d98a"
+        ],
+        "support_source_ids": [
+          69
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        60,
+        -10
+      ],
+      "unit": "USD",
+      "result": "50 USD"
+    },
+    "confidence": 0.8,
+    "reasoning_summary": "The user was told a taxi costs $60 (source 148) and a friend said the train costs $10 (source 69). The savings is $60 - $10 = $50.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "train_cost",
+      "taxi_cost"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The conversation mentions a taxi cost of $60 (source 148) and various train costs ($20-$30, $28, $23, $9-11, etc.), but no single consistent train cost is established for the user's specific route. The user's friend claimed $10, but the assistant disputed that. Without a confirmed train cost, savings cannot be calculated."
+  }
+]

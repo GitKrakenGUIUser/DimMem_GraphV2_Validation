@@ -1,0 +1,90 @@
+{
+  "question_id": "6cb6f249",
+  "question_type": "multi-session",
+  "question": "How many days did I take social media breaks in total?",
+  "question_date": "2023/03/14 (Tue) 23:56",
+  "gold_answer": "17 days",
+  "prediction": "17 days",
+  "support_memory_ids": [
+    "m_df096ec32d4c68140dec",
+    "m_e2def7ecc21213df4abc"
+  ],
+  "support_source_ids": [
+    129,
+    123
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Two social media breaks are grounded: a 7-day break in mid-January 2023 (source 129) and a 10-day break in mid-February 2023 (source 123). Summing gives 17 total days.",
+  "required_slots": [
+    {
+      "name": "break duration in days",
+      "value": 17,
+      "support_memory_ids": [
+        "m_df096ec32d4c68140dec",
+        "m_e2def7ecc21213df4abc"
+      ],
+      "support_source_ids": [
+        129,
+        123
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      7,
+      10
+    ],
+    "unit": "days",
+    "result": "17 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "break duration in days",
+        "query": "social media break days",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "social media break days"
+    ],
+    "output_constraints": [
+      "integer"
+    ],
+    "reason": "The question asks for total days of social media breaks, which requires summing individual break durations."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 27143,
+    "completion_tokens": 651,
+    "elapsed_seconds": 8.164735794067383
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 133,
+    "completion_tokens": 23,
+    "elapsed_seconds": 1.1613776683807373
+  }
+}

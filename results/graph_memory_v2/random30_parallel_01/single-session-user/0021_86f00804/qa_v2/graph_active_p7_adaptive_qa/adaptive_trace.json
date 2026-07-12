@@ -1,0 +1,149 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": true,
+    "slots": [
+      {
+        "name": "book_title",
+        "query": "What book is the user currently reading?",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user current book reading"
+    ],
+    "output_constraints": [
+      "single book title string"
+    ],
+    "reason": "The question asks for the book the user is currently reading, which is a state resolution query. The answer is a single book title, and the state can be projected from a recent statement if no later update contradicts."
+  },
+  "base_candidate": {
+    "answer": "The Seven Husbands of Evelyn Hugo",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a439e5a7f9668907c68c"
+    ],
+    "support_source_ids": [
+      54
+    ],
+    "required_slots": [
+      {
+        "name": "book_title",
+        "value": "The Seven Husbands of Evelyn Hugo",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-23 that they are currently reading 'The Seven Husbands of Evelyn Hugo'. This fact is stored in memory m_a439e5a7f9668907c68c and confirmed by source turn 54. No later update contradicts this, so it remains the current book."
+  },
+  "specialist_candidate": {
+    "answer": "The Seven Husbands of Evelyn Hugo",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a439e5a7f9668907c68c"
+    ],
+    "support_source_ids": [
+      54
+    ],
+    "required_slots": [
+      {
+        "name": "book_title",
+        "value": "The Seven Husbands of Evelyn Hugo",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "currently reading",
+        "object": "The Seven Husbands of Evelyn Hugo",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-23",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "On 2023-05-23, user stated they are currently reading 'The Seven Husbands of Evelyn Hugo'. No later update contradicts this, so the state is still active as of 2023-05-30."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    54,
+    56,
+    55,
+    59,
+    57,
+    39,
+    58,
+    37,
+    45,
+    129,
+    64,
+    63,
+    38,
+    44,
+    46
+  ],
+  "targeted_source_ids": [
+    22,
+    38,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    155,
+    165,
+    167,
+    245,
+    244
+  ]
+}

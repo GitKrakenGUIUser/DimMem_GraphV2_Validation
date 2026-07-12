@@ -1,0 +1,132 @@
+[2023-03-15T12:33:01, Wed] 1.User: Let's go back to the JS file from before. Here it is:
+
+const buttonList = document.querySelectorAll('input[type=button]')
+const telInput = document.querySelector('input[type=tel]')
+telInput.tabIndex = -1
+telInput.focus()
+
+function setupButtonEventListeners(button) {
+ const events = [
+ {event: "mousedown", action: () => button.classList.add("ativa")},
+ {event: "mouseup", action: () => button.classList.remove("ativa")},
+ {event: "keydown", action: (e) => {
+ if (e.key === " " || e.key === "Enter") button.classList.add("ativa")
+ }},
+ {event: "keyup", action: () => button.classList.remove("ativa")},
+ {event: "click", action: () => telInput.value += button.value},
+ ];
+
+ events.forEach(({event, action}) => {
+ button.addEventListener(event, action);
+ });
+}
+
+for (let index = 0; index < buttonList.length; index++) {
+ const button = buttonList[index]
+ button.tabIndex = index + 1
+ setupButtonEventListeners(button)
+}
+
+const firstButton = buttonList[0]
+firstButton.addEventListener("keydown", e => {
+ if (e.key === "Tab" && e.shiftKey) {
+ e.preventDefault()
+ telInput.focus()
+ }
+})
+
+telInput.addEventListener("keydown", e => {
+ if (e.key === " " || e.key === "Enter") telInput.classList.add("ativa")
+});
+
+telInput.addEventListener("keyup", () => telInput.classList.remove("ativa"))
+
+How do I use a forEach method in the following lines?:
+
+telInput.addEventListener("keydown", e => {
+ if (e.key === " " || e.key === "Enter") telInput.classList.add("ativa")
+});
+
+telInput.addEventListener("keyup", () => telInput.classList.remove("ativa"))
+[2023-03-15T12:33:01.500000, Wed] 2.User: Wonderful! Here's the complete JS code as it stands:
+
+const buttonList = document.querySelectorAll('input[type=button]')
+const telInput = document.querySelector('input[type=tel]')
+telInput.tabIndex = -1
+telInput.focus()
+
+function setupButtonEventListeners(button) {
+ const events = [
+ {event: "mousedown", action: () => button.classList.add("ativa")},
+ {event: "mouseup", action: () => button.classList.remove("ativa")},
+ {event: "keydown", action: (e) => {
+ if (e.key === " " || e.key === "Enter") button.classList.add("ativa")
+ }},
+ {event: "keyup", action: () => button.classList.remove("ativa")},
+ {event: "click", action: () => telInput.value += button.value},
+ ];
+
+ events.forEach(({event, action}) => {
+ button.addEventListener(event, action);
+ });
+}
+
+for (let index = 0; index < buttonList.length; index++) {
+ const button = buttonList[index]
+ button.tabIndex = index + 1
+ setupButtonEventListeners(button)
+}
+
+const firstButton = buttonList[0]
+firstButton.addEventListener("keydown", e => {
+ if (e.key === "Tab" && e.shiftKey) {
+ e.preventDefault()
+ telInput.focus()
+ }
+})
+
+const telEvents = [
+ {event: "keydown", action: e => {
+ if (e.key === " " || e.key === "Enter") telInput.classList.add("ativa")
+ }},
+ {event: "keyup", action: () => telInput.classList.remove("ativa")},
+];
+
+telEvents.forEach(({event, action}) => {
+ telInput.addEventListener(event, action);
+});
+[2023-03-15T12:33:02, Wed] 3.User: So how can we further refactor the entire code to make it more readable?
+[2023-03-15T12:33:02.500000, Wed] 4.User: So what would the full code look like with this latest refactoring considered?
+[2023-03-18T20:34:00.500000, Sat] 5.User: simplify these instructions: Here’s How It Works! (Registration coming soon)
+
+1. Choose your Challenge. Click here for some Challenge suggestions.
+
+2. FUNdraise for Commonpoint Queens by creating your own fundraising page with a picture and personal message to friends and family, sharing your challenge goal and why you are fundraising to support Commonpoint Queens’ programs and resources.
+
+Click button below.
+While in the page, click “Create my own fundraising page!” on the right side of the form.
+You will receive two emails. The first one will be an image you can share to promote your fundraising page. The second email will include a link to your personal page so you can personalize your page.
+Don’t forget to personalize your page before you forward it to your network! When you are in your page and have personalized it, just copy the URL and share it with your network on social media, email or via text with a personal message.
+Tag Commonpoint Queens and include the hashtag #CommonpointChallenge
+[2023-03-18T20:34:01, Sat] 6.User: simplify this text: he Commonpoint Challenge is similar to a walkathon, but you get to choose your own challenge activity and complete it anywhere, any time between April 1 - April 21, 2023. 
+
+100% of all proceeds will provide critical financial support for the programs and services that help our community. It is because of supporters like YOU that we can provide the food, mental health services, employment support, and so much more to our friends and neighbors.
+
+Prizes for the top three fundraisers!
+[2023-03-18T20:34:01.500000, Sat] 7.User: simplify the following text: The Commonpoint Challenge is similar to a walkathon, but you get to choose your own challenge activity and complete it anywhere, any time between April 1 - April 21, 2023. 
+
+100% of all proceeds will provide critical financial support for the programs and services that help our community. It is because of supporters like YOU that we can provide the food, mental health services, employment support, and so much more to our friends and neighbors.
+
+Prizes for the top three fundraisers!
+
+Learn more and view our Challenge suggestions: CommonpointQueens.org/Challenge
+
+Don't forget to Post your Challenge Stories and tag Commonpoint Queens using hashtag #CommonpointChallenge
+[2023-03-22T16:50:00.500000, Wed] 8.User: I'm thinking of training for a triathlon in the spring, can you give me some general tips on how to get started?
+[2023-03-22T16:50:01, Wed] 9.User: What's a good way to structure my workouts during the week, considering I already have a busy schedule with tennis, biking, swimming, and yoga?
+[2023-03-22T16:50:01.500000, Wed] 10.User: How can I incorporate brick workouts into my training, and what's a good way to structure them?
+[2023-03-22T16:50:02, Wed] 11.User: I'm already doing yoga on Mondays and Wednesdays, can I incorporate strength training into these sessions to focus on lower body and core exercises that will help with my tennis and biking?
+[2023-03-22T16:50:02.500000, Wed] 12.User: What about incorporating high-intensity interval training (HIIT) into my strength training sessions to improve my power and endurance for tennis and biking?
+[2023-03-22T16:50:03, Wed] 13.User: How can I incorporate strength training exercises that target my core and glutes into my yoga sessions to improve my stability and power on the bike and tennis court?
+[2023-03-23T07:51:00.500000, Thu] 14.User: I'm looking to get some information on how to properly store and maintain my collectibles, particularly my 1913 Liberty Head nickel, which is a rare coin that is part of a limited set. Do you have any tips on how to keep it in mint condition?
+[2023-03-23T07:51:01, Thu] 15.User: I also have a few other collectibles, including a vintage NES, a rare vinyl record of Sgt. Pepper's Lonely Hearts Club Band, and a signed print of a Salvador Dali painting. Do you have any tips on how to store and maintain these items as well?

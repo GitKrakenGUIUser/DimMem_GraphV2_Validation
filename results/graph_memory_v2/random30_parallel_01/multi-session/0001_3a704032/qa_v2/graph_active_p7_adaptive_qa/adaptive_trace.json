@@ -1,0 +1,155 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "plant acquisition events",
+        "query": "plant acquisitions in last month",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "plant acquisitions in last month"
+    ],
+    "output_constraints": [
+      "single integer"
+    ],
+    "reason": "Count distinct plant acquisition events within the last month relative to question date."
+  },
+  "base_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4ad7b0ebe63c48566bf5"
+    ],
+    "support_source_ids": [
+      84
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count",
+    "calculation": {
+      "operator": "count",
+      "operands": [
+        "plant acquisitions in last month"
+      ],
+      "unit": "plants",
+      "result": "1"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_4ad7b0ebe63c48566bf5 states user got a snake plant from their sister last month, with event_start 2023-04-25, which falls within the last month (2023-04-30 to 2023-05-30). No other plant acquisitions are confirmed within that time window. Therefore, the answer is 1."
+  },
+  "specialist_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4ad7b0ebe63c48566bf5"
+    ],
+    "support_source_ids": [
+      84
+    ],
+    "required_slots": [
+      {
+        "name": "plant acquisition events",
+        "value": "snake plant from sister",
+        "support_memory_ids": [
+          "m_4ad7b0ebe63c48566bf5"
+        ],
+        "support_source_ids": [
+          84
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "snake plant from sister"
+      ],
+      "unit": "",
+      "result": "1"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "acquired",
+        "object": "snake plant",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-04-25",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_4ad7b0ebe63c48566bf5"
+        ],
+        "support_source_ids": [
+          84
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The memory m_4ad7b0ebe63c48566bf5 states the user got a snake plant from their sister last month, with event_start 2023-04-25, which is within one month before the question date 2023-05-30. No other plant acquisition events within the last month are found. Therefore, the count is 1.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    84,
+    82,
+    181,
+    70,
+    71,
+    73,
+    75,
+    4,
+    49,
+    172,
+    72,
+    96,
+    79,
+    203,
+    116,
+    19,
+    83,
+    74,
+    85,
+    182
+  ],
+  "targeted_source_ids": [
+    18,
+    32,
+    34,
+    73,
+    84,
+    97,
+    106,
+    146,
+    178,
+    181,
+    223,
+    227,
+    33,
+    35,
+    83,
+    85,
+    145,
+    147
+  ]
+}

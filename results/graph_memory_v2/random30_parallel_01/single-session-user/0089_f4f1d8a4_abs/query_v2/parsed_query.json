@@ -1,0 +1,118 @@
+{
+  "question": "What did my dad gave me as a birthday gift?",
+  "question_date": "2023-05-30T21:51:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's dad gave the user a birthday gift",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "the user",
+        "the user's dad"
+      ],
+      "keywords": [
+        "dad",
+        "birthday gift"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T21:51:00",
+        "raw": "birthday"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "gift_giver",
+        "gift_receiver",
+        "occasion"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "gift item"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's dad gave the user a birthday gift on the user's birthday",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "the user",
+        "the user's dad"
+      ],
+      "keywords": [
+        "dad",
+        "birthday",
+        "gift"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "the user's birthday"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "gift_giver",
+        "gift_receiver",
+        "occasion"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "gift item",
+        "birthday date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's dad gave the user a birthday gift for the user's most recent birthday",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "the user",
+        "the user's dad"
+      ],
+      "keywords": [
+        "dad",
+        "birthday",
+        "gift",
+        "recent"
+      ],
+      "time_constraint": {
+        "operator": "around",
+        "start": "",
+        "end": "",
+        "raw": "most recent birthday"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "gift_giver",
+        "gift_receiver",
+        "occasion"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "gift item",
+        "birthday date"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

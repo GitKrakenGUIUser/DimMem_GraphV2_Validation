@@ -1,0 +1,67 @@
+{
+  "question_id": "gpt4_483dd43c",
+  "question_type": "temporal-reasoning",
+  "question": "Which show did I start watching first, 'The Crown' or 'Game of Thrones'?",
+  "question_date": "2023/05/29 (Mon) 08:33",
+  "gold_answer": "'Game of Thrones'",
+  "prediction": "Game of Thrones",
+  "support_memory_ids": [
+    "m_033ee78d9739b76c4fe8",
+    "m_38f8a2cc5ef0ab4ef49f"
+  ],
+  "support_source_ids": [
+    197,
+    92
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User started watching Game of Thrones about a month before May 29, 2023, i.e., around April 29, 2023. User started watching The Crown on a Sunday afternoon and finished in 14 days, with the finish on May 29, 2023, so the start was May 15, 2023. Since April 29 is earlier than May 15, Game of Thrones was started first.",
+  "required_slots": [
+    {
+      "name": "start date of watching Game of Thrones",
+      "value": "2023-04-29",
+      "support_memory_ids": [
+        "m_033ee78d9739b76c4fe8"
+      ],
+      "support_source_ids": [
+        197
+      ]
+    },
+    {
+      "name": "start date of watching The Crown",
+      "value": "2023-05-15",
+      "support_memory_ids": [
+        "m_38f8a2cc5ef0ab4ef49f"
+      ],
+      "support_source_ids": [
+        92
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "base candidate passed risk gate",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

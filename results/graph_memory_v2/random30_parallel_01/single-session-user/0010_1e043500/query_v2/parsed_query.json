@@ -1,0 +1,102 @@
+{
+  "question": "What is the name of the playlist I created on Spotify?",
+  "question_date": "2023-05-30T19:19:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's Spotify playlist name",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "Spotify"
+      ],
+      "keywords": [
+        "playlist",
+        "created",
+        "Spotify"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "spotify_playlist_name"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's recently created Spotify playlist",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "Spotify"
+      ],
+      "keywords": [
+        "playlist",
+        "created",
+        "Spotify",
+        "recent"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T19:19:00",
+        "raw": "recently"
+      },
+      "locations": [],
+      "state_keys": [
+        "spotify_playlist_name"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user's Spotify playlist named something",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Spotify"
+      ],
+      "keywords": [
+        "playlist",
+        "Spotify",
+        "name"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "spotify_playlist_name"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.3
+    }
+  ]
+}

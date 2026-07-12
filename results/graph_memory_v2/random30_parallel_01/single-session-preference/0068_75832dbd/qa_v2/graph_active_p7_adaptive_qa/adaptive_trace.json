@@ -1,0 +1,270 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "relative",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_research_interests",
+        "query": "user's research interests",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "user_preferred_conferences",
+        "query": "user's preferred conferences",
+        "semantic_type": "preference",
+        "required": false
+      },
+      {
+        "name": "recent_publications_in_field",
+        "query": "recent publications in user's field",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "recent_conferences_in_field",
+        "query": "recent conferences in user's field",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user's research interests",
+      "user's preferred conferences",
+      "recent publications in user's field",
+      "recent conferences in user's field"
+    ],
+    "output_constraints": [
+      "Recommend publications and conferences that are recent (after 2023-01-01) and match user's interests."
+    ],
+    "reason": "The question asks for recommendations based on user's interests, requiring preference_criteria. Slots capture user's interests and recent events in that field."
+  },
+  "base_candidate": {
+    "answer": "Based on your interest in intersectional feminism and LGBTQ+ issues, I recommend the following recent publications and conferences:\n\n**Publications:**\n- \"The Miseducation of Cameron Post\" by Emily M. Danforth (novel)\n- \"Fun Home\" by Alison Bechdel (graphic memoir)\n- \"Sissy: A Coming-of-Gender Story\" by Jacob Tobia (memoir)\n\n**Conferences:**\n- The Trevor Project's Ally Training (online course)\n- GLAAD's Media Institute (online courses)\n- Human Rights Campaign's Ally Training (online course)\n\nThese resources align with your learning goals about intersectional feminism and LGBTQ+ allyship.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2b3ded5503ef5aad0c1c",
+      "m_3583f1b7745703717aba",
+      "m_ed3f09d5810ae144695d"
+    ],
+    "support_source_ids": [
+      126,
+      127,
+      128
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.85,
+    "reasoning_summary": "The user has expressed interest in intersectional feminism and LGBTQ+ issues (memory m_2b3ded5503ef5aad0c1c, source 127), wants to apply it in the workplace (memory m_3583f1b7745703717aba, source 128), and previously requested resources on LGBTQ+ allyship (memory m_ed3f09d5810ae144695d, source 126). The assistant previously recommended specific books and online courses/conferences in response to those requests. These recommendations are recent (May 2023) and directly relevant to the user's interests."
+  },
+  "specialist_candidate": {
+    "answer": "Based on your interests in intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging, I recommend recent publications and conferences in these fields. For intersectional feminism and LGBTQ+ issues, consider the journal 'Gender & Society' and conferences like the National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging, look into the 'Medical Image Analysis' journal and conferences such as MICCAI (Medical Image Computing and Computer Assisted Intervention) and IEEE ISBI (International Symposium on Biomedical Imaging).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2b3ded5503ef5aad0c1c",
+      "m_eb489beb01c52a58302c",
+      "m_3583f1b7745703717aba",
+      "m_ed3f09d5810ae144695d"
+    ],
+    "support_source_ids": [
+      126,
+      127,
+      128,
+      42
+    ],
+    "required_slots": [
+      {
+        "name": "user_research_interests",
+        "value": "intersectional feminism, LGBTQ+ issues, explainable AI in medical image analysis",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c",
+          "m_3583f1b7745703717aba",
+          "m_ed3f09d5810ae144695d"
+        ],
+        "support_source_ids": [
+          126,
+          127,
+          128,
+          42
+        ]
+      },
+      {
+        "name": "user_preferred_conferences",
+        "value": "not specified",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "recent_publications_in_field",
+        "value": "For intersectional feminism: 'Gender & Society' journal. For explainable AI in medical imaging: 'Medical Image Analysis' journal.",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c"
+        ],
+        "support_source_ids": [
+          127,
+          42
+        ]
+      },
+      {
+        "name": "recent_conferences_in_field",
+        "value": "For intersectional feminism: National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging: MICCAI, IEEE ISBI.",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c"
+        ],
+        "support_source_ids": [
+          127,
+          42
+        ]
+      }
+    ],
+    "unfilled_slots": [
+      "user_preferred_conferences"
+    ],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "is interested in learning about",
+        "object": "intersectional feminism and its relation to LGBTQ+ issues",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-26T07:05:02.500000",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c"
+        ],
+        "support_source_ids": [
+          127
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "requested",
+        "object": "research papers or articles on explainable AI in medical image analysis",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-22T00:37:02",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_eb489beb01c52a58302c"
+        ],
+        "support_source_ids": [
+          42
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "wants to learn about",
+        "object": "applying intersectional feminism in workplace for LGBTQ+ inclusion",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-26T07:05:03",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3583f1b7745703717aba"
+        ],
+        "support_source_ids": [
+          128
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "wants recommendations for",
+        "object": "resources or online courses on LGBTQ+ issues and allyship",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-05-26T07:05:02",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_ed3f09d5810ae144695d"
+        ],
+        "support_source_ids": [
+          126
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "reasoning_summary": "User's research interests are intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging. No preferred conferences specified. Recent publications and conferences in these fields are recommended based on common academic venues. The answer is grounded in user's stated interests."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies preference_criteria contract",
+  "compact_source_ids": [
+    126,
+    25,
+    173,
+    42,
+    114,
+    188,
+    127,
+    128,
+    200,
+    199,
+    108,
+    20,
+    82,
+    175,
+    187,
+    86,
+    115,
+    198,
+    117,
+    89,
+    172,
+    174,
+    43,
+    201
+  ],
+  "targeted_source_ids": [
+    63,
+    82,
+    86,
+    94,
+    97,
+    115,
+    117,
+    126,
+    175,
+    187,
+    196,
+    198,
+    174,
+    176,
+    197,
+    199
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "question": "Can you recommend some interesting cultural events happening around me this weekend?",
+  "question_date": "2023-05-30T22:15:00",
+  "hypotheses": [
+    {
+      "query_anchor": "user's location for event recommendations",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [],
+      "keywords": [
+        "user location"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "location"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "cultural events near the user this weekend",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [],
+      "keywords": [
+        "cultural events",
+        "weekend"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-06-03",
+        "end": "2023-06-04",
+        "raw": "this weekend"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 5,
+      "missing_slots": [
+        "user_location"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "user's cultural event preferences",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [],
+      "keywords": [
+        "cultural interests",
+        "event preferences"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "preferred_event_types"
+      ],
+      "relation_hints": [],
+      "answer_dim": "preference",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.6
+    }
+  ]
+}

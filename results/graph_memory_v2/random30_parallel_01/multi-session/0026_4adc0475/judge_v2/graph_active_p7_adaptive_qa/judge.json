@@ -1,0 +1,105 @@
+{
+  "question_id": "4adc0475",
+  "question_type": "multi-session",
+  "question": "What is the total number of goals and assists I have in the recreational indoor soccer league?",
+  "question_date": "2023/05/30 (Tue) 18:44",
+  "gold_answer": "5",
+  "prediction": "5",
+  "support_memory_ids": [
+    "m_8209a0b6535de6dd5b73",
+    "m_6e2871132a0497e81b6a"
+  ],
+  "support_source_ids": [
+    156,
+    202
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User stated 3 goals in source 156 and 2 assists in source 202, both in the recreational indoor soccer league. Sum is 5.",
+  "required_slots": [
+    {
+      "name": "goals",
+      "value": 3,
+      "support_memory_ids": [
+        "m_8209a0b6535de6dd5b73"
+      ],
+      "support_source_ids": [
+        156
+      ]
+    },
+    {
+      "name": "assists",
+      "value": 2,
+      "support_memory_ids": [
+        "m_6e2871132a0497e81b6a"
+      ],
+      "support_source_ids": [
+        202
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      3,
+      2
+    ],
+    "unit": "",
+    "result": "5"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "goals",
+        "query": "goals in recreational indoor soccer league",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "assists",
+        "query": "assists in recreational indoor soccer league",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "goals in recreational indoor soccer league",
+      "assists in recreational indoor soccer league"
+    ],
+    "output_constraints": [
+      "sum of goals and assists"
+    ],
+    "reason": "The question asks for total number of goals and assists, which is a sum of two numeric values. Both are grounded in the same league."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32868,
+    "completion_tokens": 731,
+    "elapsed_seconds": 7.291651248931885
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 137,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.8662824630737305
+  }
+}

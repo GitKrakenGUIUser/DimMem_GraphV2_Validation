@@ -1,0 +1,147 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "app_name",
+        "query": "language learning app that uses mnemonics",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "language learning app mnemonics previous conversation"
+    ],
+    "output_constraints": [
+      "single app name"
+    ],
+    "reason": "User asks to recall a specific app mentioned in a previous conversation, requiring assistant_reply evidence."
+  },
+  "base_candidate": {
+    "answer": "Memrise",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_32b1fe4c7579d5adedb9"
+    ],
+    "support_source_ids": [
+      91
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "In a previous conversation (source 91), the assistant listed language learning apps and stated that 'Memrise uses mnemonics to help learners memorize words, phrases, and grammatical concepts.' This directly answers the user's question."
+  },
+  "specialist_candidate": {
+    "answer": "Memrise",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_32b1fe4c7579d5adedb9"
+    ],
+    "support_source_ids": [
+      91
+    ],
+    "required_slots": [
+      {
+        "name": "app_name",
+        "value": "Memrise",
+        "support_memory_ids": [
+          "m_32b1fe4c7579d5adedb9"
+        ],
+        "support_source_ids": [
+          91
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "assistant",
+        "predicate": "recommended",
+        "object": "Memrise",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-25T11:38:01.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_32b1fe4c7579d5adedb9"
+        ],
+        "support_source_ids": [
+          91
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "In source 91, the assistant listed Memrise as a language learning app that uses mnemonics. This directly answers the user's recall question."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    91,
+    132,
+    227,
+    90,
+    33,
+    28,
+    99,
+    36,
+    38,
+    34,
+    37,
+    35,
+    31,
+    182,
+    125,
+    40,
+    7,
+    135,
+    29,
+    39,
+    32
+  ],
+  "targeted_source_ids": [
+    7,
+    29,
+    31,
+    40,
+    91,
+    92,
+    125,
+    127,
+    130,
+    135,
+    163,
+    182,
+    30,
+    90,
+    126,
+    181
+  ]
+}

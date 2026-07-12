@@ -1,0 +1,99 @@
+{
+  "question_id": "59524333",
+  "question_type": "knowledge-update",
+  "question": "What time do I usually go to the gym?",
+  "question_date": "2023/06/06 (Tue) 16:35",
+  "gold_answer": "6:00 pm",
+  "prediction": "7:00 pm on Mondays, Wednesdays, and Fridays",
+  "support_memory_ids": [
+    "m_23372f2d731067b628ff",
+    "m_e6110c1d63b413a9340c"
+  ],
+  "support_source_ids": [
+    32,
+    213,
+    214
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Memory m_23372f2d731067b628ff and source 32 explicitly state the user usually goes to the gym at 7:00 pm on Mondays, Wednesdays, and Fridays. Memory m_e6110c1d63b413a9340c and source 213 confirm the days. Source 214 also references gym at 6:00 pm, consistent with 7:00 pm start. No contradictory evidence found.",
+  "required_slots": [
+    {
+      "name": "time",
+      "value": "7:00 pm",
+      "support_memory_ids": [
+        "m_23372f2d731067b628ff"
+      ],
+      "support_source_ids": [
+        32,
+        214
+      ]
+    },
+    {
+      "name": "days",
+      "value": "Mondays, Wednesdays, and Fridays",
+      "support_memory_ids": [
+        "m_23372f2d731067b628ff",
+        "m_e6110c1d63b413a9340c"
+      ],
+      "support_source_ids": [
+        32,
+        213
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:temporal",
+    "expected_operation_missing"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "time",
+        "query": "gym time",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "days",
+        "query": "gym days",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "gym time",
+      "gym days"
+    ],
+    "output_constraints": [
+      "time of day and days of week"
+    ],
+    "reason": "The question asks for the user's usual gym time, which is a stored state (profile). The answer includes both time and days, so two slots are needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31037,
+    "completion_tokens": 816,
+    "elapsed_seconds": 10.212158203125
+  }
+}

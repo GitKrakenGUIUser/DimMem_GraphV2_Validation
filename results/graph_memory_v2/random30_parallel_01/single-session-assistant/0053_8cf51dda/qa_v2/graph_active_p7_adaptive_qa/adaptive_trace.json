@@ -1,0 +1,170 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 3,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "assistant_reply",
+        "query": "grant aim page molecular subtypes endometrial cancer three objectives",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "grant aim page molecular subtypes endometrial cancer three objectives"
+    ],
+    "output_constraints": [
+      "list the three objectives exactly as previously stated"
+    ],
+    "reason": "The user asks to recall three objectives from a previous conversation about a grant aim page on molecular subtypes and endometrial cancer. This is an assistant-recall question requiring retrieval of the assistant's prior reply."
+  },
+  "base_candidate": {
+    "answer": "1. To identify molecular subtypes of endometrial cancer using a combination of genomic and transcriptomic approaches. 2. To investigate the clinical and biological significance of the identified molecular subtypes, including their association with patient outcomes and response to therapy. 3. To develop biomarkers for the early detection and prognosis of endometrial cancer based on the identified molecular subtypes.",
+    "answerable": true,
+    "support_memory_ids": [],
+    "support_source_ids": [
+      190
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The three objectives were found in the assistant's reply to the user's request to write a grant aim page on molecular subtypes and endometrial cancer (source_id 190)."
+  },
+  "specialist_candidate": {
+    "answer": "The three objectives were: 1) To identify molecular subtypes of endometrial cancer using a combination of genomic and transcriptomic approaches. 2) To investigate the clinical and biological significance of the identified molecular subtypes, including their association with patient outcomes and response to therapy. 3) To develop biomarkers for the early detection and prognosis of endometrial cancer based on the identified molecular subtypes.",
+    "answerable": true,
+    "support_memory_ids": [],
+    "support_source_ids": [
+      190
+    ],
+    "required_slots": [
+      {
+        "name": "assistant_reply",
+        "value": "The three objectives were: 1) To identify molecular subtypes of endometrial cancer using a combination of genomic and transcriptomic approaches. 2) To investigate the clinical and biological significance of the identified molecular subtypes, including their association with patient outcomes and response to therapy. 3) To develop biomarkers for the early detection and prognosis of endometrial cancer based on the identified molecular subtypes.",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          190
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "grant aim page",
+        "predicate": "has objective",
+        "object": "identify molecular subtypes of endometrial cancer using genomic and transcriptomic approaches",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          190
+        ]
+      },
+      {
+        "subject": "grant aim page",
+        "predicate": "has objective",
+        "object": "investigate clinical and biological significance of identified molecular subtypes",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          190
+        ]
+      },
+      {
+        "subject": "grant aim page",
+        "predicate": "has objective",
+        "object": "develop biomarkers for early detection and prognosis based on identified molecular subtypes",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          190
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Source 190 contains the assistant's reply to 'write a grants aim page on molecular subtypes and endometrial cancer', which lists exactly three objectives. The user asks to recall those three objectives from a previous conversation. The source directly provides the objectives."
+  },
+  "choice": "specialist",
+  "choice_reason": "The specialist candidate fills the required 'assistant_reply' slot and explicitly matches the answer contract for assistant_recall, while the compact candidate omits the slot.",
+  "compact_source_ids": [
+    88,
+    209,
+    170,
+    60,
+    63,
+    178,
+    180,
+    218,
+    183,
+    110,
+    121,
+    190,
+    140,
+    221,
+    130,
+    225,
+    224,
+    104,
+    208,
+    109,
+    171,
+    169,
+    120,
+    122
+  ],
+  "targeted_source_ids": [
+    87,
+    88,
+    104,
+    130,
+    140,
+    190,
+    196,
+    221,
+    222,
+    223,
+    224,
+    225,
+    139,
+    220
+  ]
+}

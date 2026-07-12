@@ -1,0 +1,64 @@
+[2023-05-25T19:03:00.500000, Thu] 1.User: Generate in form of api documentation 
+1. To receive a token a wallet has to be generated, 
+the endpoint is = POST /account/wallet 
+the parameters are token, coin and network. 
+eg token: user token to accessthe api, , coin=BTC , network=BTC. 
+resposes are : address, memo and network,coin
+[2023-05-25T19:03:01, Thu] 2.User: you can get alist of network you can use from market data endpoint 
+results all assets has an array of networks you can use
+endpoint is GET /general/market\_data response example is is 
+ "name": "Bitcoin",
+ "coin": "BTC",
+ "\_24hrs": "1.046",
+ "network": [
+ {
+ "id": 4060,
+ "coin": "BTC",
+ "network": "BNB",
+ "name": "Binance Chain (BEP2)",
+ },
+ 
+ ]
+[2023-05-25T19:03:01.500000, Thu] 3.User: To send a token u will need to firstly get the breaakdown this will show the fee charged and the amount 
+the user will received if it send the token. 
+ the endpoint is /account/trade\_breakdown , is a post request , 
+ params are token: user token to access, type="withdraw", 
+ amount="amount of token to send out" , asset = the name of the coin , network = the network response are 
+ assetUnits: number;
+ withdrawFee: number;
+
+ seconly send a confirmation OTP email to user email before you submit it
+the endpoint is POST /account/withdrawal\_otp
+the params are asset\_units, address, memo, asset, asset\_units: is the amount of token token sending out e.g 0.00045
+address; the recipient address, memo= optional but if the network of the coin selected has a memoRegex as a value u will need to provide it 
+while asset is the name of the token sending out eg BTC
+
+ thirdly, is to send a token out
+ the endpoint is /account/send\_token , is a post request , 
+ params are token: user token to access, 
+ amount="50" , 
+ asset =USDT ,
+ network = TRX,
+ address=TNesdhhhsiiiiiieggelins
+memo= optional but if the network of the coin selected has a memoRegex as a value u will need to provide 
+otp= is the code received by the user in step 2
+
+ this.response.data = {
+ amount: `the amount of token user will received`,
+ asset,
+ address,
+ memo,
+ description=Your payment has been sent to address
+ };
+[2023-05-25T23:05:00.500000, Thu] 4.User: How do men's traditional clothing styles differ from women's?
+[2023-05-25T23:05:01, Thu] 5.User: Interesting, can you provide some examples of traditional men's clothing from different cultures?
+[2023-05-25T23:05:01.500000, Thu] 6.User: Wow, I never knew so many different cultures had their own traditional men's clothing. Do you think modern fashion has influenced traditional clothing styles in any way?
+[2023-05-25T23:05:02, Thu] 7.User: It's amazing how traditional clothing has evolved with modern fashion trends. Do you think this is a good thing or does it take away from the authenticity of the original style?
+[2023-05-25T23:05:02.500000, Thu] 8.User: Do you think it's better for traditional clothing to remain unchanged or for it to evolve with the times? Personally, I find it fascinating to see how fashion has adapted over time, but I also respect the importance of preserving cultural heritage.
+[2023-05-25T23:05:03, Thu] 9.User: I wonder if there are any examples of cultures that have managed to strike a balance between preserving their traditional clothing styles while allowing them to evolve with modern fashion trends.
+[2023-05-26T02:46:00.500000, Fri] 10.User: Can you recommend some authentic Greek dishes for me to try in Athens?
+[2023-05-26T02:46:01, Fri] 11.User: Wow, those all sound delicious! Do you have any suggestions for the best places to try these dishes in Athens?
+[2023-05-26T02:46:01.500000, Fri] 12.User: These recommendations all sound amazing, but I'm really looking for a restaurant with a view. Do you have any suggestions?
+[2023-05-26T03:07:00.500000, Fri] 13.User: I'm looking for some advice on organic pest control methods for my garden. Do you have any recommendations?
+[2023-05-26T03:07:01, Fri] 14.User: What's the most effective way to use neem oil in my garden?
+[2023-05-26T03:07:01.500000, Fri] 15.User: I've been having some issues with aphids on my tomato plants, do you think neem oil would be effective in controlling them?

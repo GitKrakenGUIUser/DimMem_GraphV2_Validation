@@ -1,0 +1,100 @@
+{
+  "question": "Where did I buy my new tennis racket from?",
+  "question_date": "2023-05-30T23:39:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user bought a new tennis racket",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "tennis racket"
+      ],
+      "keywords": [
+        "buy",
+        "new",
+        "tennis racket"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T23:39:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "purchase_location"
+      ],
+      "relation_hints": [],
+      "answer_dim": "location",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's new tennis racket purchase location",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "tennis racket"
+      ],
+      "keywords": [
+        "purchase",
+        "location",
+        "tennis racket"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30T23:39:00",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [
+        "purchase_location"
+      ],
+      "relation_hints": [],
+      "answer_dim": "location",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user bought a tennis racket recently",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "tennis racket"
+      ],
+      "keywords": [
+        "bought",
+        "tennis racket",
+        "new"
+      ],
+      "time_constraint": {
+        "operator": "around",
+        "start": "2023-05-23",
+        "end": "2023-05-30",
+        "raw": "recently"
+      },
+      "locations": [],
+      "state_keys": [
+        "purchase_location"
+      ],
+      "relation_hints": [],
+      "answer_dim": "location",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.6
+    }
+  ]
+}

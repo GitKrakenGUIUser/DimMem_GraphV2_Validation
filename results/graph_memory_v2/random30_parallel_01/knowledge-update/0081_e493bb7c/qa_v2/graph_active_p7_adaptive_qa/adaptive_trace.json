@@ -1,0 +1,158 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "location",
+        "query": "current location of painting 'Ethereal Dreams' by Emma Taylor",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "current location of painting 'Ethereal Dreams' by Emma Taylor"
+    ],
+    "output_constraints": [
+      "location string"
+    ],
+    "reason": "The question asks for the current hanging location of a specific painting, which is a state resolution query."
+  },
+  "base_candidate": {
+    "answer": "above the user's bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4fbf676c267d1e52562c"
+    ],
+    "support_source_ids": [
+      157
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "above the user's bed",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user stated on 2023-10-30 that they recently moved the 'Ethereal Dreams' painting by Emma Taylor above their bed. This is the most recent and specific location evidence."
+  },
+  "specialist_candidate": {
+    "answer": "above the user's bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4fbf676c267d1e52562c"
+    ],
+    "support_source_ids": [
+      157
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "above the user's bed",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "Ethereal Dreams painting by Emma Taylor",
+        "predicate": "located_at",
+        "object": "above the user's bed",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "2023-10-30T16:38:02",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-10-30 that they recently moved the 'Ethereal Dreams' painting by Emma Taylor above their bed. This is the most recent and specific location statement, and no later relocation has been mentioned. Therefore, as of the question date (2023-11-18), the painting is hanging above the user's bed."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    157,
+    154,
+    42,
+    40,
+    158,
+    228,
+    248,
+    246,
+    189,
+    161,
+    249,
+    251,
+    247,
+    9,
+    173,
+    41,
+    43,
+    190,
+    155,
+    156,
+    188
+  ],
+  "targeted_source_ids": [
+    16,
+    40,
+    42,
+    78,
+    154,
+    157,
+    158,
+    159,
+    173,
+    174,
+    205,
+    231,
+    41,
+    43,
+    155,
+    156
+  ]
+}

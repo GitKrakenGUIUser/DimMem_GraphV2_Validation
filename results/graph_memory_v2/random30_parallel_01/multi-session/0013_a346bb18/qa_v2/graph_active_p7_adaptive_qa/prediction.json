@@ -1,0 +1,97 @@
+{
+  "question_id": "a346bb18",
+  "question_type": "multi-session",
+  "question": "How many minutes did I exceed my target time by in the marathon?",
+  "question_date": "2023/05/30 (Tue) 22:30",
+  "gold_answer": "12",
+  "prediction": "12",
+  "support_memory_ids": [
+    "m_ffcc91a5de84670d186f",
+    "m_489bea28c229768c84d7"
+  ],
+  "support_source_ids": [
+    7,
+    120
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Actual marathon time is 4h22min (memory m_ffcc91a5de84670d186f, source 120). Target time is 4h10min (memory m_489bea28c229768c84d7, source 7). Difference = 12 minutes.",
+  "required_slots": [
+    {
+      "name": "actual time",
+      "value": "4 hours 22 minutes",
+      "support_memory_ids": [
+        "m_ffcc91a5de84670d186f"
+      ],
+      "support_source_ids": [
+        120
+      ]
+    },
+    {
+      "name": "target time",
+      "value": "4 hours 10 minutes",
+      "support_memory_ids": [
+        "m_489bea28c229768c84d7"
+      ],
+      "support_source_ids": [
+        7
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "time_add_minutes",
+  "calculation": {
+    "operator": "time_add_minutes",
+    "operands": [
+      "4 hours 22 minutes",
+      "4 hours 10 minutes"
+    ],
+    "unit": "minutes",
+    "result": "12"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "Specialist candidate directly answers the question with the numeric difference in minutes (12), fulfilling the answer contract and output constraints, while compact candidate incorrectly returns a time value (4:22 AM) and uses wrong operator (time_add instead of subtraction).",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "time_add_minutes",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "actual time",
+        "query": "marathon actual time",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "target time",
+        "query": "marathon target time",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "marathon actual time",
+      "marathon target time"
+    ],
+    "output_constraints": [
+      "answer in minutes"
+    ],
+    "reason": "The question asks for the difference in minutes between actual and target marathon times, requiring two time values and a subtraction."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 33591,
+    "completion_tokens": 832,
+    "elapsed_seconds": 9.12684416770935
+  }
+}

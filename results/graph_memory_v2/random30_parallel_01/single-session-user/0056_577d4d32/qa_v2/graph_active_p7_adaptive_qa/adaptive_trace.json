@@ -1,0 +1,162 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:temporal",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "time",
+        "query": "What time do I stop checking work emails and messages?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What time do I stop checking work emails and messages?"
+    ],
+    "output_constraints": [
+      "Answer must be a time of day (e.g., '7 pm')."
+    ],
+    "reason": "The question asks for a direct fact about the user's typical stop time for work emails, which is a current preference or rule. The compact candidate provides a direct answer with supporting memory."
+  },
+  "base_candidate": {
+    "answer": "7 pm",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6120baa42ff84394143b"
+    ],
+    "support_source_ids": [
+      216
+    ],
+    "required_slots": [
+      {
+        "name": "time",
+        "value": "7 pm",
+        "support_memory_ids": [
+          "m_6120baa42ff84394143b"
+        ],
+        "support_source_ids": [
+          216
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user stated they stop checking work emails and messages by 7 pm to separate work and personal life (memory m_6120baa42ff84394143b, source 216)."
+  },
+  "specialist_candidate": {
+    "answer": "7 pm",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6120baa42ff84394143b"
+    ],
+    "support_source_ids": [
+      216
+    ],
+    "required_slots": [
+      {
+        "name": "time",
+        "value": "7 pm",
+        "support_memory_ids": [
+          "m_6120baa42ff84394143b"
+        ],
+        "support_source_ids": [
+          216
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "stops work emails and messages by",
+        "object": "7 pm",
+        "value": "7 pm",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_6120baa42ff84394143b"
+        ],
+        "support_source_ids": [
+          216
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated in source 216 that they stop checking work emails and messages by 7 pm as part of their evening routine. This is a direct, asserted fact with high confidence."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    216,
+    172,
+    162,
+    169,
+    198,
+    127,
+    5,
+    241,
+    112,
+    51,
+    142,
+    83,
+    173,
+    153,
+    6,
+    38,
+    203,
+    171,
+    128,
+    170,
+    217,
+    215,
+    50,
+    52
+  ],
+  "targeted_source_ids": [
+    12,
+    13,
+    60,
+    113,
+    169,
+    172,
+    180,
+    198,
+    212,
+    213,
+    216,
+    241,
+    197,
+    199,
+    215,
+    217
+  ]
+}

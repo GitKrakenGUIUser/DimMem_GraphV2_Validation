@@ -1,0 +1,70 @@
+{
+  "question_id": "gpt4_7bc6cf22",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I read the March 15th issue of The New Yorker?",
+  "question_date": "2023/04/01 (Sat) 08:36",
+  "gold_answer": "12 days ago. 13 days (including the last day) is also acceptable.",
+  "prediction": "12 days",
+  "support_memory_ids": [
+    "m_077f5c7b3f72ae66b656"
+  ],
+  "support_source_ids": [
+    28
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user read the March 15th issue of The New Yorker on March 20, 2023 (source 28, memory m_077f5c7b3f72ae66b656). The question date is April 1, 2023. The difference is 12 days.",
+  "required_slots": [
+    {
+      "name": "date when user read the issue",
+      "value": "2023-03-20",
+      "support_memory_ids": [
+        "m_077f5c7b3f72ae66b656"
+      ],
+      "support_source_ids": [
+        28
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-04-01",
+      "2023-03-20"
+    ],
+    "unit": "days",
+    "result": "12 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    28,
+    32,
+    7,
+    33,
+    31,
+    54,
+    50,
+    249,
+    56,
+    30,
+    60,
+    74,
+    53,
+    110,
+    29
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    4.490000000000001,
+    4.490000000000001
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 83062,
+    "completion_tokens": 728,
+    "elapsed_seconds": 15.642559051513672
+  }
+}

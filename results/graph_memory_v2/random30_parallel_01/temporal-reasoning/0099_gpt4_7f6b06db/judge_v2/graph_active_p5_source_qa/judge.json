@@ -1,0 +1,87 @@
+{
+  "question_id": "gpt4_7f6b06db",
+  "question_type": "temporal-reasoning",
+  "question": "What is the order of the three trips I took in the past three months, from earliest to latest?",
+  "question_date": "2023/06/01 (Thu) 03:56",
+  "gold_answer": "I went on a day hike to Muir Woods National Monument with my family, then I went on a road trip with friends to Big Sur and Monterey, and finally I started my solo camping trip to Yosemite National Park.",
+  "prediction": "Big Sur and Monterey, Yosemite National Park, Eastern Sierra",
+  "support_memory_ids": [
+    "m_5ed5e89aaf7d7be4f110",
+    "m_3c9d2e746f1bd2388f85",
+    "m_61f3c84a60e0b8e84b4d"
+  ],
+  "support_source_ids": [
+    207,
+    225
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "From memory m_5ed5e89aaf7d7be4f110 (source 207), user returned from Big Sur and Monterey on 2023-04-20. From memory m_3c9d2e746f1bd2388f85 (source 225), user returned from Yosemite on 2023-05-15. From memory m_61f3c84a60e0b8e84b4d (source 225), Eastern Sierra trip is planned (future). Thus chronological order: Big Sur/Monterey (Apr 20), Yosemite (May 15), Eastern Sierra (future).",
+  "required_slots": [
+    {
+      "name": "trip order",
+      "value": "Big Sur and Monterey, Yosemite National Park, Eastern Sierra",
+      "support_memory_ids": [
+        "m_5ed5e89aaf7d7be4f110",
+        "m_3c9d2e746f1bd2388f85",
+        "m_61f3c84a60e0b8e84b4d"
+      ],
+      "support_source_ids": [
+        207,
+        225,
+        225
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    36,
+    212,
+    227,
+    225,
+    207,
+    65,
+    252,
+    211,
+    272,
+    163,
+    162,
+    235,
+    198,
+    236,
+    24,
+    208,
+    228,
+    226,
+    66,
+    210
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    4.13,
+    4.13
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 83299,
+    "completion_tokens": 1390,
+    "elapsed_seconds": 13.970630884170532
+  },
+  "correct": false,
+  "judge_reason": "Prediction does not match the order or trips described in the reference answer.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 194,
+    "completion_tokens": 30,
+    "elapsed_seconds": 1.2363126277923584
+  }
+}

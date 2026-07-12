@@ -1,0 +1,100 @@
+{
+  "question": "Which event did I attend first, the 'Effective Time Management' workshop or the 'Data Analysis using Python' webinar?",
+  "question_date": "2023-05-24T08:02:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user attended the 'Effective Time Management' workshop",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Effective Time Management workshop"
+      ],
+      "keywords": [
+        "Effective Time Management",
+        "workshop"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "date of attendance"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user attended the 'Data Analysis using Python' webinar",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Data Analysis using Python webinar"
+      ],
+      "keywords": [
+        "Data Analysis using Python",
+        "webinar"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "date of attendance"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user attended both events and their order",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Effective Time Management workshop",
+        "Data Analysis using Python webinar"
+      ],
+      "keywords": [
+        "Effective Time Management",
+        "Data Analysis using Python",
+        "attended"
+      ],
+      "time_constraint": {
+        "operator": "",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "temporal_order"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "dates of both events"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

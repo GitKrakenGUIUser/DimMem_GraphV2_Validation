@@ -1,0 +1,211 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "start date",
+        "query": "When did I start watering my herb garden?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "harvest date",
+        "query": "When did I harvest my first batch of fresh herbs?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I start watering my herb garden?",
+      "When did I harvest my first batch of fresh herbs?"
+    ],
+    "output_constraints": [
+      "Answer must be a number followed by ' days'"
+    ],
+    "reason": "The question asks for the number of days between two events. Both dates are needed to compute the difference."
+  },
+  "base_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ce4d803830b3bb69f8db",
+      "m_e46b06b944edf380f752"
+    ],
+    "support_source_ids": [
+      61,
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "start date",
+        "value": "2023-03-22",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "name": "harvest date",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-22",
+        "2023-04-15"
+      ],
+      "unit": "days",
+      "result": "24 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user started watering their herb garden on 2023-03-22 (memory m_ce4d803830b3bb69f8db, source 61) and harvested their first batch on 2023-04-15 (memory m_e46b06b944edf380f752, source 136). The difference is 24 days."
+  },
+  "specialist_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ce4d803830b3bb69f8db",
+      "m_e46b06b944edf380f752"
+    ],
+    "support_source_ids": [
+      61,
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "start date",
+        "value": "2023-03-22",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "name": "harvest date",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-22",
+        "2023-04-15"
+      ],
+      "unit": "days",
+      "result": "24 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "started watering",
+        "object": "herb garden",
+        "value": "2023-03-22",
+        "unit": "date",
+        "event_time": "2023-03-22",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "harvested",
+        "object": "first batch of fresh herbs",
+        "value": "2023-04-15",
+        "unit": "date",
+        "event_time": "2023-04-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "User started watering herb garden on 2023-03-22 (source 61) and harvested first batch on 2023-04-15 (source 136). Difference is 24 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    61,
+    136,
+    139,
+    140,
+    63,
+    125,
+    45,
+    239,
+    127,
+    150,
+    234,
+    42,
+    137,
+    138,
+    197,
+    142,
+    54,
+    238,
+    62,
+    124
+  ],
+  "targeted_source_ids": [
+    54,
+    61,
+    64,
+    65,
+    66,
+    136,
+    137,
+    139,
+    140,
+    143,
+    197,
+    199,
+    62
+  ]
+}

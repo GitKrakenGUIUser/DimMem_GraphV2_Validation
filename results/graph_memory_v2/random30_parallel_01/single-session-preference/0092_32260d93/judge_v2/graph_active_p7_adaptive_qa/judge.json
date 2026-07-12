@@ -1,0 +1,109 @@
+{
+  "question_id": "32260d93",
+  "question_type": "single-session-preference",
+  "question": "Can you recommend a show or movie for me to watch tonight?",
+  "question_date": "2023/05/30 (Tue) 23:43",
+  "gold_answer": "The user would prefer recommendations for stand-up comedy specials on Netflix, especially those that are known for their storytelling. They may not prefer recommendations for other genres or platforms.",
+  "prediction": "Based on your interests, I recommend watching a documentary about ancient Egypt, such as 'Ancient Egypt: Life and Death in the Valley of the Kings' (BBC, 2016).",
+  "support_memory_ids": [
+    "m_c324c5615c5f7b531074"
+  ],
+  "support_source_ids": [
+    163
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "User expressed strong interest in ancient Egypt (memory rank 7, source 163). No other genre or mood preferences are available. The recommendation is grounded in that interest, using a documentary from the assistant's earlier reply.",
+  "required_slots": [
+    {
+      "name": "user_preferred_genre",
+      "value": "documentary, ancient Egypt",
+      "support_memory_ids": [
+        "m_c324c5615c5f7b531074"
+      ],
+      "support_source_ids": [
+        163
+      ]
+    },
+    {
+      "name": "user_mood",
+      "value": "interested in learning",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    },
+    {
+      "name": "recently_watched",
+      "value": "none mentioned",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "preference_inference",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies preference_criteria contract",
+  "risk_reasons": [
+    "specialist_contract:preference_criteria"
+  ],
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_preferred_genre",
+        "query": "user preferred genre",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "user_mood",
+        "query": "user mood",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "recently_watched",
+        "query": "recently watched shows or movies",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "user preferred genre",
+      "user mood",
+      "recently watched shows or movies"
+    ],
+    "output_constraints": [
+      "recommend a specific show or movie title"
+    ],
+    "reason": "Recommendation grounded in user preferences; need genre, mood, and recently watched to avoid repetition."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 36003,
+    "completion_tokens": 704,
+    "elapsed_seconds": 8.562068700790405
+  },
+  "correct": false,
+  "judge_reason": "The prediction recommends a documentary about ancient Egypt, while the reference answer indicates the user prefers stand-up comedy specials on Netflix.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 199,
+    "completion_tokens": 40,
+    "elapsed_seconds": 1.1022357940673828
+  }
+}

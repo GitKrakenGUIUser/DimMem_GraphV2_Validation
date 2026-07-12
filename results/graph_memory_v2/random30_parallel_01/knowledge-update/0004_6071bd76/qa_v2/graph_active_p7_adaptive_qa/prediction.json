@@ -1,0 +1,94 @@
+{
+  "question_id": "6071bd76",
+  "question_type": "knowledge-update",
+  "question": "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+  "question_date": "2023/07/30 (Sun) 05:53",
+  "gold_answer": "You switched to less water (5 ounces) per tablespoon of coffee.",
+  "prediction": "more water per tablespoon",
+  "support_memory_ids": [
+    "m_f4c802478fd10b33c52c",
+    "m_d09a2cc4c692616bf60f"
+  ],
+  "support_source_ids": [
+    7,
+    105
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Previous ratio (Feb 2023): 1 tbsp per 6 oz water. Current ratio (Jun 2023): 1 tbsp per 5 oz water. Since 5 oz is less water than 6 oz for the same amount of coffee, the user switched to less water per tablespoon, i.e., more water per tablespoon? Wait: 1 tbsp per 5 oz means more coffee per water, so less water per tablespoon. The question asks 'more water per tablespoon' or 'less water per tablespoon'. 1 tbsp per 5 oz has less water per tablespoon than 1 tbsp per 6 oz. So the switch is to less water per tablespoon. But the answer must be one of the two options. The user went from 6 oz water per tbsp to 5 oz water per tbsp, so less water per tablespoon. However, the output constraint says answer must be 'more water per tablespoon' or 'less water per tablespoon'. The correct answer is 'less water per tablespoon'. But the plan says 'more water per tablespoon'? Let's re-evaluate: 1 tbsp per 6 oz means 6 oz water per tbsp. 1 tbsp per 5 oz means 5 oz water per tbsp. So the amount of water per tablespoon decreased. So the user switched to less water per tablespoon. Therefore answer is 'less water per tablespoon'.",
+  "required_slots": [
+    {
+      "name": "previous ratio",
+      "value": "1 tbsp per 6 oz water",
+      "support_memory_ids": [
+        "m_f4c802478fd10b33c52c"
+      ],
+      "support_source_ids": [
+        7
+      ]
+    },
+    {
+      "name": "current ratio",
+      "value": "1 tbsp per 5 oz water",
+      "support_memory_ids": [
+        "m_d09a2cc4c692616bf60f"
+      ],
+      "support_source_ids": [
+        105
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "previous ratio",
+        "query": "previous French press coffee-to-water ratio",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "current ratio",
+        "query": "current French press coffee-to-water ratio",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "previous French press coffee-to-water ratio",
+      "current French press coffee-to-water ratio"
+    ],
+    "output_constraints": [
+      "answer must be 'more water per tablespoon' or 'less water per tablespoon'"
+    ],
+    "reason": "The question asks whether the user switched to more or less water per tablespoon, requiring comparison of previous and current ratios."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34607,
+    "completion_tokens": 1018,
+    "elapsed_seconds": 10.311852216720581
+  }
+}

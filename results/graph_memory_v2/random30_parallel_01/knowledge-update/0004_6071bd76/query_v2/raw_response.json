@@ -1,0 +1,122 @@
+{
+  "question": "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+  "question_date": "2023-07-30T05:53:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's French press coffee-to-water ratio change",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "French press",
+        "coffee-to-water ratio"
+      ],
+      "keywords": [
+        "French press",
+        "coffee",
+        "water",
+        "ratio",
+        "change",
+        "tablespoon"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-07-30T05:53:00",
+        "raw": "before now"
+      },
+      "locations": [],
+      "state_keys": [
+        "coffee_to_water_ratio"
+      ],
+      "relation_hints": [
+        "changed_from",
+        "changed_to"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "previous ratio",
+        "current ratio"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's previous French press ratio recommendation from assistant",
+      "target_memory_types": [
+        "assistant_reply"
+      ],
+      "entities": [
+        "French press",
+        "coffee-to-water ratio"
+      ],
+      "keywords": [
+        "French press",
+        "ratio",
+        "recommendation",
+        "tablespoon"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-07-30T05:53:00",
+        "raw": "before now"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "recommended"
+      ],
+      "answer_dim": "assistant_reply",
+      "need_assistant_context": true,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "assistant's previous advice"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "query_anchor": "the user's French press ratio preference change",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "French press",
+        "coffee-to-water ratio"
+      ],
+      "keywords": [
+        "French press",
+        "ratio",
+        "preference",
+        "change"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-07-30T05:53:00",
+        "raw": "before now"
+      },
+      "locations": [],
+      "state_keys": [
+        "preferred_coffee_to_water_ratio"
+      ],
+      "relation_hints": [
+        "changed_from",
+        "changed_to"
+      ],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "previous preference",
+        "current preference"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

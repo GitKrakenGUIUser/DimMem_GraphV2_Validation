@@ -1,0 +1,258 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:timeline"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "timeline",
+    "operator": "timeline",
+    "target_count": 3,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "trip event",
+        "query": "trips in past three months",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "trip date",
+        "query": "trip dates in past three months",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "trips in past three months",
+      "trip dates in past three months"
+    ],
+    "output_constraints": [
+      "list of trip names in chronological order"
+    ],
+    "reason": "The question asks for the chronological order of three trips taken in the past three months, requiring timeline operation with event and time slots."
+  },
+  "base_candidate": {
+    "answer": "Big Sur and Monterey, Yosemite National Park, Eastern Sierra",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5ed5e89aaf7d7be4f110",
+      "m_3c9d2e746f1bd2388f85",
+      "m_61f3c84a60e0b8e84b4d"
+    ],
+    "support_source_ids": [
+      207,
+      225
+    ],
+    "required_slots": [
+      {
+        "name": "trip order",
+        "value": "Big Sur and Monterey, Yosemite National Park, Eastern Sierra",
+        "support_memory_ids": [
+          "m_5ed5e89aaf7d7be4f110",
+          "m_3c9d2e746f1bd2388f85",
+          "m_61f3c84a60e0b8e84b4d"
+        ],
+        "support_source_ids": [
+          207,
+          225,
+          225
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "From memory m_5ed5e89aaf7d7be4f110 (source 207), user returned from Big Sur and Monterey on 2023-04-20. From memory m_3c9d2e746f1bd2388f85 (source 225), user returned from Yosemite on 2023-05-15. From memory m_61f3c84a60e0b8e84b4d (source 225), Eastern Sierra trip is planned (future). Thus chronological order: Big Sur/Monterey (Apr 20), Yosemite (May 15), Eastern Sierra (future)."
+  },
+  "specialist_candidate": {
+    "answer": "Yosemite road trip, Big Sur and Monterey road trip, Yosemite solo camping trip",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d1cf65733538a59fb29c",
+      "m_5ed5e89aaf7d7be4f110",
+      "m_3c9d2e746f1bd2388f85"
+    ],
+    "support_source_ids": [
+      65,
+      207,
+      225
+    ],
+    "required_slots": [
+      {
+        "name": "trip event",
+        "value": "Yosemite road trip",
+        "support_memory_ids": [
+          "m_d1cf65733538a59fb29c"
+        ],
+        "support_source_ids": [
+          65
+        ]
+      },
+      {
+        "name": "trip event",
+        "value": "Big Sur and Monterey road trip",
+        "support_memory_ids": [
+          "m_5ed5e89aaf7d7be4f110"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      },
+      {
+        "name": "trip event",
+        "value": "Yosemite solo camping trip",
+        "support_memory_ids": [
+          "m_3c9d2e746f1bd2388f85"
+        ],
+        "support_source_ids": [
+          225
+        ]
+      },
+      {
+        "name": "trip date",
+        "value": "2023-02-20 (mentioned as past road trip to Yosemite)",
+        "support_memory_ids": [
+          "m_d1cf65733538a59fb29c"
+        ],
+        "support_source_ids": [
+          65
+        ]
+      },
+      {
+        "name": "trip date",
+        "value": "2023-04-20 (returned today)",
+        "support_memory_ids": [
+          "m_5ed5e89aaf7d7be4f110"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      },
+      {
+        "name": "trip date",
+        "value": "2023-05-15 (returned today)",
+        "support_memory_ids": [
+          "m_3c9d2e746f1bd2388f85"
+        ],
+        "support_source_ids": [
+          225
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "took trip to",
+        "object": "Yosemite National Park (road trip, stayed at Yosemite Valley Lodge)",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-02-20 (mentioned as past experience)",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_d1cf65733538a59fb29c"
+        ],
+        "support_source_ids": [
+          65
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "returned from road trip to",
+        "object": "Big Sur and Monterey",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-04-20",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_5ed5e89aaf7d7be4f110"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "returned from solo camping trip to",
+        "object": "Yosemite National Park",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_3c9d2e746f1bd2388f85"
+        ],
+        "support_source_ids": [
+          225
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "Three trips identified: Yosemite road trip (mentioned on 2023-02-20 as past experience), Big Sur and Monterey road trip (returned 2023-04-20), and Yosemite solo camping trip (returned 2023-05-15). Chronological order: earliest is Yosemite road trip, then Big Sur/Monterey, then Yosemite solo camping trip."
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist fills required slots with concrete dates and resolves timeline correctly, including an earlier Yosemite trip missed by compact candidate.",
+  "compact_source_ids": [
+    36,
+    212,
+    227,
+    225,
+    207,
+    65,
+    252,
+    211,
+    272,
+    163,
+    162,
+    235,
+    198,
+    236,
+    24,
+    208,
+    228,
+    226,
+    66,
+    210
+  ],
+  "targeted_source_ids": [
+    36,
+    42,
+    43,
+    44,
+    45,
+    97,
+    143,
+    198,
+    200,
+    214,
+    263,
+    275,
+    98,
+    215,
+    274
+  ]
+}

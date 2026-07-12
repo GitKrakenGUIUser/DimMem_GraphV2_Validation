@@ -1,0 +1,78 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [],
+  "specialist_needed": false,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "base_candidate": {
+    "answer": "50 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_16e46ee3c3579461c883",
+      "m_09891a1b324f4e58d98a"
+    ],
+    "support_source_ids": [
+      148,
+      69
+    ],
+    "required_slots": [
+      {
+        "name": "taxi_cost",
+        "value": "$60",
+        "support_memory_ids": [
+          "m_16e46ee3c3579461c883"
+        ],
+        "support_source_ids": [
+          148
+        ]
+      },
+      {
+        "name": "train_cost",
+        "value": "$10",
+        "support_memory_ids": [
+          "m_09891a1b324f4e58d98a"
+        ],
+        "support_source_ids": [
+          69
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        60,
+        -10
+      ],
+      "unit": "USD",
+      "result": "50 USD"
+    },
+    "confidence": 0.8,
+    "reasoning_summary": "The user was told a taxi costs $60 (source 148) and a friend said the train costs $10 (source 69). The savings is $60 - $10 = $50."
+  },
+  "specialist_candidate": null,
+  "choice": "base",
+  "choice_reason": "base candidate passed risk gate",
+  "compact_source_ids": [
+    148,
+    71,
+    68,
+    146,
+    69,
+    145,
+    70,
+    147,
+    67,
+    72,
+    205,
+    154,
+    149
+  ],
+  "targeted_source_ids": []
+}

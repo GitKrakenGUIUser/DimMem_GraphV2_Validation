@@ -1,0 +1,102 @@
+{
+  "question_id": "85fa3a3f",
+  "question_type": "multi-session",
+  "question": "What is the total cost of the new food bowl, measuring cup, dental chews, and flea and tick collar I got for Max?",
+  "question_date": "2023/05/30 (Tue) 19:55",
+  "gold_answer": "$50",
+  "prediction": "50 dollars",
+  "support_memory_ids": [
+    "m_3e5016c580e853ce95da",
+    "m_5e09ae07dda3792077f0",
+    "m_85d8d36224a264de16ac"
+  ],
+  "support_source_ids": [
+    147,
+    40,
+    41
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user bought a stainless steel food bowl for $15 and a measuring cup for $5 (source 147). Dental chews cost $10 per pack (source 40). A flea and tick collar cost $20 (source 41). Summing these gives $50.",
+  "required_slots": [
+    {
+      "name": "food bowl cost",
+      "value": "15",
+      "support_memory_ids": [
+        "m_3e5016c580e853ce95da"
+      ],
+      "support_source_ids": [
+        147
+      ]
+    },
+    {
+      "name": "measuring cup cost",
+      "value": "5",
+      "support_memory_ids": [
+        "m_3e5016c580e853ce95da"
+      ],
+      "support_source_ids": [
+        147
+      ]
+    },
+    {
+      "name": "dental chews cost",
+      "value": "10",
+      "support_memory_ids": [
+        "m_5e09ae07dda3792077f0"
+      ],
+      "support_source_ids": [
+        40
+      ]
+    },
+    {
+      "name": "flea and tick collar cost",
+      "value": "20",
+      "support_memory_ids": [
+        "m_85d8d36224a264de16ac"
+      ],
+      "support_source_ids": [
+        41
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      15,
+      5,
+      10,
+      20
+    ],
+    "unit": "dollars",
+    "result": "50 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    41,
+    147,
+    40,
+    39,
+    148,
+    151,
+    38,
+    171,
+    42,
+    154,
+    143
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    6.1000000000000005,
+    6.1000000000000005
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 48942,
+    "completion_tokens": 1090,
+    "elapsed_seconds": 17.184619188308716
+  }
+}

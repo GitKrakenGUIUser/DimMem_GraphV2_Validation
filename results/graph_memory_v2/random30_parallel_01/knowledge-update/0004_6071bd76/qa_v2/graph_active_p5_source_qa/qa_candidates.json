@@ -1,0 +1,90 @@
+[
+  {
+    "answer": "more water per tablespoon of coffee",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f4c802478fd10b33c52c",
+      "m_d09a2cc4c692616bf60f"
+    ],
+    "support_source_ids": [
+      7,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "previous ratio",
+        "value": "1 tbsp per 6 oz water",
+        "support_memory_ids": [
+          "m_f4c802478fd10b33c52c"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "name": "current ratio",
+        "value": "1 tbsp per 5 oz water",
+        "support_memory_ids": [
+          "m_d09a2cc4c692616bf60f"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user previously used 1 tbsp per 6 oz water (Feb 11, 2023) and later switched to 1 tbsp per 5 oz water (Jun 30, 2023). Since 5 oz is less water than 6 oz for the same amount of coffee, the ratio has more water per tablespoon? Wait: 1 tbsp per 5 oz means less water per tbsp (more concentrated), so the user switched to less water per tablespoon. Correction: 1 tbsp per 5 oz is less water than 1 tbsp per 6 oz, so the user switched to less water per tablespoon. The question asks 'more water per tablespoon or less'. The answer is 'less water per tablespoon'."
+  },
+  {
+    "answer": "more water per tablespoon of coffee",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f4c802478fd10b33c52c",
+      "m_d09a2cc4c692616bf60f"
+    ],
+    "support_source_ids": [
+      7,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "previous ratio",
+        "value": "1 tbsp per 6 oz water",
+        "support_memory_ids": [
+          "m_f4c802478fd10b33c52c"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "name": "current ratio",
+        "value": "1 tbsp per 5 oz water",
+        "support_memory_ids": [
+          "m_d09a2cc4c692616bf60f"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "On 2023-02-11, user stated ratio 1 tbsp per 6 oz water (source 7). On 2023-06-30, user stated ratio 1 tbsp per 5 oz water (source 105). Since 5 oz is less water than 6 oz for the same 1 tbsp coffee, the ratio has more water per tablespoon? Wait: 1 tbsp per 5 oz means less water per tbsp (more concentrated). Actually, 1 tbsp per 6 oz has more water per tbsp than 1 tbsp per 5 oz. So the user switched to less water per tablespoon (stronger coffee). The question asks 'more water per tablespoon or less'. The change from 6 oz to 5 oz is less water per tablespoon. So answer: less water per tablespoon."
+  }
+]

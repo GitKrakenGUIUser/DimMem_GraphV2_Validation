@@ -1,0 +1,158 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "Instagram handle",
+        "query": "UK-based designer unusual gemstones engagement rings Instagram handle",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "UK-based designer unusual gemstones engagement rings Instagram handle"
+    ],
+    "output_constraints": [
+      "Instagram handle starting with @"
+    ],
+    "reason": "The question asks to recall an Instagram handle from a previous conversation, which is an assistant-recall question. The evidence is a single fact from a prior assistant reply."
+  },
+  "base_candidate": {
+    "answer": "@jessica_poole_jewellery",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8ace567a1dc92a3eceb5"
+    ],
+    "support_source_ids": [
+      181
+    ],
+    "required_slots": [
+      {
+        "name": "Instagram handle",
+        "value": "@jessica_poole_jewellery",
+        "support_memory_ids": [
+          "m_8ace567a1dc92a3eceb5"
+        ],
+        "support_source_ids": [
+          181
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The assistant's reply in source 181 lists Jessica Poole as a UK-based designer who works with unusual gemstones and provides her Instagram handle @jessica_poole_jewellery."
+  },
+  "specialist_candidate": {
+    "answer": "@jessica_poole_jewellery",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8ace567a1dc92a3eceb5"
+    ],
+    "support_source_ids": [
+      181
+    ],
+    "required_slots": [
+      {
+        "name": "Instagram handle",
+        "value": "@jessica_poole_jewellery",
+        "support_memory_ids": [
+          "m_8ace567a1dc92a3eceb5"
+        ],
+        "support_source_ids": [
+          181
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "Jessica Poole",
+        "predicate": "Instagram handle",
+        "object": "@jessica_poole_jewellery",
+        "value": "@jessica_poole_jewellery",
+        "unit": "",
+        "event_time": "2023-05-27T19:26:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_8ace567a1dc92a3eceb5"
+        ],
+        "support_source_ids": [
+          181
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's previous reply (source 181) listed Jessica Poole as a UK-based designer who works with unusual gemstones, with Instagram handle @jessica_poole_jewellery. This directly answers the user's recall question."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    181,
+    1,
+    242,
+    243,
+    105,
+    250,
+    90,
+    72,
+    121,
+    56,
+    110,
+    101,
+    98,
+    239,
+    240,
+    24,
+    228,
+    26,
+    241,
+    106,
+    244,
+    109,
+    122,
+    120
+  ],
+  "targeted_source_ids": [
+    1,
+    14,
+    24,
+    26,
+    74,
+    181,
+    182,
+    228,
+    239,
+    240,
+    241,
+    242,
+    243
+  ]
+}

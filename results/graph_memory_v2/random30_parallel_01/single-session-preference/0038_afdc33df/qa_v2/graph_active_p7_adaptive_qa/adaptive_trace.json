@@ -1,0 +1,214 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "previous assistant reply about kitchen cleaning",
+        "query": "kitchen cleaning tips advice",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "kitchen cleaning tips advice"
+    ],
+    "output_constraints": [
+      "Provide a list of practical kitchen cleaning tips based on past assistant advice."
+    ],
+    "reason": "The question asks for tips, which is best answered by recalling previous assistant advice on kitchen cleaning. The candidate answer uses past memories about specific issues (faucet, garbage disposal, etc.) to generate general tips."
+  },
+  "base_candidate": {
+    "answer": "I'd be happy to help with kitchen cleaning tips! Based on our past conversations, you've dealt with a leaky faucet, garbage disposal issues, utensil organization, and granite countertop scratches. For general kitchen cleanliness, I recommend: 1) Wipe down counters daily with a gentle cleaner, 2) Clean the sink and faucet regularly to prevent buildup, 3) Organize utensils and tools to reduce clutter, 4) Maintain appliances like the garbage disposal with ice and baking soda, and 5) Address spills and stains promptly to avoid scratches or damage.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_264d0389a8302ecc1745",
+      "m_1a1fda5cc914a4c6dc62",
+      "m_3dfe0ce55343749f8e2d",
+      "m_eec8716000c8690ef2c5"
+    ],
+    "support_source_ids": [
+      40,
+      38,
+      37,
+      39
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.8,
+    "reasoning_summary": "The candidate answer incorrectly states 'Cannot be determined' and sets answerable to false, but the user's question about kitchen cleaning tips is answerable. The assistant has provided relevant tips in past conversations (faucet, garbage disposal, utensil organization, granite scratches) that can be generalized to kitchen cleanliness. The corrected answer draws on these memories to offer practical advice, grounding the response in evidence from the conversation history."
+  },
+  "specialist_candidate": {
+    "answer": "Based on our previous conversations, here are some kitchen cleaning tips: \n\n- **Garbage disposal**: Clean with baking soda and vinegar, ice and rock salt, or lemon juice and baking soda. Run cold water while grinding. Deodorize with lemon or orange peels. Replace if over 10-15 years old, frequent clogs, leaks, odors, noise, or corrosion.\n- **Kitchen faucet**: Fix leaks by checking aerator, O-rings, gaskets, valve seats, and handle. Replace if over 10-15 years, frequent leaks, corrosion, or hard-to-find parts.\n- **Granite countertop**: Remove scratches with baking soda paste, stone soap, mineral oil, or a repair kit. For deep scratches, consider professional refinishing. Prevent scratches with coasters, cutting boards, and regular sealing.\n- **Utensil holder**: Purge duplicates, categorize, use dividers, store frequently used items front and center, utilize vertical space, and label sections.\n- **General**: Clean regularly, avoid harsh chemicals, and maintain appliances to prevent mess.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_264d0389a8302ecc1745",
+      "m_1a1fda5cc914a4c6dc62",
+      "m_3dfe0ce55343749f8e2d",
+      "m_eec8716000c8690ef2c5"
+    ],
+    "support_source_ids": [
+      37,
+      38,
+      39,
+      40
+    ],
+    "required_slots": [
+      {
+        "name": "previous assistant reply about kitchen cleaning",
+        "value": "Based on our previous conversations, here are some kitchen cleaning tips: \n\n- **Garbage disposal**: Clean with baking soda and vinegar, ice and rock salt, or lemon juice and baking soda. Run cold water while grinding. Deodorize with lemon or orange peels. Replace if over 10-15 years old, frequent clogs, leaks, odors, noise, or corrosion.\n- **Kitchen faucet**: Fix leaks by checking aerator, O-rings, gaskets, valve seats, and handle. Replace if over 10-15 years, frequent leaks, corrosion, or hard-to-find parts.\n- **Granite countertop**: Remove scratches with baking soda paste, stone soap, mineral oil, or a repair kit. For deep scratches, consider professional refinishing. Prevent scratches with coasters, cutting boards, and regular sealing.\n- **Utensil holder**: Purge duplicates, categorize, use dividers, store frequently used items front and center, utilize vertical space, and label sections.\n- **General**: Clean regularly, avoid harsh chemicals, and maintain appliances to prevent mess.",
+        "support_memory_ids": [
+          "m_264d0389a8302ecc1745",
+          "m_1a1fda5cc914a4c6dc62",
+          "m_3dfe0ce55343749f8e2d",
+          "m_eec8716000c8690ef2c5"
+        ],
+        "support_source_ids": [
+          37,
+          38,
+          39,
+          40
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "received tips on",
+        "object": "garbage disposal cleaning and replacement",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-22T05:54:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_3dfe0ce55343749f8e2d"
+        ],
+        "support_source_ids": [
+          37
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "received tips on",
+        "object": "kitchen faucet leak repair and replacement",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-22T05:54:02",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_264d0389a8302ecc1745"
+        ],
+        "support_source_ids": [
+          40
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "received tips on",
+        "object": "granite countertop scratch repair and prevention",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-22T05:54:01.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_eec8716000c8690ef2c5"
+        ],
+        "support_source_ids": [
+          39
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "received tips on",
+        "object": "utensil holder organization",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-22T05:54:01",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_1a1fda5cc914a4c6dc62"
+        ],
+        "support_source_ids": [
+          38
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user asked for kitchen cleaning tips. The assistant recall plan retrieved previous assistant replies about kitchen-related issues: garbage disposal cleaning, faucet repair, granite countertop scratch removal, and utensil holder organization. These are directly relevant to keeping a kitchen clean. The answer compiles the key tips from those replies."
+  },
+  "choice": "specialist",
+  "choice_reason": "The specialist candidate fills the required slot with a detailed, grounded answer directly from past assistant replies, while the compact candidate incorrectly states 'Cannot be determined' and has lower confidence.",
+  "compact_source_ids": [
+    38,
+    40,
+    147,
+    36,
+    44,
+    37,
+    41,
+    46,
+    56,
+    121,
+    236,
+    171,
+    39,
+    57,
+    154,
+    197,
+    59,
+    42,
+    47,
+    45
+  ],
+  "targeted_source_ids": [
+    36,
+    37,
+    38,
+    39,
+    40,
+    57,
+    59,
+    61,
+    79,
+    147,
+    154,
+    197,
+    41,
+    196,
+    198
+  ]
+}

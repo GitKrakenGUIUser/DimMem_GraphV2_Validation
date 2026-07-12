@@ -1,0 +1,97 @@
+{
+  "question_id": "0a995998",
+  "question_type": "multi-session",
+  "question": "How many items of clothing do I need to pick up or return from a store?",
+  "question_date": "2023/02/15 (Wed) 23:50",
+  "gold_answer": "3",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_185ab5767158c64113a9",
+    "m_f1f396f50b9c8c374bf4"
+  ],
+  "support_source_ids": [
+    176,
+    61
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Two distinct clothing items need to be picked up or returned: a new pair of boots from Zara (pickup) and dry cleaning for a navy blue blazer (pickup). No return items are mentioned. Count = 2.",
+  "required_slots": [
+    {
+      "name": "pickup_items",
+      "value": "new pair of boots from Zara after exchange on 2/5",
+      "support_memory_ids": [
+        "m_185ab5767158c64113a9"
+      ],
+      "support_source_ids": [
+        176
+      ]
+    },
+    {
+      "name": "return_items",
+      "value": "dry cleaning for navy blue blazer",
+      "support_memory_ids": [
+        "m_f1f396f50b9c8c374bf4"
+      ],
+      "support_source_ids": [
+        61
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "new pair of boots from Zara after exchange on 2/5",
+      "dry cleaning for navy blue blazer"
+    ],
+    "unit": "items",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 2,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "pickup_items",
+        "query": "clothing items to pick up from store",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "return_items",
+        "query": "clothing items to return to store",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "clothing items to pick up from store",
+      "clothing items to return to store"
+    ],
+    "output_constraints": [
+      "answer is a number"
+    ],
+    "reason": "The question asks for a count of clothing items to pick up or return. The answer is a direct count from evidence, using count_distinct operator."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31854,
+    "completion_tokens": 802,
+    "elapsed_seconds": 8.66770887374878
+  }
+}

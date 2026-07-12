@@ -1,0 +1,90 @@
+[
+  {
+    "answer": "Yes, the user received a 40% discount on their first HelloFresh order, which is higher than the 20% discount on their first UberEats order.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033c7e58fcdd1a6932f8",
+      "m_477b1700f08c124e7f4a"
+    ],
+    "support_source_ids": [
+      57,
+      149
+    ],
+    "required_slots": [
+      {
+        "name": "first_order_discount_percentage_HelloFresh",
+        "value": "40%",
+        "support_memory_ids": [
+          "m_033c7e58fcdd1a6932f8"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "name": "first_order_discount_percentage_UberEats",
+        "value": "20%",
+        "support_memory_ids": [
+          "m_477b1700f08c124e7f4a"
+        ],
+        "support_source_ids": [
+          149
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "other",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_033c7e58fcdd1a6932f8 (source 57) states the user got a 40% discount on their first HelloFresh order. Memory m_477b1700f08c124e7f4a (source 149) states the user got 20% off their UberEats order last week, which is the first UberEats order mentioned. Comparing 40% > 20%, the answer is yes."
+  },
+  {
+    "answer": "Yes, the user received a higher percentage discount on their first HelloFresh order (40%) compared to their first UberEats order (20%).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033c7e58fcdd1a6932f8",
+      "m_477b1700f08c124e7f4a"
+    ],
+    "support_source_ids": [
+      57,
+      149
+    ],
+    "required_slots": [
+      {
+        "name": "first_order_discount_percentage_HelloFresh",
+        "value": "40%",
+        "support_memory_ids": [
+          "m_033c7e58fcdd1a6932f8"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "name": "first_order_discount_percentage_UberEats",
+        "value": "20%",
+        "support_memory_ids": [
+          "m_477b1700f08c124e7f4a"
+        ],
+        "support_source_ids": [
+          149
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_033c7e58fcdd1a6932f8 (source 57) states the user got a 40% discount on their first HelloFresh order. Memory m_477b1700f08c124e7f4a (source 149) states the user got 20% off their UberEats order last week, which is the first UberEats order mentioned. 40% > 20%, so the answer is yes."
+  }
+]

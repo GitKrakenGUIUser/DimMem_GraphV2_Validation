@@ -1,0 +1,135 @@
+{
+  "question_id": "85fa3a3f",
+  "question_type": "multi-session",
+  "question": "What is the total cost of the new food bowl, measuring cup, dental chews, and flea and tick collar I got for Max?",
+  "question_date": "2023/05/30 (Tue) 19:55",
+  "gold_answer": "$50",
+  "prediction": "50 dollars",
+  "support_memory_ids": [
+    "m_3e5016c580e853ce95da",
+    "m_5e09ae07dda3792077f0",
+    "m_85d8d36224a264de16ac"
+  ],
+  "support_source_ids": [
+    147,
+    39,
+    41
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user stated the food bowl cost $15 (source 147), measuring cup $5 (source 147), dental chews $10 per pack (source 39), and flea and tick collar $20 (source 41). Summing these four amounts gives $50.",
+  "required_slots": [
+    {
+      "name": "food bowl cost",
+      "value": "15",
+      "support_memory_ids": [
+        "m_3e5016c580e853ce95da"
+      ],
+      "support_source_ids": [
+        147
+      ]
+    },
+    {
+      "name": "measuring cup cost",
+      "value": "5",
+      "support_memory_ids": [
+        "m_3e5016c580e853ce95da"
+      ],
+      "support_source_ids": [
+        147
+      ]
+    },
+    {
+      "name": "dental chews cost",
+      "value": "10",
+      "support_memory_ids": [
+        "m_5e09ae07dda3792077f0"
+      ],
+      "support_source_ids": [
+        39
+      ]
+    },
+    {
+      "name": "flea and tick collar cost",
+      "value": "20",
+      "support_memory_ids": [
+        "m_85d8d36224a264de16ac"
+      ],
+      "support_source_ids": [
+        41
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "calculation": {
+    "operator": "sum",
+    "operands": [
+      "15",
+      "5",
+      "10",
+      "20"
+    ],
+    "unit": "dollars",
+    "result": "50 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 4,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "food bowl cost",
+        "query": "cost of food bowl for Max",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "measuring cup cost",
+        "query": "cost of measuring cup for Max",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "dental chews cost",
+        "query": "cost of dental chews for Max",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "flea and tick collar cost",
+        "query": "cost of flea and tick collar for Max",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "cost of food bowl for Max",
+      "cost of measuring cup for Max",
+      "cost of dental chews for Max",
+      "cost of flea and tick collar for Max"
+    ],
+    "output_constraints": [
+      "sum of four numbers in dollars"
+    ],
+    "reason": "The question asks for total cost of four specific items purchased for Max. Each item's cost is a separate numeric fact. The answer is the sum of these four costs."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 20595,
+    "completion_tokens": 1229,
+    "elapsed_seconds": 9.992780923843384
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "question_id": "2c63a862",
+  "question_type": "temporal-reasoning",
+  "question": "How many days did it take for me to find a house I loved after starting to work with Rachel?",
+  "question_date": "2022/03/02 (Wed) 10:19",
+  "gold_answer": "14 days. 15 days (including the last day) is also acceptable.",
+  "prediction": "14 days",
+  "support_memory_ids": [
+    "m_e71e1e682b7e8254df42",
+    "m_27f4740f660c34c2ed2f"
+  ],
+  "support_source_ids": [
+    162,
+    198
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user started working with Rachel on February 15, 2022 (source 162) and found a house they loved on March 1, 2022 (source 198). The difference between these dates is 15 days (inclusive of start date? Actually, from Feb 15 to Mar 1 is 14 days if counting exclusive, but the candidate's reasoning says 15 days. Let's compute: Feb 15 to Feb 28 is 14 days? Wait, Feb 15 to Mar 1: Feb has 28 days in 2022, so from Feb 15 to Feb 28 is 13 days, plus Mar 1 is 14 days? Actually, the number of days between two dates is typically the difference in days. From Feb 15 to Mar 1 is 14 days (Feb 15 to Feb 16 is 1 day, etc., up to Feb 28 is 13 days, then Mar 1 is 14 days). But the candidate's reasoning says 15 days, which is incorrect. The correct difference is 14 days? Let's double-check: Feb 15 to Feb 28 is 13 days (since 28-15=13), plus Mar 1 gives 14 days. So the answer should be 14 days. However, the candidate's answer is 14 days, but the reasoning says 15 days. The answer itself is 14 days, which matches the calculation result. The reasoning is inconsistent but the answer is correct. So we accept the answer but note the reasoning error. Actually, the candidate's answer is 14 days, which is correct. The reasoning says 15 days, but that's a minor error. We should correct the reasoning to be consistent. However, the instruction says to correct only evidence-grounding, completeness, temporal perspective, arithmetic, and answer/calculation consistency. The answer is consistent with the calculation result (14 days), but the reasoning says 15 days. That's an inconsistency. So we should correct the reasoning to say 14 days. Also, the confidence is 0.95, but we can set it to 1.0 since it's correct. So we accept with corrections.",
+  "required_slots": [
+    {
+      "name": "date started working with Rachel",
+      "value": "2022-02-15",
+      "support_memory_ids": [
+        "m_e71e1e682b7e8254df42"
+      ],
+      "support_source_ids": [
+        162
+      ]
+    },
+    {
+      "name": "date found house",
+      "value": "2022-03-01",
+      "support_memory_ids": [
+        "m_27f4740f660c34c2ed2f"
+      ],
+      "support_source_ids": [
+        198
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2022-02-15",
+      "2022-03-01"
+    ],
+    "unit": "days",
+    "result": "14 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    199,
+    198,
+    200,
+    158,
+    164,
+    203,
+    162,
+    63,
+    97,
+    64,
+    92,
+    219,
+    159,
+    250,
+    68,
+    161,
+    163,
+    201
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 81519,
+    "completion_tokens": 1543,
+    "elapsed_seconds": 15.81339406967163
+  },
+  "correct": true,
+  "judge_reason": "Matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 156,
+    "completion_tokens": 20,
+    "elapsed_seconds": 1.0305182933807373
+  }
+}

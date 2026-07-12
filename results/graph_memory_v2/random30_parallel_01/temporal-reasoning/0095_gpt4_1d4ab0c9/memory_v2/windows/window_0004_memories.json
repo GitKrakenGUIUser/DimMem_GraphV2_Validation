@@ -1,0 +1,350 @@
+[
+  {
+    "memory_id": "m_52c92f03cd3c8b585800",
+    "content": "User calculated interest charge as 90% * S$90,000 * (14/365) * 10% = S$310.68 per invoice, and for 52 invoices total S$16,155.62.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-03-19T04:43:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "interest charge",
+        "calculation",
+        "S$310.68",
+        "52 invoices",
+        "S$16,155.62"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "author"
+        }
+      ],
+      "topic": "interest calculation",
+      "relation": {
+        "subject": "interest charge",
+        "predicate": "calculated as",
+        "object": "S$310.68 per invoice, S$16,155.62 for 52 invoices"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_ET9WzdL_33",
+      "session_index": 10,
+      "source_ids": [
+        52
+      ],
+      "source_uids": [
+        "s0010u0001"
+      ],
+      "source_times": [
+        "2023-03-19T04:43:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 4
+    },
+    "confidence": 1.0,
+    "evidence_span": "90% * S$90,000 * (14/365) * 10% =S$310.68 for 52 invoices, that would mean S$310.68*52 = S$16,155.62",
+    "assistant_replies": [
+      "Yes, I can replicate this calculation logically. The interest charge for one invoice is calculated as:\n90% \\* S$90,000 \\* (14/365) \\* 10% = S$310.68\nAnd for 52 invoices, it becomes:\nS$310.68 \\* 52 = S$16,155.62"
+    ]
+  },
+  {
+    "memory_id": "m_d1c6d317eb6c7070b32c",
+    "content": "User requested to replace the interest charge and regenerate the Kingsman's Cost of Finance Comparison table.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-19T04:43:01",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "replace interest charge",
+        "regenerate",
+        "Kingsman",
+        "Cost of Finance Comparison table"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "requester"
+        },
+        {
+          "name": "Kingsman",
+          "entity_type": "organization",
+          "role": "subject"
+        }
+      ],
+      "topic": "finance table regeneration",
+      "relation": {
+        "subject": "User",
+        "predicate": "requested",
+        "object": "replace interest charge and regenerate Kingsman's Cost of Finance Comparison table"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_ET9WzdL_33",
+      "session_index": 10,
+      "source_ids": [
+        53
+      ],
+      "source_uids": [
+        "s0010u0002"
+      ],
+      "source_times": [
+        "2023-03-19T04:43:01"
+      ],
+      "source_role": "user",
+      "window_index": 4
+    },
+    "confidence": 1.0,
+    "evidence_span": "Replace your interest charge and re-generate the Kingsman's Cost of Finance Comparison table.",
+    "assistant_replies": [
+      "Kingsman's Cost of Finance Comparison Table\n\n| Source of Finance | Interest rate | Interest charge (S$) | Total Repayment (S$) |\n| --- | --- | --- | --- |\n| My organization | 10% p.a. | 16,155.62 | 116,155.62 |\n| Local bank | 10% p.a. | 375,805.92 | 4,133,865.08 |"
+    ]
+  },
+  {
+    "memory_id": "m_ce4d803830b3bb69f8db",
+    "content": "User started watering their herb garden every morning on 2023-03-22.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-03-22",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "day",
+        "raw": "today"
+      },
+      "locations": [
+        "herb garden"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "started watering",
+        "herb garden",
+        "every morning",
+        "2023-03-22"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "gardener"
+        }
+      ],
+      "topic": "gardening routine",
+      "relation": {
+        "subject": "User",
+        "predicate": "started watering",
+        "object": "herb garden every morning"
+      },
+      "state_key": "user.gardening.watering_routine",
+      "state_value": "every morning",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "answer_febde667_1",
+      "session_index": 13,
+      "source_ids": [
+        61
+      ],
+      "source_uids": [
+        "s0013u0001"
+      ],
+      "source_times": [
+        "2023-03-22T11:41:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 4
+    },
+    "confidence": 1.0,
+    "evidence_span": "I started watering my herb garden every morning today",
+    "assistant_replies": [
+      "Fresh herbs can elevate any salad to a whole new level!\n\nCongratulations on starting to water your herb garden every morning! Consistent watering is essential for healthy herb growth. Here are some tips to help you keep your fresh herbs fresh for a longer period:\n\n1. **Store them properly**: After harvesting, gently rinse the herbs with cold water to remove any dirt or debris. Pat them dry with a clean towel or paper towels to remove excess moisture. Store them in a sealed container or plastic bag in the refrigerator to maintain humidity and keep them fresh.\n2. **Keep them cool**: Most herbs prefer cooler temperatures, so store them in the refrigerator at a temperature between 32°F and 40°F (0°C and 4°C).\n3. **Monitor moisture**: Make sure the herbs aren't too wet or too dry. Check on them daily and remove any wilted or brown leaves to prevent spoilage.\n4. **Trim and prune**: Regular trimming and pruning encourage bushy growth and prevent the herbs from flowering. This will also help you use up the older leaves and promote new growth.\n5. **Use the right storage container**: Use a container with good air circulation to prevent moisture buildup. You can also use a herb keeper or a Mason jar with a paper towel to absorb excess moisture.\n6. **Freeze them**: If you have an abundance of herbs, consider freezing them to preserve their flavor and aroma. Simply chop the herbs, place them in an airtight container or ice cube tray, and store them in the freezer.\n7. **Harvest in the morning**: Herbs are typically at their best in the morning, after the dew has dried but before the heat of the day. This is when they're most flavorful and aromatic.\n8. **Use the right herbs for the job**: Different herbs have different shelf lives. For example, basil and cilantro are more delicate and have a shorter shelf life, while rosemary and thyme are heartier and can last longer.\n\nSome popular herbs that pair well with salads include:\n\n* Basil: Sweet and aromatic, perfect for caprese salads or as a topping for fruit salads.\n* Cilantro: Fresh and citrusy, great for Mexican-inspired salads or as a garnish for soups.\n* Parsley: Mild and fresh, excellent for Mediterranean-style salads or as a garnish for soups and sandwiches.\n* Dill: Bright and citrusy, pairs well with fish or as a topping for yogurt-based salads.\n* Mint: Cooling and refreshing, perfect for fruit salads or as a garnish for desserts.\n\nEnjoy your salad and happy gardening!"
+    ]
+  },
+  {
+    "memory_id": "m_f9b422a17b165ca097c7",
+    "content": "User uses a balanced fertilizer for their cherry tomato plants.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-03-22T11:41:01",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "balanced fertilizer",
+        "cherry tomato plants",
+        "using"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "gardener"
+        },
+        {
+          "name": "cherry tomato plants",
+          "entity_type": "object",
+          "role": "plant"
+        }
+      ],
+      "topic": "gardening fertilizer",
+      "relation": {
+        "subject": "User",
+        "predicate": "uses",
+        "object": "balanced fertilizer for cherry tomato plants"
+      },
+      "state_key": "user.gardening.fertilizer",
+      "state_value": "balanced fertilizer for cherry tomato plants",
+      "state_status": "active",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "answer_febde667_1",
+      "session_index": 13,
+      "source_ids": [
+        62
+      ],
+      "source_uids": [
+        "s0013u0002"
+      ],
+      "source_times": [
+        "2023-03-22T11:41:01"
+      ],
+      "source_role": "user",
+      "window_index": 4
+    },
+    "confidence": 1.0,
+    "evidence_span": "I've been using a balanced fertilizer for my cherry tomato plants",
+    "assistant_replies": [
+      "Making your own fertilizers can be a great way to reduce costs and create a more sustainable gardening practice. Here are some recipes for homemade fertilizers that you can try:\n\n1. **Epsom Salt Fertilizer**: Mix 1 tablespoon of Epsom salt with 1 gallon of water. Epsom salt provides magnesium and sulfur, which can help with seed germination, root growth, and overall plant health.\n2. **Banana Peel Fertilizer**: Bury banana peels around the base of your plants. As they break down, they'll release potassium, which is essential for fruiting and flowering. You can also dry and crush the peels to make a fertilizer tea.\n3. **Coffee Ground Fertilizer**: Use spent coffee grounds to add nitrogen, phosphorus, and potassium to your soil. Mix 1 part coffee grounds with 10 parts water to create a fertilizer tea.\n4. **Eggshell Calcium Fertilizer**: Crush eggshells and mix them into your soil to provide calcium, which is essential for plant cell wall development and root growth.\n5. **Bokashi Compost**: Create a bokashi bin using a mixture of vegetable scraps, sawdust, and microorganisms. This will break down organic matter quickly and create a nutrient-rich fertilizer.\n6. **Manure Tea**: Steep a bucket of animal manure (e.g., chicken or cow) in water for 2-3 weeks. Strain the liquid and use it as a fertilizer tea. This is rich in nitrogen, phosphorus, and potassium.\n7. **Fish Emulsion Fertilizer**: Mix 1 tablespoon of fish emulsion with 1 gallon of water. Fish emulsion is high in nitrogen, phosphorus, and potassium, making it an excellent fertilizer for fruiting and flowering plants.\n8. **Compost Tea**: Steep a bucket of compost in water for 24-48 hours. Strain the liquid and use it as a fertilizer tea. This is rich in beneficial microorganisms and nutrients.\n\nRemember to always use these homemade fertilizers in moderation and in combination with other fertilizers as needed. It's also essential to test your soil pH and nutrient levels to ensure you're providing the right balance of nutrients for your plants.\n\nFor your cherry tomato plants, you can try using a combination of Epsom salt fertilizer and compost tea to provide a balanced diet of nutrients.\n\nKeep in mind that these homemade fertilizers might not provide the same immediate results as commercial fertilizers, but they can be a more sustainable and cost-effective option in the long run. Happy gardening!"
+    ]
+  },
+  {
+    "memory_id": "m_d6ea6d0e2064a0511bf5",
+    "content": "User is thinking of incorporating a compost bin into their backyard.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-03-22T11:41:01.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": ""
+      },
+      "locations": [
+        "backyard"
+      ],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "thinking of incorporating",
+        "compost bin",
+        "backyard"
+      ],
+      "entities": [
+        {
+          "name": "User",
+          "entity_type": "person",
+          "role": "planner"
+        }
+      ],
+      "topic": "composting plan",
+      "relation": {
+        "subject": "User",
+        "predicate": "is thinking of incorporating",
+        "object": "a compost bin into backyard"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "planned",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "planned"
+    },
+    "provenance": {
+      "session_id": "answer_febde667_1",
+      "session_index": 13,
+      "source_ids": [
+        63
+      ],
+      "source_uids": [
+        "s0013u0003"
+      ],
+      "source_times": [
+        "2023-03-22T11:41:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 4
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm thinking of incorporating a compost bin into my backyard",
+    "assistant_replies": [
+      "Permaculture is a fantastic approach to sustainable living! Incorporating a compost bin into your backyard is an excellent decision. Composting is a natural process that breaks down organic materials into a nutrient-rich soil amendment, reducing waste and creating a closed-loop system. Here are some tips on how to maintain a compost bin and what materials to add or avoid:\n\n**Setting up your compost bin:**\n\n1. **Choose the right location**: Place your compost bin in a well-ventilated area, preferably in the shade, and close to a water source.\n2. **Select the right bin**: You can use a plastic bin, wooden pallets, or even a wire mesh enclosure. Make sure it's at least 1 cubic yard in size to allow for adequate decomposition.\n3. **Add bedding material**: Start with a 4-6 inch layer of brown materials (e.g., straw, shredded newspaper, or dried leaves) to absorb excess moisture and provide carbon.\n\n**Adding materials:**\n\n1. **Green materials (nitrogen-rich)**: Add fruit and vegetable scraps, grass clippings, manure, and blood meal. These provide nitrogen and help speed up decomposition.\n2. **Brown materials (carbon-rich)**: Add dried leaves, straw, shredded newspaper, and cardboard. These provide carbon and help with aeration.\n3. **Water**: Maintain a moist environment, like a damp sponge. Avoid overwatering, which can lead to anaerobic conditions.\n4. **Aeration**: Turn the pile every 1-2 weeks to ensure oxygen reaches all parts of the compost.\n\n**Materials to avoid:**\n\n1. **Meat, dairy, and oils**: These can attract pests and create unpleasant odors.\n2. **Pet waste**: Can contain pathogens and create health risks.\n3. **Weeds with seeds**: Can sprout in your compost and spread to your garden.\n4. **Diseased plants**: Can spread diseases to your garden.\n5. **Chemically treated materials**: Can contaminate your compost and harm microorganisms.\n\n**Maintaining the compost bin:**\n\n1. **Monitor temperature**: Compost piles can get hot (130°F - 140°F). Check the temperature regularly and turn the pile if it gets too hot.\n2. **Maintain a balance**: Aim for a mix of 2/3 brown materials and 1/3 green materials.\n3. **Add bulking agents**: Incorporate materials like straw or shredded newspaper to absorb excess moisture and improve aeration.\n4. **Turn regularly**: Every 1-2 weeks, turn the compost pile to ensure everything breaks down evenly.\n5. **Harvest**: After 2-3 months, your compost should be ready. It should be dark, crumbly, and have an earthy aroma.\n\nSome additional tips:\n\n* Shredding your materials before adding them to the compost bin can help them break down faster.\n* Consider adding a worm composter (vermicomposting) for a more efficient and odorless process.\n* Keep a compost journal to track your progress, note what works and what doesn't, and plan for future improvements.\n\nBy following these guidelines, you'll be well on your way to creating a thriving compost bin that will provide nutrient-rich soil for your garden. Happy composting!"
+    ]
+  }
+]

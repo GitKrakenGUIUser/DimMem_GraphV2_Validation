@@ -1,0 +1,94 @@
+{
+  "question": "How many titles are currently on my to-watch list?",
+  "question_date": "2023-06-03T15:47:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's to-watch list",
+      "target_memory_types": [
+        "profile"
+      ],
+      "entities": [
+        "to-watch list"
+      ],
+      "keywords": [
+        "to-watch list",
+        "titles"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-06-03",
+        "end": "",
+        "raw": "currently"
+      },
+      "locations": [],
+      "state_keys": [
+        "to_watch_list_count"
+      ],
+      "relation_hints": [],
+      "answer_dim": "state_value",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user's to-watch list items",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "to-watch list"
+      ],
+      "keywords": [
+        "to-watch list",
+        "titles",
+        "count"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-06-03",
+        "end": "",
+        "raw": "currently"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's to-watch list entries",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "to-watch list"
+      ],
+      "keywords": [
+        "to-watch list",
+        "added",
+        "titles"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-06-03T15:47:00",
+        "raw": "currently"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.5
+    }
+  ]
+}

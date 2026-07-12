@@ -1,0 +1,92 @@
+{
+  "question_id": "0ddfec37",
+  "question_type": "knowledge-update",
+  "question": "How many autographed baseballs have I added to my collection in the first three months of collection?",
+  "question_date": "2024/01/08 (Mon) 09:27",
+  "gold_answer": "15",
+  "prediction": "15",
+  "support_memory_ids": [
+    "m_b911077e06b2e37de017"
+  ],
+  "support_source_ids": [
+    99
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "From memory m_b911077e06b2e37de017 and source 99, the user stated they have 15 autographed baseballs since starting collecting three months ago (on 2023-04-11). This directly answers the question about additions in the first three months.",
+  "required_slots": [
+    {
+      "name": "collection_start_date",
+      "value": "2023-04-11",
+      "support_memory_ids": [
+        "m_b911077e06b2e37de017"
+      ],
+      "support_source_ids": [
+        99
+      ]
+    },
+    {
+      "name": "additions_in_first_three_months",
+      "value": "15",
+      "support_memory_ids": [
+        "m_b911077e06b2e37de017"
+      ],
+      "support_source_ids": [
+        99
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "monotonic guard: expanded evidence only caused abstention",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "count_distinct",
+    "operator": "none",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "collection_start_date",
+        "query": "When did I start my autographed baseball collection?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "query": "How many autographed baseballs did I add to my collection in the first three months?",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I start my autographed baseball collection?",
+      "How many autographed baseballs did I add to my collection in the first three months?"
+    ],
+    "output_constraints": [
+      "Answer must be a single integer count."
+    ],
+    "reason": "The question asks for a count of autographed baseballs added in the first three months of collection. This requires knowing the collection start date and then counting additions within that period. The answer is a count_distinct of baseballs added."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32906,
+    "completion_tokens": 1331,
+    "elapsed_seconds": 14.041249990463257
+  }
+}

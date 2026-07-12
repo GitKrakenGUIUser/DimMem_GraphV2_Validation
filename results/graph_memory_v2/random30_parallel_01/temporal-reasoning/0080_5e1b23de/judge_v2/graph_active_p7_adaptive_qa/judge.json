@@ -1,0 +1,86 @@
+{
+  "question_id": "5e1b23de",
+  "question_type": "temporal-reasoning",
+  "question": "How many months ago did I attend the photography workshop?",
+  "question_date": "2024/02/01 (Thu) 18:06",
+  "gold_answer": "3",
+  "prediction": "92 days",
+  "support_memory_ids": [
+    "m_fcaf300162fc7c96953a"
+  ],
+  "support_source_ids": [
+    79
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user attended a 3-day photography workshop on 2023-11-01 (source 79). The question date is 2024-02-01. The difference is 3 months (from November to February).",
+  "required_slots": [
+    {
+      "name": "date of photography workshop attendance",
+      "value": "2023-11-01",
+      "support_memory_ids": [
+        "m_fcaf300162fc7c96953a"
+      ],
+      "support_source_ids": [
+        79
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-11-01",
+      "2024-02-01"
+    ],
+    "unit": "months",
+    "result": "92 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of photography workshop attendance",
+        "query": "photography workshop attendance date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "photography workshop attendance date"
+    ],
+    "output_constraints": [
+      "answer in months"
+    ],
+    "reason": "The question asks for a time difference in months from a past event to the question date. The answer is a direct computation from the event date."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 30619,
+    "completion_tokens": 539,
+    "elapsed_seconds": 7.906634569168091
+  },
+  "correct": false,
+  "judge_reason": "The prediction is in days, not months, and 92 days is approximately 3 months, but the answer must be in months as per the reference.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 132,
+    "completion_tokens": 46,
+    "elapsed_seconds": 1.4968085289001465
+  }
+}

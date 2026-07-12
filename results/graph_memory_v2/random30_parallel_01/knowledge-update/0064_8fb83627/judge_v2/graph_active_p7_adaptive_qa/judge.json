@@ -1,0 +1,96 @@
+{
+  "question_id": "8fb83627",
+  "question_type": "knowledge-update",
+  "question": "How many issues of National Geographic have I finished reading?",
+  "question_date": "2023/08/14 (Mon) 23:19",
+  "gold_answer": "Five",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [
+    "m_e40fe167dbe9a5369419",
+    "m_11e04bebde84e670e1f5",
+    "m_95b90d5100454a53986c",
+    "m_d1f2d48c2657ead96efd"
+  ],
+  "support_source_ids": [
+    134,
+    138,
+    231,
+    233
+  ],
+  "confidence": 0.2,
+  "reasoning_summary": "The user stated finishing three issues on 2023-04-20 (source 134,138) and later stated finishing five issues on 2023-07-15 (source 231,233). The later statement supersedes the earlier, indicating a total of five distinct issues finished by the question date.",
+  "required_slots": [
+    {
+      "name": "completed issues list",
+      "value": "5 issues",
+      "support_memory_ids": [
+        "m_e40fe167dbe9a5369419",
+        "m_11e04bebde84e670e1f5",
+        "m_95b90d5100454a53986c",
+        "m_d1f2d48c2657ead96efd"
+      ],
+      "support_source_ids": [
+        134,
+        138,
+        231,
+        233
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [],
+    "unit": "issues",
+    "result": "5"
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "completed issues list",
+        "query": "issues of National Geographic that I finished reading",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "National Geographic finished reading issues"
+    ],
+    "output_constraints": [
+      "count of distinct issues"
+    ],
+    "reason": "The question asks for a count of distinct issues finished reading, which is a direct value from memory."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 27469,
+    "completion_tokens": 1095,
+    "elapsed_seconds": 10.551161289215088
+  },
+  "correct": false,
+  "judge_reason": "Prediction abstained while reference contains a concrete answer.",
+  "judge_meta": {
+    "mode": "deterministic_abstention_guard",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "question_id": "gpt4_4cd9eba1",
+  "question_type": "temporal-reasoning",
+  "question": "How many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?",
+  "question_date": "2023/04/19 (Wed) 00:38",
+  "gold_answer": "one week",
+  "prediction": "7 days",
+  "support_memory_ids": [
+    "m_f13aa0a56cd56a812374",
+    "m_7912efeefba5ce1459c1"
+  ],
+  "support_source_ids": [
+    118,
+    69
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User was accepted on March 20, 2023 (source 118). User started attending orientation on March 27, 2023 (source 69). The difference is 7 days, which equals 1 week. However, the question asks 'how many weeks have I been accepted... when I started attending', meaning the duration from acceptance to orientation start. 7 days = 1 week. But the answer '3 weeks' appears in the answer field? Wait, let's recalc: March 20 to March 27 is 7 days = 1 week. But the memory says orientation started on 2023-03-27, and acceptance on 2023-03-20. That is exactly 1 week. However, the user said 'every Friday since 3/27', so the first session was on 2023-03-27. So the number of weeks between acceptance and orientation start is 1 week. But the answer field shows '3 weeks'? That seems inconsistent. Let me double-check: The question is 'How many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?' That is the time from acceptance to the start of orientation. That is 7 days = 1 week. However, the memory says 'every Friday since 2023-03-27', so the first session was on a Monday? Actually 2023-03-27 is a Monday. But the user said 'every Friday since 3/27'? Wait, the memory says 'every Friday since 2023-03-27' but 2023-03-27 is a Monday. There might be a discrepancy. But the memory content says 'every Friday since 3/27' and the event_start is 2023-03-27. Possibly the first Friday after that? But the memory explicitly states event_start 2023-03-27. So I'll take that as the start date. So 1 week. But the answer field says '3 weeks'? That must be a mistake. I'll correct to '1 week'. Actually, let's compute: March 20 to March 27 is 7 days = 1 week. So answer should be 1. But the plan expects a number of weeks. I'll set answer to '1 week'. However, the user might have meant something else? No, the data is clear. I'll output 1 week.",
+  "required_slots": [
+    {
+      "name": "acceptance date",
+      "value": "2023-03-20",
+      "support_memory_ids": [
+        "m_f13aa0a56cd56a812374"
+      ],
+      "support_source_ids": [
+        118
+      ]
+    },
+    {
+      "name": "orientation start date",
+      "value": "2023-03-27",
+      "support_memory_ids": [
+        "m_7912efeefba5ce1459c1"
+      ],
+      "support_source_ids": [
+        69
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-03-20",
+      "2023-03-27"
+    ],
+    "unit": "days",
+    "result": "7 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "acceptance date",
+        "query": "When was I accepted into the exchange program?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "orientation start date",
+        "query": "When did I start attending the pre-departure orientation sessions?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When was I accepted into the exchange program?",
+      "When did I start attending the pre-departure orientation sessions?"
+    ],
+    "output_constraints": [
+      "Answer must be a number of weeks (integer or decimal)."
+    ],
+    "reason": "The question asks for the number of weeks between two dates: acceptance and orientation start. This requires retrieving both dates and computing the difference in weeks."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35538,
+    "completion_tokens": 1277,
+    "elapsed_seconds": 13.257764339447021
+  },
+  "correct": false,
+  "judge_reason": "The prediction '7 days' is equivalent to one week, but the reference answer specifies 'one week' as the unit. However, the instruction says 'Equivalent wording, units and formatting are acceptable', so this should be considered correct. But the instruction also says 'A partial multi-part answer is wrong', which does not apply here. Therefore, the answer is correct.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 144,
+    "completion_tokens": 89,
+    "elapsed_seconds": 1.7045984268188477
+  }
+}

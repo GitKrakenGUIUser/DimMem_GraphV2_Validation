@@ -1,0 +1,102 @@
+{
+  "question_id": "7405e8b1",
+  "question_type": "multi-session",
+  "question": "Did I receive a higher percentage discount on my first order from HelloFresh, compared to my first UberEats order?",
+  "question_date": "2023/05/30 (Tue) 21:33",
+  "gold_answer": "Yes.",
+  "prediction": "yes",
+  "support_memory_ids": [
+    "m_033c7e58fcdd1a6932f8",
+    "m_477b1700f08c124e7f4a"
+  ],
+  "support_source_ids": [
+    57,
+    149
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User stated they got a 40% discount on their first HelloFresh order (source 57) and a 20% discount on their UberEats order (source 149). Since 40% > 20%, the answer is yes.",
+  "required_slots": [
+    {
+      "name": "first_order_discount_percentage_HelloFresh",
+      "value": 40,
+      "support_memory_ids": [
+        "m_033c7e58fcdd1a6932f8"
+      ],
+      "support_source_ids": [
+        57
+      ]
+    },
+    {
+      "name": "first_order_discount_percentage_UberEats",
+      "value": 20,
+      "support_memory_ids": [
+        "m_477b1700f08c124e7f4a"
+      ],
+      "support_source_ids": [
+        149
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "other",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "Specialist candidate provides a concise boolean answer as required by the answer contract, fills all required slots with numeric values, and has higher confidence.",
+  "risk_reasons": [
+    "specialist_contract:timeline"
+  ],
+  "plan": {
+    "answer_contract": "other",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "first_order_discount_percentage_HelloFresh",
+        "query": "discount percentage on first HelloFresh order",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "first_order_discount_percentage_UberEats",
+        "query": "discount percentage on first UberEats order",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "discount percentage on first HelloFresh order",
+      "discount percentage on first UberEats order"
+    ],
+    "output_constraints": [
+      "Answer must be a boolean: yes if HelloFresh discount > UberEats discount, no otherwise."
+    ],
+    "reason": "The question compares two specific numeric values (discount percentages) from the user's first orders with two services. It requires retrieving each discount percentage and then comparing them. No composition or semantic bridging is needed beyond direct retrieval."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32202,
+    "completion_tokens": 893,
+    "elapsed_seconds": 11.355087757110596
+  },
+  "correct": true,
+  "judge_reason": "The prediction 'yes' matches the reference answer 'Yes.' with equivalent meaning.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 141,
+    "completion_tokens": 31,
+    "elapsed_seconds": 1.1375732421875
+  }
+}

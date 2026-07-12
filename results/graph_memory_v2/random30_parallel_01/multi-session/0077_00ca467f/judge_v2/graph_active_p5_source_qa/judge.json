@@ -1,0 +1,77 @@
+{
+  "question_id": "00ca467f",
+  "question_type": "multi-session",
+  "question": "How many doctor's appointments did I go to in March?",
+  "question_date": "2023/03/27 (Mon) 23:35",
+  "gold_answer": "2",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_050dc065171646103968",
+    "m_fb996e810cc0ebe06e09"
+  ],
+  "support_source_ids": [
+    2,
+    207
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Two doctor's appointments in March 2023 are explicitly mentioned: a follow-up with Dr. Thompson on March 20 (memory m_050dc065171646103968, source 2) and a diagnosis with Dr. Smith on March 3 (memory m_fb996e810cc0ebe06e09, source 207). No other appointments in March are confirmed as attended.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "follow-up with Dr. Thompson on March 20",
+      "diagnosis with Dr. Smith on March 3"
+    ],
+    "unit": "appointments",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    210,
+    5,
+    149,
+    9,
+    67,
+    211,
+    2,
+    153,
+    157,
+    30,
+    207,
+    64,
+    1,
+    47,
+    161,
+    4,
+    3,
+    237,
+    236,
+    6,
+    208,
+    66,
+    209
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 89730,
+    "completion_tokens": 644,
+    "elapsed_seconds": 11.533980369567871
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 131,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.9517238140106201
+  }
+}

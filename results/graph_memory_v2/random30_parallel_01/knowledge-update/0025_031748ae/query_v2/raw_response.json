@@ -1,0 +1,112 @@
+{
+  "question": "How many engineers do I lead when I just started my new role as Senior Software Engineer? How many engineers do I lead now?",
+  "question_date": "2023-11-10T04:20:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's team size when starting as Senior Software Engineer",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "the user",
+        "Senior Software Engineer"
+      ],
+      "keywords": [
+        "team size",
+        "start",
+        "Senior Software Engineer"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when I just started my new role"
+      },
+      "locations": [],
+      "state_keys": [
+        "team_size"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "start date of role"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's current team size as Senior Software Engineer",
+      "target_memory_types": [
+        "fact",
+        "profile"
+      ],
+      "entities": [
+        "the user",
+        "Senior Software Engineer"
+      ],
+      "keywords": [
+        "team size",
+        "current",
+        "Senior Software Engineer"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-11-10T04:20:00",
+        "end": "",
+        "raw": "now"
+      },
+      "locations": [],
+      "state_keys": [
+        "team_size"
+      ],
+      "relation_hints": [
+        "supersedes"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's role start date as Senior Software Engineer",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "the user",
+        "Senior Software Engineer"
+      ],
+      "keywords": [
+        "start date",
+        "Senior Software Engineer"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "when I just started my new role"
+      },
+      "locations": [],
+      "state_keys": [
+        "role_start_date"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "team size at that time"
+      ],
+      "confidence": 0.6
+    }
+  ]
+}

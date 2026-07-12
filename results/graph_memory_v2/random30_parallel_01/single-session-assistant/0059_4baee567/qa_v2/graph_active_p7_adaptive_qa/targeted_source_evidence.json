@@ -1,0 +1,187 @@
+[
+  {
+    "source_id": 38,
+    "source_uid": "s0006u0005",
+    "session_id": "sharegpt_lWLBUhQ_547",
+    "timestamp": "2023-05-22T17:30:02.500000",
+    "user_content": "Nezha asks MK what he needs or wants now - just name it and it's his. MK asks to go home to Pigsy at the noodle shop in the city. Nezha is a bit surprised by this but agrees. Let's write that scene with details and dialogue.",
+    "selection_reasons": [
+      "already_in_compact",
+      "dense_0.117",
+      "lexical_44.478",
+      "target_rank_7"
+    ],
+    "assistant_reply": "Nezha nods in agreement and turns his chariot towards the city. As they fly over the rooftops, he asks MK about Pigsy and how he came to be with Wukong.\n\nMK tells Nezha about how he had been kidnapped by Wukong and taken to the Mountain of Flowers and Fruit, where he was put in the alcove cage. He explains how Macaque had helped him escape and how they had been hiding out at Pigsy's noodle shop ever since.\n\nNezha listens intently, his expression grave. \"I'm sorry you had to go through that,\" he says. \"But I'm glad you're safe now.\"\n\nAs they approach the noodle shop, Nezha gently sets the chariot down in the street. MK hops out and runs inside. Pigsy is there, cooking noodles as usual. When he sees MK, he drops his ladle and runs over to give him a big hug.\n\n\"Thank goodness you're safe!\" Pigsy says, tears in his eyes. \"I was so worried about you.\"\n\nMK tells Pigsy about everything that happened, about how Macaque had saved him and how Nezha had helped them. Pigsy listens in amazement, his eyes widening with each new detail.\n\nNezha steps inside the shop and nods at Pigsy. \"I'm glad to see you're both doing well,\" he says.\n\nPigsy looks at Nezha with a mixture of fear and awe. \"Thank you for everything you've done,\" he says. \"I don't know how to repay you.\"\n\nNezha smiles. \"You don't need to repay me. I did what I did because it was the right thing to do.\"\n\nPigsy nods, still looking a bit overwhelmed. \"I understand. Thank you again.\"\n\nMK looks up at Nezha, his eyes shining. \"Thank you for bringing me home,\" he says.\n\nNezha ruffles MK's hair affectionately. \"Of course. Take care of yourself, okay?\"\n\nWith that, Nezha steps back into his chariot and takes off into the sky. Pigsy and MK watch him go, their hearts filled with gratitude and wonder at the amazing events that had just transpired."
+  },
+  {
+    "source_id": 55,
+    "source_uid": "s0011u0001",
+    "session_id": "sharegpt_28Mwwk9_0",
+    "timestamp": "2023-05-23T01:09:00.500000",
+    "user_content": "You are a software engineer with 30 years of experience. Now, you have to code a PHP function to perform a registration ceremony in a webauthn system, here is the w3c documentation that will helps to do that :\n\nIn order to perform a registration ceremony, the Relying Party MUST proceed as follows:\n\nLet options be a new PublicKeyCredentialCreationOptions structure configured to the Relying Party's needs for the ceremony.\n\nCall navigator.credentials.create() and pass options as the publicKey option. Let credential be the result of the successfully resolved promise. If the promise is rejected, abort the ceremony with a user-visible error, or otherwise guide the user experience as might be determinable from the context available in the rejected promise. For example if the promise is rejected with an error code equivalent to \"InvalidStateError\", the user might be instructed to use a different authenticator. For information on different error contexts and the circumstances leading to them, see § 6.3.2 The authenticatorMakeCredential Operation.\n\nLet response be credential.response. If response is not an instance of AuthenticatorAttestationResponse, abort the ceremony with a user-visible error.\n\nLet clientExtensionResults be the result of calling credential.getClientExtensionResults().\n\nLet JSONtext be the result of running UTF-8 decode on the value of response.clientDataJSON.\n\nNOTE: Using any implementation of UTF-8 decode is acceptable as long as it yields the same result as that yielded by the UTF-8 decode algorithm. In particular, any leading byte order mark …[truncated]",
+    "selection_reasons": [
+      "dense_0.074",
+      "lexical_35.295",
+      "target_rank_11"
+    ],
+    "assistant_reply": "Based on the provided W3C documentation, I've created a PHP function to perform a registration ceremony in a WebAuthn system. This code is not meant to be a complete implementation but rather a starting point to help you understand the flow and structure of the registration process. You may need to adapt the code according to your project's requirements and additional dependencies.\n\nPlease note that there are additional dependencies required for this implementation, such as the \"web-auth/webauthn-lib\" library. You can install it via Composer:\n```bash\ncomposer require web-auth/webauthn-lib\n```\nHere's the PHP function:\n```php\n<?php\n\nuse Webauthn\\PublicKeyCredentialCreationOptions;\nuse Webauthn\\PublicKeyCredentialSource;\nuse Webauthn\\PublicKeyCredentialSourceRepository;\nuse Webauthn\\Server;\nuse Webauthn\\TrustPath\\CertificateTrustPath;\n\nfunction performRegistrationCeremony(\n    Server $server,\n    PublicKeyCredentialCreationOptions $creationOptions,\n    PublicKeyCredentialSourceRepository $credentialRepository\n): void {\n    // The PublicKeyCredentialCreationOptions should be configured according to the Relying Party's needs\n    $publicKeyCredential = $server->createAndCheckAttestation($_POST, $creationOptions);\n\n    $attestationObject = $publicKeyCredential->getResponse()->getAttestationObject();\n    $trustPath = $attestationObject->getAttStmt()->getTrustPath();\n\n    if ($trustPath instanceof CertificateTrustPath) {\n        // Relying Party should verify the attestation trustworthiness using a trusted source or policy\n        // This step depends on the Relying Party's specific implementation and trust anchors\n        $trusted = isAttestationTrustworthy($trustPath);\n\n        if (!$trusted) {\n            // If attestation is not trustworthy, Relying Party should fail the registration ceremony\n            throw new RuntimeException('The attestation is not trustworthy.');\n        }\n    }\n\n    // Create and store a new credential record\n    $publicKeyCredentialSource = PublicKeyCredentialSource::createFromPublicKeyCredential(\n        $publicKeyCredential,\n        $creationOptions->getUser()->getId()\n    );\n\n    // Verify the credentialId is not alrea …[truncated]"
+  },
+  {
+    "source_id": 112,
+    "source_uid": "s0022u0001",
+    "session_id": "sharegpt_wduYbsX_0",
+    "timestamp": "2023-05-25T03:46:00.500000",
+    "user_content": "Rewrite this text in 500 words: \"There’s much that divides us in Northern Ireland though one thing is guaranteed to bring us together: local phrases. Call it slang, call it colloquialisms, we all know only too well how important words are to where we’re from . . . and when it comes to the phrases that make us ‘us,’ we’ve got a lot to say.\nWhile you don’t need advance knowledge of the words to fit in, well, it helps. How else will you know where ‘foundered’ sits on the scale of warm to freezing? Or deciding whether that new car purchase is more ‘clinker’ than ‘beezer’? Or appreciating that ‘grand’ can mean exactly that or anything but?\nIf the best way to get to know a nation is to understand their language, then surely tourists must be at times confused about what comes out of our mouths. Throughout the island of Ireland, we have utterly brilliant ways to verbally express ourselves.\n“I think it’s really important,” says Dr Frank Ferguson, research director for English Language and Literature at Ulster University, about the vitality of slang as part of language.\n“I think sometimes we’re not sure even the meaning of slang and the meaning of the vernacular and the colloquial. Especially for Northern Ireland, where language is often so divisive, we forget how a rich and varied it is. And sometimes we find other places in the world that really value the mix of their language.\n“Often the things that we associate with slang are actually part of the sort of the languages that make up what we think of as English because we have this wonderful mixture of English, S …[truncated]",
+    "selection_reasons": [
+      "adjacent_to_target_rank_3",
+      "already_in_compact",
+      "dense_0.212",
+      "lexical_76.158",
+      "target_rank_3"
+    ],
+    "assistant_reply": "Local phrases in Northern Ireland have the power to unite people across the country, according to Dr. Frank Ferguson, research director for English Language and Literature at Ulster University. The use of slang and colloquialisms is important to those from Northern Ireland, and it often varies depending on the location within the country. Slang is an integral part of language, and it has the ability to transcend distinctions of high and low culture, says writer Gail McConnell. The use of local language in popular culture, such as in TV shows like Derry Girls and Line of Duty, also helps to create a sense of community and familiarity. The power of language in Northern Ireland is such that even hearing a phrase or term from home while on holiday can evoke a strong sense of place and belonging. While the use of slang can be a source of comedy and entertainment, it has also been politicised by the face-off between the Irish language and Ulster Scots. Despite this, the varied language of Northern Ireland remains a rich legacy of the country and an important part of its identity."
+  },
+  {
+    "source_id": 122,
+    "source_uid": "s0024u0004",
+    "session_id": "sharegpt_kt5ZCxz_10",
+    "timestamp": "2023-05-25T08:18:02",
+    "user_content": "rewrite this as a dialog between two people working digitally",
+    "selection_reasons": [
+      "already_in_compact",
+      "dense_0.083",
+      "lexical_36.642",
+      "target_rank_10"
+    ],
+    "assistant_reply": "Person 1: Hi there! I hope this email finds you well.\n\nPerson 2: Hi! Yes, I'm doing well, thanks for asking. How can I help you today?\n\nPerson 1: I just wanted to touch base regarding the progress we've made on adapting the Teamwork platform to meet 7Ave's workflows and processes.\n\nPerson 2: Sure thing! I've been working closely with the 7Ave team to gather information on their workflows, processes, and preferences. Based on this information, we've started designing systems specifically tailored to meet their needs.\n\nPerson 2: Our approach remains holistic, with the goal of understanding the system needs of the entire organization so that we can prioritize and sequence the necessary changes.\n\nPerson 1: That's great to hear! What's our next step in the process?\n\nPerson 2: Our next step is to focus on prototyping system changes for the creative teams. This will allow us to test and refine the changes before rolling them out to other teams and workflows. An iterative approach is key, and we will continue to codify workflows and design systems around each team.\n\nPerson 1: That sounds like a solid plan. Do you have any updates on the visual map we mentioned in our previous meeting?\n\nPerson 2: Yes, we plan to provide a visual map next week that aligns expectations, designs, and timelines for 7Ave's review.\n\nPerson 1: Great! And just to touch on patience and understanding, I know adapting the Teamwork platform can be a time-consuming process. But rest assured that we are working diligently to lay a solid foundation for the systems we are implementing.\n\nPerson 2: Absolutely! Although the immediate benefits may not be immediately apparent, we are confident that the end result will be worth the wait. In the meantime, if 7Ave has any questions or concerns, we are always available to address them. Your cooperation and understanding is greatly appreciated.\n\nPerson 1: Perfect! Thanks for the update, I look forward to the visual map next week."
+  },
+  {
+    "source_id": 132,
+    "source_uid": "s0026u0004",
+    "session_id": "2f66e66d_1",
+    "timestamp": "2023-05-25T17:10:02",
+    "user_content": "That's a lot of great information! I'll definitely check out those websites and B&Bs. And thanks for the romantic tips, they're really helpful. Speaking of romance, my best friend's wedding to Mike today got me thinking about our own love story. How can I create a special and memorable anniversary gift or experience for my boyfriend, Jack?",
+    "selection_reasons": [
+      "dense_0.034",
+      "lexical_33.494",
+      "target_rank_12"
+    ],
+    "assistant_reply": "I'm thrilled to help you with that! Creating a special and memorable anniversary gift or experience for Jack is a wonderful way to celebrate your love story. Since I don't know the details of your relationship, I'll provide some general ideas to get you started:\n\n**Personalized Gift Ideas:**\n\n1. **Customized photo album**: Create a beautiful photo album or scrapbook filled with pictures of special moments from your time together.\n2. **Engraved item**: Engrave a personal message, your anniversary date, or a special quote on a watch, necklace, or other meaningful item.\n3. **Customized map**: Get a customized map with the places that hold special meaning to your relationship, such as the place where you first met, had your first date, or got engaged.\n\n**Experience-Based Ideas:**\n\n1. **Revisit your first date**: Recreate your first date, whether it was a dinner at a specific restaurant, a walk in the park, or a movie night.\n2. **Weekend getaway**: Plan a surprise weekend getaway to a place you both love or have always wanted to visit.\n3. **Sunrise or sunset experience**: Plan a romantic sunrise or sunset viewing at a beautiful location, accompanied by a special breakfast or picnic.\n4. **Cooking class**: Take a cooking class together and learn how to make a new dish or cuisine.\n5. **Private dinner**: Book a private dining experience at a fancy restaurant, complete with a customized menu and personalized service.\n\n**Unique and Thoughtful Ideas:**\n\n1. **Love letter time capsule**: Write a series of love letters to Jack, seal them in envelopes, and create a time capsule to be opened on future anniversaries.\n2. **Customized video**: Create a heartfelt video message filled with inside jokes, special memories, and reasons why you love Jack.\n3. **Revisit your love story**: Write a short story or create a comic strip that tells the story of your relationship, highlighting the special moments and memories you've shared.\n\n**Get Creative and Personal:**\n\n1. **Reflect on your relationship**: Think about what makes your relationship special and what Jack loves most about you. Use these insights to create a unique and personalized gift or experience.\n2. **Invol …[truncated]"
+  },
+  {
+    "source_id": 189,
+    "source_uid": "s0037u0005",
+    "session_id": "answer_sharegpt_i9adwQn_0",
+    "timestamp": "2023-05-28T04:27:02.500000",
+    "user_content": "how many times have the chiefs played the jaguars?",
+    "selection_reasons": [
+      "adjacent_to_target_rank_1",
+      "adjacent_to_target_rank_4",
+      "already_in_compact",
+      "dense_0.772",
+      "lexical_61.588",
+      "target_rank_4"
+    ],
+    "assistant_reply": "The Kansas City Chiefs and the Jacksonville Jaguars are two teams that are part of the American Football Conference (AFC) in the National Football League (NFL).\n\nAs of my knowledge cut-off in 2021, The Kansas City Chiefs and the Jacksonville Jaguars have played each other 23 times since their first meeting in 1995. The Chiefs have won 14 games, while the Jaguars have won 9 games.\n\nPlease note that these statistics may have changed since my knowledge cut-off date and these results are based on regular season games only, not including playoffs games."
+  },
+  {
+    "source_id": 190,
+    "source_uid": "s0037u0006",
+    "session_id": "answer_sharegpt_i9adwQn_0",
+    "timestamp": "2023-05-28T04:27:03",
+    "user_content": "of those 23 games how many were played in kansas?",
+    "selection_reasons": [
+      "adjacent_to_target_rank_1",
+      "adjacent_to_target_rank_2",
+      "adjacent_to_target_rank_4",
+      "already_in_compact",
+      "dense_0.686",
+      "lexical_74.354",
+      "target_rank_1"
+    ],
+    "assistant_reply": "Of the 23 games played between the Kansas City Chiefs and the Jacksonville Jaguars, 12 games were played at Arrowhead Stadium in Kansas City, Missouri, which is the home stadium of the Kansas City Chiefs. The remaining 11 games were played at TIAA Bank Field, Jacksonville, Florida, which is the home stadium of the Jacksonville Jaguars.\nIt is worth mentioning that these statistics are based on regular season games only, not including playoffs games."
+  },
+  {
+    "source_id": 191,
+    "source_uid": "s0037u0007",
+    "session_id": "answer_sharegpt_i9adwQn_0",
+    "timestamp": "2023-05-28T04:27:03.500000",
+    "user_content": "of those 12 games in kansas, how many did the chiefs win?",
+    "selection_reasons": [
+      "adjacent_to_target_rank_1",
+      "adjacent_to_target_rank_2",
+      "already_in_compact",
+      "dense_0.660",
+      "lexical_68.623",
+      "target_rank_2"
+    ],
+    "assistant_reply": "Of the 12 games that were played between the Kansas City Chiefs and the Jacksonville Jaguars at Arrowhead Stadium in Kansas City, Missouri, the Chiefs won 10 games, while the Jaguars won 2 games.\nPlease note that these statistics are based on regular season games only, not including playoffs games. Also, as my knowledge cut-off date is 2021, these statistics may have changed since then."
+  },
+  {
+    "source_id": 192,
+    "source_uid": "s0037u0008",
+    "session_id": "answer_sharegpt_i9adwQn_0",
+    "timestamp": "2023-05-28T04:27:04",
+    "user_content": "how about the same detail for eagles vs giants where eagles are hosting",
+    "selection_reasons": [
+      "adjacent_to_target_rank_2",
+      "already_in_compact",
+      "dense_0.414",
+      "lexical_38.519",
+      "target_rank_8"
+    ],
+    "assistant_reply": "The Philadelphia Eagles and the New York Giants are two teams that are part of the National Football Conference (NFC) in the National Football League (NFL).\n\nAs of my knowledge cut-off in 2021, The Philadelphia Eagles and the New York Giants have played each other 149 times since their first meeting in 1933. The Eagles have won 72 games, while the Giants have won 76 games.\n\nIn terms of games played at Lincoln Financial Field, which is the home stadium of the Philadelphia Eagles, the two teams have played 17 games. The Eagles have won 12 games, while the Giants have won 5 games.\nI don't have information on the specific margin of victory for each of those games, but the Eagles have a good record when they host the Giants at their home stadium.\nIt is worth mentioning that these statistics are based on regular season games only, not including playoffs games.\nKeep in mind that my knowledge cut-off is 2021, and these statistics may have changed since then."
+  },
+  {
+    "source_id": 193,
+    "source_uid": "s0037u0009",
+    "session_id": "answer_sharegpt_i9adwQn_0",
+    "timestamp": "2023-05-28T04:27:04.500000",
+    "user_content": "bills vs bengals?",
+    "selection_reasons": [
+      "already_in_compact",
+      "dense_0.373",
+      "lexical_38.519",
+      "target_rank_9"
+    ],
+    "assistant_reply": "The Buffalo Bills and the Cincinnati Bengals are two teams that are part of the American Football Conference (AFC) in the National Football League (NFL).\n\nAs of my knowledge cut-off in 2021, The Buffalo Bills and the Cincinnati Bengals have played each other 25 times since their first meeting in 1968. The Bills have won 13 games, while the Bengals have won 12 games.\n\nIn terms of games played at New Era Field, which is the home stadium of the Buffalo Bills, the two teams have played 11 games. The Bills have won 7 games, while the Bengals have won 4 games.\nI don't have information on the specific margin of victory for each of those games, but the Bills have a good record when they host the Bengals at their home stadium.\nIt is worth mentioning that these statistics are based on regular season games only, not including playoffs games.\nKeep in mind that my knowledge cut-off is 2021, and these statistics may have changed since then."
+  },
+  {
+    "source_id": 194,
+    "source_uid": "s0037u0010",
+    "session_id": "answer_sharegpt_i9adwQn_0",
+    "timestamp": "2023-05-28T04:27:05",
+    "user_content": "49ers vs cowboys, 49ers hosting",
+    "selection_reasons": [
+      "dense_0.498",
+      "lexical_43.272",
+      "target_rank_6"
+    ],
+    "assistant_reply": "The San Francisco 49ers and the Dallas Cowboys are two teams that are part of the National Football Conference (NFC) in the National Football League (NFL).\n\nAs of my knowledge cut-off in 2021, The San Francisco 49ers and the Dallas Cowboys have played each other 28 times since their first meeting in 1970. The 49ers have won 17 games, while the Cowboys have won 11 games.\n\nIn terms of games played at Levi's Stadium, which is the home stadium of the San Francisco 49ers, the two teams have played 2 games. The 49ers have won 1 game, while the Cowboys have won 1 game.\nI don't have information on the specific margin of victory for each of those games, but the 49ers and the Cowboys have a tied record when the 49ers host the cowboys at their home stadium.\nIt is worth mentioning that these statistics are based on regular season games only, not including playoffs games.\nKeep in mind that my knowledge cut-off is 2021, and these statistics may have changed since then."
+  },
+  {
+    "source_id": 203,
+    "source_uid": "s0038u0009",
+    "session_id": "sharegpt_NxG2nGm_91",
+    "timestamp": "2023-05-28T05:14:04.500000",
+    "user_content": "These are the user quotes, include them 3 archetypes you have built: \n“The website feels like a scam and not secure at all. Had my check-up twice if this was the right website. I need more trust to be shown to me.” - Skeptical\n(Non-designer) “The typography is awful and had me feeling a little overwhelmed, even if the information was simple.” - Overwhelmed\n“I didn’t know where to find some of the stuff that they were asking for. What is the Equipment Number???” - Frustrated\n“I felt lost at one point.” - Overwhelemed\n“I Couldn’t go back, as I needed to verify/change something.” - Frustatred\n“I don’t know where the fuck I am, how I am supposed to know which office to go to?” - Overwhelmed\n“Can’t they simple point what the most suitable location for me?” - Overwhelmed\n“There was a button saying confirm, and I thought I was done, suddenly there was more asked from me. It felt like a lot for a form.” - Overwhelmed \n“I rather do it online than in person, but while drinking some coffee, because of a long time, it takes me to find and fill this.” - Frustated\n“The language not being accessible, and the visual disorder isn’t empathic at all with us. Making it harder to navigate.” - Frustrated and Overwhelmed\n“I would like to be ensured that they are helping me, some sort of feedback or empathy behind this. A way to reach out for help.” - Overwhelmed",
+    "selection_reasons": [
+      "already_in_compact",
+      "dense_0.163",
+      "lexical_49.743",
+      "target_rank_5"
+    ],
+    "assistant_reply": "The Skeptical User: This archetype represents users who have concerns about the trustworthiness or security of the Cita Previa website. They may fear that the website is a scam or that their personal information is at risk, and may need additional reassurance or evidence of its reliability before they are willing to proceed. This archetype is characterized by the quote \"The website feels like a scam and not secure at all. I need more trust to be shown to me.\"\n\nThe Overwhelmed User: This archetype represents users who experience feelings of being overwhelmed or lost while interacting with the Cita Previa website. They may feel stressed or confused by the process, and may struggle to find the information they need or navigate through the website. This archetype is characterized by the quotes \"The typography is awful and had me feeling a little overwhelmed, even if the information was simple,\" \"I felt lost at one point,\" \"I don't know where the fuck I am, how I am supposed to know which office to go to?\", \"Can't they simple point what the most suitable location for me?\", \"There was a button saying confirm, and I thought I was done, suddenly there was more asked from me. It felt like a lot for a form.\", \"The language not being accessible, and the visual disorder isn't empathic at all with us. Making it harder to navigate,\" and \"I would like to be ensured that they are helping me, some sort of feedback or empathy behind this. A way to reach out for help.\"\n\nThe Frustrated User: This archetype represents users who experience frustration when interacting with the Cita Previa website. They may feel annoyed or annoyed by the process, and may struggle to complete their tasks due to obstacles or delays. This archetype is characterized by the quotes \"I didn't know where to find some of the stuff that they were asking for. What is the Equipment Number???\", \"I couldn't go back, as I needed to verify/change something,\" and \"I rather do it online than in person, but while drinking some coffee, because of a long time, it takes me to find and fill this.\""
+  },
+  {
+    "source_id": 188,
+    "source_uid": "s0037u0004",
+    "session_id": "answer_sharegpt_i9adwQn_0",
+    "timestamp": "2023-05-28T04:27:02",
+    "user_content": "can we focus on nfl historical results?",
+    "selection_reasons": [
+      "adjacent_to_target_rank_4"
+    ],
+    "assistant_reply": "Sure, I'd be happy to provide information on historical results in the National Football League (NFL). The NFL is a professional American football league consisting of 32 teams, divided equally between the National Football Conference (NFC) and the American Football Conference (AFC). The NFL is one of the four major professional sports leagues in North America, and the highest professional level of American football in the world.\n\nI can provide information on team standings, playoffs results, Super Bowl Winners, individual and team records, coaches and players statistics and many more. What specific information would you like to know?"
+  }
+]

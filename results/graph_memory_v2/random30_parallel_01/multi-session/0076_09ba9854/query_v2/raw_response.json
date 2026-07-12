@@ -1,0 +1,133 @@
+{
+  "question": "How much will I save by taking the train from the airport to my hotel instead of a taxi?",
+  "question_date": "2023-05-30T11:49:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's savings from taking train instead of taxi from airport to hotel",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "airport",
+        "hotel"
+      ],
+      "keywords": [
+        "train",
+        "taxi",
+        "cost",
+        "save",
+        "airport",
+        "hotel"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "2023-05-30",
+        "end": "2023-05-30",
+        "raw": "2023/05/30"
+      },
+      "locations": [
+        "airport",
+        "hotel"
+      ],
+      "state_keys": [
+        "train_cost",
+        "taxi_cost",
+        "savings"
+      ],
+      "relation_hints": [
+        "cost_of",
+        "alternative_to"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "train_cost",
+        "taxi_cost"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user's preference for train over taxi from airport to hotel",
+      "target_memory_types": [
+        "preference"
+      ],
+      "entities": [
+        "airport",
+        "hotel"
+      ],
+      "keywords": [
+        "prefer",
+        "train",
+        "taxi",
+        "airport",
+        "hotel"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30",
+        "raw": "before now"
+      },
+      "locations": [
+        "airport",
+        "hotel"
+      ],
+      "state_keys": [
+        "transport_preference"
+      ],
+      "relation_hints": [
+        "prefers_over"
+      ],
+      "answer_dim": "preference",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "transport_preference"
+      ],
+      "confidence": 0.3
+    },
+    {
+      "query_anchor": "the user's previous experience with train or taxi from airport to hotel",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "airport",
+        "hotel"
+      ],
+      "keywords": [
+        "took",
+        "train",
+        "taxi",
+        "airport",
+        "hotel",
+        "cost"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-30",
+        "raw": "before now"
+      },
+      "locations": [
+        "airport",
+        "hotel"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "experienced_cost"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "episodic_cost"
+      ],
+      "confidence": 0.2
+    }
+  ]
+}

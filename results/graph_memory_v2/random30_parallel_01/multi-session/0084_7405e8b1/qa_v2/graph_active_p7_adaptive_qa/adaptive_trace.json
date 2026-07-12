@@ -1,0 +1,203 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:timeline"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "other",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "first_order_discount_percentage_HelloFresh",
+        "query": "discount percentage on first HelloFresh order",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "first_order_discount_percentage_UberEats",
+        "query": "discount percentage on first UberEats order",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "discount percentage on first HelloFresh order",
+      "discount percentage on first UberEats order"
+    ],
+    "output_constraints": [
+      "Answer must be a boolean: yes if HelloFresh discount > UberEats discount, no otherwise."
+    ],
+    "reason": "The question compares two specific numeric values (discount percentages) from the user's first orders with two services. It requires retrieving each discount percentage and then comparing them. No composition or semantic bridging is needed beyond direct retrieval."
+  },
+  "base_candidate": {
+    "answer": "Yes, the user received a 40% discount on their first HelloFresh order, which is higher than the 20% discount on their first UberEats order.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033c7e58fcdd1a6932f8",
+      "m_477b1700f08c124e7f4a"
+    ],
+    "support_source_ids": [
+      57,
+      149
+    ],
+    "required_slots": [
+      {
+        "name": "first_order_discount_percentage_HelloFresh",
+        "value": "40%",
+        "support_memory_ids": [
+          "m_033c7e58fcdd1a6932f8"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "name": "first_order_discount_percentage_UberEats",
+        "value": "20%",
+        "support_memory_ids": [
+          "m_477b1700f08c124e7f4a"
+        ],
+        "support_source_ids": [
+          149
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "other",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_033c7e58fcdd1a6932f8 (source 57) states the user got a 40% discount on their first HelloFresh order. Memory m_477b1700f08c124e7f4a (source 149) states the user got 20% off their UberEats order last week, which is the first UberEats order mentioned. Comparing 40% > 20%, the answer is yes."
+  },
+  "specialist_candidate": {
+    "answer": "yes",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033c7e58fcdd1a6932f8",
+      "m_477b1700f08c124e7f4a"
+    ],
+    "support_source_ids": [
+      57,
+      149
+    ],
+    "required_slots": [
+      {
+        "name": "first_order_discount_percentage_HelloFresh",
+        "value": 40,
+        "support_memory_ids": [
+          "m_033c7e58fcdd1a6932f8"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "name": "first_order_discount_percentage_UberEats",
+        "value": 20,
+        "support_memory_ids": [
+          "m_477b1700f08c124e7f4a"
+        ],
+        "support_source_ids": [
+          149
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "other",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "received discount on first HelloFresh order",
+        "object": "40%",
+        "value": "40",
+        "unit": "percent",
+        "event_time": "2023-05-23T07:40:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_033c7e58fcdd1a6932f8"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "received discount on first UberEats order",
+        "object": "20%",
+        "value": "20",
+        "unit": "percent",
+        "event_time": "2023-05-21T00:00:00",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_477b1700f08c124e7f4a"
+        ],
+        "support_source_ids": [
+          149
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "User stated they got a 40% discount on their first HelloFresh order (source 57) and a 20% discount on their UberEats order (source 149). Since 40% > 20%, the answer is yes."
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist candidate provides a concise boolean answer as required by the answer contract, fills all required slots with numeric values, and has higher confidence.",
+  "compact_source_ids": [
+    57,
+    149,
+    59,
+    151,
+    217,
+    211,
+    17,
+    163,
+    194,
+    212,
+    41,
+    153,
+    154,
+    196,
+    62,
+    150,
+    152,
+    60,
+    58
+  ],
+  "targeted_source_ids": [
+    14,
+    57,
+    59,
+    67,
+    68,
+    78,
+    104,
+    105,
+    149,
+    153,
+    154,
+    196,
+    58,
+    106,
+    150
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "question_id": "5e1b23de",
+  "question_type": "temporal-reasoning",
+  "question": "How many months ago did I attend the photography workshop?",
+  "question_date": "2024/02/01 (Thu) 18:06",
+  "gold_answer": "3",
+  "prediction": "92 days",
+  "support_memory_ids": [
+    "m_fcaf300162fc7c96953a"
+  ],
+  "support_source_ids": [
+    79
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user attended a 3-day photography workshop on 2023-11-01 (memory m_fcaf300162fc7c96953a, source 79). The question date is 2024-02-01. The difference is exactly 3 months.",
+  "required_slots": [
+    {
+      "name": "date of photography workshop attendance",
+      "value": "2023-11-01",
+      "support_memory_ids": [
+        "m_fcaf300162fc7c96953a"
+      ],
+      "support_source_ids": [
+        79
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-11-01",
+      "2024-02-01"
+    ],
+    "unit": "months",
+    "result": "92 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    79,
+    81,
+    70,
+    84,
+    25,
+    20,
+    95,
+    23,
+    7,
+    97,
+    168,
+    173,
+    83,
+    138,
+    197,
+    80,
+    71,
+    96,
+    78,
+    98,
+    172
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    4.490000000000001,
+    4.490000000000001
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 79662,
+    "completion_tokens": 868,
+    "elapsed_seconds": 11.92683219909668
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "person name",
+        "query": "President's Chief Advisor for Science and Technology mentioned in article about fusion breakthrough at Lawrence Livermore National Laboratory",
+        "semantic_type": "entity",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "President's Chief Advisor for Science and Technology fusion breakthrough Lawrence Livermore National Laboratory"
+    ],
+    "output_constraints": [
+      "single person name"
+    ],
+    "reason": "The user asks to be reminded of a name mentioned in a previous conversation about a specific article. This requires recalling the assistant's own prior reply, so the answer contract is assistant_recall."
+  },
+  "base_candidate": {
+    "answer": "Dr. Arati Prabhakar",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_da3a7ea366f105473f60"
+    ],
+    "support_source_ids": [
+      161
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The structured memory m_da3a7ea366f105473f60 and its associated source turn (source_id 161) contain the assistant's reply listing 'Dr. Arati Prabhakar' as 'President's Chief Advisor for Science and Technology' in the context of the fusion breakthrough article at Lawrence Livermore National Laboratory."
+  },
+  "specialist_candidate": {
+    "answer": "Dr. Arati Prabhakar",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_da3a7ea366f105473f60"
+    ],
+    "support_source_ids": [
+      161
+    ],
+    "required_slots": [
+      {
+        "name": "person name",
+        "value": "Dr. Arati Prabhakar",
+        "support_memory_ids": [
+          "m_da3a7ea366f105473f60"
+        ],
+        "support_source_ids": [
+          161
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [],
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's prior reply (source 161) explicitly lists 'Dr. Arati Prabhakar' as 'President's Chief Advisor for Science and Technology' in the context of the fusion breakthrough article. Memory m_da3a7ea366f105473f60 also records this entity with role 'Chief Advisor for Science and Technology'. Therefore, the answer is directly recalled."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    161,
+    178,
+    181,
+    179,
+    63,
+    180,
+    232,
+    84,
+    177,
+    87,
+    244,
+    231,
+    89,
+    75,
+    226,
+    61,
+    176,
+    72,
+    107,
+    62,
+    64,
+    233,
+    85,
+    83
+  ],
+  "targeted_source_ids": [
+    38,
+    49,
+    61,
+    72,
+    75,
+    89,
+    107,
+    108,
+    161,
+    162,
+    176,
+    226,
+    74,
+    76,
+    88,
+    90,
+    227
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "question_id": "b29f3365",
+  "question_type": "temporal-reasoning",
+  "question": "How long had I been taking guitar lessons when I bought the new guitar amp?",
+  "question_date": "2023/05/25 (Thu) 19:07",
+  "gold_answer": "Four weeks",
+  "prediction": "28 days",
+  "support_memory_ids": [
+    "m_712360bcc39440216f23",
+    "m_9c82704730683325b421"
+  ],
+  "support_source_ids": [
+    140,
+    143
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User stated taking weekly guitar lessons for six weeks as of 2023-05-25, implying start date 2023-04-13. User stated buying new guitar amp two weeks ago as of 2023-05-25, implying purchase date 2023-05-11. Difference is 28 days.",
+  "required_slots": [
+    {
+      "name": "start date of guitar lessons",
+      "value": "2023-04-13",
+      "support_memory_ids": [
+        "m_712360bcc39440216f23"
+      ],
+      "support_source_ids": [
+        140
+      ]
+    },
+    {
+      "name": "date of buying guitar amp",
+      "value": "2023-05-11",
+      "support_memory_ids": [
+        "m_9c82704730683325b421"
+      ],
+      "support_source_ids": [
+        143
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-04-13",
+      "2023-05-11"
+    ],
+    "unit": "days",
+    "result": "28 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:temporal"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "start date of guitar lessons",
+        "query": "When did I start taking guitar lessons?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "date of buying guitar amp",
+        "query": "When did I buy the new guitar amp?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "When did I start taking guitar lessons?",
+      "When did I buy the new guitar amp?"
+    ],
+    "output_constraints": [
+      "Answer must be a duration in days or weeks."
+    ],
+    "reason": "The question asks for the time interval between two events: starting guitar lessons and buying a guitar amp. Both events are historical and need to be retrieved. The answer is computed as the difference in days between the two dates."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32200,
+    "completion_tokens": 844,
+    "elapsed_seconds": 9.269448518753052
+  },
+  "correct": true,
+  "judge_reason": "Four weeks is equivalent to 28 days.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 137,
+    "completion_tokens": 24,
+    "elapsed_seconds": 1.1743335723876953
+  }
+}

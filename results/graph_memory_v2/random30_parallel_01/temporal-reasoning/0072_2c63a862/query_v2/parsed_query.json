@@ -1,0 +1,100 @@
+{
+  "question": "How many days did it take for me to find a house I loved after starting to work with Rachel?",
+  "question_date": "2022-03-02T10:19:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user started working with Rachel",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "Rachel"
+      ],
+      "keywords": [
+        "started",
+        "working",
+        "Rachel"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user found a house they loved",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [],
+      "keywords": [
+        "found",
+        "house",
+        "loved"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": ""
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.9
+    },
+    {
+      "query_anchor": "the user found a house they loved after starting to work with Rachel",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "Rachel"
+      ],
+      "keywords": [
+        "house",
+        "loved",
+        "found",
+        "Rachel"
+      ],
+      "time_constraint": {
+        "operator": "after",
+        "start": "",
+        "end": "",
+        "raw": "after starting to work with Rachel"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "temporal_sequence"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "date started working with Rachel",
+        "date found house"
+      ],
+      "confidence": 0.8
+    }
+  ]
+}

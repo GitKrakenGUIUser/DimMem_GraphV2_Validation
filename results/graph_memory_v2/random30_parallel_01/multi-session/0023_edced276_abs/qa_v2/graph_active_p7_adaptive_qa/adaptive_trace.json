@@ -1,0 +1,182 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots",
+    "specialist_contract:count"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "total days in Hawaii",
+        "query": "days spent in Hawaii",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "total days in Seattle",
+        "query": "days spent in Seattle",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "days spent in Hawaii",
+      "days spent in Seattle"
+    ],
+    "output_constraints": [
+      "sum of two numbers in days"
+    ],
+    "reason": "The question asks for total days spent in Hawaii and Seattle combined, requiring summing two separate counts."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "total days in Hawaii",
+      "total days in Seattle"
+    ],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [],
+      "unit": "days",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source specifies the number of days the user spent in Hawaii or Seattle. The Hawaii trip is mentioned as an 'island-hopping trip' but no duration is given. Seattle is not mentioned in any memory or source turn."
+  },
+  "specialist_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a70c2d4add5c63196cd8",
+      "m_b05e4cd7e41ed11b7b47"
+    ],
+    "support_source_ids": [
+      52,
+      110
+    ],
+    "required_slots": [
+      {
+        "name": "total days in Hawaii",
+        "value": "0",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "total days in Seattle",
+        "value": "0",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "total days in Hawaii",
+      "total days in Seattle"
+    ],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        0,
+        0
+      ],
+      "unit": "days",
+      "result": "0"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "visited",
+        "object": "Hawaii",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-05-23T00:21:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_a70c2d4add5c63196cd8"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "visited",
+        "object": "New York City",
+        "value": "5",
+        "unit": "days",
+        "event_time": "2023-05-24T22:17:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_b05e4cd7e41ed11b7b47"
+        ],
+        "support_source_ids": [
+          110
+        ]
+      }
+    ],
+    "confidence": 0.0,
+    "reasoning_summary": "No memory contains any information about days spent in Hawaii or Seattle. The user mentioned returning from a Hawaii trip but did not specify duration. No mention of Seattle at all. Therefore both slots are unfilled, and the sum is 0."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    52,
+    112,
+    110,
+    114,
+    83,
+    223,
+    66,
+    220,
+    63,
+    64,
+    169,
+    14,
+    258,
+    272,
+    168,
+    113,
+    111,
+    53,
+    224,
+    222
+  ],
+  "targeted_source_ids": [
+    52,
+    90,
+    110,
+    112,
+    114,
+    166,
+    175,
+    224,
+    233,
+    237,
+    268,
+    272,
+    53,
+    111,
+    113,
+    236,
+    238
+  ]
+}

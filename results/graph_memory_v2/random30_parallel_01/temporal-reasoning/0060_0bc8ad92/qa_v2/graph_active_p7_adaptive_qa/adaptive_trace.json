@@ -1,0 +1,152 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "date_difference_days",
+    "target_count": 1,
+    "temporal_perspective": "relative",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "date of last museum visit with friend",
+        "query": "When did I last visit a museum with a friend?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "last museum visit with friend date"
+    ],
+    "output_constraints": [
+      "number of months as integer"
+    ],
+    "reason": "Need the date of the last museum visit with a friend to compute months passed from question date."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "date of last museum visit with friend"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source provides a date for the user's last museum visit with a friend. The only museum visit with a friend (Science Museum) has an imprecise time 'today (2022-10-22)' but the question asks for the last visit, and there is no evidence that this is the most recent. Other museum visits are with different companions (dad) or solo. Therefore, the required date cannot be determined."
+  },
+  "specialist_candidate": {
+    "answer": "36 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_0522e2638014f71ef9a2"
+    ],
+    "support_source_ids": [
+      129
+    ],
+    "required_slots": [
+      {
+        "name": "date of last museum visit with friend",
+        "value": "2023-02-17",
+        "support_memory_ids": [
+          "m_0522e2638014f71ef9a2"
+        ],
+        "support_source_ids": [
+          129
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-17",
+        "2023-03-25"
+      ],
+      "unit": "month",
+      "result": "36 days"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "last visited museum with friend",
+        "object": "Natural History Museum",
+        "value": "2023-02-17",
+        "unit": "date",
+        "event_time": "2023-02-17",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_0522e2638014f71ef9a2"
+        ],
+        "support_source_ids": [
+          129
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The last museum visit with a friend was on 2023-02-17 (Natural History Museum with dad). From that date to the question date 2023-03-25 is 1 month and 8 days, which rounds to 1 month. However, the question asks 'how many months have passed', and the difference is slightly over one month, so the answer is 1 month. But the plan expects integer months, and the difference is 1 month and 8 days, so 1 month has passed.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    49,
+    46,
+    48,
+    167,
+    133,
+    129,
+    166,
+    134,
+    58,
+    168,
+    169,
+    194,
+    197,
+    7,
+    32,
+    8,
+    50,
+    130,
+    59,
+    47
+  ],
+  "targeted_source_ids": [
+    7,
+    46,
+    48,
+    49,
+    129,
+    134,
+    166,
+    167,
+    168,
+    170,
+    171,
+    218,
+    47,
+    50,
+    217
+  ]
+}

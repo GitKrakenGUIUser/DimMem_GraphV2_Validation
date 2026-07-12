@@ -1,0 +1,79 @@
+{
+  "question_id": "8cf51dda",
+  "question_type": "single-session-assistant",
+  "question": "I'm going back to our previous conversation about the grant aim page on molecular subtypes and endometrial cancer. Can you remind me what were the three objectives we outlined for the project?",
+  "question_date": "2023/05/30 (Tue) 22:24",
+  "gold_answer": "The three objectives were: 1) to identify molecular subtypes of endometrial cancer, 2) to investigate their clinical and biological significance, and 3) to develop biomarkers for early detection and prognosis.",
+  "prediction": "The three objectives were: 1) To identify molecular subtypes of endometrial cancer using a combination of genomic and transcriptomic approaches. 2) To investigate the clinical and biological significance of the identified molecular subtypes, including their association with patient outcomes and response to therapy. 3) To develop biomarkers for the early detection and prognosis of endometrial cancer based on the identified molecular subtypes.",
+  "support_memory_ids": [],
+  "support_source_ids": [
+    190
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Source 190 contains the assistant's reply to 'write a grants aim page on molecular subtypes and endometrial cancer', which lists exactly three objectives. The user asks to recall those three objectives from a previous conversation. The source directly provides the objectives.",
+  "required_slots": [
+    {
+      "name": "assistant_reply",
+      "value": "The three objectives were: 1) To identify molecular subtypes of endometrial cancer using a combination of genomic and transcriptomic approaches. 2) To investigate the clinical and biological significance of the identified molecular subtypes, including their association with patient outcomes and response to therapy. 3) To develop biomarkers for the early detection and prognosis of endometrial cancer based on the identified molecular subtypes.",
+      "support_memory_ids": [],
+      "support_source_ids": [
+        190
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "The specialist candidate fills the required 'assistant_reply' slot and explicitly matches the answer contract for assistant_recall, while the compact candidate omits the slot.",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 3,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "assistant_reply",
+        "query": "grant aim page molecular subtypes endometrial cancer three objectives",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "grant aim page molecular subtypes endometrial cancer three objectives"
+    ],
+    "output_constraints": [
+      "list the three objectives exactly as previously stated"
+    ],
+    "reason": "The user asks to recall three objectives from a previous conversation about a grant aim page on molecular subtypes and endometrial cancer. This is an assistant-recall question requiring retrieval of the assistant's prior reply."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 37838,
+    "completion_tokens": 877,
+    "elapsed_seconds": 9.47741436958313
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer in all three objectives, with additional detail that does not change the meaning.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 264,
+    "completion_tokens": 36,
+    "elapsed_seconds": 1.6570017337799072
+  }
+}

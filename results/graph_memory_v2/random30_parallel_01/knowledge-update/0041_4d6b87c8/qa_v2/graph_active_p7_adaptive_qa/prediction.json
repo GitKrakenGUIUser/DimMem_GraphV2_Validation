@@ -1,0 +1,79 @@
+{
+  "question_id": "4d6b87c8",
+  "question_type": "knowledge-update",
+  "question": "How many titles are currently on my to-watch list?",
+  "question_date": "2023/06/03 (Sat) 15:47",
+  "gold_answer": "25",
+  "prediction": "25",
+  "support_memory_ids": [
+    "m_369e393afb314209e13c",
+    "m_6c74b48dbbe6eb840e87"
+  ],
+  "support_source_ids": [
+    228,
+    232
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user stated on 2023-05-22 that their to-watch list has 25 titles (sources 228 and 232). No later evidence contradicts or updates this count. Therefore, as of the question date 2023-06-03, the current count remains 25.",
+  "required_slots": [
+    {
+      "name": "to-watch list count",
+      "value": "25",
+      "support_memory_ids": [
+        "m_369e393afb314209e13c",
+        "m_6c74b48dbbe6eb840e87"
+      ],
+      "support_source_ids": [
+        228,
+        232
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "to-watch list count",
+        "query": "to-watch list count",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "to-watch list count"
+    ],
+    "output_constraints": [
+      "answer must be a number"
+    ],
+    "reason": "The question asks for the current number of titles on the user's to-watch list, which is a state value that can be resolved from the most recent evidence."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 28323,
+    "completion_tokens": 598,
+    "elapsed_seconds": 7.143120765686035
+  }
+}

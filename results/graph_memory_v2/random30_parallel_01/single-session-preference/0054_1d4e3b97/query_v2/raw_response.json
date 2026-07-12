@@ -1,0 +1,121 @@
+{
+  "question": "I noticed my bike seems to be performing even better during my Sunday group rides. Could there be a reason for this?",
+  "question_date": "2024-02-20T23:40:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's bike performance during Sunday group rides",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "the user",
+        "bike"
+      ],
+      "keywords": [
+        "bike performance",
+        "Sunday group rides"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "Sunday"
+      },
+      "locations": [],
+      "state_keys": [
+        "bike_performance"
+      ],
+      "relation_hints": [
+        "caused_by"
+      ],
+      "answer_dim": "reason",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "recent maintenance",
+        "weather conditions",
+        "route changes"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's recent bike maintenance or upgrades",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "the user",
+        "bike"
+      ],
+      "keywords": [
+        "bike maintenance",
+        "upgrades",
+        "repairs"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2024-02-20T23:40:00",
+        "raw": "recent"
+      },
+      "locations": [],
+      "state_keys": [
+        "bike_condition"
+      ],
+      "relation_hints": [
+        "caused_by"
+      ],
+      "answer_dim": "reason",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "maintenance date",
+        "type of service"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's Sunday group ride conditions",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "the user",
+        "group ride"
+      ],
+      "keywords": [
+        "Sunday group ride",
+        "conditions",
+        "route"
+      ],
+      "time_constraint": {
+        "operator": "on",
+        "start": "",
+        "end": "",
+        "raw": "Sunday"
+      },
+      "locations": [],
+      "state_keys": [
+        "ride_conditions"
+      ],
+      "relation_hints": [
+        "caused_by"
+      ],
+      "answer_dim": "reason",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "weather",
+        "route profile",
+        "group dynamics"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "answer": "28 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_712360bcc39440216f23",
+      "m_9c82704730683325b421"
+    ],
+    "support_source_ids": [
+      140,
+      143
+    ],
+    "required_slots": [
+      {
+        "name": "start date of guitar lessons",
+        "value": "2023-04-13",
+        "support_memory_ids": [
+          "m_712360bcc39440216f23"
+        ],
+        "support_source_ids": [
+          140
+        ]
+      },
+      {
+        "name": "date of buying guitar amp",
+        "value": "2023-05-11",
+        "support_memory_ids": [
+          "m_9c82704730683325b421"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-13",
+        "2023-05-11"
+      ],
+      "unit": "weeks",
+      "result": "28 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User started guitar lessons with Alex on 2023-04-13 (six weeks before 2023-05-25) and bought a new guitar amp on 2023-05-11 (two weeks before 2023-05-25). The difference between these dates is 28 days, which is 4 weeks.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "28 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_712360bcc39440216f23",
+      "m_9c82704730683325b421"
+    ],
+    "support_source_ids": [
+      140,
+      143
+    ],
+    "required_slots": [
+      {
+        "name": "guitar lessons start date",
+        "value": "2023-04-13",
+        "support_memory_ids": [
+          "m_712360bcc39440216f23"
+        ],
+        "support_source_ids": [
+          140
+        ]
+      },
+      {
+        "name": "guitar amp purchase date",
+        "value": "2023-05-11",
+        "support_memory_ids": [
+          "m_9c82704730683325b421"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-13",
+        "2023-05-11"
+      ],
+      "unit": "days",
+      "result": "28 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User started guitar lessons with Alex on 2023-04-13 (six weeks before 2023-05-25) and bought a new guitar amp on 2023-05-11 (two weeks before 2023-05-25). The difference is 28 days, which is 4 weeks.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

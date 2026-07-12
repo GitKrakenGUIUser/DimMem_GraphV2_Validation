@@ -1,0 +1,112 @@
+[2023-03-10T11:47:00.500000, Fri] 1.User: How do you think tourist attractions impact the local economy?
+[2023-03-10T11:47:01, Fri] 2.User: Yeah, I've seen how crowded some tourist spots can get, but it's good to hear that it can also bring new jobs and growth to the area. Do you know of any examples where tourist attractions have had a particularly positive impact on a local economy?
+[2023-03-10T11:47:01.500000, Fri] 3.User: Wow, those are great examples! I never thought about how much the local economy could benefit from tourist attractions. Do you have any tips on how to support the local economy while traveling?
+[2023-03-11T06:47:00.500000, Sat] 4.User: give me the detail about the Browser page
+[2023-03-11T06:47:01, Sat] 5.User: next i have created the page for the semester based notes inside the StudIQ project .
+once the user selects the branch from the Browser page .The User will directed to the home page of Semerters.
+this page will have all semester button at the left side . the 5th sem will be the home page .therefor the the center of the page contains the subject of the 5Th semester .
+[2023-03-11T06:47:01.500000, Sat] 6.User: give me the detail about the semester-based notes page
+[2023-03-11T06:47:02, Sat] 7.User: give me in paragraph
+[2023-03-11T06:47:02.500000, Sat] 8.User: Can You give me the 2-3 test cases in my project STudIQ
+[2023-03-11T06:47:03, Sat] 9.User: can you dexrcibe the test cases
+[2023-03-11T06:47:03.500000, Sat] 10.User: can you give in table format
+[2023-03-11T06:47:04, Sat] 11.User: let the table contains the status,error ,result
+[2023-03-15T12:33:00.500000, Wed] 12.User: I just need the JS file
+[2023-03-15T12:33:01, Wed] 13.User: Let's go back to the JS file from before. Here it is:
+
+const buttonList = document.querySelectorAll('input[type=button]')
+const telInput = document.querySelector('input[type=tel]')
+telInput.tabIndex = -1
+telInput.focus()
+
+function setupButtonEventListeners(button) {
+ const events = [
+ {event: "mousedown", action: () => button.classList.add("ativa")},
+ {event: "mouseup", action: () => button.classList.remove("ativa")},
+ {event: "keydown", action: (e) => {
+ if (e.key === " " || e.key === "Enter") button.classList.add("ativa")
+ }},
+ {event: "keyup", action: () => button.classList.remove("ativa")},
+ {event: "click", action: () => telInput.value += button.value},
+ ];
+
+ events.forEach(({event, action}) => {
+ button.addEventListener(event, action);
+ });
+}
+
+for (let index = 0; index < buttonList.length; index++) {
+ const button = buttonList[index]
+ button.tabIndex = index + 1
+ setupButtonEventListeners(button)
+}
+
+const firstButton = buttonList[0]
+firstButton.addEventListener("keydown", e => {
+ if (e.key === "Tab" && e.shiftKey) {
+ e.preventDefault()
+ telInput.focus()
+ }
+})
+
+telInput.addEventListener("keydown", e => {
+ if (e.key === " " || e.key === "Enter") telInput.classList.add("ativa")
+});
+
+telInput.addEventListener("keyup", () => telInput.classList.remove("ativa"))
+
+How do I use a forEach method in the following lines?:
+
+telInput.addEventListener("keydown", e => {
+ if (e.key === " " || e.key === "Enter") telInput.classList.add("ativa")
+});
+
+telInput.addEventListener("keyup", () => telInput.classList.remove("ativa"))
+[2023-03-15T12:33:01.500000, Wed] 14.User: Wonderful! Here's the complete JS code as it stands:
+
+const buttonList = document.querySelectorAll('input[type=button]')
+const telInput = document.querySelector('input[type=tel]')
+telInput.tabIndex = -1
+telInput.focus()
+
+function setupButtonEventListeners(button) {
+ const events = [
+ {event: "mousedown", action: () => button.classList.add("ativa")},
+ {event: "mouseup", action: () => button.classList.remove("ativa")},
+ {event: "keydown", action: (e) => {
+ if (e.key === " " || e.key === "Enter") button.classList.add("ativa")
+ }},
+ {event: "keyup", action: () => button.classList.remove("ativa")},
+ {event: "click", action: () => telInput.value += button.value},
+ ];
+
+ events.forEach(({event, action}) => {
+ button.addEventListener(event, action);
+ });
+}
+
+for (let index = 0; index < buttonList.length; index++) {
+ const button = buttonList[index]
+ button.tabIndex = index + 1
+ setupButtonEventListeners(button)
+}
+
+const firstButton = buttonList[0]
+firstButton.addEventListener("keydown", e => {
+ if (e.key === "Tab" && e.shiftKey) {
+ e.preventDefault()
+ telInput.focus()
+ }
+})
+
+const telEvents = [
+ {event: "keydown", action: e => {
+ if (e.key === " " || e.key === "Enter") telInput.classList.add("ativa")
+ }},
+ {event: "keyup", action: () => telInput.classList.remove("ativa")},
+];
+
+telEvents.forEach(({event, action}) => {
+ telInput.addEventListener(event, action);
+});
+[2023-03-15T12:33:02, Wed] 15.User: So how can we further refactor the entire code to make it more readable?
