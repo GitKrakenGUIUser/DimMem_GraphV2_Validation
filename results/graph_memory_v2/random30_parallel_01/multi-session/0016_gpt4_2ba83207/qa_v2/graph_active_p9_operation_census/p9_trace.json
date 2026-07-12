@@ -1,0 +1,318 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:argmax_or_argmin"
+  ],
+  "contract": "argmax_or_argmin",
+  "expansion": {
+    "queries": [
+      "Which grocery store did I spend the most money at in the past month?",
+      "grocery store spending past month",
+      "most spent at grocery store last month",
+      "grocery store purchases total amount",
+      "supermarket expenses highest",
+      "grocery store bills largest"
+    ],
+    "relation_verbs": [
+      "spent at",
+      "paid at",
+      "bought from",
+      "purchased at",
+      "charged at",
+      "total at"
+    ],
+    "entity_hints": [
+      "grocery store",
+      "supermarket",
+      "food store",
+      "market",
+      "grocery chain",
+      "store name"
+    ],
+    "time_scope": {
+      "start": "2023-04-30T22:59:00",
+      "end": "2023-05-30T22:59:00",
+      "raw": "past month"
+    }
+  },
+  "plan": {
+    "answer_contract": "argmax_or_argmin",
+    "operation": "argmax",
+    "slots": [
+      {
+        "name": "candidate_entities_or_groups",
+        "query": "Which grocery store did I spend the most money at in the past month?",
+        "semantic_type": "entity",
+        "required": true
+      },
+      {
+        "name": "numeric_values_for_each_candidate",
+        "query": "grocery store spending past month",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Which grocery store did I spend the most money at in the past month?",
+      "grocery store spending past month",
+      "most spent at grocery store last month",
+      "grocery store purchases total amount",
+      "supermarket expenses highest",
+      "grocery store bills largest"
+    ],
+    "relation_verbs": [
+      "spent at",
+      "paid at",
+      "bought from",
+      "purchased at",
+      "charged at",
+      "total at"
+    ],
+    "entity_hints": [
+      "grocery store",
+      "supermarket",
+      "food store",
+      "market",
+      "grocery chain",
+      "store name"
+    ],
+    "time_scope": {
+      "start": "2023-04-30T22:59:00",
+      "end": "2023-05-30T22:59:00",
+      "raw": "past month"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Walmart",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6c28aff13f8cb5bd521f"
+    ],
+    "support_source_ids": [
+      147
+    ],
+    "required_slots": [
+      {
+        "name": "grocery store",
+        "value": "Walmart",
+        "support_memory_ids": [
+          "m_6c28aff13f8cb5bd521f"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user spent $120 at Walmart on 2023-05-20, which is within the past month (2023-04-30 to 2023-05-30). The only other grocery store spending mentioned is $80 at Trader Joe's (split between two people, so ~$40 for the user) and $60 at Publix via Instacart. Walmart's $120 is the highest single-store amount."
+  },
+  "p7_candidate": {
+    "answer": "Walmart",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6c28aff13f8cb5bd521f"
+    ],
+    "support_source_ids": [
+      147
+    ],
+    "required_slots": [
+      {
+        "name": "grocery store",
+        "value": "Walmart",
+        "support_memory_ids": [
+          "m_6c28aff13f8cb5bd521f"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user spent $120 at Walmart on 2023-05-20, which is within the past month (2023-04-30 to 2023-05-30). The only other grocery store spending mentioned is $80 at Trader Joe's (split between two people, so ~$40 for the user) and $60 at Publix via Instacart. Walmart's $120 is the highest single-store amount."
+  },
+  "p8_candidate": {
+    "answer": "Walmart",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6c28aff13f8cb5bd521f"
+    ],
+    "support_source_ids": [
+      147
+    ],
+    "required_slots": [
+      {
+        "name": "grocery store",
+        "value": "Walmart",
+        "support_memory_ids": [
+          "m_6c28aff13f8cb5bd521f"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user spent $120 at Walmart on 2023-05-20, which is within the past month (2023-04-30 to 2023-05-30). The only other grocery store spending mentioned is $80 at Trader Joe's (split between two people, so ~$40 for the user) and $60 at Publix via Instacart. Walmart's $120 is the highest single-store amount."
+  },
+  "specialist_candidate": {
+    "answer": "Walmart",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6c28aff13f8cb5bd521f"
+    ],
+    "support_source_ids": [
+      147
+    ],
+    "required_slots": [
+      {
+        "name": "grocery store",
+        "value": "Walmart",
+        "support_memory_ids": [
+          "m_6c28aff13f8cb5bd521f"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "argmax",
+      "items": [
+        {
+          "label": "Walmart",
+          "value": 120,
+          "unit": "USD",
+          "date": "2023-05-20",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_6c28aff13f8cb5bd521f"
+          ],
+          "support_source_ids": [
+            147
+          ]
+        },
+        {
+          "label": "Trader Joe's",
+          "value": 80,
+          "unit": "USD",
+          "date": "2023-05-22",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_14e588c9c4c90917438b"
+          ],
+          "support_source_ids": [
+            198
+          ]
+        },
+        {
+          "label": "Publix",
+          "value": 60,
+          "unit": "USD",
+          "date": "2023-05-23",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_e8f02dc7ec5cc2f95f88"
+          ],
+          "support_source_ids": [
+            223
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Walmart"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "All grocery store spending in the past month (2023-04-30 to 2023-05-30) is accounted for: Walmart $120, Trader Joe's $80, Publix $60. Walmart is the highest."
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user spent $120 at Walmart on 2023-05-20, $80 at Trader Joe's (week of 2023-05-22), and $60 at Publix via Instacart (week of 2023-05-23). Walmart's $120 is the highest amount.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_6c28aff13f8cb5bd521f",
+    "m_14e588c9c4c90917438b",
+    "m_dd58500da9d4cfb79575",
+    "m_45777437001d843b5e33",
+    "m_43e266c528c4b134ac9d",
+    "m_c4fe738ff56e5f2ba319",
+    "m_f7c321ca58de1bf1959f",
+    "m_7697434c1d81f7d09ec3",
+    "m_5722bde6aaa1d715d11e",
+    "m_4ed8a831837eaf483d43",
+    "m_23f811c106e63d05252f",
+    "m_4008de3155689bb50006",
+    "m_6e43cfe35fe9c4480098",
+    "m_0f859b50dd1b60d00fb1",
+    "m_ec83886ba90a19f4cf07",
+    "m_e8f02dc7ec5cc2f95f88",
+    "m_0fc58d8be1636ecfa7a6",
+    "m_bbcb01d923f909a9af8e",
+    "m_1731e5105c94a0a56cc7",
+    "m_2eb52232c7112a8cd5e3",
+    "m_ae180bbe3762b347e323"
+  ],
+  "source_census_ids": [
+    223,
+    138,
+    147,
+    198,
+    90,
+    222,
+    137,
+    140,
+    3,
+    139,
+    6,
+    8,
+    224,
+    148
+  ],
+  "profile_memory_ids": [
+    "m_45777437001d843b5e33",
+    "m_6c28aff13f8cb5bd521f",
+    "m_14e588c9c4c90917438b",
+    "m_3faded71cf7f702acbe2",
+    "m_43e266c528c4b134ac9d",
+    "m_4ed8a831837eaf483d43",
+    "m_54d7f1f1a1a82f6d6685",
+    "m_5722bde6aaa1d715d11e",
+    "m_6c8f00035f31e6d70327",
+    "m_6e7b88783d6f24b83f4d",
+    "m_7697434c1d81f7d09ec3",
+    "m_8bc5467442ca41cbe95d"
+  ]
+}

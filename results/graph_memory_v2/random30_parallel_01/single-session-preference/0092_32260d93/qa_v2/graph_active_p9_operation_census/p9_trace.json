@@ -1,0 +1,344 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "p8_abstained",
+    "p8_unfilled_slots",
+    "p8_no_support",
+    "candidate_disagreement",
+    "audit_contract:preference_criteria"
+  ],
+  "contract": "preference_criteria",
+  "expansion": {
+    "queries": [
+      "Can you recommend a show or movie for me to watch tonight?",
+      "user preferred genre",
+      "user mood tonight",
+      "recently watched shows",
+      "user likes movies",
+      "user dislikes shows"
+    ],
+    "relation_verbs": [
+      "prefers",
+      "likes",
+      "dislikes",
+      "watched",
+      "enjoys",
+      "feels"
+    ],
+    "entity_hints": [
+      "genre",
+      "mood",
+      "show",
+      "movie",
+      "recent watch",
+      "favorite"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "tonight"
+    }
+  },
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operation": "preference_profile",
+    "slots": [
+      {
+        "name": "positive_preference_criteria",
+        "query": "Can you recommend a show or movie for me to watch tonight?",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "negative_or_avoidance_criteria",
+        "query": "user preferred genre",
+        "semantic_type": "preference",
+        "required": false
+      },
+      {
+        "name": "relevant_past_experiences",
+        "query": "user mood tonight",
+        "semantic_type": "event",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "Can you recommend a show or movie for me to watch tonight?",
+      "user preferred genre",
+      "user mood tonight",
+      "recently watched shows",
+      "user likes movies",
+      "user dislikes shows"
+    ],
+    "relation_verbs": [
+      "prefers",
+      "likes",
+      "dislikes",
+      "watched",
+      "enjoys",
+      "feels"
+    ],
+    "entity_hints": [
+      "genre",
+      "mood",
+      "show",
+      "movie",
+      "recent watch",
+      "favorite"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "tonight"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Based on your interest in ancient Egypt and your enjoyment of John Mulaney's storytelling, I recommend the documentary series 'Ancient Egypt: Life and Death in the Valley of the Kings' (BBC, 2016) for tonight. It combines your fascination with ancient Egypt with strong narrative storytelling.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c324c5615c5f7b531074",
+      "m_d28fd3e6a863f4779210"
+    ],
+    "support_source_ids": [
+      163
+    ],
+    "required_slots": [
+      {
+        "name": "recommendation",
+        "value": "Ancient Egypt: Life and Death in the Valley of the Kings",
+        "support_memory_ids": [
+          "m_c324c5615c5f7b531074"
+        ],
+        "support_source_ids": [
+          163
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.8,
+    "reasoning_summary": "User has a strong interest in ancient Egypt (memory rank 7) and enjoys storytelling in comedy specials like John Mulaney's (memory rank 18). The recommended documentary combines both interests."
+  },
+  "p7_candidate": {
+    "answer": "Based on your interests, I recommend watching a documentary about ancient Egypt, such as 'Ancient Egypt: Life and Death in the Valley of the Kings' (BBC, 2016).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c324c5615c5f7b531074"
+    ],
+    "support_source_ids": [
+      163
+    ],
+    "required_slots": [
+      {
+        "name": "user_preferred_genre",
+        "value": "documentary, ancient Egypt",
+        "support_memory_ids": [
+          "m_c324c5615c5f7b531074"
+        ],
+        "support_source_ids": [
+          163
+        ]
+      },
+      {
+        "name": "user_mood",
+        "value": "interested in learning",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "recently_watched",
+        "value": "none mentioned",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "User expressed strong interest in ancient Egypt (memory rank 7, source 163). No other genre or mood preferences are available. The recommendation is grounded in that interest, using a documentary from the assistant's earlier reply."
+  },
+  "p8_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "user_preferred_genre",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "user_mood",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "recently_watched",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user_preferred_genre",
+      "user_mood",
+      "recently_watched"
+    ],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The user asks for a show or movie recommendation. The reconciled plan requires three slots: user preferred genre, user mood tonight, and recently watched shows/movies. None of these are present in the evidence. The evidence contains user interests (train-themed board games, computer vision, language learning, etc.) but no information about movie/TV preferences, current mood, or recently watched content. Therefore, the question is not answerable without additional information."
+  },
+  "specialist_candidate": {
+    "answer": "Based on your interest in ancient Egypt, I recommend the documentary 'Ancient Egypt: Life and Death in the Valley of the Kings' (BBC, 2016).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c324c5615c5f7b531074"
+    ],
+    "support_source_ids": [
+      163
+    ],
+    "required_slots": [
+      {
+        "name": "preference_criteria",
+        "value": "interest in ancient Egypt",
+        "support_memory_ids": [
+          "m_c324c5615c5f7b531074"
+        ],
+        "support_source_ids": [
+          163
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "preference_profile",
+      "items": [
+        {
+          "label": "interest in ancient Egypt",
+          "value": "positive",
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_c324c5615c5f7b531074"
+          ],
+          "support_source_ids": [
+            163
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": ""
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "User expressed strong interest in ancient Egypt (memory rank 7, source 163). No other movie/TV preferences are available. The recommendation is grounded in that interest, using a documentary from the assistant's earlier reply.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "operation_data": {
+      "type": "preference_profile",
+      "items": [],
+      "requested_unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reason": "The user asks for a show or movie recommendation, but the evidence contains no information about movie/TV preferences, current mood, or recently watched content. The only relevant memory is an interest in ancient Egypt and stand-up comedy, but these are insufficient to make a confident recommendation without additional context.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": ""
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_5a20652aba09065fdbef",
+    "m_5a413055b4e06ca34cae",
+    "m_1f4b06a95b085790d578",
+    "m_400d7a2fb7593fef2961",
+    "m_e0abed669e9f3d27fdd6",
+    "m_86f8044cb488887fb32a",
+    "m_f4684b782d6ffe26dfd6",
+    "m_2be427798b0fca55e38a",
+    "m_9f52a9f10028d8d2e407",
+    "m_91f06c14b086bf9ef53a",
+    "m_0006f86712afb5732909",
+    "m_b523f4923f7b6ae1e620",
+    "m_acb08d04d7d75cfcee54",
+    "m_14137936130e01d75a86",
+    "m_cc96fa1bfce0c041b22a",
+    "m_878aac2a5a8748b0cc0f",
+    "m_d28fd3e6a863f4779210",
+    "m_add00bffa3bd1ee1c8f2",
+    "m_3e13df41f4f3da1b7d67",
+    "m_cebde2077113cebdf64e",
+    "m_17f97ab4da24a390b62f",
+    "m_07601de599747daf52f0"
+  ],
+  "source_census_ids": [
+    6,
+    11,
+    19,
+    1,
+    3,
+    2,
+    10,
+    5,
+    13,
+    7,
+    20,
+    18,
+    12,
+    15
+  ],
+  "profile_memory_ids": [
+    "m_d28fd3e6a863f4779210",
+    "m_f69f51b44f1205813e79",
+    "m_02336bcecbb1311efd8d",
+    "m_1f4b06a95b085790d578",
+    "m_22f390d3131447535b3a",
+    "m_c7fed43643f21386f612",
+    "m_02b865b0270e7a25649e",
+    "m_1381cb13aaa14d9b89cd",
+    "m_32d762353de2b3d18c5f",
+    "m_d73cca35d9e231ceaa2e",
+    "m_f5c43e7e0d3a2276ef20",
+    "m_04fe8861dd0045cceb01"
+  ]
+}

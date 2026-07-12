@@ -1,0 +1,328 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:sum"
+  ],
+  "contract": "sum",
+  "expansion": {
+    "queries": [
+      "What is the total number of goals and assists I have in the recreational indoor soccer league?",
+      "my goals and assists in recreational indoor soccer",
+      "total goals assists recreational indoor soccer league",
+      "goals assists indoor soccer league",
+      "recreational indoor soccer goals assists",
+      "indoor soccer league goals assists"
+    ],
+    "relation_verbs": [
+      "scored",
+      "assisted",
+      "had",
+      "recorded"
+    ],
+    "entity_hints": [
+      "recreational indoor soccer league",
+      "indoor soccer league",
+      "soccer league"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "sum",
+    "operation": "sum_by_group",
+    "slots": [
+      {
+        "name": "candidate_entities_or_groups",
+        "query": "What is the total number of goals and assists I have in the recreational indoor soccer league?",
+        "semantic_type": "entity",
+        "required": true
+      },
+      {
+        "name": "numeric_values_for_each_candidate",
+        "query": "my goals and assists in recreational indoor soccer",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What is the total number of goals and assists I have in the recreational indoor soccer league?",
+      "my goals and assists in recreational indoor soccer",
+      "total goals assists recreational indoor soccer league",
+      "goals assists indoor soccer league",
+      "recreational indoor soccer goals assists",
+      "indoor soccer league goals assists"
+    ],
+    "relation_verbs": [
+      "scored",
+      "assisted",
+      "had",
+      "recorded"
+    ],
+    "entity_hints": [
+      "recreational indoor soccer league",
+      "indoor soccer league",
+      "soccer league"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8209a0b6535de6dd5b73",
+      "m_6e2871132a0497e81b6a"
+    ],
+    "support_source_ids": [
+      156,
+      202
+    ],
+    "required_slots": [
+      {
+        "name": "total goals and assists",
+        "value": "5",
+        "support_memory_ids": [
+          "m_8209a0b6535de6dd5b73",
+          "m_6e2871132a0497e81b6a"
+        ],
+        "support_source_ids": [
+          156,
+          202
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        3,
+        2
+      ],
+      "unit": "",
+      "result": "5"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "From memory m_8209a0b6535de6dd5b73 (source 156), user has scored 3 goals in the recreational indoor soccer league. From memory m_6e2871132a0497e81b6a (source 202), user has had 2 assists in the same league. Summing gives 5 total goals and assists."
+  },
+  "p7_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8209a0b6535de6dd5b73",
+      "m_6e2871132a0497e81b6a"
+    ],
+    "support_source_ids": [
+      156,
+      202
+    ],
+    "required_slots": [
+      {
+        "name": "goals",
+        "value": 3,
+        "support_memory_ids": [
+          "m_8209a0b6535de6dd5b73"
+        ],
+        "support_source_ids": [
+          156
+        ]
+      },
+      {
+        "name": "assists",
+        "value": 2,
+        "support_memory_ids": [
+          "m_6e2871132a0497e81b6a"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        3,
+        2
+      ],
+      "unit": "",
+      "result": "5"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User stated 3 goals in source 156 and 2 assists in source 202, both in the recreational indoor soccer league. Sum is 5."
+  },
+  "p8_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8209a0b6535de6dd5b73",
+      "m_6e2871132a0497e81b6a"
+    ],
+    "support_source_ids": [
+      156,
+      202
+    ],
+    "required_slots": [
+      {
+        "name": "goals",
+        "value": "3",
+        "support_memory_ids": [
+          "m_8209a0b6535de6dd5b73"
+        ],
+        "support_source_ids": [
+          156
+        ]
+      },
+      {
+        "name": "assists",
+        "value": "2",
+        "support_memory_ids": [
+          "m_6e2871132a0497e81b6a"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        3,
+        2
+      ],
+      "unit": "",
+      "result": "5"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_8209a0b6535de6dd5b73 (source 156), user stated they scored 3 goals in the recreational indoor soccer league. From memory m_6e2871132a0497e81b6a (source 202), user stated they had 2 assists in the indoor soccer league. Summing 3 and 2 gives 5 total goals and assists."
+  },
+  "specialist_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8209a0b6535de6dd5b73",
+      "m_6e2871132a0497e81b6a"
+    ],
+    "support_source_ids": [
+      156,
+      202
+    ],
+    "required_slots": [
+      {
+        "name": "total goals and assists",
+        "value": "5",
+        "support_memory_ids": [
+          "m_8209a0b6535de6dd5b73",
+          "m_6e2871132a0497e81b6a"
+        ],
+        "support_source_ids": [
+          156,
+          202
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "sum",
+      "items": [
+        {
+          "label": "goals",
+          "value": 3,
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_8209a0b6535de6dd5b73"
+          ],
+          "support_source_ids": [
+            156
+          ]
+        },
+        {
+          "label": "assists",
+          "value": 2,
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_6e2871132a0497e81b6a"
+          ],
+          "support_source_ids": [
+            202
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "5"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User stated 3 goals (source 156) and 2 assists (source 202) in the recreational indoor soccer league. Sum is 5.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_6e2871132a0497e81b6a",
+    "m_8209a0b6535de6dd5b73",
+    "m_eb092ef2f9f6b0150caa",
+    "m_2c1aad6749faaea52afa",
+    "m_3fd0132f07b1006c1b22",
+    "m_b44e6168e67253e48413",
+    "m_ac1f7d9aedaee02db489",
+    "m_4f2f0b09f2277c629033",
+    "m_9b636be2424a68f16851",
+    "m_74f500971dbcf4c23e25",
+    "m_5148a36149dabbf51e47",
+    "m_438514c54aa8e1bcafa0",
+    "m_a9bbb6d588517bb825c3",
+    "m_ab1c3181103105e3cecf",
+    "m_dea22a824c419cbbb53b",
+    "m_a9dcff9de188bd98df50",
+    "m_918eb04475e1c4e39354",
+    "m_291eddb50b8e65337130"
+  ],
+  "source_census_ids": [
+    156,
+    202,
+    199,
+    157,
+    203,
+    204,
+    12,
+    201,
+    155,
+    200
+  ],
+  "profile_memory_ids": [
+    "m_8209a0b6535de6dd5b73",
+    "m_6e2871132a0497e81b6a",
+    "m_eb092ef2f9f6b0150caa",
+    "m_3fd0132f07b1006c1b22",
+    "m_170490fe57b730937111",
+    "m_2758a6bb9978686cd3ed",
+    "m_2b1c54062e42d39055e1",
+    "m_3774497b83d4616abbcf",
+    "m_438514c54aa8e1bcafa0",
+    "m_568366b016084ec83c61",
+    "m_59fdebe2ec54381ad777",
+    "m_99fc698876bc064ab3e7"
+  ]
+}

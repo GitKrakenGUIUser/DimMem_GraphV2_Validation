@@ -1,0 +1,85 @@
+{
+  "question_id": "0ddfec37",
+  "question_type": "knowledge-update",
+  "question": "How many autographed baseballs have I added to my collection in the first three months of collection?",
+  "question_date": "2024/01/08 (Mon) 09:27",
+  "gold_answer": "15",
+  "prediction": "15",
+  "support_memory_ids": [
+    "m_b911077e06b2e37de017"
+  ],
+  "support_source_ids": [
+    99
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "From memory m_b911077e06b2e37de017 and source 99, the user said 'that's 15 autographed baseballs since I started collecting three months ago' on 2023-07-11, indicating collection start on 2023-04-11 and 15 additions in the first three months.",
+  "required_slots": [
+    {
+      "name": "collection_start_date",
+      "value": "2023-04-11",
+      "support_memory_ids": [
+        "m_b911077e06b2e37de017"
+      ],
+      "support_source_ids": [
+        99
+      ]
+    },
+    {
+      "name": "additions_in_first_three_months",
+      "value": "15",
+      "support_memory_ids": [
+        "m_b911077e06b2e37de017"
+      ],
+      "support_source_ids": [
+        99
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "direct",
+  "operation_data": {
+    "type": "direct",
+    "items": [
+      {
+        "label": "additions in first three months",
+        "value": 15,
+        "unit": "autographed baseballs",
+        "date": "2023-07-11",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "15"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 34150,
+    "completion_tokens": 595,
+    "elapsed_seconds": 5.563053131103516
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 139,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7702441215515137
+  }
+}

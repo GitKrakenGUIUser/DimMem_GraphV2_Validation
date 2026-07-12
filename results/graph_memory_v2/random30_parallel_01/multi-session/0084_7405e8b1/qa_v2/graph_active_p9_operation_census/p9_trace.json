@@ -1,0 +1,384 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement"
+  ],
+  "contract": "direct_value",
+  "expansion": {
+    "queries": [
+      "Did I receive a higher percentage discount on my first order from HelloFresh, compared to my first UberEats order?",
+      "first HelloFresh order discount percentage",
+      "first UberEats order discount percentage",
+      "HelloFresh first order discount",
+      "UberEats first order discount",
+      "discount on first HelloFresh order"
+    ],
+    "relation_verbs": [
+      "greater than",
+      "higher than",
+      "more than"
+    ],
+    "entity_hints": [
+      "HelloFresh",
+      "UberEats",
+      "meal kit service",
+      "food delivery service"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T21:33:00",
+      "raw": "first order"
+    }
+  },
+  "plan": {
+    "answer_contract": "direct_value",
+    "operation": "direct",
+    "slots": [
+      {
+        "name": "exact_requested_relation",
+        "query": "Did I receive a higher percentage discount on my first order from HelloFresh, compared to my first UberEats order?",
+        "semantic_type": "other",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Did I receive a higher percentage discount on my first order from HelloFresh, compared to my first UberEats order?",
+      "first HelloFresh order discount percentage",
+      "first UberEats order discount percentage",
+      "HelloFresh first order discount",
+      "UberEats first order discount",
+      "discount on first HelloFresh order"
+    ],
+    "relation_verbs": [
+      "greater than",
+      "higher than",
+      "more than"
+    ],
+    "entity_hints": [
+      "HelloFresh",
+      "UberEats",
+      "meal kit service",
+      "food delivery service"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T21:33:00",
+      "raw": "first order"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Yes, the user received a 40% discount on their first HelloFresh order, which is higher than the 20% discount on their first UberEats order.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033c7e58fcdd1a6932f8",
+      "m_477b1700f08c124e7f4a"
+    ],
+    "support_source_ids": [
+      57,
+      149
+    ],
+    "required_slots": [
+      {
+        "name": "first_order_discount_percentage_HelloFresh",
+        "value": "40%",
+        "support_memory_ids": [
+          "m_033c7e58fcdd1a6932f8"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "name": "first_order_discount_percentage_UberEats",
+        "value": "20%",
+        "support_memory_ids": [
+          "m_477b1700f08c124e7f4a"
+        ],
+        "support_source_ids": [
+          149
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "other",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_033c7e58fcdd1a6932f8 (source 57) states the user got a 40% discount on their first HelloFresh order. Memory m_477b1700f08c124e7f4a (source 149) states the user got 20% off their UberEats order last week, which is the first UberEats order mentioned. Comparing 40% > 20%, the answer is yes."
+  },
+  "p7_candidate": {
+    "answer": "yes",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033c7e58fcdd1a6932f8",
+      "m_477b1700f08c124e7f4a"
+    ],
+    "support_source_ids": [
+      57,
+      149
+    ],
+    "required_slots": [
+      {
+        "name": "first_order_discount_percentage_HelloFresh",
+        "value": 40,
+        "support_memory_ids": [
+          "m_033c7e58fcdd1a6932f8"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "name": "first_order_discount_percentage_UberEats",
+        "value": 20,
+        "support_memory_ids": [
+          "m_477b1700f08c124e7f4a"
+        ],
+        "support_source_ids": [
+          149
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "other",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User stated they got a 40% discount on their first HelloFresh order (source 57) and a 20% discount on their UberEats order (source 149). Since 40% > 20%, the answer is yes."
+  },
+  "p8_candidate": {
+    "answer": "Yes",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033c7e58fcdd1a6932f8",
+      "m_477b1700f08c124e7f4a"
+    ],
+    "support_source_ids": [
+      57,
+      149
+    ],
+    "required_slots": [
+      {
+        "name": "first_order_discount_percentage_HelloFresh",
+        "value": "40",
+        "support_memory_ids": [
+          "m_033c7e58fcdd1a6932f8"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "name": "first_order_discount_percentage_UberEats",
+        "value": "20",
+        "support_memory_ids": [
+          "m_477b1700f08c124e7f4a"
+        ],
+        "support_source_ids": [
+          149
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user stated they got a 40% discount on their first HelloFresh order and a 20% discount on their first UberEats order. 40% > 20%, so the answer is yes."
+  },
+  "specialist_candidate": {
+    "answer": "HelloFresh first order discount",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033c7e58fcdd1a6932f8",
+      "m_477b1700f08c124e7f4a"
+    ],
+    "support_source_ids": [
+      57,
+      149
+    ],
+    "required_slots": [
+      {
+        "name": "first_order_discount_percentage_HelloFresh",
+        "value": "40",
+        "support_memory_ids": [
+          "m_033c7e58fcdd1a6932f8"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "name": "first_order_discount_percentage_UberEats",
+        "value": "20",
+        "support_memory_ids": [
+          "m_477b1700f08c124e7f4a"
+        ],
+        "support_source_ids": [
+          149
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "compare_numbers",
+      "items": [
+        {
+          "label": "HelloFresh first order discount",
+          "value": 40,
+          "unit": "%",
+          "date": "2023-05-23",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_033c7e58fcdd1a6932f8"
+          ],
+          "support_source_ids": [
+            57
+          ]
+        },
+        {
+          "label": "UberEats first order discount",
+          "value": 20,
+          "unit": "%",
+          "date": "2023-05-21",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_477b1700f08c124e7f4a"
+          ],
+          "support_source_ids": [
+            149
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "HelloFresh first order discount"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Both discount percentages are explicitly stated in the evidence."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User stated 40% discount on first HelloFresh order (source 57) and 20% discount on UberEats order (source 149). 40% > 20%, so answer is yes.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "HelloFresh first order discount",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_033c7e58fcdd1a6932f8",
+      "m_477b1700f08c124e7f4a"
+    ],
+    "support_source_ids": [
+      57,
+      149
+    ],
+    "operation_data": {
+      "type": "compare_numbers",
+      "items": [
+        {
+          "label": "HelloFresh first order discount",
+          "value": 40,
+          "unit": "%",
+          "date": "2023-05-23",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_033c7e58fcdd1a6932f8"
+          ],
+          "support_source_ids": [
+            57
+          ]
+        },
+        {
+          "label": "UberEats first order discount",
+          "value": 20,
+          "unit": "%",
+          "date": "2023-05-21",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_477b1700f08c124e7f4a"
+          ],
+          "support_source_ids": [
+            149
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "HelloFresh first order discount"
+    },
+    "confidence": 1.0,
+    "reason": "Evidence shows 40% discount on first HelloFresh order (source 57) and 20% discount on UberEats order (source 149). 40% > 20%, so answer is yes.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_033c7e58fcdd1a6932f8",
+    "m_477b1700f08c124e7f4a",
+    "m_0d4e10588c5210d2cb35",
+    "m_50f0c15cf2d8655fd306",
+    "m_16bc86d29122abed185a",
+    "m_afaa002dffdd62a6482f",
+    "m_f640d2284071b608272f",
+    "m_b680e3cdea0fb5d0cd4d",
+    "m_567c18b6c6abdfafd5b2",
+    "m_a4f0120a28ced08124e1",
+    "m_5105fc5c7a7744fe79ca",
+    "m_90d857af696be339cd99",
+    "m_175d8006c70d948be1ba",
+    "m_841565f26006b6e944cb",
+    "m_5d83e8a127f144991037",
+    "m_c6df2f953402f32a1224",
+    "m_cb3cfb6ea6f108248043",
+    "m_bcb3ee5b12e184d938da"
+  ],
+  "source_census_ids": [
+    149,
+    57,
+    153,
+    154,
+    59,
+    60,
+    58,
+    150,
+    152
+  ],
+  "profile_memory_ids": [
+    "m_033c7e58fcdd1a6932f8",
+    "m_0d4e10588c5210d2cb35",
+    "m_477b1700f08c124e7f4a",
+    "m_50f0c15cf2d8655fd306",
+    "m_04fddd5e4ba66b1c9f90",
+    "m_16bc86d29122abed185a",
+    "m_1abc335f65875217c5ca",
+    "m_24dede333a7a9d578d4d",
+    "m_3d40122df46ef9a2b55f",
+    "m_4c0235d1f99c70d21979",
+    "m_5a3a01fc29aa0ef0c28e",
+    "m_5d83e8a127f144991037"
+  ]
+}

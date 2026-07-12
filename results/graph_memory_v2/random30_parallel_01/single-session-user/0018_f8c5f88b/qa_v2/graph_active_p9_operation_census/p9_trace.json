@@ -1,0 +1,267 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:direct_relation"
+  ],
+  "contract": "direct_relation",
+  "expansion": {
+    "queries": [
+      "Where did I buy my new tennis racket from?",
+      "bought new tennis racket",
+      "purchase location tennis racket",
+      "where did I get my tennis racket",
+      "tennis racket purchase",
+      "new racket bought from"
+    ],
+    "relation_verbs": [
+      "bought",
+      "purchased",
+      "got",
+      "acquired"
+    ],
+    "entity_hints": [
+      "tennis racket",
+      "racket",
+      "sports equipment"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T23:39:00",
+      "raw": "before 2023-05-30"
+    }
+  },
+  "plan": {
+    "answer_contract": "direct_relation",
+    "operation": "direct",
+    "slots": [
+      {
+        "name": "exact_requested_relation",
+        "query": "Where did I buy my new tennis racket from?",
+        "semantic_type": "other",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Where did I buy my new tennis racket from?",
+      "bought new tennis racket",
+      "purchase location tennis racket",
+      "where did I get my tennis racket",
+      "tennis racket purchase",
+      "new racket bought from"
+    ],
+    "relation_verbs": [
+      "bought",
+      "purchased",
+      "got",
+      "acquired"
+    ],
+    "entity_hints": [
+      "tennis racket",
+      "racket",
+      "sports equipment"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T23:39:00",
+      "raw": "before 2023-05-30"
+    }
+  },
+  "p5_candidate": {
+    "answer": "a sports store downtown",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_79d11e85f992cd323d99"
+    ],
+    "support_source_ids": [
+      134
+    ],
+    "required_slots": [
+      {
+        "name": "purchase_location",
+        "value": "a sports store downtown",
+        "support_memory_ids": [
+          "m_79d11e85f992cd323d99"
+        ],
+        "support_source_ids": [
+          134
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_79d11e85f992cd323d99 and source turn 134 both state the user bought the new tennis racket from a sports store downtown."
+  },
+  "p7_candidate": {
+    "answer": "a sports store downtown",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_79d11e85f992cd323d99"
+    ],
+    "support_source_ids": [
+      134
+    ],
+    "required_slots": [
+      {
+        "name": "purchase_location",
+        "value": "a sports store downtown",
+        "support_memory_ids": [
+          "m_79d11e85f992cd323d99"
+        ],
+        "support_source_ids": [
+          134
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_79d11e85f992cd323d99 and source turn 134 both state the user bought the new tennis racket from a sports store downtown."
+  },
+  "p8_candidate": {
+    "answer": "a sports store downtown",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_79d11e85f992cd323d99"
+    ],
+    "support_source_ids": [
+      134
+    ],
+    "required_slots": [
+      {
+        "name": "purchase_location",
+        "value": "a sports store downtown",
+        "support_memory_ids": [
+          "m_79d11e85f992cd323d99"
+        ],
+        "support_source_ids": [
+          134
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_79d11e85f992cd323d99 and source turn 134 both state the user bought the new tennis racket from a sports store downtown."
+  },
+  "specialist_candidate": {
+    "answer": "a sports store downtown",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_79d11e85f992cd323d99"
+    ],
+    "support_source_ids": [
+      134
+    ],
+    "required_slots": [
+      {
+        "name": "purchase_location",
+        "value": "a sports store downtown",
+        "support_memory_ids": [
+          "m_79d11e85f992cd323d99"
+        ],
+        "support_source_ids": [
+          134
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "purchase_location",
+          "value": "a sports store downtown",
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_79d11e85f992cd323d99"
+          ],
+          "support_source_ids": [
+            134
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "a sports store downtown"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "The user explicitly stated in source 134 that they bought the new tennis racket from a sports store downtown, and this is captured in memory m_79d11e85f992cd323d99."
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user said 'I'm really happy with my new tennis racket, which I got from a sports store downtown' in source 134, and memory m_79d11e85f992cd323d99 records the same fact.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_79d11e85f992cd323d99",
+    "m_5609baae72483e5988f2",
+    "m_f25c4623f5a75a115be5",
+    "m_22b9076c0bac39c6f097",
+    "m_fa2024112bb91468fcae",
+    "m_b2060a53266816cca0d6",
+    "m_23f47d9933bb6db9af17",
+    "m_5dd4abc1a5dcf192b9cd",
+    "m_e1a434145e60475ce992",
+    "m_0085b24b274bed73e137",
+    "m_0dfcd47b27d9d3cbb472",
+    "m_01f111215e18f5d33451",
+    "m_b7273bd0ba447eda375d",
+    "m_1099e524a315de0140ca",
+    "m_9078ae41dd59e6bd7d0e",
+    "m_3f41d8a4e4977ce797a2",
+    "m_f8dcaa2cac1f748dad0f",
+    "m_e8b8c7507f068de62224",
+    "m_ea8aee37e081b39423e3"
+  ],
+  "source_census_ids": [
+    134,
+    137,
+    135,
+    136,
+    188,
+    133,
+    163
+  ],
+  "profile_memory_ids": [
+    "m_79d11e85f992cd323d99",
+    "m_5609baae72483e5988f2",
+    "m_f25c4623f5a75a115be5",
+    "m_1099e524a315de0140ca",
+    "m_686c591f7ab4d19a79d9",
+    "m_c0ba8efd4fdff0a3c9dc",
+    "m_152e183426188b2448f5",
+    "m_22b9076c0bac39c6f097",
+    "m_23f47d9933bb6db9af17",
+    "m_333cc1aae01748f9875c",
+    "m_5172f6c19daf2286d506",
+    "m_5d336f7e8e33ffe8e428"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "question_id": "2c63a862",
+  "question_type": "temporal-reasoning",
+  "question": "How many days did it take for me to find a house I loved after starting to work with Rachel?",
+  "question_date": "2022/03/02 (Wed) 10:19",
+  "gold_answer": "14 days. 15 days (including the last day) is also acceptable.",
+  "prediction": "14 days",
+  "support_memory_ids": [
+    "m_e71e1e682b7e8254df42",
+    "m_27f4740f660c34c2ed2f"
+  ],
+  "support_source_ids": [
+    162,
+    198
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User started working with Rachel on February 15, 2022 (source 162) and found a house they loved on March 1, 2022 (source 198). The difference between these dates is 14 days.",
+  "required_slots": [
+    {
+      "name": "date started working with Rachel",
+      "value": "2022-02-15",
+      "support_memory_ids": [
+        "m_e71e1e682b7e8254df42"
+      ],
+      "support_source_ids": [
+        162
+      ]
+    },
+    {
+      "name": "date found house I loved",
+      "value": "2022-03-01",
+      "support_memory_ids": [
+        "m_27f4740f660c34c2ed2f"
+      ],
+      "support_source_ids": [
+        198
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "start",
+        "value": "2022-02-15",
+        "unit": "day",
+        "date": "2022-02-15",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_e71e1e682b7e8254df42"
+        ],
+        "support_source_ids": [
+          162
+        ]
+      },
+      {
+        "label": "end",
+        "value": "2022-03-01",
+        "unit": "day",
+        "date": "2022-03-01",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_27f4740f660c34c2ed2f"
+        ],
+        "support_source_ids": [
+          198
+        ]
+      }
+    ],
+    "requested_unit": "days",
+    "result": "14 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 37024,
+    "completion_tokens": 635,
+    "elapsed_seconds": 6.173449993133545
+  },
+  "correct": true,
+  "judge_reason": "Deterministic duration equivalence.",
+  "judge_meta": {
+    "mode": "deterministic_duration_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

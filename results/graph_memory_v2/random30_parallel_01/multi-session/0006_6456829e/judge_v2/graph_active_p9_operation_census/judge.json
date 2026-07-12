@@ -1,0 +1,100 @@
+{
+  "question_id": "6456829e",
+  "question_type": "multi-session",
+  "question": "How many plants did I initially plant for tomatoes and cucumbers?",
+  "question_date": "2023/05/30 (Tue) 23:46",
+  "gold_answer": "8",
+  "prediction": "5 tomato plants and 3 cucumber plants",
+  "support_memory_ids": [
+    "m_d35e3acd5fdc9b004209",
+    "m_c704ce6ac5c50cca2f71"
+  ],
+  "support_source_ids": [
+    218,
+    199
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User stated 'I planted 5 tomato plants initially' (source 218) and 'I've got 3 plants [cucumbers]' (source 199). Both are initial counts as of the question date.",
+  "required_slots": [
+    {
+      "name": "tomato_initial_count",
+      "value": "5",
+      "support_memory_ids": [
+        "m_d35e3acd5fdc9b004209"
+      ],
+      "support_source_ids": [
+        218
+      ]
+    },
+    {
+      "name": "cucumber_initial_count",
+      "value": "3",
+      "support_memory_ids": [
+        "m_c704ce6ac5c50cca2f71"
+      ],
+      "support_source_ids": [
+        199
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "direct",
+  "operation_data": {
+    "type": "direct",
+    "items": [
+      {
+        "label": "tomato plants",
+        "value": 5,
+        "unit": "plants",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_d35e3acd5fdc9b004209"
+        ],
+        "support_source_ids": [
+          218
+        ]
+      },
+      {
+        "label": "cucumber plants",
+        "value": 3,
+        "unit": "plants",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_c704ce6ac5c50cca2f71"
+        ],
+        "support_source_ids": [
+          199
+        ]
+      }
+    ],
+    "requested_unit": "plants",
+    "result": "5 tomato plants and 3 cucumber plants"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 35252,
+    "completion_tokens": 626,
+    "elapsed_seconds": 7.3470680713653564
+  },
+  "correct": false,
+  "judge_reason": "Prediction gives counts for each type but does not state the total number of plants.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 138,
+    "completion_tokens": 32,
+    "elapsed_seconds": 0.8686032295227051
+  }
+}

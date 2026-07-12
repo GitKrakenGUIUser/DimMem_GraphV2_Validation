@@ -1,0 +1,362 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many days had passed since I finished reading 'The Seven Husbands of Evelyn Hugo' when I attended the book reading event at the local library, where the author of 'The Silent Patient' is discussing her latest thriller novel?",
+      "finished reading The Seven Husbands of Evelyn Hugo",
+      "completed The Seven Husbands of Evelyn Hugo",
+      "attended book reading event at local library",
+      "went to author talk at library",
+      "event with author of The Silent Patient"
+    ],
+    "relation_verbs": [
+      "finished reading",
+      "completed",
+      "attended",
+      "went to",
+      "event with",
+      "discussion"
+    ],
+    "entity_hints": [
+      "The Seven Husbands of Evelyn Hugo",
+      "The Silent Patient",
+      "local library",
+      "book reading event",
+      "author",
+      "thriller novel"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-02-10T18:44:00",
+      "raw": "before the question date"
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many days had passed since I finished reading 'The Seven Husbands of Evelyn Hugo' when I attended the book reading event at the local library, where the author of 'The Silent Patient' is discussing her latest thriller novel?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "finished reading The Seven Husbands of Evelyn Hugo",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many days had passed since I finished reading 'The Seven Husbands of Evelyn Hugo' when I attended the book reading event at the local library, where the author of 'The Silent Patient' is discussing her latest thriller novel?",
+      "finished reading The Seven Husbands of Evelyn Hugo",
+      "completed The Seven Husbands of Evelyn Hugo",
+      "attended book reading event at local library",
+      "went to author talk at library",
+      "event with author of The Silent Patient"
+    ],
+    "relation_verbs": [
+      "finished reading",
+      "completed",
+      "attended",
+      "went to",
+      "event with",
+      "discussion"
+    ],
+    "entity_hints": [
+      "The Seven Husbands of Evelyn Hugo",
+      "The Silent Patient",
+      "local library",
+      "book reading event",
+      "author",
+      "thriller novel"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-02-10T18:44:00",
+      "raw": "before the question date"
+    }
+  },
+  "p5_candidate": {
+    "answer": "18 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9f29f41b64d0449a5b1b",
+      "m_b878f3137d45584f7bf6"
+    ],
+    "support_source_ids": [
+      208,
+      148
+    ],
+    "required_slots": [
+      {
+        "name": "date finished reading 'The Seven Husbands of Evelyn Hugo'",
+        "value": "2022-12-28",
+        "support_memory_ids": [
+          "m_b878f3137d45584f7bf6"
+        ],
+        "support_source_ids": [
+          148
+        ]
+      },
+      {
+        "name": "date of book reading event at local library",
+        "value": "2023-01-15",
+        "support_memory_ids": [
+          "m_9f29f41b64d0449a5b1b"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2022-12-28",
+        "2023-01-15"
+      ],
+      "unit": "days",
+      "result": "18 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User finished reading 'The Seven Husbands of Evelyn Hugo' on 2022-12-28 (source 148). User attended the book reading event at the local library on 2023-01-15 (source 208). The difference is 18 days."
+  },
+  "p7_candidate": {
+    "answer": "18 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b878f3137d45584f7bf6",
+      "m_9f29f41b64d0449a5b1b"
+    ],
+    "support_source_ids": [
+      148,
+      208
+    ],
+    "required_slots": [
+      {
+        "name": "date finished reading 'The Seven Husbands of Evelyn Hugo'",
+        "value": "2022-12-28",
+        "support_memory_ids": [
+          "m_b878f3137d45584f7bf6"
+        ],
+        "support_source_ids": [
+          148
+        ]
+      },
+      {
+        "name": "date of book reading event at local library",
+        "value": "2023-01-15",
+        "support_memory_ids": [
+          "m_9f29f41b64d0449a5b1b"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2022-12-28",
+        "2023-01-15"
+      ],
+      "unit": "days",
+      "result": "18 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User finished reading 'The Seven Husbands of Evelyn Hugo' on 2022-12-28 (source 148). User attended the book reading event on 2023-01-15 (source 208). The difference in days from 2022-12-28 to 2023-01-15 is 18 days."
+  },
+  "p8_candidate": {
+    "answer": "18 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9f29f41b64d0449a5b1b",
+      "m_b878f3137d45584f7bf6"
+    ],
+    "support_source_ids": [
+      208,
+      148
+    ],
+    "required_slots": [
+      {
+        "name": "date finished reading 'The Seven Husbands of Evelyn Hugo'",
+        "value": "2022-12-28",
+        "support_memory_ids": [
+          "m_b878f3137d45584f7bf6"
+        ],
+        "support_source_ids": [
+          148
+        ]
+      },
+      {
+        "name": "date of book reading event at local library",
+        "value": "2023-01-15",
+        "support_memory_ids": [
+          "m_9f29f41b64d0449a5b1b"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2022-12-28",
+        "2023-01-15"
+      ],
+      "unit": "days",
+      "result": "18"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User finished reading 'The Seven Husbands of Evelyn Hugo' on 2022-12-28 (source 148). User attended the book reading event on 2023-01-15 (source 208). The difference is 18 days."
+  },
+  "specialist_candidate": {
+    "answer": "18 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b878f3137d45584f7bf6",
+      "m_9f29f41b64d0449a5b1b"
+    ],
+    "support_source_ids": [
+      148,
+      208
+    ],
+    "required_slots": [
+      {
+        "name": "date finished reading 'The Seven Husbands of Evelyn Hugo'",
+        "value": "2022-12-28",
+        "support_memory_ids": [
+          "m_b878f3137d45584f7bf6"
+        ],
+        "support_source_ids": [
+          148
+        ]
+      },
+      {
+        "name": "date of book reading event at local library",
+        "value": "2023-01-15",
+        "support_memory_ids": [
+          "m_9f29f41b64d0449a5b1b"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "finished reading 'The Seven Husbands of Evelyn Hugo'",
+          "value": null,
+          "unit": "",
+          "date": "2022-12-28",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_b878f3137d45584f7bf6"
+          ],
+          "support_source_ids": [
+            148
+          ]
+        },
+        {
+          "label": "attended book reading event at local library",
+          "value": null,
+          "unit": "",
+          "date": "2023-01-15",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_9f29f41b64d0449a5b1b"
+          ],
+          "support_source_ids": [
+            208
+          ]
+        }
+      ],
+      "requested_unit": "days",
+      "result": "18 days"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Both dates are explicitly recorded in memory."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User finished reading 'The Seven Husbands of Evelyn Hugo' on 2022-12-28 (source 148). User attended the book reading event on 2023-01-15 (source 208). The difference is 18 days.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_9f29f41b64d0449a5b1b",
+    "m_b878f3137d45584f7bf6",
+    "m_61380e1a7ba293a03203",
+    "m_dcc0d46a79213b735e85",
+    "m_2b0d0dcbd0dc972f925c",
+    "m_fbd78ca982dd013cca30",
+    "m_da4bd48e03893a437513",
+    "m_4fd9407be6a12b1e45bd",
+    "m_4caa82a9702044860595",
+    "m_e9fb4dbdf1e766a34684",
+    "m_e404a3af3b88afbe327d",
+    "m_7df0aac3829c47a1a6de",
+    "m_36d6a70c26f4807c37b6",
+    "m_213b12954d9597b58e5c",
+    "m_ff4108e5499cfaff7bb1",
+    "m_89b280ad2c53c09d3fd9",
+    "m_5a596bcdaf46f3eab338",
+    "m_ede6bb73baf7bf482165",
+    "m_6b59cb7c8aa8eb542b9e",
+    "m_7cfceeff0a1a60122d3c",
+    "m_9502385d913ad9ccf71a"
+  ],
+  "source_census_ids": [
+    208,
+    149,
+    148,
+    153,
+    209,
+    104,
+    213,
+    90,
+    144,
+    211,
+    113,
+    145,
+    150,
+    119
+  ],
+  "profile_memory_ids": [
+    "m_9f29f41b64d0449a5b1b",
+    "m_b878f3137d45584f7bf6",
+    "m_61380e1a7ba293a03203",
+    "m_066d5582ee00fe284ce3",
+    "m_24860a372ee8252c2c4d",
+    "m_4caa82a9702044860595",
+    "m_d066e43898db4d19f649",
+    "m_d3343971df20e28b1bc9",
+    "m_da4bd48e03893a437513",
+    "m_e404a3af3b88afbe327d",
+    "m_e9fb4dbdf1e766a34684",
+    "m_f29c1df97da2a4596368"
+  ]
+}

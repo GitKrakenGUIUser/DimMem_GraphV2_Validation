@@ -1,0 +1,56 @@
+{
+  "question_id": "3a704032",
+  "question_type": "multi-session",
+  "question": "How many plants did I acquire in the last month?",
+  "question_date": "2023/05/30 (Tue) 21:51",
+  "gold_answer": "3",
+  "prediction": "1",
+  "support_memory_ids": [
+    "m_4ad7b0ebe63c48566bf5"
+  ],
+  "support_source_ids": [
+    84
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Memory m_4ad7b0ebe63c48566bf5 states user got a snake plant from their sister last month, with event_start 2023-04-25, which falls within the last month relative to the question date 2023-05-30. No other plant acquisitions are found in that window.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "operation_data": {
+    "type": "count_distinct",
+    "items": [
+      {
+        "label": "snake plant from sister",
+        "value": 1,
+        "unit": "plants",
+        "date": "2023-04-25",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_4ad7b0ebe63c48566bf5"
+        ],
+        "support_source_ids": [
+          84
+        ]
+      }
+    ],
+    "requested_unit": "plants",
+    "result": "1"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 37661,
+    "completion_tokens": 512,
+    "elapsed_seconds": 5.989561319351196
+  }
+}

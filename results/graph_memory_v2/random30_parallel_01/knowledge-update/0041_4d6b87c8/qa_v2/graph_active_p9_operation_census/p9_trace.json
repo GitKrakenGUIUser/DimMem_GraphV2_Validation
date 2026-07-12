@@ -1,0 +1,288 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many titles are currently on my to-watch list?",
+      "to-watch list count",
+      "how many titles in watchlist",
+      "watchlist size",
+      "number of items on to-watch list",
+      "to-watch list titles"
+    ],
+    "relation_verbs": [
+      "has",
+      "contains",
+      "includes",
+      "lists"
+    ],
+    "entity_hints": [
+      "to-watch list",
+      "watchlist",
+      "titles",
+      "items"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-06-03T15:47:00",
+      "raw": "currently"
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many titles are currently on my to-watch list?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "to-watch list count",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "how many titles in watchlist",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "watchlist size",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many titles are currently on my to-watch list?",
+      "to-watch list count",
+      "how many titles in watchlist",
+      "watchlist size",
+      "number of items on to-watch list",
+      "to-watch list titles"
+    ],
+    "relation_verbs": [
+      "has",
+      "contains",
+      "includes",
+      "lists"
+    ],
+    "entity_hints": [
+      "to-watch list",
+      "watchlist",
+      "titles",
+      "items"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-06-03T15:47:00",
+      "raw": "currently"
+    }
+  },
+  "p5_candidate": {
+    "answer": "25",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_369e393afb314209e13c",
+      "m_6c74b48dbbe6eb840e87"
+    ],
+    "support_source_ids": [
+      228,
+      232
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": "25"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-22 that their to-watch list contains 25 titles (source 228, memory m_369e393afb314209e13c). This is the most recent and consistent evidence; no later updates indicate a change. Therefore, as of the question date (2023-06-03), the count remains 25."
+  },
+  "p7_candidate": {
+    "answer": "25",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_369e393afb314209e13c",
+      "m_6c74b48dbbe6eb840e87"
+    ],
+    "support_source_ids": [
+      228,
+      232
+    ],
+    "required_slots": [
+      {
+        "name": "to-watch list count",
+        "value": "25",
+        "support_memory_ids": [
+          "m_369e393afb314209e13c",
+          "m_6c74b48dbbe6eb840e87"
+        ],
+        "support_source_ids": [
+          228,
+          232
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-22 that their to-watch list has 25 titles (sources 228 and 232). No later evidence contradicts or updates this count. Therefore, as of the question date 2023-06-03, the current count remains 25."
+  },
+  "p8_candidate": {
+    "answer": "25",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_369e393afb314209e13c",
+      "m_6c74b48dbbe6eb840e87"
+    ],
+    "support_source_ids": [
+      228,
+      232
+    ],
+    "required_slots": [
+      {
+        "name": "to-watch list count",
+        "value": "25",
+        "support_memory_ids": [
+          "m_369e393afb314209e13c",
+          "m_6c74b48dbbe6eb840e87"
+        ],
+        "support_source_ids": [
+          228,
+          232
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "stated_count",
+    "calculation": {
+      "operator": "stated_count",
+      "operands": [
+        "25"
+      ],
+      "unit": "titles",
+      "result": "25"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user explicitly stated 'currently 25' and 'I've got 25 titles on it right now' on 2023-05-22, which is the latest valid state before the question date. No superseding state was found."
+  },
+  "specialist_candidate": {
+    "answer": "25",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_369e393afb314209e13c",
+      "m_6c74b48dbbe6eb840e87"
+    ],
+    "support_source_ids": [
+      228,
+      232
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "state_resolution",
+      "items": [
+        {
+          "label": "to-watch list count",
+          "value": 25,
+          "unit": "titles",
+          "date": "2023-05-22T03:27:01",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_369e393afb314209e13c"
+          ],
+          "support_source_ids": [
+            228
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "25"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "The user explicitly stated on 2023-05-22 that their to-watch list contains 25 titles. No later updates were found, so this remains the current count as of the question date."
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-22 that their to-watch list has 25 titles (sources 228 and 232). No later evidence contradicts or updates this count. Therefore, as of the question date 2023-06-03, the current count remains 25.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_b73115fde8b80842e4f0",
+    "m_369e393afb314209e13c",
+    "m_6c74b48dbbe6eb840e87",
+    "m_aa9c45a1ae9025d9b88f",
+    "m_2e2ce67732310bd0037c",
+    "m_c6e0f795f1e5cb7d3ad1",
+    "m_f58d5e76ce983e6071a6",
+    "m_0df969ac7296ca85b93c",
+    "m_ce8520cb2acfa3bb4149",
+    "m_9e24581c55191c758ef3",
+    "m_1aa7f004e159b7192481",
+    "m_e348c02711a112c1db3a",
+    "m_bb13b9ebcd0120313855",
+    "m_8f200626e212e45cbe1f",
+    "m_142960ce1675fb78dc7b",
+    "m_5ba70c7b6e6c21981ec3",
+    "m_96ee23aeb3262218a060",
+    "m_332e3e3ffd6778b33e38",
+    "m_530378c82b9ed8df4630",
+    "m_e76ed0cab5fa6df7c4ed",
+    "m_f5a69c403f2753eafcb7",
+    "m_f4eb61908521a2e2a208"
+  ],
+  "source_census_ids": [
+    232,
+    228,
+    82,
+    81,
+    209,
+    231,
+    83,
+    86,
+    4,
+    211,
+    62,
+    227,
+    229
+  ],
+  "profile_memory_ids": [
+    "m_369e393afb314209e13c",
+    "m_6c74b48dbbe6eb840e87",
+    "m_b73115fde8b80842e4f0",
+    "m_e76ed0cab5fa6df7c4ed",
+    "m_22b7d1b8977436ba9089",
+    "m_5ba70c7b6e6c21981ec3",
+    "m_aa9c45a1ae9025d9b88f",
+    "m_cb93dd94dc95e2500ae9",
+    "m_e348c02711a112c1db3a",
+    "m_f95651a5fb21cc3dc30d",
+    "m_05530ba2bda4d64a479b",
+    "m_06e5a68a1c2f75623fb1"
+  ]
+}

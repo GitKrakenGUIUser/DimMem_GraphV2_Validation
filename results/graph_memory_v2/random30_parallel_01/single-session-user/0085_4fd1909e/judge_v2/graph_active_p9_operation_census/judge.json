@@ -1,0 +1,64 @@
+{
+  "question_id": "4fd1909e",
+  "question_type": "single-session-user",
+  "question": "Where did I attend the Imagine Dragons concert?",
+  "question_date": "2023/05/30 (Tue) 18:25",
+  "gold_answer": "Xfinity Center",
+  "prediction": "Xfinity Center",
+  "support_memory_ids": [
+    "m_36dbd1026fb2b204fd9a"
+  ],
+  "support_source_ids": [
+    115
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user attended an Imagine Dragons concert at Xfinity Center on June 15th, as confirmed by memory and source evidence.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "direct",
+  "operation_data": {
+    "type": "direct",
+    "items": [
+      {
+        "label": "venue",
+        "value": "Xfinity Center",
+        "unit": "",
+        "date": "2023-06-15",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_36dbd1026fb2b204fd9a"
+        ],
+        "support_source_ids": [
+          115
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "Xfinity Center"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:direct_relation"
+  ],
+  "contract": "direct_relation",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 31307,
+    "completion_tokens": 454,
+    "elapsed_seconds": 6.081613779067993
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 133,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.860065221786499
+  }
+}

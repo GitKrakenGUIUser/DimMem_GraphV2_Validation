@@ -1,0 +1,498 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "p8_unfilled_slots",
+    "candidate_disagreement",
+    "audit_contract:preference_criteria"
+  ],
+  "contract": "preference_criteria",
+  "expansion": {
+    "queries": [
+      "Can you recommend some recent publications or conferences that I might find interesting?",
+      "research interests",
+      "preferred conferences",
+      "field of study",
+      "occupation",
+      "recommended publications"
+    ],
+    "relation_verbs": [
+      "interested in",
+      "prefers",
+      "works in",
+      "studies",
+      "was recommended"
+    ],
+    "entity_hints": [
+      "publication",
+      "conference",
+      "research field",
+      "job title"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "recent"
+    }
+  },
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operation": "preference_profile",
+    "slots": [
+      {
+        "name": "positive_preference_criteria",
+        "query": "Can you recommend some recent publications or conferences that I might find interesting?",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "negative_or_avoidance_criteria",
+        "query": "research interests",
+        "semantic_type": "preference",
+        "required": false
+      },
+      {
+        "name": "relevant_past_experiences",
+        "query": "preferred conferences",
+        "semantic_type": "event",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "Can you recommend some recent publications or conferences that I might find interesting?",
+      "research interests",
+      "preferred conferences",
+      "field of study",
+      "occupation",
+      "recommended publications"
+    ],
+    "relation_verbs": [
+      "interested in",
+      "prefers",
+      "works in",
+      "studies",
+      "was recommended"
+    ],
+    "entity_hints": [
+      "publication",
+      "conference",
+      "research field",
+      "job title"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "recent"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Based on your interest in intersectional feminism and LGBTQ+ issues, I recommend the following recent publications and conferences:\n\n**Publications:**\n- \"The Miseducation of Cameron Post\" by Emily M. Danforth (novel)\n- \"Fun Home\" by Alison Bechdel (graphic memoir)\n- \"Sissy: A Coming-of-Gender Story\" by Jacob Tobia (memoir)\n\n**Conferences:**\n- The Trevor Project's Ally Training (online course)\n- GLAAD's Media Institute (online courses)\n- Human Rights Campaign's Ally Training (online course)\n\nThese resources align with your learning goals about intersectional feminism and LGBTQ+ allyship.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2b3ded5503ef5aad0c1c",
+      "m_3583f1b7745703717aba",
+      "m_ed3f09d5810ae144695d"
+    ],
+    "support_source_ids": [
+      126,
+      127,
+      128
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.85,
+    "reasoning_summary": "The user has expressed interest in intersectional feminism and LGBTQ+ issues (memory m_2b3ded5503ef5aad0c1c, source 127), wants to apply it in the workplace (memory m_3583f1b7745703717aba, source 128), and previously requested resources on LGBTQ+ allyship (memory m_ed3f09d5810ae144695d, source 126). The assistant previously recommended specific books and online courses/conferences in response to those requests. These recommendations are recent (May 2023) and directly relevant to the user's interests."
+  },
+  "p7_candidate": {
+    "answer": "Based on your interests in intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging, I recommend recent publications and conferences in these fields. For intersectional feminism and LGBTQ+ issues, consider the journal 'Gender & Society' and conferences like the National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging, look into the 'Medical Image Analysis' journal and conferences such as MICCAI (Medical Image Computing and Computer Assisted Intervention) and IEEE ISBI (International Symposium on Biomedical Imaging).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2b3ded5503ef5aad0c1c",
+      "m_eb489beb01c52a58302c",
+      "m_3583f1b7745703717aba",
+      "m_ed3f09d5810ae144695d"
+    ],
+    "support_source_ids": [
+      126,
+      127,
+      128,
+      42
+    ],
+    "required_slots": [
+      {
+        "name": "user_research_interests",
+        "value": "intersectional feminism, LGBTQ+ issues, explainable AI in medical image analysis",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c",
+          "m_3583f1b7745703717aba",
+          "m_ed3f09d5810ae144695d"
+        ],
+        "support_source_ids": [
+          126,
+          127,
+          128,
+          42
+        ]
+      },
+      {
+        "name": "user_preferred_conferences",
+        "value": "not specified",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "recent_publications_in_field",
+        "value": "For intersectional feminism: 'Gender & Society' journal. For explainable AI in medical imaging: 'Medical Image Analysis' journal.",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c"
+        ],
+        "support_source_ids": [
+          127,
+          42
+        ]
+      },
+      {
+        "name": "recent_conferences_in_field",
+        "value": "For intersectional feminism: National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging: MICCAI, IEEE ISBI.",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c"
+        ],
+        "support_source_ids": [
+          127,
+          42
+        ]
+      }
+    ],
+    "unfilled_slots": [
+      "user_preferred_conferences"
+    ],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.85,
+    "reasoning_summary": "User's research interests are intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging. No preferred conferences specified. Recent publications and conferences in these fields are recommended based on common academic venues. The answer is grounded in user's stated interests."
+  },
+  "p8_candidate": {
+    "answer": "Based on your interests in intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging, I recommend recent publications and conferences in these fields. For intersectional feminism and LGBTQ+ issues, consider the journal 'Gender & Society' and conferences like the National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging, look into the 'Medical Image Analysis' journal and conferences such as MICCAI (Medical Image Computing and Computer Assisted Intervention) and IEEE ISBI (International Symposium on Biomedical Imaging).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2b3ded5503ef5aad0c1c",
+      "m_eb489beb01c52a58302c",
+      "m_3583f1b7745703717aba",
+      "m_ed3f09d5810ae144695d"
+    ],
+    "support_source_ids": [
+      126,
+      127,
+      128,
+      42
+    ],
+    "required_slots": [
+      {
+        "name": "user_research_interests",
+        "value": "intersectional feminism, LGBTQ+ issues, explainable AI in medical image analysis",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c",
+          "m_3583f1b7745703717aba",
+          "m_ed3f09d5810ae144695d"
+        ],
+        "support_source_ids": [
+          126,
+          127,
+          128,
+          42
+        ]
+      },
+      {
+        "name": "user_preferred_conferences",
+        "value": "not specified",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "recent_publications_in_field",
+        "value": "For intersectional feminism: 'Gender & Society' journal. For explainable AI in medical imaging: 'Medical Image Analysis' journal.",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c"
+        ],
+        "support_source_ids": [
+          127,
+          42
+        ]
+      },
+      {
+        "name": "recent_conferences_in_field",
+        "value": "For intersectional feminism: National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging: MICCAI, IEEE ISBI.",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c"
+        ],
+        "support_source_ids": [
+          127,
+          42
+        ]
+      }
+    ],
+    "unfilled_slots": [
+      "user_preferred_conferences"
+    ],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.85,
+    "reasoning_summary": "User's research interests are intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging. No preferred conferences specified. Recent publications and conferences in these fields are recommended based on common academic venues. The answer is grounded in user's stated interests."
+  },
+  "specialist_candidate": {
+    "answer": "Based on your interests in intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging, I recommend recent publications and conferences in these fields. For intersectional feminism and LGBTQ+ issues, consider the journal 'Gender & Society' and conferences like the National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging, look into the 'Medical Image Analysis' journal and conferences such as MICCAI (Medical Image Computing and Computer Assisted Intervention) and IEEE ISBI (International Symposium on Biomedical Imaging).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2b3ded5503ef5aad0c1c",
+      "m_eb489beb01c52a58302c",
+      "m_3583f1b7745703717aba",
+      "m_ed3f09d5810ae144695d"
+    ],
+    "support_source_ids": [
+      126,
+      127,
+      128,
+      42
+    ],
+    "required_slots": [
+      {
+        "name": "user_research_interests",
+        "value": "intersectional feminism, LGBTQ+ issues, explainable AI in medical image analysis",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c",
+          "m_3583f1b7745703717aba",
+          "m_ed3f09d5810ae144695d"
+        ],
+        "support_source_ids": [
+          126,
+          127,
+          128,
+          42
+        ]
+      },
+      {
+        "name": "user_preferred_conferences",
+        "value": "not specified",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "recent_publications_in_field",
+        "value": "For intersectional feminism: 'Gender & Society' journal. For explainable AI in medical imaging: 'Medical Image Analysis' journal.",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c"
+        ],
+        "support_source_ids": [
+          127,
+          42
+        ]
+      },
+      {
+        "name": "recent_conferences_in_field",
+        "value": "For intersectional feminism: National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging: MICCAI, IEEE ISBI.",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_eb489beb01c52a58302c"
+        ],
+        "support_source_ids": [
+          127,
+          42
+        ]
+      }
+    ],
+    "unfilled_slots": [
+      "user_preferred_conferences"
+    ],
+    "operation_data": {
+      "type": "preference_profile",
+      "items": [
+        {
+          "label": "intersectional feminism and LGBTQ+ issues",
+          "value": null,
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_2b3ded5503ef5aad0c1c",
+            "m_3583f1b7745703717aba",
+            "m_ed3f09d5810ae144695d"
+          ],
+          "support_source_ids": [
+            126,
+            127,
+            128
+          ]
+        },
+        {
+          "label": "explainable AI in medical image analysis",
+          "value": null,
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_eb489beb01c52a58302c"
+          ],
+          "support_source_ids": [
+            42
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": ""
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "User's research interests are clearly stated in memories and sources. No preferred conferences were specified, so general recommendations are provided based on common academic venues in the fields."
+    },
+    "confidence": 0.85,
+    "reasoning_summary": "User's research interests are intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging. No preferred conferences specified. Recent publications and conferences in these fields are recommended based on common academic venues. The answer is grounded in user's stated interests.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {
+    "answer": "Based on your interests in intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging, I recommend recent publications and conferences in these fields. For intersectional feminism and LGBTQ+ issues, consider the journal 'Gender & Society' and conferences like the National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging, look into the 'Medical Image Analysis' journal and conferences such as MICCAI and IEEE ISBI.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2b3ded5503ef5aad0c1c",
+      "m_eb489beb01c52a58302c",
+      "m_3583f1b7745703717aba",
+      "m_ed3f09d5810ae144695d"
+    ],
+    "support_source_ids": [
+      126,
+      127,
+      128,
+      42
+    ],
+    "operation_data": {
+      "type": "preference_profile",
+      "items": [
+        {
+          "label": "intersectional feminism and LGBTQ+ issues",
+          "value": null,
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_2b3ded5503ef5aad0c1c",
+            "m_3583f1b7745703717aba",
+            "m_ed3f09d5810ae144695d"
+          ],
+          "support_source_ids": [
+            126,
+            127,
+            128
+          ]
+        },
+        {
+          "label": "explainable AI in medical image analysis",
+          "value": null,
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_eb489beb01c52a58302c"
+          ],
+          "support_source_ids": [
+            42
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": ""
+    },
+    "confidence": 0.85,
+    "reason": "User's research interests are clearly stated in memories and sources. No preferred conferences were specified, so general recommendations are provided based on common academic venues in the fields.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": ""
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_376cd89e8191d03ec751",
+    "m_eb489beb01c52a58302c",
+    "m_f4c8cb4acb535c3f0656",
+    "m_33e2414395850b0229a2",
+    "m_cf176cf066ebe7168a45",
+    "m_304fce8fd0dfea9f1e88",
+    "m_b5cce26024378b7fde21",
+    "m_468f3f58c21e66d554c6",
+    "m_31ded9c93e391bc02809",
+    "m_4537a174dc4f6383c571",
+    "m_ed3f09d5810ae144695d",
+    "m_68bce6166777e33f86e5",
+    "m_54130390b3ac4e26798c",
+    "m_31148c3bd58f99625688",
+    "m_c10efff167c58e0f3d9c",
+    "m_57b8f16513809009a0df",
+    "m_0f5feac93d87ae64e54c",
+    "m_17e1b3bd59e0ee3392d8",
+    "m_606d03ca0718097c0acf",
+    "m_62f464c67e4c5c6f4baf",
+    "m_59875b4b1e3f6fe9e318",
+    "m_e5ae66f958284d33bc85"
+  ],
+  "source_census_ids": [
+    82,
+    43,
+    25,
+    39,
+    44,
+    18,
+    42,
+    19,
+    21,
+    63,
+    7,
+    2,
+    56,
+    5
+  ],
+  "profile_memory_ids": [
+    "m_304fce8fd0dfea9f1e88",
+    "m_b5cce26024378b7fde21",
+    "m_31148c3bd58f99625688",
+    "m_26b718ccf1cbb85ae216",
+    "m_6d25168e8e65e6d51fd1",
+    "m_8a06c1d62da7786833db",
+    "m_de8e00f1c134cf90ec30",
+    "m_0f5feac93d87ae64e54c",
+    "m_1c19eaf38a40e8baa06e",
+    "m_2daf78cb6cf15808268b",
+    "m_3c6e74b3893ecd239a6e",
+    "m_71ab902dce4f68fc3235"
+  ]
+}

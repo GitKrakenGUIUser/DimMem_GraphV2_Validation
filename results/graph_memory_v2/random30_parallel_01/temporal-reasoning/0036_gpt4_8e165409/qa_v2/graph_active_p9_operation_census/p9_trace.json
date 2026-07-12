@@ -1,0 +1,359 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many days passed between the day I repotted the previous spider plant and the day I gave my neighbor, Mrs. Johnson, a few cuttings from my spider plant?",
+      "repotted spider plant",
+      "gave cuttings to Mrs. Johnson",
+      "spider plant repotting date",
+      "spider plant cuttings neighbor",
+      "previous spider plant repot"
+    ],
+    "relation_verbs": [
+      "repotted",
+      "gave",
+      "transplanted",
+      "shared",
+      "offered",
+      "provided"
+    ],
+    "entity_hints": [
+      "spider plant",
+      "Mrs. Johnson",
+      "neighbor",
+      "cuttings",
+      "previous spider plant"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "between repotting and giving cuttings"
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many days passed between the day I repotted the previous spider plant and the day I gave my neighbor, Mrs. Johnson, a few cuttings from my spider plant?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "repotted spider plant",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many days passed between the day I repotted the previous spider plant and the day I gave my neighbor, Mrs. Johnson, a few cuttings from my spider plant?",
+      "repotted spider plant",
+      "gave cuttings to Mrs. Johnson",
+      "spider plant repotting date",
+      "spider plant cuttings neighbor",
+      "previous spider plant repot"
+    ],
+    "relation_verbs": [
+      "repotted",
+      "gave",
+      "transplanted",
+      "shared",
+      "offered",
+      "provided"
+    ],
+    "entity_hints": [
+      "spider plant",
+      "Mrs. Johnson",
+      "neighbor",
+      "cuttings",
+      "previous spider plant"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "between repotting and giving cuttings"
+    }
+  },
+  "p5_candidate": {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc12acaa84b303407978",
+      "m_b12667337e8c4247cf22"
+    ],
+    "support_source_ids": [
+      19,
+      154
+    ],
+    "required_slots": [
+      {
+        "name": "date of repotting",
+        "value": "2023-03-04",
+        "support_memory_ids": [
+          "m_cc12acaa84b303407978"
+        ],
+        "support_source_ids": [
+          19
+        ]
+      },
+      {
+        "name": "date of giving cuttings",
+        "value": "2023-03-18",
+        "support_memory_ids": [
+          "m_b12667337e8c4247cf22"
+        ],
+        "support_source_ids": [
+          154
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-04",
+        "2023-03-18"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user repotted the spider plant on 2023-03-04 (source 19) and gave cuttings to Mrs. Johnson on 2023-03-18 (source 154). The difference is 14 days."
+  },
+  "p7_candidate": {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc12acaa84b303407978",
+      "m_b12667337e8c4247cf22"
+    ],
+    "support_source_ids": [
+      19,
+      154
+    ],
+    "required_slots": [
+      {
+        "name": "date of repotting",
+        "value": "2023-03-04",
+        "support_memory_ids": [
+          "m_cc12acaa84b303407978"
+        ],
+        "support_source_ids": [
+          19
+        ]
+      },
+      {
+        "name": "date of giving cuttings",
+        "value": "2023-03-18",
+        "support_memory_ids": [
+          "m_b12667337e8c4247cf22"
+        ],
+        "support_source_ids": [
+          154
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-04",
+        "2023-03-18"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_cc12acaa84b303407978 (source 19), user repotted the previous spider plant on 2023-03-04. From memory m_b12667337e8c4247cf22 (source 154), user gave Mrs. Johnson cuttings from the spider plant on 2023-03-18. The number of days between these two dates is 14 days."
+  },
+  "p8_candidate": {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc12acaa84b303407978",
+      "m_b12667337e8c4247cf22"
+    ],
+    "support_source_ids": [
+      19,
+      154
+    ],
+    "required_slots": [
+      {
+        "name": "date of repotting",
+        "value": "2023-03-04",
+        "support_memory_ids": [
+          "m_cc12acaa84b303407978"
+        ],
+        "support_source_ids": [
+          19
+        ]
+      },
+      {
+        "name": "date of giving cuttings",
+        "value": "2023-03-18",
+        "support_memory_ids": [
+          "m_b12667337e8c4247cf22"
+        ],
+        "support_source_ids": [
+          154
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-04",
+        "2023-03-18"
+      ],
+      "unit": "days",
+      "result": "14 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user repotted the spider plant on 2023-03-04 (source 19) and gave cuttings to Mrs. Johnson on 2023-03-18 (source 154). The difference is 14 days."
+  },
+  "specialist_candidate": {
+    "answer": "14 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc12acaa84b303407978",
+      "m_b12667337e8c4247cf22"
+    ],
+    "support_source_ids": [
+      19,
+      154
+    ],
+    "required_slots": [
+      {
+        "name": "date of repotting",
+        "value": "2023-03-04",
+        "support_memory_ids": [
+          "m_cc12acaa84b303407978"
+        ],
+        "support_source_ids": [
+          19
+        ]
+      },
+      {
+        "name": "date of giving cuttings",
+        "value": "2023-03-18",
+        "support_memory_ids": [
+          "m_b12667337e8c4247cf22"
+        ],
+        "support_source_ids": [
+          154
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "repotting",
+          "value": "2023-03-04",
+          "unit": "day",
+          "date": "2023-03-04",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_cc12acaa84b303407978"
+          ],
+          "support_source_ids": [
+            19
+          ]
+        },
+        {
+          "label": "giving cuttings",
+          "value": "2023-03-18",
+          "unit": "day",
+          "date": "2023-03-18",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_b12667337e8c4247cf22"
+          ],
+          "support_source_ids": [
+            154
+          ]
+        }
+      ],
+      "requested_unit": "days",
+      "result": "14 days"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user repotted the spider plant on 2023-03-04 (source 19) and gave cuttings to Mrs. Johnson on 2023-03-18 (source 154). The difference is 14 days.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_b12667337e8c4247cf22",
+    "m_cc12acaa84b303407978",
+    "m_7ff6e5c449a9f971e74f",
+    "m_d9fbe73619ac2f3c37ad",
+    "m_3ebe3e59f01e27509dd3",
+    "m_ce82648e7e1812bac014",
+    "m_3f48c57cd3c3df0533c8",
+    "m_3fff84d57ff02b00b897",
+    "m_f2ce62d5ff73ccca70b2",
+    "m_d8b1479d7d4990bef7b9",
+    "m_12ada849a4fe24aa6498",
+    "m_6bf37489feabce1380a8",
+    "m_9718afa846e4db2acfe6",
+    "m_517555f159060710ec29",
+    "m_78731ad3f30a8918a98c",
+    "m_48a4c8bf9d069add7654",
+    "m_5dd4f39af5ef40c769d2",
+    "m_4618cf0db71e8a436cc5",
+    "m_bb1e6c7ca0b7be8c3f38",
+    "m_61b07a283bdc68df1b83"
+  ],
+  "source_census_ids": [
+    154,
+    19,
+    22,
+    12,
+    23,
+    17,
+    21,
+    20,
+    30,
+    3,
+    29,
+    155,
+    128,
+    153
+  ],
+  "profile_memory_ids": [
+    "m_b12667337e8c4247cf22",
+    "m_cc12acaa84b303407978",
+    "m_0111727bfdddc4c96f47",
+    "m_3e1a1c3a2edb146639b8",
+    "m_7fe37456f980ccede78c",
+    "m_bb1e6c7ca0b7be8c3f38",
+    "m_e72097eda5f5817f8323",
+    "m_080c952b48ff17507d48",
+    "m_0cd12311d42712f99caa",
+    "m_12ada849a4fe24aa6498",
+    "m_3f48c57cd3c3df0533c8",
+    "m_61661e2b2aa4effb059f"
+  ]
+}

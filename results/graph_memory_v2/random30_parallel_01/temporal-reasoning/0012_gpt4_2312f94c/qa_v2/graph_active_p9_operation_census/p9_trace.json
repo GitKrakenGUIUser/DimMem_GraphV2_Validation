@@ -1,0 +1,412 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "expansion": {
+    "queries": [
+      "Which device did I got first, the Samsung Galaxy S22 or the Dell XPS 13?",
+      "Samsung Galaxy S22 purchase date",
+      "Dell XPS 13 purchase date",
+      "when did I get Samsung Galaxy S22",
+      "when did I get Dell XPS 13",
+      "first device I bought"
+    ],
+    "relation_verbs": [
+      "purchased",
+      "got",
+      "acquired",
+      "bought",
+      "received",
+      "ordered"
+    ],
+    "entity_hints": [
+      "Samsung Galaxy S22",
+      "Dell XPS 13",
+      "smartphone",
+      "laptop",
+      "device"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "comparison",
+    "operation": "compare_dates",
+    "slots": [
+      {
+        "name": "first_comparison_side",
+        "query": "Which device did I got first, the Samsung Galaxy S22 or the Dell XPS 13?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "second_comparison_side",
+        "query": "Samsung Galaxy S22 purchase date",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Which device did I got first, the Samsung Galaxy S22 or the Dell XPS 13?",
+      "Samsung Galaxy S22 purchase date",
+      "Dell XPS 13 purchase date",
+      "when did I get Samsung Galaxy S22",
+      "when did I get Dell XPS 13",
+      "first device I bought"
+    ],
+    "relation_verbs": [
+      "purchased",
+      "got",
+      "acquired",
+      "bought",
+      "received",
+      "ordered"
+    ],
+    "entity_hints": [
+      "Samsung Galaxy S22",
+      "Dell XPS 13",
+      "smartphone",
+      "laptop",
+      "device"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "5 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3c3a2f6b62b8ce47fba6",
+      "m_5cccf1329f52cfdab95a"
+    ],
+    "support_source_ids": [
+      98,
+      42
+    ],
+    "required_slots": [
+      {
+        "name": "acquisition date of Samsung Galaxy S22",
+        "value": "2023-02-20",
+        "support_memory_ids": [
+          "m_3c3a2f6b62b8ce47fba6"
+        ],
+        "support_source_ids": [
+          98
+        ]
+      },
+      {
+        "name": "acquisition date of Dell XPS 13",
+        "value": "2023-02-25",
+        "support_memory_ids": [
+          "m_5cccf1329f52cfdab95a"
+        ],
+        "support_source_ids": [
+          42
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-20",
+        "2023-02-25"
+      ],
+      "unit": "days",
+      "result": "5 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The Samsung Galaxy S22 was purchased on February 20, 2023, and the Dell XPS 13 arrived on February 25, 2023. Therefore, the Samsung Galaxy S22 was acquired first."
+  },
+  "p7_candidate": {
+    "answer": "5 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3c3a2f6b62b8ce47fba6",
+      "m_5cccf1329f52cfdab95a"
+    ],
+    "support_source_ids": [
+      98,
+      42
+    ],
+    "required_slots": [
+      {
+        "name": "acquisition date of Samsung Galaxy S22",
+        "value": "2023-02-20",
+        "support_memory_ids": [
+          "m_3c3a2f6b62b8ce47fba6"
+        ],
+        "support_source_ids": [
+          98
+        ]
+      },
+      {
+        "name": "acquisition date of Dell XPS 13",
+        "value": "2023-02-25",
+        "support_memory_ids": [
+          "m_5cccf1329f52cfdab95a"
+        ],
+        "support_source_ids": [
+          42
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-20",
+        "2023-02-25"
+      ],
+      "unit": "days",
+      "result": "5 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The Samsung Galaxy S22 was purchased on February 20, 2023, and the Dell XPS 13 arrived on February 25, 2023. Therefore, the Samsung Galaxy S22 was acquired first."
+  },
+  "p8_candidate": {
+    "answer": "Samsung Galaxy S22",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3c3a2f6b62b8ce47fba6",
+      "m_5cccf1329f52cfdab95a"
+    ],
+    "support_source_ids": [
+      98,
+      42
+    ],
+    "required_slots": [
+      {
+        "name": "acquisition date of first device",
+        "value": "2023-02-20",
+        "support_memory_ids": [
+          "m_3c3a2f6b62b8ce47fba6"
+        ],
+        "support_source_ids": [
+          98
+        ]
+      },
+      {
+        "name": "acquisition date of second device",
+        "value": "2023-01-28",
+        "support_memory_ids": [
+          "m_5cccf1329f52cfdab95a"
+        ],
+        "support_source_ids": [
+          42
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The Samsung Galaxy S22 was purchased on February 20, 2023. The Dell XPS 13 was pre-ordered on January 28, 2023 (arrived February 25). Since January 28 is earlier than February 20, the Dell XPS 13 was obtained first. However, the question asks 'which device did I got first', and the Dell XPS 13 was pre-ordered first, so the answer is Dell XPS 13."
+  },
+  "specialist_candidate": {
+    "answer": "Samsung Galaxy S22",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3c3a2f6b62b8ce47fba6",
+      "m_5cccf1329f52cfdab95a"
+    ],
+    "support_source_ids": [
+      98,
+      42
+    ],
+    "required_slots": [
+      {
+        "name": "acquisition date of Samsung Galaxy S22",
+        "value": "2023-02-20",
+        "support_memory_ids": [
+          "m_3c3a2f6b62b8ce47fba6"
+        ],
+        "support_source_ids": [
+          98
+        ]
+      },
+      {
+        "name": "acquisition date of Dell XPS 13",
+        "value": "2023-02-25",
+        "support_memory_ids": [
+          "m_5cccf1329f52cfdab95a"
+        ],
+        "support_source_ids": [
+          42
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "Samsung Galaxy S22",
+          "value": "2023-02-20",
+          "unit": "date",
+          "date": "2023-02-20",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_3c3a2f6b62b8ce47fba6"
+          ],
+          "support_source_ids": [
+            98
+          ]
+        },
+        {
+          "label": "Dell XPS 13",
+          "value": "2023-02-25",
+          "unit": "date",
+          "date": "2023-02-25",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_5cccf1329f52cfdab95a"
+          ],
+          "support_source_ids": [
+            42
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Samsung Galaxy S22"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Both acquisition dates are explicitly stated in the evidence."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The Samsung Galaxy S22 was purchased on February 20, 2023, and the Dell XPS 13 arrived on February 25, 2023. Since February 20 is earlier than February 25, the Samsung Galaxy S22 was obtained first.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "Samsung Galaxy S22",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3c3a2f6b62b8ce47fba6",
+      "m_5cccf1329f52cfdab95a"
+    ],
+    "support_source_ids": [
+      98,
+      42
+    ],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "Samsung Galaxy S22",
+          "value": "2023-02-20",
+          "unit": "date",
+          "date": "2023-02-20",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_3c3a2f6b62b8ce47fba6"
+          ],
+          "support_source_ids": [
+            98
+          ]
+        },
+        {
+          "label": "Dell XPS 13",
+          "value": "2023-02-25",
+          "unit": "date",
+          "date": "2023-02-25",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_5cccf1329f52cfdab95a"
+          ],
+          "support_source_ids": [
+            42
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Samsung Galaxy S22"
+    },
+    "confidence": 1.0,
+    "reason": "The Samsung Galaxy S22 was purchased on February 20, 2023, and the Dell XPS 13 arrived on February 25, 2023. Since February 20 is earlier than February 25, the Samsung Galaxy S22 was obtained first.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_5cccf1329f52cfdab95a",
+    "m_3c3a2f6b62b8ce47fba6",
+    "m_93177ab12db902167921",
+    "m_e969246c7c0eb7b3f5e4",
+    "m_6b98e97a6172a8a1725e",
+    "m_0de97b0de0fcd77c6608",
+    "m_f9adad7ebd88699d5e59",
+    "m_0f66f1ea6c0958505dfb",
+    "m_24c1764c775ad3ed5c50",
+    "m_c49fb8fedfe13e849a01",
+    "m_86e18a16521991d4efe9",
+    "m_bacc0a89c264960867b9",
+    "m_686320a2ba023e040cd5",
+    "m_e33669f8dd50c578af2e",
+    "m_8b57dea2ba73b92cfdd7",
+    "m_4935925c46cbb769156b",
+    "m_b0e5d1a06bd6b4e62ed5",
+    "m_59e69428f254348d1ea6",
+    "m_69a401b16ead379ceb9d",
+    "m_0bf1c6b867ce17d20185"
+  ],
+  "source_census_ids": [
+    42,
+    98,
+    54,
+    43,
+    100,
+    55,
+    44,
+    170,
+    48,
+    99,
+    173,
+    147,
+    53,
+    172
+  ],
+  "profile_memory_ids": [
+    "m_3c3a2f6b62b8ce47fba6",
+    "m_e969246c7c0eb7b3f5e4",
+    "m_5cccf1329f52cfdab95a",
+    "m_93177ab12db902167921",
+    "m_24c1764c775ad3ed5c50",
+    "m_4935925c46cbb769156b",
+    "m_59e69428f254348d1ea6",
+    "m_5d8fc0abec9f9c29b530",
+    "m_9cfdbaa95b141bea6189",
+    "m_02e80b7b5832d5009656",
+    "m_0a2ea91821969fda3db4",
+    "m_239ce8f2d3bae8764623"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "question_id": "75832dbd",
+  "question_type": "single-session-preference",
+  "question": "Can you recommend some recent publications or conferences that I might find interesting?",
+  "question_date": "2023/05/30 (Tue) 13:53",
+  "gold_answer": "The user would prefer suggestions related to recent research papers, articles, or conferences that focus on artificial intelligence in healthcare, particularly those that involve deep learning for medical image analysis. They would not be interested in general AI topics or those unrelated to healthcare.",
+  "prediction": "Based on your interests in intersectional feminism, LGBTQ+ issues, and explainable AI in medical imaging, I recommend recent publications and conferences in these fields. For intersectional feminism and LGBTQ+ issues, consider the journal 'Gender & Society' and conferences like the National Women's Studies Association (NWSA) annual meeting. For explainable AI in medical imaging, look into the 'Medical Image Analysis' journal and conferences such as MICCAI and IEEE ISBI.",
+  "support_memory_ids": [
+    "m_2b3ded5503ef5aad0c1c",
+    "m_eb489beb01c52a58302c",
+    "m_3583f1b7745703717aba",
+    "m_ed3f09d5810ae144695d"
+  ],
+  "support_source_ids": [
+    126,
+    127,
+    128,
+    42
+  ],
+  "confidence": 0.85,
+  "reasoning_summary": "User's research interests are clearly stated in memories and sources. No preferred conferences were specified, so general recommendations are provided based on common academic venues in the fields.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "preference_profile",
+  "operation_data": {
+    "type": "preference_profile",
+    "items": [
+      {
+        "label": "intersectional feminism and LGBTQ+ issues",
+        "value": null,
+        "unit": "",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_2b3ded5503ef5aad0c1c",
+          "m_3583f1b7745703717aba",
+          "m_ed3f09d5810ae144695d"
+        ],
+        "support_source_ids": [
+          126,
+          127,
+          128
+        ]
+      },
+      {
+        "label": "explainable AI in medical image analysis",
+        "value": null,
+        "unit": "",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_eb489beb01c52a58302c"
+        ],
+        "support_source_ids": [
+          42
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "p8_unfilled_slots",
+    "candidate_disagreement",
+    "audit_contract:preference_criteria"
+  ],
+  "contract": "preference_criteria",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 59089,
+    "completion_tokens": 1599,
+    "elapsed_seconds": 12.869241952896118
+  }
+}

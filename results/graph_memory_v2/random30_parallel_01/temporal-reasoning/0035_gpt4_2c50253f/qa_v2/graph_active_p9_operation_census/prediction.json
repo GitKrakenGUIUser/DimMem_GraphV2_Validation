@@ -1,0 +1,50 @@
+{
+  "question_id": "gpt4_2c50253f",
+  "question_type": "temporal-reasoning",
+  "question": "What time do I wake up on Tuesdays and Thursdays?",
+  "question_date": "2023/05/27 (Sat) 19:21",
+  "gold_answer": "6:45 AM",
+  "prediction": "6:45 AM",
+  "support_memory_ids": [
+    "m_666c34dad79983703db0",
+    "m_199b17d52ee77ff7375a"
+  ],
+  "support_source_ids": [
+    212,
+    47
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User's general wake-up time is 7:00 AM (source 47). On Tuesdays and Thursdays, user wakes up 15 minutes earlier (source 212). 7:00 AM minus 15 minutes = 6:45 AM.",
+  "required_slots": [
+    {
+      "name": "wake_up_time",
+      "value": "6:45 AM",
+      "support_memory_ids": [
+        "m_666c34dad79983703db0",
+        "m_199b17d52ee77ff7375a"
+      ],
+      "support_source_ids": [
+        212,
+        47
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "operation_data": {},
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "p8",
+  "risk_reasons": [],
+  "contract": "direct_value",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

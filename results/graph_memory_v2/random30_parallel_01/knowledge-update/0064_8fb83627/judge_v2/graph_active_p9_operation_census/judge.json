@@ -1,0 +1,133 @@
+{
+  "question_id": "8fb83627",
+  "question_type": "knowledge-update",
+  "question": "How many issues of National Geographic have I finished reading?",
+  "question_date": "2023/08/14 (Mon) 23:19",
+  "gold_answer": "Five",
+  "prediction": "5",
+  "support_memory_ids": [
+    "m_e40fe167dbe9a5369419",
+    "m_95b90d5100454a53986c",
+    "m_11e04bebde84e670e1f5",
+    "m_d1f2d48c2657ead96efd"
+  ],
+  "support_source_ids": [
+    134,
+    138,
+    231,
+    233
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User initially reported 3 finished issues on 2023-04-20 (sources 134,138) and later reported 5 finished issues on 2023-07-15 (sources 231,233). The later statement supersedes the earlier, indicating 5 distinct issues finished by the question date.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "operation_data": {
+    "type": "count_distinct",
+    "items": [
+      {
+        "label": "issue 1",
+        "value": null,
+        "unit": "issues",
+        "date": "",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_e40fe167dbe9a5369419",
+          "m_95b90d5100454a53986c"
+        ],
+        "support_source_ids": [
+          134,
+          138
+        ]
+      },
+      {
+        "label": "issue 2",
+        "value": null,
+        "unit": "issues",
+        "date": "",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_e40fe167dbe9a5369419",
+          "m_95b90d5100454a53986c"
+        ],
+        "support_source_ids": [
+          134,
+          138
+        ]
+      },
+      {
+        "label": "issue 3",
+        "value": null,
+        "unit": "issues",
+        "date": "",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_e40fe167dbe9a5369419",
+          "m_95b90d5100454a53986c"
+        ],
+        "support_source_ids": [
+          134,
+          138
+        ]
+      },
+      {
+        "label": "issue 4",
+        "value": null,
+        "unit": "issues",
+        "date": "",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_11e04bebde84e670e1f5",
+          "m_d1f2d48c2657ead96efd"
+        ],
+        "support_source_ids": [
+          231,
+          233
+        ]
+      },
+      {
+        "label": "issue 5",
+        "value": null,
+        "unit": "issues",
+        "date": "",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_11e04bebde84e670e1f5",
+          "m_d1f2d48c2657ead96efd"
+        ],
+        "support_source_ids": [
+          231,
+          233
+        ]
+      }
+    ],
+    "requested_unit": "issues",
+    "result": "5"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 49410,
+    "completion_tokens": 1450,
+    "elapsed_seconds": 10.795071125030518
+  },
+  "correct": true,
+  "judge_reason": "The prediction '5' matches the reference answer 'Five' in meaning.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 129,
+    "completion_tokens": 30,
+    "elapsed_seconds": 0.692924976348877
+  }
+}

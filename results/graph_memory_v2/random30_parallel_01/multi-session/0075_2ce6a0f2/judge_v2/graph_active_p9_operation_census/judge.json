@@ -1,0 +1,93 @@
+{
+  "question_id": "2ce6a0f2",
+  "question_type": "multi-session",
+  "question": "How many different art-related events did I attend in the past month?",
+  "question_date": "2023/03/08 (Wed) 23:27",
+  "gold_answer": "4",
+  "prediction": "3",
+  "support_memory_ids": [
+    "m_35799a5b57aae517bed8",
+    "m_d37bcaab5e917c6d47aa",
+    "m_e033ec9f87dd6b48c3c8"
+  ],
+  "support_source_ids": [
+    188,
+    121
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Three distinct art-related events attended in the past month: 'Women in Art' exhibition on Feb 10, 'Art Afternoon' at Children's Museum on Feb 17, and lecture on 'The Evolution of Street Art' at Art Gallery on Mar 3. The guided tour at History Museum on Feb 24 is not explicitly art-related, and other memories are not events attended within the time window.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "operation_data": {
+    "type": "count_distinct",
+    "items": [
+      {
+        "label": "Women in Art exhibition",
+        "value": null,
+        "unit": "event",
+        "date": "2023-02-10",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_35799a5b57aae517bed8"
+        ],
+        "support_source_ids": [
+          188
+        ]
+      },
+      {
+        "label": "Art Afternoon event",
+        "value": null,
+        "unit": "event",
+        "date": "2023-02-17",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_d37bcaab5e917c6d47aa"
+        ],
+        "support_source_ids": [
+          34
+        ]
+      },
+      {
+        "label": "lecture on 'The Evolution of Street Art'",
+        "value": null,
+        "unit": "event",
+        "date": "2023-03-03",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_e033ec9f87dd6b48c3c8"
+        ],
+        "support_source_ids": [
+          121
+        ]
+      }
+    ],
+    "requested_unit": "events",
+    "result": "3"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 33431,
+    "completion_tokens": 675,
+    "elapsed_seconds": 6.947001218795776
+  },
+  "correct": false,
+  "judge_reason": "Predicted 3, but reference answer is 4.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 133,
+    "completion_tokens": 27,
+    "elapsed_seconds": 0.8832581043243408
+  }
+}

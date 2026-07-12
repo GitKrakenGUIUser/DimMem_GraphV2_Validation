@@ -1,0 +1,335 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "expansion": {
+    "queries": [
+      "Which book did I finish reading first, 'The Hate U Give' or 'The Nightingale'?",
+      "finished reading The Hate U Give",
+      "finished reading The Nightingale",
+      "completed The Hate U Give",
+      "completed The Nightingale",
+      "reading history books"
+    ],
+    "relation_verbs": [
+      "finished reading",
+      "completed",
+      "read"
+    ],
+    "entity_hints": [
+      "The Hate U Give",
+      "The Nightingale",
+      "book"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T22:18:00",
+      "raw": "before 2023-05-30"
+    }
+  },
+  "plan": {
+    "answer_contract": "comparison",
+    "operation": "compare_dates",
+    "slots": [
+      {
+        "name": "first_comparison_side",
+        "query": "Which book did I finish reading first, 'The Hate U Give' or 'The Nightingale'?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "second_comparison_side",
+        "query": "finished reading The Hate U Give",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Which book did I finish reading first, 'The Hate U Give' or 'The Nightingale'?",
+      "finished reading The Hate U Give",
+      "finished reading The Nightingale",
+      "completed The Hate U Give",
+      "completed The Nightingale",
+      "reading history books"
+    ],
+    "relation_verbs": [
+      "finished reading",
+      "completed",
+      "read"
+    ],
+    "entity_hints": [
+      "The Hate U Give",
+      "The Nightingale",
+      "book"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T22:18:00",
+      "raw": "before 2023-05-30"
+    }
+  },
+  "p5_candidate": {
+    "answer": "The Hate U Give",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_004047183f67b3e3e857",
+      "m_d362be8e9a70bf6f2935"
+    ],
+    "support_source_ids": [
+      28,
+      27
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user finished 'The Hate U Give' a few days before May 30, 2023 (source 27), and finished 'The Nightingale' last weekend (May 27-28, 2023) (source 28). Since 'a few days before' May 30 is earlier than 'last weekend' (May 27-28), 'The Hate U Give' was finished first."
+  },
+  "p7_candidate": {
+    "answer": "The Hate U Give",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_004047183f67b3e3e857",
+      "m_d362be8e9a70bf6f2935"
+    ],
+    "support_source_ids": [
+      28,
+      27
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user finished 'The Hate U Give' a few days before May 30, 2023 (source 27), and finished 'The Nightingale' last weekend (May 27-28, 2023) (source 28). Since 'a few days before' May 30 is earlier than 'last weekend' (May 27-28), 'The Hate U Give' was finished first."
+  },
+  "p8_candidate": {
+    "answer": "The Hate U Give",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d362be8e9a70bf6f2935",
+      "m_004047183f67b3e3e857",
+      "m_aa3ecb4c79f76137d9a6"
+    ],
+    "support_source_ids": [
+      27,
+      28,
+      227
+    ],
+    "required_slots": [
+      {
+        "name": "finish date of first book",
+        "value": "a few days before May 30, 2023",
+        "support_memory_ids": [
+          "m_d362be8e9a70bf6f2935"
+        ],
+        "support_source_ids": [
+          27
+        ]
+      },
+      {
+        "name": "finish date of second book",
+        "value": "last weekend (May 27-28, 2023)",
+        "support_memory_ids": [
+          "m_004047183f67b3e3e857",
+          "m_aa3ecb4c79f76137d9a6"
+        ],
+        "support_source_ids": [
+          28,
+          227
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "comparison",
+      "operands": [
+        "a few days before May 30, 2023",
+        "last weekend (May 27-28, 2023)"
+      ],
+      "unit": "",
+      "result": "The Hate U Give finished first"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user finished 'The Hate U Give' a few days before May 30, 2023, and finished 'The Nightingale' last weekend (May 27-28, 2023). Since 'a few days before' May 30 is after May 27-28, 'The Hate U Give' was finished later. However, the question asks which was finished first, so 'The Nightingale' was finished first. Wait, re-evaluating: 'a few days before May 30' could be May 28-29, which is after May 27-28. So 'The Nightingale' was finished earlier. But the memory says 'The Hate U Give' finished a few days before May 30, and 'The Nightingale' finished last weekend (May 27-28). Since May 27-28 is earlier than a few days before May 30, 'The Nightingale' was finished first. However, the answer in the output says 'The Hate U Give' which is incorrect. Let me correct: The Nightingale was finished first. I will adjust the answer."
+  },
+  "specialist_candidate": {
+    "answer": "The Nightingale",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d362be8e9a70bf6f2935",
+      "m_004047183f67b3e3e857"
+    ],
+    "support_source_ids": [
+      27,
+      28
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "The Hate U Give",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-28",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_d362be8e9a70bf6f2935"
+          ],
+          "support_source_ids": [
+            27
+          ]
+        },
+        {
+          "label": "The Nightingale",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-27",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_004047183f67b3e3e857"
+          ],
+          "support_source_ids": [
+            28
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "The Nightingale"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User finished 'The Hate U Give' a few days before May 30, 2023 (source 27), which is around May 28. User finished 'The Nightingale' last weekend (May 27-28, 2023) (source 28). Since May 27 is earlier than May 28, 'The Nightingale' was finished first. However, the question asks which was finished first, so the answer is 'The Nightingale'. Wait, re-evaluating: 'a few days before May 30' could be May 28 or 29, which is after May 27. So 'The Nightingale' was finished first. But the answer in the output says 'The Hate U Give' which is incorrect. Let me correct: The Nightingale was finished first. I will adjust the answer.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "The Nightingale",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_d362be8e9a70bf6f2935",
+      "m_004047183f67b3e3e857"
+    ],
+    "support_source_ids": [
+      27,
+      28
+    ],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "The Hate U Give",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-28",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_d362be8e9a70bf6f2935"
+          ],
+          "support_source_ids": [
+            27
+          ]
+        },
+        {
+          "label": "The Nightingale",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-27",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_004047183f67b3e3e857"
+          ],
+          "support_source_ids": [
+            28
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "The Nightingale"
+    },
+    "confidence": 0.95,
+    "reason": "The user finished 'The Hate U Give' a few days before May 30, 2023 (around May 28), and finished 'The Nightingale' last weekend (May 27-28, 2023). Since May 27 is earlier than May 28, 'The Nightingale' was finished first.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_d362be8e9a70bf6f2935",
+    "m_b5e7ed7ec5c9eff1ab63",
+    "m_004047183f67b3e3e857",
+    "m_aa3ecb4c79f76137d9a6",
+    "m_b8839f6c805e0d57001b",
+    "m_11d96f6871f0e80e773d",
+    "m_fd8e49583f2fa656343c",
+    "m_c8ea6165538430344cb5",
+    "m_8f2107a1e6573c2e89f4",
+    "m_37a8a6caf937f23ce45c",
+    "m_837ae946e093d7ad91b2",
+    "m_0bfa68959a82fa4dd093",
+    "m_7936f74c61334ad4de2b",
+    "m_82c2899c18131ce5114e",
+    "m_1a05206cf55efa2b387e",
+    "m_1ce18d875107eb96c084",
+    "m_89e1912164b5bba542f8",
+    "m_57426d62f51905327df0",
+    "m_8cbd327d25b8e06cfdea",
+    "m_475e235b502e477dcf7f"
+  ],
+  "source_census_ids": [
+    28,
+    27,
+    227,
+    31,
+    229,
+    133,
+    228,
+    230,
+    6,
+    29
+  ],
+  "profile_memory_ids": [
+    "m_d362be8e9a70bf6f2935",
+    "m_b5e7ed7ec5c9eff1ab63",
+    "m_aa3ecb4c79f76137d9a6",
+    "m_004047183f67b3e3e857",
+    "m_7936f74c61334ad4de2b",
+    "m_9371f9cc85ff2eae815e",
+    "m_028c79ea1dd477357e9a",
+    "m_04ef7abdd908f020087a",
+    "m_18f9b6926a22afb669c6",
+    "m_1afbb37abafef4f16dde",
+    "m_515c874afc17cfd3e25f",
+    "m_52a37df2ce5fd3dbe783"
+  ]
+}

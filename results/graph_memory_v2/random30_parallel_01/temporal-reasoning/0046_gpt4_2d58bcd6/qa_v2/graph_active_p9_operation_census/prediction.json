@@ -1,0 +1,71 @@
+{
+  "question_id": "gpt4_2d58bcd6",
+  "question_type": "temporal-reasoning",
+  "question": "Which book did I finish reading first, 'The Hate U Give' or 'The Nightingale'?",
+  "question_date": "2023/05/30 (Tue) 22:18",
+  "gold_answer": "'The Hate U Give'",
+  "prediction": "The Nightingale",
+  "support_memory_ids": [
+    "m_d362be8e9a70bf6f2935",
+    "m_004047183f67b3e3e857"
+  ],
+  "support_source_ids": [
+    27,
+    28
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user finished 'The Hate U Give' a few days before May 30, 2023 (around May 28), and finished 'The Nightingale' last weekend (May 27-28, 2023). Since May 27 is earlier than May 28, 'The Nightingale' was finished first.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "compare_dates",
+  "operation_data": {
+    "type": "compare_dates",
+    "items": [
+      {
+        "label": "The Hate U Give",
+        "value": null,
+        "unit": "",
+        "date": "2023-05-28",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_d362be8e9a70bf6f2935"
+        ],
+        "support_source_ids": [
+          27
+        ]
+      },
+      {
+        "label": "The Nightingale",
+        "value": null,
+        "unit": "",
+        "date": "2023-05-27",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_004047183f67b3e3e857"
+        ],
+        "support_source_ids": [
+          28
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "The Nightingale"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 54758,
+    "completion_tokens": 979,
+    "elapsed_seconds": 8.527925491333008
+  }
+}

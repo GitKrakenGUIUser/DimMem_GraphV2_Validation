@@ -1,0 +1,346 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "expansion": {
+    "queries": [
+      "Which event happened first, my participation in the #PlankChallenge or my post about vegan chili recipe?",
+      "PlankChallenge participation",
+      "vegan chili recipe post",
+      "PlankChallenge date",
+      "vegan chili recipe date",
+      "PlankChallenge when"
+    ],
+    "relation_verbs": [
+      "participated in",
+      "posted about",
+      "did",
+      "shared",
+      "completed",
+      "published"
+    ],
+    "entity_hints": [
+      "PlankChallenge",
+      "vegan chili recipe",
+      "challenge",
+      "recipe",
+      "social media post"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-04-12T12:00:00",
+      "raw": "before April 12, 2023"
+    }
+  },
+  "plan": {
+    "answer_contract": "comparison",
+    "operation": "compare_dates",
+    "slots": [
+      {
+        "name": "first_comparison_side",
+        "query": "Which event happened first, my participation in the #PlankChallenge or my post about vegan chili recipe?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "second_comparison_side",
+        "query": "PlankChallenge participation",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Which event happened first, my participation in the #PlankChallenge or my post about vegan chili recipe?",
+      "PlankChallenge participation",
+      "vegan chili recipe post",
+      "PlankChallenge date",
+      "vegan chili recipe date",
+      "PlankChallenge when"
+    ],
+    "relation_verbs": [
+      "participated in",
+      "posted about",
+      "did",
+      "shared",
+      "completed",
+      "published"
+    ],
+    "entity_hints": [
+      "PlankChallenge",
+      "vegan chili recipe",
+      "challenge",
+      "recipe",
+      "social media post"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-04-12T12:00:00",
+      "raw": "before April 12, 2023"
+    }
+  },
+  "p5_candidate": {
+    "answer": "My post about vegan chili recipe happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc4b3bad16bfda4cb43e",
+      "m_689bcb7ff47ab11a2d27"
+    ],
+    "support_source_ids": [
+      54,
+      89
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The vegan chili recipe post occurred on 2023-03-09 (source 54, memory m_cc4b3bad16bfda4cb43e). The #PlankChallenge participation occurred on 2023-03-15 (source 89, memory m_689bcb7ff47ab11a2d27). Therefore, the vegan chili post happened first."
+  },
+  "p7_candidate": {
+    "answer": "My post about vegan chili recipe happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc4b3bad16bfda4cb43e",
+      "m_689bcb7ff47ab11a2d27"
+    ],
+    "support_source_ids": [
+      54,
+      89
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The vegan chili recipe post occurred on 2023-03-09 (source 54, memory m_cc4b3bad16bfda4cb43e). The #PlankChallenge participation occurred on 2023-03-15 (source 89, memory m_689bcb7ff47ab11a2d27). Therefore, the vegan chili post happened first."
+  },
+  "p8_candidate": {
+    "answer": "My participation in the #PlankChallenge happened after my post about vegan chili recipe.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc4b3bad16bfda4cb43e",
+      "m_689bcb7ff47ab11a2d27"
+    ],
+    "support_source_ids": [
+      54,
+      89
+    ],
+    "required_slots": [
+      {
+        "name": "event time for #PlankChallenge participation",
+        "value": "2023-03-15T14:28:00.500000",
+        "support_memory_ids": [
+          "m_689bcb7ff47ab11a2d27"
+        ],
+        "support_source_ids": [
+          89
+        ]
+      },
+      {
+        "name": "event time for vegan chili recipe post",
+        "value": "2023-03-09",
+        "support_memory_ids": [
+          "m_cc4b3bad16bfda4cb43e"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "comparison",
+      "operands": [
+        "2023-03-09",
+        "2023-03-15T14:28:00.500000"
+      ],
+      "unit": "",
+      "result": "2023-03-09 < 2023-03-15T14:28:00.500000"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_cc4b3bad16bfda4cb43e, the vegan chili recipe post occurred on 2023-03-09. From memory m_689bcb7ff47ab11a2d27, the #PlankChallenge participation occurred on 2023-03-15T14:28:00.500000. Since 2023-03-09 is earlier than 2023-03-15, the vegan chili recipe post happened first."
+  },
+  "specialist_candidate": {
+    "answer": "post about vegan chili recipe",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc4b3bad16bfda4cb43e",
+      "m_689bcb7ff47ab11a2d27"
+    ],
+    "support_source_ids": [
+      54,
+      89
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "post about vegan chili recipe",
+          "value": null,
+          "unit": "",
+          "date": "2023-03-09",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_cc4b3bad16bfda4cb43e"
+          ],
+          "support_source_ids": [
+            54
+          ]
+        },
+        {
+          "label": "participation in #PlankChallenge",
+          "value": null,
+          "unit": "",
+          "date": "2023-03-15T14:28:00.500000",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_689bcb7ff47ab11a2d27"
+          ],
+          "support_source_ids": [
+            89
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "post about vegan chili recipe"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The vegan chili recipe post occurred on 2023-03-09 (source 54, memory m_cc4b3bad16bfda4cb43e). The #PlankChallenge participation occurred on 2023-03-15T14:28:00.500000 (source 89, memory m_689bcb7ff47ab11a2d27). Since 2023-03-09 is earlier, the vegan chili post happened first.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "post about vegan chili recipe",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cc4b3bad16bfda4cb43e",
+      "m_689bcb7ff47ab11a2d27"
+    ],
+    "support_source_ids": [
+      54,
+      89
+    ],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "post about vegan chili recipe",
+          "value": null,
+          "unit": "",
+          "date": "2023-03-09",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_cc4b3bad16bfda4cb43e"
+          ],
+          "support_source_ids": [
+            54
+          ]
+        },
+        {
+          "label": "participation in #PlankChallenge",
+          "value": null,
+          "unit": "",
+          "date": "2023-03-15T14:28:00.500000",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_689bcb7ff47ab11a2d27"
+          ],
+          "support_source_ids": [
+            89
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "post about vegan chili recipe"
+    },
+    "confidence": 1.0,
+    "reason": "The vegan chili recipe post occurred on 2023-03-09 (source 54, memory m_cc4b3bad16bfda4cb43e). The #PlankChallenge participation occurred on 2023-03-15T14:28:00.500000 (source 89, memory m_689bcb7ff47ab11a2d27). Since 2023-03-09 is earlier, the vegan chili post happened first.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_689bcb7ff47ab11a2d27",
+    "m_6b6c66f80dc1bc0450b1",
+    "m_d77084697ce753f11099",
+    "m_cc4b3bad16bfda4cb43e",
+    "m_fbfdcfa04a1e5558a399",
+    "m_4b49be267279e2def552",
+    "m_af0c0360ccb96b6b13e7",
+    "m_e124380f525e82a3b451",
+    "m_d37140891577ea0a13e2",
+    "m_564a96e52471d77795ca",
+    "m_12bd5f788b283a08f049",
+    "m_f75812c6614182223da7",
+    "m_83a2773113638cde848e",
+    "m_c1fe02bfb4b083e56f8a",
+    "m_aeda834ffe92e52e0ae0",
+    "m_7621d4adb63a403b7fc7",
+    "m_db8f3341e121633cce7e",
+    "m_1ddb3a1e8d5a56edccda",
+    "m_a641cdbcfec4c58df017",
+    "m_b22338b6f09a1acd6655"
+  ],
+  "source_census_ids": [
+    54,
+    89,
+    1,
+    32,
+    13,
+    57,
+    2,
+    42,
+    14,
+    78,
+    37,
+    38,
+    240,
+    53
+  ],
+  "profile_memory_ids": [
+    "m_5258e79967c1421e024d",
+    "m_564a96e52471d77795ca",
+    "m_5d5fe34e9fa8eea566e4",
+    "m_b92a9cd1bdd538d18538",
+    "m_cc4b3bad16bfda4cb43e",
+    "m_d0b28a0f073a4a47d3ef",
+    "m_fbfdcfa04a1e5558a399",
+    "m_0737b7a4535d27447936",
+    "m_0e8b2ff473f2221e558f",
+    "m_19ebe94862a872ee57b5",
+    "m_1b913067005f82e408f4",
+    "m_1c67832ce4ad67f0c3ce"
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:state_resolution"
+  ],
+  "contract": "state_resolution",
+  "expansion": {
+    "queries": [
+      "What type of vehicle model am I currently working on?",
+      "current vehicle model working on",
+      "current project vehicle model",
+      "vehicle model type currently working on",
+      "what vehicle model am I working on",
+      "current work vehicle model"
+    ],
+    "relation_verbs": [
+      "working on",
+      "current project",
+      "currently working on"
+    ],
+    "entity_hints": [
+      "vehicle model",
+      "vehicle model type",
+      "current project"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "currently"
+    }
+  },
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operation": "state_resolution",
+    "slots": [
+      {
+        "name": "state_history",
+        "query": "What type of vehicle model am I currently working on?",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "latest_valid_state",
+        "query": "current vehicle model working on",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What type of vehicle model am I currently working on?",
+      "current vehicle model working on",
+      "current project vehicle model",
+      "vehicle model type currently working on",
+      "what vehicle model am I working on",
+      "current work vehicle model"
+    ],
+    "relation_verbs": [
+      "working on",
+      "current project",
+      "currently working on"
+    ],
+    "entity_hints": [
+      "vehicle model",
+      "vehicle model type",
+      "current project"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "currently"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Ford F-150 pickup truck model",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_40463146c1e18adf2184"
+    ],
+    "support_source_ids": [
+      36
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The candidate answer incorrectly states 'Ford Mustang Shelby GT350R model' as the current project. However, memory m_40463146c1e18adf2184 (source turn 36) explicitly states that the user switched to a Ford F-150 pickup truck model on 2023-05-26, and this memory has state_status 'active'. The question date is 2023-06-01, and there is no evidence of a switch back to the Mustang. Therefore, the correct current project is the Ford F-150 pickup truck model."
+  },
+  "p7_candidate": {
+    "answer": "pickup truck",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_40463146c1e18adf2184"
+    ],
+    "support_source_ids": [
+      36
+    ],
+    "required_slots": [
+      {
+        "name": "current_project",
+        "value": "pickup truck",
+        "support_memory_ids": [
+          "m_40463146c1e18adf2184"
+        ],
+        "support_source_ids": [
+          36
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-26 that they switched to a Ford F-150 pickup truck model. No later memory contradicts this, so the current project is a pickup truck."
+  },
+  "p8_candidate": {
+    "answer": "Ford F-150 pickup truck model",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_40463146c1e18adf2184"
+    ],
+    "support_source_ids": [
+      36
+    ],
+    "required_slots": [
+      {
+        "name": "current_project",
+        "value": "Ford F-150 pickup truck model",
+        "support_memory_ids": [
+          "m_40463146c1e18adf2184"
+        ],
+        "support_source_ids": [
+          36
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user's current project state is resolved from the latest valid state entry for 'user.current_project', which is 'Ford F-150 pickup truck model' as of 2023-05-26, superseding the earlier 'Ford Mustang Shelby GT350R model'."
+  },
+  "specialist_candidate": {
+    "answer": "Ford F-150 pickup truck model",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_40463146c1e18adf2184"
+    ],
+    "support_source_ids": [
+      36
+    ],
+    "required_slots": [
+      {
+        "name": "current_project",
+        "value": "Ford F-150 pickup truck model",
+        "support_memory_ids": [
+          "m_40463146c1e18adf2184"
+        ],
+        "support_source_ids": [
+          36
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "state_resolution",
+      "items": [
+        {
+          "label": "Ford Mustang Shelby GT350R model",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-20T15:14:00.500000",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_01b072654dafad28f93e"
+          ],
+          "support_source_ids": [
+            29
+          ]
+        },
+        {
+          "label": "Ford F-150 pickup truck model",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-26T04:47:01",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_40463146c1e18adf2184"
+          ],
+          "support_source_ids": [
+            36
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Ford F-150 pickup truck model"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user's current project state is resolved from the latest valid state entry for 'user.current_project'. The earlier state (Ford Mustang Shelby GT350R model, valid from 2023-05-20) was superseded by the later state (Ford F-150 pickup truck model, valid from 2023-05-26). No subsequent changes are recorded, so the current project as of 2023-06-01 is the Ford F-150 pickup truck model.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "Ford F-150 pickup truck model",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_40463146c1e18adf2184"
+    ],
+    "support_source_ids": [
+      36
+    ],
+    "operation_data": {
+      "type": "state_resolution",
+      "items": [
+        {
+          "label": "Ford Mustang Shelby GT350R model",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-20T15:14:00.500000",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_01b072654dafad28f93e"
+          ],
+          "support_source_ids": [
+            29
+          ]
+        },
+        {
+          "label": "Ford F-150 pickup truck model",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-26T04:47:01",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_40463146c1e18adf2184"
+          ],
+          "support_source_ids": [
+            36
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Ford F-150 pickup truck model"
+    },
+    "confidence": 0.95,
+    "reason": "The user's current project state is resolved from the latest valid state entry for 'user.current_project'. The earlier state (Ford Mustang Shelby GT350R model, valid from 2023-05-20) was superseded by the later state (Ford F-150 pickup truck model, valid from 2023-05-26). No subsequent changes are recorded, so the current project as of 2023-06-01 is the Ford F-150 pickup truck model.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_2d0f9abd186ca16f8d51",
+    "m_01b072654dafad28f93e",
+    "m_40463146c1e18adf2184",
+    "m_37e774df24ce00a63c82",
+    "m_d7d24bd08880f8131a63",
+    "m_f878b22482177fc0c2f9",
+    "m_31f5c5aa505c6e2741ff",
+    "m_8bda6c4b8681a7c00761",
+    "m_b1ebd7d03190763e503e",
+    "m_bfffa5ee03ffb66f6b20",
+    "m_52e68344fab841fe82a6",
+    "m_5bb840f0ab3adeb440a1",
+    "m_03247c065a7745df04bc",
+    "m_5b789c91535f3fe4fe10",
+    "m_91e51e971a06d7808485",
+    "m_85bf60770437e0df80a3",
+    "m_88116d69517615fc80af",
+    "m_e5227f69e270826dffef",
+    "m_5024ea94df0a170699bc"
+  ],
+  "source_census_ids": [
+    34,
+    36,
+    32,
+    31,
+    35,
+    29,
+    33,
+    37,
+    141,
+    143
+  ],
+  "profile_memory_ids": [
+    "m_01b072654dafad28f93e",
+    "m_40463146c1e18adf2184",
+    "m_e95854c764e1c760d966",
+    "m_1487457e2083f637ea79",
+    "m_1818fda4d166f3d249ed",
+    "m_1bcc5d522fa023929a5e",
+    "m_25c1ae0f0788d3fef782",
+    "m_28a268728146e633a8c0",
+    "m_2abe9ee8cf518f7dcc37",
+    "m_2b464913cdbbed1a9980",
+    "m_2ecfdf6eb769f22555c5",
+    "m_30db887a1a2be879f325"
+  ]
+}

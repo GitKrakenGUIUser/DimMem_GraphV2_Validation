@@ -1,0 +1,96 @@
+{
+  "question_id": "gpt4_7f6b06db",
+  "question_type": "temporal-reasoning",
+  "question": "What is the order of the three trips I took in the past three months, from earliest to latest?",
+  "question_date": "2023/06/01 (Thu) 03:56",
+  "gold_answer": "I went on a day hike to Muir Woods National Monument with my family, then I went on a road trip with friends to Big Sur and Monterey, and finally I started my solo camping trip to Yosemite National Park.",
+  "prediction": "Yosemite road trip → Big Sur and Monterey road trip → Yosemite solo camping trip",
+  "support_memory_ids": [
+    "m_d1cf65733538a59fb29c",
+    "m_5ed5e89aaf7d7be4f110",
+    "m_3c9d2e746f1bd2388f85"
+  ],
+  "support_source_ids": [
+    65,
+    207,
+    225
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Three trips identified with explicit dates: Yosemite road trip (mentioned on 2023-02-20), Big Sur/Monterey road trip (returned 2023-04-20), Yosemite solo camping trip (returned 2023-05-15). Ordered chronologically.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "timeline",
+  "operation_data": {
+    "type": "timeline",
+    "items": [
+      {
+        "label": "Yosemite road trip",
+        "value": null,
+        "unit": "",
+        "date": "2023-02-20",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_d1cf65733538a59fb29c"
+        ],
+        "support_source_ids": [
+          65
+        ]
+      },
+      {
+        "label": "Big Sur and Monterey road trip",
+        "value": null,
+        "unit": "",
+        "date": "2023-04-20",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_5ed5e89aaf7d7be4f110"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      },
+      {
+        "label": "Yosemite solo camping trip",
+        "value": null,
+        "unit": "",
+        "date": "2023-05-15",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_3c9d2e746f1bd2388f85"
+        ],
+        "support_source_ids": [
+          225
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "Yosemite road trip → Big Sur and Monterey road trip → Yosemite solo camping trip"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:timeline",
+    "singular_question_multi_answer"
+  ],
+  "contract": "timeline",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 57613,
+    "completion_tokens": 1420,
+    "elapsed_seconds": 10.97331690788269
+  },
+  "correct": false,
+  "judge_reason": "Prediction incorrectly orders trips and misidentifies the first trip as a Yosemite road trip instead of a day hike to Muir Woods.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 200,
+    "completion_tokens": 43,
+    "elapsed_seconds": 0.8777093887329102
+  }
+}

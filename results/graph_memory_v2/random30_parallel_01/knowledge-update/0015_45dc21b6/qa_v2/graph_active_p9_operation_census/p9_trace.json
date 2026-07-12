@@ -1,0 +1,307 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many of Emma's recipes have I tried out?",
+      "recipes from Emma that I tried",
+      "Emma's recipes I cooked",
+      "recipes by Emma I have made",
+      "Emma's recipes I attempted",
+      "Emma's recipes I tested"
+    ],
+    "relation_verbs": [
+      "tried",
+      "cooked",
+      "made",
+      "attempted",
+      "tested",
+      "prepared"
+    ],
+    "entity_hints": [
+      "Emma",
+      "the user",
+      "recipes"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many of Emma's recipes have I tried out?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "recipes from Emma that I tried",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "Emma's recipes I cooked",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "recipes by Emma I have made",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many of Emma's recipes have I tried out?",
+      "recipes from Emma that I tried",
+      "Emma's recipes I cooked",
+      "recipes by Emma I have made",
+      "Emma's recipes I attempted",
+      "Emma's recipes I tested"
+    ],
+    "relation_verbs": [
+      "tried",
+      "cooked",
+      "made",
+      "attempted",
+      "tested",
+      "prepared"
+    ],
+    "entity_hints": [
+      "Emma",
+      "the user",
+      "recipes"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6f3d02597a9de582946f"
+    ],
+    "support_source_ids": [
+      213
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Emma's recipes tried"
+      ],
+      "unit": "recipes",
+      "result": "1"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Source 213 explicitly states 'I've tried out 3 of Emma's recipes so far'. Memory m_6f3d02597a9de582946f also states 'User has tried 3 of Emma's recipes'. No contradictory evidence found."
+  },
+  "p7_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6f3d02597a9de582946f"
+    ],
+    "support_source_ids": [
+      213
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Emma's recipes tried"
+      ],
+      "unit": "recipes",
+      "result": "1"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Source 213 explicitly states 'I've tried out 3 of Emma's recipes so far'. Memory m_6f3d02597a9de582946f also states 'User has tried 3 of Emma's recipes'. No contradictory evidence found."
+  },
+  "p8_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6f3d02597a9de582946f"
+    ],
+    "support_source_ids": [
+      213
+    ],
+    "required_slots": [
+      {
+        "name": "number of Emma's recipes tried by user",
+        "value": "3",
+        "support_memory_ids": [
+          "m_6f3d02597a9de582946f"
+        ],
+        "support_source_ids": [
+          213
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "stated_count",
+    "calculation": {
+      "operator": "stated_count",
+      "operands": [
+        "3"
+      ],
+      "unit": "",
+      "result": "3"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_6f3d02597a9de582946f explicitly states 'User has tried 3 of Emma's recipes'. Source 213 confirms the user said 'I've tried out 3 of Emma's recipes so far'. This is a direct stated count, no further computation needed."
+  },
+  "specialist_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6f3d02597a9de582946f"
+    ],
+    "support_source_ids": [
+      213
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "Emma's recipes tried",
+          "value": 3,
+          "unit": "recipes",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_6f3d02597a9de582946f"
+          ],
+          "support_source_ids": [
+            213
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "3"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Directly stated in source 213 and memory m_6f3d02597a9de582946f."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User explicitly said 'I've tried out 3 of Emma's recipes so far' in source 213, and memory m_6f3d02597a9de582946f confirms 'User has tried 3 of Emma's recipes'. No contradictory evidence.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "3",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_6f3d02597a9de582946f"
+    ],
+    "support_source_ids": [
+      213
+    ],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "Emma's recipes tried",
+          "value": 3,
+          "unit": "recipes",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_6f3d02597a9de582946f"
+          ],
+          "support_source_ids": [
+            213
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "3"
+    },
+    "confidence": 1.0,
+    "reason": "Source 213 explicitly states 'I've tried out 3 of Emma's recipes so far'. Memory m_6f3d02597a9de582946f confirms 'User has tried 3 of Emma's recipes'. No contradictory evidence. Note: earlier source 66 mentions 'tried two', but later source 213 (more recent) updates to 3.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_6f3d02597a9de582946f",
+    "m_71a3de10070621e9d4e9",
+    "m_8347f70b9fc4bf774b39",
+    "m_41764178d22dd986652c",
+    "m_eabcb9e9e198a7833362",
+    "m_7b8319af9a42f78112d9",
+    "m_f8e620fd8fd94cd429b5",
+    "m_dd82dab230ba3d48e794",
+    "m_7c4dac780295ba65f1b9",
+    "m_a4bdb287cfc2841c3d40",
+    "m_05f335fb6016ffe8f2ad",
+    "m_63b92c17470dc74dd89b",
+    "m_7adafebd98b7a3f8d28c",
+    "m_229d1c7a2a89ef8c5830",
+    "m_e4e77af2b221f3867116",
+    "m_a44fbf964beeb70d86b8",
+    "m_339657edc79c220a12dd",
+    "m_c7be51f40640c75b476f",
+    "m_2b4076a51b1b8b62bca4"
+  ],
+  "source_census_ids": [
+    66,
+    213,
+    36,
+    117,
+    32,
+    80,
+    67,
+    37,
+    214,
+    35,
+    212
+  ],
+  "profile_memory_ids": [
+    "m_71a3de10070621e9d4e9",
+    "m_6f3d02597a9de582946f",
+    "m_41764178d22dd986652c",
+    "m_0a45b16538e8c9306240",
+    "m_195315a28fc7d212cab7",
+    "m_3bd14e107384c5b0d484",
+    "m_54809f58e6f14036c661",
+    "m_67bf63c7b5bde0a2f14c",
+    "m_89bde9171483aa5301ee",
+    "m_95554d85022c7d40dbd8",
+    "m_9d3adc5e608ce6e43f2a",
+    "m_e60074611b072a5c2990"
+  ]
+}

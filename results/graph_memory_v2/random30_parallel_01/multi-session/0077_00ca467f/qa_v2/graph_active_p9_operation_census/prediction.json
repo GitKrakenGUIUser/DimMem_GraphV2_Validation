@@ -1,0 +1,83 @@
+{
+  "question_id": "00ca467f",
+  "question_type": "multi-session",
+  "question": "How many doctor's appointments did I go to in March?",
+  "question_date": "2023/03/27 (Mon) 23:35",
+  "gold_answer": "2",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_050dc065171646103968",
+    "m_fb996e810cc0ebe06e09"
+  ],
+  "support_source_ids": [
+    2
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User had a follow-up appointment with Dr. Thompson on March 20 (memory m_050dc065171646103968, source 2) and was diagnosed with bronchitis by Dr. Smith on March 3 (memory m_fb996e810cc0ebe06e09, source 207). These are the only two doctor appointments in March 2023. Other mentions are plans or non-doctor events.",
+  "required_slots": [
+    {
+      "name": "doctor appointments in March",
+      "value": "2",
+      "support_memory_ids": [
+        "m_050dc065171646103968",
+        "m_fb996e810cc0ebe06e09"
+      ],
+      "support_source_ids": [
+        2,
+        207
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "operation_data": {
+    "type": "count_distinct",
+    "items": [
+      {
+        "label": "diagnosis with Dr. Smith on March 3",
+        "value": null,
+        "unit": "appointment",
+        "date": "2023-03-03",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_fb996e810cc0ebe06e09"
+        ],
+        "support_source_ids": [
+          207
+        ]
+      },
+      {
+        "label": "follow-up with Dr. Thompson on March 20",
+        "value": null,
+        "unit": "appointment",
+        "date": "2023-03-20",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_050dc065171646103968"
+        ],
+        "support_source_ids": [
+          2
+        ]
+      }
+    ],
+    "requested_unit": "appointments",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 34766,
+    "completion_tokens": 727,
+    "elapsed_seconds": 6.775557279586792
+  }
+}

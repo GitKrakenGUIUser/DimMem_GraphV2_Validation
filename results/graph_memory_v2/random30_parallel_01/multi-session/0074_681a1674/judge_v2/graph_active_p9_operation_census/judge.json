@@ -1,0 +1,92 @@
+{
+  "question_id": "681a1674",
+  "question_type": "multi-session",
+  "question": "How many Marvel movies did I re-watch?",
+  "question_date": "2023/05/30 (Tue) 21:31",
+  "gold_answer": "2",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_e3a5fbd5897fcadeee0f",
+    "m_49eab1ad3ab13b976a0b"
+  ],
+  "support_source_ids": [
+    164,
+    35
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "From source 164, user said 'I also re-watched Spider-Man: No Way Home'. From source 35, user said 'I just re-watched Avengers: Endgame yesterday'. Both are distinct Marvel movies re-watched, so count is 2.",
+  "required_slots": [
+    {
+      "name": "re-watched Marvel movies",
+      "value": "Spider-Man: No Way Home, Avengers: Endgame",
+      "support_memory_ids": [
+        "m_e3a5fbd5897fcadeee0f",
+        "m_49eab1ad3ab13b976a0b"
+      ],
+      "support_source_ids": [
+        164,
+        35
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "operation_data": {
+    "type": "count_distinct",
+    "items": [
+      {
+        "label": "Spider-Man: No Way Home",
+        "value": null,
+        "unit": "",
+        "date": "",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_e3a5fbd5897fcadeee0f"
+        ],
+        "support_source_ids": [
+          164
+        ]
+      },
+      {
+        "label": "Avengers: Endgame",
+        "value": null,
+        "unit": "",
+        "date": "",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_49eab1ad3ab13b976a0b"
+        ],
+        "support_source_ids": [
+          35
+        ]
+      }
+    ],
+    "requested_unit": "movies",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 34365,
+    "completion_tokens": 634,
+    "elapsed_seconds": 6.825669765472412
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 129,
+    "completion_tokens": 22,
+    "elapsed_seconds": 0.7713286876678467
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "question_id": "gpt4_4cd9eba1",
+  "question_type": "temporal-reasoning",
+  "question": "How many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?",
+  "question_date": "2023/04/19 (Wed) 00:38",
+  "gold_answer": "one week",
+  "prediction": "1 weeks",
+  "support_memory_ids": [
+    "m_f13aa0a56cd56a812374",
+    "m_7912efeefba5ce1459c1"
+  ],
+  "support_source_ids": [
+    118,
+    69
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User was accepted on March 20, 2023 (source 118) and started attending orientation on March 27, 2023 (source 69). The difference is 7 days, which equals 1 week.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "acceptance date",
+        "value": "2023-03-20",
+        "unit": "day",
+        "date": "2023-03-20",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_f13aa0a56cd56a812374"
+        ],
+        "support_source_ids": [
+          118
+        ]
+      },
+      {
+        "label": "orientation start date",
+        "value": "2023-03-27",
+        "unit": "day",
+        "date": "2023-03-27",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_7912efeefba5ce1459c1"
+        ],
+        "support_source_ids": [
+          69
+        ]
+      }
+    ],
+    "requested_unit": "weeks",
+    "result": "1 weeks"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 56833,
+    "completion_tokens": 968,
+    "elapsed_seconds": 11.319669485092163
+  },
+  "correct": true,
+  "judge_reason": "Deterministic duration equivalence.",
+  "judge_meta": {
+    "mode": "deterministic_duration_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

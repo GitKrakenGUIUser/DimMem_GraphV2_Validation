@@ -1,0 +1,394 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "comparison_final_consistency_audit"
+  ],
+  "contract": "direct_value",
+  "expansion": {
+    "queries": [
+      "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+      "French press coffee to water ratio change",
+      "French press ratio more water per tablespoon",
+      "French press ratio less water per tablespoon",
+      "French press coffee water ratio preference",
+      "French press ratio recommendation"
+    ],
+    "relation_verbs": [
+      "changed",
+      "switched",
+      "adjusted",
+      "preferred",
+      "recommended",
+      "used"
+    ],
+    "entity_hints": [
+      "French press",
+      "coffee to water ratio",
+      "tablespoon",
+      "coffee",
+      "water"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-07-30T05:53:00",
+      "raw": "before now"
+    }
+  },
+  "plan": {
+    "answer_contract": "direct_value",
+    "operation": "direct",
+    "slots": [
+      {
+        "name": "exact_requested_relation",
+        "query": "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+        "semantic_type": "other",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+      "French press coffee to water ratio change",
+      "French press ratio more water per tablespoon",
+      "French press ratio less water per tablespoon",
+      "French press coffee water ratio preference",
+      "French press ratio recommendation"
+    ],
+    "relation_verbs": [
+      "changed",
+      "switched",
+      "adjusted",
+      "preferred",
+      "recommended",
+      "used"
+    ],
+    "entity_hints": [
+      "French press",
+      "coffee to water ratio",
+      "tablespoon",
+      "coffee",
+      "water"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-07-30T05:53:00",
+      "raw": "before now"
+    }
+  },
+  "p5_candidate": {
+    "answer": "less water per tablespoon of coffee",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f4c802478fd10b33c52c",
+      "m_d09a2cc4c692616bf60f"
+    ],
+    "support_source_ids": [
+      7,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "previous ratio",
+        "value": "1 tbsp per 6 oz water",
+        "support_memory_ids": [
+          "m_f4c802478fd10b33c52c"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "name": "current ratio",
+        "value": "1 tbsp per 5 oz water",
+        "support_memory_ids": [
+          "m_d09a2cc4c692616bf60f"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user previously used 1 tbsp per 6 oz water (Feb 11, 2023) and later switched to 1 tbsp per 5 oz water (Jun 30, 2023). Since 5 oz is less water than 6 oz for the same amount of coffee, the ratio has less water per tablespoon (more concentrated). The candidate answer incorrectly stated 'more water per tablespoon'."
+  },
+  "p7_candidate": {
+    "answer": "more water per tablespoon",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f4c802478fd10b33c52c",
+      "m_d09a2cc4c692616bf60f"
+    ],
+    "support_source_ids": [
+      7,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "previous ratio",
+        "value": "1 tbsp per 6 oz water",
+        "support_memory_ids": [
+          "m_f4c802478fd10b33c52c"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "name": "current ratio",
+        "value": "1 tbsp per 5 oz water",
+        "support_memory_ids": [
+          "m_d09a2cc4c692616bf60f"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Previous ratio (Feb 2023): 1 tbsp per 6 oz water. Current ratio (Jun 2023): 1 tbsp per 5 oz water. Since 5 oz is less water than 6 oz for the same amount of coffee, the user switched to less water per tablespoon, i.e., more water per tablespoon? Wait: 1 tbsp per 5 oz means more coffee per water, so less water per tablespoon. The question asks 'more water per tablespoon' or 'less water per tablespoon'. 1 tbsp per 5 oz has less water per tablespoon than 1 tbsp per 6 oz. So the switch is to less water per tablespoon. But the answer must be one of the two options. The user went from 6 oz water per tbsp to 5 oz water per tbsp, so less water per tablespoon. However, the output constraint says answer must be 'more water per tablespoon' or 'less water per tablespoon'. The correct answer is 'less water per tablespoon'. But the plan says 'more water per tablespoon'? Let's re-evaluate: 1 tbsp per 6 oz means 6 oz water per tbsp. 1 tbsp per 5 oz means 5 oz water per tbsp. So the amount of water per tablespoon decreased. So the user switched to less water per tablespoon. Therefore answer is 'less water per tablespoon'."
+  },
+  "p8_candidate": {
+    "answer": "less water per tablespoon of coffee",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f4c802478fd10b33c52c",
+      "m_d09a2cc4c692616bf60f"
+    ],
+    "support_source_ids": [
+      7,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "previous ratio",
+        "value": "1 tbsp per 6 oz water",
+        "support_memory_ids": [
+          "m_f4c802478fd10b33c52c"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "name": "current ratio",
+        "value": "1 tbsp per 5 oz water",
+        "support_memory_ids": [
+          "m_d09a2cc4c692616bf60f"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user previously used 1 tbsp per 6 oz water (Feb 11, 2023) and later switched to 1 tbsp per 5 oz water (Jun 30, 2023). Since 5 oz is less water than 6 oz for the same amount of coffee, the ratio has less water per tablespoon (more concentrated). The candidate answer incorrectly stated 'more water per tablespoon'."
+  },
+  "specialist_candidate": {
+    "answer": "less water per tablespoon of coffee",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f4c802478fd10b33c52c",
+      "m_d09a2cc4c692616bf60f"
+    ],
+    "support_source_ids": [
+      7,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "previous ratio",
+        "value": "1 tbsp per 6 oz water",
+        "support_memory_ids": [
+          "m_f4c802478fd10b33c52c"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "name": "current ratio",
+        "value": "1 tbsp per 5 oz water",
+        "support_memory_ids": [
+          "m_d09a2cc4c692616bf60f"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "previous ratio",
+          "value": "1 tbsp per 6 oz water",
+          "unit": "",
+          "date": "2023-02-11",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_f4c802478fd10b33c52c"
+          ],
+          "support_source_ids": [
+            7
+          ]
+        },
+        {
+          "label": "current ratio",
+          "value": "1 tbsp per 5 oz water",
+          "unit": "",
+          "date": "2023-06-30",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_d09a2cc4c692616bf60f"
+          ],
+          "support_source_ids": [
+            105
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "less water per tablespoon of coffee"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Both ratios are explicitly stated in memory with timestamps."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Previous ratio (Feb 2023): 1 tbsp per 6 oz water. Current ratio (Jun 2023): 1 tbsp per 5 oz water. Since 5 oz is less water than 6 oz for the same amount of coffee, the user switched to less water per tablespoon.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "less water per tablespoon of coffee",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f4c802478fd10b33c52c",
+      "m_d09a2cc4c692616bf60f"
+    ],
+    "support_source_ids": [
+      7,
+      105
+    ],
+    "operation_data": {
+      "type": "state_resolution",
+      "items": [
+        {
+          "label": "previous ratio",
+          "value": "1 tbsp per 6 oz water",
+          "unit": "",
+          "date": "2023-02-11",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_f4c802478fd10b33c52c"
+          ],
+          "support_source_ids": [
+            7
+          ]
+        },
+        {
+          "label": "current ratio",
+          "value": "1 tbsp per 5 oz water",
+          "unit": "",
+          "date": "2023-06-30",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_d09a2cc4c692616bf60f"
+          ],
+          "support_source_ids": [
+            105
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "less water per tablespoon of coffee"
+    },
+    "confidence": 1.0,
+    "reason": "Previous ratio was 1 tbsp per 6 oz water (Feb 2023), current ratio is 1 tbsp per 5 oz water (Jun 2023). Since 5 oz is less water than 6 oz for the same amount of coffee, the user switched to less water per tablespoon.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_d09a2cc4c692616bf60f",
+    "m_f4c802478fd10b33c52c",
+    "m_70a474da3c7c046609db",
+    "m_e36f40d1da813a63dac5",
+    "m_265913e78d7460fb75b8",
+    "m_fc6f0dabfa0e7e1b3bc6",
+    "m_159a0a64819797f99813",
+    "m_d06d49a7341425a45153",
+    "m_6d6a1c59901aabfa8830",
+    "m_4af4e9b3994620e47b91",
+    "m_6ba468ac28afcee4cc9e",
+    "m_e1b144a5a1604c1631b5",
+    "m_a3240de6e70d2cf1da8b",
+    "m_3a8e3e31f14a00e1dfad",
+    "m_ef915fcff9925b934a83",
+    "m_3b139d3f2e26844f6f7e",
+    "m_6b29449d5bcdc2ff9618",
+    "m_1664a14b2e6629625781"
+  ],
+  "source_census_ids": [
+    7,
+    105,
+    109,
+    11,
+    12,
+    9,
+    8,
+    108,
+    110,
+    106
+  ],
+  "profile_memory_ids": [
+    "m_f4c802478fd10b33c52c",
+    "m_d09a2cc4c692616bf60f",
+    "m_70a474da3c7c046609db",
+    "m_82a3f79c67ba55ff6999",
+    "m_e36f40d1da813a63dac5",
+    "m_159a0a64819797f99813",
+    "m_15e901b21f7457cf2bf2",
+    "m_2606dc803c3b8c82af01",
+    "m_265913e78d7460fb75b8",
+    "m_2c3297f9cd21b22f2d64",
+    "m_578637293db5683f7384",
+    "m_7882ad4ce9e714759e9f"
+  ]
+}

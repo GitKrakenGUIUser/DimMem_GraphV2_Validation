@@ -1,0 +1,346 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "p8_unfilled_slots",
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "expansion": {
+    "queries": [
+      "Who became a parent first, Tom or Alex?",
+      "Tom became a parent",
+      "Alex became a parent",
+      "Tom had first child",
+      "Alex had first child",
+      "Tom became father"
+    ],
+    "relation_verbs": [
+      "became parent",
+      "had first child",
+      "became father"
+    ],
+    "entity_hints": [
+      "Tom",
+      "Alex"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-03-17T03:09:00",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "comparison",
+    "operation": "compare_dates",
+    "slots": [
+      {
+        "name": "first_comparison_side",
+        "query": "Who became a parent first, Tom or Alex?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "second_comparison_side",
+        "query": "Tom became a parent",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Who became a parent first, Tom or Alex?",
+      "Tom became a parent",
+      "Alex became a parent",
+      "Tom had first child",
+      "Alex had first child",
+      "Tom became father"
+    ],
+    "relation_verbs": [
+      "became parent",
+      "had first child",
+      "became father"
+    ],
+    "entity_hints": [
+      "Tom",
+      "Alex"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-03-17T03:09:00",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "Alex",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_12bba7f3b7a19a1921d0",
+      "m_7153626a05f74c2cd99e"
+    ],
+    "support_source_ids": [
+      45,
+      49
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Evidence shows Alex adopted a baby girl in January 2023, making Alex a parent. No evidence of Tom becoming a parent. Therefore, Alex became a parent first."
+  },
+  "p7_candidate": {
+    "answer": "Alex",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_12bba7f3b7a19a1921d0",
+      "m_7153626a05f74c2cd99e"
+    ],
+    "support_source_ids": [
+      45,
+      49
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Evidence shows Alex adopted a baby girl in January 2023, making Alex a parent. No evidence of Tom becoming a parent. Therefore, Alex became a parent first."
+  },
+  "p8_candidate": {
+    "answer": "Alex",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_12bba7f3b7a19a1921d0",
+      "m_7153626a05f74c2cd99e"
+    ],
+    "support_source_ids": [
+      45,
+      49
+    ],
+    "required_slots": [
+      {
+        "name": "date when Tom became a parent",
+        "value": "unknown",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "date when Alex became a parent",
+        "value": "January 2023",
+        "support_memory_ids": [
+          "m_12bba7f3b7a19a1921d0",
+          "m_7153626a05f74c2cd99e"
+        ],
+        "support_source_ids": [
+          45,
+          49
+        ]
+      }
+    ],
+    "unfilled_slots": [
+      "date when Tom became a parent"
+    ],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Alex became a parent in January 2023 (adopted a baby girl from China). No evidence found for Tom becoming a parent. Therefore, Alex became a parent first."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_12bba7f3b7a19a1921d0",
+      "m_7153626a05f74c2cd99e"
+    ],
+    "support_source_ids": [
+      45,
+      49
+    ],
+    "required_slots": [
+      {
+        "name": "date when Tom became a parent",
+        "value": "unknown",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "date when Alex became a parent",
+        "value": "January 2023",
+        "support_memory_ids": [
+          "m_12bba7f3b7a19a1921d0",
+          "m_7153626a05f74c2cd99e"
+        ],
+        "support_source_ids": [
+          45,
+          49
+        ]
+      }
+    ],
+    "unfilled_slots": [
+      "date when Tom became a parent"
+    ],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "Tom",
+          "value": null,
+          "unit": "",
+          "date": "",
+          "status": "uncertain",
+          "support_memory_ids": [],
+          "support_source_ids": []
+        },
+        {
+          "label": "Alex",
+          "value": null,
+          "unit": "",
+          "date": "2023-01",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_12bba7f3b7a19a1921d0",
+            "m_7153626a05f74c2cd99e"
+          ],
+          "support_source_ids": [
+            45,
+            49
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Cannot be determined from the conversation."
+    },
+    "coverage": {
+      "complete": false,
+      "possible_omissions": [
+        "No evidence found for Tom becoming a parent."
+      ],
+      "reason": "Only Alex's parent date is known; Tom's is missing."
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Alex adopted a baby girl in January 2023, making Alex a parent. No evidence of Tom becoming a parent. Therefore, Alex became a parent first.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_12bba7f3b7a19a1921d0",
+      "m_7153626a05f74c2cd99e"
+    ],
+    "support_source_ids": [
+      45,
+      49
+    ],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "Tom",
+          "value": null,
+          "unit": "",
+          "date": "",
+          "status": "uncertain",
+          "support_memory_ids": [],
+          "support_source_ids": []
+        },
+        {
+          "label": "Alex",
+          "value": null,
+          "unit": "",
+          "date": "2023-01",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_12bba7f3b7a19a1921d0",
+            "m_7153626a05f74c2cd99e"
+          ],
+          "support_source_ids": [
+            45,
+            49
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Cannot be determined from the conversation."
+    },
+    "confidence": 0.9,
+    "reason": "Evidence shows Alex adopted a baby girl in January 2023, making Alex a parent. No evidence of Tom becoming a parent. Therefore, Alex became a parent first.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_e9b62e19c39538467e90",
+    "m_7153626a05f74c2cd99e",
+    "m_12bba7f3b7a19a1921d0",
+    "m_15affa0a73ea5eca885f",
+    "m_8d2c6232d6661a952251",
+    "m_661390a3d07ad630e99d",
+    "m_f60a9562df9b23876f7e",
+    "m_adfea0f37f8ea62663d9",
+    "m_ed45f765f0f636e4b3b3",
+    "m_188e441dddf9892110ee",
+    "m_dfbe79adc2b321edea11",
+    "m_06d73a2ffe91fa55b519",
+    "m_b85208c0bb55c3fdd068",
+    "m_eb156aeae82002ed2d4d",
+    "m_d2ef2f275200179dd7bf",
+    "m_8a52952a471c374c994c",
+    "m_9191ef82d6d238f706d1",
+    "m_eb28460fb32afb45dd87"
+  ],
+  "source_census_ids": [
+    49,
+    45,
+    50,
+    14,
+    55,
+    17,
+    13,
+    20,
+    16,
+    48,
+    6,
+    46
+  ],
+  "profile_memory_ids": [
+    "m_7153626a05f74c2cd99e",
+    "m_06d73a2ffe91fa55b519",
+    "m_10963c58256bbccd4cf6",
+    "m_12bba7f3b7a19a1921d0",
+    "m_15affa0a73ea5eca885f",
+    "m_303812cc7c7d9daf81f1",
+    "m_336bf11611850338b062",
+    "m_44b82e08ea535df4437d",
+    "m_661390a3d07ad630e99d",
+    "m_8d2ba640a1b6c0eee95d",
+    "m_9d55e41091e7f4dad335",
+    "m_a2c6431dac7e4752036c"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "question_id": "86f00804",
+  "question_type": "single-session-user",
+  "question": "What book am I currently reading?",
+  "question_date": "2023/05/30 (Tue) 18:40",
+  "gold_answer": "The Seven Husbands of Evelyn Hugo",
+  "prediction": "The Seven Husbands of Evelyn Hugo",
+  "support_memory_ids": [
+    "m_a439e5a7f9668907c68c"
+  ],
+  "support_source_ids": [
+    54
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "On 2023-05-23, user stated they are currently reading 'The Seven Husbands of Evelyn Hugo'. No later update contradicts this, so it is the current book as of 2023-05-30.",
+  "required_slots": [
+    {
+      "name": "book_title",
+      "value": "The Seven Husbands of Evelyn Hugo",
+      "support_memory_ids": [
+        "m_a439e5a7f9668907c68c"
+      ],
+      "support_source_ids": [
+        54
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "operation_data": {
+    "type": "state_resolution",
+    "items": [
+      {
+        "label": "currently reading",
+        "value": "The Seven Husbands of Evelyn Hugo",
+        "unit": "",
+        "date": "2023-05-23",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "The Seven Husbands of Evelyn Hugo"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "contract": "state_resolution",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 32139,
+    "completion_tokens": 514,
+    "elapsed_seconds": 6.242678642272949
+  }
+}

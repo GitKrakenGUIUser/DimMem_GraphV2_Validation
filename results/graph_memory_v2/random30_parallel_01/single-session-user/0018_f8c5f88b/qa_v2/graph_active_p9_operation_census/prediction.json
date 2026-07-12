@@ -1,0 +1,67 @@
+{
+  "question_id": "f8c5f88b",
+  "question_type": "single-session-user",
+  "question": "Where did I buy my new tennis racket from?",
+  "question_date": "2023/05/30 (Tue) 23:39",
+  "gold_answer": "the sports store downtown",
+  "prediction": "a sports store downtown",
+  "support_memory_ids": [
+    "m_79d11e85f992cd323d99"
+  ],
+  "support_source_ids": [
+    134
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "The user said 'I'm really happy with my new tennis racket, which I got from a sports store downtown' in source 134, and memory m_79d11e85f992cd323d99 records the same fact.",
+  "required_slots": [
+    {
+      "name": "purchase_location",
+      "value": "a sports store downtown",
+      "support_memory_ids": [
+        "m_79d11e85f992cd323d99"
+      ],
+      "support_source_ids": [
+        134
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "direct",
+  "operation_data": {
+    "type": "direct",
+    "items": [
+      {
+        "label": "purchase_location",
+        "value": "a sports store downtown",
+        "unit": "",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_79d11e85f992cd323d99"
+        ],
+        "support_source_ids": [
+          134
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "a sports store downtown"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:direct_relation"
+  ],
+  "contract": "direct_relation",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 34461,
+    "completion_tokens": 531,
+    "elapsed_seconds": 9.337203979492188
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many graduation ceremonies have I attended in the past three months?",
+      "graduation ceremonies attended",
+      "graduation ceremonies I went to",
+      "graduation ceremonies I participated in",
+      "graduation ceremonies I was at",
+      "graduation ceremonies I observed"
+    ],
+    "relation_verbs": [
+      "attended",
+      "went to",
+      "participated in",
+      "was at",
+      "observed",
+      "celebrated"
+    ],
+    "entity_hints": [
+      "graduation ceremony",
+      "commencement",
+      "graduation event",
+      "graduation"
+    ],
+    "time_scope": {
+      "start": "2023-04-21",
+      "end": "2023-07-21",
+      "raw": "past three months"
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many graduation ceremonies have I attended in the past three months?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "graduation ceremonies attended",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "graduation ceremonies I went to",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "graduation ceremonies I participated in",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many graduation ceremonies have I attended in the past three months?",
+      "graduation ceremonies attended",
+      "graduation ceremonies I went to",
+      "graduation ceremonies I participated in",
+      "graduation ceremonies I was at",
+      "graduation ceremonies I observed"
+    ],
+    "relation_verbs": [
+      "attended",
+      "went to",
+      "participated in",
+      "was at",
+      "observed",
+      "celebrated"
+    ],
+    "entity_hints": [
+      "graduation ceremony",
+      "commencement",
+      "graduation event",
+      "graduation"
+    ],
+    "time_scope": {
+      "start": "2023-04-21",
+      "end": "2023-07-21",
+      "raw": "past three months"
+    }
+  },
+  "p5_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ee98828d389262062ff4",
+      "m_9dad06dd132d07e4e0d3"
+    ],
+    "support_source_ids": [
+      157,
+      77
+    ],
+    "required_slots": [
+      {
+        "name": "count",
+        "value": "2",
+        "support_memory_ids": [
+          "m_ee98828d389262062ff4",
+          "m_9dad06dd132d07e4e0d3"
+        ],
+        "support_source_ids": [
+          157,
+          77
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Rachel's master's degree graduation ceremony",
+        "Emma's preschool graduation"
+      ],
+      "unit": "ceremonies",
+      "result": "2"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Two graduation ceremonies attended within the past three months: Rachel's master's degree graduation (about two weeks before July 21, 2023) and Emma's preschool graduation (about two months before July 21, 2023)."
+  },
+  "p7_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ee98828d389262062ff4",
+      "m_9dad06dd132d07e4e0d3"
+    ],
+    "support_source_ids": [
+      157,
+      77
+    ],
+    "required_slots": [
+      {
+        "name": "graduation ceremony attendance",
+        "value": "2",
+        "support_memory_ids": [
+          "m_ee98828d389262062ff4",
+          "m_9dad06dd132d07e4e0d3"
+        ],
+        "support_source_ids": [
+          157,
+          77
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Rachel's master's degree graduation ceremony (2023-07-07)",
+        "Emma's preschool graduation (2023-05-21)"
+      ],
+      "unit": "events",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The question asks for the number of graduation ceremonies attended in the past three months from 2023/07/21. Two distinct graduation ceremonies are grounded: Rachel's master's degree graduation ceremony on 2023-07-07 (within 3 months) and Emma's preschool graduation on 2023-05-21 (within 3 months). The missed ceremony for Jack is not counted as attended. Thus, the count is 2."
+  },
+  "p8_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ee98828d389262062ff4",
+      "m_9dad06dd132d07e4e0d3"
+    ],
+    "support_source_ids": [
+      157,
+      77
+    ],
+    "required_slots": [
+      {
+        "name": "graduation ceremony attendance events",
+        "value": "2",
+        "support_memory_ids": [
+          "m_ee98828d389262062ff4",
+          "m_9dad06dd132d07e4e0d3"
+        ],
+        "support_source_ids": [
+          157,
+          77
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "m_ee98828d389262062ff4",
+        "m_9dad06dd132d07e4e0d3"
+      ],
+      "unit": "",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Two distinct graduation ceremony attendance events are within the past three months from the question date (2023-07-21): Rachel's master's degree graduation (2023-07-07) and Emma's preschool graduation (2023-05-21). The missed event (Jack's) is not counted."
+  },
+  "specialist_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ee98828d389262062ff4",
+      "m_9dad06dd132d07e4e0d3"
+    ],
+    "support_source_ids": [
+      157,
+      77
+    ],
+    "required_slots": [
+      {
+        "name": "count",
+        "value": "2",
+        "support_memory_ids": [
+          "m_ee98828d389262062ff4",
+          "m_9dad06dd132d07e4e0d3"
+        ],
+        "support_source_ids": [
+          157,
+          77
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [
+        {
+          "label": "Rachel's master's degree graduation ceremony",
+          "value": null,
+          "unit": "",
+          "date": "2023-07-07",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_ee98828d389262062ff4"
+          ],
+          "support_source_ids": [
+            157
+          ]
+        },
+        {
+          "label": "Emma's preschool graduation",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-21",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_9dad06dd132d07e4e0d3"
+          ],
+          "support_source_ids": [
+            77
+          ]
+        }
+      ],
+      "requested_unit": "ceremonies",
+      "result": "2"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Two distinct graduation ceremonies attended within the past three months from 2023-07-21: Rachel's master's degree graduation (2023-07-07) and Emma's preschool graduation (2023-05-21). The missed ceremony for Jack is not counted."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Two graduation ceremonies attended within the past three months: Rachel's master's degree graduation (2023-07-07) and Emma's preschool graduation (2023-05-21).",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_ee98828d389262062ff4",
+    "m_9dad06dd132d07e4e0d3",
+    "m_729031a0fa6c5aadd38f",
+    "m_25bdda9284980de110ff",
+    "m_fd249d3548ab1581a1b0",
+    "m_a1040d289619501f88c0",
+    "m_bdb1ac337a168839baa9",
+    "m_1b7a8dc1a48bbaf4180e",
+    "m_a09a4060769a96c8fc0b",
+    "m_c11073a1bf905be13b4b",
+    "m_3b2b228faf25753af940",
+    "m_b1f4b5944d4ae47ab4f9",
+    "m_6267c04767635eb4e6c7",
+    "m_1ecfcdd21fc69214ea2a",
+    "m_f377f458f61d0dd6a822",
+    "m_70176db91edf0ae2f84d",
+    "m_ab87719df1a205c6edad",
+    "m_49c504f125fae068e33a",
+    "m_85f74dfa105a57b33aa1"
+  ],
+  "source_census_ids": [
+    157,
+    159,
+    82,
+    19,
+    4,
+    18,
+    5,
+    8,
+    47,
+    9,
+    6,
+    58,
+    129,
+    162
+  ],
+  "profile_memory_ids": [
+    "m_9dfa42c3cb37c70207f1",
+    "m_04b7c2ceaac8f72d5d53",
+    "m_082fa42f3aebb52a3fcf",
+    "m_6a2ed3452eebdc914d49",
+    "m_8addf19b341603adcfad",
+    "m_92f199619bc4caad5833",
+    "m_95776fd4b4e81fb28b9d",
+    "m_9dad06dd132d07e4e0d3",
+    "m_fd249d3548ab1581a1b0",
+    "m_0e3c293a10b1b52ed362",
+    "m_0eac908a39fe54b018ca",
+    "m_10257215466533c1273a"
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "p8_abstained",
+    "p8_no_support",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many different museums or galleries did I visit in December?",
+      "museums visited December",
+      "galleries visited December",
+      "museum trips December",
+      "gallery visits December",
+      "cultural institutions December"
+    ],
+    "relation_verbs": [
+      "visited",
+      "went to",
+      "saw",
+      "attended",
+      "explored"
+    ],
+    "entity_hints": [
+      "museum",
+      "gallery",
+      "art museum",
+      "science museum",
+      "history museum",
+      "art gallery"
+    ],
+    "time_scope": {
+      "start": "2022-12-01T00:00:00",
+      "end": "2022-12-31T23:59:59",
+      "raw": "December"
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many different museums or galleries did I visit in December?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "museums visited December",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "galleries visited December",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "museum trips December",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many different museums or galleries did I visit in December?",
+      "museums visited December",
+      "galleries visited December",
+      "museum trips December",
+      "gallery visits December",
+      "cultural institutions December"
+    ],
+    "relation_verbs": [
+      "visited",
+      "went to",
+      "saw",
+      "attended",
+      "explored"
+    ],
+    "entity_hints": [
+      "museum",
+      "gallery",
+      "art museum",
+      "science museum",
+      "history museum",
+      "art gallery"
+    ],
+    "time_scope": {
+      "start": "2022-12-01T00:00:00",
+      "end": "2022-12-31T23:59:59",
+      "raw": "December"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memories or source turns mention any museum or gallery visit in December 2022. The only museum visits mentioned are in January 2023 (Modern Art Museum), February 2023 (Natural History Museum, The Art Cube), and a planned Toyota Museum Tour with no date specified. Therefore, the number of different museums or galleries visited in December cannot be determined."
+  },
+  "p7_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "museum or gallery visit in December",
+        "value": "none",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [],
+      "unit": "",
+      "result": "0"
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "No memories or sources mention any museum or gallery visit in December 2022. All visits are in January, February, or unspecified months."
+  },
+  "p8_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "museum or gallery visit in December",
+        "value": "none",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [],
+      "unit": "",
+      "result": "0"
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "No memories or sources mention any museum or gallery visit in December 2022. All visits are in January, February, or unspecified months."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [],
+      "requested_unit": "",
+      "result": "0"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "No museum or gallery visits in December are mentioned in any memory or source."
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "All documented museum/gallery visits occurred in January, February, or are planned for unspecified dates; none in December.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "grounding_failure": "concrete answer has no valid support IDs"
+  },
+  "adjudicated_candidate": {},
+  "choice": "p8",
+  "v2_census_memory_ids": [
+    "m_708116d071b5cf98caea",
+    "m_8f58eb8e45bcff9b1667",
+    "m_d7473ebf47d659427d28",
+    "m_63a91c61cdbfd84d08c6",
+    "m_b8f0ba2fe9a1854149f5",
+    "m_b29511e6324a9dc315c9",
+    "m_be0d0bb6e7055e615f5d",
+    "m_26fb48d3790b6cea3913",
+    "m_4a82024f8678fff0c8f4",
+    "m_c8777171aa36cb5e2241",
+    "m_a623b2b532912f8e6c25",
+    "m_f4fa6c2a305c84df758d",
+    "m_fe6e800eab2ee9f5c8ba",
+    "m_2efb8b89695229bb8fbc",
+    "m_eefe0d569c16c0951b09",
+    "m_256feee5f72bed7d5244",
+    "m_80567a0e2c563228137d",
+    "m_bfebb466f3ef14228a68",
+    "m_13416e355d1bb95f42a6",
+    "m_bd86c7528093f28ec4cc",
+    "m_056553d9ab0300af7ad1",
+    "m_150a96e377041333e7e2"
+  ],
+  "source_census_ids": [
+    6,
+    4,
+    5,
+    50,
+    2,
+    52,
+    210,
+    3,
+    157,
+    137,
+    208
+  ],
+  "profile_memory_ids": [
+    "m_2d93070c381d3160394e",
+    "m_9d21b50ed847135660aa",
+    "m_a2f58650e6944eafd62b",
+    "m_0281ef56307701b9d762",
+    "m_04a0e5e022027678b1b3",
+    "m_0517e47f013b2d8359f2",
+    "m_0574d2a174df4b88baa3",
+    "m_0bb57b99d1f2d836abdf",
+    "m_13416e355d1bb95f42a6",
+    "m_1cb4de9ee162ef1f8c9a",
+    "m_2c126158f73783016ffe",
+    "m_2d3865fd0c1fb502f9eb"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "question_id": "4baee567",
+  "question_type": "single-session-assistant",
+  "question": "I was looking back at our previous chat and I wanted to confirm, how many times did the Chiefs play the Jaguars at Arrowhead Stadium?",
+  "question_date": "2023/05/30 (Tue) 23:21",
+  "gold_answer": "The Chiefs played the Jaguars 12 times at Arrowhead Stadium.",
+  "prediction": "12",
+  "support_memory_ids": [
+    "m_959729a90245c8bd491c"
+  ],
+  "support_source_ids": [
+    190
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The assistant's prior reply (source 190) explicitly states that 12 of the 23 Chiefs-Jaguars games were played at Arrowhead Stadium.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "direct",
+  "operation_data": {
+    "type": "direct",
+    "items": [
+      {
+        "label": "games at Arrowhead Stadium",
+        "value": 12,
+        "unit": "games",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_959729a90245c8bd491c"
+        ],
+        "support_source_ids": [
+          190
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "12"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 35736,
+    "completion_tokens": 460,
+    "elapsed_seconds": 6.755155563354492
+  }
+}

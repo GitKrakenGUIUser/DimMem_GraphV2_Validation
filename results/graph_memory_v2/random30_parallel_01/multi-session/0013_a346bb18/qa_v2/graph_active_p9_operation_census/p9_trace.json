@@ -1,0 +1,425 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many minutes did I exceed my target time by in the marathon?",
+      "marathon target time",
+      "marathon actual time",
+      "marathon finish time",
+      "marathon goal time",
+      "marathon time difference"
+    ],
+    "relation_verbs": [
+      "exceeded",
+      "finished",
+      "completed",
+      "ran",
+      "targeted",
+      "aimed for"
+    ],
+    "entity_hints": [
+      "marathon",
+      "race",
+      "running event",
+      "target time",
+      "goal time",
+      "finish time",
+      "actual time",
+      "completion time"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T22:30:00",
+      "raw": "before now"
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many minutes did I exceed my target time by in the marathon?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "marathon target time",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "marathon actual time",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "marathon finish time",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many minutes did I exceed my target time by in the marathon?",
+      "marathon target time",
+      "marathon actual time",
+      "marathon finish time",
+      "marathon goal time",
+      "marathon time difference"
+    ],
+    "relation_verbs": [
+      "exceeded",
+      "finished",
+      "completed",
+      "ran",
+      "targeted",
+      "aimed for"
+    ],
+    "entity_hints": [
+      "marathon",
+      "race",
+      "running event",
+      "target time",
+      "goal time",
+      "finish time",
+      "actual time",
+      "completion time"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T22:30:00",
+      "raw": "before now"
+    }
+  },
+  "p5_candidate": {
+    "answer": "4:22 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ffcc91a5de84670d186f",
+      "m_489bea28c229768c84d7"
+    ],
+    "support_source_ids": [
+      120,
+      7
+    ],
+    "required_slots": [
+      {
+        "name": "actual time",
+        "value": "4 hours 22 minutes",
+        "support_memory_ids": [
+          "m_ffcc91a5de84670d186f"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "name": "target time",
+        "value": "4 hours 10 minutes",
+        "support_memory_ids": [
+          "m_489bea28c229768c84d7"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "time_add",
+    "calculation": {
+      "operator": "time_add_minutes",
+      "operands": [
+        "4:10",
+        "12"
+      ],
+      "unit": "minutes",
+      "result": "4:22 AM"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Actual marathon time is 4h22m (memory m_ffcc91a5de84670d186f, source 120). Target time is 4h10m (memory m_489bea28c229768c84d7, source 7). Difference is 12 minutes."
+  },
+  "p7_candidate": {
+    "answer": "12",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ffcc91a5de84670d186f",
+      "m_489bea28c229768c84d7"
+    ],
+    "support_source_ids": [
+      7,
+      120
+    ],
+    "required_slots": [
+      {
+        "name": "actual time",
+        "value": "4 hours 22 minutes",
+        "support_memory_ids": [
+          "m_ffcc91a5de84670d186f"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "name": "target time",
+        "value": "4 hours 10 minutes",
+        "support_memory_ids": [
+          "m_489bea28c229768c84d7"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "time_add_minutes",
+    "calculation": {
+      "operator": "time_add_minutes",
+      "operands": [
+        "4 hours 22 minutes",
+        "4 hours 10 minutes"
+      ],
+      "unit": "minutes",
+      "result": "12"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Actual marathon time is 4h22min (memory m_ffcc91a5de84670d186f, source 120). Target time is 4h10min (memory m_489bea28c229768c84d7, source 7). Difference = 12 minutes."
+  },
+  "p8_candidate": {
+    "answer": "12 minutes",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ffcc91a5de84670d186f",
+      "m_489bea28c229768c84d7"
+    ],
+    "support_source_ids": [
+      120,
+      7
+    ],
+    "required_slots": [
+      {
+        "name": "actual time",
+        "value": "4 hours 22 minutes",
+        "support_memory_ids": [
+          "m_ffcc91a5de84670d186f"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "name": "target time",
+        "value": "4 hours 10 minutes",
+        "support_memory_ids": [
+          "m_489bea28c229768c84d7"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "time_add",
+    "calculation": {
+      "operator": "time_add_minutes",
+      "operands": [
+        "4 hours 22 minutes",
+        "4 hours 10 minutes"
+      ],
+      "unit": "minutes",
+      "result": "12"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Actual marathon time is 4h22m (262 minutes), target time is 4h10m (250 minutes). Difference is 12 minutes."
+  },
+  "specialist_candidate": {
+    "answer": "12 minutes",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ffcc91a5de84670d186f",
+      "m_489bea28c229768c84d7"
+    ],
+    "support_source_ids": [
+      120,
+      7
+    ],
+    "required_slots": [
+      {
+        "name": "actual time",
+        "value": "4 hours 22 minutes",
+        "support_memory_ids": [
+          "m_ffcc91a5de84670d186f"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "name": "target time",
+        "value": "4 hours 10 minutes",
+        "support_memory_ids": [
+          "m_489bea28c229768c84d7"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "actual time",
+          "value": 262,
+          "unit": "minutes",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_ffcc91a5de84670d186f"
+          ],
+          "support_source_ids": [
+            120
+          ]
+        },
+        {
+          "label": "target time",
+          "value": 250,
+          "unit": "minutes",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_489bea28c229768c84d7"
+          ],
+          "support_source_ids": [
+            7
+          ]
+        }
+      ],
+      "requested_unit": "minutes",
+      "result": "12"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Both actual and target marathon times are available."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Actual marathon time is 4h22m (262 minutes), target time is 4h10m (250 minutes). Difference is 12 minutes.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {
+    "answer": "12 minutes",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ffcc91a5de84670d186f",
+      "m_489bea28c229768c84d7"
+    ],
+    "support_source_ids": [
+      120,
+      7
+    ],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "actual time",
+          "value": 262,
+          "unit": "minutes",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_ffcc91a5de84670d186f"
+          ],
+          "support_source_ids": [
+            120
+          ]
+        },
+        {
+          "label": "target time",
+          "value": 250,
+          "unit": "minutes",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_489bea28c229768c84d7"
+          ],
+          "support_source_ids": [
+            7
+          ]
+        }
+      ],
+      "requested_unit": "minutes",
+      "result": "12"
+    },
+    "confidence": 1.0,
+    "reason": "Actual marathon time is 4h22m (262 minutes) from source 120, target time is 4h10m (250 minutes) from source 7. Difference is 12 minutes.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": ""
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_489bea28c229768c84d7",
+    "m_ffcc91a5de84670d186f",
+    "m_e10cbc3268b128ed60c9",
+    "m_d2d38646d74e33188bcc",
+    "m_47bd3908dd6d0fa4f4ea",
+    "m_a37aa31eeab28085714a",
+    "m_931d29c4381f3ef3f3c3",
+    "m_b47706e68e83ffed61ad",
+    "m_9524ac4b16c3a7d692e4",
+    "m_ae5e06bf5ff5b4e60e1c",
+    "m_188a3ef747870f20f43d",
+    "m_42ed93fc439ee7eae661",
+    "m_223b90e7911252b407fa",
+    "m_a040463aaba574244fa7",
+    "m_13f88871fddb2cc37ca1",
+    "m_a53707cc4bc8860705ed",
+    "m_8cb4d318f7e38535a3c7",
+    "m_0f5fbaa6ae1e2d5b62dc"
+  ],
+  "source_census_ids": [
+    236,
+    7,
+    9,
+    120,
+    108,
+    22,
+    8,
+    10,
+    235,
+    237
+  ],
+  "profile_memory_ids": [
+    "m_489bea28c229768c84d7",
+    "m_84c9e898283d9f3e339b",
+    "m_d84b73d3f4b43904e51a",
+    "m_e10cbc3268b128ed60c9",
+    "m_ffcc91a5de84670d186f",
+    "m_223b90e7911252b407fa",
+    "m_2fc0db8e65f6e61e761e",
+    "m_31792f31ff0a9bdb9ea7",
+    "m_41fb2c892764fa888aec",
+    "m_47bd3908dd6d0fa4f4ea",
+    "m_5e21734553137ae6f977",
+    "m_625a9e46fe9f469097c3"
+  ]
+}

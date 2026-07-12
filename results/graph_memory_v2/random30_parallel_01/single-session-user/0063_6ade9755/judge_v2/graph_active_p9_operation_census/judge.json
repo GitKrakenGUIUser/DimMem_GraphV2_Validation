@@ -1,0 +1,82 @@
+{
+  "question_id": "6ade9755",
+  "question_type": "single-session-user",
+  "question": "Where do I take yoga classes?",
+  "question_date": "2023/05/30 (Tue) 21:04",
+  "gold_answer": "Serenity Yoga",
+  "prediction": "home (Down Dog app) and with Sarah on Sunday mornings (location not specified)",
+  "support_memory_ids": [
+    "m_5a66c13f57ac6b151a3e",
+    "m_cd4eebe6ad2a4b62cf35",
+    "m_0045c08f14aa1f219815"
+  ],
+  "support_source_ids": [
+    249,
+    252
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Evidence shows user uses Down Dog for home practice (source 249) and has a Sunday morning yoga routine with Sarah (source 252). No specific studio location is mentioned for the Sunday routine.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "direct",
+  "operation_data": {
+    "type": "direct",
+    "items": [
+      {
+        "label": "yoga class location",
+        "value": "home (Down Dog app)",
+        "unit": "",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_5a66c13f57ac6b151a3e"
+        ],
+        "support_source_ids": [
+          249
+        ]
+      },
+      {
+        "label": "yoga class location",
+        "value": "with Sarah on Sunday mornings",
+        "unit": "",
+        "date": "Sunday morning",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_cd4eebe6ad2a4b62cf35",
+          "m_0045c08f14aa1f219815"
+        ],
+        "support_source_ids": [
+          252
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "home (Down Dog app) and with Sarah on Sunday mornings (location not specified)"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "audit_contract:direct_relation",
+    "singular_question_multi_answer"
+  ],
+  "contract": "direct_relation",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 44013,
+    "completion_tokens": 871,
+    "elapsed_seconds": 9.473692178726196
+  },
+  "correct": false,
+  "judge_reason": "Prediction does not match reference answer 'Serenity Yoga'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 142,
+    "completion_tokens": 28,
+    "elapsed_seconds": 0.8541369438171387
+  }
+}

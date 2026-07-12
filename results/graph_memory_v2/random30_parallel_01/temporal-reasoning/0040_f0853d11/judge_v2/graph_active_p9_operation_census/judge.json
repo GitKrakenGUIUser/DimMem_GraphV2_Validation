@@ -1,0 +1,100 @@
+{
+  "question_id": "f0853d11",
+  "question_type": "temporal-reasoning",
+  "question": "How many days had passed between the 'Walk for Hunger' event and the 'Coastal Cleanup' event?",
+  "question_date": "2023/03/14 (Tue) 21:24",
+  "gold_answer": "14 days. 8 days (including the last day) is also acceptable.",
+  "prediction": "14 days",
+  "support_memory_ids": [
+    "m_c6f6379260744d7c5ca2",
+    "m_4353b64a50f03923affd"
+  ],
+  "support_source_ids": [
+    124,
+    101
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Walk for Hunger on February 21, 2023 (source 124) and Coastal Cleanup on March 7, 2023 (source 101). The difference is 14 days.",
+  "required_slots": [
+    {
+      "name": "Walk for Hunger date",
+      "value": "2023-02-21",
+      "support_memory_ids": [
+        "m_c6f6379260744d7c5ca2"
+      ],
+      "support_source_ids": [
+        124
+      ]
+    },
+    {
+      "name": "Coastal Cleanup date",
+      "value": "2023-03-07",
+      "support_memory_ids": [
+        "m_4353b64a50f03923affd"
+      ],
+      "support_source_ids": [
+        101
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "Walk for Hunger",
+        "value": "2023-02-21",
+        "unit": "day",
+        "date": "2023-02-21",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_c6f6379260744d7c5ca2"
+        ],
+        "support_source_ids": [
+          124
+        ]
+      },
+      {
+        "label": "Coastal Cleanup",
+        "value": "2023-03-07",
+        "unit": "day",
+        "date": "2023-03-07",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_4353b64a50f03923affd"
+        ],
+        "support_source_ids": [
+          101
+        ]
+      }
+    ],
+    "requested_unit": "days",
+    "result": "14 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 34843,
+    "completion_tokens": 645,
+    "elapsed_seconds": 7.148911476135254
+  },
+  "correct": true,
+  "judge_reason": "Deterministic duration equivalence.",
+  "judge_meta": {
+    "mode": "deterministic_duration_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

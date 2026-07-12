@@ -1,0 +1,92 @@
+{
+  "question_id": "b29f3365",
+  "question_type": "temporal-reasoning",
+  "question": "How long had I been taking guitar lessons when I bought the new guitar amp?",
+  "question_date": "2023/05/25 (Thu) 19:07",
+  "gold_answer": "Four weeks",
+  "prediction": "28 days",
+  "support_memory_ids": [
+    "m_712360bcc39440216f23",
+    "m_9c82704730683325b421"
+  ],
+  "support_source_ids": [
+    140,
+    143
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User started weekly guitar lessons with Alex on 2023-04-13 (six weeks before 2023-05-25) and bought a new guitar amp on 2023-05-11 (two weeks before 2023-05-25). The duration between these dates is 28 days.",
+  "required_slots": [
+    {
+      "name": "start date of guitar lessons",
+      "value": "2023-04-13",
+      "support_memory_ids": [
+        "m_712360bcc39440216f23"
+      ],
+      "support_source_ids": [
+        140
+      ]
+    },
+    {
+      "name": "date of buying guitar amp",
+      "value": "2023-05-11",
+      "support_memory_ids": [
+        "m_9c82704730683325b421"
+      ],
+      "support_source_ids": [
+        143
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "guitar lessons start",
+        "value": "2023-04-13",
+        "unit": "date",
+        "date": "2023-04-13",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_712360bcc39440216f23"
+        ],
+        "support_source_ids": [
+          140
+        ]
+      },
+      {
+        "label": "guitar amp purchase",
+        "value": "2023-05-11",
+        "unit": "date",
+        "date": "2023-05-11",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_9c82704730683325b421"
+        ],
+        "support_source_ids": [
+          143
+        ]
+      }
+    ],
+    "requested_unit": "days",
+    "result": "28 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 34602,
+    "completion_tokens": 700,
+    "elapsed_seconds": 6.8347015380859375
+  }
+}

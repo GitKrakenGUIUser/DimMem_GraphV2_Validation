@@ -1,0 +1,58 @@
+{
+  "question_id": "4d6b87c8",
+  "question_type": "knowledge-update",
+  "question": "How many titles are currently on my to-watch list?",
+  "question_date": "2023/06/03 (Sat) 15:47",
+  "gold_answer": "25",
+  "prediction": "25",
+  "support_memory_ids": [
+    "m_369e393afb314209e13c",
+    "m_6c74b48dbbe6eb840e87"
+  ],
+  "support_source_ids": [
+    228,
+    232
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user stated on 2023-05-22 that their to-watch list has 25 titles (sources 228 and 232). No later evidence contradicts or updates this count. Therefore, as of the question date 2023-06-03, the current count remains 25.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "operation_data": {
+    "type": "state_resolution",
+    "items": [
+      {
+        "label": "to-watch list count",
+        "value": 25,
+        "unit": "titles",
+        "date": "2023-05-22T03:27:01",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_369e393afb314209e13c"
+        ],
+        "support_source_ids": [
+          228
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "25"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 35829,
+    "completion_tokens": 502,
+    "elapsed_seconds": 6.827996015548706
+  }
+}

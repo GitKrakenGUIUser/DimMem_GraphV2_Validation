@@ -1,0 +1,304 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "expansion": {
+    "queries": [
+      "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+      "purchase dog bed Max",
+      "buy training pads Luna",
+      "order pet supplies",
+      "acquire dog bed",
+      "get training pads"
+    ],
+    "relation_verbs": [
+      "purchase",
+      "buy",
+      "order",
+      "acquire",
+      "get"
+    ],
+    "entity_hints": [
+      "dog bed",
+      "training pads",
+      "Max",
+      "Luna",
+      "pet supplies"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-29T08:51:00",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "comparison",
+    "operation": "compare_dates",
+    "slots": [
+      {
+        "name": "first_comparison_side",
+        "query": "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "second_comparison_side",
+        "query": "purchase dog bed Max",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+      "purchase dog bed Max",
+      "buy training pads Luna",
+      "order pet supplies",
+      "acquire dog bed",
+      "get training pads"
+    ],
+    "relation_verbs": [
+      "purchase",
+      "buy",
+      "order",
+      "acquire",
+      "get"
+    ],
+    "entity_hints": [
+      "dog bed",
+      "training pads",
+      "Max",
+      "Luna",
+      "pet supplies"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-29T08:51:00",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "training pads for Luna",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cec49a32983828ba37d9",
+      "m_47a8f05c2678dbd89c28"
+    ],
+    "support_source_ids": [
+      109,
+      72
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The training pads for Luna were purchased about a month before the question date (around 2023-04-29), while the dog bed for Max was purchased about three weeks before the question date (around 2023-05-08). Since 2023-04-29 is earlier than 2023-05-08, the training pads were purchased first."
+  },
+  "p7_candidate": {
+    "answer": "training pads for Luna",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cec49a32983828ba37d9",
+      "m_47a8f05c2678dbd89c28"
+    ],
+    "support_source_ids": [
+      109,
+      72
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The training pads for Luna were purchased about a month before the question date (around 2023-04-29), while the dog bed for Max was purchased about three weeks before the question date (around 2023-05-08). Since 2023-04-29 is earlier than 2023-05-08, the training pads were purchased first."
+  },
+  "p8_candidate": {
+    "answer": "training pads for Luna",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cec49a32983828ba37d9",
+      "m_47a8f05c2678dbd89c28"
+    ],
+    "support_source_ids": [
+      109,
+      72
+    ],
+    "required_slots": [
+      {
+        "name": "purchase event for dog bed",
+        "value": "2023-05-08",
+        "support_memory_ids": [
+          "m_47a8f05c2678dbd89c28"
+        ],
+        "support_source_ids": [
+          72
+        ]
+      },
+      {
+        "name": "purchase event for training pads",
+        "value": "2023-04-29",
+        "support_memory_ids": [
+          "m_cec49a32983828ba37d9"
+        ],
+        "support_source_ids": [
+          109
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "comparison",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The training pads for Luna were purchased on 2023-04-29, and the dog bed for Max was purchased on 2023-05-08. Since 2023-04-29 is earlier, the training pads were purchased first."
+  },
+  "specialist_candidate": {
+    "answer": "training pads for Luna",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_cec49a32983828ba37d9",
+      "m_47a8f05c2678dbd89c28"
+    ],
+    "support_source_ids": [
+      109,
+      72
+    ],
+    "required_slots": [
+      {
+        "name": "purchase event for dog bed",
+        "value": "2023-05-08",
+        "support_memory_ids": [
+          "m_47a8f05c2678dbd89c28"
+        ],
+        "support_source_ids": [
+          72
+        ]
+      },
+      {
+        "name": "purchase event for training pads",
+        "value": "2023-04-29",
+        "support_memory_ids": [
+          "m_cec49a32983828ba37d9"
+        ],
+        "support_source_ids": [
+          109
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "dog bed for Max",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-08",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_47a8f05c2678dbd89c28"
+          ],
+          "support_source_ids": [
+            72
+          ]
+        },
+        {
+          "label": "training pads for Luna",
+          "value": null,
+          "unit": "",
+          "date": "2023-04-29",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_cec49a32983828ba37d9"
+          ],
+          "support_source_ids": [
+            109
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "training pads for Luna"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Both purchase dates are explicitly recorded in memory."
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The training pads for Luna were purchased on 2023-04-29, and the dog bed for Max was purchased on 2023-05-08. Since 2023-04-29 is earlier, the training pads were purchased first.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_cec49a32983828ba37d9",
+    "m_e823f776c1f2973e782e",
+    "m_892228698ab2a7261548",
+    "m_47a8f05c2678dbd89c28",
+    "m_2d491d5edcbd758b5719",
+    "m_cc90f2849c2e2d461cc4",
+    "m_2cf658d31556a04502e3",
+    "m_0a42b4339256726a0182",
+    "m_b948042f521b78b49761",
+    "m_49768b0eddc9b0abf4d9",
+    "m_6be95a16eadb81c2b503",
+    "m_d8bbe4bca353d52127ea",
+    "m_6193c02ce1d2c3afb7bd",
+    "m_cd559ade3f84cc044e1a",
+    "m_f42319e8ccca7c687403",
+    "m_13bbca1c589bc2ba23ca",
+    "m_ecf72f2ab5374b70242b",
+    "m_3d4895df87fd43383c8e",
+    "m_e7afa847122e9bb9d3c5",
+    "m_b2fde09d9352982c8a1b"
+  ],
+  "source_census_ids": [
+    109,
+    76,
+    75,
+    72,
+    110,
+    74,
+    111,
+    113,
+    77,
+    159,
+    171,
+    33
+  ],
+  "profile_memory_ids": [
+    "m_47a8f05c2678dbd89c28",
+    "m_8a149a6490bde38afbc8",
+    "m_e823f776c1f2973e782e",
+    "m_1e0cb5889aabf31629ce",
+    "m_271a6c1d5cfd0a99b07c",
+    "m_2d491d5edcbd758b5719",
+    "m_51ba3ce7753c4ee2e768",
+    "m_5a0afba0bd57a06f8a31",
+    "m_5a19208e483e117078f6",
+    "m_892228698ab2a7261548",
+    "m_89cdc2b16858bbcccb3d",
+    "m_b948042f521b78b49761"
+  ]
+}

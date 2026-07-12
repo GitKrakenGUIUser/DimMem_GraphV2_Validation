@@ -1,0 +1,345 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many days passed between the day I fixed my mountain bike and the day I decided to upgrade my road bike's pedals?",
+      "fixed mountain bike",
+      "repaired mountain bike",
+      "serviced mountain bike",
+      "decided to upgrade road bike pedals",
+      "chose to upgrade road bike pedals"
+    ],
+    "relation_verbs": [
+      "fixed",
+      "repaired",
+      "serviced",
+      "decided to upgrade",
+      "chose to upgrade",
+      "planned to upgrade"
+    ],
+    "entity_hints": [
+      "mountain bike",
+      "road bike",
+      "pedals"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many days passed between the day I fixed my mountain bike and the day I decided to upgrade my road bike's pedals?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "fixed mountain bike",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many days passed between the day I fixed my mountain bike and the day I decided to upgrade my road bike's pedals?",
+      "fixed mountain bike",
+      "repaired mountain bike",
+      "serviced mountain bike",
+      "decided to upgrade road bike pedals",
+      "chose to upgrade road bike pedals"
+    ],
+    "relation_verbs": [
+      "fixed",
+      "repaired",
+      "serviced",
+      "decided to upgrade",
+      "chose to upgrade",
+      "planned to upgrade"
+    ],
+    "entity_hints": [
+      "mountain bike",
+      "road bike",
+      "pedals"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "4 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1388df59f2142b1b1fe3",
+      "m_35c76e851b83cd810e02"
+    ],
+    "support_source_ids": [
+      8,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "value": "2023-03-15",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "name": "date of deciding to upgrade pedals",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-15",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "4 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user fixed their mountain bike on 2023-03-15 (memory m_1388df59f2142b1b1fe3, source 8) and decided to upgrade their road bike's pedals on 2023-03-19 (memory m_35c76e851b83cd810e02, source 139). The difference is 4 days."
+  },
+  "p7_candidate": {
+    "answer": "4 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1388df59f2142b1b1fe3",
+      "m_35c76e851b83cd810e02"
+    ],
+    "support_source_ids": [
+      8,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "value": "2023-03-15",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "name": "date of deciding to upgrade road bike pedals",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-15",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "4 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user fixed their mountain bike on 2023-03-15 (source 8) and decided to upgrade their road bike pedals on 2023-03-19 (source 139). The difference in days between these two dates is 4 days."
+  },
+  "p8_candidate": {
+    "answer": "4 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1388df59f2142b1b1fe3",
+      "m_35c76e851b83cd810e02"
+    ],
+    "support_source_ids": [
+      8,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "value": "2023-03-15",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "name": "date of deciding to upgrade pedals",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-15",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "4 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user fixed their mountain bike on 2023-03-15 (memory m_1388df59f2142b1b1fe3, source 8) and decided to upgrade their road bike's pedals on 2023-03-19 (memory m_35c76e851b83cd810e02, source 139). The difference is 4 days."
+  },
+  "specialist_candidate": {
+    "answer": "4 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_1388df59f2142b1b1fe3",
+      "m_35c76e851b83cd810e02"
+    ],
+    "support_source_ids": [
+      8,
+      139
+    ],
+    "required_slots": [
+      {
+        "name": "date of fixing mountain bike",
+        "value": "2023-03-15",
+        "support_memory_ids": [
+          "m_1388df59f2142b1b1fe3"
+        ],
+        "support_source_ids": [
+          8
+        ]
+      },
+      {
+        "name": "date of deciding to upgrade pedals",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_35c76e851b83cd810e02"
+        ],
+        "support_source_ids": [
+          139
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "fix mountain bike",
+          "value": null,
+          "unit": "",
+          "date": "2023-03-15",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_1388df59f2142b1b1fe3"
+          ],
+          "support_source_ids": [
+            8
+          ]
+        },
+        {
+          "label": "decide to upgrade pedals",
+          "value": null,
+          "unit": "",
+          "date": "2023-03-19",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_35c76e851b83cd810e02"
+          ],
+          "support_source_ids": [
+            139
+          ]
+        }
+      ],
+      "requested_unit": "days",
+      "result": "4 days"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user fixed their mountain bike on 2023-03-15 (source 8) and decided to upgrade their road bike pedals on 2023-03-19 (source 139). The difference is 4 days.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_1388df59f2142b1b1fe3",
+    "m_196d7d125e754f7e5646",
+    "m_a4e1a77c8fb41bcb9f45",
+    "m_35c76e851b83cd810e02",
+    "m_531a50e887273283fbfe",
+    "m_4e899e7ad1a5a0d13957",
+    "m_ba629e569ab6215d1bab",
+    "m_aaa55a4c4da1f89e5cdd",
+    "m_2a888e85a9ea0b3c9717",
+    "m_102df96c2ad734ad6774",
+    "m_d9eb7c480f13800f42f4",
+    "m_7c0243c4a00e1749dc9c",
+    "m_feb9f56a5b508e62be5d",
+    "m_e2b29331ebd0d3ba0f5b",
+    "m_c9be174fd9c2b7b55004",
+    "m_9faed1c1f7d3bcc2936d",
+    "m_754f9ce35cae7623c3c1",
+    "m_8d6bab0106533fb72564"
+  ],
+  "source_census_ids": [
+    8,
+    139,
+    9,
+    12,
+    140,
+    10
+  ],
+  "profile_memory_ids": [
+    "m_35c76e851b83cd810e02",
+    "m_aaa55a4c4da1f89e5cdd",
+    "m_1388df59f2142b1b1fe3",
+    "m_196d7d125e754f7e5646",
+    "m_7c0243c4a00e1749dc9c",
+    "m_a4e1a77c8fb41bcb9f45",
+    "m_ba629e569ab6215d1bab",
+    "m_bdc3ddd78ac2ca27bb27",
+    "m_c9be174fd9c2b7b55004",
+    "m_e2b29331ebd0d3ba0f5b",
+    "m_feb9f56a5b508e62be5d",
+    "m_29e1da601ae970153d85"
+  ]
+}

@@ -1,0 +1,373 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement"
+  ],
+  "contract": "direct_value",
+  "expansion": {
+    "queries": [
+      "What is the minimum amount I could get if I sold the vintage diamond necklace and the antique vanity?",
+      "minimum sale price vintage diamond necklace",
+      "lowest price antique vanity",
+      "sell vintage diamond necklace for at least",
+      "antique vanity minimum amount",
+      "vintage diamond necklace lowest offer"
+    ],
+    "relation_verbs": [
+      "has minimum sale price",
+      "can be sold for at least",
+      "lowest acceptable price for"
+    ],
+    "entity_hints": [
+      "vintage diamond necklace",
+      "antique vanity",
+      "jewelry",
+      "antique furniture"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "direct_value",
+    "operation": "direct",
+    "slots": [
+      {
+        "name": "exact_requested_relation",
+        "query": "What is the minimum amount I could get if I sold the vintage diamond necklace and the antique vanity?",
+        "semantic_type": "other",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What is the minimum amount I could get if I sold the vintage diamond necklace and the antique vanity?",
+      "minimum sale price vintage diamond necklace",
+      "lowest price antique vanity",
+      "sell vintage diamond necklace for at least",
+      "antique vanity minimum amount",
+      "vintage diamond necklace lowest offer"
+    ],
+    "relation_verbs": [
+      "has minimum sale price",
+      "can be sold for at least",
+      "lowest acceptable price for"
+    ],
+    "entity_hints": [
+      "vintage diamond necklace",
+      "antique vanity",
+      "jewelry",
+      "antique furniture"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_ecb34a502e82c5b06ced",
+      "m_4a8ca5ccf1fb4518b83b"
+    ],
+    "support_source_ids": [
+      75,
+      155
+    ],
+    "required_slots": [
+      "minimum sale price of vintage diamond necklace",
+      "minimum sale price of antique vanity"
+    ],
+    "unfilled_slots": [
+      "minimum sale price of vintage diamond necklace",
+      "minimum sale price of antique vanity"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The conversation provides the value of the vintage diamond necklace as $5,000 (memory m_ecb34a502e82c5b06ced) but does not specify a minimum sale price; it only states the value. For the antique vanity, the user mentions buying it for $150 and hoping to sell for at least $150 (memory m_4a8ca5ccf1fb4518b83b), but this is a planned price, not a confirmed minimum. No evidence gives a definitive minimum amount for either item, so the total minimum cannot be determined."
+  },
+  "p7_candidate": {
+    "answer": "5150 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ecb34a502e82c5b06ced",
+      "m_4a8ca5ccf1fb4518b83b"
+    ],
+    "support_source_ids": [
+      75,
+      155
+    ],
+    "required_slots": [
+      {
+        "name": "minimum sale price of vintage diamond necklace",
+        "value": 5000,
+        "support_memory_ids": [
+          "m_ecb34a502e82c5b06ced"
+        ],
+        "support_source_ids": [
+          75
+        ]
+      },
+      {
+        "name": "minimum sale price of antique vanity",
+        "value": 150,
+        "support_memory_ids": [
+          "m_4a8ca5ccf1fb4518b83b"
+        ],
+        "support_source_ids": [
+          155
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5000,
+        150
+      ],
+      "unit": "dollars",
+      "result": "5150 dollars"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The vintage diamond necklace is valued at $5,000 (asserted fact). The user plans to sell the antique vanity for at least $150 (planned minimum). Summing these gives $5,150 as the minimum amount from selling both."
+  },
+  "p8_candidate": {
+    "answer": "5150 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ecb34a502e82c5b06ced",
+      "m_4a8ca5ccf1fb4518b83b"
+    ],
+    "support_source_ids": [
+      75,
+      155
+    ],
+    "required_slots": [
+      {
+        "name": "minimum sale price of vintage diamond necklace",
+        "value": 5000,
+        "support_memory_ids": [
+          "m_ecb34a502e82c5b06ced"
+        ],
+        "support_source_ids": [
+          75
+        ]
+      },
+      {
+        "name": "minimum sale price of antique vanity",
+        "value": 150,
+        "support_memory_ids": [
+          "m_4a8ca5ccf1fb4518b83b"
+        ],
+        "support_source_ids": [
+          155
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        5000,
+        150
+      ],
+      "unit": "dollars",
+      "result": "5150 dollars"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The vintage diamond necklace is valued at $5,000 (asserted fact). The user plans to sell the antique vanity for at least $150 (planned minimum). Summing these gives $5,150 as the minimum amount from selling both."
+  },
+  "specialist_candidate": {
+    "answer": "5150 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ecb34a502e82c5b06ced",
+      "m_4a8ca5ccf1fb4518b83b"
+    ],
+    "support_source_ids": [
+      75,
+      155
+    ],
+    "required_slots": [
+      {
+        "name": "minimum sale price of vintage diamond necklace",
+        "value": 5000,
+        "support_memory_ids": [
+          "m_ecb34a502e82c5b06ced"
+        ],
+        "support_source_ids": [
+          75
+        ]
+      },
+      {
+        "name": "minimum sale price of antique vanity",
+        "value": 150,
+        "support_memory_ids": [
+          "m_4a8ca5ccf1fb4518b83b"
+        ],
+        "support_source_ids": [
+          155
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "sum",
+      "items": [
+        {
+          "label": "vintage diamond necklace",
+          "value": 5000,
+          "unit": "dollars",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_ecb34a502e82c5b06ced"
+          ],
+          "support_source_ids": [
+            75
+          ]
+        },
+        {
+          "label": "antique vanity",
+          "value": 150,
+          "unit": "dollars",
+          "date": "",
+          "status": "planned",
+          "support_memory_ids": [
+            "m_4a8ca5ccf1fb4518b83b"
+          ],
+          "support_source_ids": [
+            155
+          ]
+        }
+      ],
+      "requested_unit": "dollars",
+      "result": "5150 dollars"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Both items have explicit minimum values: necklace $5,000 (asserted fact) and vanity at least $150 (user's planned minimum). Sum yields $5,150."
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The vintage diamond necklace is valued at $5,000 (asserted fact). The user plans to sell the antique vanity for at least $150 (planned minimum). Summing these gives $5,150 as the minimum amount from selling both.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {
+    "answer": "5150 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ecb34a502e82c5b06ced",
+      "m_4a8ca5ccf1fb4518b83b"
+    ],
+    "support_source_ids": [
+      75,
+      155
+    ],
+    "operation_data": {
+      "type": "sum",
+      "items": [
+        {
+          "label": "vintage diamond necklace",
+          "value": 5000,
+          "unit": "dollars",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_ecb34a502e82c5b06ced"
+          ],
+          "support_source_ids": [
+            75
+          ]
+        },
+        {
+          "label": "antique vanity",
+          "value": 150,
+          "unit": "dollars",
+          "date": "",
+          "status": "planned",
+          "support_memory_ids": [
+            "m_4a8ca5ccf1fb4518b83b"
+          ],
+          "support_source_ids": [
+            155
+          ]
+        }
+      ],
+      "requested_unit": "dollars",
+      "result": "5150 dollars"
+    },
+    "confidence": 0.95,
+    "reason": "The vintage diamond necklace is valued at $5,000 (asserted fact). The user plans to sell the antique vanity for at least $150 (planned minimum). Summing these gives $5,150 as the minimum amount from selling both.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": ""
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_7a96e47bd089e78769c5",
+    "m_ecb34a502e82c5b06ced",
+    "m_dee8e6b80cff872a9612",
+    "m_4a8ca5ccf1fb4518b83b",
+    "m_71a6fb19ce6f83ed2c72",
+    "m_2c7c65494526d24e7c6a",
+    "m_750f2bd654aba81de476",
+    "m_4901bece8fdda7452b62",
+    "m_e42e2001dbf41b022915",
+    "m_9f56825199e24b2a393a",
+    "m_ef26ede40ae7835d7698",
+    "m_d636f2df956a20bfe3c9",
+    "m_57c376ab8c3af2406d74",
+    "m_f3b064f493014e659ebe",
+    "m_0d4cee522519b9952313",
+    "m_f81909951e96ef04e61c",
+    "m_a9fdb7f382099490745b",
+    "m_b8d623262a74b809365d"
+  ],
+  "source_census_ids": [
+    73,
+    75,
+    74,
+    72,
+    158,
+    155,
+    157,
+    76,
+    154
+  ],
+  "profile_memory_ids": [
+    "m_4901bece8fdda7452b62",
+    "m_4a8ca5ccf1fb4518b83b",
+    "m_750f2bd654aba81de476",
+    "m_d636f2df956a20bfe3c9",
+    "m_dee8e6b80cff872a9612",
+    "m_2c7c65494526d24e7c6a",
+    "m_71a6fb19ce6f83ed2c72",
+    "m_a9fdb7f382099490745b",
+    "m_e42e2001dbf41b022915",
+    "m_030bfa3af1278e25db5a",
+    "m_0d4cee522519b9952313",
+    "m_32d42adc81b060838c69"
+  ]
+}

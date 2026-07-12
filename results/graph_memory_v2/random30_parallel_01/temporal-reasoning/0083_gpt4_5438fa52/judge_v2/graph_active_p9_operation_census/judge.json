@@ -1,0 +1,80 @@
+{
+  "question_id": "gpt4_5438fa52",
+  "question_type": "temporal-reasoning",
+  "question": "Which event happened first, my attendance at a cultural festival or the start of my Spanish classes?",
+  "question_date": "2023/05/27 (Sat) 16:21",
+  "gold_answer": "Spanish classes",
+  "prediction": "start of Spanish classes",
+  "support_memory_ids": [
+    "m_2d36ec3cf6b2b062ef8f",
+    "m_35f976780725e5c6ad8f"
+  ],
+  "support_source_ids": [
+    18,
+    111
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The cultural festival was attended on 2023-05-26. Spanish classes started around 2023-02-27. Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "compare_dates",
+  "operation_data": {
+    "type": "compare_dates",
+    "items": [
+      {
+        "label": "attendance at a cultural festival",
+        "value": null,
+        "unit": "",
+        "date": "2023-05-26",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "label": "start of Spanish classes",
+        "value": null,
+        "unit": "",
+        "date": "2023-02-27",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "start of Spanish classes"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "audit_contract:comparison",
+    "comparison_final_consistency_audit"
+  ],
+  "contract": "comparison",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 52572,
+    "completion_tokens": 983,
+    "elapsed_seconds": 9.92050838470459
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer, both indicating the start of Spanish classes as the earlier event.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 141,
+    "completion_tokens": 34,
+    "elapsed_seconds": 0.9903969764709473
+  }
+}

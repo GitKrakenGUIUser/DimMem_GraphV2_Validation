@@ -1,0 +1,66 @@
+{
+  "question_id": "0bc8ad92",
+  "question_type": "temporal-reasoning",
+  "question": "How many months have passed since I last visited a museum with a friend?",
+  "question_date": "2023/03/25 (Sat) 17:18",
+  "gold_answer": "5",
+  "prediction": "5",
+  "support_memory_ids": [
+    "m_04a39589a69f9da4dc77"
+  ],
+  "support_source_ids": [
+    49
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The last museum visit with a friend was on 2022-10-22 (Science Museum with a chemistry professor friend). The question date is 2023-03-25. The difference in months from October 2022 to March 2023 is 5 months.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "last museum visit with friend",
+        "value": "2022-10-22",
+        "unit": "date",
+        "date": "2022-10-22",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_04a39589a69f9da4dc77"
+        ],
+        "support_source_ids": [
+          49
+        ]
+      },
+      {
+        "label": "question date",
+        "value": "2023-03-25",
+        "unit": "date",
+        "date": "2023-03-25",
+        "status": "observed",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "requested_unit": "months",
+    "result": "5"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 48964,
+    "completion_tokens": 877,
+    "elapsed_seconds": 7.54155158996582
+  }
+}

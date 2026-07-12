@@ -1,0 +1,409 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?",
+      "accepted into exchange program date",
+      "pre-departure orientation start date",
+      "weeks between acceptance and orientation",
+      "exchange program acceptance notification date",
+      "orientation sessions begin date"
+    ],
+    "relation_verbs": [
+      "accepted",
+      "started",
+      "attended",
+      "began",
+      "received acceptance"
+    ],
+    "entity_hints": [
+      "exchange program",
+      "pre-departure orientation",
+      "acceptance",
+      "orientation sessions"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "accepted into exchange program date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?",
+      "accepted into exchange program date",
+      "pre-departure orientation start date",
+      "weeks between acceptance and orientation",
+      "exchange program acceptance notification date",
+      "orientation sessions begin date"
+    ],
+    "relation_verbs": [
+      "accepted",
+      "started",
+      "attended",
+      "began",
+      "received acceptance"
+    ],
+    "entity_hints": [
+      "exchange program",
+      "pre-departure orientation",
+      "acceptance",
+      "orientation sessions"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "7 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f13aa0a56cd56a812374",
+      "m_7912efeefba5ce1459c1"
+    ],
+    "support_source_ids": [
+      118,
+      69
+    ],
+    "required_slots": [
+      {
+        "name": "acceptance date",
+        "value": "2023-03-20",
+        "support_memory_ids": [
+          "m_f13aa0a56cd56a812374"
+        ],
+        "support_source_ids": [
+          118
+        ]
+      },
+      {
+        "name": "orientation start date",
+        "value": "2023-03-27",
+        "support_memory_ids": [
+          "m_7912efeefba5ce1459c1"
+        ],
+        "support_source_ids": [
+          69
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-20",
+        "2023-03-27"
+      ],
+      "unit": "weeks",
+      "result": "7 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User was accepted on March 20, 2023, and started orientation on March 27, 2023. The difference is 7 days, which is exactly 1 week. The question asks 'how many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?' This means the number of weeks from acceptance to the start of orientation. Since the orientation started exactly 1 week after acceptance, the answer is 1 week."
+  },
+  "p7_candidate": {
+    "answer": "7 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f13aa0a56cd56a812374",
+      "m_7912efeefba5ce1459c1"
+    ],
+    "support_source_ids": [
+      118,
+      69
+    ],
+    "required_slots": [
+      {
+        "name": "acceptance date",
+        "value": "2023-03-20",
+        "support_memory_ids": [
+          "m_f13aa0a56cd56a812374"
+        ],
+        "support_source_ids": [
+          118
+        ]
+      },
+      {
+        "name": "orientation start date",
+        "value": "2023-03-27",
+        "support_memory_ids": [
+          "m_7912efeefba5ce1459c1"
+        ],
+        "support_source_ids": [
+          69
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-20",
+        "2023-03-27"
+      ],
+      "unit": "days",
+      "result": "7 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User was accepted on March 20, 2023 (source 118). User started attending orientation on March 27, 2023 (source 69). The difference is 7 days, which equals 1 week. However, the question asks 'how many weeks have I been accepted... when I started attending', meaning the duration from acceptance to orientation start. 7 days = 1 week. But the answer '3 weeks' appears in the answer field? Wait, let's recalc: March 20 to March 27 is 7 days = 1 week. But the memory says orientation started on 2023-03-27, and acceptance on 2023-03-20. That is exactly 1 week. However, the user said 'every Friday since 3/27', so the first session was on 2023-03-27. So the number of weeks between acceptance and orientation start is 1 week. But the answer field shows '3 weeks'? That seems inconsistent. Let me double-check: The question is 'How many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?' That is the time from acceptance to the start of orientation. That is 7 days = 1 week. However, the memory says 'every Friday since 2023-03-27', so the first session was on a Monday? Actually 2023-03-27 is a Monday. But the user said 'every Friday since 3/27'? Wait, the memory says 'every Friday since 2023-03-27' but 2023-03-27 is a Monday. There might be a discrepancy. But the memory content says 'every Friday since 3/27' and the event_start is 2023-03-27. Possibly the first Friday after that? But the memory explicitly states event_start 2023-03-27. So I'll take that as the start date. So 1 week. But the answer field says '3 weeks'? That must be a mistake. I'll correct to '1 week'. Actually, let's compute: March 20 to March 27 is 7 days = 1 week. So answer should be 1. But the plan expects a number of weeks. I'll set answer to '1 week'. However, the user might have meant something else? No, the data is clear. I'll output 1 week."
+  },
+  "p8_candidate": {
+    "answer": "7 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f13aa0a56cd56a812374",
+      "m_7912efeefba5ce1459c1"
+    ],
+    "support_source_ids": [
+      118,
+      69
+    ],
+    "required_slots": [
+      {
+        "name": "acceptance date",
+        "value": "2023-03-20",
+        "support_memory_ids": [
+          "m_f13aa0a56cd56a812374"
+        ],
+        "support_source_ids": [
+          118
+        ]
+      },
+      {
+        "name": "orientation start date",
+        "value": "2023-03-27",
+        "support_memory_ids": [
+          "m_7912efeefba5ce1459c1"
+        ],
+        "support_source_ids": [
+          69
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-20",
+        "2023-03-27"
+      ],
+      "unit": "weeks",
+      "result": "7 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User was accepted on March 20, 2023, and started orientation on March 27, 2023. The difference is 7 days, which is exactly 1 week. The question asks 'how many weeks have I been accepted into the exchange program when I started attending the pre-departure orientation sessions?' This means the number of weeks from acceptance to the start of orientation. Since the orientation started exactly 1 week after acceptance, the answer is 1 week."
+  },
+  "specialist_candidate": {
+    "answer": "1 weeks",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f13aa0a56cd56a812374",
+      "m_7912efeefba5ce1459c1"
+    ],
+    "support_source_ids": [
+      118,
+      69
+    ],
+    "required_slots": [
+      {
+        "name": "acceptance date",
+        "value": "2023-03-20",
+        "support_memory_ids": [
+          "m_f13aa0a56cd56a812374"
+        ],
+        "support_source_ids": [
+          118
+        ]
+      },
+      {
+        "name": "orientation start date",
+        "value": "2023-03-27",
+        "support_memory_ids": [
+          "m_7912efeefba5ce1459c1"
+        ],
+        "support_source_ids": [
+          69
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "acceptance date",
+          "value": "2023-03-20",
+          "unit": "day",
+          "date": "2023-03-20",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_f13aa0a56cd56a812374"
+          ],
+          "support_source_ids": [
+            118
+          ]
+        },
+        {
+          "label": "orientation start date",
+          "value": "2023-03-27",
+          "unit": "day",
+          "date": "2023-03-27",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_7912efeefba5ce1459c1"
+          ],
+          "support_source_ids": [
+            69
+          ]
+        }
+      ],
+      "requested_unit": "weeks",
+      "result": "1 weeks"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Both acceptance date and orientation start date are explicitly provided."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User was accepted on March 20, 2023, and started attending orientation on March 27, 2023. The difference is 7 days, which equals 1 week.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "1 weeks",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f13aa0a56cd56a812374",
+      "m_7912efeefba5ce1459c1"
+    ],
+    "support_source_ids": [
+      118,
+      69
+    ],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "acceptance date",
+          "value": "2023-03-20",
+          "unit": "day",
+          "date": "2023-03-20",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_f13aa0a56cd56a812374"
+          ],
+          "support_source_ids": [
+            118
+          ]
+        },
+        {
+          "label": "orientation start date",
+          "value": "2023-03-27",
+          "unit": "day",
+          "date": "2023-03-27",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_7912efeefba5ce1459c1"
+          ],
+          "support_source_ids": [
+            69
+          ]
+        }
+      ],
+      "requested_unit": "weeks",
+      "result": "1 weeks"
+    },
+    "confidence": 1.0,
+    "reason": "User was accepted on March 20, 2023 (source 118) and started attending orientation on March 27, 2023 (source 69). The difference is 7 days, which equals 1 week.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_7912efeefba5ce1459c1",
+    "m_f13aa0a56cd56a812374",
+    "m_2bc33748256417cc725c",
+    "m_f885cbec4b3b9bd805a6",
+    "m_635f0e54cb099d29c4b0",
+    "m_67311f20d75735afe462",
+    "m_9f705d37d28c2f4ce69a",
+    "m_67fced55d8658d824efd",
+    "m_b2ee5025f00a558570aa",
+    "m_b009c3d7f50ce4914475",
+    "m_c4b67b52d82519167c69",
+    "m_0832a262e1c65a07f9e5",
+    "m_31aa597831ac614a3f39",
+    "m_b2e562c366c375e59392",
+    "m_19076f899b3a632a7771",
+    "m_8d8b60a5018a19614f81",
+    "m_63e3963ada752007a867",
+    "m_e26693b7957b60451f81",
+    "m_40b1b7ee5451fec6c4f5",
+    "m_3ec7977fdca95edab34d"
+  ],
+  "source_census_ids": [
+    118,
+    69,
+    120,
+    55,
+    54,
+    66,
+    19,
+    3,
+    146,
+    119,
+    241,
+    121,
+    70
+  ],
+  "profile_memory_ids": [
+    "m_7912efeefba5ce1459c1",
+    "m_56ac148d5b45edabd302",
+    "m_d9410a83a23a2131f734",
+    "m_f08f03a98d4f49cc8ace",
+    "m_f13aa0a56cd56a812374",
+    "m_f8f7521f599c506a3799",
+    "m_02456a21e328b3db7dd1",
+    "m_0e29fcc07fe423758290",
+    "m_11cccd40b782ee20269d",
+    "m_19076f899b3a632a7771",
+    "m_1b4b9c38a355bf4f5018",
+    "m_50c8a270de7fdaceb9ee"
+  ]
+}

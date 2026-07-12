@@ -1,0 +1,100 @@
+{
+  "question_id": "0db4c65d",
+  "question_type": "temporal-reasoning",
+  "question": "How many days had passed since I finished reading 'The Seven Husbands of Evelyn Hugo' when I attended the book reading event at the local library, where the author of 'The Silent Patient' is discussing her latest thriller novel?",
+  "question_date": "2023/02/10 (Fri) 18:44",
+  "gold_answer": "18 days. 19 days (including the last day) is also acceptable.",
+  "prediction": "18 days",
+  "support_memory_ids": [
+    "m_b878f3137d45584f7bf6",
+    "m_9f29f41b64d0449a5b1b"
+  ],
+  "support_source_ids": [
+    148,
+    208
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User finished reading 'The Seven Husbands of Evelyn Hugo' on 2022-12-28 (source 148). User attended the book reading event on 2023-01-15 (source 208). The difference is 18 days.",
+  "required_slots": [
+    {
+      "name": "date finished reading 'The Seven Husbands of Evelyn Hugo'",
+      "value": "2022-12-28",
+      "support_memory_ids": [
+        "m_b878f3137d45584f7bf6"
+      ],
+      "support_source_ids": [
+        148
+      ]
+    },
+    {
+      "name": "date of book reading event at local library",
+      "value": "2023-01-15",
+      "support_memory_ids": [
+        "m_9f29f41b64d0449a5b1b"
+      ],
+      "support_source_ids": [
+        208
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "finished reading 'The Seven Husbands of Evelyn Hugo'",
+        "value": null,
+        "unit": "",
+        "date": "2022-12-28",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_b878f3137d45584f7bf6"
+        ],
+        "support_source_ids": [
+          148
+        ]
+      },
+      {
+        "label": "attended book reading event at local library",
+        "value": null,
+        "unit": "",
+        "date": "2023-01-15",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_9f29f41b64d0449a5b1b"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      }
+    ],
+    "requested_unit": "days",
+    "result": "18 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 37740,
+    "completion_tokens": 720,
+    "elapsed_seconds": 6.846217155456543
+  },
+  "correct": true,
+  "judge_reason": "Deterministic duration equivalence.",
+  "judge_meta": {
+    "mode": "deterministic_duration_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

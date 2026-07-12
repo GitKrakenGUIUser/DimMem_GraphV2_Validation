@@ -1,0 +1,102 @@
+{
+  "question_id": "d23cf73b",
+  "question_type": "multi-session",
+  "question": "How many different cuisines have I learned to cook or tried out in the past few months?",
+  "question_date": "2023/05/30 (Tue) 16:04",
+  "gold_answer": "4",
+  "prediction": "4",
+  "support_memory_ids": [
+    "m_8148708b1d662b2a6be0",
+    "m_f25feb300a6e2053ac63",
+    "m_dd44015133834e17819b",
+    "m_d345c51341abc9bb53f8"
+  ],
+  "support_source_ids": [
+    102,
+    222,
+    236,
+    167
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user tried Ethiopian cuisine (source 102), Korean bibimbap (source 222), attended a vegan cuisine class (source 236), and learned Indian cuisine (source 167). The fermentation workshop (source 235) is a technique, not a distinct cuisine, so it is excluded. Thus, 4 distinct cuisines.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "operation_data": {
+    "type": "count_distinct",
+    "items": [
+      {
+        "label": "Ethiopian",
+        "value": null,
+        "unit": "cuisine",
+        "date": "2023-05-24",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_8148708b1d662b2a6be0"
+        ],
+        "support_source_ids": [
+          102
+        ]
+      },
+      {
+        "label": "Korean",
+        "value": null,
+        "unit": "cuisine",
+        "date": "2023-05-29",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_f25feb300a6e2053ac63"
+        ],
+        "support_source_ids": [
+          222
+        ]
+      },
+      {
+        "label": "Vegan",
+        "value": null,
+        "unit": "cuisine",
+        "date": "2023-05-30",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_dd44015133834e17819b"
+        ],
+        "support_source_ids": [
+          236
+        ]
+      },
+      {
+        "label": "Indian",
+        "value": null,
+        "unit": "cuisine",
+        "date": "2023-05-26",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_d345c51341abc9bb53f8"
+        ],
+        "support_source_ids": [
+          167
+        ]
+      }
+    ],
+    "requested_unit": "cuisines",
+    "result": "4"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 55842,
+    "completion_tokens": 1217,
+    "elapsed_seconds": 10.536857604980469
+  }
+}

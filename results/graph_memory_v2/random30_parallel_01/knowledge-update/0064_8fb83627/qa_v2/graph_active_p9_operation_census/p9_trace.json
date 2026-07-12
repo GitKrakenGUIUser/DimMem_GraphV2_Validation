@@ -1,0 +1,472 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many issues of National Geographic have I finished reading?",
+      "National Geographic issues finished reading",
+      "completed reading National Geographic issues",
+      "National Geographic reading history",
+      "issues of National Geographic read",
+      "National Geographic issues completed"
+    ],
+    "relation_verbs": [
+      "finished reading",
+      "completed reading",
+      "read",
+      "have read"
+    ],
+    "entity_hints": [
+      "National Geographic",
+      "magazine issues"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many issues of National Geographic have I finished reading?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "National Geographic issues finished reading",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "completed reading National Geographic issues",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "National Geographic reading history",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many issues of National Geographic have I finished reading?",
+      "National Geographic issues finished reading",
+      "completed reading National Geographic issues",
+      "National Geographic reading history",
+      "issues of National Geographic read",
+      "National Geographic issues completed"
+    ],
+    "relation_verbs": [
+      "finished reading",
+      "completed reading",
+      "read",
+      "have read"
+    ],
+    "entity_hints": [
+      "National Geographic",
+      "magazine issues"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_e40fe167dbe9a5369419",
+      "m_95b90d5100454a53986c"
+    ],
+    "support_source_ids": [
+      134,
+      138
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [],
+      "unit": "issues",
+      "result": "3"
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "The user explicitly stated in source 134 (2023-04-20) that they finished three issues of National Geographic and are on the fourth. Source 138 confirms the same. Later mentions of five issues (sources 231, 233) refer to a different context (Amazon-related issues) and do not override the earlier consistent count. Therefore, the answer is 3."
+  },
+  "p7_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_e40fe167dbe9a5369419",
+      "m_11e04bebde84e670e1f5",
+      "m_95b90d5100454a53986c",
+      "m_d1f2d48c2657ead96efd"
+    ],
+    "support_source_ids": [
+      134,
+      138,
+      231,
+      233
+    ],
+    "required_slots": [
+      {
+        "name": "completed issues list",
+        "value": "5 issues",
+        "support_memory_ids": [
+          "m_e40fe167dbe9a5369419",
+          "m_11e04bebde84e670e1f5",
+          "m_95b90d5100454a53986c",
+          "m_d1f2d48c2657ead96efd"
+        ],
+        "support_source_ids": [
+          134,
+          138,
+          231,
+          233
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [],
+      "unit": "issues",
+      "result": "5"
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "The user stated finishing three issues on 2023-04-20 (source 134,138) and later stated finishing five issues on 2023-07-15 (source 231,233). The later statement supersedes the earlier, indicating a total of five distinct issues finished by the question date."
+  },
+  "p8_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e40fe167dbe9a5369419",
+      "m_11e04bebde84e670e1f5",
+      "m_95b90d5100454a53986c",
+      "m_d1f2d48c2657ead96efd"
+    ],
+    "support_source_ids": [
+      134,
+      138,
+      231,
+      233
+    ],
+    "required_slots": [
+      {
+        "name": "completed issues list",
+        "value": "5 issues",
+        "support_memory_ids": [
+          "m_e40fe167dbe9a5369419",
+          "m_11e04bebde84e670e1f5",
+          "m_95b90d5100454a53986c",
+          "m_d1f2d48c2657ead96efd"
+        ],
+        "support_source_ids": [
+          134,
+          138,
+          231,
+          233
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
+      "unit": "issues",
+      "result": "5"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated finishing 3 issues on 2023-04-20 (source 134, 138) and later stated finishing 5 issues on 2023-07-15 (source 231, 233). The later statement supersedes the earlier, so the count is 5 distinct finished issues."
+  },
+  "specialist_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e40fe167dbe9a5369419",
+      "m_11e04bebde84e670e1f5",
+      "m_95b90d5100454a53986c",
+      "m_d1f2d48c2657ead96efd"
+    ],
+    "support_source_ids": [
+      134,
+      138,
+      231,
+      233
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [
+        {
+          "label": "issue 1",
+          "value": null,
+          "unit": "issues",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_e40fe167dbe9a5369419",
+            "m_95b90d5100454a53986c"
+          ],
+          "support_source_ids": [
+            134,
+            138
+          ]
+        },
+        {
+          "label": "issue 2",
+          "value": null,
+          "unit": "issues",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_e40fe167dbe9a5369419",
+            "m_95b90d5100454a53986c"
+          ],
+          "support_source_ids": [
+            134,
+            138
+          ]
+        },
+        {
+          "label": "issue 3",
+          "value": null,
+          "unit": "issues",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_e40fe167dbe9a5369419",
+            "m_95b90d5100454a53986c"
+          ],
+          "support_source_ids": [
+            134,
+            138
+          ]
+        },
+        {
+          "label": "issue 4",
+          "value": null,
+          "unit": "issues",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_11e04bebde84e670e1f5",
+            "m_d1f2d48c2657ead96efd"
+          ],
+          "support_source_ids": [
+            231,
+            233
+          ]
+        },
+        {
+          "label": "issue 5",
+          "value": null,
+          "unit": "issues",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_11e04bebde84e670e1f5",
+            "m_d1f2d48c2657ead96efd"
+          ],
+          "support_source_ids": [
+            231,
+            233
+          ]
+        }
+      ],
+      "requested_unit": "issues",
+      "result": "5"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "User initially reported 3 finished issues on 2023-04-20, later reported 5 finished issues on 2023-07-15. The later statement supersedes the earlier, indicating 5 distinct issues finished by the question date."
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User stated finishing 3 issues on 2023-04-20 (sources 134,138) and later stated finishing 5 issues on 2023-07-15 (sources 231,233). The later statement supersedes the earlier, so the count is 5 distinct finished issues.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e40fe167dbe9a5369419",
+      "m_95b90d5100454a53986c",
+      "m_11e04bebde84e670e1f5",
+      "m_d1f2d48c2657ead96efd"
+    ],
+    "support_source_ids": [
+      134,
+      138,
+      231,
+      233
+    ],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [
+        {
+          "label": "issue 1",
+          "value": null,
+          "unit": "issues",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_e40fe167dbe9a5369419",
+            "m_95b90d5100454a53986c"
+          ],
+          "support_source_ids": [
+            134,
+            138
+          ]
+        },
+        {
+          "label": "issue 2",
+          "value": null,
+          "unit": "issues",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_e40fe167dbe9a5369419",
+            "m_95b90d5100454a53986c"
+          ],
+          "support_source_ids": [
+            134,
+            138
+          ]
+        },
+        {
+          "label": "issue 3",
+          "value": null,
+          "unit": "issues",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_e40fe167dbe9a5369419",
+            "m_95b90d5100454a53986c"
+          ],
+          "support_source_ids": [
+            134,
+            138
+          ]
+        },
+        {
+          "label": "issue 4",
+          "value": null,
+          "unit": "issues",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_11e04bebde84e670e1f5",
+            "m_d1f2d48c2657ead96efd"
+          ],
+          "support_source_ids": [
+            231,
+            233
+          ]
+        },
+        {
+          "label": "issue 5",
+          "value": null,
+          "unit": "issues",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_11e04bebde84e670e1f5",
+            "m_d1f2d48c2657ead96efd"
+          ],
+          "support_source_ids": [
+            231,
+            233
+          ]
+        }
+      ],
+      "requested_unit": "issues",
+      "result": "5"
+    },
+    "confidence": 0.95,
+    "reason": "User initially reported 3 finished issues on 2023-04-20 (sources 134,138) and later reported 5 finished issues on 2023-07-15 (sources 231,233). The later statement supersedes the earlier, indicating 5 distinct issues finished by the question date.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_11e04bebde84e670e1f5",
+    "m_95b90d5100454a53986c",
+    "m_d1f2d48c2657ead96efd",
+    "m_e40fe167dbe9a5369419",
+    "m_9f2771f72400549b7bea",
+    "m_acf33300c33836266b8d",
+    "m_b1d6fa6358bcc1f12285",
+    "m_51f82f73ae4083c28e28",
+    "m_1c8e5c103afcc5595f05",
+    "m_3292c3c64bc74913d2fe",
+    "m_cd4a5c2eb32f7293e946",
+    "m_efe23504827426b58c2c",
+    "m_0a03d90045debe2e644e",
+    "m_3acb95c869334654d0c3",
+    "m_df31d687686e4c73e2ba",
+    "m_4c9e4705ea6a647bc76d",
+    "m_dda91a5ff0b37e5d43ed",
+    "m_79b95bc03abf71fa5df8"
+  ],
+  "source_census_ids": [
+    138,
+    231,
+    134,
+    233,
+    235,
+    133,
+    135,
+    230,
+    232,
+    137
+  ],
+  "profile_memory_ids": [
+    "m_11e04bebde84e670e1f5",
+    "m_95b90d5100454a53986c",
+    "m_d1f2d48c2657ead96efd",
+    "m_e40fe167dbe9a5369419",
+    "m_9f2771f72400549b7bea",
+    "m_04933fc45eaddc861c9d",
+    "m_3d8a783086251ecfb8cf",
+    "m_51f82f73ae4083c28e28",
+    "m_c46762bfa9cba09fc273",
+    "m_0a03d90045debe2e644e",
+    "m_1c8e5c103afcc5595f05",
+    "m_276df3974192af39e1df"
+  ]
+}

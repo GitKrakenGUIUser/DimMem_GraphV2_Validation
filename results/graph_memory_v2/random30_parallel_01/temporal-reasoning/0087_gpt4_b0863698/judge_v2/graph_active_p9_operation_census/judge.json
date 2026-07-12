@@ -1,0 +1,65 @@
+{
+  "question_id": "gpt4_b0863698",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I participate in the 5K charity run?",
+  "question_date": "2023/03/26 (Sun) 04:13",
+  "gold_answer": "7 days ago. 8 days (including the last day) is also acceptable.",
+  "prediction": "7 days ago",
+  "support_memory_ids": [
+    "m_59690e0e8b021b17c810"
+  ],
+  "support_source_ids": [
+    198
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Memory m_59690e0e8b021b17c810 confirms the user completed a 5K charity run on 2023-03-19. The question date is 2023-03-26, so the run was 7 days ago.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "5K charity run",
+        "value": 7,
+        "unit": "days",
+        "date": "2023-03-19",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_59690e0e8b021b17c810"
+        ],
+        "support_source_ids": [
+          198
+        ]
+      }
+    ],
+    "requested_unit": "days",
+    "result": "7 days ago"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 49131,
+    "completion_tokens": 802,
+    "elapsed_seconds": 7.089658975601196
+  },
+  "correct": true,
+  "judge_reason": "Deterministic duration equivalence.",
+  "judge_meta": {
+    "mode": "deterministic_duration_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

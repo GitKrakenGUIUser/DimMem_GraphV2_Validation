@@ -1,0 +1,72 @@
+{
+  "question_id": "gpt4_731e37d7",
+  "question_type": "multi-session",
+  "question": "How much total money did I spend on attending workshops in the last four months?",
+  "question_date": "2023/02/26 (Sun) 23:35",
+  "gold_answer": "$720",
+  "prediction": "220 dollars",
+  "support_memory_ids": [
+    "m_2ff5299fb32b98fa3d4b",
+    "m_68660c87a1b83d2b4ef7"
+  ],
+  "support_source_ids": [
+    122,
+    105
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The question date is 2023-02-26, so the last four months are 2022-10-26 to 2023-02-26. Within this period, only two workshops have explicit costs: writing workshop in November 2022 ($200) and mindfulness workshop on December 12, 2022 ($20). The photography workshop on February 22, 2023 was free. The digital marketing workshop on March 15-16, 2023 is outside the period. The entrepreneurship workshop in January 2023 has no cost mentioned. Thus total spent is $200 + $20 = $220.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "operation_data": {
+    "type": "sum",
+    "items": [
+      {
+        "label": "writing workshop",
+        "value": 200,
+        "unit": "dollars",
+        "date": "2022-11-01",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_2ff5299fb32b98fa3d4b"
+        ],
+        "support_source_ids": [
+          122
+        ]
+      },
+      {
+        "label": "mindfulness workshop",
+        "value": 20,
+        "unit": "dollars",
+        "date": "2022-12-12",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_68660c87a1b83d2b4ef7"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "requested_unit": "dollars",
+    "result": "220 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:sum"
+  ],
+  "contract": "sum",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 51988,
+    "completion_tokens": 1195,
+    "elapsed_seconds": 11.15690279006958
+  }
+}

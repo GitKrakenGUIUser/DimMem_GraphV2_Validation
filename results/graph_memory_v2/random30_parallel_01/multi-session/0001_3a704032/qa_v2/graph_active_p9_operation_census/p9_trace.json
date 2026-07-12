@@ -1,0 +1,287 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many plants did I acquire in the last month?",
+      "plants acquired last month",
+      "new plants obtained in April-May 2023",
+      "plant purchases last 30 days",
+      "plants added to collection recently",
+      "received plants in past month"
+    ],
+    "relation_verbs": [
+      "acquired",
+      "obtained",
+      "purchased",
+      "added",
+      "received",
+      "got"
+    ],
+    "entity_hints": [
+      "plant",
+      "houseplant",
+      "indoor plant",
+      "succulent",
+      "flower"
+    ],
+    "time_scope": {
+      "start": "2023-04-30T21:51:00",
+      "end": "2023-05-30T21:51:00",
+      "raw": "last month"
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many plants did I acquire in the last month?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "plants acquired last month",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "new plants obtained in April-May 2023",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "plant purchases last 30 days",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many plants did I acquire in the last month?",
+      "plants acquired last month",
+      "new plants obtained in April-May 2023",
+      "plant purchases last 30 days",
+      "plants added to collection recently",
+      "received plants in past month"
+    ],
+    "relation_verbs": [
+      "acquired",
+      "obtained",
+      "purchased",
+      "added",
+      "received",
+      "got"
+    ],
+    "entity_hints": [
+      "plant",
+      "houseplant",
+      "indoor plant",
+      "succulent",
+      "flower"
+    ],
+    "time_scope": {
+      "start": "2023-04-30T21:51:00",
+      "end": "2023-05-30T21:51:00",
+      "raw": "last month"
+    }
+  },
+  "p5_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4ad7b0ebe63c48566bf5"
+    ],
+    "support_source_ids": [
+      84
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count",
+    "calculation": {
+      "operator": "count",
+      "operands": [
+        "plant acquisitions in last month"
+      ],
+      "unit": "plants",
+      "result": "1"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_4ad7b0ebe63c48566bf5 states user got a snake plant from their sister last month, with event_start 2023-04-25, which falls within the last month (2023-04-30 to 2023-05-30). No other plant acquisitions are confirmed within that time window. Therefore, the answer is 1."
+  },
+  "p7_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4ad7b0ebe63c48566bf5"
+    ],
+    "support_source_ids": [
+      84
+    ],
+    "required_slots": [
+      {
+        "name": "plant acquisition events",
+        "value": "snake plant from sister",
+        "support_memory_ids": [
+          "m_4ad7b0ebe63c48566bf5"
+        ],
+        "support_source_ids": [
+          84
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "snake plant from sister"
+      ],
+      "unit": "",
+      "result": "1"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The memory m_4ad7b0ebe63c48566bf5 states the user got a snake plant from their sister last month, with event_start 2023-04-25, which is within one month before the question date 2023-05-30. No other plant acquisition events within the last month are found. Therefore, the count is 1."
+  },
+  "p8_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4ad7b0ebe63c48566bf5"
+    ],
+    "support_source_ids": [
+      84
+    ],
+    "required_slots": [
+      {
+        "name": "plant acquisition events in last month",
+        "value": "1",
+        "support_memory_ids": [
+          "m_4ad7b0ebe63c48566bf5"
+        ],
+        "support_source_ids": [
+          84
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "snake plant from sister"
+      ],
+      "unit": "plants",
+      "result": "1"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The only plant acquisition event in the last month (relative to 2023-05-30) is the snake plant received from sister, as stated in memory m_4ad7b0ebe63c48566bf5 and source 84. The event time is April 2023, which is within the last month (April 30 to May 30). No other acquisition events were found."
+  },
+  "specialist_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4ad7b0ebe63c48566bf5"
+    ],
+    "support_source_ids": [
+      84
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [
+        {
+          "label": "snake plant from sister",
+          "value": 1,
+          "unit": "plants",
+          "date": "2023-04-25",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_4ad7b0ebe63c48566bf5"
+          ],
+          "support_source_ids": [
+            84
+          ]
+        }
+      ],
+      "requested_unit": "plants",
+      "result": "1"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Only one plant acquisition (snake plant from sister) is confirmed within the last month (April 30 to May 30, 2023)."
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_4ad7b0ebe63c48566bf5 states user got a snake plant from their sister last month, with event_start 2023-04-25, which falls within the last month relative to the question date 2023-05-30. No other plant acquisitions are found in that window.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_1056b1be01c1c6187280",
+    "m_87d63cd24c0f392bee81",
+    "m_4ad7b0ebe63c48566bf5",
+    "m_21e2b69b7a770f7fa318",
+    "m_185436859bd440220217",
+    "m_8ac10d2d4c9934ffff05",
+    "m_32dfd53ea5fb04d19faf",
+    "m_2dd1649c2847ecb58794",
+    "m_fe081e811e7dda59561a",
+    "m_a69e53039f345ded31b6",
+    "m_1e9a22f97758bb441158",
+    "m_bc7b38ba338b754b2edf",
+    "m_8d9a8480c1c64053ac85",
+    "m_db38a2906b5f2a0f48da",
+    "m_453568daac1eb99ae1be",
+    "m_b1f6d12d98161266bc00",
+    "m_b68bdceda794d846cf45",
+    "m_de78e87f441ac4dde22a",
+    "m_a4dcd7fc54d5c87d8dfe",
+    "m_7efc4b22838a8a64fa8d",
+    "m_e239eec24925fd27eae0",
+    "m_4d843206a00f1fd2b447"
+  ],
+  "source_census_ids": [
+    73,
+    5,
+    75,
+    84,
+    146,
+    9,
+    7,
+    6,
+    39,
+    4,
+    85,
+    72,
+    74,
+    227
+  ],
+  "profile_memory_ids": [
+    "m_1e9a22f97758bb441158",
+    "m_f2c643aeb716f1607a4d",
+    "m_022a10c0f86d00d3d017",
+    "m_1056b1be01c1c6187280",
+    "m_21e2b69b7a770f7fa318",
+    "m_269b1431bd4b4c4cf907",
+    "m_2dd1649c2847ecb58794",
+    "m_32dfd53ea5fb04d19faf",
+    "m_36ba14b828306ecf4140",
+    "m_4ad7b0ebe63c48566bf5",
+    "m_4f48056e8b3de4e180dc",
+    "m_5b9896e4c993483bf5c4"
+  ]
+}

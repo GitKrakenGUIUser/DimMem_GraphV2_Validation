@@ -1,0 +1,282 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "I was looking back at our previous chat and I wanted to confirm, how many times did the Chiefs play the Jaguars at Arrowhead Stadium?",
+      "Chiefs Jaguars Arrowhead games count",
+      "Chiefs home games vs Jaguars Arrowhead",
+      "Chiefs Jaguars Arrowhead Stadium matchups",
+      "Kansas City Jacksonville Arrowhead games",
+      "Chiefs Jaguars Arrowhead history"
+    ],
+    "relation_verbs": [
+      "played at",
+      "hosted",
+      "faced",
+      "met at",
+      "scheduled at",
+      "mentioned in"
+    ],
+    "entity_hints": [
+      "Kansas City Chiefs",
+      "Jacksonville Jaguars",
+      "Arrowhead Stadium",
+      "NFL teams",
+      "home team",
+      "opponent"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30",
+      "raw": "before 2023-05-30"
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "I was looking back at our previous chat and I wanted to confirm, how many times did the Chiefs play the Jaguars at Arrowhead Stadium?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "Chiefs Jaguars Arrowhead games count",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "Chiefs home games vs Jaguars Arrowhead",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "Chiefs Jaguars Arrowhead Stadium matchups",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "I was looking back at our previous chat and I wanted to confirm, how many times did the Chiefs play the Jaguars at Arrowhead Stadium?",
+      "Chiefs Jaguars Arrowhead games count",
+      "Chiefs home games vs Jaguars Arrowhead",
+      "Chiefs Jaguars Arrowhead Stadium matchups",
+      "Kansas City Jacksonville Arrowhead games",
+      "Chiefs Jaguars Arrowhead history"
+    ],
+    "relation_verbs": [
+      "played at",
+      "hosted",
+      "faced",
+      "met at",
+      "scheduled at",
+      "mentioned in"
+    ],
+    "entity_hints": [
+      "Kansas City Chiefs",
+      "Jacksonville Jaguars",
+      "Arrowhead Stadium",
+      "NFL teams",
+      "home team",
+      "opponent"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30",
+      "raw": "before 2023-05-30"
+    }
+  },
+  "p5_candidate": {
+    "answer": "12",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_959729a90245c8bd491c"
+    ],
+    "support_source_ids": [
+      190
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The assistant previously stated that of the 23 Chiefs-Jaguars games, 12 were played at Arrowhead Stadium in Kansas City. This is directly from memory m_959729a90245c8bd491c and source turn 190."
+  },
+  "p7_candidate": {
+    "answer": "12",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_959729a90245c8bd491c"
+    ],
+    "support_source_ids": [
+      190
+    ],
+    "required_slots": [
+      {
+        "name": "assistant_previous_reply",
+        "value": "12",
+        "support_memory_ids": [
+          "m_959729a90245c8bd491c"
+        ],
+        "support_source_ids": [
+          190
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously stated that 12 games were played at Arrowhead Stadium. This directly answers the user's confirmation request."
+  },
+  "p8_candidate": {
+    "answer": "12",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_959729a90245c8bd491c"
+    ],
+    "support_source_ids": [
+      190
+    ],
+    "required_slots": [
+      {
+        "name": "assistant_previous_reply",
+        "value": "12",
+        "support_memory_ids": [
+          "m_959729a90245c8bd491c"
+        ],
+        "support_source_ids": [
+          190
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "stated_count",
+    "calculation": {
+      "operator": "stated_count",
+      "operands": [
+        "12"
+      ],
+      "unit": "games",
+      "result": "12"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant previously stated that 12 games were played at Arrowhead Stadium (source 190). The user asks to confirm that count."
+  },
+  "specialist_candidate": {
+    "answer": "12",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_959729a90245c8bd491c"
+    ],
+    "support_source_ids": [
+      190
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "games at Arrowhead Stadium",
+          "value": 12,
+          "unit": "games",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_959729a90245c8bd491c"
+          ],
+          "support_source_ids": [
+            190
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "12"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "The assistant previously stated that 12 games were played at Arrowhead Stadium."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's prior reply (source 190) explicitly states that 12 of the 23 Chiefs-Jaguars games were played at Arrowhead Stadium.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_959729a90245c8bd491c",
+    "m_19305f2592bb95243e50",
+    "m_cdabe9cf54522432e746",
+    "m_9d096b07a3afd5b30de7",
+    "m_34ca16e74275db7f58eb",
+    "m_1be3450212d057744ce2",
+    "m_051155f1e6dc73233d9e",
+    "m_27bc23882a30cf3d034b",
+    "m_3b75c1dda6a6d3a49fd5",
+    "m_3d9043568837b89b59f3",
+    "m_69068c198e92f95a8309",
+    "m_34edbc1ff83255488800",
+    "m_71a8d6da995965880b7e",
+    "m_dec3cb52907ae8825e91",
+    "m_7ff8360f6146c67909f9",
+    "m_707fcf826c34bd1b5223",
+    "m_7a93c29aabb0a360dd6e",
+    "m_92e5aea3a8e748078d3f",
+    "m_db819599b0f3a30a6536",
+    "m_09848f6ea098e56de7e2"
+  ],
+  "source_census_ids": [
+    191,
+    189,
+    190,
+    14,
+    18,
+    19,
+    3,
+    232,
+    194,
+    20,
+    192,
+    188,
+    113
+  ],
+  "profile_memory_ids": [
+    "m_111343301fe3c36c6eb0",
+    "m_19305f2592bb95243e50",
+    "m_371ad0576bbac7aafd04",
+    "m_959729a90245c8bd491c",
+    "m_cdabe9cf54522432e746",
+    "m_0c5915ffc42d98e088d3",
+    "m_12f8a23eceb0c7fad241",
+    "m_470ea0497fe0fb1a427a",
+    "m_76ad2f1b985dfa8373cf",
+    "m_7e282b2466588f8fd2d1",
+    "m_89ca6e2498d0857d6ad5",
+    "m_a25b6bd3a4c2d9c53e63"
+  ]
+}

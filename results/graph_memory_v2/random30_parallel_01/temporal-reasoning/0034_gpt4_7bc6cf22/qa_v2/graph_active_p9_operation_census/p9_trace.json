@@ -1,0 +1,288 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many days ago did I read the March 15th issue of The New Yorker?",
+      "read The New Yorker March 15 issue",
+      "finished March 15 New Yorker",
+      "when did I read March 15 New Yorker",
+      "March 15 issue of The New Yorker read",
+      "reading The New Yorker March 15"
+    ],
+    "relation_verbs": [
+      "read",
+      "finished",
+      "reading"
+    ],
+    "entity_hints": [
+      "The New Yorker",
+      "March 15 issue",
+      "magazine issue"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "March 15"
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many days ago did I read the March 15th issue of The New Yorker?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "read The New Yorker March 15 issue",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many days ago did I read the March 15th issue of The New Yorker?",
+      "read The New Yorker March 15 issue",
+      "finished March 15 New Yorker",
+      "when did I read March 15 New Yorker",
+      "March 15 issue of The New Yorker read",
+      "reading The New Yorker March 15"
+    ],
+    "relation_verbs": [
+      "read",
+      "finished",
+      "reading"
+    ],
+    "entity_hints": [
+      "The New Yorker",
+      "March 15 issue",
+      "magazine issue"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "March 15"
+    }
+  },
+  "p5_candidate": {
+    "answer": "12 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_077f5c7b3f72ae66b656"
+    ],
+    "support_source_ids": [
+      28
+    ],
+    "required_slots": [
+      {
+        "name": "date when user read the issue",
+        "value": "2023-03-20",
+        "support_memory_ids": [
+          "m_077f5c7b3f72ae66b656"
+        ],
+        "support_source_ids": [
+          28
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-01",
+        "2023-03-20"
+      ],
+      "unit": "days",
+      "result": "12 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user read the March 15th issue of The New Yorker on March 20, 2023 (source 28, memory m_077f5c7b3f72ae66b656). The question date is April 1, 2023. The difference is 12 days."
+  },
+  "p7_candidate": {
+    "answer": "12 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_077f5c7b3f72ae66b656"
+    ],
+    "support_source_ids": [
+      28
+    ],
+    "required_slots": [
+      {
+        "name": "date when user read the issue",
+        "value": "2023-03-20",
+        "support_memory_ids": [
+          "m_077f5c7b3f72ae66b656"
+        ],
+        "support_source_ids": [
+          28
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-20",
+        "2023-04-01"
+      ],
+      "unit": "days",
+      "result": "12 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_077f5c7b3f72ae66b656 and source 28 state that user read the March 15th issue of The New Yorker on 2023-03-20. The question date is 2023-04-01. The difference is 12 days."
+  },
+  "p8_candidate": {
+    "answer": "12 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_077f5c7b3f72ae66b656"
+    ],
+    "support_source_ids": [
+      28
+    ],
+    "required_slots": [
+      {
+        "name": "date when user read the issue",
+        "value": "2023-03-20",
+        "support_memory_ids": [
+          "m_077f5c7b3f72ae66b656"
+        ],
+        "support_source_ids": [
+          28
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-01",
+        "2023-03-20"
+      ],
+      "unit": "days",
+      "result": "12 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user read the March 15th issue of The New Yorker on March 20, 2023 (source 28, memory m_077f5c7b3f72ae66b656). The question date is April 1, 2023. The difference is 12 days."
+  },
+  "specialist_candidate": {
+    "answer": "12 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_077f5c7b3f72ae66b656"
+    ],
+    "support_source_ids": [
+      28
+    ],
+    "required_slots": [
+      {
+        "name": "date when user read the issue",
+        "value": "2023-03-20",
+        "support_memory_ids": [
+          "m_077f5c7b3f72ae66b656"
+        ],
+        "support_source_ids": [
+          28
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "read date",
+          "value": "2023-03-20",
+          "unit": "day",
+          "date": "2023-03-20",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_077f5c7b3f72ae66b656"
+          ],
+          "support_source_ids": [
+            28
+          ]
+        },
+        {
+          "label": "question date",
+          "value": "2023-04-01",
+          "unit": "day",
+          "date": "2023-04-01",
+          "status": "observed",
+          "support_memory_ids": [],
+          "support_source_ids": []
+        }
+      ],
+      "requested_unit": "days",
+      "result": "12 days"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "The read date is explicitly stated in memory and source."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User read the March 15th issue of The New Yorker on 2023-03-20 (source 28). Question date is 2023-04-01. Difference is 12 days.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_077f5c7b3f72ae66b656",
+    "m_e7c0b81a65c5c1fc0a1e",
+    "m_98c5e95624d25c4c2a08",
+    "m_310f51fd68babd277cc9",
+    "m_f4129db912cb39cd0c01",
+    "m_1640884f727e7fd66a37",
+    "m_2d0e178d14ae63c8ece1",
+    "m_d3a319c8c395897df0ba",
+    "m_f0bf7308d5e334bc2339",
+    "m_4118c6452b81e9f1fc5f",
+    "m_2b4f3bc01b66f321c166",
+    "m_81e272992cd2df8c2422",
+    "m_8673901d2171a3a60a09",
+    "m_d2484715e155c9472032",
+    "m_6a52b8a981a9e2977895",
+    "m_fef7683a2d919a9516db",
+    "m_3ca5c012fe2698bb9ea0",
+    "m_bbbb36150ae867351117"
+  ],
+  "source_census_ids": [
+    28,
+    31,
+    33,
+    189,
+    32,
+    29,
+    30,
+    2
+  ],
+  "profile_memory_ids": [
+    "m_077f5c7b3f72ae66b656",
+    "m_191391675df5dd0feab2",
+    "m_e7c0b81a65c5c1fc0a1e",
+    "m_fef7683a2d919a9516db",
+    "m_012e83b1872768e6123b",
+    "m_310f51fd68babd277cc9",
+    "m_3ddefcd6b8a9764b77bc",
+    "m_52f4604ef8b15e00a15c",
+    "m_63511685629033102052",
+    "m_73580011ec68634168e1",
+    "m_797b969e20149e9bd2ce",
+    "m_7e6604fc5b82b0c33ae7"
+  ]
+}

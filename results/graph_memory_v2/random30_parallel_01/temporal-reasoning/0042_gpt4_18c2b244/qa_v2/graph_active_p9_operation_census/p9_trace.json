@@ -1,0 +1,460 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:timeline",
+    "singular_question_multi_answer"
+  ],
+  "contract": "timeline",
+  "expansion": {
+    "queries": [
+      "What is the order of the three events: 'I signed up for the rewards program at ShopRite', 'I used a Buy One Get One Free coupon on Luvs diapers at Walmart', and 'I redeemed $12 cashback for a $10 Amazon gift card from Ibotta'?",
+      "signed up for rewards program at ShopRite",
+      "used BOGO coupon on Luvs diapers at Walmart",
+      "redeemed cashback for Amazon gift card from Ibotta",
+      "enrolled in ShopRite rewards",
+      "applied coupon for Luvs at Walmart"
+    ],
+    "relation_verbs": [
+      "happened before",
+      "occurred after",
+      "took place"
+    ],
+    "entity_hints": [
+      "ShopRite",
+      "Walmart",
+      "Ibotta",
+      "rewards program",
+      "Luvs diapers",
+      "Amazon gift card"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "timeline",
+    "operation": "timeline",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "What is the order of the three events: 'I signed up for the rewards program at ShopRite', 'I used a Buy One Get One Free coupon on Luvs diapers at Walmart', and 'I redeemed $12 cashback for a $10 Amazon gift card from Ibotta'?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "signed up for rewards program at ShopRite",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "used BOGO coupon on Luvs diapers at Walmart",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "redeemed cashback for Amazon gift card from Ibotta",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What is the order of the three events: 'I signed up for the rewards program at ShopRite', 'I used a Buy One Get One Free coupon on Luvs diapers at Walmart', and 'I redeemed $12 cashback for a $10 Amazon gift card from Ibotta'?",
+      "signed up for rewards program at ShopRite",
+      "used BOGO coupon on Luvs diapers at Walmart",
+      "redeemed cashback for Amazon gift card from Ibotta",
+      "enrolled in ShopRite rewards",
+      "applied coupon for Luvs at Walmart"
+    ],
+    "relation_verbs": [
+      "happened before",
+      "occurred after",
+      "took place"
+    ],
+    "entity_hints": [
+      "ShopRite",
+      "Walmart",
+      "Ibotta",
+      "rewards program",
+      "Luvs diapers",
+      "Amazon gift card"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "1. Used a Buy One Get One Free coupon on Luvs diapers at Walmart (2023-04-01)\n2. Redeemed $12 cashback for a $10 Amazon gift card from Ibotta (2023-04-10)\n3. Signed up for the rewards program at ShopRite (2023-04-15)",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3dde8f4d763cad985c98",
+      "m_e9a99ad54656417f9dcb",
+      "m_585f0428fa546b550873"
+    ],
+    "support_source_ids": [
+      141,
+      202,
+      208
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The three events have explicit dates in structured memories: coupon use on 2023-04-01, Ibotta redemption on 2023-04-10, ShopRite sign-up on 2023-04-15. Chronological order is therefore: coupon use first, then Ibotta redemption, then ShopRite sign-up."
+  },
+  "p7_candidate": {
+    "answer": "The chronological order is: 1. Used a Buy One Get One Free coupon on Luvs diapers at Walmart (2023-04-01), 2. Redeemed $12 cashback for a $10 Amazon gift card from Ibotta (2023-04-10), 3. Signed up for the rewards program at ShopRite (2023-04-15).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3dde8f4d763cad985c98",
+      "m_e9a99ad54656417f9dcb",
+      "m_585f0428fa546b550873"
+    ],
+    "support_source_ids": [
+      141,
+      202,
+      208
+    ],
+    "required_slots": [
+      {
+        "name": "event_time_1",
+        "value": "2023-04-01",
+        "support_memory_ids": [
+          "m_3dde8f4d763cad985c98"
+        ],
+        "support_source_ids": [
+          141
+        ]
+      },
+      {
+        "name": "event_time_2",
+        "value": "2023-04-10",
+        "support_memory_ids": [
+          "m_e9a99ad54656417f9dcb"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      },
+      {
+        "name": "event_time_3",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_585f0428fa546b550873"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Each event has a grounded date from memory: Walmart coupon on 2023-04-01, Ibotta redemption on 2023-04-10, ShopRite signup on 2023-04-15. Chronological order is therefore: Walmart coupon, Ibotta redemption, ShopRite signup."
+  },
+  "p8_candidate": {
+    "answer": "The chronological order is: 1. Used a Buy One Get One Free coupon on Luvs diapers at Walmart (2023-04-01), 2. Redeemed $12 cashback for a $10 Amazon gift card from Ibotta (2023-04-10), 3. Signed up for the rewards program at ShopRite (2023-04-15).",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3dde8f4d763cad985c98",
+      "m_e9a99ad54656417f9dcb",
+      "m_585f0428fa546b550873"
+    ],
+    "support_source_ids": [
+      141,
+      202,
+      208
+    ],
+    "required_slots": [
+      {
+        "name": "event_time_1",
+        "value": "2023-04-01",
+        "support_memory_ids": [
+          "m_3dde8f4d763cad985c98"
+        ],
+        "support_source_ids": [
+          141
+        ]
+      },
+      {
+        "name": "event_time_2",
+        "value": "2023-04-10",
+        "support_memory_ids": [
+          "m_e9a99ad54656417f9dcb"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      },
+      {
+        "name": "event_time_3",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_585f0428fa546b550873"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Each event has a grounded date from memory: Walmart coupon on 2023-04-01, Ibotta redemption on 2023-04-10, ShopRite signup on 2023-04-15. Chronological order is therefore: Walmart coupon, Ibotta redemption, ShopRite signup."
+  },
+  "specialist_candidate": {
+    "answer": "Used a Buy One Get One Free coupon on Luvs diapers at Walmart → Redeemed $12 cashback for a $10 Amazon gift card from Ibotta → Signed up for the rewards program at ShopRite",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3dde8f4d763cad985c98",
+      "m_e9a99ad54656417f9dcb",
+      "m_585f0428fa546b550873"
+    ],
+    "support_source_ids": [
+      141,
+      202,
+      208
+    ],
+    "required_slots": [
+      {
+        "name": "event_time_1",
+        "value": "2023-04-01",
+        "support_memory_ids": [
+          "m_3dde8f4d763cad985c98"
+        ],
+        "support_source_ids": [
+          141
+        ]
+      },
+      {
+        "name": "event_time_2",
+        "value": "2023-04-10",
+        "support_memory_ids": [
+          "m_e9a99ad54656417f9dcb"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      },
+      {
+        "name": "event_time_3",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_585f0428fa546b550873"
+        ],
+        "support_source_ids": [
+          208
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "timeline",
+      "items": [
+        {
+          "label": "Used a Buy One Get One Free coupon on Luvs diapers at Walmart",
+          "value": null,
+          "unit": "",
+          "date": "2023-04-01",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_3dde8f4d763cad985c98"
+          ],
+          "support_source_ids": [
+            141
+          ]
+        },
+        {
+          "label": "Redeemed $12 cashback for a $10 Amazon gift card from Ibotta",
+          "value": null,
+          "unit": "",
+          "date": "2023-04-10",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_e9a99ad54656417f9dcb"
+          ],
+          "support_source_ids": [
+            202
+          ]
+        },
+        {
+          "label": "Signed up for the rewards program at ShopRite",
+          "value": null,
+          "unit": "",
+          "date": "2023-04-15",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_585f0428fa546b550873"
+          ],
+          "support_source_ids": [
+            208
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Used a Buy One Get One Free coupon on Luvs diapers at Walmart → Redeemed $12 cashback for a $10 Amazon gift card from Ibotta → Signed up for the rewards program at ShopRite"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "All three events have explicit dates in structured memories."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Each event has a grounded date from memory: Walmart coupon on 2023-04-01, Ibotta redemption on 2023-04-10, ShopRite signup on 2023-04-15. Chronological order is therefore: Walmart coupon, Ibotta redemption, ShopRite signup.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "Used a Buy One Get One Free coupon on Luvs diapers at Walmart → Redeemed $12 cashback for a $10 Amazon gift card from Ibotta → Signed up for the rewards program at ShopRite",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3dde8f4d763cad985c98",
+      "m_e9a99ad54656417f9dcb",
+      "m_585f0428fa546b550873"
+    ],
+    "support_source_ids": [
+      141,
+      202,
+      208
+    ],
+    "operation_data": {
+      "type": "timeline",
+      "items": [
+        {
+          "label": "Used a Buy One Get One Free coupon on Luvs diapers at Walmart",
+          "value": null,
+          "unit": "",
+          "date": "2023-04-01",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_3dde8f4d763cad985c98"
+          ],
+          "support_source_ids": [
+            141
+          ]
+        },
+        {
+          "label": "Redeemed $12 cashback for a $10 Amazon gift card from Ibotta",
+          "value": null,
+          "unit": "",
+          "date": "2023-04-10",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_e9a99ad54656417f9dcb"
+          ],
+          "support_source_ids": [
+            202
+          ]
+        },
+        {
+          "label": "Signed up for the rewards program at ShopRite",
+          "value": null,
+          "unit": "",
+          "date": "2023-04-15",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_585f0428fa546b550873"
+          ],
+          "support_source_ids": [
+            208
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Used a Buy One Get One Free coupon on Luvs diapers at Walmart → Redeemed $12 cashback for a $10 Amazon gift card from Ibotta → Signed up for the rewards program at ShopRite"
+    },
+    "confidence": 1.0,
+    "reason": "All three events have explicit dates in structured memories: Walmart coupon on 2023-04-01, Ibotta redemption on 2023-04-10, ShopRite signup on 2023-04-15. Chronological order is therefore: Walmart coupon, Ibotta redemption, ShopRite signup.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_86f96eb3a4b39f3d4a6d",
+    "m_c0221839ee59af741e25",
+    "m_585f0428fa546b550873",
+    "m_3dde8f4d763cad985c98",
+    "m_8e641f98b7658c3b6d89",
+    "m_59be6a32a8d0445fce63",
+    "m_dfc3825e9794c78d43eb",
+    "m_e9a99ad54656417f9dcb",
+    "m_33ae5c192caabdc2f560",
+    "m_244e28a149ec98f7807f",
+    "m_0a5d209e48943c0d03fa",
+    "m_becd9d6c368ae23f56d8",
+    "m_8fc9a41f9c006cae5ad6",
+    "m_5807d1f9c933dd067488",
+    "m_0511a1c9d082a3e26716",
+    "m_bc985279f8f40447331f",
+    "m_cd56d080ae0ce345b042",
+    "m_d3471f15ce38b6a3cc3e",
+    "m_0bf96193c81b800edaeb",
+    "m_354d431ad868135de956",
+    "m_493da315d35b90ddc4b8",
+    "m_c70199ad626314413138"
+  ],
+  "source_census_ids": [
+    208,
+    144,
+    210,
+    212,
+    141,
+    143,
+    211,
+    145,
+    202,
+    209,
+    207,
+    204
+  ],
+  "profile_memory_ids": [
+    "m_3dde8f4d763cad985c98",
+    "m_e9a99ad54656417f9dcb",
+    "m_bc985279f8f40447331f",
+    "m_585f0428fa546b550873",
+    "m_86f96eb3a4b39f3d4a6d",
+    "m_0511a1c9d082a3e26716",
+    "m_0adf99e6fe09326f819c",
+    "m_0bf96193c81b800edaeb",
+    "m_18362eea332d4f114eb2",
+    "m_2b84e6f34855b62a3f8b",
+    "m_33ae5c192caabdc2f560",
+    "m_34d40c8ae918b4cbf40a"
+  ]
+}

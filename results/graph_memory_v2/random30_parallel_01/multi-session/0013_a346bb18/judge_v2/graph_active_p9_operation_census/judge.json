@@ -1,0 +1,80 @@
+{
+  "question_id": "a346bb18",
+  "question_type": "multi-session",
+  "question": "How many minutes did I exceed my target time by in the marathon?",
+  "question_date": "2023/05/30 (Tue) 22:30",
+  "gold_answer": "12",
+  "prediction": "12 minutes",
+  "support_memory_ids": [
+    "m_ffcc91a5de84670d186f",
+    "m_489bea28c229768c84d7"
+  ],
+  "support_source_ids": [
+    120,
+    7
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Actual marathon time is 4h22m (262 minutes) from source 120, target time is 4h10m (250 minutes) from source 7. Difference is 12 minutes.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "actual time",
+        "value": 262,
+        "unit": "minutes",
+        "date": "",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_ffcc91a5de84670d186f"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      },
+      {
+        "label": "target time",
+        "value": 250,
+        "unit": "minutes",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_489bea28c229768c84d7"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      }
+    ],
+    "requested_unit": "minutes",
+    "result": "12"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 50843,
+    "completion_tokens": 930,
+    "elapsed_seconds": 8.332743406295776
+  },
+  "correct": true,
+  "judge_reason": "Equivalent wording and units are acceptable.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 134,
+    "completion_tokens": 22,
+    "elapsed_seconds": 0.8008115291595459
+  }
+}

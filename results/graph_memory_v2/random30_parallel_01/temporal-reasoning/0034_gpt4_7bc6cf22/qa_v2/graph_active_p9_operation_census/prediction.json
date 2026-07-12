@@ -1,0 +1,76 @@
+{
+  "question_id": "gpt4_7bc6cf22",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I read the March 15th issue of The New Yorker?",
+  "question_date": "2023/04/01 (Sat) 08:36",
+  "gold_answer": "12 days ago. 13 days (including the last day) is also acceptable.",
+  "prediction": "12 days",
+  "support_memory_ids": [
+    "m_077f5c7b3f72ae66b656"
+  ],
+  "support_source_ids": [
+    28
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User read the March 15th issue of The New Yorker on 2023-03-20 (source 28). Question date is 2023-04-01. Difference is 12 days.",
+  "required_slots": [
+    {
+      "name": "date when user read the issue",
+      "value": "2023-03-20",
+      "support_memory_ids": [
+        "m_077f5c7b3f72ae66b656"
+      ],
+      "support_source_ids": [
+        28
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "read date",
+        "value": "2023-03-20",
+        "unit": "day",
+        "date": "2023-03-20",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_077f5c7b3f72ae66b656"
+        ],
+        "support_source_ids": [
+          28
+        ]
+      },
+      {
+        "label": "question date",
+        "value": "2023-04-01",
+        "unit": "day",
+        "date": "2023-04-01",
+        "status": "observed",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "requested_unit": "days",
+    "result": "12 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 34949,
+    "completion_tokens": 563,
+    "elapsed_seconds": 6.273557662963867
+  }
+}

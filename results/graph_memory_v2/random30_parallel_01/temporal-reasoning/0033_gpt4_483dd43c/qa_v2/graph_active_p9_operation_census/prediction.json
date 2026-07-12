@@ -1,0 +1,92 @@
+{
+  "question_id": "gpt4_483dd43c",
+  "question_type": "temporal-reasoning",
+  "question": "Which show did I start watching first, 'The Crown' or 'Game of Thrones'?",
+  "question_date": "2023/05/29 (Mon) 08:33",
+  "gold_answer": "'Game of Thrones'",
+  "prediction": "Game of Thrones",
+  "support_memory_ids": [
+    "m_033ee78d9739b76c4fe8",
+    "m_38f8a2cc5ef0ab4ef49f"
+  ],
+  "support_source_ids": [
+    197,
+    92
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "User started watching Game of Thrones about a month before May 29, 2023, i.e., around April 29, 2023. User started watching The Crown on a Sunday afternoon and finished in 14 days, with the finish on May 29, 2023, so the start was May 15, 2023. Since April 29 is earlier than May 15, Game of Thrones was started first.",
+  "required_slots": [
+    {
+      "name": "start date of watching Game of Thrones",
+      "value": "2023-04-29",
+      "support_memory_ids": [
+        "m_033ee78d9739b76c4fe8"
+      ],
+      "support_source_ids": [
+        197
+      ]
+    },
+    {
+      "name": "start date of watching The Crown",
+      "value": "2023-05-15",
+      "support_memory_ids": [
+        "m_38f8a2cc5ef0ab4ef49f"
+      ],
+      "support_source_ids": [
+        92
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "compare_dates",
+  "operation_data": {
+    "type": "compare_dates",
+    "items": [
+      {
+        "label": "Game of Thrones",
+        "value": "2023-04-29",
+        "unit": "date",
+        "date": "2023-04-29",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_033ee78d9739b76c4fe8"
+        ],
+        "support_source_ids": [
+          197
+        ]
+      },
+      {
+        "label": "The Crown",
+        "value": "2023-05-15",
+        "unit": "date",
+        "date": "2023-05-15",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_38f8a2cc5ef0ab4ef49f"
+        ],
+        "support_source_ids": [
+          92
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "Game of Thrones"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 35209,
+    "completion_tokens": 707,
+    "elapsed_seconds": 6.627332448959351
+  }
+}

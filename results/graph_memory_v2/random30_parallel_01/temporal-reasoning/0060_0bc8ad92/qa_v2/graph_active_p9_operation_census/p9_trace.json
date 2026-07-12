@@ -1,0 +1,329 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many months have passed since I last visited a museum with a friend?",
+      "last museum visit with friend",
+      "when did I go to a museum with a friend",
+      "museum trip with friend date",
+      "most recent museum outing with friend",
+      "last time I visited a museum with a friend"
+    ],
+    "relation_verbs": [
+      "visited",
+      "went to",
+      "went with",
+      "went to a museum with"
+    ],
+    "entity_hints": [
+      "museum",
+      "friend",
+      "art museum",
+      "science museum",
+      "history museum"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-03-25T17:18:00",
+      "raw": "last"
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many months have passed since I last visited a museum with a friend?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "last museum visit with friend",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many months have passed since I last visited a museum with a friend?",
+      "last museum visit with friend",
+      "when did I go to a museum with a friend",
+      "museum trip with friend date",
+      "most recent museum outing with friend",
+      "last time I visited a museum with a friend"
+    ],
+    "relation_verbs": [
+      "visited",
+      "went to",
+      "went with",
+      "went to a museum with"
+    ],
+    "entity_hints": [
+      "museum",
+      "friend",
+      "art museum",
+      "science museum",
+      "history museum"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-03-25T17:18:00",
+      "raw": "last"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "date of last museum visit with friend"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source provides a date for the user's last museum visit with a friend. The only museum visit with a friend (Science Museum) has an imprecise time 'today (2022-10-22)' but the question asks for the last visit, and there is no evidence that this is the most recent. Other museum visits are with different companions (dad) or solo. Therefore, the required date cannot be determined."
+  },
+  "p7_candidate": {
+    "answer": "36 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_0522e2638014f71ef9a2"
+    ],
+    "support_source_ids": [
+      129
+    ],
+    "required_slots": [
+      {
+        "name": "date of last museum visit with friend",
+        "value": "2023-02-17",
+        "support_memory_ids": [
+          "m_0522e2638014f71ef9a2"
+        ],
+        "support_source_ids": [
+          129
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-02-17",
+        "2023-03-25"
+      ],
+      "unit": "month",
+      "result": "36 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The last museum visit with a friend was on 2023-02-17 (Natural History Museum with dad). From that date to the question date 2023-03-25 is 1 month and 8 days, which rounds to 1 month. However, the question asks 'how many months have passed', and the difference is slightly over one month, so the answer is 1 month. But the plan expects integer months, and the difference is 1 month and 8 days, so 1 month has passed."
+  },
+  "p8_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_04a39589a69f9da4dc77"
+    ],
+    "support_source_ids": [
+      49
+    ],
+    "required_slots": [
+      {
+        "name": "date of last museum visit with friend",
+        "value": "2022-10-22",
+        "support_memory_ids": [
+          "m_04a39589a69f9da4dc77"
+        ],
+        "support_source_ids": [
+          49
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_months",
+      "operands": [
+        "2022-10-22",
+        "2023-03-25"
+      ],
+      "unit": "months",
+      "result": "5"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The last museum visit with a friend was on 2022-10-22 (Science Museum with a chemistry professor friend). The question date is 2023-03-25. The difference in months from October 2022 to March 2023 is 5 months."
+  },
+  "specialist_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_04a39589a69f9da4dc77"
+    ],
+    "support_source_ids": [
+      49
+    ],
+    "required_slots": [
+      {
+        "name": "date of last museum visit with friend",
+        "value": "2022-10-22",
+        "support_memory_ids": [
+          "m_04a39589a69f9da4dc77"
+        ],
+        "support_source_ids": [
+          49
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "last museum visit with friend",
+          "value": "2022-10-22",
+          "unit": "date",
+          "date": "2022-10-22",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_04a39589a69f9da4dc77"
+          ],
+          "support_source_ids": [
+            49
+          ]
+        },
+        {
+          "label": "question date",
+          "value": "2023-03-25",
+          "unit": "date",
+          "date": "2023-03-25",
+          "status": "observed",
+          "support_memory_ids": [],
+          "support_source_ids": []
+        }
+      ],
+      "requested_unit": "months",
+      "result": "5"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The last museum visit with a friend was on 2022-10-22 (Science Museum with a chemistry professor friend). The question date is 2023-03-25. The difference in months from October 2022 to March 2023 is 5 months.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_04a39589a69f9da4dc77"
+    ],
+    "support_source_ids": [
+      49
+    ],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "last museum visit with friend",
+          "value": "2022-10-22",
+          "unit": "date",
+          "date": "2022-10-22",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_04a39589a69f9da4dc77"
+          ],
+          "support_source_ids": [
+            49
+          ]
+        },
+        {
+          "label": "question date",
+          "value": "2023-03-25",
+          "unit": "date",
+          "date": "2023-03-25",
+          "status": "observed",
+          "support_memory_ids": [],
+          "support_source_ids": []
+        }
+      ],
+      "requested_unit": "months",
+      "result": "5"
+    },
+    "confidence": 0.95,
+    "reason": "The last museum visit with a friend was on 2022-10-22 (Science Museum with a chemistry professor friend). The question date is 2023-03-25. The difference in months from October 2022 to March 2023 is 5 months.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": ""
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_04a39589a69f9da4dc77",
+    "m_3ed35063d6d8540328bc",
+    "m_0522e2638014f71ef9a2",
+    "m_6a5f007661fd64b9a219",
+    "m_1cbe721fe76050627167",
+    "m_705f642b32cb272810fd",
+    "m_040db478bfe7b1a58ec5",
+    "m_439b4108e7ceb9a831b9",
+    "m_0e3955bd8eb59dbac9d4",
+    "m_4c4ff44d44fe3a590822",
+    "m_8ecf6d398758cc346d8e",
+    "m_b3129fe20aa7355a489b",
+    "m_a48f6c199dbd66757128",
+    "m_c9948b10d4d4a2ffab52",
+    "m_f4d8db3eeda4711024c4",
+    "m_17209863b555da34b2eb",
+    "m_826fa14e009c74455187",
+    "m_624577e6cd9ea08e221a"
+  ],
+  "source_census_ids": [
+    49,
+    48,
+    167,
+    46,
+    166,
+    7,
+    168,
+    169,
+    50,
+    47
+  ],
+  "profile_memory_ids": [
+    "m_04a39589a69f9da4dc77",
+    "m_3ed35063d6d8540328bc",
+    "m_1cbe721fe76050627167",
+    "m_439b4108e7ceb9a831b9",
+    "m_6a5f007661fd64b9a219",
+    "m_c394b65056896397cc55",
+    "m_0522e2638014f71ef9a2",
+    "m_1c43bf1c4d916a55626d",
+    "m_23b2a7e1909dba18d9ee",
+    "m_3e1e13921c2fad193aa9",
+    "m_83bac82f48fd88df9369",
+    "m_a135de17d6e8784dca9f"
+  ]
+}

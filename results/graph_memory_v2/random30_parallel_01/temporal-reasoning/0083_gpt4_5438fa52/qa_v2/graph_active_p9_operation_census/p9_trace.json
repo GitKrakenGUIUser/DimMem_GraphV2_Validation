@@ -1,0 +1,400 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:comparison",
+    "comparison_final_consistency_audit"
+  ],
+  "contract": "comparison",
+  "expansion": {
+    "queries": [
+      "Which event happened first, my attendance at a cultural festival or the start of my Spanish classes?",
+      "cultural festival attendance date",
+      "when did I go to a cultural festival",
+      "Spanish classes start date",
+      "when did I begin Spanish classes",
+      "first Spanish class date"
+    ],
+    "relation_verbs": [
+      "attended",
+      "went to",
+      "started",
+      "began",
+      "took first"
+    ],
+    "entity_hints": [
+      "cultural festival",
+      "Spanish classes",
+      "language course"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "comparison",
+    "operation": "compare_dates",
+    "slots": [
+      {
+        "name": "first_comparison_side",
+        "query": "Which event happened first, my attendance at a cultural festival or the start of my Spanish classes?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "second_comparison_side",
+        "query": "cultural festival attendance date",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Which event happened first, my attendance at a cultural festival or the start of my Spanish classes?",
+      "cultural festival attendance date",
+      "when did I go to a cultural festival",
+      "Spanish classes start date",
+      "when did I begin Spanish classes",
+      "first Spanish class date"
+    ],
+    "relation_verbs": [
+      "attended",
+      "went to",
+      "started",
+      "began",
+      "took first"
+    ],
+    "entity_hints": [
+      "cultural festival",
+      "Spanish classes",
+      "language course"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "The start of my Spanish classes happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "required_slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "value": "2023-05-26",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "name": "date Spanish classes started",
+        "value": "2023-02-27",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The cultural festival was attended on 2023-05-26. Spanish classes started around 2023-02-27. Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first."
+  },
+  "p7_candidate": {
+    "answer": "The start of my Spanish classes happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "required_slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "value": "2023-05-26",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "name": "date Spanish classes started",
+        "value": "2023-02-27",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The cultural festival was attended on 2023-05-26. Spanish classes started around 2023-02-27. Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first."
+  },
+  "p8_candidate": {
+    "answer": "The start of my Spanish classes happened first.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "required_slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "value": "2023-05-26",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "name": "date Spanish classes started",
+        "value": "2023-02-27",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The cultural festival was attended on 2023-05-26. Spanish classes started around 2023-02-27. Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first."
+  },
+  "specialist_candidate": {
+    "answer": "start of Spanish classes",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "required_slots": [
+      {
+        "name": "date of cultural festival attendance",
+        "value": "2023-05-26",
+        "support_memory_ids": [
+          "m_2d36ec3cf6b2b062ef8f"
+        ],
+        "support_source_ids": [
+          18
+        ]
+      },
+      {
+        "name": "date Spanish classes started",
+        "value": "2023-02-27",
+        "support_memory_ids": [
+          "m_35f976780725e5c6ad8f"
+        ],
+        "support_source_ids": [
+          111
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "attendance at a cultural festival",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-26",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_2d36ec3cf6b2b062ef8f"
+          ],
+          "support_source_ids": [
+            18
+          ]
+        },
+        {
+          "label": "start of Spanish classes",
+          "value": null,
+          "unit": "",
+          "date": "2023-02-27",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_35f976780725e5c6ad8f"
+          ],
+          "support_source_ids": [
+            111
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "start of Spanish classes"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The cultural festival was attended on 2023-05-26. Spanish classes started around 2023-02-27. Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "start of Spanish classes",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2d36ec3cf6b2b062ef8f",
+      "m_35f976780725e5c6ad8f"
+    ],
+    "support_source_ids": [
+      18,
+      111
+    ],
+    "operation_data": {
+      "type": "compare_dates",
+      "items": [
+        {
+          "label": "attendance at a cultural festival",
+          "value": null,
+          "unit": "",
+          "date": "2023-05-26",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_2d36ec3cf6b2b062ef8f"
+          ],
+          "support_source_ids": [
+            18
+          ]
+        },
+        {
+          "label": "start of Spanish classes",
+          "value": null,
+          "unit": "",
+          "date": "2023-02-27",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_35f976780725e5c6ad8f"
+          ],
+          "support_source_ids": [
+            111
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "start of Spanish classes"
+    },
+    "confidence": 0.95,
+    "reason": "The cultural festival was attended on 2023-05-26. Spanish classes started around 2023-02-27. Since 2023-02-27 is earlier than 2023-05-26, the start of Spanish classes happened first.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_2d36ec3cf6b2b062ef8f",
+    "m_c7abbb4e6ba7bef55433",
+    "m_35f976780725e5c6ad8f",
+    "m_c6052f42dac8822e92a7",
+    "m_bd3eb0fc855f59eb1d11",
+    "m_7d9fdc2a5d9a5a8a130e",
+    "m_b1c21f1b3890c130cf7b",
+    "m_e6ddbfc10d67870c537b",
+    "m_349b21c8b484f6b26c70",
+    "m_b8594f74b5fe76f61369",
+    "m_9b70ed9031bec5c9392d",
+    "m_250bc4309b44fb6ddf09",
+    "m_3a9d9d62779ac10b0616",
+    "m_6534ad98e04ac3f2fa39",
+    "m_74a7403246ad203a5a56",
+    "m_f8c76510a143dbbe24e7",
+    "m_150e1101663d81741fc9",
+    "m_31acb9c1f3b4febd452a",
+    "m_5643558b8374cd5ee917",
+    "m_e4b57aa107e6d66efe29"
+  ],
+  "source_census_ids": [
+    6,
+    2,
+    4,
+    5,
+    18,
+    111,
+    113,
+    3,
+    81,
+    112,
+    109,
+    97,
+    198,
+    100
+  ],
+  "profile_memory_ids": [
+    "m_35f976780725e5c6ad8f",
+    "m_6534ad98e04ac3f2fa39",
+    "m_b8594f74b5fe76f61369",
+    "m_bd3eb0fc855f59eb1d11",
+    "m_c7abbb4e6ba7bef55433",
+    "m_0398d2cb589b1f7e5dcc",
+    "m_039d2abbf5e20dbfe044",
+    "m_150e1101663d81741fc9",
+    "m_250bc4309b44fb6ddf09",
+    "m_2d36ec3cf6b2b062ef8f",
+    "m_2e728dc0f3b15fa773d0",
+    "m_31acb9c1f3b4febd452a"
+  ]
+}

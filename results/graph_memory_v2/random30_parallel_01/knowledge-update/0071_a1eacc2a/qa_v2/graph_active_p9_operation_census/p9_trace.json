@@ -1,0 +1,318 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:habitual_state"
+  ],
+  "contract": "habitual_state",
+  "expansion": {
+    "queries": [
+      "How many short stories have I written since I started writing regularly?",
+      "short stories written",
+      "started writing regularly date",
+      "short story count",
+      "stories written since regular writing began",
+      "when did I start writing regularly"
+    ],
+    "relation_verbs": [
+      "written",
+      "started",
+      "count"
+    ],
+    "entity_hints": [
+      "user",
+      "short story"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-06-20T17:03:00",
+      "raw": "since I started writing regularly"
+    }
+  },
+  "plan": {
+    "answer_contract": "habitual_state",
+    "operation": "state_resolution",
+    "slots": [
+      {
+        "name": "state_history",
+        "query": "How many short stories have I written since I started writing regularly?",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "latest_valid_state",
+        "query": "short stories written",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many short stories have I written since I started writing regularly?",
+      "short stories written",
+      "started writing regularly date",
+      "short story count",
+      "stories written since regular writing began",
+      "when did I start writing regularly"
+    ],
+    "relation_verbs": [
+      "written",
+      "started",
+      "count"
+    ],
+    "entity_hints": [
+      "user",
+      "short story"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-06-20T17:03:00",
+      "raw": "since I started writing regularly"
+    }
+  },
+  "p5_candidate": {
+    "answer": "7",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_396676e93ceb05fc26e1"
+    ],
+    "support_source_ids": [
+      159
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user stated on 2023-05-30 that they have been writing regularly for three months and completed 7 short stories. This is the most recent and specific count. The earlier mention of 4 stories (2023-05-23) is superseded. No later updates indicate additional completed stories, so the count remains 7."
+  },
+  "p7_candidate": {
+    "answer": "1",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_396676e93ceb05fc26e1",
+      "m_e33b625af13933381d5b"
+    ],
+    "support_source_ids": [
+      159,
+      84
+    ],
+    "required_slots": [
+      {
+        "name": "writing_regularly_start_date",
+        "value": "2023-02-28",
+        "support_memory_ids": [
+          "m_396676e93ceb05fc26e1"
+        ],
+        "support_source_ids": [
+          159
+        ]
+      },
+      {
+        "name": "short_stories_list",
+        "value": "7 short stories completed by 2023-05-30",
+        "support_memory_ids": [
+          "m_396676e93ceb05fc26e1"
+        ],
+        "support_source_ids": [
+          159
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "7 short stories (as of 2023-05-30)"
+      ],
+      "unit": "short stories",
+      "result": "1"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-30 that they have been writing regularly for three months (start date ~2023-02-28) and completed 7 short stories. This is the most recent and comprehensive count. The earlier statement of 4 stories (2023-05-23) is subsumed by the later count. No later contradictory evidence exists. Therefore, the answer is 7."
+  },
+  "p8_candidate": {
+    "answer": "7",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_396676e93ceb05fc26e1"
+    ],
+    "support_source_ids": [
+      159
+    ],
+    "required_slots": [
+      {
+        "name": "writing_regularly_start_date",
+        "value": "2023-02-28",
+        "support_memory_ids": [
+          "m_396676e93ceb05fc26e1"
+        ],
+        "support_source_ids": [
+          159
+        ]
+      },
+      {
+        "name": "short_stories_count",
+        "value": "7",
+        "support_memory_ids": [
+          "m_396676e93ceb05fc26e1"
+        ],
+        "support_source_ids": [
+          159
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "stated_count",
+    "calculation": {
+      "operator": "stated_count",
+      "operands": [
+        "7"
+      ],
+      "unit": "",
+      "result": "7"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_396676e93ceb05fc26e1 states user completed 7 short stories in 3 months of regular writing. Source 159 confirms user wrote 7 short stories since starting writing regularly. This is the latest valid state (valid_from 2023-05-30) and directly answers the question."
+  },
+  "specialist_candidate": {
+    "answer": "7",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_396676e93ceb05fc26e1"
+    ],
+    "support_source_ids": [
+      159
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "short stories completed",
+          "value": 7,
+          "unit": "short stories",
+          "date": "2023-05-30",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_396676e93ceb05fc26e1"
+          ],
+          "support_source_ids": [
+            159
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "7"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "The user stated on 2023-05-30 that they completed 7 short stories since starting to write regularly. This is the latest explicit count and directly answers the question."
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_396676e93ceb05fc26e1 (source 159) states the user completed 7 short stories in three months of regular writing. No later evidence updates this count, so the answer is 7.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "7",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_396676e93ceb05fc26e1"
+    ],
+    "support_source_ids": [
+      159
+    ],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "short stories completed",
+          "value": 7,
+          "unit": "short stories",
+          "date": "2023-05-30",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_396676e93ceb05fc26e1"
+          ],
+          "support_source_ids": [
+            159
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "7"
+    },
+    "confidence": 0.95,
+    "reason": "The user stated on 2023-05-30 that they completed 7 short stories since starting to write regularly. This is the latest explicit count and directly answers the question. The earlier count of 4 (2023-05-23) is superseded. No later evidence updates this count.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_e33b625af13933381d5b",
+    "m_396676e93ceb05fc26e1",
+    "m_2bf1eff72276b823cc4b",
+    "m_d547dd4e47f6f891b39d",
+    "m_d6b9cfa760b68caad0d2",
+    "m_99eafa5e057fa37b502c",
+    "m_3db60d78634a545d791e",
+    "m_2ed8ae96e93625fc5e66",
+    "m_21a5e24ea87476ecccc1",
+    "m_d56c75bd8ccf475804ec",
+    "m_3d1388f3e729dd8ace78",
+    "m_e46370ee524744bb9310",
+    "m_b5a5eaf52dea9d9e3fff",
+    "m_ef89e2ab18e323848001",
+    "m_3fe3a991cab94244ad63",
+    "m_32c330d5b5df2c1ba822",
+    "m_1f7eec44c2a2e54d45b9",
+    "m_1266bb3e6b69c6e91db8"
+  ],
+  "source_census_ids": [
+    84,
+    159,
+    227,
+    224,
+    83,
+    226,
+    162,
+    163,
+    85,
+    164,
+    228,
+    160
+  ],
+  "profile_memory_ids": [
+    "m_396676e93ceb05fc26e1",
+    "m_e33b625af13933381d5b",
+    "m_2bf1eff72276b823cc4b",
+    "m_d547dd4e47f6f891b39d",
+    "m_807cb3da46ceb8678acb",
+    "m_95d22d4b576aaad5bb7d",
+    "m_ee9cd271ac64d0918374",
+    "m_0ef62755796637e14fa1",
+    "m_1e56887b793162dcd767",
+    "m_2265d7a24d7742954536",
+    "m_24bdfa05c11fa62a405b",
+    "m_32c330d5b5df2c1ba822"
+  ]
+}

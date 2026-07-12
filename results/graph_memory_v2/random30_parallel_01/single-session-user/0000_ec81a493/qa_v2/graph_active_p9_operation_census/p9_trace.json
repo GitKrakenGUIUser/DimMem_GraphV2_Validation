@@ -1,0 +1,407 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many copies of my favorite artist's debut album were released worldwide?",
+      "favorite artist debut album worldwide sales",
+      "favorite artist debut album copies released",
+      "favorite artist first album global sales",
+      "debut album of favorite artist total copies",
+      "favorite artist debut album units sold worldwide"
+    ],
+    "relation_verbs": [
+      "is favorite artist of",
+      "debut album of",
+      "sold",
+      "released",
+      "shipped"
+    ],
+    "entity_hints": [
+      "favorite artist",
+      "debut album",
+      "first album",
+      "global sales",
+      "copies",
+      "units"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many copies of my favorite artist's debut album were released worldwide?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "favorite artist debut album worldwide sales",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "favorite artist debut album copies released",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "favorite artist first album global sales",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many copies of my favorite artist's debut album were released worldwide?",
+      "favorite artist debut album worldwide sales",
+      "favorite artist debut album copies released",
+      "favorite artist first album global sales",
+      "debut album of favorite artist total copies",
+      "favorite artist debut album units sold worldwide"
+    ],
+    "relation_verbs": [
+      "is favorite artist of",
+      "debut album of",
+      "sold",
+      "released",
+      "shipped"
+    ],
+    "entity_hints": [
+      "favorite artist",
+      "debut album",
+      "first album",
+      "global sales",
+      "copies",
+      "units"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "favorite_artist",
+        "value": "unknown",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "name": "debut_album_name",
+        "value": "unknown",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "favorite_artist",
+      "debut_album_name"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The user's favorite artist and debut album name are not explicitly stated in any memory or source turn. The only related memory (m_8967f4651ae297ea43cf) mentions a signed poster from the favorite artist's debut album but does not name the artist or album, nor does it provide worldwide sales figures. Therefore, the question cannot be answered."
+  },
+  "p7_candidate": {
+    "answer": "500",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8967f4651ae297ea43cf"
+    ],
+    "support_source_ids": [
+      195
+    ],
+    "required_slots": [
+      {
+        "name": "favorite_artist",
+        "value": "user's favorite artist",
+        "support_memory_ids": [
+          "m_8967f4651ae297ea43cf"
+        ],
+        "support_source_ids": [
+          193,
+          195
+        ]
+      },
+      {
+        "name": "debut_album_name",
+        "value": "debut album of user's favorite artist",
+        "support_memory_ids": [
+          "m_8967f4651ae297ea43cf"
+        ],
+        "support_source_ids": [
+          193,
+          195
+        ]
+      },
+      {
+        "name": "worldwide_sales",
+        "value": 500,
+        "support_memory_ids": [
+          "m_8967f4651ae297ea43cf"
+        ],
+        "support_source_ids": [
+          195
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "copies",
+      "result": "500"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user's favorite artist's debut album is a limited edition of 500 copies worldwide, as stated in memory m_8967f4651ae297ea43cf and source 195. This directly answers the question."
+  },
+  "p8_candidate": {
+    "answer": "500",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8967f4651ae297ea43cf"
+    ],
+    "support_source_ids": [
+      195
+    ],
+    "required_slots": [
+      {
+        "name": "favorite_artist",
+        "value": "user's favorite artist",
+        "support_memory_ids": [
+          "m_8967f4651ae297ea43cf"
+        ],
+        "support_source_ids": [
+          195
+        ]
+      },
+      {
+        "name": "debut_album_name",
+        "value": "debut album of favorite artist",
+        "support_memory_ids": [
+          "m_8967f4651ae297ea43cf"
+        ],
+        "support_source_ids": [
+          195
+        ]
+      },
+      {
+        "name": "worldwide_sales",
+        "value": "500",
+        "support_memory_ids": [
+          "m_8967f4651ae297ea43cf"
+        ],
+        "support_source_ids": [
+          195
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "stated_count",
+    "calculation": {
+      "operator": "stated_count",
+      "operands": [
+        "500"
+      ],
+      "unit": "copies",
+      "result": "500"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user stated that the signed poster from their favorite artist's debut album is a limited edition of only 500 copies worldwide. This directly provides the worldwide sales count for the debut album."
+  },
+  "specialist_candidate": {
+    "answer": "500",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8967f4651ae297ea43cf"
+    ],
+    "support_source_ids": [
+      195
+    ],
+    "required_slots": [
+      {
+        "name": "favorite_artist",
+        "value": "user's favorite artist",
+        "support_memory_ids": [
+          "m_8967f4651ae297ea43cf"
+        ],
+        "support_source_ids": [
+          195
+        ]
+      },
+      {
+        "name": "debut_album_name",
+        "value": "debut album of user's favorite artist",
+        "support_memory_ids": [
+          "m_8967f4651ae297ea43cf"
+        ],
+        "support_source_ids": [
+          195
+        ]
+      },
+      {
+        "name": "worldwide_sales",
+        "value": 500,
+        "support_memory_ids": [
+          "m_8967f4651ae297ea43cf"
+        ],
+        "support_source_ids": [
+          195
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "worldwide copies",
+          "value": 500,
+          "unit": "copies",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_8967f4651ae297ea43cf"
+          ],
+          "support_source_ids": [
+            195
+          ]
+        }
+      ],
+      "requested_unit": "copies",
+      "result": "500"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "The user's favorite artist's debut album is a limited edition of 500 copies worldwide, as stated in memory and source."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_8967f4651ae297ea43cf and source 195 explicitly state that the signed poster from the user's favorite artist's debut album is a limited edition of 500 copies worldwide. This directly answers the question.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "500",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8967f4651ae297ea43cf"
+    ],
+    "support_source_ids": [
+      195
+    ],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "worldwide copies",
+          "value": 500,
+          "unit": "copies",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_8967f4651ae297ea43cf"
+          ],
+          "support_source_ids": [
+            195
+          ]
+        }
+      ],
+      "requested_unit": "copies",
+      "result": "500"
+    },
+    "confidence": 1.0,
+    "reason": "Memory m_8967f4651ae297ea43cf and source 195 explicitly state that the signed poster from the user's favorite artist's debut album is a limited edition of 500 copies worldwide, directly answering the question.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_8967f4651ae297ea43cf",
+    "m_3a84bb47b51fb2f2f13b",
+    "m_e57a369382613d81e0e6",
+    "m_1e72f5d664ec854f0419",
+    "m_b818f58ecda67f50cd37",
+    "m_765bb351fc899e0eae60",
+    "m_2963dd47588858e6df11",
+    "m_4ef770bec021f7d45122",
+    "m_af2e574a214002d5e4d7",
+    "m_bc49b5a7119545681b81",
+    "m_6c960eb12bd5776d9056",
+    "m_e5eb73818e85943b1645",
+    "m_017b779264c3944c5654",
+    "m_d92613a43776f65db4bd",
+    "m_8b7a63046085617002e2",
+    "m_e4cdff9d082c297cf9dd",
+    "m_a53e4270838da4faac7a",
+    "m_8cd06d58e79389c18fda",
+    "m_147417fa7729855cbf93",
+    "m_0dbf453182b75d1156da",
+    "m_95e864523708ef3f8b11"
+  ],
+  "source_census_ids": [
+    195,
+    193,
+    16,
+    14,
+    42,
+    44,
+    41,
+    15,
+    127,
+    192,
+    164,
+    196,
+    194
+  ],
+  "profile_memory_ids": [
+    "m_8967f4651ae297ea43cf",
+    "m_4314eb62d80bf46b4515",
+    "m_9f818af1fe6d83e4d591",
+    "m_ba3b19b91497b207184d",
+    "m_0bfd701833c740d42b58",
+    "m_0e18ea089c16ada23b3e",
+    "m_0eac9e40d6886da1c7d3",
+    "m_0ffe757594272efc7067",
+    "m_1441a208667faad7a374",
+    "m_1a77fd61ddc63e32bdb7",
+    "m_24c9758eca9ba886a98b",
+    "m_26281ed98b3e2a1e3c4a"
+  ]
+}

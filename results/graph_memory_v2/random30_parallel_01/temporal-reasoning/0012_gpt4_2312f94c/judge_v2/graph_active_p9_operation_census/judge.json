@@ -1,0 +1,80 @@
+{
+  "question_id": "gpt4_2312f94c",
+  "question_type": "temporal-reasoning",
+  "question": "Which device did I got first, the Samsung Galaxy S22 or the Dell XPS 13?",
+  "question_date": "2023/03/15 (Wed) 04:45",
+  "gold_answer": "Samsung Galaxy S22",
+  "prediction": "Samsung Galaxy S22",
+  "support_memory_ids": [
+    "m_3c3a2f6b62b8ce47fba6",
+    "m_5cccf1329f52cfdab95a"
+  ],
+  "support_source_ids": [
+    98,
+    42
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The Samsung Galaxy S22 was purchased on February 20, 2023, and the Dell XPS 13 arrived on February 25, 2023. Since February 20 is earlier than February 25, the Samsung Galaxy S22 was obtained first.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "compare_dates",
+  "operation_data": {
+    "type": "compare_dates",
+    "items": [
+      {
+        "label": "Samsung Galaxy S22",
+        "value": "2023-02-20",
+        "unit": "date",
+        "date": "2023-02-20",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_3c3a2f6b62b8ce47fba6"
+        ],
+        "support_source_ids": [
+          98
+        ]
+      },
+      {
+        "label": "Dell XPS 13",
+        "value": "2023-02-25",
+        "unit": "date",
+        "date": "2023-02-25",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_5cccf1329f52cfdab95a"
+        ],
+        "support_source_ids": [
+          42
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "Samsung Galaxy S22"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 55293,
+    "completion_tokens": 1082,
+    "elapsed_seconds": 10.354624509811401
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 144,
+    "completion_tokens": 23,
+    "elapsed_seconds": 1.0306925773620605
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:argmax_or_argmin"
+  ],
+  "contract": "argmax_or_argmin",
+  "expansion": {
+    "queries": [
+      "What type of camera lens did I purchase most recently?",
+      "most recent camera lens purchase",
+      "last camera lens bought",
+      "latest lens acquisition",
+      "recent lens order",
+      "newest camera lens"
+    ],
+    "relation_verbs": [
+      "purchased",
+      "bought",
+      "acquired",
+      "ordered",
+      "got"
+    ],
+    "entity_hints": [
+      "camera lens",
+      "lens",
+      "photography equipment"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-09-21T08:41:00",
+      "raw": "most recently"
+    }
+  },
+  "plan": {
+    "answer_contract": "argmax_or_argmin",
+    "operation": "argmax",
+    "slots": [
+      {
+        "name": "candidate_entities_or_groups",
+        "query": "What type of camera lens did I purchase most recently?",
+        "semantic_type": "entity",
+        "required": true
+      },
+      {
+        "name": "numeric_values_for_each_candidate",
+        "query": "most recent camera lens purchase",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What type of camera lens did I purchase most recently?",
+      "most recent camera lens purchase",
+      "last camera lens bought",
+      "latest lens acquisition",
+      "recent lens order",
+      "newest camera lens"
+    ],
+    "relation_verbs": [
+      "purchased",
+      "bought",
+      "acquired",
+      "ordered",
+      "got"
+    ],
+    "entity_hints": [
+      "camera lens",
+      "lens",
+      "photography equipment"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-09-21T08:41:00",
+      "raw": "most recently"
+    }
+  },
+  "p5_candidate": {
+    "answer": "70-200mm zoom lens",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c19f4b99e5d015bde955",
+      "m_4b072005a5366ef50401"
+    ],
+    "support_source_ids": [
+      234,
+      230
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user mentioned taking great shots with their 70-200mm zoom lens on 2023-08-30, and earlier referred to it as 'new' on the same date. No later lens purchase is mentioned, making this the most recent camera lens purchase."
+  },
+  "p7_candidate": {
+    "answer": "70-200mm zoom lens",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c19f4b99e5d015bde955",
+      "m_4b072005a5366ef50401"
+    ],
+    "support_source_ids": [
+      234,
+      230
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user mentioned taking great shots with their 70-200mm zoom lens on 2023-08-30, and earlier referred to it as 'new' on the same date. No later lens purchase is mentioned, making this the most recent camera lens purchase."
+  },
+  "p8_candidate": {
+    "answer": "70-200mm zoom lens",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c19f4b99e5d015bde955",
+      "m_4b072005a5366ef50401"
+    ],
+    "support_source_ids": [
+      234,
+      230
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user mentioned taking great shots with their 70-200mm zoom lens on 2023-08-30, and earlier referred to it as 'new' on the same date. No later lens purchase is mentioned, making this the most recent camera lens purchase."
+  },
+  "specialist_candidate": {
+    "answer": "70-200mm zoom lens",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_c19f4b99e5d015bde955",
+      "m_4b072005a5366ef50401"
+    ],
+    "support_source_ids": [
+      234,
+      230
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "argmax",
+      "items": [
+        {
+          "label": "70-200mm zoom lens",
+          "value": null,
+          "unit": "",
+          "date": "2023-08-30",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_c19f4b99e5d015bde955",
+            "m_4b072005a5366ef50401"
+          ],
+          "support_source_ids": [
+            234,
+            230
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "70-200mm zoom lens"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "The user's most recent camera lens purchase is the 70-200mm zoom lens, as evidenced by references to it as 'new' and recent use on 2023-08-30."
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user mentioned taking great shots with their 70-200mm zoom lens on 2023-08-30, and earlier referred to it as 'new' on the same date. No later lens purchase is mentioned, making this the most recent camera lens purchase.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_9b2f17dc3e8293f281eb",
+    "m_7217596371ca026a6a43",
+    "m_4b072005a5366ef50401",
+    "m_67a1db94124008cf7d4a",
+    "m_c19f4b99e5d015bde955",
+    "m_a6fd7c990b7dc363b64c",
+    "m_9b823315c1d004bf1e57",
+    "m_732d09de334b2575721a",
+    "m_3eb23c803cdc5ade5992",
+    "m_bb50781a97d111ec7c98",
+    "m_0ae347249770cb3f166f",
+    "m_0987fdbf152cc67c3b43",
+    "m_bd45fc52cd70ede0ab1c",
+    "m_7010bfa25791a6f0aa22",
+    "m_decdf8b02d2efe58eb87",
+    "m_481f268da09c38b2dba7",
+    "m_4de0dadb019e6f6ab55f",
+    "m_ae413eb7157fb463a30f"
+  ],
+  "source_census_ids": [
+    235,
+    109,
+    110,
+    17,
+    234,
+    107,
+    232,
+    108,
+    111
+  ],
+  "profile_memory_ids": [
+    "m_0987fdbf152cc67c3b43",
+    "m_3eb23c803cdc5ade5992",
+    "m_67a1db94124008cf7d4a",
+    "m_7217596371ca026a6a43",
+    "m_9b2f17dc3e8293f281eb",
+    "m_9b823315c1d004bf1e57",
+    "m_adc3d8ba1d97047c251d",
+    "m_bb50781a97d111ec7c98",
+    "m_c19f4b99e5d015bde955",
+    "m_c44812e1820a070cb6f8",
+    "m_0ae347249770cb3f166f",
+    "m_0b196728800f718288ef"
+  ]
+}

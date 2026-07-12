@@ -1,0 +1,71 @@
+{
+  "question_id": "gpt4_d31cdae3",
+  "question_type": "temporal-reasoning",
+  "question": "Which trip did the narrator take first, the solo trip to Europe or the family road trip across the American Southwest?",
+  "question_date": "2023/05/22 (Mon) 16:56",
+  "gold_answer": "The family road trip across the American Southwest",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [
+    "m_d3ca9c08ece1292a697c",
+    "m_79ef575404ca3e9bc6a5"
+  ],
+  "support_source_ids": [
+    145,
+    105
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The family road trip across the American Southwest occurred 'a few years ago' (source 145), which is earlier than the solo trip to Europe that happened 'last summer' (summer 2022, source 105). Therefore, the family road trip was taken first.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "compare_dates",
+  "operation_data": {
+    "type": "compare_dates",
+    "items": [
+      {
+        "label": "family road trip across the American Southwest",
+        "value": null,
+        "unit": "",
+        "date": "a few years ago",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_d3ca9c08ece1292a697c"
+        ],
+        "support_source_ids": [
+          145
+        ]
+      },
+      {
+        "label": "solo trip to Europe",
+        "value": null,
+        "unit": "",
+        "date": "last summer (2022)",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_79ef575404ca3e9bc6a5"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "Cannot be determined from the conversation."
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 51808,
+    "completion_tokens": 945,
+    "elapsed_seconds": 8.76421856880188
+  }
+}

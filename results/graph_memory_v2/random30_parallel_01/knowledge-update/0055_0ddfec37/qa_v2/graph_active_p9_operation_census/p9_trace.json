@@ -1,0 +1,329 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many autographed baseballs have I added to my collection in the first three months of collection?",
+      "autographed baseballs added to collection",
+      "collection start date",
+      "autographed baseballs acquired in first three months",
+      "autographed baseballs purchased in first three months",
+      "autographed baseballs received in first three months"
+    ],
+    "relation_verbs": [
+      "added to",
+      "acquired",
+      "purchased",
+      "received",
+      "obtained"
+    ],
+    "entity_hints": [
+      "autographed baseball",
+      "collection"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "first three months of collection"
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many autographed baseballs have I added to my collection in the first three months of collection?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "autographed baseballs added to collection",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "collection start date",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "autographed baseballs acquired in first three months",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many autographed baseballs have I added to my collection in the first three months of collection?",
+      "autographed baseballs added to collection",
+      "collection start date",
+      "autographed baseballs acquired in first three months",
+      "autographed baseballs purchased in first three months",
+      "autographed baseballs received in first three months"
+    ],
+    "relation_verbs": [
+      "added to",
+      "acquired",
+      "purchased",
+      "received",
+      "obtained"
+    ],
+    "entity_hints": [
+      "autographed baseball",
+      "collection"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "first three months of collection"
+    }
+  },
+  "p5_candidate": {
+    "answer": "15",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b911077e06b2e37de017"
+    ],
+    "support_source_ids": [
+      99
+    ],
+    "required_slots": [
+      {
+        "name": "collection_start_date",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "value": "15",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "From memory m_b911077e06b2e37de017 and source 99, the user stated they have 15 autographed baseballs since starting collecting three months ago (on 2023-04-11). This directly answers the question about additions in the first three months."
+  },
+  "p7_candidate": {
+    "answer": "15",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b911077e06b2e37de017"
+    ],
+    "support_source_ids": [
+      99
+    ],
+    "required_slots": [
+      {
+        "name": "collection_start_date",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "value": "15",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "From memory m_b911077e06b2e37de017 and source 99, the user stated they have 15 autographed baseballs since starting collecting three months ago (on 2023-04-11). This directly answers the question about additions in the first three months."
+  },
+  "p8_candidate": {
+    "answer": "15",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b911077e06b2e37de017"
+    ],
+    "support_source_ids": [
+      99
+    ],
+    "required_slots": [
+      {
+        "name": "collection_start_date",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "value": "15",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "stated_count",
+    "calculation": {
+      "operator": "stated_count",
+      "operands": [
+        "15"
+      ],
+      "unit": "",
+      "result": "15"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "Memory m_b911077e06b2e37de017 states user has 15 autographed baseballs and started collecting three months ago from 2023-07-11, implying collection start on 2023-04-11. The user explicitly said 'that's 15 autographed baseballs since I started collecting three months ago' in source 99, which directly answers the question. The first three months from 2023-04-11 to 2023-07-11 align with this statement. Thus, the stated count is 15."
+  },
+  "specialist_candidate": {
+    "answer": "15",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_b911077e06b2e37de017"
+    ],
+    "support_source_ids": [
+      99
+    ],
+    "required_slots": [
+      {
+        "name": "collection_start_date",
+        "value": "2023-04-11",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      },
+      {
+        "name": "additions_in_first_three_months",
+        "value": "15",
+        "support_memory_ids": [
+          "m_b911077e06b2e37de017"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "additions in first three months",
+          "value": 15,
+          "unit": "autographed baseballs",
+          "date": "2023-07-11",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_b911077e06b2e37de017"
+          ],
+          "support_source_ids": [
+            99
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "15"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "User explicitly stated having 15 autographed baseballs since starting collecting three months ago from 2023-07-11, which covers the first three months of collection."
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "From memory m_b911077e06b2e37de017 and source 99, the user said 'that's 15 autographed baseballs since I started collecting three months ago' on 2023-07-11, indicating collection start on 2023-04-11 and 15 additions in the first three months.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_b911077e06b2e37de017",
+    "m_45f9e87a65fb7ce8c8e0",
+    "m_d7f0e35eb9efeab0cc64",
+    "m_354be33cf2236c14f601",
+    "m_f0261ccf0c52df62b559",
+    "m_89831208976671d7c184",
+    "m_d3012c404d07ce1e6cfa",
+    "m_bb232991185250ce5dfc",
+    "m_62dfb2a378bf1f8b8069",
+    "m_6c0211464ccb846392b9",
+    "m_87ee08c9dc9197b92f9f",
+    "m_d402747fe1f9a515c3c7",
+    "m_9030b9b6d4913543e2cf",
+    "m_ca402952183e28e4f520",
+    "m_a23444d66f9a2a86df15",
+    "m_6accd795df523146c021",
+    "m_07241e7c7de5e353a85c",
+    "m_1eccee108f899db8103d",
+    "m_ff578a9688d175ff8d56"
+  ],
+  "source_census_ids": [
+    158,
+    162,
+    99,
+    39,
+    102,
+    159,
+    89,
+    100,
+    161
+  ],
+  "profile_memory_ids": [
+    "m_45f9e87a65fb7ce8c8e0",
+    "m_b911077e06b2e37de017",
+    "m_0155a3a42b5d56bb37f2",
+    "m_1c7a738c66cb30db423b",
+    "m_74c49a8127a9b77803a6",
+    "m_986d17ad4a070283f14f",
+    "m_a6968f55c477efbe9c61",
+    "m_d3b1c6e73d888d1bf2bf",
+    "m_d7f0e35eb9efeab0cc64",
+    "m_1dfd02e8ba26b3368a0e",
+    "m_24b23c45de07dc12bb53",
+    "m_2a5f802a9414f5944734"
+  ]
+}

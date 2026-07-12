@@ -1,0 +1,93 @@
+{
+  "question_id": "gpt4_2ba83207",
+  "question_type": "multi-session",
+  "question": "Which grocery store did I spend the most money at in the past month?",
+  "question_date": "2023/05/30 (Tue) 22:59",
+  "gold_answer": "Thrive Market",
+  "prediction": "Walmart",
+  "support_memory_ids": [
+    "m_6c28aff13f8cb5bd521f"
+  ],
+  "support_source_ids": [
+    147
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user spent $120 at Walmart on 2023-05-20, $80 at Trader Joe's (week of 2023-05-22), and $60 at Publix via Instacart (week of 2023-05-23). Walmart's $120 is the highest amount.",
+  "required_slots": [
+    {
+      "name": "grocery store",
+      "value": "Walmart",
+      "support_memory_ids": [
+        "m_6c28aff13f8cb5bd521f"
+      ],
+      "support_source_ids": [
+        147
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "argmax",
+  "operation_data": {
+    "type": "argmax",
+    "items": [
+      {
+        "label": "Walmart",
+        "value": 120,
+        "unit": "USD",
+        "date": "2023-05-20",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_6c28aff13f8cb5bd521f"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      },
+      {
+        "label": "Trader Joe's",
+        "value": 80,
+        "unit": "USD",
+        "date": "2023-05-22",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_14e588c9c4c90917438b"
+        ],
+        "support_source_ids": [
+          198
+        ]
+      },
+      {
+        "label": "Publix",
+        "value": 60,
+        "unit": "USD",
+        "date": "2023-05-23",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_e8f02dc7ec5cc2f95f88"
+        ],
+        "support_source_ids": [
+          223
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "Walmart"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:argmax_or_argmin"
+  ],
+  "contract": "argmax_or_argmin",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 35295,
+    "completion_tokens": 751,
+    "elapsed_seconds": 7.347975492477417
+  }
+}

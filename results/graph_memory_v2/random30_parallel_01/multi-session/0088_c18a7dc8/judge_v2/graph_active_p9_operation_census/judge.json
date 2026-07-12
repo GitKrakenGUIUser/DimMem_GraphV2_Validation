@@ -1,0 +1,79 @@
+{
+  "question_id": "c18a7dc8",
+  "question_type": "multi-session",
+  "question": "How many years older am I than when I graduated from college?",
+  "question_date": "2023/05/30 (Tue) 23:37",
+  "gold_answer": "7",
+  "prediction": "current age",
+  "support_memory_ids": [
+    "m_6e9eb5b3dc431855f875",
+    "m_9cec3a05163158001acb"
+  ],
+  "support_source_ids": [
+    170
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User is currently 32 years old (source 132) and graduated college at age 25 (source 170). The difference is 7 years.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "compare_numbers",
+  "operation_data": {
+    "type": "compare_numbers",
+    "items": [
+      {
+        "label": "current age",
+        "value": 32,
+        "unit": "years",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_6e9eb5b3dc431855f875"
+        ],
+        "support_source_ids": [
+          132
+        ]
+      },
+      {
+        "label": "graduation age",
+        "value": 25,
+        "unit": "years",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_9cec3a05163158001acb"
+        ],
+        "support_source_ids": [
+          170
+        ]
+      }
+    ],
+    "requested_unit": "years",
+    "result": "current age"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 56744,
+    "completion_tokens": 876,
+    "elapsed_seconds": 9.418783187866211
+  },
+  "correct": false,
+  "judge_reason": "Prediction does not answer the question; it only states 'current age' instead of the difference in years.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 132,
+    "completion_tokens": 37,
+    "elapsed_seconds": 1.0102384090423584
+  }
+}

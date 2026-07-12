@@ -1,0 +1,300 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement"
+  ],
+  "contract": "direct_value",
+  "expansion": {
+    "queries": [
+      "I was going through our previous chat and I was wondering, what was Andy wearing in the script you wrote for the comedy movie scene?",
+      "Andy's clothing in comedy movie script",
+      "What Andy wore in the script",
+      "Andy's outfit in the comedy scene",
+      "Script description of Andy's attire",
+      "Andy's costume in the movie script"
+    ],
+    "relation_verbs": [
+      "wore",
+      "was wearing",
+      "described as wearing",
+      "had on"
+    ],
+    "entity_hints": [
+      "Andy",
+      "comedy movie scene",
+      "script"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T20:43:00",
+      "raw": "previous chat"
+    }
+  },
+  "plan": {
+    "answer_contract": "direct_value",
+    "operation": "direct",
+    "slots": [
+      {
+        "name": "exact_requested_relation",
+        "query": "I was going through our previous chat and I was wondering, what was Andy wearing in the script you wrote for the comedy movie scene?",
+        "semantic_type": "other",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "I was going through our previous chat and I was wondering, what was Andy wearing in the script you wrote for the comedy movie scene?",
+      "Andy's clothing in comedy movie script",
+      "What Andy wore in the script",
+      "Andy's outfit in the comedy scene",
+      "Script description of Andy's attire",
+      "Andy's costume in the movie script"
+    ],
+    "relation_verbs": [
+      "wore",
+      "was wearing",
+      "described as wearing",
+      "had on"
+    ],
+    "entity_hints": [
+      "Andy",
+      "comedy movie scene",
+      "script"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T20:43:00",
+      "raw": "previous chat"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Andy was wearing an untidy, stained white shirt.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5726a6bee6baa44a3799"
+    ],
+    "support_source_ids": [
+      13
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's script explicitly states 'He wears an untidy, stained white shirt.' in the reconstructed source turn for source_id 13, which is also captured in memory m_5726a6bee6baa44a3799."
+  },
+  "p7_candidate": {
+    "answer": "an untidy, stained white shirt",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5726a6bee6baa44a3799"
+    ],
+    "support_source_ids": [
+      13
+    ],
+    "required_slots": [
+      {
+        "name": "character clothing",
+        "value": "an untidy, stained white shirt",
+        "support_memory_ids": [
+          "m_5726a6bee6baa44a3799"
+        ],
+        "support_source_ids": [
+          13
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's reply in source 13 describes Andy wearing an untidy, stained white shirt in the comedy movie script scene."
+  },
+  "p8_candidate": {
+    "answer": "an untidy, stained white shirt",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5726a6bee6baa44a3799"
+    ],
+    "support_source_ids": [
+      13
+    ],
+    "required_slots": [
+      {
+        "name": "character clothing",
+        "value": "an untidy, stained white shirt",
+        "support_memory_ids": [
+          "m_5726a6bee6baa44a3799"
+        ],
+        "support_source_ids": [
+          13
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's reply in source 13 describes Andy wearing an untidy, stained white shirt in the comedy movie script scene."
+  },
+  "specialist_candidate": {
+    "answer": "an untidy, stained white shirt",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5726a6bee6baa44a3799"
+    ],
+    "support_source_ids": [
+      13
+    ],
+    "required_slots": [
+      {
+        "name": "character clothing",
+        "value": "an untidy, stained white shirt",
+        "support_memory_ids": [
+          "m_5726a6bee6baa44a3799"
+        ],
+        "support_source_ids": [
+          13
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "Andy's clothing",
+          "value": "an untidy, stained white shirt",
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_5726a6bee6baa44a3799"
+          ],
+          "support_source_ids": [
+            13
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "an untidy, stained white shirt"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The assistant's script in source 13 explicitly states 'He wears an untidy, stained white shirt.' for Andy, which is also captured in memory m_5726a6bee6baa44a3799.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "an untidy, stained white shirt",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_5726a6bee6baa44a3799"
+    ],
+    "support_source_ids": [
+      13
+    ],
+    "operation_data": {
+      "type": "direct",
+      "items": [
+        {
+          "label": "Andy's clothing",
+          "value": "an untidy, stained white shirt",
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_5726a6bee6baa44a3799"
+          ],
+          "support_source_ids": [
+            13
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "an untidy, stained white shirt"
+    },
+    "confidence": 1.0,
+    "reason": "Source 13 explicitly states 'Andy wears an untidy, stained white shirt.' in the user-provided character description for the comedy movie script.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_5726a6bee6baa44a3799",
+    "m_df7b1d0aea7d65cee845",
+    "m_7fd004b2d109c482f6ab",
+    "m_8b3a043269c7d191a100",
+    "m_251a79a065aa8c414499",
+    "m_83a576cd21b3dcffc956",
+    "m_03cece234d76d8856c5a",
+    "m_f80fb78699feb223988f",
+    "m_6780cf7ba59bcda97dc5",
+    "m_69f48f6ecc71f40c59c6",
+    "m_dda5fb05b24f38c19285",
+    "m_82387b7ed80474a15490",
+    "m_d5834372bf0b252af8aa",
+    "m_8395b20e2c2ec2902818",
+    "m_4b263af21f032834d7f1",
+    "m_8a35028fac91908a5ed4",
+    "m_ec2c2f142b4224fe5cfe",
+    "m_4ab9394bf492af81fb14",
+    "m_a853091f2c9a11603585",
+    "m_7da2298049f5d86dafcf"
+  ],
+  "source_census_ids": [
+    13,
+    17,
+    219,
+    16,
+    18,
+    140,
+    138,
+    14,
+    218,
+    148
+  ],
+  "profile_memory_ids": [
+    "m_03cece234d76d8856c5a",
+    "m_5726a6bee6baa44a3799",
+    "m_4b263af21f032834d7f1",
+    "m_69f48f6ecc71f40c59c6",
+    "m_a1d14f1cbc83954e2d66",
+    "m_1632322c63ffb5522396",
+    "m_1b39ee695c0ef436501c",
+    "m_29b252b7ca4383301bc7",
+    "m_4b77477de27099e21c6c",
+    "m_6780cf7ba59bcda97dc5",
+    "m_72dbc153716a4197640d",
+    "m_72ee2742ba0d3b4d43c2"
+  ]
+}

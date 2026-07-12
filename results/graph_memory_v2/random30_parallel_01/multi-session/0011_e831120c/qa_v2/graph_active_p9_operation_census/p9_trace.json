@@ -1,0 +1,346 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many weeks did it take me to watch all the Marvel Cinematic Universe movies and the main Star Wars films?",
+      "MCU movies watch duration weeks",
+      "Star Wars films watch duration weeks",
+      "time to watch all MCU movies",
+      "how long to watch Star Wars main films",
+      "weeks spent watching Marvel movies"
+    ],
+    "relation_verbs": [
+      "watch",
+      "take",
+      "spend",
+      "finish"
+    ],
+    "entity_hints": [
+      "Marvel Cinematic Universe",
+      "Star Wars",
+      "MCU",
+      "main Star Wars films"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many weeks did it take me to watch all the Marvel Cinematic Universe movies and the main Star Wars films?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "MCU movies watch duration weeks",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many weeks did it take me to watch all the Marvel Cinematic Universe movies and the main Star Wars films?",
+      "MCU movies watch duration weeks",
+      "Star Wars films watch duration weeks",
+      "time to watch all MCU movies",
+      "how long to watch Star Wars main films",
+      "weeks spent watching Marvel movies"
+    ],
+    "relation_verbs": [
+      "watch",
+      "take",
+      "spend",
+      "finish"
+    ],
+    "entity_hints": [
+      "Marvel Cinematic Universe",
+      "Star Wars",
+      "MCU",
+      "main Star Wars films"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "3.5 weeks",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_7705bbef5076f0f5ef05",
+      "m_b281a1dbfce85a37ed3c"
+    ],
+    "support_source_ids": [
+      66,
+      120
+    ],
+    "required_slots": [
+      {
+        "name": "MCU watch duration",
+        "value": "2 weeks",
+        "support_memory_ids": [
+          "m_7705bbef5076f0f5ef05"
+        ],
+        "support_source_ids": [
+          66
+        ]
+      },
+      {
+        "name": "Star Wars watch duration",
+        "value": "1.5 weeks",
+        "support_memory_ids": [
+          "m_b281a1dbfce85a37ed3c"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        2,
+        1.5
+      ],
+      "unit": "weeks",
+      "result": "3.5 weeks"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User stated watching all 22 MCU movies in two weeks (source 66) and finishing a Star Wars main films marathon in a week and a half (source 120). Adding these durations gives 3.5 weeks total."
+  },
+  "p7_candidate": {
+    "answer": "3.5 weeks",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_7705bbef5076f0f5ef05",
+      "m_b281a1dbfce85a37ed3c"
+    ],
+    "support_source_ids": [
+      66,
+      120
+    ],
+    "required_slots": [
+      {
+        "name": "MCU watch duration",
+        "value": "2",
+        "support_memory_ids": [
+          "m_7705bbef5076f0f5ef05"
+        ],
+        "support_source_ids": [
+          66
+        ]
+      },
+      {
+        "name": "Star Wars watch duration",
+        "value": "1.5",
+        "support_memory_ids": [
+          "m_b281a1dbfce85a37ed3c"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        2,
+        1.5
+      ],
+      "unit": "weeks",
+      "result": "3.5 weeks"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User stated watching all 22 MCU movies in two weeks (source 66) and all main Star Wars films in a week and a half (source 120). Summing these durations gives 3.5 weeks."
+  },
+  "p8_candidate": {
+    "answer": "3.5 weeks",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_7705bbef5076f0f5ef05",
+      "m_b281a1dbfce85a37ed3c"
+    ],
+    "support_source_ids": [
+      66,
+      120
+    ],
+    "required_slots": [
+      {
+        "name": "MCU watch duration",
+        "value": "2",
+        "support_memory_ids": [
+          "m_7705bbef5076f0f5ef05"
+        ],
+        "support_source_ids": [
+          66
+        ]
+      },
+      {
+        "name": "Star Wars watch duration",
+        "value": "1.5",
+        "support_memory_ids": [
+          "m_b281a1dbfce85a37ed3c"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        2,
+        1.5
+      ],
+      "unit": "weeks",
+      "result": "3.5 weeks"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User stated watching all 22 MCU movies in two weeks (source 66) and all main Star Wars films in a week and a half (source 120). Summing these durations gives 3.5 weeks."
+  },
+  "specialist_candidate": {
+    "answer": "3.5 weeks",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_7705bbef5076f0f5ef05",
+      "m_b281a1dbfce85a37ed3c"
+    ],
+    "support_source_ids": [
+      66,
+      120
+    ],
+    "required_slots": [
+      {
+        "name": "MCU watch duration",
+        "value": "2 weeks",
+        "support_memory_ids": [
+          "m_7705bbef5076f0f5ef05"
+        ],
+        "support_source_ids": [
+          66
+        ]
+      },
+      {
+        "name": "Star Wars watch duration",
+        "value": "1.5 weeks",
+        "support_memory_ids": [
+          "m_b281a1dbfce85a37ed3c"
+        ],
+        "support_source_ids": [
+          120
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "MCU movies",
+          "value": 2,
+          "unit": "weeks",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_7705bbef5076f0f5ef05"
+          ],
+          "support_source_ids": [
+            66
+          ]
+        },
+        {
+          "label": "Star Wars main films",
+          "value": 1.5,
+          "unit": "weeks",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_b281a1dbfce85a37ed3c"
+          ],
+          "support_source_ids": [
+            120
+          ]
+        }
+      ],
+      "requested_unit": "weeks",
+      "result": "3.5 weeks"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User stated watching all 22 MCU movies in two weeks (source 66) and all main Star Wars films in a week and a half (source 120). Summing these durations gives 3.5 weeks.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_7705bbef5076f0f5ef05",
+    "m_afe83b4bf730ffc3df99",
+    "m_b281a1dbfce85a37ed3c",
+    "m_32ab9a42eda12af02aab",
+    "m_c6d3cb91cfa856ebeed6",
+    "m_80aa7d78c5509d7ad60e",
+    "m_d5c12c3d40b291c1c51f",
+    "m_e97d9f97cc0107b2b0fc",
+    "m_0437997300dc17ac924a",
+    "m_39929f1f8745ff270bd1",
+    "m_5e8b27aa6266f58812a2",
+    "m_391d26b9cfa8b3e45935",
+    "m_243c09d168064c14e1d9",
+    "m_e246b73ee14835dc1ffb",
+    "m_aef636aed7e04fc41cfa",
+    "m_a44004fdb59503fed281",
+    "m_441780abe3db186af29a",
+    "m_5b046b21949af0c7ad26",
+    "m_6067313bab623500bc5e",
+    "m_1379ab87caeeef240ca6"
+  ],
+  "source_census_ids": [
+    121,
+    120,
+    66,
+    122,
+    70,
+    123,
+    75,
+    67
+  ],
+  "profile_memory_ids": [
+    "m_afe83b4bf730ffc3df99",
+    "m_b281a1dbfce85a37ed3c",
+    "m_7705bbef5076f0f5ef05",
+    "m_5b046b21949af0c7ad26",
+    "m_0437997300dc17ac924a",
+    "m_079fb543067cc076960f",
+    "m_0caf0884bc8782a3d1e2",
+    "m_1379ab87caeeef240ca6",
+    "m_1c289df85529e10455e5",
+    "m_275482b0cea36ffc510b",
+    "m_2bc6f00431f769fdf9de",
+    "m_30f9f13f4f6624243737"
+  ]
+}

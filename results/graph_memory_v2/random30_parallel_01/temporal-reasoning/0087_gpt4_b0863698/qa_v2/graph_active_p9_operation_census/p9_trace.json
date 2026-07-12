@@ -1,0 +1,327 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many days ago did I participate in the 5K charity run?",
+      "5K charity run date",
+      "when did I run 5K charity",
+      "5K charity run participation day",
+      "date of 5K charity run",
+      "5K charity run when"
+    ],
+    "relation_verbs": [
+      "participated in",
+      "ran",
+      "took part in",
+      "attended",
+      "completed",
+      "did"
+    ],
+    "entity_hints": [
+      "5K charity run",
+      "charity run",
+      "5K run",
+      "charity 5K"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-03-26T04:13:00",
+      "raw": "before 2023-03-26"
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many days ago did I participate in the 5K charity run?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "5K charity run date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many days ago did I participate in the 5K charity run?",
+      "5K charity run date",
+      "when did I run 5K charity",
+      "5K charity run participation day",
+      "date of 5K charity run",
+      "5K charity run when"
+    ],
+    "relation_verbs": [
+      "participated in",
+      "ran",
+      "took part in",
+      "attended",
+      "completed",
+      "did"
+    ],
+    "entity_hints": [
+      "5K charity run",
+      "charity run",
+      "5K run",
+      "charity 5K"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-03-26T04:13:00",
+      "raw": "before 2023-03-26"
+    }
+  },
+  "p5_candidate": {
+    "answer": "7 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_59690e0e8b021b17c810"
+    ],
+    "support_source_ids": [
+      198
+    ],
+    "required_slots": [
+      {
+        "name": "event_date",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_59690e0e8b021b17c810"
+        ],
+        "support_source_ids": [
+          198
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-19",
+        "2023-03-26"
+      ],
+      "unit": "days",
+      "result": "7 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_59690e0e8b021b17c810 states the user completed a 5K charity run on 2023-03-19. The question date is 2023-03-26. The difference is 7 days."
+  },
+  "p7_candidate": {
+    "answer": "7 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_59690e0e8b021b17c810"
+    ],
+    "support_source_ids": [
+      198
+    ],
+    "required_slots": [
+      {
+        "name": "event_date",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_59690e0e8b021b17c810"
+        ],
+        "support_source_ids": [
+          198
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-19",
+        "2023-03-26"
+      ],
+      "unit": "days",
+      "result": "7 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_59690e0e8b021b17c810 states the user completed a 5K charity run on 2023-03-19. The question date is 2023-03-26. The difference is 7 days."
+  },
+  "p8_candidate": {
+    "answer": "7 days ago",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_59690e0e8b021b17c810"
+    ],
+    "support_source_ids": [
+      198
+    ],
+    "required_slots": [
+      {
+        "name": "event_date",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_59690e0e8b021b17c810"
+        ],
+        "support_source_ids": [
+          198
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-26",
+        "2023-03-19"
+      ],
+      "unit": "days",
+      "result": "7"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_59690e0e8b021b17c810 states the user completed a 5K charity run on 2023-03-19. The question date is 2023-03-26. The difference is 7 days."
+  },
+  "specialist_candidate": {
+    "answer": "7 days ago",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_59690e0e8b021b17c810"
+    ],
+    "support_source_ids": [
+      198
+    ],
+    "required_slots": [
+      {
+        "name": "event_date",
+        "value": "2023-03-19",
+        "support_memory_ids": [
+          "m_59690e0e8b021b17c810"
+        ],
+        "support_source_ids": [
+          198
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "5K charity run",
+          "value": 7,
+          "unit": "days",
+          "date": "2023-03-19",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_59690e0e8b021b17c810"
+          ],
+          "support_source_ids": [
+            198
+          ]
+        }
+      ],
+      "requested_unit": "days",
+      "result": "7 days ago"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "The only memory of a completed 5K charity run is on 2023-03-19, which is 7 days before the question date 2023-03-26."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Memory m_59690e0e8b021b17c810 states the user completed a 5K charity run on 2023-03-19. The question date is 2023-03-26. The difference is 7 days.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {
+    "answer": "7 days ago",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_59690e0e8b021b17c810"
+    ],
+    "support_source_ids": [
+      198
+    ],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "5K charity run",
+          "value": 7,
+          "unit": "days",
+          "date": "2023-03-19",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_59690e0e8b021b17c810"
+          ],
+          "support_source_ids": [
+            198
+          ]
+        }
+      ],
+      "requested_unit": "days",
+      "result": "7 days ago"
+    },
+    "confidence": 1.0,
+    "reason": "Memory m_59690e0e8b021b17c810 confirms the user completed a 5K charity run on 2023-03-19. The question date is 2023-03-26, so the run was 7 days ago.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": ""
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_59690e0e8b021b17c810",
+    "m_dce6935613de8a416ba4",
+    "m_959c2b8089eb73be25e0",
+    "m_8d2bab1c253d1d299c68",
+    "m_0c018dc9dcf020294c10",
+    "m_3a39d4e570bdbb4c167f",
+    "m_65f436c097930befaedc",
+    "m_cd79d19ab0100ba83fd4",
+    "m_c878e0fe5d846ffcd6fe",
+    "m_e5b168dd0efeca4dd486",
+    "m_f90db7720a878fffab95",
+    "m_d62f526e409f9edbeadc",
+    "m_f622e58a144d8a50cfc7",
+    "m_0192d8db3853116c8141",
+    "m_747c0b7bade6740fa1cc",
+    "m_0d2de1ef9943f62b74a9",
+    "m_31da9ad91a4b8a2f7601",
+    "m_777d3a75fcc7d9b10439"
+  ],
+  "source_census_ids": [
+    198,
+    149,
+    148,
+    117,
+    151,
+    207,
+    150,
+    199
+  ],
+  "profile_memory_ids": [
+    "m_59690e0e8b021b17c810",
+    "m_959c2b8089eb73be25e0",
+    "m_d62f526e409f9edbeadc",
+    "m_dce6935613de8a416ba4",
+    "m_0192d8db3853116c8141",
+    "m_07f39b14e21a8d43edc6",
+    "m_0c018dc9dcf020294c10",
+    "m_0fd7fdfbdd3fd4fe02f0",
+    "m_37de7ade19eccab18f93",
+    "m_3a39d4e570bdbb4c167f",
+    "m_40ee78c27d33bbf97099",
+    "m_61ebc654186e57303609"
+  ]
+}

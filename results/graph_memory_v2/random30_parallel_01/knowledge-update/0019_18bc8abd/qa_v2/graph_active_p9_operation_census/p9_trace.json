@@ -1,0 +1,266 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "contract": "state_resolution",
+  "expansion": {
+    "queries": [
+      "What brand of BBQ sauce am I currently obsessed with?",
+      "obsessed with BBQ sauce brand",
+      "favorite BBQ sauce brand",
+      "BBQ sauce brand bought recently",
+      "BBQ sauce brand tried recently",
+      "BBQ sauce brand mentioned recently"
+    ],
+    "relation_verbs": [
+      "obsessed with",
+      "favorite",
+      "bought",
+      "tried",
+      "mentioned",
+      "prefers"
+    ],
+    "entity_hints": [
+      "BBQ sauce",
+      "brand"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-07-15",
+      "raw": "currently"
+    }
+  },
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operation": "state_resolution",
+    "slots": [
+      {
+        "name": "state_history",
+        "query": "What brand of BBQ sauce am I currently obsessed with?",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "latest_valid_state",
+        "query": "obsessed with BBQ sauce brand",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What brand of BBQ sauce am I currently obsessed with?",
+      "obsessed with BBQ sauce brand",
+      "favorite BBQ sauce brand",
+      "BBQ sauce brand bought recently",
+      "BBQ sauce brand tried recently",
+      "BBQ sauce brand mentioned recently"
+    ],
+    "relation_verbs": [
+      "obsessed with",
+      "favorite",
+      "bought",
+      "tried",
+      "mentioned",
+      "prefers"
+    ],
+    "entity_hints": [
+      "BBQ sauce",
+      "brand"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-07-15",
+      "raw": "currently"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Kansas City Masterpiece BBQ sauce",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3339bc105c6178df0519"
+    ],
+    "support_source_ids": [
+      212
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce' in source turn 212, which is captured in memory m_3339bc105c6178df0519. This is the most recent and direct evidence of the user's current obsession."
+  },
+  "p7_candidate": {
+    "answer": "Kansas City Masterpiece BBQ sauce",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3339bc105c6178df0519"
+    ],
+    "support_source_ids": [
+      212
+    ],
+    "required_slots": [
+      {
+        "name": "preference:bbq_sauce_brand",
+        "value": "Kansas City Masterpiece BBQ sauce",
+        "support_memory_ids": [
+          "m_3339bc105c6178df0519"
+        ],
+        "support_source_ids": [
+          212
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce' on 2023-06-30, which is the most recent and direct evidence of current obsession. No later contradictory statements exist."
+  },
+  "p8_candidate": {
+    "answer": "Kansas City Masterpiece BBQ sauce",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3339bc105c6178df0519"
+    ],
+    "support_source_ids": [
+      212
+    ],
+    "required_slots": [
+      {
+        "name": "preference:bbq_sauce_brand",
+        "value": "Kansas City Masterpiece BBQ sauce",
+        "support_memory_ids": [
+          "m_3339bc105c6178df0519"
+        ],
+        "support_source_ids": [
+          212
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user explicitly stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce on my ribs' on 2023-06-30, which is the most recent and relevant state for the current obsession."
+  },
+  "specialist_candidate": {
+    "answer": "Kansas City Masterpiece BBQ sauce",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_3339bc105c6178df0519"
+    ],
+    "support_source_ids": [
+      212
+    ],
+    "required_slots": [
+      {
+        "name": "preference:bbq_sauce_brand",
+        "value": "Kansas City Masterpiece BBQ sauce",
+        "support_memory_ids": [
+          "m_3339bc105c6178df0519"
+        ],
+        "support_source_ids": [
+          212
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "state_resolution",
+      "items": [
+        {
+          "label": "Kansas City Masterpiece BBQ sauce",
+          "value": null,
+          "unit": "",
+          "date": "2023-06-30",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_3339bc105c6178df0519"
+          ],
+          "support_source_ids": [
+            212
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Kansas City Masterpiece BBQ sauce"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "User explicitly stated current obsession with Kansas City Masterpiece BBQ sauce on 2023-06-30, which is the most recent and direct evidence."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user stated 'I'm currently obsessed with Kansas City Masterpiece BBQ sauce on my ribs' in source 212 on 2023-06-30. This is the latest explicit state regarding BBQ sauce obsession, and no later contradictory evidence exists.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_eee372aa3e9aa25da297",
+    "m_3339bc105c6178df0519",
+    "m_3bfcd91e3887e38e57cd",
+    "m_3fe97478b26c4d4757c1",
+    "m_a1dcbde17b6fb9e3c8db",
+    "m_34be7bdf64944a84e54f",
+    "m_8ec4f1d65d1f0f4c2b67",
+    "m_b4d7339254e9e77c8f3e",
+    "m_fe38fea8b72704f12fa6",
+    "m_1dd1c3885aac497dc1a9",
+    "m_337292f5cad1fd4b046b",
+    "m_bff91f47f7712e1e912d",
+    "m_aed6c06c35165c177ff0",
+    "m_e69481e597e8d87163c1",
+    "m_6b314c097725ca83c70d",
+    "m_982d82f5dd68363236b6",
+    "m_ff755abcf42e1e33bffa",
+    "m_45d7f138c48af1a554a7"
+  ],
+  "source_census_ids": [
+    217,
+    94,
+    212,
+    92,
+    11,
+    91,
+    95,
+    216,
+    93,
+    213
+  ],
+  "profile_memory_ids": [
+    "m_3339bc105c6178df0519",
+    "m_3bfcd91e3887e38e57cd",
+    "m_8ec4f1d65d1f0f4c2b67",
+    "m_00a72c3769a86e076edd",
+    "m_0dbc230549575a0e6983",
+    "m_1052e406f85f7770b529",
+    "m_1bbd365b145205bbdcf7",
+    "m_1f32d7ca4ac31e12b1b1",
+    "m_234573132e1d4bf89238",
+    "m_2d9aa2347b7da7f6b4ea",
+    "m_356ea592caba99ca1ae5",
+    "m_3eb33d7860f2c546599a"
+  ]
+}

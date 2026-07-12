@@ -1,0 +1,57 @@
+{
+  "question_id": "ec81a493",
+  "question_type": "single-session-user",
+  "question": "How many copies of my favorite artist's debut album were released worldwide?",
+  "question_date": "2023/05/30 (Tue) 17:14",
+  "gold_answer": "500",
+  "prediction": "500",
+  "support_memory_ids": [
+    "m_8967f4651ae297ea43cf"
+  ],
+  "support_source_ids": [
+    195
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Memory m_8967f4651ae297ea43cf and source 195 explicitly state that the signed poster from the user's favorite artist's debut album is a limited edition of 500 copies worldwide, directly answering the question.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "direct",
+  "operation_data": {
+    "type": "direct",
+    "items": [
+      {
+        "label": "worldwide copies",
+        "value": 500,
+        "unit": "copies",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_8967f4651ae297ea43cf"
+        ],
+        "support_source_ids": [
+          195
+        ]
+      }
+    ],
+    "requested_unit": "copies",
+    "result": "500"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 55217,
+    "completion_tokens": 845,
+    "elapsed_seconds": 8.865513801574707
+  }
+}

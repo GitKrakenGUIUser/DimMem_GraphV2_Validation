@@ -1,0 +1,71 @@
+{
+  "question_id": "7405e8b1",
+  "question_type": "multi-session",
+  "question": "Did I receive a higher percentage discount on my first order from HelloFresh, compared to my first UberEats order?",
+  "question_date": "2023/05/30 (Tue) 21:33",
+  "gold_answer": "Yes.",
+  "prediction": "HelloFresh first order discount",
+  "support_memory_ids": [
+    "m_033c7e58fcdd1a6932f8",
+    "m_477b1700f08c124e7f4a"
+  ],
+  "support_source_ids": [
+    57,
+    149
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Evidence shows 40% discount on first HelloFresh order (source 57) and 20% discount on UberEats order (source 149). 40% > 20%, so answer is yes.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "compare_numbers",
+  "operation_data": {
+    "type": "compare_numbers",
+    "items": [
+      {
+        "label": "HelloFresh first order discount",
+        "value": 40,
+        "unit": "%",
+        "date": "2023-05-23",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_033c7e58fcdd1a6932f8"
+        ],
+        "support_source_ids": [
+          57
+        ]
+      },
+      {
+        "label": "UberEats first order discount",
+        "value": 20,
+        "unit": "%",
+        "date": "2023-05-21",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_477b1700f08c124e7f4a"
+        ],
+        "support_source_ids": [
+          149
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "HelloFresh first order discount"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement"
+  ],
+  "contract": "direct_value",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 50181,
+    "completion_tokens": 1003,
+    "elapsed_seconds": 9.451427221298218
+  }
+}

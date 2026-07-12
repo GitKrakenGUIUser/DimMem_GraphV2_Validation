@@ -1,0 +1,309 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many Marvel movies did I re-watch?",
+      "Marvel movies re-watched",
+      "Marvel films watched again",
+      "Marvel movie rewatch count",
+      "Marvel movies seen multiple times",
+      "Marvel films revisited"
+    ],
+    "relation_verbs": [
+      "re-watch",
+      "watch again",
+      "rewatch",
+      "see multiple times",
+      "revisit",
+      "repeat viewing"
+    ],
+    "entity_hints": [
+      "Marvel Cinematic Universe",
+      "Marvel movie",
+      "Marvel film"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many Marvel movies did I re-watch?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "Marvel movies re-watched",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "Marvel films watched again",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "Marvel movie rewatch count",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many Marvel movies did I re-watch?",
+      "Marvel movies re-watched",
+      "Marvel films watched again",
+      "Marvel movie rewatch count",
+      "Marvel movies seen multiple times",
+      "Marvel films revisited"
+    ],
+    "relation_verbs": [
+      "re-watch",
+      "watch again",
+      "rewatch",
+      "see multiple times",
+      "revisit",
+      "repeat viewing"
+    ],
+    "entity_hints": [
+      "Marvel Cinematic Universe",
+      "Marvel movie",
+      "Marvel film"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e3a5fbd5897fcadeee0f",
+      "m_49eab1ad3ab13b976a0b"
+    ],
+    "support_source_ids": [
+      164,
+      35
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "movies",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user explicitly stated re-watching Spider-Man: No Way Home (source 164) and Avengers: Endgame (source 35). These are the only two Marvel movies mentioned as re-watched. The question asks for the total number of Marvel movies re-watched, and the evidence supports exactly two."
+  },
+  "p7_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e3a5fbd5897fcadeee0f",
+      "m_49eab1ad3ab13b976a0b"
+    ],
+    "support_source_ids": [
+      164,
+      35
+    ],
+    "required_slots": [
+      {
+        "name": "re-watched Marvel movies",
+        "value": "Spider-Man: No Way Home, Avengers: Endgame",
+        "support_memory_ids": [
+          "m_e3a5fbd5897fcadeee0f",
+          "m_49eab1ad3ab13b976a0b"
+        ],
+        "support_source_ids": [
+          164,
+          35
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Spider-Man: No Way Home",
+        "Avengers: Endgame"
+      ],
+      "unit": "",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User explicitly stated re-watching Spider-Man: No Way Home (source 164) and re-watched Avengers: Endgame yesterday (source 35). Both are Marvel movies. Count distinct = 2."
+  },
+  "p8_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e3a5fbd5897fcadeee0f",
+      "m_49eab1ad3ab13b976a0b"
+    ],
+    "support_source_ids": [
+      164,
+      35
+    ],
+    "required_slots": [
+      {
+        "name": "re-watched Marvel movies",
+        "value": "Spider-Man: No Way Home, Avengers: Endgame",
+        "support_memory_ids": [
+          "m_e3a5fbd5897fcadeee0f",
+          "m_49eab1ad3ab13b976a0b"
+        ],
+        "support_source_ids": [
+          164,
+          35
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Spider-Man: No Way Home",
+        "Avengers: Endgame"
+      ],
+      "unit": "",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_e3a5fbd5897fcadeee0f (source 164), user stated 'I also re-watched Spider-Man: No Way Home'. From memory m_49eab1ad3ab13b976a0b (source 35), user stated 'Since I just re-watched Avengers: Endgame yesterday'. Both are distinct Marvel movies re-watched, so count is 2."
+  },
+  "specialist_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e3a5fbd5897fcadeee0f",
+      "m_49eab1ad3ab13b976a0b"
+    ],
+    "support_source_ids": [
+      164,
+      35
+    ],
+    "required_slots": [
+      {
+        "name": "re-watched Marvel movies",
+        "value": "Spider-Man: No Way Home, Avengers: Endgame",
+        "support_memory_ids": [
+          "m_e3a5fbd5897fcadeee0f",
+          "m_49eab1ad3ab13b976a0b"
+        ],
+        "support_source_ids": [
+          164,
+          35
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [
+        {
+          "label": "Spider-Man: No Way Home",
+          "value": null,
+          "unit": "",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_e3a5fbd5897fcadeee0f"
+          ],
+          "support_source_ids": [
+            164
+          ]
+        },
+        {
+          "label": "Avengers: Endgame",
+          "value": null,
+          "unit": "",
+          "date": "",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_49eab1ad3ab13b976a0b"
+          ],
+          "support_source_ids": [
+            35
+          ]
+        }
+      ],
+      "requested_unit": "movies",
+      "result": "2"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "User explicitly stated re-watching Spider-Man: No Way Home and Avengers: Endgame. No other re-watched Marvel movies are mentioned."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From source 164, user said 'I also re-watched Spider-Man: No Way Home'. From source 35, user said 'I just re-watched Avengers: Endgame yesterday'. Both are distinct Marvel movies re-watched, so count is 2.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_e3a5fbd5897fcadeee0f",
+    "m_41315cecca8da57e6502",
+    "m_e04ef5020f546577d82e",
+    "m_a6150e93445e8a148b50",
+    "m_23f16c885648e77c2e6e",
+    "m_49eab1ad3ab13b976a0b",
+    "m_ed7272cc734303af7dbf",
+    "m_1da545396525a523bb48",
+    "m_29626c4efeba923a32ba",
+    "m_90699e891f0a874eb1ac",
+    "m_a26ca6499dc2a9b75cb7",
+    "m_74bd114ee1d2346369eb",
+    "m_892d4f9c0f0f75eb2242",
+    "m_215339acf19c59411d79",
+    "m_53b0e51cadd9c1180151",
+    "m_4213c6bec196f2847f95",
+    "m_3c9426e0001b94f0bf0a",
+    "m_ea70a016d38152a77b47"
+  ],
+  "source_census_ids": [
+    164,
+    34,
+    33,
+    35,
+    165,
+    38
+  ],
+  "profile_memory_ids": [
+    "m_e3a5fbd5897fcadeee0f",
+    "m_23f16c885648e77c2e6e",
+    "m_29626c4efeba923a32ba",
+    "m_41315cecca8da57e6502",
+    "m_49eab1ad3ab13b976a0b",
+    "m_a6150e93445e8a148b50",
+    "m_e04ef5020f546577d82e",
+    "m_ee624a257b70f97fd040",
+    "m_02d23fed8a60050fb0c5",
+    "m_0e7aca568ed2ca40a064",
+    "m_0f083ffface75601625a",
+    "m_0fcc4033e8e33827b6b6"
+  ]
+}

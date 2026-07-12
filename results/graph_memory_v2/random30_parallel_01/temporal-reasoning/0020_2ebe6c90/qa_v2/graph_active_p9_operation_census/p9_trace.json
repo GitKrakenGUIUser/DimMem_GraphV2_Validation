@@ -1,0 +1,351 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many days did it take me to finish 'The Nightingale' by Kristin Hannah?",
+      "finished reading The Nightingale Kristin Hannah",
+      "started reading The Nightingale Kristin Hannah",
+      "reading duration The Nightingale Kristin Hannah days",
+      "completed The Nightingale Kristin Hannah",
+      "began The Nightingale Kristin Hannah"
+    ],
+    "relation_verbs": [
+      "finished reading",
+      "started reading",
+      "took",
+      "completed",
+      "began",
+      "read"
+    ],
+    "entity_hints": [
+      "The Nightingale",
+      "Kristin Hannah",
+      "book",
+      "novel"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-01T21:05:00",
+      "raw": "before 2023-05-01"
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many days did it take me to finish 'The Nightingale' by Kristin Hannah?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "finished reading The Nightingale Kristin Hannah",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many days did it take me to finish 'The Nightingale' by Kristin Hannah?",
+      "finished reading The Nightingale Kristin Hannah",
+      "started reading The Nightingale Kristin Hannah",
+      "reading duration The Nightingale Kristin Hannah days",
+      "completed The Nightingale Kristin Hannah",
+      "began The Nightingale Kristin Hannah"
+    ],
+    "relation_verbs": [
+      "finished reading",
+      "started reading",
+      "took",
+      "completed",
+      "began",
+      "read"
+    ],
+    "entity_hints": [
+      "The Nightingale",
+      "Kristin Hannah",
+      "book",
+      "novel"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-01T21:05:00",
+      "raw": "before 2023-05-01"
+    }
+  },
+  "p5_candidate": {
+    "answer": "21 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f279b678992988169d34",
+      "m_1118fec4874cecdca50e"
+    ],
+    "support_source_ids": [
+      88,
+      106
+    ],
+    "required_slots": [
+      {
+        "name": "start_date",
+        "value": "2023-01-10",
+        "support_memory_ids": [
+          "m_f279b678992988169d34"
+        ],
+        "support_source_ids": [
+          88
+        ]
+      },
+      {
+        "name": "end_date",
+        "value": "2023-01-31",
+        "support_memory_ids": [
+          "m_1118fec4874cecdca50e"
+        ],
+        "support_source_ids": [
+          106
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-01-10",
+        "2023-01-31"
+      ],
+      "unit": "days",
+      "result": "21 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User started reading 'The Nightingale' on 2023-01-10 (source 88) and finished on 2023-01-31 (source 106). The difference is 21 days."
+  },
+  "p7_candidate": {
+    "answer": "21 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f279b678992988169d34",
+      "m_1118fec4874cecdca50e"
+    ],
+    "support_source_ids": [
+      88,
+      106
+    ],
+    "required_slots": [
+      {
+        "name": "start_date",
+        "value": "2023-01-10",
+        "support_memory_ids": [
+          "m_f279b678992988169d34"
+        ],
+        "support_source_ids": [
+          88
+        ]
+      },
+      {
+        "name": "end_date",
+        "value": "2023-01-31",
+        "support_memory_ids": [
+          "m_1118fec4874cecdca50e"
+        ],
+        "support_source_ids": [
+          106
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-01-10",
+        "2023-01-31"
+      ],
+      "unit": "days",
+      "result": "21 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User started reading 'The Nightingale' on 2023-01-10 (source 88) and finished on 2023-01-31 (source 106). The difference is 21 days."
+  },
+  "p8_candidate": {
+    "answer": "21 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f279b678992988169d34",
+      "m_1118fec4874cecdca50e"
+    ],
+    "support_source_ids": [
+      88,
+      106
+    ],
+    "required_slots": [
+      {
+        "name": "start_date",
+        "value": "2023-01-10",
+        "support_memory_ids": [
+          "m_f279b678992988169d34"
+        ],
+        "support_source_ids": [
+          88
+        ]
+      },
+      {
+        "name": "end_date",
+        "value": "2023-01-31",
+        "support_memory_ids": [
+          "m_1118fec4874cecdca50e"
+        ],
+        "support_source_ids": [
+          106
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-01-10",
+        "2023-01-31"
+      ],
+      "unit": "days",
+      "result": "21"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Start date 2023-01-10 from memory m_f279b678992988169d34 (source 88). End date 2023-01-31 from memory m_1118fec4874cecdca50e (source 106). Difference is 21 days."
+  },
+  "specialist_candidate": {
+    "answer": "21 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_f279b678992988169d34",
+      "m_1118fec4874cecdca50e"
+    ],
+    "support_source_ids": [
+      88,
+      106
+    ],
+    "required_slots": [
+      {
+        "name": "start_date",
+        "value": "2023-01-10",
+        "support_memory_ids": [
+          "m_f279b678992988169d34"
+        ],
+        "support_source_ids": [
+          88
+        ]
+      },
+      {
+        "name": "end_date",
+        "value": "2023-01-31",
+        "support_memory_ids": [
+          "m_1118fec4874cecdca50e"
+        ],
+        "support_source_ids": [
+          106
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "start",
+          "value": "2023-01-10",
+          "unit": "date",
+          "date": "2023-01-10",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_f279b678992988169d34"
+          ],
+          "support_source_ids": [
+            88
+          ]
+        },
+        {
+          "label": "end",
+          "value": "2023-01-31",
+          "unit": "date",
+          "date": "2023-01-31",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_1118fec4874cecdca50e"
+          ],
+          "support_source_ids": [
+            106
+          ]
+        }
+      ],
+      "requested_unit": "days",
+      "result": "21 days"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User started reading 'The Nightingale' on 2023-01-10 (source 88) and finished on 2023-01-31 (source 106). The difference is 21 days.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_f279b678992988169d34",
+    "m_1118fec4874cecdca50e",
+    "m_6efecedf994b53927af4",
+    "m_8a677a1c596caf94d236",
+    "m_76d09f3740cc69e1a4c4",
+    "m_6b035ad2ab7786198d95",
+    "m_0fedca8c7e4565ec0ddd",
+    "m_749ca36dddd1aa6380a8",
+    "m_2067dda1456ac8c06396",
+    "m_8c8267a4f527d7cf7771",
+    "m_facff48371152ec1dbbb",
+    "m_567f75739501a7f7fa3e",
+    "m_47c4c5914cd021d28357",
+    "m_1b27bbf0589da7184d43",
+    "m_0282649ecb1052b3d41f",
+    "m_73a51b0f11d9e930e979",
+    "m_eaee4b437f548f55addd",
+    "m_f20e026951943417b2a3",
+    "m_ddf06891590a1de79fdc"
+  ],
+  "source_census_ids": [
+    106,
+    88,
+    109,
+    108,
+    90,
+    93,
+    110,
+    89,
+    107
+  ],
+  "profile_memory_ids": [
+    "m_1118fec4874cecdca50e",
+    "m_f279b678992988169d34",
+    "m_267bfc0c8a4b22ffc4da",
+    "m_508332b0927fc6ba6918",
+    "m_6217f53a19d27b6ab5b1",
+    "m_63531834461e641effd7",
+    "m_8a1faede09a2946e068d",
+    "m_0d19b125e74db495be66",
+    "m_0d7787bb8696a1eff633",
+    "m_16721e63a1488560f5e9",
+    "m_1a1f64310bedb9b38535",
+    "m_4fa6be77b7985ff48287"
+  ]
+}

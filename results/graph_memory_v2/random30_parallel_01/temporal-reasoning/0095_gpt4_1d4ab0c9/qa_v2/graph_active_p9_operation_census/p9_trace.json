@@ -1,0 +1,352 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many days passed between the day I started watering my herb garden and the day I harvested my first batch of fresh herbs?",
+      "started watering herb garden",
+      "first harvest fresh herbs",
+      "began watering herbs",
+      "initial harvest herbs",
+      "watering schedule herb garden"
+    ],
+    "relation_verbs": [
+      "started",
+      "harvested",
+      "began",
+      "picked",
+      "watered",
+      "collected"
+    ],
+    "entity_hints": [
+      "herb garden",
+      "fresh herbs",
+      "herbs",
+      "garden"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-04-18",
+      "raw": "before question date"
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many days passed between the day I started watering my herb garden and the day I harvested my first batch of fresh herbs?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "started watering herb garden",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many days passed between the day I started watering my herb garden and the day I harvested my first batch of fresh herbs?",
+      "started watering herb garden",
+      "first harvest fresh herbs",
+      "began watering herbs",
+      "initial harvest herbs",
+      "watering schedule herb garden"
+    ],
+    "relation_verbs": [
+      "started",
+      "harvested",
+      "began",
+      "picked",
+      "watered",
+      "collected"
+    ],
+    "entity_hints": [
+      "herb garden",
+      "fresh herbs",
+      "herbs",
+      "garden"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-04-18",
+      "raw": "before question date"
+    }
+  },
+  "p5_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ce4d803830b3bb69f8db",
+      "m_e46b06b944edf380f752"
+    ],
+    "support_source_ids": [
+      61,
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "start date",
+        "value": "2023-03-22",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "name": "harvest date",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-22",
+        "2023-04-15"
+      ],
+      "unit": "days",
+      "result": "24 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user started watering their herb garden on 2023-03-22 (memory m_ce4d803830b3bb69f8db, source 61) and harvested their first batch on 2023-04-15 (memory m_e46b06b944edf380f752, source 136). The difference is 24 days."
+  },
+  "p7_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ce4d803830b3bb69f8db",
+      "m_e46b06b944edf380f752"
+    ],
+    "support_source_ids": [
+      61,
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "start date",
+        "value": "2023-03-22",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "name": "harvest date",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-22",
+        "2023-04-15"
+      ],
+      "unit": "days",
+      "result": "24 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User started watering herb garden on 2023-03-22 (source 61) and harvested first batch on 2023-04-15 (source 136). Difference is 24 days."
+  },
+  "p8_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ce4d803830b3bb69f8db",
+      "m_e46b06b944edf380f752"
+    ],
+    "support_source_ids": [
+      61,
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "start date",
+        "value": "2023-03-22",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "name": "harvest date",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-03-22",
+        "2023-04-15"
+      ],
+      "unit": "days",
+      "result": "24"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From memory, user started watering herb garden on 2023-03-22 and harvested first batch on 2023-04-15. The difference is 24 days."
+  },
+  "specialist_candidate": {
+    "answer": "24 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_ce4d803830b3bb69f8db",
+      "m_e46b06b944edf380f752"
+    ],
+    "support_source_ids": [
+      61,
+      136
+    ],
+    "required_slots": [
+      {
+        "name": "start date",
+        "value": "2023-03-22",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "name": "harvest date",
+        "value": "2023-04-15",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "start watering",
+          "value": "2023-03-22",
+          "unit": "day",
+          "date": "2023-03-22",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_ce4d803830b3bb69f8db"
+          ],
+          "support_source_ids": [
+            61
+          ]
+        },
+        {
+          "label": "harvest",
+          "value": "2023-04-15",
+          "unit": "day",
+          "date": "2023-04-15",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_e46b06b944edf380f752"
+          ],
+          "support_source_ids": [
+            136
+          ]
+        }
+      ],
+      "requested_unit": "days",
+      "result": "24 days"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Both start and harvest dates are explicitly recorded."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User started watering herb garden on 2023-03-22 and harvested first batch on 2023-04-15. The difference is 24 days.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_e46b06b944edf380f752",
+    "m_ce4d803830b3bb69f8db",
+    "m_b8cb81ff529909f594c4",
+    "m_f41c1db6933edf5325f4",
+    "m_5caf6a1472d5401010c6",
+    "m_9190d0daae70b2890ce0",
+    "m_27a1a61887d1800636dd",
+    "m_9ee2414b285f0dd11153",
+    "m_b3f9df4edc13879d06a3",
+    "m_d6ea6d0e2064a0511bf5",
+    "m_5a4120b2a01bf0b57359",
+    "m_f9b422a17b165ca097c7",
+    "m_d6fc433358e07bea3014",
+    "m_6c08f01e3fc35edb900a",
+    "m_82885cd128fe08762fef",
+    "m_3129bcea04c0ae437be6",
+    "m_084543ae4d9b674c4290",
+    "m_8280cd17fc8f26a2a592",
+    "m_15e50a6fc9ba1aea032b",
+    "m_0b44c110e8d19543a015",
+    "m_20a5342212a9f119a521",
+    "m_8b783585d28acedeba56"
+  ],
+  "source_census_ids": [
+    61,
+    136,
+    137,
+    138,
+    65,
+    64,
+    62
+  ],
+  "profile_memory_ids": [
+    "m_e46b06b944edf380f752",
+    "m_20a5342212a9f119a521",
+    "m_211ed953ac5f2a97f529",
+    "m_6c08f01e3fc35edb900a",
+    "m_b2bcd1a55e9a1b28080b",
+    "m_ce4d803830b3bb69f8db",
+    "m_1de37c4c1a9d34e9ac97",
+    "m_239cfea1e5fb8354000a",
+    "m_32c1593cc506bd45c732",
+    "m_3f0ae321dc993fdc05b5",
+    "m_4e9932831564205314a7",
+    "m_59f8d71159a8431029bc"
+  ]
+}

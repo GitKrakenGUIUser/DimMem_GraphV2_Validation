@@ -1,0 +1,99 @@
+{
+  "question_id": "85fa3a3f",
+  "question_type": "multi-session",
+  "question": "What is the total cost of the new food bowl, measuring cup, dental chews, and flea and tick collar I got for Max?",
+  "question_date": "2023/05/30 (Tue) 19:55",
+  "gold_answer": "$50",
+  "prediction": "50",
+  "support_memory_ids": [
+    "m_3e5016c580e853ce95da",
+    "m_5e09ae07dda3792077f0",
+    "m_85d8d36224a264de16ac"
+  ],
+  "support_source_ids": [
+    147,
+    40,
+    41
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Evidence confirms food bowl $15, measuring cup $5, dental chews $10, flea and tick collar $20; sum is $50.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "direct",
+  "operation_data": {
+    "type": "direct",
+    "items": [
+      {
+        "label": "food bowl",
+        "value": 15,
+        "unit": "dollars",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_3e5016c580e853ce95da"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      },
+      {
+        "label": "measuring cup",
+        "value": 5,
+        "unit": "dollars",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_3e5016c580e853ce95da"
+        ],
+        "support_source_ids": [
+          147
+        ]
+      },
+      {
+        "label": "dental chews",
+        "value": 10,
+        "unit": "dollars",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_5e09ae07dda3792077f0"
+        ],
+        "support_source_ids": [
+          40
+        ]
+      },
+      {
+        "label": "flea and tick collar",
+        "value": 20,
+        "unit": "dollars",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_85d8d36224a264de16ac"
+        ],
+        "support_source_ids": [
+          41
+        ]
+      }
+    ],
+    "requested_unit": "dollars",
+    "result": "50"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "audit_contract:sum"
+  ],
+  "contract": "sum",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 46978,
+    "completion_tokens": 1359,
+    "elapsed_seconds": 10.661376714706421
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "question_id": "6cb6f249",
+  "question_type": "multi-session",
+  "question": "How many days did I take social media breaks in total?",
+  "question_date": "2023/03/14 (Tue) 23:56",
+  "gold_answer": "17 days",
+  "prediction": "17 days",
+  "support_memory_ids": [
+    "m_df096ec32d4c68140dec",
+    "m_e2def7ecc21213df4abc"
+  ],
+  "support_source_ids": [
+    129,
+    123
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Two social media breaks are recorded: a 7-day break in mid-January (source 129) and a 10-day break in mid-February (source 123). Summing gives 17 days total.",
+  "required_slots": [
+    {
+      "name": "total days",
+      "value": "17",
+      "support_memory_ids": [
+        "m_df096ec32d4c68140dec",
+        "m_e2def7ecc21213df4abc"
+      ],
+      "support_source_ids": [
+        129,
+        123
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "mid-January break",
+        "value": 7,
+        "unit": "days",
+        "date": "2023-01-14 to 2023-01-21",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_df096ec32d4c68140dec"
+        ],
+        "support_source_ids": [
+          129
+        ]
+      },
+      {
+        "label": "mid-February break",
+        "value": 10,
+        "unit": "days",
+        "date": "mid-February 2023",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_e2def7ecc21213df4abc"
+        ],
+        "support_source_ids": [
+          123
+        ]
+      }
+    ],
+    "requested_unit": "days",
+    "result": "17"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 29995,
+    "completion_tokens": 591,
+    "elapsed_seconds": 5.777472734451294
+  },
+  "correct": true,
+  "judge_reason": "Deterministic duration equivalence.",
+  "judge_meta": {
+    "mode": "deterministic_duration_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

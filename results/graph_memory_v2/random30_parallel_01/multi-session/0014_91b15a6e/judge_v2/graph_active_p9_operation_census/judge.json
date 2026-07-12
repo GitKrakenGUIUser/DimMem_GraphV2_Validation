@@ -1,0 +1,79 @@
+{
+  "question_id": "91b15a6e",
+  "question_type": "multi-session",
+  "question": "What is the minimum amount I could get if I sold the vintage diamond necklace and the antique vanity?",
+  "question_date": "2023/05/30 (Tue) 20:17",
+  "gold_answer": "$5,150",
+  "prediction": "5150 dollars",
+  "support_memory_ids": [
+    "m_ecb34a502e82c5b06ced",
+    "m_4a8ca5ccf1fb4518b83b"
+  ],
+  "support_source_ids": [
+    75,
+    155
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The vintage diamond necklace is valued at $5,000 (asserted fact). The user plans to sell the antique vanity for at least $150 (planned minimum). Summing these gives $5,150 as the minimum amount from selling both.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "operation_data": {
+    "type": "sum",
+    "items": [
+      {
+        "label": "vintage diamond necklace",
+        "value": 5000,
+        "unit": "dollars",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_ecb34a502e82c5b06ced"
+        ],
+        "support_source_ids": [
+          75
+        ]
+      },
+      {
+        "label": "antique vanity",
+        "value": 150,
+        "unit": "dollars",
+        "date": "",
+        "status": "planned",
+        "support_memory_ids": [
+          "m_4a8ca5ccf1fb4518b83b"
+        ],
+        "support_source_ids": [
+          155
+        ]
+      }
+    ],
+    "requested_unit": "dollars",
+    "result": "5150 dollars"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement"
+  ],
+  "contract": "direct_value",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 50431,
+    "completion_tokens": 1004,
+    "elapsed_seconds": 9.308229207992554
+  },
+  "correct": true,
+  "judge_reason": "Equivalent numeric value with acceptable wording and units.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 143,
+    "completion_tokens": 24,
+    "elapsed_seconds": 0.9317045211791992
+  }
+}

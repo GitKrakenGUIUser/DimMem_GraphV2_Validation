@@ -1,0 +1,100 @@
+{
+  "question_id": "gpt4_8e165409",
+  "question_type": "temporal-reasoning",
+  "question": "How many days passed between the day I repotted the previous spider plant and the day I gave my neighbor, Mrs. Johnson, a few cuttings from my spider plant?",
+  "question_date": "2023/03/26 (Sun) 15:53",
+  "gold_answer": "14 days. 15 days (including the last day) is also acceptable.",
+  "prediction": "14 days",
+  "support_memory_ids": [
+    "m_cc12acaa84b303407978",
+    "m_b12667337e8c4247cf22"
+  ],
+  "support_source_ids": [
+    19,
+    154
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user repotted the spider plant on 2023-03-04 (source 19) and gave cuttings to Mrs. Johnson on 2023-03-18 (source 154). The difference is 14 days.",
+  "required_slots": [
+    {
+      "name": "date of repotting",
+      "value": "2023-03-04",
+      "support_memory_ids": [
+        "m_cc12acaa84b303407978"
+      ],
+      "support_source_ids": [
+        19
+      ]
+    },
+    {
+      "name": "date of giving cuttings",
+      "value": "2023-03-18",
+      "support_memory_ids": [
+        "m_b12667337e8c4247cf22"
+      ],
+      "support_source_ids": [
+        154
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "repotting",
+        "value": "2023-03-04",
+        "unit": "day",
+        "date": "2023-03-04",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_cc12acaa84b303407978"
+        ],
+        "support_source_ids": [
+          19
+        ]
+      },
+      {
+        "label": "giving cuttings",
+        "value": "2023-03-18",
+        "unit": "day",
+        "date": "2023-03-18",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_b12667337e8c4247cf22"
+        ],
+        "support_source_ids": [
+          154
+        ]
+      }
+    ],
+    "requested_unit": "days",
+    "result": "14 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 36394,
+    "completion_tokens": 649,
+    "elapsed_seconds": 6.447851181030273
+  },
+  "correct": true,
+  "judge_reason": "Deterministic duration equivalence.",
+  "judge_meta": {
+    "mode": "deterministic_duration_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

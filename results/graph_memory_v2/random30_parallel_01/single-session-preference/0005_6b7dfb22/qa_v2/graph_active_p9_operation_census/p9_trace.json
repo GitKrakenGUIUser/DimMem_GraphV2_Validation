@@ -1,0 +1,546 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:preference_criteria"
+  ],
+  "contract": "preference_criteria",
+  "expansion": {
+    "queries": [
+      "I've been feeling a bit stuck with my paintings lately. Do you have any ideas on how I can find new inspiration?",
+      "user stuck painting inspiration",
+      "user art preferences",
+      "user favorite artists",
+      "user past painting inspiration",
+      "user creative block art"
+    ],
+    "relation_verbs": [
+      "feels stuck with",
+      "seeks inspiration for",
+      "prefers",
+      "likes",
+      "has been inspired by"
+    ],
+    "entity_hints": [
+      "user",
+      "painting",
+      "art",
+      "inspiration",
+      "creative block",
+      "favorite artists"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "lately"
+    }
+  },
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operation": "preference_profile",
+    "slots": [
+      {
+        "name": "positive_preference_criteria",
+        "query": "I've been feeling a bit stuck with my paintings lately. Do you have any ideas on how I can find new inspiration?",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "negative_or_avoidance_criteria",
+        "query": "user stuck painting inspiration",
+        "semantic_type": "preference",
+        "required": false
+      },
+      {
+        "name": "relevant_past_experiences",
+        "query": "user art preferences",
+        "semantic_type": "event",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "I've been feeling a bit stuck with my paintings lately. Do you have any ideas on how I can find new inspiration?",
+      "user stuck painting inspiration",
+      "user art preferences",
+      "user favorite artists",
+      "user past painting inspiration",
+      "user creative block art"
+    ],
+    "relation_verbs": [
+      "feels stuck with",
+      "seeks inspiration for",
+      "prefers",
+      "likes",
+      "has been inspired by"
+    ],
+    "entity_hints": [
+      "user",
+      "painting",
+      "art",
+      "inspiration",
+      "creative block",
+      "favorite artists"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "lately"
+    }
+  },
+  "p5_candidate": {
+    "answer": "It sounds like you're in a creative rut, which is totally normal. Based on what you've shared, you already have some great sources of inspiration: you've been looking at flower paintings on Instagram, you started a 30-day painting challenge, and you've experimented with palette knives for texture. To find new inspiration, you could try exploring different subjects (like landscapes or abstract), visiting a local art museum or gallery, taking a walk in nature, or joining an online art community for prompts and feedback. You might also enjoy revisiting the blues ukulele or DIY upcycling projects you've explored before—sometimes cross-disciplinary inspiration can spark new ideas.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8f8112577e4b51ef4c00",
+      "m_c5ecb8fabc50c4b665fe",
+      "m_c22f8e3854bfaa87ab74",
+      "m_45d5cf543d2062e9ff47",
+      "m_2dae55c1fd7ad608603e"
+    ],
+    "support_source_ids": [
+      49,
+      44,
+      45,
+      201,
+      217
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.85,
+    "reasoning_summary": "The user is feeling stuck with paintings. Evidence shows they have previously found inspiration from social media (Instagram flower paintings), started a 30-day painting challenge, and explored palette knife techniques. They also have interests in blues ukulele and DIY upcycling, which could cross-pollinate. The answer synthesizes these known sources and suggests additional common inspiration methods."
+  },
+  "p7_candidate": {
+    "answer": "Based on your past interests, you've found inspiration from social media (Instagram, especially flower paintings), started a 30-day painting challenge, and explored techniques like palette knife textures and realistic flowers. You also enjoy creative hobbies like upcycling DIY projects and herb gardening. To find new inspiration, try revisiting social media art communities, experimenting with new techniques (e.g., palette knife for texture), or combining your interests (e.g., painting your herb garden or upcycled items). Consider joining an art class or group to connect with others, as you've previously felt disconnected from your social circle.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8f8112577e4b51ef4c00",
+      "m_c5ecb8fabc50c4b665fe",
+      "m_c22f8e3854bfaa87ab74",
+      "m_2dae55c1fd7ad608603e",
+      "m_4fabaca056d0f63889f8",
+      "m_d2405140e52870ad1918"
+    ],
+    "support_source_ids": [
+      49,
+      44,
+      45,
+      217,
+      19,
+      1
+    ],
+    "required_slots": [
+      {
+        "name": "user_creative_block_state",
+        "value": "feeling stuck with paintings",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          1
+        ]
+      },
+      {
+        "name": "user_art_medium",
+        "value": "painting (acrylics, palette knives)",
+        "support_memory_ids": [
+          "m_5b7425039309a3e21133",
+          "m_c22f8e3854bfaa87ab74"
+        ],
+        "support_source_ids": [
+          43,
+          45
+        ]
+      },
+      {
+        "name": "user_past_inspiration_sources",
+        "value": "social media (Instagram flower paintings), 30-day painting challenge",
+        "support_memory_ids": [
+          "m_8f8112577e4b51ef4c00",
+          "m_c5ecb8fabc50c4b665fe"
+        ],
+        "support_source_ids": [
+          49,
+          44
+        ]
+      },
+      {
+        "name": "user_art_interests",
+        "value": "realistic flowers, texture, palette knife techniques, upcycling DIY, herb gardening",
+        "support_memory_ids": [
+          "m_c5ecb8fabc50c4b665fe",
+          "m_c22f8e3854bfaa87ab74",
+          "m_2dae55c1fd7ad608603e",
+          "m_4fabaca056d0f63889f8"
+        ],
+        "support_source_ids": [
+          44,
+          45,
+          217,
+          19
+        ]
+      },
+      {
+        "name": "user_other_hobbies",
+        "value": "ukulele, guitar, herb gardening, upcycling DIY",
+        "support_memory_ids": [
+          "m_45d5cf543d2062e9ff47",
+          "m_2dae55c1fd7ad608603e",
+          "m_4fabaca056d0f63889f8"
+        ],
+        "support_source_ids": [
+          201,
+          217,
+          19
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User states feeling stuck with paintings. Past sources of inspiration include social media (Instagram flower paintings) and a 30-day painting challenge. User has shown interest in realistic flowers, texture techniques (palette knife), and other creative hobbies (upcycling, herb gardening). Also previously felt disconnected from social circle, suggesting potential benefit from art groups. Suggestions are grounded in these preferences and past behaviors."
+  },
+  "p8_candidate": {
+    "answer": "Based on your past interests, you've found inspiration from social media (Instagram, especially flower paintings), started a 30-day painting challenge, and explored techniques like palette knife textures and realistic flowers. You also enjoy creative hobbies like upcycling DIY projects and herb gardening. To find new inspiration, try revisiting social media art communities, experimenting with new techniques (e.g., palette knife for texture), or combining your interests (e.g., painting your herb garden or upcycled items). Consider joining an art class or group to connect with others, as you've previously felt disconnected from your social circle.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8f8112577e4b51ef4c00",
+      "m_c5ecb8fabc50c4b665fe",
+      "m_c22f8e3854bfaa87ab74",
+      "m_2dae55c1fd7ad608603e",
+      "m_4fabaca056d0f63889f8",
+      "m_d2405140e52870ad1918"
+    ],
+    "support_source_ids": [
+      49,
+      44,
+      45,
+      217,
+      19,
+      1
+    ],
+    "required_slots": [
+      {
+        "name": "user_creative_block_state",
+        "value": "feeling stuck with paintings",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          1
+        ]
+      },
+      {
+        "name": "user_art_medium",
+        "value": "painting (acrylics, palette knives)",
+        "support_memory_ids": [
+          "m_5b7425039309a3e21133",
+          "m_c22f8e3854bfaa87ab74"
+        ],
+        "support_source_ids": [
+          43,
+          45
+        ]
+      },
+      {
+        "name": "user_past_inspiration_sources",
+        "value": "social media (Instagram flower paintings), 30-day painting challenge",
+        "support_memory_ids": [
+          "m_8f8112577e4b51ef4c00",
+          "m_c5ecb8fabc50c4b665fe"
+        ],
+        "support_source_ids": [
+          49,
+          44
+        ]
+      },
+      {
+        "name": "user_art_interests",
+        "value": "realistic flowers, texture, palette knife techniques, upcycling DIY, herb gardening",
+        "support_memory_ids": [
+          "m_c5ecb8fabc50c4b665fe",
+          "m_c22f8e3854bfaa87ab74",
+          "m_2dae55c1fd7ad608603e",
+          "m_4fabaca056d0f63889f8"
+        ],
+        "support_source_ids": [
+          44,
+          45,
+          217,
+          19
+        ]
+      },
+      {
+        "name": "user_other_hobbies",
+        "value": "ukulele, guitar, herb gardening, upcycling DIY",
+        "support_memory_ids": [
+          "m_45d5cf543d2062e9ff47",
+          "m_2dae55c1fd7ad608603e",
+          "m_4fabaca056d0f63889f8"
+        ],
+        "support_source_ids": [
+          201,
+          217,
+          19
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "assistant_recall",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User states feeling stuck with paintings. Past sources of inspiration include social media (Instagram flower paintings) and a 30-day painting challenge. User has shown interest in realistic flowers, texture techniques (palette knife), and other creative hobbies (upcycling, herb gardening). Also previously felt disconnected from social circle, suggesting potential benefit from art groups. Suggestions are grounded in these preferences and past behaviors."
+  },
+  "specialist_candidate": {
+    "answer": "Based on your past interests, you've found inspiration from social media (Instagram flower paintings), started a 30-day painting challenge, and explored techniques like palette knife textures and realistic flowers. You also enjoy creative hobbies like upcycling DIY projects and herb gardening. To find new inspiration, try revisiting social media art communities, experimenting with new techniques (e.g., palette knife for texture), or combining your interests (e.g., painting your herb garden or upcycled items). Consider joining an art class or group to connect with others, as you've previously felt disconnected from your social circle.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8f8112577e4b51ef4c00",
+      "m_c5ecb8fabc50c4b665fe",
+      "m_c22f8e3854bfaa87ab74",
+      "m_2dae55c1fd7ad608603e",
+      "m_4fabaca056d0f63889f8",
+      "m_d2405140e52870ad1918"
+    ],
+    "support_source_ids": [
+      49,
+      44,
+      217,
+      19,
+      1
+    ],
+    "required_slots": [
+      {
+        "name": "user_creative_block_state",
+        "value": "feeling stuck with paintings",
+        "support_memory_ids": [],
+        "support_source_ids": [
+          1
+        ]
+      },
+      {
+        "name": "user_art_medium",
+        "value": "painting (acrylics, palette knives)",
+        "support_memory_ids": [
+          "m_5b7425039309a3e21133",
+          "m_c22f8e3854bfaa87ab74"
+        ],
+        "support_source_ids": [
+          43,
+          45
+        ]
+      },
+      {
+        "name": "user_past_inspiration_sources",
+        "value": "social media (Instagram flower paintings), 30-day painting challenge",
+        "support_memory_ids": [
+          "m_8f8112577e4b51ef4c00",
+          "m_c5ecb8fabc50c4b665fe"
+        ],
+        "support_source_ids": [
+          49,
+          44
+        ]
+      },
+      {
+        "name": "user_art_interests",
+        "value": "realistic flowers, texture, palette knife techniques, upcycling DIY, herb gardening",
+        "support_memory_ids": [
+          "m_c5ecb8fabc50c4b665fe",
+          "m_c22f8e3854bfaa87ab74",
+          "m_2dae55c1fd7ad608603e",
+          "m_4fabaca056d0f63889f8"
+        ],
+        "support_source_ids": [
+          44,
+          45,
+          217,
+          19
+        ]
+      },
+      {
+        "name": "user_other_hobbies",
+        "value": "ukulele, guitar, herb gardening, upcycling DIY",
+        "support_memory_ids": [
+          "m_45d5cf543d2062e9ff47",
+          "m_2dae55c1fd7ad608603e",
+          "m_4fabaca056d0f63889f8"
+        ],
+        "support_source_ids": [
+          201,
+          217,
+          19
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "preference_profile",
+      "items": [
+        {
+          "label": "positive criteria",
+          "value": "social media inspiration, 30-day painting challenge, realistic flowers, texture techniques, upcycling, herb gardening, joining art groups",
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_8f8112577e4b51ef4c00",
+            "m_c5ecb8fabc50c4b665fe",
+            "m_c22f8e3854bfaa87ab74",
+            "m_2dae55c1fd7ad608603e",
+            "m_4fabaca056d0f63889f8",
+            "m_d2405140e52870ad1918"
+          ],
+          "support_source_ids": [
+            49,
+            44,
+            45,
+            217,
+            19,
+            1
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": ""
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "All relevant past preferences and experiences are incorporated."
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User states feeling stuck with paintings. Past sources of inspiration include social media (Instagram flower paintings) and a 30-day painting challenge. User has shown interest in realistic flowers, texture techniques (palette knife), and other creative hobbies (upcycling, herb gardening). Also previously felt disconnected from social circle, suggesting potential benefit from art groups. Suggestions are grounded in these preferences and past behaviors.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {
+    "answer": "Based on your past interests, you've found inspiration from social media (Instagram flower paintings), started a 30-day painting challenge, and explored techniques like palette knife textures and realistic flowers. You also enjoy creative hobbies like upcycling DIY projects and herb gardening. To find new inspiration, try revisiting social media art communities, experimenting with new techniques (e.g., palette knife for texture), or combining your interests (e.g., painting your herb garden or upcycled items). Consider joining an art class or group to connect with others, as you've previously felt disconnected from your social circle.",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8f8112577e4b51ef4c00",
+      "m_c5ecb8fabc50c4b665fe",
+      "m_c22f8e3854bfaa87ab74",
+      "m_2dae55c1fd7ad608603e",
+      "m_4fabaca056d0f63889f8",
+      "m_d2405140e52870ad1918"
+    ],
+    "support_source_ids": [
+      49,
+      44,
+      217,
+      19,
+      1
+    ],
+    "operation_data": {
+      "type": "preference_profile",
+      "items": [
+        {
+          "label": "positive criteria",
+          "value": "social media inspiration, 30-day painting challenge, realistic flowers, texture techniques, upcycling, herb gardening, joining art groups",
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_8f8112577e4b51ef4c00",
+            "m_c5ecb8fabc50c4b665fe",
+            "m_c22f8e3854bfaa87ab74",
+            "m_2dae55c1fd7ad608603e",
+            "m_4fabaca056d0f63889f8",
+            "m_d2405140e52870ad1918"
+          ],
+          "support_source_ids": [
+            49,
+            44,
+            45,
+            217,
+            19,
+            1
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reason": "The answer synthesizes user's past sources of inspiration (social media, painting challenge, palette knife techniques) and other hobbies (upcycling, herb gardening) from evidence, and suggests combining them or joining art groups based on user's feeling of disconnection. All suggestions are grounded in the evidence.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": ""
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_8f8112577e4b51ef4c00",
+    "m_bf793f652cae8833b2f1",
+    "m_d2405140e52870ad1918",
+    "m_000280cd504923ae6381",
+    "m_9bfbf3e8f98d2ce846d5",
+    "m_c5ecb8fabc50c4b665fe",
+    "m_c22f8e3854bfaa87ab74",
+    "m_e6e90e148e90c154bc33",
+    "m_6af4e2cc6ce7b371d00e",
+    "m_99a6589035ae8e46ecc6",
+    "m_4fabaca056d0f63889f8",
+    "m_5b7425039309a3e21133",
+    "m_0cc7df09d799a0eb32bc",
+    "m_6b773de946a76604005a",
+    "m_755bba8df10fffaa7280",
+    "m_03877b88c211cb428808",
+    "m_d6672e8e95d578f5d9c6",
+    "m_3e43dcae0a2b6762c43f",
+    "m_45d5cf543d2062e9ff47",
+    "m_125f6c4df2c50791793d",
+    "m_9fc8a744ad20b02b1f48"
+  ],
+  "source_census_ids": [
+    49,
+    43,
+    48,
+    44,
+    47,
+    19,
+    14,
+    1,
+    15,
+    207,
+    217,
+    50,
+    195,
+    201
+  ],
+  "profile_memory_ids": [
+    "m_6b773de946a76604005a",
+    "m_de0fdf0ee0a976835532",
+    "m_356902beda8ec2b71e88",
+    "m_26a069efede1fdf2feb7",
+    "m_6c8d816d9ddfb54b9eaf",
+    "m_2304fb9bcec19c955496",
+    "m_86c9aaad8dd41fc0f0d4",
+    "m_9fbf410f99e88ac6edc8",
+    "m_b55fbd3c5fe2371088f5",
+    "m_34bb3895e619a36d3698",
+    "m_434cf941a7cdf71b4bb2",
+    "m_7b8faaaae6ef42efc431"
+  ]
+}

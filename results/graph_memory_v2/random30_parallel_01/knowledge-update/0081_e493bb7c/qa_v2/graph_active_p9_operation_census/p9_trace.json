@@ -1,0 +1,294 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:direct_relation"
+  ],
+  "contract": "direct_relation",
+  "expansion": {
+    "queries": [
+      "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+      "Ethereal Dreams Emma Taylor location",
+      "Where is Ethereal Dreams hanging",
+      "Ethereal Dreams current location",
+      "Emma Taylor painting Ethereal Dreams displayed",
+      "Ethereal Dreams Emma Taylor museum"
+    ],
+    "relation_verbs": [
+      "located at",
+      "hanging in",
+      "displayed at",
+      "exhibited in",
+      "installed in",
+      "shown at"
+    ],
+    "entity_hints": [
+      "Emma Taylor",
+      "Ethereal Dreams",
+      "painting",
+      "artwork",
+      "museum",
+      "gallery",
+      "exhibition"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "currently"
+    }
+  },
+  "plan": {
+    "answer_contract": "direct_relation",
+    "operation": "direct",
+    "slots": [
+      {
+        "name": "exact_requested_relation",
+        "query": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+        "semantic_type": "other",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+      "Ethereal Dreams Emma Taylor location",
+      "Where is Ethereal Dreams hanging",
+      "Ethereal Dreams current location",
+      "Emma Taylor painting Ethereal Dreams displayed",
+      "Ethereal Dreams Emma Taylor museum"
+    ],
+    "relation_verbs": [
+      "located at",
+      "hanging in",
+      "displayed at",
+      "exhibited in",
+      "installed in",
+      "shown at"
+    ],
+    "entity_hints": [
+      "Emma Taylor",
+      "Ethereal Dreams",
+      "painting",
+      "artwork",
+      "museum",
+      "gallery",
+      "exhibition"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": "currently"
+    }
+  },
+  "p5_candidate": {
+    "answer": "above the user's bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4fbf676c267d1e52562c"
+    ],
+    "support_source_ids": [
+      157
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "above the user's bed",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user stated on 2023-10-30 that they recently moved the 'Ethereal Dreams' painting by Emma Taylor above their bed. This is the most recent and specific location evidence."
+  },
+  "p7_candidate": {
+    "answer": "above the user's bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4fbf676c267d1e52562c"
+    ],
+    "support_source_ids": [
+      157
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "above the user's bed",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-10-30 that they recently moved the 'Ethereal Dreams' painting by Emma Taylor above their bed. This is the most recent and specific location statement, and no later relocation has been mentioned. Therefore, as of the question date (2023-11-18), the painting is hanging above the user's bed."
+  },
+  "p8_candidate": {
+    "answer": "above the user's bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4fbf676c267d1e52562c"
+    ],
+    "support_source_ids": [
+      157
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "above the user's bed",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The most recent state (2023-10-30) indicates the painting was moved above the user's bed, superseding the earlier location above the living room sofa."
+  },
+  "specialist_candidate": {
+    "answer": "above the user's bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_4fbf676c267d1e52562c"
+    ],
+    "support_source_ids": [
+      157
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "above the user's bed",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "state_resolution",
+      "items": [
+        {
+          "label": "above living room sofa",
+          "value": null,
+          "unit": "",
+          "date": "2023-07-11",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_27a700848d3e9aa7d113"
+          ],
+          "support_source_ids": [
+            42
+          ]
+        },
+        {
+          "label": "above the user's bed",
+          "value": null,
+          "unit": "",
+          "date": "2023-10-30",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_4fbf676c267d1e52562c"
+          ],
+          "support_source_ids": [
+            157
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "above the user's bed"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-10-30 that they recently moved the 'Ethereal Dreams' painting by Emma Taylor above their bed. This is the most recent and specific location statement, superseding the earlier location above the living room sofa from 2023-07-11. No later relocation has been mentioned, so as of the question date (2023-11-18), the painting is hanging above the user's bed.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_4fbf676c267d1e52562c",
+    "m_27a700848d3e9aa7d113",
+    "m_426912eece8a64bdf874",
+    "m_20bdb830af7c070d1d53",
+    "m_2fb7457feee24807446d",
+    "m_c3b245ffbaf1e2d04ca3",
+    "m_3e50cbc33260ba2a5f58",
+    "m_346c69b5f64314d1014e",
+    "m_033aa181648d6c521a93",
+    "m_fb564cbda6b3b6c0e485",
+    "m_0ff73d5ab1caac5ad423",
+    "m_16b787f5a5a6ee8cd55f",
+    "m_64a1499572afbba30f94",
+    "m_7ca584e9037518bcb257",
+    "m_5760857c4eab8635882b",
+    "m_139d1ec87593b4d58797",
+    "m_4137080e4a42805ca00a",
+    "m_790da8ba6b143f1b34bd"
+  ],
+  "source_census_ids": [
+    157,
+    154,
+    42,
+    158,
+    8,
+    10,
+    41,
+    43,
+    156,
+    155
+  ],
+  "profile_memory_ids": [
+    "m_4fbf676c267d1e52562c",
+    "m_27a700848d3e9aa7d113",
+    "m_426912eece8a64bdf874",
+    "m_033aa181648d6c521a93",
+    "m_00ec124387fc864df36d",
+    "m_0480ddd5ed0353a05817",
+    "m_08440a95ee48d29e61c5",
+    "m_0ff73d5ab1caac5ad423",
+    "m_173ad56b7821f504f034",
+    "m_1c5a3d5d5bbae0a869fe",
+    "m_20bdb830af7c070d1d53",
+    "m_340ea7f91273011d18b7"
+  ]
+}

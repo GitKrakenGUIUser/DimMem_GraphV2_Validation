@@ -1,0 +1,70 @@
+{
+  "question_id": "gpt4_fe651585_abs",
+  "question_type": "temporal-reasoning",
+  "question": "Who became a parent first, Tom or Alex?",
+  "question_date": "2023/03/17 (Fri) 03:09",
+  "gold_answer": "The information provided is not enough. You mentioned Alex becoming a parent in January, but you didn't mention anything about Tom.",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [
+    "m_12bba7f3b7a19a1921d0",
+    "m_7153626a05f74c2cd99e"
+  ],
+  "support_source_ids": [
+    45,
+    49
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Evidence shows Alex adopted a baby girl in January 2023, making Alex a parent. No evidence of Tom becoming a parent. Therefore, Alex became a parent first.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "compare_dates",
+  "operation_data": {
+    "type": "compare_dates",
+    "items": [
+      {
+        "label": "Tom",
+        "value": null,
+        "unit": "",
+        "date": "",
+        "status": "uncertain",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      },
+      {
+        "label": "Alex",
+        "value": null,
+        "unit": "",
+        "date": "2023-01",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_12bba7f3b7a19a1921d0",
+          "m_7153626a05f74c2cd99e"
+        ],
+        "support_source_ids": [
+          45,
+          49
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "Cannot be determined from the conversation."
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "p8_unfilled_slots",
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 50765,
+    "completion_tokens": 935,
+    "elapsed_seconds": 8.237547874450684
+  }
+}

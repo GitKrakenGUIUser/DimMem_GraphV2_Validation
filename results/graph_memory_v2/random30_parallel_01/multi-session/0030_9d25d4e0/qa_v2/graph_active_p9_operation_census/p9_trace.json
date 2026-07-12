@@ -1,0 +1,344 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many pieces of jewelry did I acquire in the last two months?",
+      "jewelry acquired last two months",
+      "jewelry purchases recent",
+      "jewelry received recently",
+      "jewelry count",
+      "jewelry collection size"
+    ],
+    "relation_verbs": [
+      "acquire",
+      "purchase",
+      "receive",
+      "obtain",
+      "get",
+      "have"
+    ],
+    "entity_hints": [
+      "jewelry",
+      "jewelry item",
+      "piece of jewelry",
+      "accessory"
+    ],
+    "time_scope": {
+      "start": "2023-03-30",
+      "end": "2023-05-30",
+      "raw": "last two months"
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many pieces of jewelry did I acquire in the last two months?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "jewelry acquired last two months",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "jewelry purchases recent",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "jewelry received recently",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many pieces of jewelry did I acquire in the last two months?",
+      "jewelry acquired last two months",
+      "jewelry purchases recent",
+      "jewelry received recently",
+      "jewelry count",
+      "jewelry collection size"
+    ],
+    "relation_verbs": [
+      "acquire",
+      "purchase",
+      "receive",
+      "obtain",
+      "get",
+      "have"
+    ],
+    "entity_hints": [
+      "jewelry",
+      "jewelry item",
+      "piece of jewelry",
+      "accessory"
+    ],
+    "time_scope": {
+      "start": "2023-03-30",
+      "end": "2023-05-30",
+      "raw": "last two months"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source explicitly states the total number of jewelry pieces acquired in the last two months. Only individual acquisitions are mentioned (silver necklace, emerald earrings, engagement ring, inherited estate pieces), but the total count is not provided."
+  },
+  "p7_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source explicitly states the total number of jewelry pieces acquired in the last two months. Only individual acquisitions are mentioned (silver necklace, emerald earrings, engagement ring, inherited estate pieces), but the total count is not provided."
+  },
+  "p8_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_217c2597a6c98dc338c9",
+      "m_054f9349970ab7c3045c"
+    ],
+    "support_source_ids": [
+      162,
+      34
+    ],
+    "required_slots": [
+      {
+        "name": "jewelry acquisition events",
+        "value": "silver necklace with pendant (2023-04-15), emerald earrings (2023-05-14)",
+        "support_memory_ids": [
+          "m_217c2597a6c98dc338c9",
+          "m_054f9349970ab7c3045c"
+        ],
+        "support_source_ids": [
+          162,
+          34
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "silver necklace with pendant",
+        "emerald earrings"
+      ],
+      "unit": "pieces",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Two distinct jewelry acquisition events occurred within the last two months from the question date (2023-05-30): a silver necklace acquired on 2023-04-15 and emerald earrings acquired on 2023-05-14. Both are within the period 2023-03-30 to 2023-05-30."
+  },
+  "specialist_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_217c2597a6c98dc338c9",
+      "m_054f9349970ab7c3045c"
+    ],
+    "support_source_ids": [
+      162,
+      34
+    ],
+    "required_slots": [
+      {
+        "name": "jewelry acquisition events",
+        "value": "silver necklace with pendant (2023-04-15), emerald earrings (2023-05-14)",
+        "support_memory_ids": [
+          "m_217c2597a6c98dc338c9",
+          "m_054f9349970ab7c3045c"
+        ],
+        "support_source_ids": [
+          162,
+          34
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [
+        {
+          "label": "silver necklace with pendant",
+          "value": null,
+          "unit": "pieces",
+          "date": "2023-04-15",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_217c2597a6c98dc338c9"
+          ],
+          "support_source_ids": [
+            162
+          ]
+        },
+        {
+          "label": "emerald earrings",
+          "value": null,
+          "unit": "pieces",
+          "date": "2023-05-14",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_054f9349970ab7c3045c"
+          ],
+          "support_source_ids": [
+            34
+          ]
+        }
+      ],
+      "requested_unit": "pieces",
+      "result": "2"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Two distinct jewelry acquisitions (silver necklace and emerald earrings) are explicitly dated within the last two months from the question date (2023-03-30 to 2023-05-30). The engagement ring (acquired around 2023-04-28) is also within the window but is not counted because it is not explicitly stated as a new acquisition in the same manner; however, even if included, the count would be 3. The inherited estate pieces are not dated precisely enough to confirm acquisition within the window. The answer of 2 is conservative and supported."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From the evidence, the user acquired a silver necklace with pendant on 2023-04-15 and a pair of emerald earrings on 2023-05-14. Both dates fall within the last two months from the question date (2023-05-30). No other acquisitions are explicitly dated within that window. Therefore, the count is 2.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_217c2597a6c98dc338c9",
+      "m_054f9349970ab7c3045c"
+    ],
+    "support_source_ids": [
+      162,
+      34
+    ],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [
+        {
+          "label": "silver necklace with pendant",
+          "value": null,
+          "unit": "pieces",
+          "date": "2023-04-15",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_217c2597a6c98dc338c9"
+          ],
+          "support_source_ids": [
+            162
+          ]
+        },
+        {
+          "label": "emerald earrings",
+          "value": null,
+          "unit": "pieces",
+          "date": "2023-05-14",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_054f9349970ab7c3045c"
+          ],
+          "support_source_ids": [
+            34
+          ]
+        }
+      ],
+      "requested_unit": "pieces",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reason": "Two distinct jewelry acquisitions (silver necklace on 2023-04-15 and emerald earrings on 2023-05-14) are explicitly dated within the last two months from the question date (2023-05-30). The engagement ring (acquired around 2023-04-28) is also within the window but is not counted because it is not explicitly stated as a new acquisition in the same manner; however, even if included, the count would be 3. The inherited estate pieces are not dated precisely enough to confirm acquisition within the window. The answer of 2 is conservative and supported.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_217c2597a6c98dc338c9",
+    "m_94f9ae7de9eb6ebb3544",
+    "m_861394cd64d871447915",
+    "m_c0f666fa02cf30c950f7",
+    "m_76f0b4abb98a0ea67600",
+    "m_054f9349970ab7c3045c",
+    "m_3f3f3f71300d6f145f62",
+    "m_e9b5491a9f8554c59547",
+    "m_e4db335ca8ee87a6d6d0",
+    "m_05e7c359735d0c1b5e07",
+    "m_cc75fef261995ba78325",
+    "m_cf897bc6b0b5e4105869",
+    "m_9639139e6262378b5aad",
+    "m_8a93efc24b976b809ee9",
+    "m_4a7a01b0146c7794f356",
+    "m_085866ce65569bbc8e79",
+    "m_eea6934759e95b96a284",
+    "m_800aca4b82fba32c8188",
+    "m_3a49b8f2eff6507b567c"
+  ],
+  "source_census_ids": [
+    39,
+    36,
+    162,
+    178,
+    34,
+    165,
+    38,
+    37,
+    35,
+    163
+  ],
+  "profile_memory_ids": [
+    "m_08e8e7bf166bb595236c",
+    "m_217c2597a6c98dc338c9",
+    "m_054f9349970ab7c3045c",
+    "m_05e7c359735d0c1b5e07",
+    "m_085866ce65569bbc8e79",
+    "m_10f6ba2eb470ba62bd94",
+    "m_1cc743b8b04ceeba0bda",
+    "m_30e57282c1e5c27592d1",
+    "m_5aba852679a55c2e6801",
+    "m_79b5bdb3c6428b966296",
+    "m_7e1c192dfa8a5b82814c",
+    "m_8a93efc24b976b809ee9"
+  ]
+}

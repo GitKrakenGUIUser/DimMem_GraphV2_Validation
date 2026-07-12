@@ -1,0 +1,50 @@
+{
+  "question_id": "32260d93",
+  "question_type": "single-session-preference",
+  "question": "Can you recommend a show or movie for me to watch tonight?",
+  "question_date": "2023/05/30 (Tue) 23:43",
+  "gold_answer": "The user would prefer recommendations for stand-up comedy specials on Netflix, especially those that are known for their storytelling. They may not prefer recommendations for other genres or platforms.",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.0,
+  "reasoning_summary": "The user asks for a show or movie recommendation, but the evidence contains no information about movie/TV preferences, current mood, or recently watched content. The only relevant memory is an interest in ancient Egypt and stand-up comedy, but these are insufficient to make a confident recommendation without additional context.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "preference_profile",
+  "operation_data": {
+    "type": "preference_profile",
+    "items": [],
+    "requested_unit": "",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "p8_abstained",
+    "p8_unfilled_slots",
+    "p8_no_support",
+    "candidate_disagreement",
+    "audit_contract:preference_criteria"
+  ],
+  "contract": "preference_criteria",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 55060,
+    "completion_tokens": 641,
+    "elapsed_seconds": 8.661476850509644
+  },
+  "correct": false,
+  "judge_reason": "Prediction abstained while reference contains a concrete answer.",
+  "judge_meta": {
+    "mode": "deterministic_abstention_guard",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

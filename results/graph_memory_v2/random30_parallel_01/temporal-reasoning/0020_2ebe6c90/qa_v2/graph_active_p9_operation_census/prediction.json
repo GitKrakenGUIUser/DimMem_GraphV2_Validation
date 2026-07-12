@@ -1,0 +1,92 @@
+{
+  "question_id": "2ebe6c90",
+  "question_type": "temporal-reasoning",
+  "question": "How many days did it take me to finish 'The Nightingale' by Kristin Hannah?",
+  "question_date": "2023/05/01 (Mon) 21:05",
+  "gold_answer": "21 days. 22 days (including the last day) is also acceptable.",
+  "prediction": "21 days",
+  "support_memory_ids": [
+    "m_f279b678992988169d34",
+    "m_1118fec4874cecdca50e"
+  ],
+  "support_source_ids": [
+    88,
+    106
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User started reading 'The Nightingale' on 2023-01-10 (source 88) and finished on 2023-01-31 (source 106). The difference is 21 days.",
+  "required_slots": [
+    {
+      "name": "start_date",
+      "value": "2023-01-10",
+      "support_memory_ids": [
+        "m_f279b678992988169d34"
+      ],
+      "support_source_ids": [
+        88
+      ]
+    },
+    {
+      "name": "end_date",
+      "value": "2023-01-31",
+      "support_memory_ids": [
+        "m_1118fec4874cecdca50e"
+      ],
+      "support_source_ids": [
+        106
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "start",
+        "value": "2023-01-10",
+        "unit": "date",
+        "date": "2023-01-10",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_f279b678992988169d34"
+        ],
+        "support_source_ids": [
+          88
+        ]
+      },
+      {
+        "label": "end",
+        "value": "2023-01-31",
+        "unit": "date",
+        "date": "2023-01-31",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_1118fec4874cecdca50e"
+        ],
+        "support_source_ids": [
+          106
+        ]
+      }
+    ],
+    "requested_unit": "days",
+    "result": "21 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 34629,
+    "completion_tokens": 662,
+    "elapsed_seconds": 7.084387302398682
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "question_id": "4adc0475",
+  "question_type": "multi-session",
+  "question": "What is the total number of goals and assists I have in the recreational indoor soccer league?",
+  "question_date": "2023/05/30 (Tue) 18:44",
+  "gold_answer": "5",
+  "prediction": "5",
+  "support_memory_ids": [
+    "m_8209a0b6535de6dd5b73",
+    "m_6e2871132a0497e81b6a"
+  ],
+  "support_source_ids": [
+    156,
+    202
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User stated 3 goals (source 156) and 2 assists (source 202) in the recreational indoor soccer league. Sum is 5.",
+  "required_slots": [
+    {
+      "name": "total goals and assists",
+      "value": "5",
+      "support_memory_ids": [
+        "m_8209a0b6535de6dd5b73",
+        "m_6e2871132a0497e81b6a"
+      ],
+      "support_source_ids": [
+        156,
+        202
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "sum",
+  "operation_data": {
+    "type": "sum",
+    "items": [
+      {
+        "label": "goals",
+        "value": 3,
+        "unit": "",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_8209a0b6535de6dd5b73"
+        ],
+        "support_source_ids": [
+          156
+        ]
+      },
+      {
+        "label": "assists",
+        "value": 2,
+        "unit": "",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_6e2871132a0497e81b6a"
+        ],
+        "support_source_ids": [
+          202
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "5"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:sum"
+  ],
+  "contract": "sum",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 35230,
+    "completion_tokens": 546,
+    "elapsed_seconds": 7.129302024841309
+  }
+}

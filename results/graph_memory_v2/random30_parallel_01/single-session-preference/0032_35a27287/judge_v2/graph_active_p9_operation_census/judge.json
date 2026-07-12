@@ -1,0 +1,90 @@
+{
+  "question_id": "35a27287",
+  "question_type": "single-session-preference",
+  "question": "Can you recommend some interesting cultural events happening around me this weekend?",
+  "question_date": "2023/05/30 (Tue) 22:15",
+  "gold_answer": "The user would prefer responses that suggest cultural events where they can practice their language skills, particularly Spanish and French. They would also appreciate if the event has a focus on language learning resources. They would not prefer events that do not provide opportunities for language practice or cultural exchange.",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [
+    "m_4af707e66f4f950767e0",
+    "m_c068ae39db0befb59e47"
+  ],
+  "support_source_ids": [
+    204,
+    209
+  ],
+  "confidence": 0.2,
+  "reasoning_summary": "User asked for cultural events this weekend. Evidence shows interest in language diversity and cultural exchange events, especially French and Spanish. However, user location is unknown, which is necessary to retrieve local events. Therefore, answer is not answerable until location is provided.",
+  "required_slots": [
+    {
+      "name": "user_location",
+      "value": null,
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [
+    "user_location"
+  ],
+  "operation": "preference_profile",
+  "operation_data": {
+    "type": "preference_profile",
+    "items": [
+      {
+        "label": "cultural events celebrating language diversity and cultural exchange",
+        "value": null,
+        "unit": "",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_4af707e66f4f950767e0"
+        ],
+        "support_source_ids": [
+          204
+        ]
+      },
+      {
+        "label": "French and Spanish language exchange events",
+        "value": null,
+        "unit": "",
+        "date": "",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_c068ae39db0befb59e47"
+        ],
+        "support_source_ids": [
+          209
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "p8_abstained",
+    "p8_unfilled_slots",
+    "audit_contract:preference_criteria"
+  ],
+  "contract": "preference_criteria",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 36505,
+    "completion_tokens": 621,
+    "elapsed_seconds": 6.81853175163269
+  },
+  "correct": false,
+  "judge_reason": "Prediction abstained while reference contains a concrete answer.",
+  "judge_meta": {
+    "mode": "deterministic_abstention_guard",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

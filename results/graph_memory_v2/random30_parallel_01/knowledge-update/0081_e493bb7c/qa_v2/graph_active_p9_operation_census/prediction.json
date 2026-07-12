@@ -1,0 +1,80 @@
+{
+  "question_id": "e493bb7c",
+  "question_type": "knowledge-update",
+  "question": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+  "question_date": "2023/11/18 (Sat) 19:24",
+  "gold_answer": "in my bedroom",
+  "prediction": "above the user's bed",
+  "support_memory_ids": [
+    "m_4fbf676c267d1e52562c"
+  ],
+  "support_source_ids": [
+    157
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user stated on 2023-10-30 that they recently moved the 'Ethereal Dreams' painting by Emma Taylor above their bed. This is the most recent and specific location statement, superseding the earlier location above the living room sofa from 2023-07-11. No later relocation has been mentioned, so as of the question date (2023-11-18), the painting is hanging above the user's bed.",
+  "required_slots": [
+    {
+      "name": "location",
+      "value": "above the user's bed",
+      "support_memory_ids": [
+        "m_4fbf676c267d1e52562c"
+      ],
+      "support_source_ids": [
+        157
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "operation_data": {
+    "type": "state_resolution",
+    "items": [
+      {
+        "label": "above living room sofa",
+        "value": null,
+        "unit": "",
+        "date": "2023-07-11",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_27a700848d3e9aa7d113"
+        ],
+        "support_source_ids": [
+          42
+        ]
+      },
+      {
+        "label": "above the user's bed",
+        "value": null,
+        "unit": "",
+        "date": "2023-10-30",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_4fbf676c267d1e52562c"
+        ],
+        "support_source_ids": [
+          157
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "above the user's bed"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:direct_relation"
+  ],
+  "contract": "direct_relation",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 33222,
+    "completion_tokens": 635,
+    "elapsed_seconds": 7.671342134475708
+  }
+}

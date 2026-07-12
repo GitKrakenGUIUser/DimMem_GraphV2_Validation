@@ -1,0 +1,50 @@
+{
+  "question_id": "edced276_abs",
+  "question_type": "multi-session",
+  "question": "How many days did I spend in total traveling in Hawaii and in Seattle?",
+  "question_date": "2023/05/30 (Tue) 20:59",
+  "gold_answer": "The information provided is not enough. You mentioned traveling for 10 days in Hawaii but did not mention abything about the trip to Seattle.",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.0,
+  "reasoning_summary": "No memory or source specifies the number of days spent in Hawaii or Seattle. The Hawaii trip is mentioned as an 'island-hopping trip' but no duration is given. Seattle is not mentioned in any evidence.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [],
+    "requested_unit": "days",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "p8_abstained",
+    "p8_unfilled_slots",
+    "p8_no_support",
+    "candidate_disagreement",
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 52277,
+    "completion_tokens": 463,
+    "elapsed_seconds": 8.248616933822632
+  },
+  "correct": true,
+  "judge_reason": "Both reference and prediction indicate insufficient information.",
+  "judge_meta": {
+    "mode": "deterministic_abstention_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

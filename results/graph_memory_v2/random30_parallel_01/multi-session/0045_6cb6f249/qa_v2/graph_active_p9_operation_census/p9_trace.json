@@ -1,0 +1,313 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many days did I take social media breaks in total?",
+      "social media break days",
+      "days without social media",
+      "social media hiatus days",
+      "break from social media dates",
+      "total social media break count"
+    ],
+    "relation_verbs": [
+      "took",
+      "had",
+      "recorded",
+      "logged",
+      "counted"
+    ],
+    "entity_hints": [
+      "social media break",
+      "social media hiatus",
+      "social media detox",
+      "break from social media"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many days did I take social media breaks in total?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "social media break days",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many days did I take social media breaks in total?",
+      "social media break days",
+      "days without social media",
+      "social media hiatus days",
+      "break from social media dates",
+      "total social media break count"
+    ],
+    "relation_verbs": [
+      "took",
+      "had",
+      "recorded",
+      "logged",
+      "counted"
+    ],
+    "entity_hints": [
+      "social media break",
+      "social media hiatus",
+      "social media detox",
+      "break from social media"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "17 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_df096ec32d4c68140dec",
+      "m_e2def7ecc21213df4abc"
+    ],
+    "support_source_ids": [
+      129,
+      123
+    ],
+    "required_slots": [
+      {
+        "name": "total days",
+        "value": "17",
+        "support_memory_ids": [
+          "m_df096ec32d4c68140dec",
+          "m_e2def7ecc21213df4abc"
+        ],
+        "support_source_ids": [
+          129,
+          123
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        7,
+        10
+      ],
+      "unit": "days",
+      "result": "17 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_df096ec32d4c68140dec states a week-long break (7 days) in mid-January 2023. Memory m_e2def7ecc21213df4abc states a 10-day break in mid-February 2023. Summing gives 17 total days."
+  },
+  "p7_candidate": {
+    "answer": "17 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_df096ec32d4c68140dec",
+      "m_e2def7ecc21213df4abc"
+    ],
+    "support_source_ids": [
+      129,
+      123
+    ],
+    "required_slots": [
+      {
+        "name": "break duration in days",
+        "value": 17,
+        "support_memory_ids": [
+          "m_df096ec32d4c68140dec",
+          "m_e2def7ecc21213df4abc"
+        ],
+        "support_source_ids": [
+          129,
+          123
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        7,
+        10
+      ],
+      "unit": "days",
+      "result": "17 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Two social media breaks are grounded: a 7-day break in mid-January 2023 (source 129) and a 10-day break in mid-February 2023 (source 123). Summing gives 17 total days."
+  },
+  "p8_candidate": {
+    "answer": "17 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_df096ec32d4c68140dec",
+      "m_e2def7ecc21213df4abc"
+    ],
+    "support_source_ids": [
+      129,
+      123
+    ],
+    "required_slots": [
+      {
+        "name": "break durations in days",
+        "value": "17",
+        "support_memory_ids": [
+          "m_df096ec32d4c68140dec",
+          "m_e2def7ecc21213df4abc"
+        ],
+        "support_source_ids": [
+          129,
+          123
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        7,
+        10
+      ],
+      "unit": "days",
+      "result": "17 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Two social media breaks are recorded: a 7-day break in mid-January (source 129) and a 10-day break in mid-February (source 123). Summing gives 17 days total."
+  },
+  "specialist_candidate": {
+    "answer": "17 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_df096ec32d4c68140dec",
+      "m_e2def7ecc21213df4abc"
+    ],
+    "support_source_ids": [
+      129,
+      123
+    ],
+    "required_slots": [
+      {
+        "name": "total days",
+        "value": "17",
+        "support_memory_ids": [
+          "m_df096ec32d4c68140dec",
+          "m_e2def7ecc21213df4abc"
+        ],
+        "support_source_ids": [
+          129,
+          123
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "mid-January break",
+          "value": 7,
+          "unit": "days",
+          "date": "2023-01-14 to 2023-01-21",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_df096ec32d4c68140dec"
+          ],
+          "support_source_ids": [
+            129
+          ]
+        },
+        {
+          "label": "mid-February break",
+          "value": 10,
+          "unit": "days",
+          "date": "mid-February 2023",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_e2def7ecc21213df4abc"
+          ],
+          "support_source_ids": [
+            123
+          ]
+        }
+      ],
+      "requested_unit": "days",
+      "result": "17"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Both breaks are explicitly stated with durations; no other breaks found."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Two social media breaks are recorded: a 7-day break in mid-January (source 129) and a 10-day break in mid-February (source 123). Summing gives 17 days total.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_df096ec32d4c68140dec",
+    "m_e2def7ecc21213df4abc",
+    "m_be49350ec0ed0e27f5ff",
+    "m_85a244c0cc64e597abb0",
+    "m_9ba44c6fb619d056b635",
+    "m_cf87dae43fd33c51119b",
+    "m_afb2d5f4bb67fa9b9fbe",
+    "m_df54757b03e892c6110a",
+    "m_e66c972f33d9edecbb03",
+    "m_7c5016444e77705ece98",
+    "m_0824b71cf0a0e2cc70be",
+    "m_d738fafa9714ea125a23",
+    "m_c5d068bcd28d55aa4fd5",
+    "m_05d460b4e077573e8911",
+    "m_c0fdd1ae4d9306b05030",
+    "m_450743e8dbd5e41e9a91",
+    "m_de32a72d1cc53181dd7c",
+    "m_df28d0f42ae4c3c46e54"
+  ],
+  "source_census_ids": [
+    129,
+    166,
+    160,
+    165,
+    162,
+    161,
+    130
+  ],
+  "profile_memory_ids": [
+    "m_e66c972f33d9edecbb03",
+    "m_7c5016444e77705ece98",
+    "m_85a244c0cc64e597abb0",
+    "m_9ba44c6fb619d056b635",
+    "m_df54757b03e892c6110a",
+    "m_afb2d5f4bb67fa9b9fbe",
+    "m_be49350ec0ed0e27f5ff",
+    "m_cf87dae43fd33c51119b",
+    "m_d7cc2af35aa6d6f9460e",
+    "m_df096ec32d4c68140dec",
+    "m_e27d576ab7f21c9418d1",
+    "m_e2def7ecc21213df4abc"
+  ]
+}

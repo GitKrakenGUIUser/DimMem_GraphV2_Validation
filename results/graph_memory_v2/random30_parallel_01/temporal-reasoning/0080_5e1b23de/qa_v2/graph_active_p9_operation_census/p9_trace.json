@@ -1,0 +1,322 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "expansion": {
+    "queries": [
+      "How many months ago did I attend the photography workshop?",
+      "photography workshop attendance date",
+      "when did I go to photography workshop",
+      "photography workshop I attended",
+      "date of photography workshop",
+      "photography workshop past event"
+    ],
+    "relation_verbs": [
+      "attended",
+      "went to",
+      "participated in"
+    ],
+    "entity_hints": [
+      "photography workshop",
+      "workshop"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2024-02-01T18:06:00",
+      "raw": "before 2024-02-01"
+    }
+  },
+  "plan": {
+    "answer_contract": "duration",
+    "operation": "duration",
+    "slots": [
+      {
+        "name": "start_time_or_date",
+        "query": "How many months ago did I attend the photography workshop?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "end_time_or_date",
+        "query": "photography workshop attendance date",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many months ago did I attend the photography workshop?",
+      "photography workshop attendance date",
+      "when did I go to photography workshop",
+      "photography workshop I attended",
+      "date of photography workshop",
+      "photography workshop past event"
+    ],
+    "relation_verbs": [
+      "attended",
+      "went to",
+      "participated in"
+    ],
+    "entity_hints": [
+      "photography workshop",
+      "workshop"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2024-02-01T18:06:00",
+      "raw": "before 2024-02-01"
+    }
+  },
+  "p5_candidate": {
+    "answer": "92 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_fcaf300162fc7c96953a"
+    ],
+    "support_source_ids": [
+      79
+    ],
+    "required_slots": [
+      {
+        "name": "date of photography workshop attendance",
+        "value": "2023-11-01",
+        "support_memory_ids": [
+          "m_fcaf300162fc7c96953a"
+        ],
+        "support_source_ids": [
+          79
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-11-01",
+        "2024-02-01"
+      ],
+      "unit": "months",
+      "result": "92 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user attended a 3-day photography workshop on 2023-11-01 (memory m_fcaf300162fc7c96953a, source 79). The question date is 2024-02-01. The difference is exactly 3 months."
+  },
+  "p7_candidate": {
+    "answer": "92 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_fcaf300162fc7c96953a"
+    ],
+    "support_source_ids": [
+      79
+    ],
+    "required_slots": [
+      {
+        "name": "date of photography workshop attendance",
+        "value": "2023-11-01",
+        "support_memory_ids": [
+          "m_fcaf300162fc7c96953a"
+        ],
+        "support_source_ids": [
+          79
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-11-01",
+        "2024-02-01"
+      ],
+      "unit": "months",
+      "result": "92 days"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The user attended a 3-day photography workshop on 2023-11-01 (source 79). The question date is 2024-02-01. The difference is 3 months (from November to February)."
+  },
+  "p8_candidate": {
+    "answer": "3 months ago",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_fcaf300162fc7c96953a"
+    ],
+    "support_source_ids": [
+      79
+    ],
+    "required_slots": [
+      {
+        "name": "date of photography workshop attendance",
+        "value": "2023-11-01",
+        "support_memory_ids": [
+          "m_fcaf300162fc7c96953a"
+        ],
+        "support_source_ids": [
+          79
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_months",
+      "operands": [
+        "2024-02-01",
+        "2023-11-01"
+      ],
+      "unit": "months",
+      "result": "3"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The photography workshop was attended on 2023-11-01 (source 79). The question date is 2024-02-01. The difference is 3 months."
+  },
+  "specialist_candidate": {
+    "answer": "3 months ago",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_fcaf300162fc7c96953a"
+    ],
+    "support_source_ids": [
+      79
+    ],
+    "required_slots": [
+      {
+        "name": "date of photography workshop attendance",
+        "value": "2023-11-01",
+        "support_memory_ids": [
+          "m_fcaf300162fc7c96953a"
+        ],
+        "support_source_ids": [
+          79
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "photography workshop",
+          "value": null,
+          "unit": "",
+          "date": "2023-11-01",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_fcaf300162fc7c96953a"
+          ],
+          "support_source_ids": [
+            79
+          ]
+        }
+      ],
+      "requested_unit": "months",
+      "result": "3"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The photography workshop was attended on 2023-11-01 (source 79). The question date is 2024-02-01. The difference is 3 months.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {
+    "answer": "3 months ago",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_fcaf300162fc7c96953a"
+    ],
+    "support_source_ids": [
+      79
+    ],
+    "operation_data": {
+      "type": "duration",
+      "items": [
+        {
+          "label": "photography workshop",
+          "value": null,
+          "unit": "",
+          "date": "2023-11-01",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_fcaf300162fc7c96953a"
+          ],
+          "support_source_ids": [
+            79
+          ]
+        }
+      ],
+      "requested_unit": "months",
+      "result": "3"
+    },
+    "confidence": 1.0,
+    "reason": "The photography workshop was attended on 2023-11-01 (source 79). The question date is 2024-02-01. The difference is 3 months.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": ""
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_2d41d3ac82c622a3695d",
+    "m_fcaf300162fc7c96953a",
+    "m_9cf1eab76062a6ab5bdf",
+    "m_b1d880440f0f79bba073",
+    "m_fd568a4809953cca8822",
+    "m_4ca79f2262988239ad3a",
+    "m_5737a293b63804cf35d9",
+    "m_070c4f86452a1c673841",
+    "m_d7dfcafb450a224f2e79",
+    "m_18da54863c4982a26d2f",
+    "m_c8c34f8b6e54deb1b9fd",
+    "m_eb891814dba3ce72233c",
+    "m_6c6c255ec651a6f1e2b9",
+    "m_e64d7b5359c9764596ba",
+    "m_725607d2bb4567417a5d",
+    "m_59b7a86a8ee88f365b3e",
+    "m_e3812bc596d895e17e37",
+    "m_8c5401883b0a5ff846e8",
+    "m_484c8ee4210ca3a5d2ae"
+  ],
+  "source_census_ids": [
+    84,
+    85,
+    76,
+    20,
+    79,
+    25,
+    41,
+    95,
+    121,
+    77,
+    86,
+    83
+  ],
+  "profile_memory_ids": [
+    "m_18da54863c4982a26d2f",
+    "m_2d41d3ac82c622a3695d",
+    "m_69f14dd61e451d255714",
+    "m_95a61532c7a776106245",
+    "m_9cf1eab76062a6ab5bdf",
+    "m_effc64ddc34f7d2b7f34",
+    "m_01b83fc288e8366d70d9",
+    "m_02285175c4ef014afa8d",
+    "m_0fcc474f5d19917ee0f7",
+    "m_14bf5c005deee9d329d2",
+    "m_1a7f4e1fdb189727aa6d",
+    "m_2884e75ba16ee16d662f"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "question_id": "bb7c3b45",
+  "question_type": "multi-session",
+  "question": "How much did I save on the Jimmy Choo heels?",
+  "question_date": "2023/05/30 (Tue) 23:31",
+  "gold_answer": "$300",
+  "prediction": "300",
+  "support_memory_ids": [
+    "m_a8eb775236f68ffad3ca",
+    "m_7b416d5560ea76d2c594"
+  ],
+  "support_source_ids": [
+    221,
+    78
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Original retail price $500 (memory m_a8eb775236f68ffad3ca, source 221) minus purchase price $200 (memory m_7b416d5560ea76d2c594, source 78) equals $300 saved.",
+  "required_slots": [
+    {
+      "name": "original_price",
+      "value": "500",
+      "support_memory_ids": [
+        "m_a8eb775236f68ffad3ca"
+      ],
+      "support_source_ids": [
+        221
+      ]
+    },
+    {
+      "name": "purchase_price",
+      "value": "200",
+      "support_memory_ids": [
+        "m_7b416d5560ea76d2c594"
+      ],
+      "support_source_ids": [
+        78
+      ]
+    },
+    {
+      "name": "savings_amount",
+      "value": "300",
+      "support_memory_ids": [
+        "m_a8eb775236f68ffad3ca",
+        "m_7b416d5560ea76d2c594"
+      ],
+      "support_source_ids": [
+        221,
+        78
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "other",
+  "operation_data": {},
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "p8",
+  "risk_reasons": [],
+  "contract": "direct_value",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

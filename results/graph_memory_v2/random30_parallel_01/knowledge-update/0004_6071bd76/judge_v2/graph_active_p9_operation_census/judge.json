@@ -1,0 +1,80 @@
+{
+  "question_id": "6071bd76",
+  "question_type": "knowledge-update",
+  "question": "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+  "question_date": "2023/07/30 (Sun) 05:53",
+  "gold_answer": "You switched to less water (5 ounces) per tablespoon of coffee.",
+  "prediction": "less water per tablespoon of coffee",
+  "support_memory_ids": [
+    "m_f4c802478fd10b33c52c",
+    "m_d09a2cc4c692616bf60f"
+  ],
+  "support_source_ids": [
+    7,
+    105
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Previous ratio was 1 tbsp per 6 oz water (Feb 2023), current ratio is 1 tbsp per 5 oz water (Jun 2023). Since 5 oz is less water than 6 oz for the same amount of coffee, the user switched to less water per tablespoon.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "operation_data": {
+    "type": "state_resolution",
+    "items": [
+      {
+        "label": "previous ratio",
+        "value": "1 tbsp per 6 oz water",
+        "unit": "",
+        "date": "2023-02-11",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_f4c802478fd10b33c52c"
+        ],
+        "support_source_ids": [
+          7
+        ]
+      },
+      {
+        "label": "current ratio",
+        "value": "1 tbsp per 5 oz water",
+        "unit": "",
+        "date": "2023-06-30",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_d09a2cc4c692616bf60f"
+        ],
+        "support_source_ids": [
+          105
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "less water per tablespoon of coffee"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "comparison_final_consistency_audit"
+  ],
+  "contract": "direct_value",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 49820,
+    "completion_tokens": 1044,
+    "elapsed_seconds": 9.30351996421814
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer: less water per tablespoon of coffee.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 159,
+    "completion_tokens": 28,
+    "elapsed_seconds": 0.9055538177490234
+  }
+}

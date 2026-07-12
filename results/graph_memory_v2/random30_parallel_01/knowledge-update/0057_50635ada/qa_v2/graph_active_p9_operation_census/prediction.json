@@ -1,0 +1,82 @@
+{
+  "question_id": "50635ada",
+  "question_type": "knowledge-update",
+  "question": "What was my previous frequent flyer status on United Airlines before I got the current status?",
+  "question_date": "2023/06/29 (Thu) 04:09",
+  "gold_answer": "Premier Silver",
+  "prediction": "Premier Silver",
+  "support_memory_ids": [
+    "m_7c50681107f4b578243b",
+    "m_afa3913a0942ce02a7bd"
+  ],
+  "support_source_ids": [
+    103,
+    232
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Current status is Premier Gold (as of 2023-05-30). Previous status was Premier Silver (as of 2022-09-16). No other statuses found between these dates.",
+  "required_slots": [
+    {
+      "name": "previous_status",
+      "value": "Premier Silver",
+      "support_memory_ids": [
+        "m_7c50681107f4b578243b"
+      ],
+      "support_source_ids": [
+        103
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "operation_data": {
+    "type": "state_resolution",
+    "items": [
+      {
+        "label": "current_status",
+        "value": "Premier Gold",
+        "unit": "",
+        "date": "2023-05-30T08:58:01",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_afa3913a0942ce02a7bd"
+        ],
+        "support_source_ids": [
+          232
+        ]
+      },
+      {
+        "label": "previous_status",
+        "value": "Premier Silver",
+        "unit": "",
+        "date": "2022-09-16T17:22:01.500000",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_7c50681107f4b578243b"
+        ],
+        "support_source_ids": [
+          103
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "Premier Silver"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 33378,
+    "completion_tokens": 581,
+    "elapsed_seconds": 5.980026960372925
+  }
+}

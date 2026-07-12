@@ -1,0 +1,100 @@
+{
+  "question_id": "gpt4_1d4ab0c9",
+  "question_type": "temporal-reasoning",
+  "question": "How many days passed between the day I started watering my herb garden and the day I harvested my first batch of fresh herbs?",
+  "question_date": "2023/04/18 (Tue) 10:43",
+  "gold_answer": "24 days. 25 days (including the last day) is also acceptable.",
+  "prediction": "24 days",
+  "support_memory_ids": [
+    "m_ce4d803830b3bb69f8db",
+    "m_e46b06b944edf380f752"
+  ],
+  "support_source_ids": [
+    61,
+    136
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "User started watering herb garden on 2023-03-22 and harvested first batch on 2023-04-15. The difference is 24 days.",
+  "required_slots": [
+    {
+      "name": "start date",
+      "value": "2023-03-22",
+      "support_memory_ids": [
+        "m_ce4d803830b3bb69f8db"
+      ],
+      "support_source_ids": [
+        61
+      ]
+    },
+    {
+      "name": "harvest date",
+      "value": "2023-04-15",
+      "support_memory_ids": [
+        "m_e46b06b944edf380f752"
+      ],
+      "support_source_ids": [
+        136
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "duration",
+  "operation_data": {
+    "type": "duration",
+    "items": [
+      {
+        "label": "start watering",
+        "value": "2023-03-22",
+        "unit": "day",
+        "date": "2023-03-22",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_ce4d803830b3bb69f8db"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      },
+      {
+        "label": "harvest",
+        "value": "2023-04-15",
+        "unit": "day",
+        "date": "2023-04-15",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_e46b06b944edf380f752"
+        ],
+        "support_source_ids": [
+          136
+        ]
+      }
+    ],
+    "requested_unit": "days",
+    "result": "24 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "specialist",
+  "risk_reasons": [
+    "audit_contract:duration"
+  ],
+  "contract": "duration",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 34436,
+    "completion_tokens": 639,
+    "elapsed_seconds": 6.681155443191528
+  },
+  "correct": true,
+  "judge_reason": "Deterministic duration equivalence.",
+  "judge_meta": {
+    "mode": "deterministic_duration_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

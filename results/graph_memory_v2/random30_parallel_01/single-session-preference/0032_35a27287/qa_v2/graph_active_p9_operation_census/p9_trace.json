@@ -1,0 +1,309 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "p8_abstained",
+    "p8_unfilled_slots",
+    "audit_contract:preference_criteria"
+  ],
+  "contract": "preference_criteria",
+  "expansion": {
+    "queries": [
+      "Can you recommend some interesting cultural events happening around me this weekend?",
+      "cultural events near me this weekend",
+      "my location",
+      "cultural interests",
+      "events I like",
+      "past cultural events I attended"
+    ],
+    "relation_verbs": [
+      "happening",
+      "located at",
+      "interested in",
+      "likes",
+      "attended",
+      "prefers"
+    ],
+    "entity_hints": [
+      "cultural events",
+      "user location",
+      "cultural interests",
+      "event preferences",
+      "past events",
+      "event types"
+    ],
+    "time_scope": {
+      "start": "2023-06-03",
+      "end": "2023-06-04",
+      "raw": "this weekend"
+    }
+  },
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operation": "preference_profile",
+    "slots": [
+      {
+        "name": "positive_preference_criteria",
+        "query": "Can you recommend some interesting cultural events happening around me this weekend?",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "negative_or_avoidance_criteria",
+        "query": "cultural events near me this weekend",
+        "semantic_type": "preference",
+        "required": false
+      },
+      {
+        "name": "relevant_past_experiences",
+        "query": "my location",
+        "semantic_type": "event",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "Can you recommend some interesting cultural events happening around me this weekend?",
+      "cultural events near me this weekend",
+      "my location",
+      "cultural interests",
+      "events I like",
+      "past cultural events I attended"
+    ],
+    "relation_verbs": [
+      "happening",
+      "located at",
+      "interested in",
+      "likes",
+      "attended",
+      "prefers"
+    ],
+    "entity_hints": [
+      "cultural events",
+      "user location",
+      "cultural interests",
+      "event preferences",
+      "past events",
+      "event types"
+    ],
+    "time_scope": {
+      "start": "2023-06-03",
+      "end": "2023-06-04",
+      "raw": "this weekend"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "user_location",
+        "value": "Cannot be determined from the conversation.",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user_location"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The user's location is not stored in any memory or source turn, so specific cultural events near the user this weekend cannot be recommended."
+  },
+  "p7_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_4af707e66f4f950767e0",
+      "m_c068ae39db0befb59e47"
+    ],
+    "support_source_ids": [
+      204,
+      209
+    ],
+    "required_slots": [
+      {
+        "name": "user_location",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user_location"
+    ],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "User asks for cultural events this weekend (June 3-4, 2023). User's location is unknown and required. User has expressed interest in cultural events celebrating language diversity and cultural exchange, and specifically in French and Spanish language exchange events. These preferences are grounded in memories m_4af707e66f4f950767e0 and m_c068ae39db0befb59e47. Without location, cannot retrieve events. Answer is not answerable until location is provided."
+  },
+  "p8_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_4af707e66f4f950767e0",
+      "m_c068ae39db0befb59e47"
+    ],
+    "support_source_ids": [
+      204,
+      209
+    ],
+    "required_slots": [
+      {
+        "name": "user_location",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user_location"
+    ],
+    "operation": "preference_inference",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "User asked for cultural events this weekend. Evidence shows user is interested in cultural events celebrating language diversity and cultural exchange, and specifically French and Spanish language exchange events. However, user location is unknown, which is required to find local events. Therefore, answer is not yet possible; need to ask for location."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_4af707e66f4f950767e0",
+      "m_c068ae39db0befb59e47"
+    ],
+    "support_source_ids": [
+      204,
+      209
+    ],
+    "required_slots": [
+      {
+        "name": "user_location",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "user_location"
+    ],
+    "operation_data": {
+      "type": "preference_profile",
+      "items": [
+        {
+          "label": "cultural events celebrating language diversity and cultural exchange",
+          "value": null,
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_4af707e66f4f950767e0"
+          ],
+          "support_source_ids": [
+            204
+          ]
+        },
+        {
+          "label": "French and Spanish language exchange events",
+          "value": null,
+          "unit": "",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_c068ae39db0befb59e47"
+          ],
+          "support_source_ids": [
+            209
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": ""
+    },
+    "coverage": {
+      "complete": false,
+      "possible_omissions": [
+        "user_location"
+      ],
+      "reason": "User location is required to find local events."
+    },
+    "confidence": 0.2,
+    "reasoning_summary": "User asked for cultural events this weekend. Evidence shows interest in language diversity and cultural exchange events, especially French and Spanish. However, user location is unknown, which is necessary to retrieve local events. Therefore, answer is not answerable until location is provided.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_4af707e66f4f950767e0",
+    "m_c068ae39db0befb59e47",
+    "m_173fa2488c6880badd23",
+    "m_76e63b5db255727c9c4c",
+    "m_726c466e3a3b662af8ab",
+    "m_335c2a6c0a39cbcba3ca",
+    "m_b03ff7d848734ec0b950",
+    "m_949edae725c3cdaeca51",
+    "m_234c44409ce541f1c092",
+    "m_11218ef3d0eecfea38c4",
+    "m_77a4693928ff26d339ed",
+    "m_341cc27b538ded618af2",
+    "m_8463bb3e67bc90d010f1",
+    "m_2747737cf6d80759fb0b",
+    "m_d401ed36ceb56759c26b",
+    "m_22ecdc1a160dc2cbe811",
+    "m_545e1dc50051b15ae468",
+    "m_52ceed51a377eccc9710",
+    "m_8f90b21fc68e980b1be5",
+    "m_9dcbfcca8c627ffa1802",
+    "m_b257b00cd3b700133c65",
+    "m_03c9e907c775f2804074"
+  ],
+  "source_census_ids": [
+    204,
+    209,
+    206,
+    126,
+    218,
+    129,
+    160,
+    229,
+    207,
+    108,
+    208,
+    205,
+    203,
+    232
+  ],
+  "profile_memory_ids": [
+    "m_fe8a3609efe6fec07b58",
+    "m_1eb5e738f488f3497e33",
+    "m_248f77f5480cc0a90b44",
+    "m_341cc27b538ded618af2",
+    "m_3f6960c79802d2eabd26",
+    "m_c64a3cb96d74b6ffa672",
+    "m_e7442abcb1446cd988ea",
+    "m_03c9e907c775f2804074",
+    "m_11218ef3d0eecfea38c4",
+    "m_13aac364baeee71dcc16",
+    "m_168146da5302a8cd97c0",
+    "m_1e5fb076d24b8a0b9e5b"
+  ]
+}

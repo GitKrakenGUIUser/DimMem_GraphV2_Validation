@@ -1,0 +1,124 @@
+{
+  "audited": false,
+  "risk_reasons": [],
+  "contract": "direct_value",
+  "expansion": {},
+  "plan": {},
+  "p5_candidate": {
+    "answer": "6:45 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_199b17d52ee77ff7375a",
+      "m_666c34dad79983703db0"
+    ],
+    "support_source_ids": [
+      47,
+      212
+    ],
+    "required_slots": [
+      {
+        "name": "wake_up_time",
+        "value": "6:45 AM",
+        "support_memory_ids": [
+          "m_199b17d52ee77ff7375a",
+          "m_666c34dad79983703db0"
+        ],
+        "support_source_ids": [
+          47,
+          212
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "time_add",
+    "calculation": {
+      "operator": "time_add_minutes",
+      "operands": [
+        "7:00 AM",
+        -15
+      ],
+      "unit": "minutes",
+      "result": "6:45 AM"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User wakes up at 7:00 AM on regular days (source 47). On Tuesdays and Thursdays, user wakes up 15 minutes earlier for meditation and yoga (source 212). Therefore, wake-up time on those days is 6:45 AM."
+  },
+  "p7_candidate": {
+    "answer": "6:45 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_666c34dad79983703db0",
+      "m_199b17d52ee77ff7375a"
+    ],
+    "support_source_ids": [
+      212,
+      47
+    ],
+    "required_slots": [
+      {
+        "name": "wake_up_time",
+        "value": "6:45 AM",
+        "support_memory_ids": [
+          "m_666c34dad79983703db0",
+          "m_199b17d52ee77ff7375a"
+        ],
+        "support_source_ids": [
+          212,
+          47
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User's general wake-up time is 7:00 AM (source 47). On Tuesdays and Thursdays, user wakes up 15 minutes earlier (source 212). 7:00 AM minus 15 minutes = 6:45 AM."
+  },
+  "p8_candidate": {
+    "answer": "6:45 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_666c34dad79983703db0",
+      "m_199b17d52ee77ff7375a"
+    ],
+    "support_source_ids": [
+      212,
+      47
+    ],
+    "required_slots": [
+      {
+        "name": "wake_up_time",
+        "value": "6:45 AM",
+        "support_memory_ids": [
+          "m_666c34dad79983703db0",
+          "m_199b17d52ee77ff7375a"
+        ],
+        "support_source_ids": [
+          212,
+          47
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User's general wake-up time is 7:00 AM (source 47). On Tuesdays and Thursdays, user wakes up 15 minutes earlier (source 212). 7:00 AM minus 15 minutes = 6:45 AM."
+  },
+  "specialist_candidate": {},
+  "adjudicated_candidate": {},
+  "choice": "p8",
+  "v2_census_memory_ids": [],
+  "source_census_ids": [],
+  "profile_memory_ids": []
+}

@@ -1,0 +1,377 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:sum"
+  ],
+  "contract": "sum",
+  "expansion": {
+    "queries": [
+      "How much total money did I spend on attending workshops in the last four months?",
+      "workshop expenses last four months",
+      "workshop attendance costs",
+      "total workshop spending",
+      "workshop fees paid",
+      "workshop registration costs"
+    ],
+    "relation_verbs": [
+      "spent on",
+      "paid for",
+      "attended",
+      "cost of",
+      "fees for",
+      "expenses for"
+    ],
+    "entity_hints": [
+      "workshop",
+      "seminar",
+      "training",
+      "course",
+      "conference",
+      "event"
+    ],
+    "time_scope": {
+      "start": "2022-10-26",
+      "end": "2023-02-26",
+      "raw": "last four months"
+    }
+  },
+  "plan": {
+    "answer_contract": "sum",
+    "operation": "sum_by_group",
+    "slots": [
+      {
+        "name": "candidate_entities_or_groups",
+        "query": "How much total money did I spend on attending workshops in the last four months?",
+        "semantic_type": "entity",
+        "required": true
+      },
+      {
+        "name": "numeric_values_for_each_candidate",
+        "query": "workshop expenses last four months",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How much total money did I spend on attending workshops in the last four months?",
+      "workshop expenses last four months",
+      "workshop attendance costs",
+      "total workshop spending",
+      "workshop fees paid",
+      "workshop registration costs"
+    ],
+    "relation_verbs": [
+      "spent on",
+      "paid for",
+      "attended",
+      "cost of",
+      "fees for",
+      "expenses for"
+    ],
+    "entity_hints": [
+      "workshop",
+      "seminar",
+      "training",
+      "course",
+      "conference",
+      "event"
+    ],
+    "time_scope": {
+      "start": "2022-10-26",
+      "end": "2023-02-26",
+      "raw": "last four months"
+    }
+  },
+  "p5_candidate": {
+    "answer": "720 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2ff5299fb32b98fa3d4b",
+      "m_68660c87a1b83d2b4ef7",
+      "m_b83d9455e5e17610946d"
+    ],
+    "support_source_ids": [
+      122,
+      105,
+      128
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        200,
+        20,
+        500
+      ],
+      "unit": "dollars",
+      "result": "720 dollars"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The question asks for total money spent on workshops in the last four months. The current date is 2023-02-26, so the last four months are November 2022 to February 2023. The user attended five workshops in the last three months (as of Feb 26), but only three have explicit costs: writing workshop in November ($200), mindfulness workshop on Dec 12 ($20), and digital marketing workshop on March 15-16 ($500). The March workshop is outside the four-month window (March is after February), so it should be excluded. However, the digital marketing workshop is mentioned as 'recently' and on March 15-16, which is after the current date? Actually, the current date is Feb 26, 2023, so March 15-16 is in the future. That seems inconsistent. But the source says 'I just attended a digital marketing workshop at the city convention center on March 15-16' on Feb 26, which is impossible. Likely a data inconsistency. Assuming the workshop dates are correct, the March workshop is not within the last four months from Feb 26. The last four months would be Nov 2022, Dec 2022, Jan 2023, Feb 2023. The writing workshop in Nov ($200) and mindfulness workshop in Dec ($20) are within that period. The entrepreneurship workshop in Jan has no cost. The photography workshop on Feb 22 was free. The digital marketing workshop in March is outside. So total is $220. But the candidate answer says cannot be determined. However, we have costs for two workshops within the period. The user also mentioned five workshops, but only three have costs, and one of those (digital marketing) is outside the period. So we can sum the two known costs: $200 + $20 = $220. The answer should be $220. But the candidate answer says cannot be determined. I will correct it to $220."
+  },
+  "p7_candidate": {
+    "answer": "720 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2ff5299fb32b98fa3d4b",
+      "m_68660c87a1b83d2b4ef7",
+      "m_b83d9455e5e17610946d"
+    ],
+    "support_source_ids": [
+      122,
+      105,
+      128
+    ],
+    "required_slots": [
+      {
+        "name": "workshop attendance events with costs",
+        "value": "writing workshop Nov 2022 $200, mindfulness workshop Dec 12 $20, digital marketing workshop Mar 15-16 $500",
+        "support_memory_ids": [
+          "m_2ff5299fb32b98fa3d4b",
+          "m_68660c87a1b83d2b4ef7",
+          "m_b83d9455e5e17610946d"
+        ],
+        "support_source_ids": [
+          122,
+          105,
+          128
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        200,
+        20,
+        500
+      ],
+      "unit": "dollars",
+      "result": "720 dollars"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The question asks for total money spent on workshops in the last four months (2022-10-26 to 2023-02-26). Three workshops with costs fall within this period: writing workshop in Nov 2022 ($200), mindfulness workshop on Dec 12 ($20), and digital marketing workshop on Mar 15-16 ($500). However, the digital marketing workshop on Mar 15-16 is after the question date (2023-02-26), so it is excluded. The sum of $200 + $20 = $220."
+  },
+  "p8_candidate": {
+    "answer": "720 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2ff5299fb32b98fa3d4b",
+      "m_68660c87a1b83d2b4ef7",
+      "m_b83d9455e5e17610946d"
+    ],
+    "support_source_ids": [
+      122,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "workshop attendance events with costs",
+        "value": "writing workshop $200, mindfulness workshop $20, digital marketing workshop $500",
+        "support_memory_ids": [
+          "m_2ff5299fb32b98fa3d4b",
+          "m_68660c87a1b83d2b4ef7",
+          "m_b83d9455e5e17610946d"
+        ],
+        "support_source_ids": [
+          122,
+          105,
+          128
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        200,
+        20,
+        500
+      ],
+      "unit": "USD",
+      "result": "720 USD"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The question asks for total money spent on workshops in the last four months from 2023-02-26, i.e., from 2022-10-26 to 2023-02-26. Evidence shows three workshops with costs within this period: writing workshop in November 2022 ($200), mindfulness workshop on December 12, 2022 ($20), and digital marketing workshop on March 15-16, 2023 ($500). The photography workshop on February 22, 2023 was free, so $0. The digital marketing workshop on March 15-16 is after the question date? Wait, question date is 2023-02-26, so last four months would be 2022-10-26 to 2023-02-26. March 15-16 is after that, so it should not be included. However, the memory m_b83d9455e5e17610946d states March 15-16, 2023, which is after the question date. But the source timestamp is 2023-02-26, so the user mentioned it as 'recently attended' but the date is future? Possibly a mistake. To be safe, only include events with dates within the last four months from 2023-02-26. The writing workshop in November 2022 is within range (Nov 2022 is within Oct 26, 2022 to Feb 26, 2023). The mindfulness workshop on Dec 12, 2022 is within range. The digital marketing workshop on March 15-16, 2023 is after Feb 26, 2023, so not within last four months. However, the user said 'recently attended' on Feb 26, so maybe the date is incorrect? But the memory explicitly says March 15-16. To be consistent, I will exclude it. Also, the photography workshop on Feb 22, 2023 was free. So total = 200 + 20 = 220. But wait, there is also a digital marketing workshop mentioned without cost? The memory m_5f2797b9911532f91593 says $500 but no date. The memory m_b83d9455e5e17610946d has date March 15-16. So only two workshops with costs within the period. However, the user stated they attended five workshops in the last three months, but only three have costs mentioned. The other two (photography free, and another unknown) have no cost. So total = 200 + 20 = 220. But the answer from the plan expects sum. I will sum the known costs within the period: 200 + 20 = 220. However, the digital marketing workshop with $500 might be within the last four months if the date is interpreted differently? The memory says March 15-16, which is after Feb 26, so not included. But the source timestamp is Feb 26, so the user is talking about a future event? That seems odd. Perhaps the date is a mistake and it should be February? But I must use the evidence as given. So I will only include the two workshops with dates clearly within the period. Thus total = 220. But wait, the memory m_b83d9455e5e17610946d has source timestamp 2023-02-26, so the user mentioned it on that date, but the event date is March 15-16, which is future. So it should not be counted. Therefore, total = 220. However, the question says 'last four months' from the question date, which is 2023-02-26, so the period is 2022-10-26 to 2023-02-26. The writing workshop in November 2022 is within, the mindfulness workshop on Dec 12 is within, the photography workshop on Feb 22 is within but free, and the digital marketing workshop on March 15-16 is not within. So total = 200 + 20 = 220. But I also see a memory about a digital marketing workshop at city convention center paying $500 without a date? That memory (m_5f2797b9911532f91593) has no date, so cannot be included. So final answer is 220. However, the plan says 'sum' and the slots include 'workshop attendance events with costs'. I will output 220. But let me double-check: the memory m_b83d9455e5e17610946d has date March 15-16, which is after the question date, so it is not in the last four months. So I will not include it. Therefore, total = 220. I will set confidence to 1.0 because the evidence is clear. I will cite the two memories for the costs. The photography workshop is free, so no cost. So answer is 220."
+  },
+  "specialist_candidate": {
+    "answer": "220 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2ff5299fb32b98fa3d4b",
+      "m_68660c87a1b83d2b4ef7"
+    ],
+    "support_source_ids": [
+      122,
+      105
+    ],
+    "required_slots": [
+      {
+        "name": "workshop attendance events with costs",
+        "value": "writing workshop Nov 2022 $200, mindfulness workshop Dec 12 $20",
+        "support_memory_ids": [
+          "m_2ff5299fb32b98fa3d4b",
+          "m_68660c87a1b83d2b4ef7"
+        ],
+        "support_source_ids": [
+          122,
+          105
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "sum",
+      "items": [
+        {
+          "label": "writing workshop",
+          "value": 200,
+          "unit": "dollars",
+          "date": "2022-11-01",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_2ff5299fb32b98fa3d4b"
+          ],
+          "support_source_ids": [
+            122
+          ]
+        },
+        {
+          "label": "mindfulness workshop",
+          "value": 20,
+          "unit": "dollars",
+          "date": "2022-12-12",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_68660c87a1b83d2b4ef7"
+          ],
+          "support_source_ids": [
+            105
+          ]
+        }
+      ],
+      "requested_unit": "dollars",
+      "result": "220 dollars"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Only two workshops with explicit costs fall within the last four months (Nov 2022 to Feb 2023). The photography workshop was free, the entrepreneurship workshop has no cost, and the digital marketing workshop on March 15-16 is after the question date."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The question date is 2023-02-26, so the last four months are 2022-10-26 to 2023-02-26. Within this period, the user attended a writing workshop in November 2022 costing $200 and a mindfulness workshop on December 12, 2022 costing $20. The photography workshop on February 22, 2023 was free. The digital marketing workshop on March 15-16, 2023 is outside the period. The entrepreneurship workshop in January 2023 has no cost mentioned. Thus total spent is $200 + $20 = $220.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    }
+  },
+  "adjudicated_candidate": {
+    "answer": "220 dollars",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_2ff5299fb32b98fa3d4b",
+      "m_68660c87a1b83d2b4ef7"
+    ],
+    "support_source_ids": [
+      122,
+      105
+    ],
+    "operation_data": {
+      "type": "sum",
+      "items": [
+        {
+          "label": "writing workshop",
+          "value": 200,
+          "unit": "dollars",
+          "date": "2022-11-01",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_2ff5299fb32b98fa3d4b"
+          ],
+          "support_source_ids": [
+            122
+          ]
+        },
+        {
+          "label": "mindfulness workshop",
+          "value": 20,
+          "unit": "dollars",
+          "date": "2022-12-12",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_68660c87a1b83d2b4ef7"
+          ],
+          "support_source_ids": [
+            105
+          ]
+        }
+      ],
+      "requested_unit": "dollars",
+      "result": "220 dollars"
+    },
+    "confidence": 1.0,
+    "reason": "The question date is 2023-02-26, so the last four months are 2022-10-26 to 2023-02-26. Within this period, only two workshops have explicit costs: writing workshop in November 2022 ($200) and mindfulness workshop on December 12, 2022 ($20). The photography workshop on February 22, 2023 was free. The digital marketing workshop on March 15-16, 2023 is outside the period. The entrepreneurship workshop in January 2023 has no cost mentioned. Thus total spent is $200 + $20 = $220.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": ""
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_e5c2db82fbd4a89a8030",
+    "m_2ff5299fb32b98fa3d4b",
+    "m_b83d9455e5e17610946d",
+    "m_3a4ef300cbba61e00070",
+    "m_b7e88cac2094d48fb21f",
+    "m_e915cf823b60c2b5840c",
+    "m_5f2797b9911532f91593",
+    "m_68660c87a1b83d2b4ef7",
+    "m_2e736cf19f0b5163108a",
+    "m_a1eb64032cc62272ac4c",
+    "m_e7021707f0044897e5c9",
+    "m_b452e7d7452e6c1a5fa7",
+    "m_91412b16f9502762e8bd",
+    "m_992660eed4ddb8f24c1a",
+    "m_3db62e3cf22883d0e78f",
+    "m_a55e97d48db83fada287",
+    "m_879a54fe8a90a8cb89ef",
+    "m_84b22fe5bd2b1fc7960c",
+    "m_01c400b27543aacfd04c",
+    "m_17b57b9f510629130c06"
+  ],
+  "source_census_ids": [
+    149,
+    102,
+    105,
+    103,
+    124,
+    144,
+    148,
+    104,
+    101
+  ],
+  "profile_memory_ids": [
+    "m_84b22fe5bd2b1fc7960c",
+    "m_e5c2db82fbd4a89a8030",
+    "m_8874751f95ca99a5d3fa",
+    "m_093fecd1d12d4a2c9155",
+    "m_09af27d5d33c11b15402",
+    "m_1328ff5a4c9c76f4202a",
+    "m_17b57b9f510629130c06",
+    "m_1e3132f730ebddfc5b6b",
+    "m_2fdbadcc013499b3573f",
+    "m_3a6fbfce715dbfabe3e0",
+    "m_52d85c6a2291e7c179c1",
+    "m_71dd7c1c62b90578b007"
+  ]
+}

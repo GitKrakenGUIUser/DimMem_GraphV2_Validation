@@ -1,0 +1,57 @@
+{
+  "question_id": "45dc21b6",
+  "question_type": "knowledge-update",
+  "question": "How many of Emma's recipes have I tried out?",
+  "question_date": "2023/06/16 (Fri) 17:33",
+  "gold_answer": "3",
+  "prediction": "3",
+  "support_memory_ids": [
+    "m_6f3d02597a9de582946f"
+  ],
+  "support_source_ids": [
+    213
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Source 213 explicitly states 'I've tried out 3 of Emma's recipes so far'. Memory m_6f3d02597a9de582946f confirms 'User has tried 3 of Emma's recipes'. No contradictory evidence. Note: earlier source 66 mentions 'tried two', but later source 213 (more recent) updates to 3.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "direct",
+  "operation_data": {
+    "type": "direct",
+    "items": [
+      {
+        "label": "Emma's recipes tried",
+        "value": 3,
+        "unit": "recipes",
+        "date": "",
+        "status": "observed",
+        "support_memory_ids": [
+          "m_6f3d02597a9de582946f"
+        ],
+        "support_source_ids": [
+          213
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "3"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 51722,
+    "completion_tokens": 683,
+    "elapsed_seconds": 7.749884843826294
+  }
+}

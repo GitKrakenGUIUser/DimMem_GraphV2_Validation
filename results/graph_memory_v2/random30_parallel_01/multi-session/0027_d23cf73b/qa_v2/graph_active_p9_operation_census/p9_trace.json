@@ -1,0 +1,451 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many different cuisines have I learned to cook or tried out in the past few months?",
+      "cuisines I learned to cook",
+      "cuisines I tried out",
+      "new cuisines I cooked",
+      "cuisines I experimented with",
+      "types of food I cooked recently"
+    ],
+    "relation_verbs": [
+      "learned to cook",
+      "tried out",
+      "cooked",
+      "experimented with",
+      "sampled"
+    ],
+    "entity_hints": [
+      "cuisines",
+      "types of food",
+      "dishes"
+    ],
+    "time_scope": {
+      "start": "2023-02-28T00:00:00",
+      "end": "2023-05-30T16:04:00",
+      "raw": "past few months"
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many different cuisines have I learned to cook or tried out in the past few months?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "cuisines I learned to cook",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "cuisines I tried out",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "new cuisines I cooked",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many different cuisines have I learned to cook or tried out in the past few months?",
+      "cuisines I learned to cook",
+      "cuisines I tried out",
+      "new cuisines I cooked",
+      "cuisines I experimented with",
+      "types of food I cooked recently"
+    ],
+    "relation_verbs": [
+      "learned to cook",
+      "tried out",
+      "cooked",
+      "experimented with",
+      "sampled"
+    ],
+    "entity_hints": [
+      "cuisines",
+      "types of food",
+      "dishes"
+    ],
+    "time_scope": {
+      "start": "2023-02-28T00:00:00",
+      "end": "2023-05-30T16:04:00",
+      "raw": "past few months"
+    }
+  },
+  "p5_candidate": {
+    "answer": "5",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8148708b1d662b2a6be0",
+      "m_f25feb300a6e2053ac63",
+      "m_d345c51341abc9bb53f8",
+      "m_dd44015133834e17819b",
+      "m_f207b4dc2f8643bb03bc"
+    ],
+    "support_source_ids": [
+      102,
+      222,
+      167,
+      236,
+      235
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Ethiopian",
+        "Korean",
+        "Indian",
+        "Vegan",
+        "Fermentation (sauerkraut/kimchi)"
+      ],
+      "unit": "cuisines",
+      "result": "5"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "From memories and source turns within the past few months (Feb 28 to May 30, 2023), the user tried Ethiopian cuisine (source 102), Korean bibimbap (source 222), learned Indian cuisine (source 167), attended a vegan cuisine class (source 236), and attended a fermentation workshop making sauerkraut and kimchi (source 235). These represent 5 distinct cuisines: Ethiopian, Korean, Indian, Vegan, and Fermented foods (Korean/European)."
+  },
+  "p7_candidate": {
+    "answer": "4",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8148708b1d662b2a6be0",
+      "m_f25feb300a6e2053ac63",
+      "m_dd44015133834e17819b",
+      "m_f207b4dc2f8643bb03bc"
+    ],
+    "support_source_ids": [
+      102,
+      222,
+      236,
+      235
+    ],
+    "required_slots": [
+      {
+        "name": "cuisine_events",
+        "value": "Ethiopian, Korean, vegan, fermentation (sauerkraut/kimchi)",
+        "support_memory_ids": [
+          "m_8148708b1d662b2a6be0",
+          "m_f25feb300a6e2053ac63",
+          "m_dd44015133834e17819b",
+          "m_f207b4dc2f8643bb03bc"
+        ],
+        "support_source_ids": [
+          102,
+          222,
+          236,
+          235
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Ethiopian",
+        "Korean",
+        "vegan",
+        "fermentation (sauerkraut/kimchi)"
+      ],
+      "unit": "cuisines",
+      "result": "4"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From the memories, the user tried Ethiopian cuisine (source 102), tried Korean bibimbap (source 222), learned vegan cuisine (source 236), and learned fermentation making sauerkraut/kimchi (source 235). These are four distinct cuisines: Ethiopian, Korean, vegan, and fermented foods. All events occurred within the past few months relative to the question date (2023/05/30)."
+  },
+  "p8_candidate": {
+    "answer": "4",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8148708b1d662b2a6be0",
+      "m_f25feb300a6e2053ac63",
+      "m_dd44015133834e17819b",
+      "m_d345c51341abc9bb53f8"
+    ],
+    "support_source_ids": [
+      102,
+      222,
+      236,
+      167
+    ],
+    "required_slots": [
+      {
+        "name": "cuisine_events",
+        "value": "Ethiopian, Korean, Vegan, Indian",
+        "support_memory_ids": [
+          "m_8148708b1d662b2a6be0",
+          "m_f25feb300a6e2053ac63",
+          "m_dd44015133834e17819b",
+          "m_d345c51341abc9bb53f8"
+        ],
+        "support_source_ids": [
+          102,
+          222,
+          236,
+          167
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "Ethiopian",
+        "Korean",
+        "Vegan",
+        "Indian"
+      ],
+      "unit": "cuisines",
+      "result": "4"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From evidence, user tried Ethiopian restaurant (source 102), Korean bibimbap (source 222), attended vegan cuisine class (source 236), and learned Indian cuisine (source 167). These are four distinct cuisines in the past few months. Count distinct = 4."
+  },
+  "specialist_candidate": {
+    "answer": "4",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8148708b1d662b2a6be0",
+      "m_f25feb300a6e2053ac63",
+      "m_dd44015133834e17819b",
+      "m_d345c51341abc9bb53f8"
+    ],
+    "support_source_ids": [
+      102,
+      222,
+      236,
+      167
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [
+        {
+          "label": "Ethiopian",
+          "value": null,
+          "unit": "cuisine",
+          "date": "2023-05-24",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_8148708b1d662b2a6be0"
+          ],
+          "support_source_ids": [
+            102
+          ]
+        },
+        {
+          "label": "Korean",
+          "value": null,
+          "unit": "cuisine",
+          "date": "2023-05-29",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_f25feb300a6e2053ac63"
+          ],
+          "support_source_ids": [
+            222
+          ]
+        },
+        {
+          "label": "Vegan",
+          "value": null,
+          "unit": "cuisine",
+          "date": "2023-05-30",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_dd44015133834e17819b"
+          ],
+          "support_source_ids": [
+            236
+          ]
+        },
+        {
+          "label": "Indian",
+          "value": null,
+          "unit": "cuisine",
+          "date": "2023-05-26",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_d345c51341abc9bb53f8"
+          ],
+          "support_source_ids": [
+            167
+          ]
+        }
+      ],
+      "requested_unit": "cuisines",
+      "result": "4"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "All distinct cuisines mentioned in the past few months are captured."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "User tried Ethiopian restaurant (source 102), Korean bibimbap (source 222), attended vegan cuisine class (source 236), and learned Indian cuisine (source 167). These are four distinct cuisines. Fermentation workshop (source 235) is a technique, not a cuisine, so excluded.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {
+    "answer": "4",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_8148708b1d662b2a6be0",
+      "m_f25feb300a6e2053ac63",
+      "m_dd44015133834e17819b",
+      "m_d345c51341abc9bb53f8"
+    ],
+    "support_source_ids": [
+      102,
+      222,
+      236,
+      167
+    ],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [
+        {
+          "label": "Ethiopian",
+          "value": null,
+          "unit": "cuisine",
+          "date": "2023-05-24",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_8148708b1d662b2a6be0"
+          ],
+          "support_source_ids": [
+            102
+          ]
+        },
+        {
+          "label": "Korean",
+          "value": null,
+          "unit": "cuisine",
+          "date": "2023-05-29",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_f25feb300a6e2053ac63"
+          ],
+          "support_source_ids": [
+            222
+          ]
+        },
+        {
+          "label": "Vegan",
+          "value": null,
+          "unit": "cuisine",
+          "date": "2023-05-30",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_dd44015133834e17819b"
+          ],
+          "support_source_ids": [
+            236
+          ]
+        },
+        {
+          "label": "Indian",
+          "value": null,
+          "unit": "cuisine",
+          "date": "2023-05-26",
+          "status": "observed",
+          "support_memory_ids": [
+            "m_d345c51341abc9bb53f8"
+          ],
+          "support_source_ids": [
+            167
+          ]
+        }
+      ],
+      "requested_unit": "cuisines",
+      "result": "4"
+    },
+    "confidence": 1.0,
+    "reason": "The user tried Ethiopian cuisine (source 102), Korean bibimbap (source 222), attended a vegan cuisine class (source 236), and learned Indian cuisine (source 167). The fermentation workshop (source 235) is a technique, not a distinct cuisine, so it is excluded. Thus, 4 distinct cuisines.",
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "reasoning_summary": "",
+    "deterministic_finalizer_applied": true
+  },
+  "choice": "adjudicated",
+  "v2_census_memory_ids": [
+    "m_dd44015133834e17819b",
+    "m_8148708b1d662b2a6be0",
+    "m_d0e7db43781086c951e1",
+    "m_d345c51341abc9bb53f8",
+    "m_f207b4dc2f8643bb03bc",
+    "m_e4618eb72dd907142e0e",
+    "m_a6d9f71b16fa3a873e11",
+    "m_23687e97b9e88283e22c",
+    "m_f25feb300a6e2053ac63",
+    "m_fffe645ee893c5905da3",
+    "m_718cd82a93ed28d44385",
+    "m_abc33dcfc1a76866a572",
+    "m_a7a73e4daf0ec0ad695d",
+    "m_3112eaa65697fcf14db3",
+    "m_665ce8d914d45fc13206",
+    "m_aac460640b8639acf4a3",
+    "m_2038b9eaf57839394677",
+    "m_d580c6af70d335d38acb",
+    "m_0795cab011cd829dc056",
+    "m_dd861e1587e3f56725e1",
+    "m_9aaa01792ff83925773a",
+    "m_214bbcbedc6f99cbad2b"
+  ],
+  "source_census_ids": [
+    102,
+    222,
+    236,
+    167,
+    235,
+    12,
+    103,
+    226,
+    227,
+    223,
+    237
+  ],
+  "profile_memory_ids": [
+    "m_5d379ace1636a66e46d3",
+    "m_e1fc09fb6026986374b4",
+    "m_43b18229d12c3ee17a35",
+    "m_9516d30bde802b0a679d",
+    "m_97815cffa8f7f38827e7",
+    "m_d345c51341abc9bb53f8",
+    "m_f25feb300a6e2053ac63",
+    "m_fee58fc2d957e8a10c04",
+    "m_0528da3d0f63f43ec351",
+    "m_05db56873ebe7e96095b",
+    "m_114b1151a9a594e7ab0c",
+    "m_16f50839c27d61245802"
+  ]
+}

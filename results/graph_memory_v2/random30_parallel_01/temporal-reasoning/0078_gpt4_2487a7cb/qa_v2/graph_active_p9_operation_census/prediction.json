@@ -1,0 +1,72 @@
+{
+  "question_id": "gpt4_2487a7cb",
+  "question_type": "temporal-reasoning",
+  "question": "Which event did I attend first, the 'Effective Time Management' workshop or the 'Data Analysis using Python' webinar?",
+  "question_date": "2023/05/24 (Wed) 08:02",
+  "gold_answer": "'Data Analysis using Python' webinar",
+  "prediction": "Data Analysis using Python webinar",
+  "support_memory_ids": [
+    "m_409c03b67b8afd2e44f0",
+    "m_947d11f59187b18a8d78"
+  ],
+  "support_source_ids": [
+    214,
+    99
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The 'Data Analysis using Python' webinar occurred on 2023-03-24 (two months before the conversation date 2023-05-24), and the 'Effective Time Management' workshop occurred on 2023-05-20 (last Saturday). Since 2023-03-24 is earlier, the webinar was attended first.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "compare_dates",
+  "operation_data": {
+    "type": "compare_dates",
+    "items": [
+      {
+        "label": "Effective Time Management workshop",
+        "value": null,
+        "unit": "",
+        "date": "2023-05-20",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_409c03b67b8afd2e44f0"
+        ],
+        "support_source_ids": [
+          214
+        ]
+      },
+      {
+        "label": "Data Analysis using Python webinar",
+        "value": null,
+        "unit": "",
+        "date": "2023-03-24",
+        "status": "asserted",
+        "support_memory_ids": [
+          "m_947d11f59187b18a8d78"
+        ],
+        "support_source_ids": [
+          99
+        ]
+      }
+    ],
+    "requested_unit": "",
+    "result": "Data Analysis using Python webinar"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p9_operation_census",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "p5_name": "graph_active_p5_source_qa",
+  "p7_name": "graph_active_p7_adaptive_qa",
+  "p8_name": "graph_active_p8_lite_generic",
+  "p9_choice": "adjudicated",
+  "risk_reasons": [
+    "candidate_disagreement",
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "meta": {
+    "mode": "p9_operation_census",
+    "prompt_tokens": 55690,
+    "completion_tokens": 1010,
+    "elapsed_seconds": 9.564661026000977
+  }
+}

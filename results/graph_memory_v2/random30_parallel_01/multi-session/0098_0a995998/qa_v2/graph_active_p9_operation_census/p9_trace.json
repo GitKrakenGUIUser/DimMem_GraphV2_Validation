@@ -1,0 +1,343 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:enumerate_count"
+  ],
+  "contract": "enumerate_count",
+  "expansion": {
+    "queries": [
+      "How many items of clothing do I need to pick up or return from a store?",
+      "clothing items to pick up from store",
+      "clothing items to return to store",
+      "pending clothing pickup at store",
+      "pending clothing return at store",
+      "clothing order ready for pickup"
+    ],
+    "relation_verbs": [
+      "pick up",
+      "return",
+      "need to pick up",
+      "need to return",
+      "have to pick up",
+      "have to return"
+    ],
+    "entity_hints": [
+      "store",
+      "clothing",
+      "items",
+      "order",
+      "return"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "plan": {
+    "answer_contract": "enumerate_count",
+    "operation": "count_distinct",
+    "slots": [
+      {
+        "name": "complete_candidate_event_set",
+        "query": "How many items of clothing do I need to pick up or return from a store?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "clothing items to pick up from store",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "clothing items to return to store",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "complete_candidate_event_set",
+        "query": "pending clothing pickup at store",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "How many items of clothing do I need to pick up or return from a store?",
+      "clothing items to pick up from store",
+      "clothing items to return to store",
+      "pending clothing pickup at store",
+      "pending clothing return at store",
+      "clothing order ready for pickup"
+    ],
+    "relation_verbs": [
+      "pick up",
+      "return",
+      "need to pick up",
+      "need to return",
+      "have to pick up",
+      "have to return"
+    ],
+    "entity_hints": [
+      "store",
+      "clothing",
+      "items",
+      "order",
+      "return"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "",
+      "raw": ""
+    }
+  },
+  "p5_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_185ab5767158c64113a9",
+      "m_f1f396f50b9c8c374bf4"
+    ],
+    "support_source_ids": [
+      176,
+      61
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "pick up new pair of boots from Zara",
+        "pick up dry cleaning for navy blue blazer"
+      ],
+      "unit": "items",
+      "result": "2"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "From memory m_185ab5767158c64113a9 (source 176), user exchanged boots at Zara and needs to pick up the new pair. From memory m_f1f396f50b9c8c374bf4 (source 61), user needs to pick up dry cleaning for a navy blue blazer. Both are clothing items to pick up from a store. No return items are mentioned. Therefore, total items = 2."
+  },
+  "p7_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_185ab5767158c64113a9",
+      "m_f1f396f50b9c8c374bf4"
+    ],
+    "support_source_ids": [
+      176,
+      61
+    ],
+    "required_slots": [
+      {
+        "name": "pickup_items",
+        "value": "new pair of boots from Zara after exchange on 2/5",
+        "support_memory_ids": [
+          "m_185ab5767158c64113a9"
+        ],
+        "support_source_ids": [
+          176
+        ]
+      },
+      {
+        "name": "return_items",
+        "value": "dry cleaning for navy blue blazer",
+        "support_memory_ids": [
+          "m_f1f396f50b9c8c374bf4"
+        ],
+        "support_source_ids": [
+          61
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "new pair of boots from Zara after exchange on 2/5",
+        "dry cleaning for navy blue blazer"
+      ],
+      "unit": "items",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Two distinct clothing items need to be picked up or returned: a new pair of boots from Zara (pickup) and dry cleaning for a navy blue blazer (pickup). No return items are mentioned. Count = 2."
+  },
+  "p8_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_185ab5767158c64113a9",
+      "m_f1f396f50b9c8c374bf4"
+    ],
+    "support_source_ids": [
+      176,
+      61
+    ],
+    "required_slots": [
+      {
+        "name": "pickup_items",
+        "value": "new pair of boots from Zara after exchange on 2/5, dry cleaning for navy blue blazer",
+        "support_memory_ids": [
+          "m_185ab5767158c64113a9",
+          "m_f1f396f50b9c8c374bf4"
+        ],
+        "support_source_ids": [
+          176,
+          61
+        ]
+      },
+      {
+        "name": "return_items",
+        "value": "none",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "new pair of boots from Zara after exchange on 2/5",
+        "dry cleaning for navy blue blazer"
+      ],
+      "unit": "items",
+      "result": "2"
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From evidence, user needs to pick up new boots from Zara (memory m_185ab5767158c64113a9) and dry cleaning for navy blue blazer (memory m_f1f396f50b9c8c374bf4). No clothing items need to be returned. Total distinct clothing items to pick up or return = 2."
+  },
+  "specialist_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_185ab5767158c64113a9",
+      "m_f1f396f50b9c8c374bf4"
+    ],
+    "support_source_ids": [
+      176,
+      61
+    ],
+    "required_slots": [
+      {
+        "name": "pickup_items",
+        "value": "new pair of boots from Zara after exchange on 2/5, dry cleaning for navy blue blazer",
+        "support_memory_ids": [
+          "m_185ab5767158c64113a9",
+          "m_f1f396f50b9c8c374bf4"
+        ],
+        "support_source_ids": [
+          176,
+          61
+        ]
+      },
+      {
+        "name": "return_items",
+        "value": "none",
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "count_distinct",
+      "items": [
+        {
+          "label": "pick up new pair of boots from Zara",
+          "value": null,
+          "unit": "items",
+          "date": "2023-02-05",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_185ab5767158c64113a9"
+          ],
+          "support_source_ids": [
+            176
+          ]
+        },
+        {
+          "label": "pick up dry cleaning for navy blue blazer",
+          "value": null,
+          "unit": "items",
+          "date": "",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_f1f396f50b9c8c374bf4"
+          ],
+          "support_source_ids": [
+            61
+          ]
+        }
+      ],
+      "requested_unit": "items",
+      "result": "2"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "Two distinct clothing items need to be picked up: new boots from Zara and dry cleaning for a navy blue blazer. No return items are mentioned."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "From memory m_185ab5767158c64113a9 (source 176), user exchanged boots at Zara and needs to pick up the new pair. From memory m_f1f396f50b9c8c374bf4 (source 61), user needs to pick up dry cleaning for a navy blue blazer. Both are clothing items to pick up from a store. No return items are mentioned. Therefore, total items = 2.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_89826407f36b4db4afb9",
+    "m_a30a8e8d0f5bfe333b97",
+    "m_48a179a42ec528df681f",
+    "m_185ab5767158c64113a9",
+    "m_b43e8d6277c2f2d5b798",
+    "m_18f4e9e6007f8b741019",
+    "m_f1f396f50b9c8c374bf4",
+    "m_0b015ed5d8a261feee69",
+    "m_b2521f85f506e9f9445a",
+    "m_fdf6460ede296dbc4a9e",
+    "m_190843f1724af2b2b363",
+    "m_6a73bf35f1f4024c3757",
+    "m_a1d19ae103a14687ad1b",
+    "m_692f4b73b802a5b8b176",
+    "m_fdc36d66d41ce9a2488d",
+    "m_b652f28763df12c92ee5",
+    "m_60532ed9bad39b20eda8",
+    "m_82de75c397e8a925af04"
+  ],
+  "source_census_ids": [
+    176,
+    242,
+    65,
+    61,
+    142,
+    110,
+    66,
+    123,
+    108,
+    64,
+    143,
+    175,
+    177
+  ],
+  "profile_memory_ids": [
+    "m_185ab5767158c64113a9",
+    "m_eee0e77d41596643214c",
+    "m_0b015ed5d8a261feee69",
+    "m_b43e8d6277c2f2d5b798",
+    "m_019024243bd7e1417a70",
+    "m_4849287ee258b84c3272",
+    "m_48a179a42ec528df681f",
+    "m_57b2e4510428d78a426e",
+    "m_692f4b73b802a5b8b176",
+    "m_814b89ae3e82a17265f5",
+    "m_84eb8945b982ea3dc714",
+    "m_89826407f36b4db4afb9"
+  ]
+}

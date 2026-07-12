@@ -1,0 +1,269 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:state_resolution"
+  ],
+  "contract": "state_resolution",
+  "expansion": {
+    "queries": [
+      "What book am I currently reading?",
+      "currently reading book",
+      "reading book now",
+      "book I am reading",
+      "current book",
+      "what book are you reading"
+    ],
+    "relation_verbs": [
+      "reading",
+      "is reading",
+      "am reading",
+      "are reading"
+    ],
+    "entity_hints": [
+      "user",
+      "book"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T18:40:00",
+      "raw": "currently"
+    }
+  },
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operation": "state_resolution",
+    "slots": [
+      {
+        "name": "state_history",
+        "query": "What book am I currently reading?",
+        "semantic_type": "state",
+        "required": true
+      },
+      {
+        "name": "latest_valid_state",
+        "query": "currently reading book",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What book am I currently reading?",
+      "currently reading book",
+      "reading book now",
+      "book I am reading",
+      "current book",
+      "what book are you reading"
+    ],
+    "relation_verbs": [
+      "reading",
+      "is reading",
+      "am reading",
+      "are reading"
+    ],
+    "entity_hints": [
+      "user",
+      "book"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-05-30T18:40:00",
+      "raw": "currently"
+    }
+  },
+  "p5_candidate": {
+    "answer": "The Seven Husbands of Evelyn Hugo",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a439e5a7f9668907c68c"
+    ],
+    "support_source_ids": [
+      54
+    ],
+    "required_slots": [
+      {
+        "name": "book_title",
+        "value": "The Seven Husbands of Evelyn Hugo",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-23 that they are currently reading 'The Seven Husbands of Evelyn Hugo'. This fact is stored in memory m_a439e5a7f9668907c68c and confirmed by source turn 54. No later update contradicts this, so it remains the current book."
+  },
+  "p7_candidate": {
+    "answer": "The Seven Husbands of Evelyn Hugo",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a439e5a7f9668907c68c"
+    ],
+    "support_source_ids": [
+      54
+    ],
+    "required_slots": [
+      {
+        "name": "book_title",
+        "value": "The Seven Husbands of Evelyn Hugo",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "On 2023-05-23, user stated they are currently reading 'The Seven Husbands of Evelyn Hugo'. No later update contradicts this, so the state is still active as of 2023-05-30."
+  },
+  "p8_candidate": {
+    "answer": "The Seven Husbands of Evelyn Hugo",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a439e5a7f9668907c68c"
+    ],
+    "support_source_ids": [
+      54
+    ],
+    "required_slots": [
+      {
+        "name": "book_title",
+        "value": "The Seven Husbands of Evelyn Hugo",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "The state key 'user.currently_reading' with value 'The Seven Husbands of Evelyn Hugo' is active and valid from 2023-05-23, which is before the question date. No superseding state exists, so this is the current book."
+  },
+  "specialist_candidate": {
+    "answer": "The Seven Husbands of Evelyn Hugo",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_a439e5a7f9668907c68c"
+    ],
+    "support_source_ids": [
+      54
+    ],
+    "required_slots": [
+      {
+        "name": "book_title",
+        "value": "The Seven Husbands of Evelyn Hugo",
+        "support_memory_ids": [
+          "m_a439e5a7f9668907c68c"
+        ],
+        "support_source_ids": [
+          54
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "state_resolution",
+      "items": [
+        {
+          "label": "currently reading",
+          "value": "The Seven Husbands of Evelyn Hugo",
+          "unit": "",
+          "date": "2023-05-23",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_a439e5a7f9668907c68c"
+          ],
+          "support_source_ids": [
+            54
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "The Seven Husbands of Evelyn Hugo"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": "The state 'user.currently_reading' with value 'The Seven Husbands of Evelyn Hugo' was set on 2023-05-23 and remains active with no superseding state."
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "On 2023-05-23, user stated they are currently reading 'The Seven Husbands of Evelyn Hugo'. No later update contradicts this, so it is the current book as of 2023-05-30.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_120296a1adc9ebd881bb",
+    "m_a439e5a7f9668907c68c",
+    "m_4c2693c04f7aa1e70a24",
+    "m_aacc95c34d7214c2c231",
+    "m_28ef5c60fce2c9266fac",
+    "m_f87fef9b902647b5905f",
+    "m_5cd5a4629c6c8239a88c",
+    "m_82df306ca40e0b728b2c",
+    "m_be5b355ecd7658c3aa54",
+    "m_c1c4bb1c02ad2ce6db95",
+    "m_05a7edd52e8be8d3729e",
+    "m_1703f497db342edb9451",
+    "m_9b3d5e7097c3485fc879",
+    "m_1cf77f8dc0e512e8321b",
+    "m_a026de6fd75fe63bf0b0",
+    "m_f6a324410e3e101e3bb3",
+    "m_8d49e3b10515e5be1eae",
+    "m_fc803b9e2b395667aad9"
+  ],
+  "source_census_ids": [
+    56,
+    58,
+    55,
+    54,
+    57,
+    59
+  ],
+  "profile_memory_ids": [
+    "m_a439e5a7f9668907c68c",
+    "m_14315f2a2f52ca37f0b1",
+    "m_1703f497db342edb9451",
+    "m_1cf77f8dc0e512e8321b",
+    "m_766896c4a5a295f2c76b",
+    "m_9b3d5e7097c3485fc879",
+    "m_a026de6fd75fe63bf0b0",
+    "m_f6a324410e3e101e3bb3",
+    "m_f87fef9b902647b5905f",
+    "m_fc803b9e2b395667aad9",
+    "m_03aefc254228146a64e9",
+    "m_04991bd72af34e599a56"
+  ]
+}

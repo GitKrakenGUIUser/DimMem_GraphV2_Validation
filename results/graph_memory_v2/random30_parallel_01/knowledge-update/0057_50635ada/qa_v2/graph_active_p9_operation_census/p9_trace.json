@@ -1,0 +1,334 @@
+{
+  "audited": true,
+  "risk_reasons": [
+    "audit_contract:comparison"
+  ],
+  "contract": "comparison",
+  "expansion": {
+    "queries": [
+      "What was my previous frequent flyer status on United Airlines before I got the current status?",
+      "previous United Airlines frequent flyer status",
+      "United Airlines status before current",
+      "prior frequent flyer status United",
+      "old United Airlines elite status",
+      "United Airlines status history"
+    ],
+    "relation_verbs": [
+      "was",
+      "had",
+      "held",
+      "preceded"
+    ],
+    "entity_hints": [
+      "United Airlines",
+      "frequent flyer status",
+      "elite status",
+      "MileagePlus status"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-06-29T04:09:00",
+      "raw": "before current status"
+    }
+  },
+  "plan": {
+    "answer_contract": "comparison",
+    "operation": "compare_dates",
+    "slots": [
+      {
+        "name": "first_comparison_side",
+        "query": "What was my previous frequent flyer status on United Airlines before I got the current status?",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "second_comparison_side",
+        "query": "previous United Airlines frequent flyer status",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What was my previous frequent flyer status on United Airlines before I got the current status?",
+      "previous United Airlines frequent flyer status",
+      "United Airlines status before current",
+      "prior frequent flyer status United",
+      "old United Airlines elite status",
+      "United Airlines status history"
+    ],
+    "relation_verbs": [
+      "was",
+      "had",
+      "held",
+      "preceded"
+    ],
+    "entity_hints": [
+      "United Airlines",
+      "frequent flyer status",
+      "elite status",
+      "MileagePlus status"
+    ],
+    "time_scope": {
+      "start": "",
+      "end": "2023-06-29T04:09:00",
+      "raw": "before current status"
+    }
+  },
+  "p5_candidate": {
+    "answer": "Premier Silver",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_7c50681107f4b578243b"
+    ],
+    "support_source_ids": [
+      103
+    ],
+    "required_slots": [
+      {
+        "name": "previous_status",
+        "value": "Premier Silver",
+        "support_memory_ids": [
+          "m_7c50681107f4b578243b"
+        ],
+        "support_source_ids": [
+          103
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated they hit 20,000 miles and became eligible for Premier Silver status on 2022-09-16. Later, on 2023-05-30, they mentioned having Premier Gold status. Therefore, the previous status before the current Gold was Premier Silver."
+  },
+  "p7_candidate": {
+    "answer": "Premier Silver",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_7c50681107f4b578243b",
+      "m_afa3913a0942ce02a7bd"
+    ],
+    "support_source_ids": [
+      103,
+      232
+    ],
+    "required_slots": [
+      {
+        "name": "current_status",
+        "value": "Premier Gold",
+        "support_memory_ids": [
+          "m_afa3913a0942ce02a7bd"
+        ],
+        "support_source_ids": [
+          232
+        ]
+      },
+      {
+        "name": "status_change_date",
+        "value": "2023-05-30T08:58:01",
+        "support_memory_ids": [
+          "m_afa3913a0942ce02a7bd"
+        ],
+        "support_source_ids": [
+          232
+        ]
+      },
+      {
+        "name": "previous_status",
+        "value": "Premier Silver",
+        "support_memory_ids": [
+          "m_7c50681107f4b578243b"
+        ],
+        "support_source_ids": [
+          103
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "User stated Premier Silver status on 2022-09-16 (source 103) and later stated Premier Gold status on 2023-05-30 (source 232). Since the question date is 2023/06/29, the current status is Premier Gold, and the previous status before that is Premier Silver."
+  },
+  "p8_candidate": {
+    "answer": "Premier Silver",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_7c50681107f4b578243b",
+      "m_afa3913a0942ce02a7bd"
+    ],
+    "support_source_ids": [
+      103,
+      232
+    ],
+    "required_slots": [
+      {
+        "name": "current_status",
+        "value": "Premier Gold",
+        "support_memory_ids": [
+          "m_afa3913a0942ce02a7bd"
+        ],
+        "support_source_ids": [
+          232
+        ]
+      },
+      {
+        "name": "status_change_date",
+        "value": "2023-05-30T08:58:01",
+        "support_memory_ids": [
+          "m_afa3913a0942ce02a7bd"
+        ],
+        "support_source_ids": [
+          232
+        ]
+      },
+      {
+        "name": "previous_status",
+        "value": "Premier Silver",
+        "support_memory_ids": [
+          "m_7c50681107f4b578243b"
+        ],
+        "support_source_ids": [
+          103
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Current status is Premier Gold (as of 2023-05-30). Previous status was Premier Silver (as of 2022-09-16). No other statuses found between these dates."
+  },
+  "specialist_candidate": {
+    "answer": "Premier Silver",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_7c50681107f4b578243b",
+      "m_afa3913a0942ce02a7bd"
+    ],
+    "support_source_ids": [
+      103,
+      232
+    ],
+    "required_slots": [
+      {
+        "name": "previous_status",
+        "value": "Premier Silver",
+        "support_memory_ids": [
+          "m_7c50681107f4b578243b"
+        ],
+        "support_source_ids": [
+          103
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation_data": {
+      "type": "state_resolution",
+      "items": [
+        {
+          "label": "current_status",
+          "value": "Premier Gold",
+          "unit": "",
+          "date": "2023-05-30T08:58:01",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_afa3913a0942ce02a7bd"
+          ],
+          "support_source_ids": [
+            232
+          ]
+        },
+        {
+          "label": "previous_status",
+          "value": "Premier Silver",
+          "unit": "",
+          "date": "2022-09-16T17:22:01.500000",
+          "status": "asserted",
+          "support_memory_ids": [
+            "m_7c50681107f4b578243b"
+          ],
+          "support_source_ids": [
+            103
+          ]
+        }
+      ],
+      "requested_unit": "",
+      "result": "Premier Silver"
+    },
+    "coverage": {
+      "complete": true,
+      "possible_omissions": [],
+      "reason": ""
+    },
+    "confidence": 1.0,
+    "reasoning_summary": "Current status is Premier Gold (as of 2023-05-30). Previous status was Premier Silver (as of 2022-09-16). No other statuses found between these dates.",
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": []
+    },
+    "deterministic_finalizer_applied": true
+  },
+  "adjudicated_candidate": {},
+  "choice": "specialist",
+  "v2_census_memory_ids": [
+    "m_7c50681107f4b578243b",
+    "m_afa3913a0942ce02a7bd",
+    "m_34ee6962c82e52f75a61",
+    "m_6441a9360b42c3919c1b",
+    "m_cbc71ddde941576d8427",
+    "m_6f96ccf57df51f03d65a",
+    "m_982dad11d5b6fe241d16",
+    "m_1cf6197d5e92be961a42",
+    "m_7a67d03c5f5c04e1cd01",
+    "m_bea417f4e8c2be157052",
+    "m_03724ec72f659616c6bb",
+    "m_e86d46c5683003c416db",
+    "m_b43f0cc978afe816ab9e",
+    "m_5f21945d2bd91c9013fd",
+    "m_7ed272004510ef857ba2",
+    "m_eaeae3e3af23e03eea17",
+    "m_7e0bd38fda8ddd88a4ac",
+    "m_319b89f89e6166575c31"
+  ],
+  "source_census_ids": [
+    102,
+    103,
+    232,
+    231,
+    104,
+    105,
+    101,
+    233
+  ],
+  "profile_memory_ids": [
+    "m_7c50681107f4b578243b",
+    "m_db33dc25f61850ebb022",
+    "m_03724ec72f659616c6bb",
+    "m_34ee6962c82e52f75a61",
+    "m_6f96ccf57df51f03d65a",
+    "m_afa3913a0942ce02a7bd",
+    "m_cbc71ddde941576d8427",
+    "m_d0de9240de7d02e4e4fc",
+    "m_ea043c2310ce57c7cc0e",
+    "m_010d514fbbac47905ced",
+    "m_175c1f629683eb376b1d",
+    "m_1abfcf05eb5aaeb3b7e4"
+  ]
+}
