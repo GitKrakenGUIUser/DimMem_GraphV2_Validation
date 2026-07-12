@@ -1,0 +1,83 @@
+{
+  "question_id": "6d550036",
+  "question_type": "multi-session",
+  "question": "How many projects have I led or am currently leading?",
+  "question_date": "2023/05/30 (Tue) 23:32",
+  "gold_answer": "2",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_80b592d84861eb9fcaf1",
+    "m_28ec2b2b37043960e19c"
+  ],
+  "support_source_ids": [
+    185,
+    38
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "From memory m_80b592d84861eb9fcaf1 (source 185), user is currently leading a team of five engineers as a senior software engineer. From memory m_28ec2b2b37043960e19c (source 38), user previously led the data analysis team in a Marketing Research class project. These are two distinct projects where the user led or is leading. No other projects with a lead role are mentioned. Therefore, the count is 2.",
+  "required_slots": [
+    {
+      "name": "project_lead_count",
+      "value": "2",
+      "support_memory_ids": [
+        "m_80b592d84861eb9fcaf1",
+        "m_28ec2b2b37043960e19c"
+      ],
+      "support_source_ids": [
+        185,
+        38
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "leading a team of five engineers",
+      "led the data analysis team in Marketing Research class project"
+    ],
+    "unit": "projects",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    38,
+    185,
+    186,
+    202,
+    182,
+    179,
+    139,
+    135,
+    136,
+    178,
+    42,
+    175,
+    148,
+    72,
+    93,
+    77,
+    184,
+    96,
+    181,
+    183,
+    187,
+    140,
+    39,
+    138
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.279999999999999,
+    5.279999999999999
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 91590,
+    "completion_tokens": 850,
+    "elapsed_seconds": 9.57774305343628
+  }
+}

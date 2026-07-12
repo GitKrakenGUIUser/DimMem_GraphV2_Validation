@@ -1,0 +1,66 @@
+{
+  "question_id": "73d42213",
+  "question_type": "multi-session",
+  "question": "What time did I reach the clinic on Monday?",
+  "question_date": "2023/05/30 (Tue) 22:10",
+  "gold_answer": "9:00 AM",
+  "prediction": "9:00 AM",
+  "support_memory_ids": [
+    "m_111b444045716551ee69",
+    "m_f96d9a4cda486e8c5fd5"
+  ],
+  "support_source_ids": [
+    30,
+    233
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "User left home at 7 AM on Monday, May 15, 2023 (memory m_111b444045716551ee69). The travel time from home to the clinic is two hours (memory m_f96d9a4cda486e8c5fd5). Adding 2 hours to 7 AM gives 9 AM. Source 30 confirms leaving at 7 AM, and source 233 mentions the two-hour travel time. Therefore, the arrival time is 9:00 AM.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "addition",
+  "calculation": {
+    "operator": "add",
+    "operands": [
+      "7:00 AM",
+      "2 hours"
+    ],
+    "unit": "time",
+    "result": "9:00 AM"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    234,
+    233,
+    29,
+    218,
+    30,
+    229,
+    22,
+    190,
+    231,
+    205,
+    235,
+    253,
+    236,
+    38,
+    237,
+    52,
+    28,
+    31,
+    217,
+    219
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    0.0,
+    0.0
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 71962,
+    "completion_tokens": 715,
+    "elapsed_seconds": 21.86149311065674
+  }
+}

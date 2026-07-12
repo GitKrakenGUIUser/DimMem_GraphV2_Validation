@@ -1,0 +1,88 @@
+{
+  "question_id": "gpt4_1e4a8aeb",
+  "question_type": "temporal-reasoning",
+  "question": "How many days passed between the day I attended the gardening workshop and the day I planted the tomato saplings?",
+  "question_date": "2023/05/08 (Mon) 06:05",
+  "gold_answer": "6 days. 7 days (including the last day) is also acceptable.",
+  "prediction": "6 days",
+  "support_memory_ids": [
+    "m_5add21661ed386957261",
+    "m_a565b256775ecd2a25a6"
+  ],
+  "support_source_ids": [
+    197,
+    8
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The gardening workshop was attended on 2023-04-15 (source 8, memory m_a565b256775ecd2a25a6). The tomato saplings were planted on 2023-04-21 (source 197, memory m_5add21661ed386957261). The difference is 6 days.",
+  "required_slots": [
+    {
+      "name": "date of gardening workshop",
+      "value": "2023-04-15",
+      "support_memory_ids": [
+        "m_a565b256775ecd2a25a6"
+      ],
+      "support_source_ids": [
+        8
+      ]
+    },
+    {
+      "name": "date of planting tomato saplings",
+      "value": "2023-04-21",
+      "support_memory_ids": [
+        "m_5add21661ed386957261"
+      ],
+      "support_source_ids": [
+        197
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-04-15",
+      "2023-04-21"
+    ],
+    "unit": "days",
+    "result": "6 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    197,
+    199,
+    8,
+    211,
+    169,
+    10,
+    200,
+    213,
+    142,
+    173,
+    93,
+    99,
+    171,
+    214,
+    187,
+    198,
+    212,
+    201,
+    210,
+    9,
+    143
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    5.29,
+    5.29
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 91303,
+    "completion_tokens": 1127,
+    "elapsed_seconds": 10.625240087509155
+  }
+}

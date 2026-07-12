@@ -1,0 +1,102 @@
+[
+  {
+    "answer": "9 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9b55192edc9ec3e32707",
+      "m_6621c47f31a29be30637"
+    ],
+    "support_source_ids": [
+      132,
+      199
+    ],
+    "required_slots": [
+      {
+        "name": "date when user started using the new area rug",
+        "value": "2023-04-26",
+        "support_memory_ids": [
+          "m_9b55192edc9ec3e32707"
+        ],
+        "support_source_ids": [
+          132
+        ]
+      },
+      {
+        "name": "date when user rearranged living room furniture",
+        "value": "2023-05-05",
+        "support_memory_ids": [
+          "m_6621c47f31a29be30637"
+        ],
+        "support_source_ids": [
+          199
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-26",
+        "2023-05-05"
+      ],
+      "unit": "days",
+      "result": "9 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_9b55192edc9ec3e32707 (source 132) states user got the new area rug a month ago from 2023-05-26, i.e., 2023-04-26. Memory m_6621c47f31a29be30637 (source 199) states user rearranged furniture three weeks ago from 2023-05-26, i.e., 2023-05-05. The difference is 9 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  {
+    "answer": "9 days",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_9b55192edc9ec3e32707",
+      "m_6621c47f31a29be30637"
+    ],
+    "support_source_ids": [
+      132,
+      199
+    ],
+    "required_slots": [
+      {
+        "name": "date when user started using the new area rug",
+        "value": "2023-04-26",
+        "support_memory_ids": [
+          "m_9b55192edc9ec3e32707"
+        ],
+        "support_source_ids": [
+          132
+        ]
+      },
+      {
+        "name": "date when user rearranged living room furniture",
+        "value": "2023-05-05",
+        "support_memory_ids": [
+          "m_6621c47f31a29be30637"
+        ],
+        "support_source_ids": [
+          199
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "date_difference",
+    "calculation": {
+      "operator": "date_difference_days",
+      "operands": [
+        "2023-04-26",
+        "2023-05-05"
+      ],
+      "unit": "days",
+      "result": "9 days"
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "Memory m_9b55192edc9ec3e32707 (source 132) states user got the new area rug a month ago from 2023-05-26, i.e., 2023-04-26. Memory m_6621c47f31a29be30637 (source 199) states user rearranged furniture three weeks ago from 2023-05-26, i.e., 2023-05-05. The difference is 9 days.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  }
+]

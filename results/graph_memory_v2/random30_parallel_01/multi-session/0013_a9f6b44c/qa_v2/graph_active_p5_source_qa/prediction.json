@@ -1,0 +1,75 @@
+{
+  "question_id": "a9f6b44c",
+  "question_type": "multi-session",
+  "question": "How many bikes did I service or plan to service in March?",
+  "question_date": "2023/03/20 (Mon) 23:57",
+  "gold_answer": "2",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_10104622f0197a9592c5",
+    "m_1c77cf201b58ed97e8fb",
+    "m_da8bbb1a4d2962c3f79e",
+    "m_310cf20356f45588c744",
+    "m_221d5e6d610f9d779b49"
+  ],
+  "support_source_ids": [
+    188,
+    91,
+    94,
+    191,
+    69
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "User had road bike serviced at Pedal Power on March 10 (memories m_10104622f0197a9592c5, m_310cf20356f45588c744). User also planned to replace front tire of commuter bike in March (memory m_221d5e6d610f9d779b49). Chain cleaning/lubrication on March 2 and 22 are maintenance but not 'service' in the sense of professional service or planned service. Thus, 2 bikes: road bike serviced, commuter bike planned for tire replacement.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "road bike serviced on March 10",
+      "commuter bike tire replacement planned in March"
+    ],
+    "unit": "bikes",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    3,
+    91,
+    142,
+    4,
+    191,
+    188,
+    112,
+    72,
+    69,
+    94,
+    73,
+    70,
+    172,
+    147,
+    35,
+    93,
+    46,
+    146,
+    95,
+    192,
+    92,
+    189,
+    190
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    7.68,
+    7.68
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 84235,
+    "completion_tokens": 942,
+    "elapsed_seconds": 10.516174554824829
+  }
+}

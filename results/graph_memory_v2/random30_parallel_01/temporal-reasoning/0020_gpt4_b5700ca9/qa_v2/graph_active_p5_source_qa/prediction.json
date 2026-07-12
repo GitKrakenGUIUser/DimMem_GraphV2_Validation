@@ -1,0 +1,76 @@
+{
+  "question_id": "gpt4_b5700ca9",
+  "question_type": "temporal-reasoning",
+  "question": "How many days ago did I attend the Maundy Thursday service at the Episcopal Church?",
+  "question_date": "2023/04/10 (Mon) 10:28",
+  "gold_answer": "4 days.",
+  "prediction": "4 days",
+  "support_memory_ids": [
+    "m_35b6d2e057feecf3049e"
+  ],
+  "support_source_ids": [
+    116
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "Memory m_35b6d2e057feecf3049e and source 116 confirm the user attended Maundy Thursday service at the Episcopal Church on 2023-04-06. The question date is 2023-04-10. The difference is 4 days.",
+  "required_slots": [
+    {
+      "name": "attendance date",
+      "value": "2023-04-06",
+      "support_memory_ids": [
+        "m_35b6d2e057feecf3049e"
+      ],
+      "support_source_ids": [
+        116
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "date_difference",
+  "calculation": {
+    "operator": "date_difference_days",
+    "operands": [
+      "2023-04-06",
+      "2023-04-10"
+    ],
+    "unit": "days",
+    "result": "4 days"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "source_evidence_ids": [
+    116,
+    117,
+    118,
+    69,
+    229,
+    210,
+    12,
+    88,
+    167,
+    178,
+    113,
+    126,
+    115,
+    208,
+    56,
+    209,
+    179,
+    166,
+    70,
+    168,
+    127
+  ],
+  "candidate_count": 2,
+  "candidate_scores": [
+    4.490000000000001,
+    4.490000000000001
+  ],
+  "meta": {
+    "mode": "source_qa_v4",
+    "prompt_tokens": 81399,
+    "completion_tokens": 700,
+    "elapsed_seconds": 7.386083126068115
+  }
+}
