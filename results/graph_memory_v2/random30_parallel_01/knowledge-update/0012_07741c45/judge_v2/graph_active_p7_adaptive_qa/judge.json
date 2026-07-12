@@ -1,0 +1,83 @@
+{
+  "question_id": "07741c45",
+  "question_type": "knowledge-update",
+  "question": "Where do I currently keep my old sneakers?",
+  "question_date": "2023/06/23 (Fri) 07:31",
+  "gold_answer": "in a shoe rack in my closet",
+  "prediction": "under the bed",
+  "support_memory_ids": [
+    "m_e23eee8bea7ab56e0ac9"
+  ],
+  "support_source_ids": [
+    16
+  ],
+  "confidence": 0.95,
+  "reasoning_summary": "The user stated on 2023-05-25 that they keep old sneakers under the bed. Later plans (2023-05-29) to move them to a shoe rack are projected but not confirmed as completed by the question date (2023-06-23). No evidence contradicts the original location, so the current location remains under the bed.",
+  "required_slots": [
+    {
+      "name": "location",
+      "value": "under the bed",
+      "support_memory_ids": [
+        "m_e23eee8bea7ab56e0ac9"
+      ],
+      "support_source_ids": [
+        16
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "state_resolution",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": true,
+    "slots": [
+      {
+        "name": "location",
+        "query": "old sneakers location",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "old sneakers location"
+    ],
+    "output_constraints": [
+      "single location string"
+    ],
+    "reason": "Question asks for current location of old sneakers, requiring state resolution from latest evidence."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 25418,
+    "completion_tokens": 519,
+    "elapsed_seconds": 5.856991291046143
+  },
+  "correct": false,
+  "judge_reason": "The prediction 'under the bed' does not match the reference answer 'in a shoe rack in my closet'.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 135,
+    "completion_tokens": 38,
+    "elapsed_seconds": 0.6722962856292725
+  }
+}

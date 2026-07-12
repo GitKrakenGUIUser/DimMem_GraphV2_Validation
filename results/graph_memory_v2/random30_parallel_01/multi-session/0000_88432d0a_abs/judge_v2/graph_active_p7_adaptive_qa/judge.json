@@ -1,0 +1,69 @@
+{
+  "question_id": "88432d0a_abs",
+  "question_type": "multi-session",
+  "question": "How many times did I bake egg tarts in the past two weeks?",
+  "question_date": "2023/05/30 (Tue) 23:40",
+  "gold_answer": "The information provided is not enough. You did not mention baking egg tarts.",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.2,
+  "reasoning_summary": "No memories or source turns mention baking egg tarts in the past two weeks (2023-05-16 to 2023-05-30). The user baked cookies, chicken wings, chocolate cake, baguette, and sourdough bread, but not egg tarts. Therefore, the count is zero.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [],
+    "unit": "times",
+    "result": "0"
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "same answer; preserve compact candidate",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "baking events",
+        "query": "bake egg tart",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "bake egg tart"
+    ],
+    "output_constraints": [
+      "count of distinct baking events in the past two weeks"
+    ],
+    "reason": "The question asks for a count of baking egg tarts in a specific time window. No evidence found, so answer is zero."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 34327,
+    "completion_tokens": 381,
+    "elapsed_seconds": 4.838320970535278
+  },
+  "correct": true,
+  "judge_reason": "Both reference and prediction indicate insufficient information.",
+  "judge_meta": {
+    "mode": "deterministic_abstention_equivalence",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  }
+}

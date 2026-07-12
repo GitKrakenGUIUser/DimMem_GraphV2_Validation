@@ -1,0 +1,197 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "project_lead_list",
+        "query": "projects where user is or was leader",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "projects led by user"
+    ],
+    "output_constraints": [
+      "count of distinct projects"
+    ],
+    "reason": "The question asks for a count of projects led or currently leading, requiring a count_distinct operation on project lead events."
+  },
+  "base_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_80b592d84861eb9fcaf1",
+      "m_28ec2b2b37043960e19c"
+    ],
+    "support_source_ids": [
+      185,
+      38
+    ],
+    "required_slots": [
+      {
+        "name": "project_lead_count",
+        "value": "2",
+        "support_memory_ids": [
+          "m_80b592d84861eb9fcaf1",
+          "m_28ec2b2b37043960e19c"
+        ],
+        "support_source_ids": [
+          185,
+          38
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "leading a team of five engineers",
+        "led the data analysis team in Marketing Research class project"
+      ],
+      "unit": "projects",
+      "result": "2"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "From memory m_80b592d84861eb9fcaf1 (source 185), user is currently leading a team of five engineers as a senior software engineer. From memory m_28ec2b2b37043960e19c (source 38), user previously led the data analysis team in a Marketing Research class project. These are two distinct projects where the user led or is leading. No other projects with a lead role are mentioned. Therefore, the count is 2."
+  },
+  "specialist_candidate": {
+    "answer": "2",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_80b592d84861eb9fcaf1",
+      "m_28ec2b2b37043960e19c"
+    ],
+    "support_source_ids": [
+      185,
+      38
+    ],
+    "required_slots": [
+      {
+        "name": "project_lead_list",
+        "value": "leading a team of five engineers (current), led data analysis team in Marketing Research class project (past)",
+        "support_memory_ids": [
+          "m_80b592d84861eb9fcaf1",
+          "m_28ec2b2b37043960e19c"
+        ],
+        "support_source_ids": [
+          185,
+          38
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "count_distinct",
+    "calculation": {
+      "operator": "count_distinct",
+      "operands": [
+        "leading a team of five engineers (current project)",
+        "led data analysis team in Marketing Research class project (past project)"
+      ],
+      "unit": "projects",
+      "result": "2"
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "leads",
+        "object": "team of five engineers",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-02-28",
+        "valid_from": "2023-02-28",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_80b592d84861eb9fcaf1"
+        ],
+        "support_source_ids": [
+          185
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "led",
+        "object": "data analysis team in Marketing Research class project",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_28ec2b2b37043960e19c"
+        ],
+        "support_source_ids": [
+          38
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "User currently leads a team of five engineers (source 185) and previously led a data analysis team in a Marketing Research class project (source 38). Both are distinct projects where user was or is leader. Count = 2.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    38,
+    185,
+    186,
+    202,
+    182,
+    179,
+    139,
+    135,
+    136,
+    178,
+    42,
+    175,
+    148,
+    72,
+    93,
+    77,
+    184,
+    96,
+    181,
+    183,
+    187,
+    140,
+    39,
+    138
+  ],
+  "targeted_source_ids": [
+    16,
+    34,
+    42,
+    109,
+    148,
+    185,
+    187,
+    188,
+    190,
+    205,
+    237,
+    242,
+    41,
+    43,
+    149,
+    238,
+    241,
+    243
+  ]
+}

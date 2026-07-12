@@ -1,0 +1,63 @@
+{
+  "question_id": "726462e0",
+  "question_type": "single-session-user",
+  "question": "What was the discount I got on my first purchase from the new clothing brand?",
+  "question_date": "2023/05/30 (Tue) 23:15",
+  "gold_answer": "10%",
+  "prediction": "10% discount",
+  "support_memory_ids": [
+    "m_565a490eb7937dd6d5da"
+  ],
+  "support_source_ids": [
+    58
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "The user stated in source 58: 'I remember getting a 10% discount on my first purchase from that new clothing brand last month.' This is stored in memory m_565a490eb7937dd6d5da. The discount is 10%.",
+  "required_slots": [
+    {
+      "name": "discount amount",
+      "value": "10%",
+      "support_memory_ids": [
+        "m_565a490eb7937dd6d5da"
+      ],
+      "support_source_ids": [
+        58
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "base candidate passed risk gate",
+  "risk_reasons": [],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "slots": [],
+    "retrieval_queries": []
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "elapsed_seconds": 0.0
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer in meaning and value.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 138,
+    "completion_tokens": 25,
+    "elapsed_seconds": 0.8818895816802979
+  }
+}

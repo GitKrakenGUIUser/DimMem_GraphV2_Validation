@@ -1,0 +1,142 @@
+{
+  "question_id": "1da05512",
+  "question_type": "single-session-preference",
+  "question": "I'm trying to decide whether to buy a NAS device now or wait. What do you think?",
+  "question_date": "2023/05/30 (Tue) 15:33",
+  "gold_answer": "The user would prefer responses that take into account their current home network storage capacity issues and recent reliance on external hard drives, highlighting the potential benefits of a NAS device in addressing these specific needs. They might not prefer responses that ignore their current storage challenges or fail to consider their recent tech upgrades and priorities. Preferred responses would utilize the user's previous mentions of storage capacity issues and tech investments to inform their decision.",
+  "prediction": "Based on your needs and preferences, I recommend buying a NAS now. You have a clear need for more storage and convenience, you prefer NAS over external hard drives, and you have already researched security features. There is no indication of financial constraints or upcoming expenses that would warrant waiting.",
+  "support_memory_ids": [
+    "m_77c677271ac18de00304",
+    "m_7b15b4695be15ac7aeb1",
+    "m_d68dbcbbdd4c5016a00f",
+    "m_8b53a1c296d17a607ec2"
+  ],
+  "support_source_ids": [
+    188,
+    190,
+    192,
+    193
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "User has an active need for a NAS, prefers it over external hard drives, and has researched security features. No financial constraints or reasons to wait are present. Past purchase decisions show user acts on positive reviews and features. Therefore, buying now is recommended.",
+  "required_slots": [
+    {
+      "name": "user_need_for_NAS",
+      "value": "User has issues with home network storage capacity and is considering a NAS device for central backup and more storage.",
+      "support_memory_ids": [
+        "m_77c677271ac18de00304",
+        "m_7b15b4695be15ac7aeb1",
+        "m_8b53a1c296d17a607ec2"
+      ],
+      "support_source_ids": [
+        188,
+        190
+      ]
+    },
+    {
+      "name": "user_preference_NAS_vs_alternatives",
+      "value": "User currently uses an external hard drive but thinks a NAS would be more convenient and provide more storage, indicating a preference for NAS.",
+      "support_memory_ids": [
+        "m_8b53a1c296d17a607ec2"
+      ],
+      "support_source_ids": [
+        190
+      ]
+    },
+    {
+      "name": "user_financial_situation",
+      "value": "No information about financial situation or upcoming expenses.",
+      "support_memory_ids": [],
+      "support_source_ids": []
+    },
+    {
+      "name": "user_past_purchase_decisions",
+      "value": "User has made technology purchases based on positive reviews (e.g., Eagle Creek Pack-It Cubes) and has considered features and price.",
+      "support_memory_ids": [
+        "m_223e0fe60024da2bb997"
+      ],
+      "support_source_ids": [
+        74
+      ]
+    }
+  ],
+  "unfilled_slots": [
+    "user_financial_situation"
+  ],
+  "operation": "preference_inference",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "specialist filled an abstained base answer",
+  "risk_reasons": [
+    "base_abstained",
+    "specialist_contract:preference_criteria"
+  ],
+  "plan": {
+    "answer_contract": "preference_criteria",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "current",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "user_need_for_NAS",
+        "query": "user need for NAS device",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "user_preference_NAS_vs_alternatives",
+        "query": "user preference NAS vs external hard drive",
+        "semantic_type": "preference",
+        "required": true
+      },
+      {
+        "name": "user_financial_situation",
+        "query": "user financial situation or upcoming expenses",
+        "semantic_type": "state",
+        "required": false
+      },
+      {
+        "name": "user_past_purchase_decisions",
+        "query": "user past technology purchase decisions",
+        "semantic_type": "event",
+        "required": false
+      }
+    ],
+    "retrieval_queries": [
+      "user need for NAS device",
+      "user preference NAS vs external hard drive",
+      "user financial situation or upcoming expenses",
+      "user past technology purchase decisions"
+    ],
+    "output_constraints": [
+      "Recommendation based on user preferences and needs"
+    ],
+    "reason": "The question asks for a recommendation on buying a NAS now or waiting, which is a preference-based decision. The answer should consider the user's expressed need, preference over alternatives, and optionally financial context or past patterns. No explicit count, sum, timeline, or state resolution is required."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 31896,
+    "completion_tokens": 1425,
+    "elapsed_seconds": 11.219345331192017
+  },
+  "correct": true,
+  "judge_reason": "The prediction aligns with the reference answer by considering the user's storage issues and tech upgrades, and recommends buying now.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 272,
+    "completion_tokens": 38,
+    "elapsed_seconds": 1.6252820491790771
+  }
+}

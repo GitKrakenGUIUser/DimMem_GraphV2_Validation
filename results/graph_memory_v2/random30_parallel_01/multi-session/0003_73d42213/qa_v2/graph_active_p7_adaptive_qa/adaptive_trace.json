@@ -1,0 +1,190 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:temporal"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "time_add_minutes",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "departure_time",
+        "query": "What time did I leave home on Monday?",
+        "semantic_type": "time",
+        "required": true
+      },
+      {
+        "name": "travel_duration",
+        "query": "How long does it take to travel from home to the clinic?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "What time did I leave home on Monday?",
+      "How long does it take to travel from home to the clinic?"
+    ],
+    "output_constraints": [
+      "Answer must be a time of day in HH:MM AM/PM format."
+    ],
+    "reason": "The question asks for arrival time at clinic on Monday. Composition of departure time and travel duration yields answer."
+  },
+  "base_candidate": {
+    "answer": "9:00 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_111b444045716551ee69",
+      "m_f96d9a4cda486e8c5fd5"
+    ],
+    "support_source_ids": [
+      30,
+      233
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "addition",
+    "calculation": {
+      "operator": "add",
+      "operands": [
+        "7:00 AM",
+        "2 hours"
+      ],
+      "unit": "time",
+      "result": "9:00 AM"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "User left home at 7 AM on Monday, May 15, 2023 (memory m_111b444045716551ee69). The travel time from home to the clinic is two hours (memory m_f96d9a4cda486e8c5fd5). Adding 2 hours to 7 AM gives 9 AM. Source 30 confirms leaving at 7 AM, and source 233 mentions the two-hour travel time. Therefore, the arrival time is 9:00 AM."
+  },
+  "specialist_candidate": {
+    "answer": "9:00 AM",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_111b444045716551ee69",
+      "m_f96d9a4cda486e8c5fd5"
+    ],
+    "support_source_ids": [
+      30,
+      233
+    ],
+    "required_slots": [
+      {
+        "name": "departure_time",
+        "value": "7:00 AM",
+        "support_memory_ids": [
+          "m_111b444045716551ee69"
+        ],
+        "support_source_ids": [
+          30
+        ]
+      },
+      {
+        "name": "travel_duration",
+        "value": "2 hours",
+        "support_memory_ids": [
+          "m_f96d9a4cda486e8c5fd5"
+        ],
+        "support_source_ids": [
+          233
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "time_add",
+    "calculation": {
+      "operator": "time_add_minutes",
+      "operands": [
+        "7:00 AM",
+        "120 minutes"
+      ],
+      "unit": "minutes",
+      "result": "9:00 AM"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "left home at",
+        "object": "7:00 AM",
+        "value": "7:00 AM",
+        "unit": "time",
+        "event_time": "2023-05-15T07:00:00",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "observed",
+        "support_memory_ids": [
+          "m_111b444045716551ee69"
+        ],
+        "support_source_ids": [
+          30
+        ]
+      },
+      {
+        "subject": "user's home",
+        "predicate": "distance to",
+        "object": "previous clinic",
+        "value": "2 hours",
+        "unit": "hours",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_f96d9a4cda486e8c5fd5"
+        ],
+        "support_source_ids": [
+          233
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "User left home at 7:00 AM on Monday (source 30) and travel time from home to clinic is 2 hours (source 233). Adding 2 hours to 7:00 AM gives arrival at 9:00 AM.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    234,
+    233,
+    29,
+    218,
+    30,
+    229,
+    22,
+    190,
+    231,
+    205,
+    235,
+    253,
+    236,
+    38,
+    237,
+    52,
+    28,
+    31,
+    217,
+    219
+  ],
+  "targeted_source_ids": [
+    30,
+    44,
+    52,
+    53,
+    56,
+    57,
+    233,
+    234,
+    236,
+    252,
+    253,
+    254,
+    235
+  ]
+}

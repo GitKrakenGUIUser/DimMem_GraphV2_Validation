@@ -1,0 +1,60 @@
+{
+  "question_id": "982b5123_abs",
+  "question_type": "temporal-reasoning",
+  "question": "When did I book the Airbnb in Sacramento?",
+  "question_date": "2023/05/27 (Sat) 17:10",
+  "gold_answer": "The information provided is not enough. You only mentioned booking Airbnb in San Francisco.",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [],
+  "support_source_ids": [],
+  "confidence": 0.0,
+  "reasoning_summary": "No memory or source turn mentions booking an Airbnb in Sacramento. The user discussed Airbnb in Haight-Ashbury (San Francisco) and Harajuku (Tokyo), but not Sacramento.",
+  "required_slots": [],
+  "unfilled_slots": [],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "base",
+  "adaptive_choice_reason": "same answer; preserve compact candidate",
+  "risk_reasons": [
+    "base_abstained"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "booking event",
+        "query": "booked Airbnb Sacramento",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "booked Airbnb Sacramento"
+    ],
+    "output_constraints": [
+      "date"
+    ],
+    "reason": "The question asks for a specific date of a past booking event. No composition needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 35181,
+    "completion_tokens": 354,
+    "elapsed_seconds": 5.332740068435669
+  }
+}

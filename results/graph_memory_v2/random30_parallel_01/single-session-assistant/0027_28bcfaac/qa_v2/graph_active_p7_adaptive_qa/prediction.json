@@ -1,0 +1,77 @@
+{
+  "question_id": "28bcfaac",
+  "question_type": "single-session-assistant",
+  "question": "I'm going back to our previous conversation about music theory. You mentioned some online resources for learning music theory. Can you remind me of the website you recommended for free lessons and exercises?",
+  "question_date": "2023/05/30 (Tue) 11:46",
+  "gold_answer": "MusicTheory.net",
+  "prediction": "MusicTheory.net",
+  "support_memory_ids": [
+    "m_5158cf9eae05883c8c3b",
+    "m_e5f3b10dfdc7e348a0e0"
+  ],
+  "support_source_ids": [
+    15
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "In source 15, the assistant explicitly recommended MusicTheory.net as a website offering free lessons and exercises on music theory. This directly answers the user's question.",
+  "required_slots": [
+    {
+      "name": "recommended_website",
+      "value": "MusicTheory.net",
+      "support_memory_ids": [
+        "m_5158cf9eae05883c8c3b",
+        "m_e5f3b10dfdc7e348a0e0"
+      ],
+      "support_source_ids": [
+        15
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "assistant_recall",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:assistant_recall"
+  ],
+  "plan": {
+    "answer_contract": "assistant_recall",
+    "operator": "none",
+    "target_count": 0,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "recommended_website",
+        "query": "assistant recommended website for free music theory lessons and exercises",
+        "semantic_type": "assistant_reply",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "assistant recommended website for free music theory lessons and exercises"
+    ],
+    "output_constraints": [
+      "answer must be a single website URL or name"
+    ],
+    "reason": "The question asks the assistant to recall a website it previously recommended for free music theory lessons and exercises, which is an assistant-recall question requiring assistant_reply evidence."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 30625,
+    "completion_tokens": 590,
+    "elapsed_seconds": 6.275347471237183
+  }
+}

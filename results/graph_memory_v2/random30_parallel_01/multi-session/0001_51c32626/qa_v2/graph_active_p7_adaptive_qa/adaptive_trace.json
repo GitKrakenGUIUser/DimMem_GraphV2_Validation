@@ -1,0 +1,132 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "submission date",
+        "query": "When did I submit my research paper on sentiment analysis?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "research paper sentiment analysis submission date"
+    ],
+    "output_constraints": [
+      "The answer must be a specific date or datetime."
+    ],
+    "reason": "The question asks for a specific historical date of an event (paper submission). No composition or state projection needed."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The user mentioned submitting a research paper on sentiment analysis to ACL, but no specific submission date was provided in the memories or source turns."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [
+      "m_de3e7a4a6ed198178749"
+    ],
+    "support_source_ids": [
+      41
+    ],
+    "required_slots": [
+      {
+        "name": "submission date",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "submission date"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "submitted research paper on sentiment analysis to",
+        "object": "ACL",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_de3e7a4a6ed198178749"
+        ],
+        "support_source_ids": [
+          41
+        ]
+      }
+    ],
+    "confidence": 0.0,
+    "reasoning_summary": "The user stated they submitted a research paper on sentiment analysis to ACL, but no specific submission date is mentioned in any memory or source. The memory only indicates the paper was submitted to ACL, and the source (user message) does not include a date. Therefore, the required slot 'submission date' cannot be filled."
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    41,
+    223,
+    43,
+    224,
+    227,
+    68,
+    42,
+    240,
+    112,
+    56,
+    9,
+    226,
+    44,
+    241
+  ],
+  "targeted_source_ids": [
+    41,
+    43,
+    44,
+    45,
+    168,
+    176,
+    223,
+    224,
+    226,
+    227,
+    235,
+    240,
+    42,
+    225
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "booking event",
+        "query": "booked Airbnb Sacramento",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "booked Airbnb Sacramento"
+    ],
+    "output_constraints": [
+      "date"
+    ],
+    "reason": "The question asks for a specific date of a past booking event. No composition needed."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source turn mentions booking an Airbnb in Sacramento. The user discussed Airbnb in Haight-Ashbury (San Francisco) and Harajuku (Tokyo), but not Sacramento."
+  },
+  "specialist_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [
+      {
+        "name": "booking event",
+        "value": null,
+        "support_memory_ids": [],
+        "support_source_ids": []
+      }
+    ],
+    "unfilled_slots": [
+      "booking event"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [],
+    "confidence": 0.0,
+    "reasoning_summary": "No memory or source evidence mentions booking an Airbnb in Sacramento. The memories refer to Airbnbs in Haight-Ashbury (San Francisco) and Harajuku (Tokyo), but not Sacramento. Therefore, the booking date cannot be determined."
+  },
+  "choice": "base",
+  "choice_reason": "same answer; preserve compact candidate",
+  "compact_source_ids": [
+    224,
+    191,
+    221,
+    227,
+    196,
+    43,
+    102,
+    239,
+    8,
+    11,
+    226,
+    217,
+    216,
+    78,
+    88,
+    174,
+    192,
+    225,
+    220,
+    222,
+    228,
+    195
+  ],
+  "targeted_source_ids": [
+    76,
+    112,
+    171,
+    174,
+    180,
+    191,
+    221,
+    222,
+    224,
+    226,
+    227,
+    236,
+    170,
+    172,
+    192,
+    225
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "base_abstained",
+    "base_has_unfilled_slots",
+    "specialist_contract:count",
+    "expected_operation_missing"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "team_size_at_role_start",
+        "query": "number of engineers I led when I started as Software Engineer Manager",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "team size when started as Software Engineer Manager"
+    ],
+    "output_constraints": [
+      "single integer"
+    ],
+    "reason": "The question asks for a specific count at a past event (starting a new role). It is a direct factual query requiring a single number from memory."
+  },
+  "base_candidate": {
+    "answer": "Cannot be determined from the conversation.",
+    "answerable": false,
+    "support_memory_ids": [],
+    "support_source_ids": [],
+    "required_slots": [],
+    "unfilled_slots": [
+      "team_size_when_started_as_Software_Engineer_Manager"
+    ],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.0,
+    "reasoning_summary": "The user asks about the number of engineers they lead when starting a new role as Software Engineer Manager. However, all evidence (memories and source turns) refers to the user as a Senior Software Engineer leading a team of 4 or 5 engineers, not as a Software Engineer Manager. There is no mention of a role change to Software Engineer Manager or the team size at the start of that role. Therefore, the question cannot be answered from the available conversation."
+  },
+  "specialist_candidate": {
+    "answer": "4",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_df74f36b976e0c4f8879"
+    ],
+    "support_source_ids": [
+      194
+    ],
+    "required_slots": [
+      {
+        "name": "team_size_at_role_start",
+        "value": 4,
+        "support_memory_ids": [
+          "m_df74f36b976e0c4f8879"
+        ],
+        "support_source_ids": [
+          194
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "leads",
+        "object": "team of 4 engineers",
+        "value": "4",
+        "unit": "engineers",
+        "event_time": "2023-05-25T19:20:03",
+        "valid_from": "2023-05-25T19:20:03",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_df74f36b976e0c4f8879"
+        ],
+        "support_source_ids": [
+          194
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user explicitly stated 'I lead a team of 4 engineers in my new role as Senior Software Engineer' on 2023-05-25, which is before the question date. This directly answers the question."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist filled an abstained base answer",
+  "compact_source_ids": [
+    194,
+    218,
+    191,
+    86,
+    132,
+    255,
+    11,
+    148,
+    102,
+    65,
+    231,
+    75,
+    193,
+    220,
+    52,
+    41,
+    17,
+    103,
+    74,
+    192,
+    190,
+    217,
+    219
+  ],
+  "targeted_source_ids": [
+    38,
+    41,
+    103,
+    191,
+    192,
+    193,
+    194,
+    218,
+    221,
+    246,
+    247,
+    249,
+    190,
+    217,
+    219
+  ]
+}

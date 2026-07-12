@@ -1,0 +1,73 @@
+{
+  "question_id": "51c32626",
+  "question_type": "multi-session",
+  "question": "When did I submit my research paper on sentiment analysis?",
+  "question_date": "2023/05/30 (Tue) 16:23",
+  "gold_answer": "February 1st",
+  "prediction": "Cannot be determined from the conversation.",
+  "support_memory_ids": [
+    "m_de3e7a4a6ed198178749"
+  ],
+  "support_source_ids": [
+    41
+  ],
+  "confidence": 0.0,
+  "reasoning_summary": "The user stated they submitted a research paper on sentiment analysis to ACL, but no specific submission date is mentioned in any memory or source. The memory only indicates the paper was submitted to ACL, and the source (user message) does not include a date. Therefore, the required slot 'submission date' cannot be filled.",
+  "required_slots": [
+    {
+      "name": "submission date",
+      "value": null,
+      "support_memory_ids": [],
+      "support_source_ids": []
+    }
+  ],
+  "unfilled_slots": [
+    "submission date"
+  ],
+  "operation": "none",
+  "calculation": {
+    "operator": "none",
+    "operands": [],
+    "unit": "",
+    "result": ""
+  },
+  "answerable": false,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "base_abstained"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "none",
+    "target_count": 1,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "submission date",
+        "query": "When did I submit my research paper on sentiment analysis?",
+        "semantic_type": "time",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "research paper sentiment analysis submission date"
+    ],
+    "output_constraints": [
+      "The answer must be a specific date or datetime."
+    ],
+    "reason": "The question asks for a specific historical date of an event (paper submission). No composition or state projection needed."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 28243,
+    "completion_tokens": 535,
+    "elapsed_seconds": 5.146404266357422
+  }
+}

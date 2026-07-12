@@ -1,0 +1,2604 @@
+{
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "n": 30,
+  "correct": 26,
+  "accuracy": 0.8666666666666667,
+  "parallel": {
+    "stage": "report-graph_active_p7_adaptive_qa",
+    "total": 30,
+    "workers": 8,
+    "succeeded": 30,
+    "failed": 0,
+    "elapsed_seconds": 0.31038475036621094
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "n": 5,
+      "correct": 3,
+      "accuracy": 0.6
+    },
+    "multi-session": {
+      "n": 8,
+      "correct": 7,
+      "accuracy": 0.875
+    },
+    "single-session-assistant": {
+      "n": 3,
+      "correct": 3,
+      "accuracy": 1.0
+    },
+    "single-session-preference": {
+      "n": 2,
+      "correct": 2,
+      "accuracy": 1.0
+    },
+    "single-session-user": {
+      "n": 4,
+      "correct": 4,
+      "accuracy": 1.0
+    },
+    "temporal-reasoning": {
+      "n": 8,
+      "correct": 7,
+      "accuracy": 0.875
+    }
+  },
+  "retrieval_metrics": {
+    "gold_session_recall_mean": 0.9166666666666666,
+    "gold_session_recall_n": 30,
+    "mean_retrieval_seconds": 18.517001620928447,
+    "mean_active_rounds": 2.566666666666667,
+    "mean_tool_calls": 2.6333333333333333
+  },
+  "token_totals": {
+    "qa_prompt": 720227,
+    "qa_completion": 16201,
+    "judge_prompt": 3823,
+    "judge_completion": 669
+  },
+  "rows": [
+    {
+      "question_id": "88432d0a_abs",
+      "question_type": "multi-session",
+      "question": "How many times did I bake egg tarts in the past two weeks?",
+      "question_date": "2023/05/30 (Tue) 23:40",
+      "gold_answer": "The information provided is not enough. You did not mention baking egg tarts.",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "support_source_ids": [],
+      "confidence": 0.2,
+      "reasoning_summary": "No memories or source turns mention baking egg tarts in the past two weeks (2023-05-16 to 2023-05-30). The user baked cookies, chicken wings, chocolate cake, baguette, and sourdough bread, but not egg tarts. Therefore, the count is zero.",
+      "required_slots": [],
+      "unfilled_slots": [],
+      "operation": "count_distinct",
+      "calculation": {
+        "operator": "count_distinct",
+        "operands": [],
+        "unit": "times",
+        "result": "0"
+      },
+      "answerable": false,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "same answer; preserve compact candidate",
+      "risk_reasons": [
+        "base_abstained",
+        "specialist_contract:count"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "count_distinct",
+        "target_count": 0,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "baking events",
+            "query": "bake egg tart",
+            "semantic_type": "event",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "bake egg tart"
+        ],
+        "output_constraints": [
+          "count of distinct baking events in the past two weeks"
+        ],
+        "reason": "The question asks for a count of baking egg tarts in a specific time window. No evidence found, so answer is zero."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 34327,
+        "completion_tokens": 381,
+        "elapsed_seconds": 4.838320970535278
+      },
+      "correct": true,
+      "judge_reason": "Both reference and prediction indicate insufficient information.",
+      "judge_meta": {
+        "mode": "deterministic_abstention_equivalence",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      }
+    },
+    {
+      "question_id": "51c32626",
+      "question_type": "multi-session",
+      "question": "When did I submit my research paper on sentiment analysis?",
+      "question_date": "2023/05/30 (Tue) 16:23",
+      "gold_answer": "February 1st",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [
+        "m_de3e7a4a6ed198178749"
+      ],
+      "support_source_ids": [
+        41
+      ],
+      "confidence": 0.0,
+      "reasoning_summary": "The user stated they submitted a research paper on sentiment analysis to ACL, but no specific submission date is mentioned in any memory or source. The memory only indicates the paper was submitted to ACL, and the source (user message) does not include a date. Therefore, the required slot 'submission date' cannot be filled.",
+      "required_slots": [
+        {
+          "name": "submission date",
+          "value": null,
+          "support_memory_ids": [],
+          "support_source_ids": []
+        }
+      ],
+      "unfilled_slots": [
+        "submission date"
+      ],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": false,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "same answer with stronger specialist support",
+      "risk_reasons": [
+        "base_abstained"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "target_count": 1,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "submission date",
+            "query": "When did I submit my research paper on sentiment analysis?",
+            "semantic_type": "time",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "research paper sentiment analysis submission date"
+        ],
+        "output_constraints": [
+          "The answer must be a specific date or datetime."
+        ],
+        "reason": "The question asks for a specific historical date of an event (paper submission). No composition or state projection needed."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 28243,
+        "completion_tokens": 535,
+        "elapsed_seconds": 5.146404266357422
+      },
+      "correct": false,
+      "judge_reason": "Prediction abstained while reference contains a concrete answer.",
+      "judge_meta": {
+        "mode": "deterministic_abstention_guard",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      }
+    },
+    {
+      "question_id": "0edc2aef",
+      "question_type": "single-session-preference",
+      "question": "Can you suggest a hotel for my upcoming trip to Miami?",
+      "question_date": "2023/05/30 (Tue) 20:23",
+      "gold_answer": "The user would prefer suggestions of hotels in Miami that offer great views, possibly of the ocean or the city skyline, and have unique features such as a rooftop pool or a hot tub on the balcony. They may not prefer suggestions of basic or budget hotels without these features.",
+      "prediction": "Based on your preferences, I recommend a hotel in Miami with unique features such as a rooftop pool or a hot tub on the balcony, similar to what you liked in Seattle. Consider hotels like The Edgewater Hotel for such amenities.",
+      "support_memory_ids": [
+        "m_e949a07ed2982968e713",
+        "m_72954ffc5b6131d25382",
+        "m_5ddd3f0a69cddcb6f793",
+        "m_2afcc4d860a9cab771b6",
+        "m_89e030545f8f186eca0a",
+        "m_db33ee90335d579330a6"
+      ],
+      "support_source_ids": [
+        195,
+        199,
+        200,
+        201,
+        196
+      ],
+      "confidence": 0.8,
+      "reasoning_summary": "User expressed preference for hotels with unique features like rooftop pool or hot tub on balcony (source 195). This preference is transferable to Miami. No budget, trip dates, or past Miami bookings available. Recommendation is based on preference criteria.",
+      "required_slots": [
+        {
+          "name": "preferred_hotel_style",
+          "value": "hotels with unique features such as a rooftop pool or hot tub on the balcony",
+          "support_memory_ids": [
+            "m_e949a07ed2982968e713"
+          ],
+          "support_source_ids": [
+            195
+          ]
+        }
+      ],
+      "unfilled_slots": [
+        "budget",
+        "trip_dates",
+        "past_hotel_bookings_miami"
+      ],
+      "operation": "preference_inference",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "specialist satisfies preference_criteria contract",
+      "risk_reasons": [
+        "base_has_unfilled_slots",
+        "specialist_contract:preference_criteria"
+      ],
+      "plan": {
+        "answer_contract": "preference_criteria",
+        "operator": "none",
+        "target_count": 0,
+        "temporal_perspective": "current",
+        "allow_composition": true,
+        "allow_semantic_bridge": true,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "preferred_hotel_style",
+            "query": "user preferred hotel style",
+            "semantic_type": "preference",
+            "required": true
+          },
+          {
+            "name": "budget",
+            "query": "user budget for hotel",
+            "semantic_type": "state",
+            "required": false
+          },
+          {
+            "name": "trip_dates",
+            "query": "user upcoming trip dates",
+            "semantic_type": "time",
+            "required": false
+          },
+          {
+            "name": "past_hotel_bookings_miami",
+            "query": "user past hotel bookings in Miami",
+            "semantic_type": "event",
+            "required": false
+          }
+        ],
+        "retrieval_queries": [
+          "user preferred hotel style",
+          "user budget for hotel",
+          "user upcoming trip dates",
+          "user past hotel bookings in Miami"
+        ],
+        "output_constraints": [
+          "Recommend a hotel in Miami based on user preferences and constraints."
+        ],
+        "reason": "The question asks for a hotel recommendation for an upcoming trip to Miami. The primary evidence needed is the user's hotel style preferences. Budget and trip dates are optional but helpful. Past bookings in Miami may inform preference. Composition is allowed to bridge preferences to a specific hotel."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 34023,
+        "completion_tokens": 855,
+        "elapsed_seconds": 8.169770956039429
+      },
+      "correct": true,
+      "judge_reason": "The prediction correctly suggests a hotel with unique features like a rooftop pool or hot tub on the balcony, aligning with the reference answer's preference for such amenities.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 228,
+        "completion_tokens": 46,
+        "elapsed_seconds": 1.166006088256836
+      }
+    },
+    {
+      "question_id": "73d42213",
+      "question_type": "multi-session",
+      "question": "What time did I reach the clinic on Monday?",
+      "question_date": "2023/05/30 (Tue) 22:10",
+      "gold_answer": "9:00 AM",
+      "prediction": "9:00 AM",
+      "support_memory_ids": [
+        "m_111b444045716551ee69",
+        "m_f96d9a4cda486e8c5fd5"
+      ],
+      "support_source_ids": [
+        30,
+        233
+      ],
+      "confidence": 0.95,
+      "reasoning_summary": "User left home at 7:00 AM on Monday (source 30) and travel time from home to clinic is 2 hours (source 233). Adding 2 hours to 7:00 AM gives arrival at 9:00 AM.",
+      "required_slots": [
+        {
+          "name": "departure_time",
+          "value": "7:00 AM",
+          "support_memory_ids": [
+            "m_111b444045716551ee69"
+          ],
+          "support_source_ids": [
+            30
+          ]
+        },
+        {
+          "name": "travel_duration",
+          "value": "2 hours",
+          "support_memory_ids": [
+            "m_f96d9a4cda486e8c5fd5"
+          ],
+          "support_source_ids": [
+            233
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "time_add",
+      "calculation": {
+        "operator": "time_add_minutes",
+        "operands": [
+          "7:00 AM",
+          "120 minutes"
+        ],
+        "unit": "minutes",
+        "result": "9:00 AM"
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "same answer with stronger specialist support",
+      "risk_reasons": [
+        "specialist_contract:temporal"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "time_add_minutes",
+        "target_count": 1,
+        "temporal_perspective": "historical",
+        "allow_composition": true,
+        "allow_semantic_bridge": true,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "departure_time",
+            "query": "What time did I leave home on Monday?",
+            "semantic_type": "time",
+            "required": true
+          },
+          {
+            "name": "travel_duration",
+            "query": "How long does it take to travel from home to the clinic?",
+            "semantic_type": "time",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "What time did I leave home on Monday?",
+          "How long does it take to travel from home to the clinic?"
+        ],
+        "output_constraints": [
+          "Answer must be a time of day in HH:MM AM/PM format."
+        ],
+        "reason": "The question asks for arrival time at clinic on Monday. Composition of departure time and travel duration yields answer."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 29029,
+        "completion_tokens": 806,
+        "elapsed_seconds": 7.133318185806274
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 135,
+        "completion_tokens": 22,
+        "elapsed_seconds": 0.6730306148529053
+      }
+    },
+    {
+      "question_id": "gpt4_1e4a8aeb",
+      "question_type": "temporal-reasoning",
+      "question": "How many days passed between the day I attended the gardening workshop and the day I planted the tomato saplings?",
+      "question_date": "2023/05/08 (Mon) 06:05",
+      "gold_answer": "6 days. 7 days (including the last day) is also acceptable.",
+      "prediction": "6 days",
+      "support_memory_ids": [
+        "m_5add21661ed386957261",
+        "m_a565b256775ecd2a25a6"
+      ],
+      "support_source_ids": [
+        197,
+        8
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "The gardening workshop was attended on 2023-04-15 (source 8). Tomato saplings were planted on 2023-04-21 (source 197). The difference is 6 days.",
+      "required_slots": [
+        {
+          "name": "date of gardening workshop",
+          "value": "2023-04-15",
+          "support_memory_ids": [
+            "m_a565b256775ecd2a25a6"
+          ],
+          "support_source_ids": [
+            8
+          ]
+        },
+        {
+          "name": "date of planting tomato saplings",
+          "value": "2023-04-21",
+          "support_memory_ids": [
+            "m_5add21661ed386957261"
+          ],
+          "support_source_ids": [
+            197
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "date_difference",
+      "calculation": {
+        "operator": "date_difference_days",
+        "operands": [
+          "2023-04-15",
+          "2023-04-21"
+        ],
+        "unit": "days",
+        "result": "6 days"
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "same answer with stronger specialist support",
+      "risk_reasons": [
+        "specialist_contract:count"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "date_difference_days",
+        "target_count": 2,
+        "temporal_perspective": "historical",
+        "allow_composition": true,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "date of gardening workshop",
+            "query": "When did I attend the gardening workshop?",
+            "semantic_type": "time",
+            "required": true
+          },
+          {
+            "name": "date of planting tomato saplings",
+            "query": "When did I plant the tomato saplings?",
+            "semantic_type": "time",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "gardening workshop attended date",
+          "planted tomato saplings date"
+        ],
+        "output_constraints": [
+          "answer must be a number followed by ' days'"
+        ],
+        "reason": "The question asks for the number of days between two events. Both events are historical and require retrieving their dates. The operator is date_difference_days. Composition is allowed because the answer is computed from two separate dates."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 35062,
+        "completion_tokens": 805,
+        "elapsed_seconds": 8.87182331085205
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 157,
+        "completion_tokens": 22,
+        "elapsed_seconds": 0.732968807220459
+      }
+    },
+    {
+      "question_id": "726462e0",
+      "question_type": "single-session-user",
+      "question": "What was the discount I got on my first purchase from the new clothing brand?",
+      "question_date": "2023/05/30 (Tue) 23:15",
+      "gold_answer": "10%",
+      "prediction": "10% discount",
+      "support_memory_ids": [
+        "m_565a490eb7937dd6d5da"
+      ],
+      "support_source_ids": [
+        58
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "The user stated in source 58: 'I remember getting a 10% discount on my first purchase from that new clothing brand last month.' This is stored in memory m_565a490eb7937dd6d5da. The discount is 10%.",
+      "required_slots": [
+        {
+          "name": "discount amount",
+          "value": "10%",
+          "support_memory_ids": [
+            "m_565a490eb7937dd6d5da"
+          ],
+          "support_source_ids": [
+            58
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "base candidate passed risk gate",
+      "risk_reasons": [],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "slots": [],
+        "retrieval_queries": []
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer in meaning and value.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 138,
+        "completion_tokens": 25,
+        "elapsed_seconds": 0.8818895816802979
+      }
+    },
+    {
+      "question_id": "031748ae_abs",
+      "question_type": "knowledge-update",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "question_date": "2023/06/06 (Tue) 08:19",
+      "gold_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "prediction": "4",
+      "support_memory_ids": [
+        "m_df74f36b976e0c4f8879"
+      ],
+      "support_source_ids": [
+        194
+      ],
+      "confidence": 0.95,
+      "reasoning_summary": "The user explicitly stated 'I lead a team of 4 engineers in my new role as Senior Software Engineer' on 2023-05-25, which is before the question date. This directly answers the question.",
+      "required_slots": [
+        {
+          "name": "team_size_at_role_start",
+          "value": 4,
+          "support_memory_ids": [
+            "m_df74f36b976e0c4f8879"
+          ],
+          "support_source_ids": [
+            194
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "specialist filled an abstained base answer",
+      "risk_reasons": [
+        "base_abstained",
+        "base_has_unfilled_slots",
+        "specialist_contract:count",
+        "expected_operation_missing"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "target_count": 1,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "team_size_at_role_start",
+            "query": "number of engineers I led when I started as Software Engineer Manager",
+            "semantic_type": "number",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "team size when started as Software Engineer Manager"
+        ],
+        "output_constraints": [
+          "single integer"
+        ],
+        "reason": "The question asks for a specific count at a past event (starting a new role). It is a direct factual query requiring a single number from memory."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 27639,
+        "completion_tokens": 542,
+        "elapsed_seconds": 5.573412895202637
+      },
+      "correct": false,
+      "judge_reason": "Reference indicates insufficient information but prediction is concrete.",
+      "judge_meta": {
+        "mode": "deterministic_abstention_guard",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      }
+    },
+    {
+      "question_id": "gpt4_f420262d",
+      "question_type": "temporal-reasoning",
+      "question": "What was the airline that I flied with on Valentine's day?",
+      "question_date": "2023/03/02 (Thu) 08:00",
+      "gold_answer": "American Airlines",
+      "prediction": "American Airlines",
+      "support_memory_ids": [
+        "m_b3b25da0cdde42c150e3",
+        "m_4604513fecac15b6ac91"
+      ],
+      "support_source_ids": [
+        78,
+        182
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "The user mentions a flight on Valentine's Day (February 14) in source 154 and 152, but those sources do not specify the airline for that specific date. However, multiple memories and sources (e.g., memory m_b3b25da0cdde42c150e3, source 78; memory m_4604513fecac15b6ac91, source 182) consistently refer to a flight from New York to Los Angeles on February 10 or February 20 with American Airlines. Since Valentine's Day is February 14, and the user's only flights around that time are with American Airlines, the airline is inferred as American Airlines.",
+      "required_slots": [],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "base candidate passed risk gate",
+      "risk_reasons": [],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "slots": [],
+        "retrieval_queries": []
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 134,
+        "completion_tokens": 22,
+        "elapsed_seconds": 0.9146542549133301
+      }
+    },
+    {
+      "question_id": "ceb54acb",
+      "question_type": "single-session-assistant",
+      "question": "In our previous chat, you suggested 'sexual compulsions' and a few other options for alternative terms for certain behaviors. Can you remind me what the other four options were?",
+      "question_date": "2023/05/30 (Tue) 22:56",
+      "gold_answer": "I suggested 'sexual fixations', 'problematic sexual behaviors', 'sexual impulsivity', and 'compulsive sexuality'.",
+      "prediction": "Sexual fixations, Problematic sexual behaviors, Sexual impulsivity, Compulsive sexuality",
+      "support_memory_ids": [],
+      "support_source_ids": [
+        141
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "Source 141 contains the assistant's reply listing four alternative terms: Sexual fixations, Problematic sexual behaviors, Sexual impulsivity, Compulsive sexuality. The user asked for the other four options besides 'sexual compulsions', and these four are exactly the ones provided.",
+      "required_slots": [
+        {
+          "name": "alternative terms",
+          "value": "Sexual fixations, Problematic sexual behaviors, Sexual impulsivity, Compulsive sexuality",
+          "support_memory_ids": [],
+          "support_source_ids": [
+            141
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "assistant_recall",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "The specialist candidate provides a compact, direct list of the four terms without extra framing, matching the user's request for a reminder of the options. It also includes a fact_table for traceability, which is beneficial for recall tasks.",
+      "risk_reasons": [
+        "specialist_contract:assistant_recall"
+      ],
+      "plan": {
+        "answer_contract": "assistant_recall",
+        "operator": "none",
+        "target_count": 4,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "alternative terms",
+            "query": "alternative terms for certain behaviors suggested by assistant",
+            "semantic_type": "assistant_reply",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "alternative terms for certain behaviors suggested by assistant"
+        ],
+        "output_constraints": [
+          "list of four terms"
+        ],
+        "reason": "The user asks to recall four alternative terms previously suggested by the assistant, which requires retrieving the assistant's past reply."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 37156,
+        "completion_tokens": 593,
+        "elapsed_seconds": 6.950117349624634
+      },
+      "correct": true,
+      "judge_reason": "The prediction lists all four alternative terms exactly as in the reference answer, with only minor capitalization differences that do not affect semantic correctness.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 191,
+        "completion_tokens": 41,
+        "elapsed_seconds": 0.9559855461120605
+      }
+    },
+    {
+      "question_id": "gpt4_7abb270c",
+      "question_type": "temporal-reasoning",
+      "question": "What is the order of the six museums I visited from earliest to latest?",
+      "question_date": "2023/03/10 (Fri) 08:15",
+      "gold_answer": "Science Museum, Museum of Contemporary Art, Metropolitan Museum of Art, Museum of History, Modern Art Museum, Natural History Museum",
+      "prediction": "Science Museum, Museum of Contemporary Art, Metropolitan Museum of Art, Museum of History, Modern Art Museum, Natural History Museum",
+      "support_memory_ids": [
+        "m_23b1c5a2bcba4666bae8",
+        "m_038e8557a2aed7cc1502",
+        "m_35ff148d8ece0cd9a78d",
+        "m_d92e7be85936e8453d10",
+        "m_2795a03476ec2d395894",
+        "m_47b8c21e8b34848f7bc1"
+      ],
+      "support_source_ids": [
+        31,
+        71,
+        95,
+        150,
+        211
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "Extracted six museum visits with dates from memories: Science Museum (2023-01-15), Museum of Contemporary Art (2023-01-22), Metropolitan Museum of Art (2023-02-10), Museum of History (2023-02-15), Modern Art Museum (2023-02-20), Natural History Museum (2023-03-04). Ordered chronologically.",
+      "required_slots": [
+        {
+          "name": "museum visit events",
+          "value": "Science Museum (2023-01-15), Museum of Contemporary Art (2023-01-22), Metropolitan Museum of Art (2023-02-10), Museum of History (2023-02-15), Modern Art Museum (2023-02-20), Natural History Museum (2023-03-04)",
+          "support_memory_ids": [
+            "m_23b1c5a2bcba4666bae8",
+            "m_038e8557a2aed7cc1502",
+            "m_35ff148d8ece0cd9a78d",
+            "m_d92e7be85936e8453d10",
+            "m_2795a03476ec2d395894",
+            "m_47b8c21e8b34848f7bc1"
+          ],
+          "support_source_ids": [
+            31,
+            48,
+            71,
+            95,
+            150,
+            211
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "timeline",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "Specialist candidate fills all six required slots with distinct museums and correct chronological order, while compact candidate duplicates Modern Art Museum and includes an unsupported second visit.",
+      "risk_reasons": [
+        "specialist_contract:timeline"
+      ],
+      "plan": {
+        "answer_contract": "timeline",
+        "operator": "timeline",
+        "target_count": 6,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "museum visit events",
+            "query": "museums I visited with dates",
+            "semantic_type": "event",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "museums I visited with dates"
+        ],
+        "output_constraints": [
+          "list of museum names in chronological order"
+        ],
+        "reason": "The question asks for the chronological order of six museum visits, which requires a timeline of events with dates."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 34635,
+        "completion_tokens": 1391,
+        "elapsed_seconds": 10.622886419296265
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 179,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.7739553451538086
+      }
+    },
+    {
+      "question_id": "bc149d6b",
+      "question_type": "multi-session",
+      "question": "What is the total weight of the new feed I purchased in the past two months?",
+      "question_date": "2023/05/30 (Tue) 22:02",
+      "gold_answer": "70 pounds",
+      "prediction": "70 pounds",
+      "support_memory_ids": [
+        "m_570c38c6a22124172242",
+        "m_6b48781b96e542ff5c30"
+      ],
+      "support_source_ids": [
+        46,
+        52
+      ],
+      "confidence": 0.95,
+      "reasoning_summary": "Two feed purchases within the past two months (2023-03-30 to 2023-05-30): a 50-pound batch of layer feed and 20 pounds of organic scratch grains. Sum = 70 pounds.",
+      "required_slots": [
+        {
+          "name": "purchase events",
+          "value": "purchased 50-pound batch of layer feed on 2023-05-22; purchased 20 pounds of organic scratch grains on 2023-05-22",
+          "support_memory_ids": [
+            "m_570c38c6a22124172242",
+            "m_6b48781b96e542ff5c30"
+          ],
+          "support_source_ids": [
+            46,
+            52
+          ]
+        },
+        {
+          "name": "weight per purchase",
+          "value": "50 pounds; 20 pounds",
+          "support_memory_ids": [
+            "m_570c38c6a22124172242",
+            "m_6b48781b96e542ff5c30"
+          ],
+          "support_source_ids": [
+            46,
+            52
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "sum",
+      "calculation": {
+        "operator": "sum",
+        "operands": [
+          50,
+          20
+        ],
+        "unit": "pounds",
+        "result": "70 pounds"
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "same answer with stronger specialist support",
+      "risk_reasons": [
+        "specialist_contract:sum"
+      ],
+      "plan": {
+        "answer_contract": "sum",
+        "operator": "sum",
+        "target_count": 0,
+        "temporal_perspective": "relative",
+        "allow_composition": true,
+        "allow_semantic_bridge": true,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "purchase events",
+            "query": "purchased feed in the past two months",
+            "semantic_type": "event",
+            "required": true
+          },
+          {
+            "name": "weight per purchase",
+            "query": "weight of purchased feed",
+            "semantic_type": "number",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "purchased feed between 2023-03-30 and 2023-05-30"
+        ],
+        "output_constraints": [
+          "sum of weights in pounds"
+        ],
+        "reason": "The question asks for total weight of new feed purchased in the past two months, requiring sum of weights from purchase events within that time window."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 30424,
+        "completion_tokens": 870,
+        "elapsed_seconds": 6.6758458614349365
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 138,
+        "completion_tokens": 22,
+        "elapsed_seconds": 0.6807382106781006
+      }
+    },
+    {
+      "question_id": "852ce960",
+      "question_type": "knowledge-update",
+      "question": "What was the amount I was pre-approved for when I got my mortgage from Wells Fargo?",
+      "question_date": "2023/12/18 (Mon) 04:17",
+      "gold_answer": "$400,000",
+      "prediction": "$400,000",
+      "support_memory_ids": [
+        "m_9b2c9eeba3020a457ec7"
+      ],
+      "support_source_ids": [
+        182
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "The user stated they were pre-approved for $400,000 from Wells Fargo in source turn 182, which is supported by memory m_9b2c9eeba3020a457ec7.",
+      "required_slots": [],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "base candidate passed risk gate",
+      "risk_reasons": [],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "slots": [],
+        "retrieval_queries": []
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 141,
+        "completion_tokens": 22,
+        "elapsed_seconds": 0.7660665512084961
+      }
+    },
+    {
+      "question_id": "07741c45",
+      "question_type": "knowledge-update",
+      "question": "Where do I currently keep my old sneakers?",
+      "question_date": "2023/06/23 (Fri) 07:31",
+      "gold_answer": "in a shoe rack in my closet",
+      "prediction": "under the bed",
+      "support_memory_ids": [
+        "m_e23eee8bea7ab56e0ac9"
+      ],
+      "support_source_ids": [
+        16
+      ],
+      "confidence": 0.95,
+      "reasoning_summary": "The user stated on 2023-05-25 that they keep old sneakers under the bed. Later plans (2023-05-29) to move them to a shoe rack are projected but not confirmed as completed by the question date (2023-06-23). No evidence contradicts the original location, so the current location remains under the bed.",
+      "required_slots": [
+        {
+          "name": "location",
+          "value": "under the bed",
+          "support_memory_ids": [
+            "m_e23eee8bea7ab56e0ac9"
+          ],
+          "support_source_ids": [
+            16
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "state_resolution",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "specialist satisfies state_resolution contract",
+      "risk_reasons": [
+        "specialist_contract:state_resolution"
+      ],
+      "plan": {
+        "answer_contract": "state_resolution",
+        "operator": "state_resolution",
+        "target_count": 1,
+        "temporal_perspective": "current",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": true,
+        "slots": [
+          {
+            "name": "location",
+            "query": "old sneakers location",
+            "semantic_type": "state",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "old sneakers location"
+        ],
+        "output_constraints": [
+          "single location string"
+        ],
+        "reason": "Question asks for current location of old sneakers, requiring state resolution from latest evidence."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 25418,
+        "completion_tokens": 519,
+        "elapsed_seconds": 5.856991291046143
+      },
+      "correct": false,
+      "judge_reason": "The prediction 'under the bed' does not match the reference answer 'in a shoe rack in my closet'.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 135,
+        "completion_tokens": 38,
+        "elapsed_seconds": 0.6722962856292725
+      }
+    },
+    {
+      "question_id": "a9f6b44c",
+      "question_type": "multi-session",
+      "question": "How many bikes did I service or plan to service in March?",
+      "question_date": "2023/03/20 (Mon) 23:57",
+      "gold_answer": "2",
+      "prediction": "2",
+      "support_memory_ids": [
+        "m_10104622f0197a9592c5",
+        "m_310cf20356f45588c744",
+        "m_1c77cf201b58ed97e8fb",
+        "m_da8bbb1a4d2962c3f79e",
+        "m_221d5e6d610f9d779b49"
+      ],
+      "support_source_ids": [
+        188,
+        191,
+        91,
+        94,
+        69
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "The user had their road bike serviced at Pedal Power on March 10, 2023 (observed). The user also planned to replace the front tire of their commuter bike before April 2023 (planned). Both events involve distinct bikes (road bike and commuter bike). Chain cleaning/lubrication events are maintenance but not full service, and they pertain to the same road bike already counted. Therefore, the count of distinct bikes serviced or planned to service in March 2023 is 2.",
+      "required_slots": [
+        {
+          "name": "bike_service_event",
+          "value": "road bike serviced at Pedal Power on March 10, 2023",
+          "support_memory_ids": [
+            "m_10104622f0197a9592c5",
+            "m_310cf20356f45588c744"
+          ],
+          "support_source_ids": [
+            188,
+            191
+          ]
+        },
+        {
+          "name": "bike_plan_event",
+          "value": "plan to replace front tire of commuter bike before April 2023",
+          "support_memory_ids": [
+            "m_221d5e6d610f9d779b49"
+          ],
+          "support_source_ids": [
+            69
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "count_distinct",
+      "calculation": {
+        "operator": "count_distinct",
+        "operands": [
+          "road bike",
+          "commuter bike"
+        ],
+        "unit": "bikes",
+        "result": "2"
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "same answer with stronger specialist support",
+      "risk_reasons": [
+        "specialist_contract:count"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "count_distinct",
+        "target_count": 2,
+        "temporal_perspective": "historical",
+        "allow_composition": true,
+        "allow_semantic_bridge": true,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "bike_service_event",
+            "query": "bike service events in March 2023",
+            "semantic_type": "event",
+            "required": true
+          },
+          {
+            "name": "bike_plan_event",
+            "query": "bike service plans in March 2023",
+            "semantic_type": "event",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "bike service events in March 2023",
+          "bike service plans in March 2023"
+        ],
+        "output_constraints": [
+          "count distinct bikes involved in service events or plans in March 2023"
+        ],
+        "reason": "Question asks for count of bikes serviced or planned to service in March. Need to retrieve both actual service events and planned service events, then count distinct bikes."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 32889,
+        "completion_tokens": 1200,
+        "elapsed_seconds": 10.194435834884644
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 132,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.978752613067627
+      }
+    },
+    {
+      "question_id": "982b5123_abs",
+      "question_type": "temporal-reasoning",
+      "question": "When did I book the Airbnb in Sacramento?",
+      "question_date": "2023/05/27 (Sat) 17:10",
+      "gold_answer": "The information provided is not enough. You only mentioned booking Airbnb in San Francisco.",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "support_source_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No memory or source turn mentions booking an Airbnb in Sacramento. The user discussed Airbnb in Haight-Ashbury (San Francisco) and Harajuku (Tokyo), but not Sacramento.",
+      "required_slots": [],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": false,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "same answer; preserve compact candidate",
+      "risk_reasons": [
+        "base_abstained"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "target_count": 1,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "booking event",
+            "query": "booked Airbnb Sacramento",
+            "semantic_type": "event",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "booked Airbnb Sacramento"
+        ],
+        "output_constraints": [
+          "date"
+        ],
+        "reason": "The question asks for a specific date of a past booking event. No composition needed."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 35181,
+        "completion_tokens": 354,
+        "elapsed_seconds": 5.332740068435669
+      },
+      "correct": true,
+      "judge_reason": "Both reference and prediction indicate insufficient information.",
+      "judge_meta": {
+        "mode": "deterministic_abstention_equivalence",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      }
+    },
+    {
+      "question_id": "0977f2af",
+      "question_type": "knowledge-update",
+      "question": "What new kitchen gadget did I invest in before getting the Air Fryer?",
+      "question_date": "2023/05/31 (Wed) 07:54",
+      "gold_answer": "Instant Pot",
+      "prediction": "Instant Pot",
+      "support_memory_ids": [
+        "m_061f44bfccf83193209a"
+      ],
+      "support_source_ids": [
+        124
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "Memory m_061f44bfccf83193209a records that the user owns a new Instant Pot and is thinking of using it to make soups and stews. Source turn 124 (timestamp 2023-05-21T05:48:01) shows the user saying 'my new Instant Pot'. The Air Fryer was acquired on 2023-05-20 (source 214), so the Instant Pot was obtained before the Air Fryer.",
+      "required_slots": [
+        {
+          "name": "gadget name",
+          "value": "Instant Pot",
+          "support_memory_ids": [
+            "m_061f44bfccf83193209a"
+          ],
+          "support_source_ids": [
+            124
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "base candidate passed risk gate",
+      "risk_reasons": [],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "slots": [],
+        "retrieval_queries": []
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 134,
+        "completion_tokens": 22,
+        "elapsed_seconds": 0.9217631816864014
+      }
+    },
+    {
+      "question_id": "71017277",
+      "question_type": "temporal-reasoning",
+      "question": "I received a piece of jewelry last Saturday from whom?",
+      "question_date": "2023/03/09 (Thu) 15:47",
+      "gold_answer": "my aunt",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "support_source_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No memory or source turn mentions the user receiving a piece of jewelry last Saturday (2023-03-04). The closest memory about jewelry is a discussion of Indian wedding jewelry symbolism, but it does not involve the user receiving jewelry.",
+      "required_slots": [],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": false,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "same answer; preserve compact candidate",
+      "risk_reasons": [
+        "base_abstained"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "target_count": 1,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "giver",
+            "query": "Who gave the user a piece of jewelry last Saturday?",
+            "semantic_type": "entity",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "user received jewelry last Saturday"
+        ],
+        "output_constraints": [
+          "single entity name"
+        ],
+        "reason": "The question asks for a specific person (from whom) who gave jewelry to the user on a specific past date (last Saturday). This is a direct factual retrieval of an entity."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 32791,
+        "completion_tokens": 363,
+        "elapsed_seconds": 5.593660593032837
+      },
+      "correct": false,
+      "judge_reason": "Prediction abstained while reference contains a concrete answer.",
+      "judge_meta": {
+        "mode": "deterministic_abstention_guard",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      }
+    },
+    {
+      "question_id": "58bf7951",
+      "question_type": "single-session-user",
+      "question": "What play did I attend at the local community theater?",
+      "question_date": "2023/05/30 (Tue) 22:53",
+      "gold_answer": "The Glass Menagerie",
+      "prediction": "The Glass Menagerie",
+      "support_memory_ids": [
+        "m_579ef0242c9e7fc74d85"
+      ],
+      "support_source_ids": [
+        161
+      ],
+      "confidence": 0.95,
+      "reasoning_summary": "Memory m_579ef0242c9e7fc74d85 and source turn 161 both state that the user attended a production of The Glass Menagerie at the local community theater.",
+      "required_slots": [],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "base candidate passed risk gate",
+      "risk_reasons": [],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "slots": [],
+        "retrieval_queries": []
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 137,
+        "completion_tokens": 22,
+        "elapsed_seconds": 0.9074606895446777
+      }
+    },
+    {
+      "question_id": "3fdac837",
+      "question_type": "multi-session",
+      "question": "What is the total number of days I spent in Japan and Chicago?",
+      "question_date": "2023/05/30 (Tue) 19:13",
+      "gold_answer": "11 days (or 12 days, if April 15th to 22nd is considered as 8 days)",
+      "prediction": "12 days",
+      "support_memory_ids": [
+        "m_a0be249674f33c6a5323",
+        "m_aa2312c29b474a01db15"
+      ],
+      "support_source_ids": [
+        195,
+        78
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "User visited Japan from April 15 to 22, 2023 (8 days) and Chicago for a 4-day trip in March 2023. Sum is 12 days.",
+      "required_slots": [
+        {
+          "name": "total days in Japan",
+          "value": 8,
+          "support_memory_ids": [
+            "m_a0be249674f33c6a5323"
+          ],
+          "support_source_ids": [
+            195
+          ]
+        },
+        {
+          "name": "total days in Chicago",
+          "value": 4,
+          "support_memory_ids": [
+            "m_aa2312c29b474a01db15"
+          ],
+          "support_source_ids": [
+            78
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "sum",
+      "calculation": {
+        "operator": "sum",
+        "operands": [
+          8,
+          4
+        ],
+        "unit": "days",
+        "result": "12 days"
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "specialist filled an abstained base answer",
+      "risk_reasons": [
+        "base_abstained",
+        "base_has_unfilled_slots",
+        "specialist_contract:count"
+      ],
+      "plan": {
+        "answer_contract": "sum",
+        "operator": "sum",
+        "target_count": 2,
+        "temporal_perspective": "historical",
+        "allow_composition": true,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "total days in Japan",
+            "query": "days spent in Japan",
+            "semantic_type": "number",
+            "required": true
+          },
+          {
+            "name": "total days in Chicago",
+            "query": "days spent in Chicago",
+            "semantic_type": "number",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "days spent in Japan",
+          "days spent in Chicago"
+        ],
+        "output_constraints": [
+          "The answer must be a single number representing the sum of days spent in Japan and Chicago."
+        ],
+        "reason": "The question asks for the total number of days spent in two locations, requiring a sum of two separate counts. Each count is a historical fact about the user's travel."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 34064,
+        "completion_tokens": 758,
+        "elapsed_seconds": 6.742841482162476
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches one of the acceptable answers in the reference.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 156,
+        "completion_tokens": 27,
+        "elapsed_seconds": 0.9139983654022217
+      }
+    },
+    {
+      "question_id": "618f13b2",
+      "question_type": "knowledge-update",
+      "question": "How many times have I worn my new black Converse Chuck Taylor All Star sneakers?",
+      "question_date": "2023/06/18 (Sun) 22:29",
+      "gold_answer": "six",
+      "prediction": "6",
+      "support_memory_ids": [
+        "m_38e896e86744d61b72a6",
+        "m_7a9f2b24e0ed1fbd4283"
+      ],
+      "support_source_ids": [
+        92,
+        96,
+        180
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "User stated wearing the sneakers four times on 2023-05-27 (sources 92,96) and later stated wearing them six times on 2023-05-29 (source 180). The later statement supersedes the earlier count, so the total is 6.",
+      "required_slots": [
+        {
+          "name": "worn_count",
+          "value": 6,
+          "support_memory_ids": [
+            "m_38e896e86744d61b72a6",
+            "m_7a9f2b24e0ed1fbd4283"
+          ],
+          "support_source_ids": [
+            92,
+            96,
+            180
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "same answer with stronger specialist support",
+      "risk_reasons": [
+        "specialist_contract:count",
+        "expected_operation_missing"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "target_count": 1,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "worn_count",
+            "query": "How many times have I worn my new black Converse Chuck Taylor All Star sneakers?",
+            "semantic_type": "number",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "How many times have I worn my new black Converse Chuck Taylor All Star sneakers?"
+        ],
+        "output_constraints": [
+          "The answer must be a single integer representing the total count of wears."
+        ],
+        "reason": "The question asks for a count of wears, and the compact candidate provides a direct answer (6) from a memory. No composition or bridging is needed."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 34562,
+        "completion_tokens": 740,
+        "elapsed_seconds": 7.235410213470459
+      },
+      "correct": true,
+      "judge_reason": "The prediction '6' is numerically equivalent to the reference answer 'six'.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 136,
+        "completion_tokens": 31,
+        "elapsed_seconds": 0.8959708213806152
+      }
+    },
+    {
+      "question_id": "gpt4_b5700ca9",
+      "question_type": "temporal-reasoning",
+      "question": "How many days ago did I attend the Maundy Thursday service at the Episcopal Church?",
+      "question_date": "2023/04/10 (Mon) 10:28",
+      "gold_answer": "4 days.",
+      "prediction": "4 days",
+      "support_memory_ids": [
+        "m_35b6d2e057feecf3049e"
+      ],
+      "support_source_ids": [
+        116
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "Memory m_35b6d2e057feecf3049e and source 116 confirm user attended Maundy Thursday service at Episcopal Church on 2023-04-06. Question date is 2023-04-10. Difference is 4 days.",
+      "required_slots": [
+        {
+          "name": "attendance date",
+          "value": "2023-04-06",
+          "support_memory_ids": [
+            "m_35b6d2e057feecf3049e"
+          ],
+          "support_source_ids": [
+            116
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "date_difference",
+      "calculation": {
+        "operator": "date_difference_days",
+        "operands": [
+          "2023-04-06",
+          "2023-04-10"
+        ],
+        "unit": "days",
+        "result": "4 days"
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "same answer with stronger specialist support",
+      "risk_reasons": [
+        "specialist_contract:count"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "date_difference_days",
+        "target_count": 1,
+        "temporal_perspective": "relative",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "attendance date",
+            "query": "date of Maundy Thursday service at Episcopal Church",
+            "semantic_type": "time",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "Maundy Thursday service Episcopal Church attendance date"
+        ],
+        "output_constraints": [
+          "number of days"
+        ],
+        "reason": "The question asks for days ago, requiring a date difference between the attendance date and the question date."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 31654,
+        "completion_tokens": 555,
+        "elapsed_seconds": 5.545215606689453
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 139,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.7545583248138428
+      }
+    },
+    {
+      "question_id": "6d550036",
+      "question_type": "multi-session",
+      "question": "How many projects have I led or am currently leading?",
+      "question_date": "2023/05/30 (Tue) 23:32",
+      "gold_answer": "2",
+      "prediction": "2",
+      "support_memory_ids": [
+        "m_80b592d84861eb9fcaf1",
+        "m_28ec2b2b37043960e19c"
+      ],
+      "support_source_ids": [
+        185,
+        38
+      ],
+      "confidence": 0.95,
+      "reasoning_summary": "User currently leads a team of five engineers (source 185) and previously led a data analysis team in a Marketing Research class project (source 38). Both are distinct projects where user was or is leader. Count = 2.",
+      "required_slots": [
+        {
+          "name": "project_lead_list",
+          "value": "leading a team of five engineers (current), led data analysis team in Marketing Research class project (past)",
+          "support_memory_ids": [
+            "m_80b592d84861eb9fcaf1",
+            "m_28ec2b2b37043960e19c"
+          ],
+          "support_source_ids": [
+            185,
+            38
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "count_distinct",
+      "calculation": {
+        "operator": "count_distinct",
+        "operands": [
+          "leading a team of five engineers (current project)",
+          "led data analysis team in Marketing Research class project (past project)"
+        ],
+        "unit": "projects",
+        "result": "2"
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "same answer with stronger specialist support",
+      "risk_reasons": [
+        "specialist_contract:state_resolution"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "count_distinct",
+        "target_count": 1,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "project_lead_list",
+            "query": "projects where user is or was leader",
+            "semantic_type": "event",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "projects led by user"
+        ],
+        "output_constraints": [
+          "count of distinct projects"
+        ],
+        "reason": "The question asks for a count of projects led or currently leading, requiring a count_distinct operation on project lead events."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 35428,
+        "completion_tokens": 707,
+        "elapsed_seconds": 7.686802864074707
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 130,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.6455667018890381
+      }
+    },
+    {
+      "question_id": "gpt4_4929293a",
+      "question_type": "temporal-reasoning",
+      "question": "Which event happened first, my cousin's wedding or Michael's engagement party?",
+      "question_date": "2023/10/01 (Sun) 07:41",
+      "gold_answer": "Michael's engagement party",
+      "prediction": "Michael's engagement party",
+      "support_memory_ids": [
+        "m_224c18b87a4eefa1b780",
+        "m_41ee172a756e40a45be4"
+      ],
+      "support_source_ids": [
+        90,
+        148
+      ],
+      "confidence": 0.95,
+      "reasoning_summary": "Michael's engagement party occurred on 2023-05-06, and the cousin's wedding occurred on 2023-06-15. Since 2023-05-06 is earlier, Michael's engagement party happened first.",
+      "required_slots": [
+        {
+          "name": "cousin's wedding date",
+          "value": "2023-06-15",
+          "support_memory_ids": [
+            "m_41ee172a756e40a45be4"
+          ],
+          "support_source_ids": [
+            148
+          ]
+        },
+        {
+          "name": "Michael's engagement party date",
+          "value": "2023-05-06",
+          "support_memory_ids": [
+            "m_224c18b87a4eefa1b780"
+          ],
+          "support_source_ids": [
+            90
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "timeline",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "base candidate passed risk gate",
+      "risk_reasons": [],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "slots": [],
+        "retrieval_queries": []
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 139,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.9971871376037598
+      }
+    },
+    {
+      "question_id": "60d45044",
+      "question_type": "single-session-user",
+      "question": "What type of rice is my favorite?",
+      "question_date": "2023/05/30 (Tue) 20:46",
+      "gold_answer": "Japanese short-grain rice",
+      "prediction": "Japanese short-grain rice",
+      "support_memory_ids": [
+        "m_d92d8d4568c682892b63"
+      ],
+      "support_source_ids": [
+        176
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "In source 176, the user explicitly states 'my favorite Japanese short-grain rice', indicating a preference for Japanese short-grain rice. This is supported by memory m_d92d8d4568c682892b63 which records the user's interest in Japanese-style dishes with Japanese short-grain rice.",
+      "required_slots": [],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "base candidate passed risk gate",
+      "risk_reasons": [],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "slots": [],
+        "retrieval_queries": []
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 134,
+        "completion_tokens": 22,
+        "elapsed_seconds": 0.9631421566009521
+      }
+    },
+    {
+      "question_id": "d52b4f67",
+      "question_type": "single-session-user",
+      "question": "Where did I attend my cousin's wedding?",
+      "question_date": "2023/05/30 (Tue) 23:57",
+      "gold_answer": "The Grand Ballroom",
+      "prediction": "Grand Ballroom",
+      "support_memory_ids": [
+        "m_7885b648792725dc5570"
+      ],
+      "support_source_ids": [
+        212
+      ],
+      "confidence": 0.95,
+      "reasoning_summary": "Memory m_7885b648792725dc5570 explicitly states the user attended their cousin's wedding at the Grand Ballroom. Source turn 212 confirms the user said 'I was just at my cousin's wedding at the Grand Ballroom last weekend.'",
+      "required_slots": [],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "base candidate passed risk gate",
+      "risk_reasons": [],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "slots": [],
+        "retrieval_queries": []
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "elapsed_seconds": 0.0
+      },
+      "correct": true,
+      "judge_reason": "Equivalent wording, missing 'The' is acceptable.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 132,
+        "completion_tokens": 25,
+        "elapsed_seconds": 0.8627922534942627
+      }
+    },
+    {
+      "question_id": "993da5e2",
+      "question_type": "temporal-reasoning",
+      "question": "How long had I been using the new area rug when I rearranged my living room furniture?",
+      "question_date": "2023/05/26 (Fri) 17:49",
+      "gold_answer": "One week. Answers ranging from 7 days to 10 days are also acceptable.",
+      "prediction": "9 days",
+      "support_memory_ids": [
+        "m_9b55192edc9ec3e32707",
+        "m_6621c47f31a29be30637"
+      ],
+      "support_source_ids": [
+        132,
+        199
+      ],
+      "confidence": 0.95,
+      "reasoning_summary": "Memory m_9b55192edc9ec3e32707 states user got a new area rug a month ago from the conversation date 2023-05-26, placing the start date at 2023-04-26. Memory m_6621c47f31a29be30637 states user rearranged furniture three weeks ago from the conversation date 2023-05-26, placing the rearrangement date at 2023-05-05. The difference between 2023-04-26 and 2023-05-05 is 9 days.",
+      "required_slots": [
+        {
+          "name": "date when user started using the new area rug",
+          "value": "2023-04-26",
+          "support_memory_ids": [
+            "m_9b55192edc9ec3e32707"
+          ],
+          "support_source_ids": [
+            132
+          ]
+        },
+        {
+          "name": "date when user rearranged living room furniture",
+          "value": "2023-05-05",
+          "support_memory_ids": [
+            "m_6621c47f31a29be30637"
+          ],
+          "support_source_ids": [
+            199
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "date_difference",
+      "calculation": {
+        "operator": "date_difference_days",
+        "operands": [
+          "2023-04-26",
+          "2023-05-05"
+        ],
+        "unit": "days",
+        "result": "9 days"
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "same answer with stronger specialist support",
+      "risk_reasons": [
+        "specialist_contract:temporal"
+      ],
+      "plan": {
+        "answer_contract": "timeline",
+        "operator": "date_difference_days",
+        "target_count": 2,
+        "temporal_perspective": "historical",
+        "allow_composition": true,
+        "allow_semantic_bridge": true,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "date when user started using the new area rug",
+            "query": "When did I start using the new area rug?",
+            "semantic_type": "time",
+            "required": true
+          },
+          {
+            "name": "date when user rearranged living room furniture",
+            "query": "When did I rearrange my living room furniture?",
+            "semantic_type": "time",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "new area rug start date",
+          "rearranged living room furniture date"
+        ],
+        "output_constraints": [
+          "answer must be a duration in days"
+        ],
+        "reason": "The question asks for the duration between two events: starting to use the rug and rearranging furniture. Both dates are needed to compute the difference."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 34135,
+        "completion_tokens": 887,
+        "elapsed_seconds": 7.381664991378784
+      },
+      "correct": true,
+      "judge_reason": "9 days falls within the acceptable range of 7 to 10 days.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 154,
+        "completion_tokens": 30,
+        "elapsed_seconds": 0.7722368240356445
+      }
+    },
+    {
+      "question_id": "a3332713",
+      "question_type": "multi-session",
+      "question": "What is the total amount I spent on gifts for my coworker and brother?",
+      "question_date": "2023/05/30 (Tue) 21:10",
+      "gold_answer": "$200",
+      "prediction": "200 USD",
+      "support_memory_ids": [
+        "m_35bad716160654d8e1a9",
+        "m_662846528e72731b337a"
+      ],
+      "support_source_ids": [
+        158,
+        163,
+        191
+      ],
+      "confidence": 0.95,
+      "reasoning_summary": "User stated spending $100 on a gift card for brother's graduation (source 158) and $100 on baby clothes/toys for coworker's baby shower (sources 163, 191). Sum is $200.",
+      "required_slots": [
+        {
+          "name": "amount spent on gift for coworker",
+          "value": "100",
+          "support_memory_ids": [
+            "m_662846528e72731b337a"
+          ],
+          "support_source_ids": [
+            163,
+            191
+          ]
+        },
+        {
+          "name": "amount spent on gift for brother",
+          "value": "100",
+          "support_memory_ids": [
+            "m_35bad716160654d8e1a9"
+          ],
+          "support_source_ids": [
+            158
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "sum",
+      "calculation": {
+        "operator": "sum",
+        "operands": [
+          "100",
+          "100"
+        ],
+        "unit": "USD",
+        "result": "200 USD"
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "Specialist candidate fills required slots explicitly, includes deterministic calculation, and has higher confidence.",
+      "risk_reasons": [
+        "specialist_contract:sum"
+      ],
+      "plan": {
+        "answer_contract": "sum",
+        "operator": "sum",
+        "target_count": 2,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "amount spent on gift for coworker",
+            "query": "gift for coworker amount",
+            "semantic_type": "number",
+            "required": true
+          },
+          {
+            "name": "amount spent on gift for brother",
+            "query": "gift for brother amount",
+            "semantic_type": "number",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "gift for coworker amount",
+          "gift for brother amount"
+        ],
+        "output_constraints": [
+          "sum of two amounts in USD"
+        ],
+        "reason": "The question asks for total amount spent on gifts for two people, requiring summing two separate amounts."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 30080,
+        "completion_tokens": 798,
+        "elapsed_seconds": 8.275207042694092
+      },
+      "correct": true,
+      "judge_reason": "Equivalent wording and units, $200 and 200 USD are the same amount.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 136,
+        "completion_tokens": 31,
+        "elapsed_seconds": 0.7670493125915527
+      }
+    },
+    {
+      "question_id": "28bcfaac",
+      "question_type": "single-session-assistant",
+      "question": "I'm going back to our previous conversation about music theory. You mentioned some online resources for learning music theory. Can you remind me of the website you recommended for free lessons and exercises?",
+      "question_date": "2023/05/30 (Tue) 11:46",
+      "gold_answer": "MusicTheory.net",
+      "prediction": "MusicTheory.net",
+      "support_memory_ids": [
+        "m_5158cf9eae05883c8c3b",
+        "m_e5f3b10dfdc7e348a0e0"
+      ],
+      "support_source_ids": [
+        15
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "In source 15, the assistant explicitly recommended MusicTheory.net as a website offering free lessons and exercises on music theory. This directly answers the user's question.",
+      "required_slots": [
+        {
+          "name": "recommended_website",
+          "value": "MusicTheory.net",
+          "support_memory_ids": [
+            "m_5158cf9eae05883c8c3b",
+            "m_e5f3b10dfdc7e348a0e0"
+          ],
+          "support_source_ids": [
+            15
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "assistant_recall",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "same answer with stronger specialist support",
+      "risk_reasons": [
+        "specialist_contract:assistant_recall"
+      ],
+      "plan": {
+        "answer_contract": "assistant_recall",
+        "operator": "none",
+        "target_count": 0,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "recommended_website",
+            "query": "assistant recommended website for free music theory lessons and exercises",
+            "semantic_type": "assistant_reply",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "assistant recommended website for free music theory lessons and exercises"
+        ],
+        "output_constraints": [
+          "answer must be a single website URL or name"
+        ],
+        "reason": "The question asks the assistant to recall a website it previously recommended for free music theory lessons and exercises, which is an assistant-recall question requiring assistant_reply evidence."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 30625,
+        "completion_tokens": 590,
+        "elapsed_seconds": 6.275347471237183
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 160,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.6277177333831787
+      }
+    },
+    {
+      "question_id": "18dcd5a5",
+      "question_type": "single-session-assistant",
+      "question": "I'm going back to our previous chat about the Lost Temple of the Djinn one-shot. Can you remind me how many mummies the party will face in the temple?",
+      "question_date": "2023/05/30 (Tue) 23:50",
+      "gold_answer": "4",
+      "prediction": "4",
+      "support_memory_ids": [
+        "m_d55cad8f408d66e5e1e0"
+      ],
+      "support_source_ids": [
+        205
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "The assistant's previous response in source 205 explicitly states 'Mummies (4)' in the stat blocks for the Lost Temple of the Djinn one-shot.",
+      "required_slots": [
+        {
+          "name": "number_of_mummies",
+          "value": "4",
+          "support_memory_ids": [
+            "m_d55cad8f408d66e5e1e0"
+          ],
+          "support_source_ids": [
+            205
+          ]
+        }
+      ],
+      "unfilled_slots": [],
+      "operation": "none",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "base",
+      "adaptive_choice_reason": "same answer; preserve compact candidate",
+      "risk_reasons": [
+        "specialist_contract:assistant_recall"
+      ],
+      "plan": {
+        "answer_contract": "direct_value",
+        "operator": "none",
+        "target_count": 1,
+        "temporal_perspective": "historical",
+        "allow_composition": false,
+        "allow_semantic_bridge": false,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "number_of_mummies",
+            "query": "How many mummies in Lost Temple of the Djinn one-shot?",
+            "semantic_type": "number",
+            "required": true
+          }
+        ],
+        "retrieval_queries": [
+          "Lost Temple of the Djinn mummies count"
+        ],
+        "output_constraints": [
+          "single integer"
+        ],
+        "reason": "The user asks for a specific fact (number of mummies) from a previous chat about a one-shot. The answer is a direct value from assistant's prior response."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 40966,
+        "completion_tokens": 527,
+        "elapsed_seconds": 6.27159309387207
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 156,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.758432149887085
+      }
+    },
+    {
+      "question_id": "1da05512",
+      "question_type": "single-session-preference",
+      "question": "I'm trying to decide whether to buy a NAS device now or wait. What do you think?",
+      "question_date": "2023/05/30 (Tue) 15:33",
+      "gold_answer": "The user would prefer responses that take into account their current home network storage capacity issues and recent reliance on external hard drives, highlighting the potential benefits of a NAS device in addressing these specific needs. They might not prefer responses that ignore their current storage challenges or fail to consider their recent tech upgrades and priorities. Preferred responses would utilize the user's previous mentions of storage capacity issues and tech investments to inform their decision.",
+      "prediction": "Based on your needs and preferences, I recommend buying a NAS now. You have a clear need for more storage and convenience, you prefer NAS over external hard drives, and you have already researched security features. There is no indication of financial constraints or upcoming expenses that would warrant waiting.",
+      "support_memory_ids": [
+        "m_77c677271ac18de00304",
+        "m_7b15b4695be15ac7aeb1",
+        "m_d68dbcbbdd4c5016a00f",
+        "m_8b53a1c296d17a607ec2"
+      ],
+      "support_source_ids": [
+        188,
+        190,
+        192,
+        193
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "User has an active need for a NAS, prefers it over external hard drives, and has researched security features. No financial constraints or reasons to wait are present. Past purchase decisions show user acts on positive reviews and features. Therefore, buying now is recommended.",
+      "required_slots": [
+        {
+          "name": "user_need_for_NAS",
+          "value": "User has issues with home network storage capacity and is considering a NAS device for central backup and more storage.",
+          "support_memory_ids": [
+            "m_77c677271ac18de00304",
+            "m_7b15b4695be15ac7aeb1",
+            "m_8b53a1c296d17a607ec2"
+          ],
+          "support_source_ids": [
+            188,
+            190
+          ]
+        },
+        {
+          "name": "user_preference_NAS_vs_alternatives",
+          "value": "User currently uses an external hard drive but thinks a NAS would be more convenient and provide more storage, indicating a preference for NAS.",
+          "support_memory_ids": [
+            "m_8b53a1c296d17a607ec2"
+          ],
+          "support_source_ids": [
+            190
+          ]
+        },
+        {
+          "name": "user_financial_situation",
+          "value": "No information about financial situation or upcoming expenses.",
+          "support_memory_ids": [],
+          "support_source_ids": []
+        },
+        {
+          "name": "user_past_purchase_decisions",
+          "value": "User has made technology purchases based on positive reviews (e.g., Eagle Creek Pack-It Cubes) and has considered features and price.",
+          "support_memory_ids": [
+            "m_223e0fe60024da2bb997"
+          ],
+          "support_source_ids": [
+            74
+          ]
+        }
+      ],
+      "unfilled_slots": [
+        "user_financial_situation"
+      ],
+      "operation": "preference_inference",
+      "calculation": {
+        "operator": "none",
+        "operands": [],
+        "unit": "",
+        "result": ""
+      },
+      "answerable": true,
+      "retrieval_name": "graph_active_p7_adaptive_qa",
+      "source_retrieval_name": "graph_active_p2_gate",
+      "base_output_name": "graph_active_p5_source_qa",
+      "adaptive_choice": "specialist",
+      "adaptive_choice_reason": "specialist filled an abstained base answer",
+      "risk_reasons": [
+        "base_abstained",
+        "specialist_contract:preference_criteria"
+      ],
+      "plan": {
+        "answer_contract": "preference_criteria",
+        "operator": "none",
+        "target_count": 0,
+        "temporal_perspective": "current",
+        "allow_composition": true,
+        "allow_semantic_bridge": true,
+        "allow_state_projection": false,
+        "slots": [
+          {
+            "name": "user_need_for_NAS",
+            "query": "user need for NAS device",
+            "semantic_type": "preference",
+            "required": true
+          },
+          {
+            "name": "user_preference_NAS_vs_alternatives",
+            "query": "user preference NAS vs external hard drive",
+            "semantic_type": "preference",
+            "required": true
+          },
+          {
+            "name": "user_financial_situation",
+            "query": "user financial situation or upcoming expenses",
+            "semantic_type": "state",
+            "required": false
+          },
+          {
+            "name": "user_past_purchase_decisions",
+            "query": "user past technology purchase decisions",
+            "semantic_type": "event",
+            "required": false
+          }
+        ],
+        "retrieval_queries": [
+          "user need for NAS device",
+          "user preference NAS vs external hard drive",
+          "user financial situation or upcoming expenses",
+          "user past technology purchase decisions"
+        ],
+        "output_constraints": [
+          "Recommendation based on user preferences and needs"
+        ],
+        "reason": "The question asks for a recommendation on buying a NAS now or waiting, which is a preference-based decision. The answer should consider the user's expressed need, preference over alternatives, and optionally financial context or past patterns. No explicit count, sum, timeline, or state resolution is required."
+      },
+      "meta": {
+        "mode": "adaptive_qa_v5",
+        "prompt_tokens": 31896,
+        "completion_tokens": 1425,
+        "elapsed_seconds": 11.219345331192017
+      },
+      "correct": true,
+      "judge_reason": "The prediction aligns with the reference answer by considering the user's storage issues and tech upgrades, and recommends buying now.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 272,
+        "completion_tokens": 38,
+        "elapsed_seconds": 1.6252820491790771
+      }
+    }
+  ]
+}

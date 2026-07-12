@@ -1,0 +1,207 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 0,
+    "temporal_perspective": "relative",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "purchase events",
+        "query": "purchased feed in the past two months",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "weight per purchase",
+        "query": "weight of purchased feed",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "purchased feed between 2023-03-30 and 2023-05-30"
+    ],
+    "output_constraints": [
+      "sum of weights in pounds"
+    ],
+    "reason": "The question asks for total weight of new feed purchased in the past two months, requiring sum of weights from purchase events within that time window."
+  },
+  "base_candidate": {
+    "answer": "70 pounds",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_570c38c6a22124172242",
+      "m_6b48781b96e542ff5c30"
+    ],
+    "support_source_ids": [
+      46,
+      52
+    ],
+    "required_slots": [
+      {
+        "name": "total weight",
+        "value": "70 pounds",
+        "support_memory_ids": [
+          "m_570c38c6a22124172242",
+          "m_6b48781b96e542ff5c30"
+        ],
+        "support_source_ids": [
+          46,
+          52
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        50,
+        20
+      ],
+      "unit": "pounds",
+      "result": "70 pounds"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user purchased a 50-pound batch of layer feed (memory m_570c38c6a22124172242, source 46) and 20 pounds of organic scratch grains (memory m_6b48781b96e542ff5c30, source 52), both within the past two months (May 22, 2023). Summing gives 70 pounds total."
+  },
+  "specialist_candidate": {
+    "answer": "70 pounds",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_570c38c6a22124172242",
+      "m_6b48781b96e542ff5c30"
+    ],
+    "support_source_ids": [
+      46,
+      52
+    ],
+    "required_slots": [
+      {
+        "name": "purchase events",
+        "value": "purchased 50-pound batch of layer feed on 2023-05-22; purchased 20 pounds of organic scratch grains on 2023-05-22",
+        "support_memory_ids": [
+          "m_570c38c6a22124172242",
+          "m_6b48781b96e542ff5c30"
+        ],
+        "support_source_ids": [
+          46,
+          52
+        ]
+      },
+      {
+        "name": "weight per purchase",
+        "value": "50 pounds; 20 pounds",
+        "support_memory_ids": [
+          "m_570c38c6a22124172242",
+          "m_6b48781b96e542ff5c30"
+        ],
+        "support_source_ids": [
+          46,
+          52
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        50,
+        20
+      ],
+      "unit": "pounds",
+      "result": "70 pounds"
+    },
+    "fact_table": [
+      {
+        "subject": "User",
+        "predicate": "purchased",
+        "object": "50-pound batch of layer feed",
+        "value": "50",
+        "unit": "pounds",
+        "event_time": "2023-05-22T14:05:00.500000",
+        "valid_from": "2023-05-22T14:05:00.500000",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_570c38c6a22124172242"
+        ],
+        "support_source_ids": [
+          46
+        ]
+      },
+      {
+        "subject": "User",
+        "predicate": "purchased",
+        "object": "20 pounds of organic scratch grains",
+        "value": "20",
+        "unit": "pounds",
+        "event_time": "2023-05-22T16:34:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_6b48781b96e542ff5c30"
+        ],
+        "support_source_ids": [
+          52
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "Two feed purchases within the past two months (2023-03-30 to 2023-05-30): a 50-pound batch of layer feed and 20 pounds of organic scratch grains. Sum = 70 pounds.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "same answer with stronger specialist support",
+  "compact_source_ids": [
+    46,
+    48,
+    47,
+    50,
+    52,
+    32,
+    171,
+    149,
+    139,
+    37,
+    135,
+    179,
+    49,
+    157,
+    132,
+    51,
+    53,
+    33,
+    36
+  ],
+  "targeted_source_ids": [
+    19,
+    46,
+    48,
+    49,
+    50,
+    53,
+    57,
+    126,
+    132,
+    135,
+    161,
+    179,
+    47,
+    51,
+    133
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "question_id": "a9f6b44c",
+  "question_type": "multi-session",
+  "question": "How many bikes did I service or plan to service in March?",
+  "question_date": "2023/03/20 (Mon) 23:57",
+  "gold_answer": "2",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_10104622f0197a9592c5",
+    "m_310cf20356f45588c744",
+    "m_1c77cf201b58ed97e8fb",
+    "m_da8bbb1a4d2962c3f79e",
+    "m_221d5e6d610f9d779b49"
+  ],
+  "support_source_ids": [
+    188,
+    191,
+    91,
+    94,
+    69
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "The user had their road bike serviced at Pedal Power on March 10, 2023 (observed). The user also planned to replace the front tire of their commuter bike before April 2023 (planned). Both events involve distinct bikes (road bike and commuter bike). Chain cleaning/lubrication events are maintenance but not full service, and they pertain to the same road bike already counted. Therefore, the count of distinct bikes serviced or planned to service in March 2023 is 2.",
+  "required_slots": [
+    {
+      "name": "bike_service_event",
+      "value": "road bike serviced at Pedal Power on March 10, 2023",
+      "support_memory_ids": [
+        "m_10104622f0197a9592c5",
+        "m_310cf20356f45588c744"
+      ],
+      "support_source_ids": [
+        188,
+        191
+      ]
+    },
+    {
+      "name": "bike_plan_event",
+      "value": "plan to replace front tire of commuter bike before April 2023",
+      "support_memory_ids": [
+        "m_221d5e6d610f9d779b49"
+      ],
+      "support_source_ids": [
+        69
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "operation": "count_distinct",
+  "calculation": {
+    "operator": "count_distinct",
+    "operands": [
+      "road bike",
+      "commuter bike"
+    ],
+    "unit": "bikes",
+    "result": "2"
+  },
+  "answerable": true,
+  "retrieval_name": "graph_active_p7_adaptive_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "base_output_name": "graph_active_p5_source_qa",
+  "adaptive_choice": "specialist",
+  "adaptive_choice_reason": "same answer with stronger specialist support",
+  "risk_reasons": [
+    "specialist_contract:count"
+  ],
+  "plan": {
+    "answer_contract": "direct_value",
+    "operator": "count_distinct",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": true,
+    "allow_semantic_bridge": true,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "bike_service_event",
+        "query": "bike service events in March 2023",
+        "semantic_type": "event",
+        "required": true
+      },
+      {
+        "name": "bike_plan_event",
+        "query": "bike service plans in March 2023",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "bike service events in March 2023",
+      "bike service plans in March 2023"
+    ],
+    "output_constraints": [
+      "count distinct bikes involved in service events or plans in March 2023"
+    ],
+    "reason": "Question asks for count of bikes serviced or planned to service in March. Need to retrieve both actual service events and planned service events, then count distinct bikes."
+  },
+  "meta": {
+    "mode": "adaptive_qa_v5",
+    "prompt_tokens": 32889,
+    "completion_tokens": 1200,
+    "elapsed_seconds": 10.194435834884644
+  }
+}

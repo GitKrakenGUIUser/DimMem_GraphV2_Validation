@@ -1,0 +1,195 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:sum"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "sum",
+    "operator": "sum",
+    "target_count": 2,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "amount spent on gift for coworker",
+        "query": "gift for coworker amount",
+        "semantic_type": "number",
+        "required": true
+      },
+      {
+        "name": "amount spent on gift for brother",
+        "query": "gift for brother amount",
+        "semantic_type": "number",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "gift for coworker amount",
+      "gift for brother amount"
+    ],
+    "output_constraints": [
+      "sum of two amounts in USD"
+    ],
+    "reason": "The question asks for total amount spent on gifts for two people, requiring summing two separate amounts."
+  },
+  "base_candidate": {
+    "answer": "$200",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_35bad716160654d8e1a9",
+      "m_662846528e72731b337a"
+    ],
+    "support_source_ids": [
+      158,
+      163
+    ],
+    "required_slots": [],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "addition",
+      "operands": [
+        "100",
+        "100"
+      ],
+      "unit": "USD",
+      "result": "200"
+    },
+    "confidence": 0.9,
+    "reasoning_summary": "The user spent $100 on a gift card for their brother (source 158) and $100 on baby clothes and toys for a coworker (source 163). Both amounts are clearly stated, so the total is $200."
+  },
+  "specialist_candidate": {
+    "answer": "200 USD",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_35bad716160654d8e1a9",
+      "m_662846528e72731b337a"
+    ],
+    "support_source_ids": [
+      158,
+      163,
+      191
+    ],
+    "required_slots": [
+      {
+        "name": "amount spent on gift for coworker",
+        "value": "100",
+        "support_memory_ids": [
+          "m_662846528e72731b337a"
+        ],
+        "support_source_ids": [
+          163,
+          191
+        ]
+      },
+      {
+        "name": "amount spent on gift for brother",
+        "value": "100",
+        "support_memory_ids": [
+          "m_35bad716160654d8e1a9"
+        ],
+        "support_source_ids": [
+          158
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "sum",
+    "calculation": {
+      "operator": "sum",
+      "operands": [
+        "100",
+        "100"
+      ],
+      "unit": "USD",
+      "result": "200 USD"
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "spent",
+        "object": "gift for coworker",
+        "value": "100",
+        "unit": "USD",
+        "event_time": "2023-05-29T11:32:02",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_662846528e72731b337a"
+        ],
+        "support_source_ids": [
+          163,
+          191
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "spent",
+        "object": "gift for brother",
+        "value": "100",
+        "unit": "USD",
+        "event_time": "2023-05-28T08:47:00.500000",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_35bad716160654d8e1a9"
+        ],
+        "support_source_ids": [
+          158
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "User stated spending $100 on a gift card for brother's graduation (source 158) and $100 on baby clothes/toys for coworker's baby shower (sources 163, 191). Sum is $200.",
+    "postprocess": {
+      "deterministic_calculation_applied": true
+    }
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist candidate fills required slots explicitly, includes deterministic calculation, and has higher confidence.",
+  "compact_source_ids": [
+    158,
+    159,
+    191,
+    163,
+    160,
+    164,
+    80,
+    188,
+    17,
+    12,
+    16,
+    13,
+    189,
+    193,
+    73,
+    98,
+    114,
+    162,
+    15
+  ],
+  "targeted_source_ids": [
+    90,
+    98,
+    99,
+    104,
+    135,
+    158,
+    164,
+    168,
+    189,
+    191,
+    193,
+    200,
+    159,
+    188,
+    190,
+    192
+  ]
+}

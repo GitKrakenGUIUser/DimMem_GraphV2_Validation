@@ -1,0 +1,151 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:state_resolution"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "state_resolution",
+    "operator": "state_resolution",
+    "target_count": 1,
+    "temporal_perspective": "current",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": true,
+    "slots": [
+      {
+        "name": "location",
+        "query": "old sneakers location",
+        "semantic_type": "state",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "old sneakers location"
+    ],
+    "output_constraints": [
+      "single location string"
+    ],
+    "reason": "Question asks for current location of old sneakers, requiring state resolution from latest evidence."
+  },
+  "base_candidate": {
+    "answer": "under the bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e23eee8bea7ab56e0ac9"
+    ],
+    "support_source_ids": [
+      16
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "under the bed",
+        "support_memory_ids": [
+          "m_e23eee8bea7ab56e0ac9"
+        ],
+        "support_source_ids": [
+          16
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "none",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-25 that they keep their old sneakers under the bed for storage. No later update contradicts this; later plans to organize the closet are future intentions, not current location. Therefore, the current location remains under the bed."
+  },
+  "specialist_candidate": {
+    "answer": "under the bed",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_e23eee8bea7ab56e0ac9"
+    ],
+    "support_source_ids": [
+      16
+    ],
+    "required_slots": [
+      {
+        "name": "location",
+        "value": "under the bed",
+        "support_memory_ids": [
+          "m_e23eee8bea7ab56e0ac9"
+        ],
+        "support_source_ids": [
+          16
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "state_resolution",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "User's old sneakers",
+        "predicate": "stored",
+        "object": "under the bed",
+        "value": "",
+        "unit": "",
+        "event_time": "",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_e23eee8bea7ab56e0ac9"
+        ],
+        "support_source_ids": [
+          16
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "reasoning_summary": "The user stated on 2023-05-25 that they keep old sneakers under the bed. Later plans (2023-05-29) to move them to a shoe rack are projected but not confirmed as completed by the question date (2023-06-23). No evidence contradicts the original location, so the current location remains under the bed."
+  },
+  "choice": "specialist",
+  "choice_reason": "specialist satisfies state_resolution contract",
+  "compact_source_ids": [
+    16,
+    167,
+    172,
+    168,
+    17,
+    169,
+    146,
+    105,
+    144,
+    145,
+    206,
+    223,
+    254,
+    170,
+    18,
+    171,
+    15
+  ],
+  "targeted_source_ids": [
+    16,
+    17,
+    18,
+    20,
+    146,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    254,
+    15
+  ]
+}

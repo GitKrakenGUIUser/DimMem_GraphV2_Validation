@@ -1,0 +1,277 @@
+{
+  "base_output_name": "graph_active_p5_source_qa",
+  "source_retrieval_name": "graph_active_p2_gate",
+  "risk_reasons": [
+    "specialist_contract:timeline"
+  ],
+  "specialist_needed": true,
+  "plan": {
+    "answer_contract": "timeline",
+    "operator": "timeline",
+    "target_count": 6,
+    "temporal_perspective": "historical",
+    "allow_composition": false,
+    "allow_semantic_bridge": false,
+    "allow_state_projection": false,
+    "slots": [
+      {
+        "name": "museum visit events",
+        "query": "museums I visited with dates",
+        "semantic_type": "event",
+        "required": true
+      }
+    ],
+    "retrieval_queries": [
+      "museums I visited with dates"
+    ],
+    "output_constraints": [
+      "list of museum names in chronological order"
+    ],
+    "reason": "The question asks for the chronological order of six museum visits, which requires a timeline of events with dates."
+  },
+  "base_candidate": {
+    "answer": "Science Museum (2023-01-15), Metropolitan Museum of Art (2023-02-10), Museum of History (2023-02-15), Modern Art Museum (2023-02-20), Natural History Museum (2023-03-04), Modern Art Museum (2023-03-04)",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_23b1c5a2bcba4666bae8",
+      "m_35ff148d8ece0cd9a78d",
+      "m_d92e7be85936e8453d10",
+      "m_2795a03476ec2d395894",
+      "m_47b8c21e8b34848f7bc1",
+      "m_d2f506eb05834732dde4"
+    ],
+    "support_source_ids": [
+      31,
+      71,
+      95,
+      150,
+      211,
+      214
+    ],
+    "required_slots": [
+      {
+        "name": "chronological order of six museums",
+        "value": "1. Science Museum (2023-01-15), 2. Metropolitan Museum of Art (2023-02-10), 3. Museum of History (2023-02-15), 4. Modern Art Museum (2023-02-20), 5. Natural History Museum (2023-03-04), 6. Modern Art Museum (2023-03-04)",
+        "support_memory_ids": [
+          "m_23b1c5a2bcba4666bae8",
+          "m_35ff148d8ece0cd9a78d",
+          "m_d92e7be85936e8453d10",
+          "m_2795a03476ec2d395894",
+          "m_47b8c21e8b34848f7bc1",
+          "m_d2f506eb05834732dde4"
+        ],
+        "support_source_ids": [
+          31,
+          71,
+          95,
+          150,
+          211,
+          214
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "confidence": 0.95,
+    "reasoning_summary": "From memories and source turns, the user visited: Science Museum on 2023-01-15 (m_23b1c5a2bcba4666bae8, source 31), Metropolitan Museum of Art on 2023-02-10 (m_35ff148d8ece0cd9a78d, source 71), Museum of History on 2023-02-15 (m_d92e7be85936e8453d10, source 95), Modern Art Museum on 2023-02-20 (m_2795a03476ec2d395894, source 150), Natural History Museum on 2023-03-04 (m_47b8c21e8b34848f7bc1, source 211), and Modern Art Museum again on 2023-03-04 (m_d2f506eb05834732dde4, source 214). Sorted by date, the order is: Science Museum, Metropolitan Museum of Art, Museum of History, Modern Art Museum (Feb 20), Natural History Museum, Modern Art Museum (Mar 4)."
+  },
+  "specialist_candidate": {
+    "answer": "Science Museum, Museum of Contemporary Art, Metropolitan Museum of Art, Museum of History, Modern Art Museum, Natural History Museum",
+    "answerable": true,
+    "support_memory_ids": [
+      "m_23b1c5a2bcba4666bae8",
+      "m_038e8557a2aed7cc1502",
+      "m_35ff148d8ece0cd9a78d",
+      "m_d92e7be85936e8453d10",
+      "m_2795a03476ec2d395894",
+      "m_47b8c21e8b34848f7bc1"
+    ],
+    "support_source_ids": [
+      31,
+      71,
+      95,
+      150,
+      211
+    ],
+    "required_slots": [
+      {
+        "name": "museum visit events",
+        "value": "Science Museum (2023-01-15), Museum of Contemporary Art (2023-01-22), Metropolitan Museum of Art (2023-02-10), Museum of History (2023-02-15), Modern Art Museum (2023-02-20), Natural History Museum (2023-03-04)",
+        "support_memory_ids": [
+          "m_23b1c5a2bcba4666bae8",
+          "m_038e8557a2aed7cc1502",
+          "m_35ff148d8ece0cd9a78d",
+          "m_d92e7be85936e8453d10",
+          "m_2795a03476ec2d395894",
+          "m_47b8c21e8b34848f7bc1"
+        ],
+        "support_source_ids": [
+          31,
+          48,
+          71,
+          95,
+          150,
+          211
+        ]
+      }
+    ],
+    "unfilled_slots": [],
+    "operation": "timeline",
+    "calculation": {
+      "operator": "none",
+      "operands": [],
+      "unit": "",
+      "result": ""
+    },
+    "fact_table": [
+      {
+        "subject": "user",
+        "predicate": "visited",
+        "object": "Science Museum",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-01-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_23b1c5a2bcba4666bae8"
+        ],
+        "support_source_ids": [
+          31
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "visited",
+        "object": "Museum of Contemporary Art",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-01-22",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_038e8557a2aed7cc1502"
+        ],
+        "support_source_ids": [
+          48
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "visited",
+        "object": "Metropolitan Museum of Art",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-02-10",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_35ff148d8ece0cd9a78d"
+        ],
+        "support_source_ids": [
+          71
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "visited",
+        "object": "Museum of History",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-02-15",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_d92e7be85936e8453d10"
+        ],
+        "support_source_ids": [
+          95
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "visited",
+        "object": "Modern Art Museum",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-02-20",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_2795a03476ec2d395894"
+        ],
+        "support_source_ids": [
+          150
+        ]
+      },
+      {
+        "subject": "user",
+        "predicate": "visited",
+        "object": "Natural History Museum",
+        "value": "",
+        "unit": "",
+        "event_time": "2023-03-04",
+        "valid_from": "",
+        "valid_to": "",
+        "modality": "asserted",
+        "support_memory_ids": [
+          "m_47b8c21e8b34848f7bc1"
+        ],
+        "support_source_ids": [
+          211
+        ]
+      }
+    ],
+    "confidence": 1.0,
+    "reasoning_summary": "Extracted six museum visits with dates from memories: Science Museum (2023-01-15), Museum of Contemporary Art (2023-01-22), Metropolitan Museum of Art (2023-02-10), Museum of History (2023-02-15), Modern Art Museum (2023-02-20), Natural History Museum (2023-03-04). Ordered chronologically."
+  },
+  "choice": "specialist",
+  "choice_reason": "Specialist candidate fills all six required slots with distinct museums and correct chronological order, while compact candidate duplicates Modern Art Museum and includes an unsupported second visit.",
+  "compact_source_ids": [
+    211,
+    214,
+    95,
+    31,
+    150,
+    212,
+    71,
+    72,
+    153,
+    117,
+    32,
+    35,
+    231,
+    67,
+    213,
+    151
+  ],
+  "targeted_source_ids": [
+    31,
+    33,
+    49,
+    50,
+    55,
+    72,
+    194,
+    211,
+    213,
+    214,
+    225,
+    227,
+    32,
+    212,
+    215,
+    228
+  ]
+}
