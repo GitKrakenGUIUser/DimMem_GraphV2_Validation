@@ -1,0 +1,40 @@
+[
+  {
+    "question_id": "knowledge-update/smoke-001",
+    "question_type": "knowledge-update",
+    "question": "Where does the user live now?",
+    "question_date": "2025-04-01",
+    "answer": "Seattle",
+    "haystack_session_ids": ["s1", "s2"],
+    "haystack_dates": ["2025/01/03 10:00", "2025/03/10 12:00"],
+    "haystack_sessions": [
+      [
+        {"role": "user", "content": "I live in Boston."},
+        {"role": "assistant", "content": "Boston can be lovely."}
+      ],
+      [
+        {"role": "user", "content": "I moved to Seattle last week, so Seattle is my home now."},
+        {"role": "assistant", "content": "I hope the move went well."}
+      ]
+    ]
+  },
+  {
+    "question_id": "multi-session/smoke-002",
+    "question_type": "multi-session",
+    "question": "Which city did the user visit after booking the museum trip?",
+    "question_date": "2025-06-20",
+    "answer": "Kyoto",
+    "haystack_session_ids": ["a", "b"],
+    "haystack_dates": ["2025/05/01 08:00", "2025/05/20 18:00"],
+    "haystack_sessions": [
+      [
+        {"role": "user", "content": "I booked a museum-focused trip to Kyoto for later this month."},
+        {"role": "assistant", "content": "That sounds like a great itinerary."}
+      ],
+      [
+        {"role": "user", "content": "I just came back from Kyoto and loved the temples."},
+        {"role": "assistant", "content": "The temples are memorable."}
+      ]
+    ]
+  }
+]
