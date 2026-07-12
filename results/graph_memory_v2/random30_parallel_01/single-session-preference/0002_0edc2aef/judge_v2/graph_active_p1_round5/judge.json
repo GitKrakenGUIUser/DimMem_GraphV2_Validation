@@ -1,0 +1,44 @@
+{
+  "question_id": "0edc2aef",
+  "question_type": "single-session-preference",
+  "question": "Can you suggest a hotel for my upcoming trip to Miami?",
+  "question_date": "2023/05/30 (Tue) 20:23",
+  "gold_answer": "The user would prefer suggestions of hotels in Miami that offer great views, possibly of the ocean or the city skyline, and have unique features such as a rooftop pool or a hot tub on the balcony. They may not prefer suggestions of basic or budget hotels without these features.",
+  "prediction": "I see you're planning a trip to Miami. Based on your preferences, you like hotels with unique features such as a rooftop pool or a hot tub on the balcony. I can suggest looking for hotels in Miami that offer these amenities. However, I don't have specific information about your trip dates, budget, or other preferences to narrow down the options. Could you provide more details?",
+  "support_memory_ids": [
+    "m_e949a07ed2982968e713"
+  ],
+  "confidence": 0.7,
+  "reasoning_summary": "The user asked for a hotel suggestion for an upcoming trip to Miami. Evidence shows the user likes hotels with unique features such as a rooftop pool or hot tub on the balcony (m_e949a07ed2982968e713). However, no evidence provides trip dates, budget, or specific Miami hotel preferences. Therefore, I can infer a preference but cannot give a specific recommendation without more information.",
+  "required_slots": [
+    {
+      "name": "preferred_hotel_style",
+      "value": "hotels with unique features like rooftop pool or hot tub on balcony",
+      "support_memory_ids": [
+        "m_e949a07ed2982968e713"
+      ]
+    }
+  ],
+  "unfilled_slots": [
+    "trip_dates",
+    "budget"
+  ],
+  "conflicts": [],
+  "operation": "preference_inference",
+  "answerable": true,
+  "retrieval_name": "graph_active_p1_round5",
+  "meta": {
+    "mode": "llm",
+    "prompt_tokens": 9295,
+    "completion_tokens": 306,
+    "elapsed_seconds": 3.1919662952423096
+  },
+  "correct": true,
+  "judge_reason": "The prediction correctly identifies the user's preference for unique features like rooftop pool or hot tub on balcony, and asks for more details, which aligns with the reference answer.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 295,
+    "completion_tokens": 48,
+    "elapsed_seconds": 0.8558123111724854
+  }
+}

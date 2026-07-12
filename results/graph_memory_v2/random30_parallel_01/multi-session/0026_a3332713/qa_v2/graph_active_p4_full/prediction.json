@@ -1,0 +1,41 @@
+{
+  "question_id": "a3332713",
+  "question_type": "multi-session",
+  "question": "What is the total amount I spent on gifts for my coworker and brother?",
+  "question_date": "2023/05/30 (Tue) 21:10",
+  "gold_answer": "$200",
+  "prediction": "200",
+  "support_memory_ids": [
+    "m_35bad716160654d8e1a9",
+    "m_662846528e72731b337a"
+  ],
+  "confidence": 0.8,
+  "reasoning_summary": "From memory m_35bad716160654d8e1a9, user spent $100 on a gift card for brother's graduation. From memory m_662846528e72731b337a, user spent around $100 on baby clothes and toys for coworker's baby shower. Sum is $200.",
+  "required_slots": [
+    {
+      "name": "amount spent on gift for coworker",
+      "value": "100",
+      "support_memory_ids": [
+        "m_662846528e72731b337a"
+      ]
+    },
+    {
+      "name": "amount spent on gift for brother",
+      "value": "100",
+      "support_memory_ids": [
+        "m_35bad716160654d8e1a9"
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "conflicts": [],
+  "operation": "sum",
+  "answerable": true,
+  "retrieval_name": "graph_active_p4_full",
+  "meta": {
+    "mode": "llm",
+    "prompt_tokens": 9217,
+    "completion_tokens": 252,
+    "elapsed_seconds": 2.623931407928467
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "question_id": "gpt4_4929293a",
+  "question_type": "temporal-reasoning",
+  "question": "Which event happened first, my cousin's wedding or Michael's engagement party?",
+  "question_date": "2023/10/01 (Sun) 07:41",
+  "gold_answer": "Michael's engagement party",
+  "prediction": "Michael's engagement party",
+  "support_memory_ids": [
+    "m_224c18b87a4eefa1b780",
+    "m_41ee172a756e40a45be4"
+  ],
+  "confidence": 1.0,
+  "reasoning_summary": "Michael's engagement party on 2023-05-06 occurred before the cousin's wedding on 2023-06-15.",
+  "required_slots": [
+    {
+      "name": "cousin's wedding date",
+      "value": "2023-06-15",
+      "support_memory_ids": [
+        "m_41ee172a756e40a45be4"
+      ]
+    },
+    {
+      "name": "Michael's engagement party date",
+      "value": "2023-05-06",
+      "support_memory_ids": [
+        "m_224c18b87a4eefa1b780"
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "conflicts": [],
+  "operation": "compare",
+  "answerable": true,
+  "retrieval_name": "graph_active_p2_gate",
+  "meta": {
+    "mode": "llm",
+    "prompt_tokens": 9407,
+    "completion_tokens": 230,
+    "elapsed_seconds": 2.6536712646484375
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 175,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.7693545818328857
+  }
+}

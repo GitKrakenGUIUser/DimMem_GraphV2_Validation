@@ -1,0 +1,35 @@
+{
+  "question_id": "6d550036",
+  "question_type": "multi-session",
+  "question": "How many projects have I led or am currently leading?",
+  "question_date": "2023/05/30 (Tue) 23:32",
+  "gold_answer": "2",
+  "prediction": "2",
+  "support_memory_ids": [
+    "m_80b592d84861eb9fcaf1",
+    "m_28ec2b2b37043960e19c"
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Two distinct projects where the user led or is leading: currently leading a team of five engineers as senior software engineer (m_80b592d84861eb9fcaf1), and previously led the data analysis team in a Marketing Research class project (m_28ec2b2b37043960e19c). The high-priority project (m_20c5e48fc91d3052b7c2) does not specify a lead role, so it is not counted.",
+  "required_slots": [
+    {
+      "name": "list of projects with lead role",
+      "value": "team lead of five engineers (current), data analysis team lead in Marketing Research class project (past)",
+      "support_memory_ids": [
+        "m_80b592d84861eb9fcaf1",
+        "m_28ec2b2b37043960e19c"
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "conflicts": [],
+  "operation": "count",
+  "answerable": true,
+  "retrieval_name": "graph_active_p2_gate",
+  "meta": {
+    "mode": "llm",
+    "prompt_tokens": 8994,
+    "completion_tokens": 282,
+    "elapsed_seconds": 3.224493980407715
+  }
+}

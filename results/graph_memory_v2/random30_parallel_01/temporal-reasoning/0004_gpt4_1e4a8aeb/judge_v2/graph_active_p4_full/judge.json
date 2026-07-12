@@ -1,0 +1,49 @@
+{
+  "question_id": "gpt4_1e4a8aeb",
+  "question_type": "temporal-reasoning",
+  "question": "How many days passed between the day I attended the gardening workshop and the day I planted the tomato saplings?",
+  "question_date": "2023/05/08 (Mon) 06:05",
+  "gold_answer": "6 days. 7 days (including the last day) is also acceptable.",
+  "prediction": "6",
+  "support_memory_ids": [
+    "m_a565b256775ecd2a25a6",
+    "m_5add21661ed386957261"
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Gardening workshop attended on 2023-04-15 (memory m_a565b256775ecd2a25a6). Tomato saplings planted on 2023-04-21 (memory m_5add21661ed386957261). Difference = 6 days.",
+  "required_slots": [
+    {
+      "name": "date of gardening workshop",
+      "value": "2023-04-15",
+      "support_memory_ids": [
+        "m_a565b256775ecd2a25a6"
+      ]
+    },
+    {
+      "name": "date of planting tomato saplings",
+      "value": "2023-04-21",
+      "support_memory_ids": [
+        "m_5add21661ed386957261"
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "conflicts": [],
+  "operation": "date_difference",
+  "answerable": true,
+  "retrieval_name": "graph_active_p4_full",
+  "meta": {
+    "mode": "llm",
+    "prompt_tokens": 7770,
+    "completion_tokens": 250,
+    "elapsed_seconds": 2.698828935623169
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches the reference answer of 6 days.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 192,
+    "completion_tokens": 26,
+    "elapsed_seconds": 0.6953215599060059
+  }
+}

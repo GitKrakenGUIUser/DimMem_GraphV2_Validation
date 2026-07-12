@@ -1,0 +1,54 @@
+{
+  "question_id": "0edc2aef",
+  "question_type": "single-session-preference",
+  "question": "Can you suggest a hotel for my upcoming trip to Miami?",
+  "question_date": "2023/05/30 (Tue) 20:23",
+  "gold_answer": "The user would prefer suggestions of hotels in Miami that offer great views, possibly of the ocean or the city skyline, and have unique features such as a rooftop pool or a hot tub on the balcony. They may not prefer suggestions of basic or budget hotels without these features.",
+  "prediction": "I see you're planning a trip to Miami. Based on your preferences, you like hotels with unique features such as a rooftop pool or hot tub on the balcony. However, I don't have specific information about your trip dates, budget, or past Miami hotel bookings. Could you provide more details so I can suggest a suitable hotel?",
+  "support_memory_ids": [
+    "m_e949a07ed2982968e713"
+  ],
+  "confidence": 0.7,
+  "reasoning_summary": "The user asks for a hotel suggestion for an upcoming trip to Miami. The evidence shows a preference for hotels with unique features like rooftop pool or hot tub on balcony (m_e949a07ed2982968e713). However, no evidence exists for Miami-specific trips, trip dates, or budget. The answer acknowledges the preference and asks for missing details.",
+  "required_slots": [
+    {
+      "name": "trip_dates",
+      "value": "",
+      "support_memory_ids": []
+    },
+    {
+      "name": "preferred_hotel_style",
+      "value": "hotels with unique features such as a rooftop pool or hot tub on the balcony",
+      "support_memory_ids": [
+        "m_e949a07ed2982968e713"
+      ]
+    },
+    {
+      "name": "budget",
+      "value": "",
+      "support_memory_ids": []
+    }
+  ],
+  "unfilled_slots": [
+    "trip_dates",
+    "budget"
+  ],
+  "conflicts": [],
+  "operation": "none",
+  "answerable": true,
+  "retrieval_name": "graph_active_p3_planner",
+  "meta": {
+    "mode": "llm",
+    "prompt_tokens": 9409,
+    "completion_tokens": 340,
+    "elapsed_seconds": 3.9508566856384277
+  },
+  "correct": false,
+  "judge_reason": "The prediction does not suggest any specific hotel, which is an abstention, while the reference expects concrete suggestions.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 285,
+    "completion_tokens": 37,
+    "elapsed_seconds": 1.1923809051513672
+  }
+}

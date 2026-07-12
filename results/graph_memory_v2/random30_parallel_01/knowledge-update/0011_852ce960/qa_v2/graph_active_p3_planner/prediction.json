@@ -1,0 +1,42 @@
+{
+  "question_id": "852ce960",
+  "question_type": "knowledge-update",
+  "question": "What was the amount I was pre-approved for when I got my mortgage from Wells Fargo?",
+  "question_date": "2023/12/18 (Mon) 04:17",
+  "gold_answer": "$400,000",
+  "prediction": "$400,000",
+  "support_memory_ids": [
+    "m_9b2c9eeba3020a457ec7"
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Memory m_9b2c9eeba3020a457ec7 directly states the user got pre-approved for a $400,000 mortgage from Wells Fargo. This matches the question's request for the pre-approval amount when the mortgage was obtained. A later memory (m_da0bc775a97600e30963) mentions a different pre-approval of $350,000 for a subsequent house purchase, but that does not supersede the original pre-approval amount.",
+  "required_slots": [
+    {
+      "name": "pre-approval amount",
+      "value": "$400,000",
+      "support_memory_ids": [
+        "m_9b2c9eeba3020a457ec7"
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "conflicts": [
+    {
+      "slot": "pre-approval amount",
+      "values": [
+        "$400,000",
+        "$350,000"
+      ],
+      "resolution": "The question asks for the amount when the user got the mortgage. Memory m_9b2c9eeba3020a457ec7 states the user got pre-approved for $400,000. Memory m_da0bc775a97600e30963 mentions a later pre-approval of $350,000 for a different house purchase, but the question refers to the original mortgage pre-approval. Therefore, $400,000 is the correct amount."
+    }
+  ],
+  "operation": "none",
+  "answerable": true,
+  "retrieval_name": "graph_active_p3_planner",
+  "meta": {
+    "mode": "llm",
+    "prompt_tokens": 7181,
+    "completion_tokens": 372,
+    "elapsed_seconds": 3.3155288696289062
+  }
+}

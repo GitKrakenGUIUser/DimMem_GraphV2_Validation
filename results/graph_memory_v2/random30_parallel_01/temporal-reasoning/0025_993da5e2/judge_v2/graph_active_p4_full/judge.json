@@ -1,0 +1,49 @@
+{
+  "question_id": "993da5e2",
+  "question_type": "temporal-reasoning",
+  "question": "How long had I been using the new area rug when I rearranged my living room furniture?",
+  "question_date": "2023/05/26 (Fri) 17:49",
+  "gold_answer": "One week. Answers ranging from 7 days to 10 days are also acceptable.",
+  "prediction": "1 week",
+  "support_memory_ids": [
+    "m_9b55192edc9ec3e32707",
+    "m_6621c47f31a29be30637"
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "User got the new area rug on 2023-04-26 (a month ago from question date 2023-05-26). User rearranged furniture on 2023-05-05 (three weeks ago from 2023-05-26). The duration between 2023-04-26 and 2023-05-05 is 9 days, approximately 1 week.",
+  "required_slots": [
+    {
+      "name": "date when user started using the new area rug",
+      "value": "2023-04-26",
+      "support_memory_ids": [
+        "m_9b55192edc9ec3e32707"
+      ]
+    },
+    {
+      "name": "date when user rearranged living room furniture",
+      "value": "2023-05-05",
+      "support_memory_ids": [
+        "m_6621c47f31a29be30637"
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "conflicts": [],
+  "operation": "date_difference",
+  "answerable": true,
+  "retrieval_name": "graph_active_p4_full",
+  "meta": {
+    "mode": "llm",
+    "prompt_tokens": 8904,
+    "completion_tokens": 292,
+    "elapsed_seconds": 2.665782928466797
+  },
+  "correct": true,
+  "judge_reason": "Prediction matches reference answer (1 week is equivalent to 7 days).",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 190,
+    "completion_tokens": 31,
+    "elapsed_seconds": 1.137497901916504
+  }
+}

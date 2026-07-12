@@ -10,13 +10,14 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any, DefaultDict, Dict, Iterable, List, Optional, Sequence, Tuple
 
-from .active_agent import ActiveReconstructionAgent
+from .active_agent_v3 import ActiveReconstructionAgent
 from .embedding import HashEmbedder, SentenceTransformerEmbedder
 from .graph_store import GraphBuilder, GraphStore
 from .io_utils import normalize_question_type, normalize_text, read_json, write_json
 from .llm_client import OpenAICompatibleClient
 from .parallel import run_parallel, should_checkpoint
-from .prompts import JUDGE_SYSTEM, JUDGE_TEMPLATE, QA_SYSTEM, QA_TEMPLATE, render
+from .prompts import render
+from .prompts_v3 import JUDGE_SYSTEM, JUDGE_TEMPLATE, QA_SYSTEM, QA_TEMPLATE
 from .retrieval import StaticRetriever
 from .schemas import ParsedQueryV2, RetrievalRecord, memories_from_payload
 
@@ -54,7 +55,7 @@ def run_retrieval_sample(
     route_k: int = 20,
     initial_k: int = 12,
     final_k: int = 15,
-    max_rounds: int = 3,
+    max_rounds: int = 4,
     active_client: Optional[OpenAICompatibleClient] = None,
     router_mode: str = "llm",
     embedder_kind: str = "hash",
@@ -165,7 +166,7 @@ def run_retrieval_run(
     route_k: int = 20,
     initial_k: int = 12,
     final_k: int = 15,
-    max_rounds: int = 3,
+    max_rounds: int = 4,
     active_client: Optional[OpenAICompatibleClient] = None,
     router_mode: str = "llm",
     embedder_kind: str = "hash",
@@ -279,7 +280,11 @@ def run_qa_sample(
     question, question_date, gold_answer = _question_and_gold(item)
     parsed = ParsedQueryV2.from_dict(read_json(sample_dir / "query_v2" / "parsed_query.json"))
     rows = read_json(sample_dir / "retrieval_v2" / retrieval_name / "top_records.json")
-    evidence = _evidence_for_qa(rows, parsed.primary().need_assistant_context)
+    need_assistant = any(
+        hypothesis.need_assistant_context
+        for hypothesis in parsed.hypotheses
+    )
+    evidence = _evidence_for_qa(rows, need_assistant)
     if heuristic:
         payload = heuristic_answer(question, evidence)
         meta = {"mode": "heuristic", "prompt_tokens": 0, "completion_tokens": 0}
@@ -291,10 +296,11 @@ def run_qa_sample(
                 QA_TEMPLATE,
                 question=question,
                 question_date=question_date,
+                query_json=parsed.to_dict(),
                 evidence_json=evidence,
             ),
             system=QA_SYSTEM,
-            max_tokens=1600,
+            max_tokens=2600,
         )
         if not isinstance(payload, dict):
             payload = {"answer": str(payload)}
@@ -314,12 +320,37 @@ def run_qa_sample(
         "support_memory_ids": payload.get("support_memory_ids") or [],
         "confidence": payload.get("confidence", 0.0),
         "reasoning_summary": payload.get("reasoning_summary") or "",
+        "required_slots": payload.get("required_slots") or [],
+        "unfilled_slots": payload.get("unfilled_slots") or [],
+        "conflicts": payload.get("conflicts") or [],
+        "operation": payload.get("operation") or "none",
+        "answerable": bool(payload.get("answerable", True)),
         "retrieval_name": retrieval_name,
         "meta": meta,
     }
     output_dir.mkdir(parents=True, exist_ok=True)
     write_json(output_path, output)
     return {"status": "ok", "path": str(output_path), **meta}
+
+
+
+_ABSTENTION_MARKERS = {
+    "cannot be determined from the conversation",
+    "cannot be determined",
+    "not enough information",
+    "insufficient information",
+    "unknown",
+}
+
+
+def _is_abstention(value: Any) -> bool:
+    normalized = normalize_text(value)
+    if not normalized:
+        return True
+    return any(
+        marker in normalized
+        for marker in _ABSTENTION_MARKERS
+    )
 
 
 def exact_judge(gold: str, prediction: str) -> Tuple[bool, str]:
@@ -344,8 +375,18 @@ def run_judge_sample(
     if output_path.exists() and not force:
         return {"status": "existing", "path": str(output_path)}
     qa = read_json(qa_path)
-    if exact or client is None:
-        correct, reason = exact_judge(qa.get("gold_answer", ""), qa.get("prediction", ""))
+    gold_answer = str(qa.get("gold_answer") or "")
+    prediction = str(qa.get("prediction") or "")
+
+    if _is_abstention(prediction) and not _is_abstention(gold_answer):
+        correct = False
+        reason = (
+            "Deterministic abstention guard: prediction abstained "
+            "while the reference contains a concrete answer."
+        )
+        meta = {"mode": "deterministic_abstention_guard"}
+    elif exact or client is None:
+        correct, reason = exact_judge(gold_answer, prediction)
         meta = {"mode": "exact"}
     else:
         payload, result = client.json(

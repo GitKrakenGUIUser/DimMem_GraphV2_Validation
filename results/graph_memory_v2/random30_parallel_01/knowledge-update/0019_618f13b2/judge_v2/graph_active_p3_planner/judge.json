@@ -1,0 +1,51 @@
+{
+  "question_id": "618f13b2",
+  "question_type": "knowledge-update",
+  "question": "How many times have I worn my new black Converse Chuck Taylor All Star sneakers?",
+  "question_date": "2023/06/18 (Sun) 22:29",
+  "gold_answer": "six",
+  "prediction": "6",
+  "support_memory_ids": [
+    "m_7a9f2b24e0ed1fbd4283",
+    "m_38e896e86744d61b72a6"
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Two memories mention worn counts: one says 4 times (m_7a9f2b24e0ed1fbd4283) and another says 6 times (m_38e896e86744d61b72a6). The latter is from a later timestamp in the same session, so it supersedes the earlier count. Therefore, the user has worn the sneakers 6 times as of the question date.",
+  "required_slots": [
+    {
+      "name": "worn_count",
+      "value": "6",
+      "support_memory_ids": [
+        "m_38e896e86744d61b72a6"
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "conflicts": [
+    {
+      "slot": "worn_count",
+      "values": [
+        "4",
+        "6"
+      ],
+      "resolution": "The memory stating 4 times is from an earlier time (2023-05-30) and is superseded by the later memory stating 6 times (also 2023-05-30 but later in the same session). The later memory explicitly says 'sixth time' and is more recent."
+    }
+  ],
+  "operation": "state_resolution",
+  "answerable": true,
+  "retrieval_name": "graph_active_p3_planner",
+  "meta": {
+    "mode": "llm",
+    "prompt_tokens": 9162,
+    "completion_tokens": 332,
+    "elapsed_seconds": 3.2169649600982666
+  },
+  "correct": true,
+  "judge_reason": "The prediction '6' matches the reference answer 'six' in numeric value.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 172,
+    "completion_tokens": 31,
+    "elapsed_seconds": 1.013963222503662
+  }
+}

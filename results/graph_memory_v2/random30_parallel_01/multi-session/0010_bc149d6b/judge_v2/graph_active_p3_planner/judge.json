@@ -1,0 +1,43 @@
+{
+  "question_id": "bc149d6b",
+  "question_type": "multi-session",
+  "question": "What is the total weight of the new feed I purchased in the past two months?",
+  "question_date": "2023/05/30 (Tue) 22:02",
+  "gold_answer": "70 pounds",
+  "prediction": "70 pounds",
+  "support_memory_ids": [
+    "m_570c38c6a22124172242",
+    "m_6b48781b96e542ff5c30"
+  ],
+  "confidence": 0.9,
+  "reasoning_summary": "Two purchases within the past two months: 50-pound layer feed (m_570c38c6a22124172242, valid from 2023-05-22) and 20 pounds of organic scratch grains (m_6b48781b96e542ff5c30, event start 2023-05-22). Both are within the period 2023-03-30 to 2023-05-30. Sum = 70 pounds.",
+  "required_slots": [
+    {
+      "name": "total weight of new feed purchased in past two months",
+      "value": "70 pounds",
+      "support_memory_ids": [
+        "m_570c38c6a22124172242",
+        "m_6b48781b96e542ff5c30"
+      ]
+    }
+  ],
+  "unfilled_slots": [],
+  "conflicts": [],
+  "operation": "sum",
+  "answerable": true,
+  "retrieval_name": "graph_active_p3_planner",
+  "meta": {
+    "mode": "llm",
+    "prompt_tokens": 9140,
+    "completion_tokens": 264,
+    "elapsed_seconds": 2.861618757247925
+  },
+  "correct": true,
+  "judge_reason": "The prediction matches the reference answer exactly.",
+  "judge_meta": {
+    "mode": "llm",
+    "prompt_tokens": 174,
+    "completion_tokens": 23,
+    "elapsed_seconds": 0.9372327327728271
+  }
+}
