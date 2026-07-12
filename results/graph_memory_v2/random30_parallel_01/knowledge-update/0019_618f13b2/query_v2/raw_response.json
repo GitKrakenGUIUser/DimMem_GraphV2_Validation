@@ -1,0 +1,108 @@
+{
+  "question": "How many times have I worn my new black Converse Chuck Taylor All Star sneakers?",
+  "question_date": "2023-06-18T22:29:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user's new black Converse Chuck Taylor All Star sneakers worn count",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Converse Chuck Taylor All Star sneakers",
+        "black Converse sneakers"
+      ],
+      "keywords": [
+        "worn",
+        "new black Converse",
+        "count"
+      ],
+      "time_constraint": {
+        "operator": "after",
+        "start": "2023-06-18T00:00:00",
+        "end": "",
+        "raw": "since purchase"
+      },
+      "locations": [],
+      "state_keys": [
+        "worn_count"
+      ],
+      "relation_hints": [
+        "worn_event"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "purchase_date"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "the user's new black Converse Chuck Taylor All Star sneakers purchase date",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Converse Chuck Taylor All Star sneakers",
+        "black Converse sneakers"
+      ],
+      "keywords": [
+        "purchase",
+        "new black Converse",
+        "date"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-06-18T22:29:00",
+        "raw": "before question date"
+      },
+      "locations": [],
+      "state_keys": [
+        "purchase_date"
+      ],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user's new black Converse Chuck Taylor All Star sneakers worn events",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Converse Chuck Taylor All Star sneakers",
+        "black Converse sneakers"
+      ],
+      "keywords": [
+        "worn",
+        "black Converse",
+        "event"
+      ],
+      "time_constraint": {
+        "operator": "after",
+        "start": "2023-06-18T00:00:00",
+        "end": "",
+        "raw": "since purchase"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [
+        "worn_event"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [
+        "purchase_date"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+[
+  {
+    "memory_id": "m_d8ef2a98479ea9c17f5f",
+    "content": "User pasted product specs for a feature called Partner API V2, which includes requirements for fee payments to Flywire, balance adjustment offboarding, provider funded offboarding, and asset purchase requirements.",
+    "dimension": {
+      "memory_type": "fact",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-04-06T02:25:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "2023-04-06T02:25:00.500000"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "Partner API V2",
+        "Flywire",
+        "PayZen",
+        "product specs",
+        "test cases"
+      ],
+      "entities": [
+        {
+          "name": "Partner API V2",
+          "entity_type": "project",
+          "role": "feature"
+        },
+        {
+          "name": "Flywire",
+          "entity_type": "organization",
+          "role": "partner"
+        },
+        {
+          "name": "PayZen",
+          "entity_type": "organization",
+          "role": "platform"
+        }
+      ],
+      "topic": "Product Specs",
+      "relation": {
+        "subject": "User",
+        "predicate": "provided",
+        "object": "Partner API V2 specs"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_bp51PRm_4",
+      "session_index": 36,
+      "source_ids": [
+        184,
+        185
+      ],
+      "source_uids": [
+        "s0036u0001",
+        "s0036u0002"
+      ],
+      "source_times": [
+        "2023-04-06T02:25:00.500000",
+        "2023-04-06T02:25:01"
+      ],
+      "source_role": "user",
+      "window_index": 15
+    },
+    "confidence": 1.0,
+    "evidence_span": "I just pasted product specs of a feature called Partner API V2.",
+    "assistant_replies": [
+      "To ensure a seamless user experience, we will need to present users with a clear and easy-to-understand breakdown of their payment plan, including the service fee charged by Flywire. We can leverage the same heuristics as Flywire, which calls out the service fee as a separate line item in the payment plan breakdown.\n\nWe will also need to ensure that any modifications to the payment plan, such as adding a new bill or rolling up existing bills, are reflected accurately in the payment plan breakdown and that any changes to the service fee are clearly communicated to the user.\n\nAdditionally, we will need to ensure that our user interfaces are intuitive and easy to navigate, allowing users to quickly and easily manage their payment plans and view their payment histories. We will work closely with Flywire to ensure that our UIs are consistent with their brand and design guidelines, while also incorporating our own unique features and functionality.",
+      "Sure, here are some test cases and edge cases for the Partner API V2 feature:\n\n### Test Cases\n\n1. Verify that the \"dynamicFee\" of $3.95 is created for all payment plans for Flywire.\n* Input: A new payment plan is created for a Flywire customer\n* Expected Output: A \"dynamicFee\" of $3.95 is included in the payment plan.\n2. Verify that the service fee is displayed correctly in the PayZen user interface.\n* Input: A user logs in to PayZen and views their payment plan details\n* Expected Output: The service fee is clearly displayed as a separate line item in the payment plan breakdown.\n3. Verify that the service fee is included in the total amount paid by the user.\n* Input: A user makes a payment towards their payment plan.\n* Expected Output: The service fee is included in the total amount paid by the user.\n4. Verify that the service fee is charged appropriately for bi-weekly and semi-monthly payments.\n* Input: A user makes a bi-weekly or semi-monthly payment towards their payment plan.\n* Expected Output: The service fee is allocated appropriately for each payment made within a month.\n5. Verify that the \"Service Fee One Time Payment\" API endpoint is working properly.\n* Input: Flywire makes a request to initiate a one-time payment for the service fee.\n* Expected Output: The service fee is successfully processed and recorded in the PayZen system.\n\n### Edge Cases\n\n1. Verify that the \"dynamicFee\" is created for payment plans with a $0 principal balance.\n* Input: A user creates a payment plan with a $0 principal balance.\n* Expected Output: The \"dynamicFee\" of $3.95 is still included in the payment plan.\n2. Verify that the service fee is calculated correctly for payment plans with high principal balances.\n* Input: A user creates a payment plan with a principal balance over $30,000.\n* Expected Output: The service fee is calculated correctly and applied to the payment plan as expected.\n3. Verify that the service fee is charged appropriately for payment plans with irregular payment schedules.\n* Input: A user creates a payment plan with irregular payment schedules, such as bi-monthly or quarterly payments.\n* Expected Output: The service fee is allocated appropriately for each payment made within the designated time period.\n4. Verify that the service fee is correctly reflected in any payment plan modifications.\n* Input: A user modifies their payment plan, such as by adding a new bill or rolling up existing bills.\n* Expected Output: The service fee is accurately updated and displayed in the payment plan breakdown.\n5. Verify that refunds are processed correctly in the event of plan cancellations or overpayments.\n* Input: A user cancels their payment plan or overpays their balance.\n* Expected Output: Refunds are processed accurately and any remaining service fees are calculated and credited back to the user's account."
+    ]
+  },
+  {
+    "memory_id": "m_766cb14bf88306d6569a",
+    "content": "User requested test cases including edge cases for the Partner API V2 specs.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-04-06T02:25:01",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "2023-04-06T02:25:01"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to create test cases for the specs",
+      "keywords": [
+        "test cases",
+        "edge cases",
+        "Partner API V2"
+      ],
+      "entities": [
+        {
+          "name": "Partner API V2",
+          "entity_type": "project",
+          "role": "feature"
+        }
+      ],
+      "topic": "Test Case Request",
+      "relation": {
+        "subject": "User",
+        "predicate": "requested",
+        "object": "test cases for Partner API V2"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "sharegpt_bp51PRm_4",
+      "session_index": 36,
+      "source_ids": [
+        185
+      ],
+      "source_uids": [
+        "s0036u0002"
+      ],
+      "source_times": [
+        "2023-04-06T02:25:01"
+      ],
+      "source_role": "user",
+      "window_index": 15
+    },
+    "confidence": 1.0,
+    "evidence_span": "Can you create test cases for me for these specs? Include also edge cases.",
+    "assistant_replies": [
+      "Sure, here are some test cases and edge cases for the Partner API V2 feature:\n\n### Test Cases\n\n1. Verify that the \"dynamicFee\" of $3.95 is created for all payment plans for Flywire.\n* Input: A new payment plan is created for a Flywire customer\n* Expected Output: A \"dynamicFee\" of $3.95 is included in the payment plan.\n2. Verify that the service fee is displayed correctly in the PayZen user interface.\n* Input: A user logs in to PayZen and views their payment plan details\n* Expected Output: The service fee is clearly displayed as a separate line item in the payment plan breakdown.\n3. Verify that the service fee is included in the total amount paid by the user.\n* Input: A user makes a payment towards their payment plan.\n* Expected Output: The service fee is included in the total amount paid by the user.\n4. Verify that the service fee is charged appropriately for bi-weekly and semi-monthly payments.\n* Input: A user makes a bi-weekly or semi-monthly payment towards their payment plan.\n* Expected Output: The service fee is allocated appropriately for each payment made within a month.\n5. Verify that the \"Service Fee One Time Payment\" API endpoint is working properly.\n* Input: Flywire makes a request to initiate a one-time payment for the service fee.\n* Expected Output: The service fee is successfully processed and recorded in the PayZen system.\n\n### Edge Cases\n\n1. Verify that the \"dynamicFee\" is created for payment plans with a $0 principal balance.\n* Input: A user creates a payment plan with a $0 principal balance.\n* Expected Output: The \"dynamicFee\" of $3.95 is still included in the payment plan.\n2. Verify that the service fee is calculated correctly for payment plans with high principal balances.\n* Input: A user creates a payment plan with a principal balance over $30,000.\n* Expected Output: The service fee is calculated correctly and applied to the payment plan as expected.\n3. Verify that the service fee is charged appropriately for payment plans with irregular payment schedules.\n* Input: A user creates a payment plan with irregular payment schedules, such as bi-monthly or quarterly payments.\n* Expected Output: The service fee is allocated appropriately for each payment made within the designated time period.\n4. Verify that the service fee is correctly reflected in any payment plan modifications.\n* Input: A user modifies their payment plan, such as by adding a new bill or rolling up existing bills.\n* Expected Output: The service fee is accurately updated and displayed in the payment plan breakdown.\n5. Verify that refunds are processed correctly in the event of plan cancellations or overpayments.\n* Input: A user cancels their payment plan or overpays their balance.\n* Expected Output: Refunds are processed accurately and any remaining service fees are calculated and credited back to the user's account."
+    ]
+  },
+  {
+    "memory_id": "m_2aaf2c845219047fd24e",
+    "content": "User is trying a new medium roast coffee blend but it came out too strong; they want advice on adjusting brewing time or coffee-to-water ratio.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-04-06T02:19:00.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "2023-04-06T02:19:00.500000"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to adjust brewing to reduce strength",
+      "keywords": [
+        "coffee",
+        "medium roast",
+        "brewing tips",
+        "too strong"
+      ],
+      "entities": [
+        {
+          "name": "medium roast coffee blend",
+          "entity_type": "product",
+          "role": "coffee"
+        }
+      ],
+      "topic": "Coffee Brewing",
+      "relation": {
+        "subject": "User",
+        "predicate": "is trying",
+        "object": "medium roast coffee blend"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "",
+        "polarity": "unknown",
+        "strength": 0.0,
+        "scope": "unknown"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "01f3f7e1_2",
+      "session_index": 38,
+      "source_ids": [
+        192
+      ],
+      "source_uids": [
+        "s0038u0001"
+      ],
+      "source_times": [
+        "2023-04-06T02:19:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 15
+    },
+    "confidence": 1.0,
+    "evidence_span": "I recently started trying a new medium roast coffee blend, but it's come out a bit too strong for my taste.",
+    "assistant_replies": [
+      "A coffee connoisseur in the making! I'm happy to help you dial in the perfect brew.\n\n**Adjusting brewing time and ratio:**\n\n1. **Brewing time:** If your coffee is coming out too strong, try reducing the brewing time. This will result in a lighter, more balanced flavor. The optimal brewing time varies depending on the brewing method, but here are some general guidelines:\n\t* Drip brewing: 5-7 minutes\n\t* French press: 3-4 minutes\n\t* Pour-over: 3-4 minutes\n\t* Aeropress: 1-2 minutes\n2. **Coffee-to-water ratio:** Experiment with the ratio of coffee to water to find your perfect balance. A general starting point is 1:15 to 1:17 (one gram of coffee for every 15-17 grams of water). If your coffee is too strong, try increasing the water ratio. For example, if you're using 30 grams of coffee for 450ml of water, try increasing the water to 480ml or more.\n\n**Tips for a smoother flavor:**\n\n1. **Use fresh, high-quality coffee beans:** Old or low-quality beans can result in a bitter taste. Try to use beans that have been roasted within the past week or two.\n2. **Grind your beans just right:** A burr grinder is ideal for grinding your beans just before brewing. Aim for a medium-coarse grind for a balanced flavor.\n3. **Monitor the water temperature:** The ideal brewing temperature is between 195°F and 205°F (90°C to 96°C). If the water is too hot, it can extract too much from the coffee, leading to bitterness.\n4. **Experiment with brewing methods:** If you're using a drip brewer, try switching to a pour-over or Aeropress to gain more control over the brewing process.\n\n**Reducing sugar in your coffee:**\n\n1. **Gradually reduce sugar:** If you're used to adding multiple spoons of sugar, try reducing the amount by half and adjust to taste.\n2. **Try alternative sweeteners:** Explore natural sweeteners like stevia, honey, or maple syrup, which can be sweeter than sugar, so you may need less.\n3. **Flavor your coffee with spices:** Add a pinch of cinnamon, nutmeg, or cardamom to give your coffee a flavor boost without added sugar.\n4. **Get to know your coffee:** As you experiment with brewing techniques and ratios, you may find that you enjoy the flavor of your coffee more without added sugar.\n\nRemember, coffee is a personal preference, so don't be afraid to experiment and adjust to your taste. Good luck, and happy brewing!"
+    ]
+  },
+  {
+    "memory_id": "m_152997d5d450d99e1cb8",
+    "content": "User has been trying to cut down on the amount of sugar added to coffee.",
+    "dimension": {
+      "memory_type": "profile",
+      "time": {
+        "event_start": "",
+        "event_end": "",
+        "valid_from": "2023-04-06T02:19:00.500000",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "2023-04-06T02:19:00.500000"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "",
+      "keywords": [
+        "sugar",
+        "coffee",
+        "cut down",
+        "diet"
+      ],
+      "entities": [],
+      "topic": "Dietary Preference",
+      "relation": {
+        "subject": "User",
+        "predicate": "is reducing",
+        "object": "sugar in coffee"
+      },
+      "state_key": "user.diet.sugar_in_coffee",
+      "state_value": "reducing",
+      "state_status": "active",
+      "preference": {
+        "target": "sugar in coffee",
+        "polarity": "negative",
+        "strength": 0.5,
+        "scope": "contextual"
+      },
+      "modality": "asserted"
+    },
+    "provenance": {
+      "session_id": "01f3f7e1_2",
+      "session_index": 38,
+      "source_ids": [
+        192
+      ],
+      "source_uids": [
+        "s0038u0001"
+      ],
+      "source_times": [
+        "2023-04-06T02:19:00.500000"
+      ],
+      "source_role": "user",
+      "window_index": 15
+    },
+    "confidence": 1.0,
+    "evidence_span": "I've also been trying to cut down on the amount of sugar I add to my coffee.",
+    "assistant_replies": [
+      "A coffee connoisseur in the making! I'm happy to help you dial in the perfect brew.\n\n**Adjusting brewing time and ratio:**\n\n1. **Brewing time:** If your coffee is coming out too strong, try reducing the brewing time. This will result in a lighter, more balanced flavor. The optimal brewing time varies depending on the brewing method, but here are some general guidelines:\n\t* Drip brewing: 5-7 minutes\n\t* French press: 3-4 minutes\n\t* Pour-over: 3-4 minutes\n\t* Aeropress: 1-2 minutes\n2. **Coffee-to-water ratio:** Experiment with the ratio of coffee to water to find your perfect balance. A general starting point is 1:15 to 1:17 (one gram of coffee for every 15-17 grams of water). If your coffee is too strong, try increasing the water ratio. For example, if you're using 30 grams of coffee for 450ml of water, try increasing the water to 480ml or more.\n\n**Tips for a smoother flavor:**\n\n1. **Use fresh, high-quality coffee beans:** Old or low-quality beans can result in a bitter taste. Try to use beans that have been roasted within the past week or two.\n2. **Grind your beans just right:** A burr grinder is ideal for grinding your beans just before brewing. Aim for a medium-coarse grind for a balanced flavor.\n3. **Monitor the water temperature:** The ideal brewing temperature is between 195°F and 205°F (90°C to 96°C). If the water is too hot, it can extract too much from the coffee, leading to bitterness.\n4. **Experiment with brewing methods:** If you're using a drip brewer, try switching to a pour-over or Aeropress to gain more control over the brewing process.\n\n**Reducing sugar in your coffee:**\n\n1. **Gradually reduce sugar:** If you're used to adding multiple spoons of sugar, try reducing the amount by half and adjust to taste.\n2. **Try alternative sweeteners:** Explore natural sweeteners like stevia, honey, or maple syrup, which can be sweeter than sugar, so you may need less.\n3. **Flavor your coffee with spices:** Add a pinch of cinnamon, nutmeg, or cardamom to give your coffee a flavor boost without added sugar.\n4. **Get to know your coffee:** As you experiment with brewing techniques and ratios, you may find that you enjoy the flavor of your coffee more without added sugar.\n\nRemember, coffee is a personal preference, so don't be afraid to experiment and adjust to your taste. Good luck, and happy brewing!"
+    ]
+  },
+  {
+    "memory_id": "m_f45f581fccc8d71950cf",
+    "content": "User is considering trying a medium-dark roast for a smoother flavor, and asks if it would pair well with reducing sugar.",
+    "dimension": {
+      "memory_type": "episodic",
+      "time": {
+        "event_start": "2023-04-06T02:19:01.500000",
+        "event_end": "",
+        "valid_from": "",
+        "valid_to": "",
+        "precision": "datetime",
+        "raw": "2023-04-06T02:19:01.500000"
+      },
+      "locations": [],
+      "reason": "",
+      "purpose": "to achieve smoother flavor",
+      "keywords": [
+        "medium-dark roast",
+        "smoother flavor",
+        "sugar reduction"
+      ],
+      "entities": [
+        {
+          "name": "medium-dark roast",
+          "entity_type": "product",
+          "role": "coffee"
+        }
+      ],
+      "topic": "Coffee Preference",
+      "relation": {
+        "subject": "User",
+        "predicate": "is considering",
+        "object": "medium-dark roast"
+      },
+      "state_key": "",
+      "state_value": "",
+      "state_status": "unknown",
+      "preference": {
+        "target": "medium-dark roast",
+        "polarity": "positive",
+        "strength": 0.5,
+        "scope": "contextual"
+      },
+      "modality": "hypothetical"
+    },
+    "provenance": {
+      "session_id": "01f3f7e1_2",
+      "session_index": 38,
+      "source_ids": [
+        194
+      ],
+      "source_uids": [
+        "s0038u0003"
+      ],
+      "source_times": [
+        "2023-04-06T02:19:01.500000"
+      ],
+      "source_role": "user",
+      "window_index": 15
+    },
+    "confidence": 1.0,
+    "evidence_span": "I'm thinking of trying a medium-dark roast to see if it's a better fit for my taste.",
+    "assistant_replies": [
+      "You're already experimenting with brewing time, which is a great step. Now, let's explore the possibility of switching to a medium-dark roast.\n\nA medium-dark roast can be a great option if you're looking for a smoother flavor profile. Here's why:\n\n1. **Balanced flavor:** Medium-dark roasts often offer a balanced flavor profile, which can help tone down the bitterness and acidity found in medium roasts.\n2. **Reduced acidity:** As you move from medium to medium-dark roast, the acidity tends to decrease, resulting in a smoother taste.\n3. **Body and texture:** Medium-dark roasts typically have a fuller body and a more velvety texture, which can contribute to a smoother mouthfeel.\n4. **Flavor nuances:** Medium-dark roasts can bring out flavors like chocolate, nuts, and caramel, which can add depth and complexity to your coffee without overpowering it.\n\nHowever, keep in mind that a medium-dark roast might not be the perfect solution if:\n\n1. **You're sensitive to bitterness:** While medium-dark roasts are generally smoother, they can still have a slightly bitter taste, especially if you're sensitive to it.\n2. **You prefer a bright, acidic flavor:** If you enjoy the bright, acidic notes in your medium roast, you might find a medium-dark roast too mellow.\n\nTo make the most of a medium-dark roast, consider the following:\n\n1. **Adjust your brewing time:** As you mentioned, brewing time can greatly impact the flavor. Start with a slightly shorter brewing time to prevent over-extraction and bitterness.\n2. **Experiment with ratios:** Try adjusting the coffee-to-water ratio to find the perfect balance for your taste preferences.\n3. **Choose a high-quality bean:** Look for a high-quality, freshly roasted medium-dark roast from a reputable roaster to ensure the best flavor.\n\nIf you're willing to experiment, trying a medium-dark roast could be a great next step. You might find that it's the perfect balance of flavor and smoothness for your taste buds."
+    ]
+  }
+]

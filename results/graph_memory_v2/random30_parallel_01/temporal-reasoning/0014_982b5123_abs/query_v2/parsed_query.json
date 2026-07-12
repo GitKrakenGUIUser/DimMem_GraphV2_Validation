@@ -1,0 +1,106 @@
+{
+  "question": "When did I book the Airbnb in Sacramento?",
+  "question_date": "2023-05-27T17:10:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user booked an Airbnb in Sacramento",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Airbnb",
+        "Sacramento"
+      ],
+      "keywords": [
+        "booked",
+        "Airbnb",
+        "Sacramento"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-27T17:10:00",
+        "raw": ""
+      },
+      "locations": [
+        "Sacramento"
+      ],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "the user booked an Airbnb in Sacramento",
+      "target_memory_types": [
+        "fact"
+      ],
+      "entities": [
+        "Airbnb",
+        "Sacramento"
+      ],
+      "keywords": [
+        "booking date",
+        "Airbnb",
+        "Sacramento"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-27T17:10:00",
+        "raw": ""
+      },
+      "locations": [
+        "Sacramento"
+      ],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.6
+    },
+    {
+      "query_anchor": "the user booked an Airbnb in Sacramento",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "Airbnb",
+        "Sacramento"
+      ],
+      "keywords": [
+        "booked",
+        "Sacramento",
+        "Airbnb"
+      ],
+      "time_constraint": {
+        "operator": "around",
+        "start": "",
+        "end": "",
+        "raw": "around the time of the trip"
+      },
+      "locations": [
+        "Sacramento"
+      ],
+      "state_keys": [],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "trip dates for Sacramento"
+      ],
+      "confidence": 0.4
+    }
+  ]
+}

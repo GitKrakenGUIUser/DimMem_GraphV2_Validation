@@ -119,6 +119,33 @@ def extract_sample_v1(
     def process_window(task: Dict[str, Any]) -> Dict[str, Any]:
         window_path = Path(task["_path"])
         window = read_json(window_path)
+        window_output = (
+            output_dir
+            / "windows"
+            / f"{window_path.stem}_memories.json"
+        )
+        if window_output.exists() and not force:
+            try:
+                cached_rows = read_json(window_output)
+                records = [
+                    MemoryRecord.from_dict(row)
+                    for row in cached_rows
+                    if isinstance(row, dict)
+                ]
+                return {
+                    "status": "existing",
+                    "records": records,
+                    "trace": {
+                        "window": window_path.name,
+                        "record_count": len(records),
+                        "mode": "checkpoint",
+                        "prompt_tokens": 0,
+                        "completion_tokens": 0,
+                        "elapsed_seconds": 0.0,
+                    },
+                }
+            except Exception:
+                pass
         if heuristic:
             records = heuristic_v1(window, sample_dir.name)
             meta = {"mode": "heuristic", "prompt_tokens": 0, "completion_tokens": 0}

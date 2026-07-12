@@ -1,0 +1,47 @@
+{
+  "question": "How long had I been using the new area rug when I rearranged my living room furniture?",
+  "question_date": "2023-05-26T17:49:00",
+  "hypotheses": [
+    {
+      "query_anchor": "the user had been using the new area rug for some duration when they rearranged their living room furniture",
+      "target_memory_types": [
+        "episodic",
+        "fact"
+      ],
+      "entities": [
+        "new area rug",
+        "living room furniture"
+      ],
+      "keywords": [
+        "new area rug",
+        "rearranged",
+        "living room furniture"
+      ],
+      "time_constraint": {
+        "operator": "before",
+        "start": "",
+        "end": "2023-05-26T17:49:00",
+        "raw": "when I rearranged my living room furniture"
+      },
+      "locations": [
+        "living room"
+      ],
+      "state_keys": [
+        "rug_usage_start_date",
+        "furniture_rearrangement_date"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "time",
+      "need_assistant_context": false,
+      "need_multi_hop": true,
+      "expected_evidence_count": 2,
+      "missing_slots": [
+        "date when user started using the new area rug",
+        "date when user rearranged living room furniture"
+      ],
+      "confidence": 0.8
+    }
+  ]
+}

@@ -1,0 +1,884 @@
+{
+  "retrieval_name": "graph_active",
+  "n": 30,
+  "correct": 16,
+  "accuracy": 0.5333333333333333,
+  "parallel": {
+    "stage": "report-graph_active",
+    "total": 30,
+    "workers": 30,
+    "succeeded": 30,
+    "failed": 0,
+    "elapsed_seconds": 0.2809255123138428
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "n": 5,
+      "correct": 3,
+      "accuracy": 0.6
+    },
+    "multi-session": {
+      "n": 8,
+      "correct": 5,
+      "accuracy": 0.625
+    },
+    "single-session-assistant": {
+      "n": 3,
+      "correct": 1,
+      "accuracy": 0.3333333333333333
+    },
+    "single-session-preference": {
+      "n": 2,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "single-session-user": {
+      "n": 4,
+      "correct": 3,
+      "accuracy": 0.75
+    },
+    "temporal-reasoning": {
+      "n": 8,
+      "correct": 4,
+      "accuracy": 0.5
+    }
+  },
+  "retrieval_metrics": {
+    "gold_session_recall_mean": 0.8944444444444445,
+    "gold_session_recall_n": 30,
+    "mean_retrieval_seconds": 14.014267198244731,
+    "mean_active_rounds": 1.2333333333333334,
+    "mean_tool_calls": 0.2
+  },
+  "token_totals": {
+    "qa_prompt": 172483,
+    "qa_completion": 2566,
+    "judge_prompt": 4686,
+    "judge_completion": 997
+  },
+  "rows": [
+    {
+      "question_id": "88432d0a_abs",
+      "question_type": "multi-session",
+      "question": "How many times did I bake egg tarts in the past two weeks?",
+      "question_date": "2023/05/30 (Tue) 23:40",
+      "gold_answer": "The information provided is not enough. You did not mention baking egg tarts.",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No memories mention baking egg tarts in the past two weeks.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5338,
+        "completion_tokens": 52,
+        "elapsed_seconds": 1.1836261749267578
+      },
+      "correct": true,
+      "judge_reason": "Both the reference and prediction indicate insufficient information to answer the question.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 157,
+        "completion_tokens": 28,
+        "elapsed_seconds": 0.7459042072296143
+      }
+    },
+    {
+      "question_id": "51c32626",
+      "question_type": "multi-session",
+      "question": "When did I submit my research paper on sentiment analysis?",
+      "question_date": "2023/05/30 (Tue) 16:23",
+      "gold_answer": "February 1st",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No memory contains the submission date of the user's research paper on sentiment analysis.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5184,
+        "completion_tokens": 55,
+        "elapsed_seconds": 1.4308125972747803
+      },
+      "correct": false,
+      "judge_reason": "The prediction states the answer cannot be determined, but the reference answer provides a specific date.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 142,
+        "completion_tokens": 33,
+        "elapsed_seconds": 0.7128617763519287
+      }
+    },
+    {
+      "question_id": "0edc2aef",
+      "question_type": "single-session-preference",
+      "question": "Can you suggest a hotel for my upcoming trip to Miami?",
+      "question_date": "2023/05/30 (Tue) 20:23",
+      "gold_answer": "The user would prefer suggestions of hotels in Miami that offer great views, possibly of the ocean or the city skyline, and have unique features such as a rooftop pool or a hot tub on the balcony. They may not prefer suggestions of basic or budget hotels without these features.",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No evidence of a trip to Miami; user's travel plans involve Las Vegas and Seattle.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 6858,
+        "completion_tokens": 57,
+        "elapsed_seconds": 1.5353305339813232
+      },
+      "correct": false,
+      "judge_reason": "The prediction states 'Cannot be determined from the conversation', but the reference answer provides specific preferences for hotels with great views and unique features, which is a valid suggestion based on the question.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 195,
+        "completion_tokens": 52,
+        "elapsed_seconds": 1.1388840675354004
+      }
+    },
+    {
+      "question_id": "73d42213",
+      "question_type": "multi-session",
+      "question": "What time did I reach the clinic on Monday?",
+      "question_date": "2023/05/30 (Tue) 22:10",
+      "gold_answer": "9:00 AM",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No memory specifies the time the user reached the clinic on Monday.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5062,
+        "completion_tokens": 52,
+        "elapsed_seconds": 1.051506757736206
+      },
+      "correct": false,
+      "judge_reason": "The prediction claims the answer cannot be determined, but the reference answer provides a specific time.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 142,
+        "completion_tokens": 33,
+        "elapsed_seconds": 0.8321943283081055
+      }
+    },
+    {
+      "question_id": "gpt4_1e4a8aeb",
+      "question_type": "temporal-reasoning",
+      "question": "How many days passed between the day I attended the gardening workshop and the day I planted the tomato saplings?",
+      "question_date": "2023/05/08 (Mon) 06:05",
+      "gold_answer": "6 days. 7 days (including the last day) is also acceptable.",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "The gardening workshop was attended on 2023-04-15, but the planting of tomato saplings is on 2023-04-21. However, the question asks for days passed between the day of the workshop and the day of planting, which would be 6 days. But the evidence does not explicitly state that the workshop attended is the same as the gardening workshop mentioned in the question. There is also a photography workshop and other workshops, so it is ambiguous which workshop is referred to. Therefore, cannot be determined.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5428,
+        "completion_tokens": 146,
+        "elapsed_seconds": 2.1291537284851074
+      },
+      "correct": false,
+      "judge_reason": "The prediction states the answer cannot be determined, but the reference answer provides a specific number of days (6 or 7).",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 166,
+        "completion_tokens": 41,
+        "elapsed_seconds": 0.878244161605835
+      }
+    },
+    {
+      "question_id": "726462e0",
+      "question_type": "single-session-user",
+      "question": "What was the discount I got on my first purchase from the new clothing brand?",
+      "question_date": "2023/05/30 (Tue) 23:15",
+      "gold_answer": "10%",
+      "prediction": "10%",
+      "support_memory_ids": [
+        "m_565a490eb7937dd6d5da"
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "Memory m_565a490eb7937dd6d5da states user got a 10% discount on first purchase from a new clothing brand last month.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5459,
+        "completion_tokens": 82,
+        "elapsed_seconds": 1.3559107780456543
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 142,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.7815852165222168
+      }
+    },
+    {
+      "question_id": "031748ae_abs",
+      "question_type": "knowledge-update",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "question_date": "2023/06/06 (Tue) 08:19",
+      "gold_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "The question asks about the number of engineers led when starting a new role as Software Engineer Manager, but the evidence only mentions the user being a Senior Software Engineer leading teams of 4 or 5 engineers, with no mention of a new role as Software Engineer Manager.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5285,
+        "completion_tokens": 92,
+        "elapsed_seconds": 1.554011344909668
+      },
+      "correct": true,
+      "judge_reason": "The prediction correctly states that the answer cannot be determined, matching the reference answer's indication of insufficient information.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 166,
+        "completion_tokens": 36,
+        "elapsed_seconds": 0.8449974060058594
+      }
+    },
+    {
+      "question_id": "gpt4_f420262d",
+      "question_type": "temporal-reasoning",
+      "question": "What was the airline that I flied with on Valentine's day?",
+      "question_date": "2023/03/02 (Thu) 08:00",
+      "gold_answer": "American Airlines",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No memory mentions a flight on Valentine's Day (February 14). The closest memory on that date discusses planning a JetBlue flight from BOS to FLL, but does not confirm the user actually flew that day.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 6361,
+        "completion_tokens": 83,
+        "elapsed_seconds": 1.4531803131103516
+      },
+      "correct": false,
+      "judge_reason": "The prediction claims the answer cannot be determined, but the reference answer is 'American Airlines', indicating the information is available.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 144,
+        "completion_tokens": 39,
+        "elapsed_seconds": 0.8084690570831299
+      }
+    },
+    {
+      "question_id": "ceb54acb",
+      "question_type": "single-session-assistant",
+      "question": "In our previous chat, you suggested 'sexual compulsions' and a few other options for alternative terms for certain behaviors. Can you remind me what the other four options were?",
+      "question_date": "2023/05/30 (Tue) 22:56",
+      "gold_answer": "I suggested 'sexual fixations', 'problematic sexual behaviors', 'sexual impulsivity', and 'compulsive sexuality'.",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No memory contains a previous suggestion of 'sexual compulsions' or alternative terms for behaviors.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 9422,
+        "completion_tokens": 57,
+        "elapsed_seconds": 1.7167844772338867
+      },
+      "correct": false,
+      "judge_reason": "The prediction states 'Cannot be determined from the conversation', but the reference answer provides the four options. The prediction fails to provide the requested information.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 187,
+        "completion_tokens": 44,
+        "elapsed_seconds": 1.1536216735839844
+      }
+    },
+    {
+      "question_id": "gpt4_7abb270c",
+      "question_type": "temporal-reasoning",
+      "question": "What is the order of the six museums I visited from earliest to latest?",
+      "question_date": "2023/03/10 (Fri) 08:15",
+      "gold_answer": "Science Museum, Museum of Contemporary Art, Metropolitan Museum of Art, Museum of History, Modern Art Museum, Natural History Museum",
+      "prediction": "Science Museum, Museum of Contemporary Art, Metropolitan Museum of Art, Castello di Amorosa, Natural History Museum, Modern Art Museum",
+      "support_memory_ids": [
+        "m_23b1c5a2bcba4666bae8",
+        "m_038e8557a2aed7cc1502",
+        "m_35ff148d8ece0cd9a78d",
+        "m_a4f241b1b0695bcdf1ec",
+        "m_47b8c21e8b34848f7bc1",
+        "m_d2f506eb05834732dde4"
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "Six museum visits with dates: Science Museum (2023-01-15), Museum of Contemporary Art (2023-01-22), Metropolitan Museum of Art (2023-02-10), Castello di Amorosa (2023-02-11), Natural History Museum (2023-03-04), Modern Art Museum (2023-03-04, after Natural History Museum based on source order).",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5526,
+        "completion_tokens": 241,
+        "elapsed_seconds": 1.9993162155151367
+      },
+      "correct": false,
+      "judge_reason": "Prediction includes Castello di Amorosa, which is not in the reference, and swaps the order of Modern Art Museum and Natural History Museum.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 187,
+        "completion_tokens": 44,
+        "elapsed_seconds": 0.6869125366210938
+      }
+    },
+    {
+      "question_id": "bc149d6b",
+      "question_type": "multi-session",
+      "question": "What is the total weight of the new feed I purchased in the past two months?",
+      "question_date": "2023/05/30 (Tue) 22:02",
+      "gold_answer": "70 pounds",
+      "prediction": "70 pounds",
+      "support_memory_ids": [
+        "m_570c38c6a22124172242",
+        "m_6b48781b96e542ff5c30"
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "User purchased a 50-pound batch of layer feed and 20 pounds of organic scratch grains, both recently (within past two months). Total weight is 70 pounds.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5587,
+        "completion_tokens": 98,
+        "elapsed_seconds": 1.5684950351715088
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 144,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.7040324211120605
+      }
+    },
+    {
+      "question_id": "852ce960",
+      "question_type": "knowledge-update",
+      "question": "What was the amount I was pre-approved for when I got my mortgage from Wells Fargo?",
+      "question_date": "2023/12/18 (Mon) 04:17",
+      "gold_answer": "$400,000",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "Two conflicting memories exist: one says pre-approved for $400,000, another says $350,000. Cannot determine which is correct.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5420,
+        "completion_tokens": 67,
+        "elapsed_seconds": 1.0960369110107422
+      },
+      "correct": false,
+      "judge_reason": "The prediction states the answer cannot be determined, but the reference answer provides a specific amount.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 149,
+        "completion_tokens": 33,
+        "elapsed_seconds": 0.7850220203399658
+      }
+    },
+    {
+      "question_id": "07741c45",
+      "question_type": "knowledge-update",
+      "question": "Where do I currently keep my old sneakers?",
+      "question_date": "2023/06/23 (Fri) 07:31",
+      "gold_answer": "in a shoe rack in my closet",
+      "prediction": "under the bed",
+      "support_memory_ids": [
+        "m_e23eee8bea7ab56e0ac9"
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "Memory m_e23eee8bea7ab56e0ac9 states user keeps old sneakers under the bed.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5318,
+        "completion_tokens": 76,
+        "elapsed_seconds": 1.318861484527588
+      },
+      "correct": false,
+      "judge_reason": "Prediction says 'under the bed', but reference answer says 'in a shoe rack in my closet'.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 141,
+        "completion_tokens": 37,
+        "elapsed_seconds": 0.6566627025604248
+      }
+    },
+    {
+      "question_id": "a9f6b44c",
+      "question_type": "multi-session",
+      "question": "How many bikes did I service or plan to service in March?",
+      "question_date": "2023/03/20 (Mon) 23:57",
+      "gold_answer": "2",
+      "prediction": "1 bike serviced (road bike on March 10), 1 bike planned for service (commuter bike front tire replacement before April).",
+      "support_memory_ids": [
+        "m_10104622f0197a9592c5",
+        "m_310cf20356f45588c744",
+        "m_221d5e6d610f9d779b49"
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "Two memories confirm road bike serviced on March 10. One memory states plan to replace commuter bike front tire before April. Chain cleaning on March 2 and March 22 are maintenance, not service. Other memories are unrelated.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5572,
+        "completion_tokens": 152,
+        "elapsed_seconds": 1.7912180423736572
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer of 2 bikes (1 serviced + 1 planned).",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 164,
+        "completion_tokens": 34,
+        "elapsed_seconds": 0.956566572189331
+      }
+    },
+    {
+      "question_id": "982b5123_abs",
+      "question_type": "temporal-reasoning",
+      "question": "When did I book the Airbnb in Sacramento?",
+      "question_date": "2023/05/27 (Sat) 17:10",
+      "gold_answer": "The information provided is not enough. You only mentioned booking Airbnb in San Francisco.",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No memory mentions booking an Airbnb in Sacramento.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5473,
+        "completion_tokens": 48,
+        "elapsed_seconds": 1.1066162586212158
+      },
+      "correct": true,
+      "judge_reason": "The prediction correctly states that the information cannot be determined, matching the reference answer's indication of insufficient information.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 152,
+        "completion_tokens": 36,
+        "elapsed_seconds": 0.7685301303863525
+      }
+    },
+    {
+      "question_id": "0977f2af",
+      "question_type": "knowledge-update",
+      "question": "What new kitchen gadget did I invest in before getting the Air Fryer?",
+      "question_date": "2023/05/31 (Wed) 07:54",
+      "gold_answer": "Instant Pot",
+      "prediction": "Instant Pot",
+      "support_memory_ids": [
+        "m_061f44bfccf83193209a"
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "Memory indicates user owns a new Instant Pot and was thinking of using it before the Air Fryer acquisition.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5199,
+        "completion_tokens": 69,
+        "elapsed_seconds": 1.1853678226470947
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 140,
+        "completion_tokens": 22,
+        "elapsed_seconds": 0.5814781188964844
+      }
+    },
+    {
+      "question_id": "71017277",
+      "question_type": "temporal-reasoning",
+      "question": "I received a piece of jewelry last Saturday from whom?",
+      "question_date": "2023/03/09 (Thu) 15:47",
+      "gold_answer": "my aunt",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No memory mentions receiving jewelry from anyone.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 6191,
+        "completion_tokens": 47,
+        "elapsed_seconds": 1.3328807353973389
+      },
+      "correct": false,
+      "judge_reason": "The prediction claims the answer cannot be determined, but the reference answer is 'my aunt', indicating the information is available.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 141,
+        "completion_tokens": 39,
+        "elapsed_seconds": 0.829613447189331
+      }
+    },
+    {
+      "question_id": "58bf7951",
+      "question_type": "single-session-user",
+      "question": "What play did I attend at the local community theater?",
+      "question_date": "2023/05/30 (Tue) 22:53",
+      "gold_answer": "The Glass Menagerie",
+      "prediction": "The Glass Menagerie",
+      "support_memory_ids": [
+        "m_579ef0242c9e7fc74d85"
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "Memory m_579ef0242c9e7fc74d85 explicitly states user attended a production of The Glass Menagerie.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5392,
+        "completion_tokens": 81,
+        "elapsed_seconds": 1.0455594062805176
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 143,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.6432688236236572
+      }
+    },
+    {
+      "question_id": "3fdac837",
+      "question_type": "multi-session",
+      "question": "What is the total number of days I spent in Japan and Chicago?",
+      "question_date": "2023/05/30 (Tue) 19:13",
+      "gold_answer": "11 days (or 12 days, if April 15th to 22nd is considered as 8 days)",
+      "prediction": "8 days in Japan; cannot be determined for Chicago.",
+      "support_memory_ids": [
+        "m_a0be249674f33c6a5323"
+      ],
+      "confidence": 0.9,
+      "reasoning_summary": "Memory m_a0be249674f33c6a5323 states user visited Japan from April 15 to 22, 2023, which is 8 days. No memory provides specific dates or duration for Chicago trip; only a vague 'March' trip is mentioned without exact days.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5246,
+        "completion_tokens": 117,
+        "elapsed_seconds": 1.755340576171875
+      },
+      "correct": false,
+      "judge_reason": "Prediction does not provide total days; missing Chicago days.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 170,
+        "completion_tokens": 27,
+        "elapsed_seconds": 0.8717958927154541
+      }
+    },
+    {
+      "question_id": "618f13b2",
+      "question_type": "knowledge-update",
+      "question": "How many times have I worn my new black Converse Chuck Taylor All Star sneakers?",
+      "question_date": "2023/06/18 (Sun) 22:29",
+      "gold_answer": "six",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "The memories mention wearing the sneakers four times and six times, but the question date is 2023/06/18 and the memories are from May 2023, with no information about wearings after that date.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5594,
+        "completion_tokens": 84,
+        "elapsed_seconds": 1.8549072742462158
+      },
+      "correct": true,
+      "judge_reason": "The prediction correctly states that the answer cannot be determined from the conversation, matching the reference answer's implication that the information is not available.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 146,
+        "completion_tokens": 42,
+        "elapsed_seconds": 0.768993616104126
+      }
+    },
+    {
+      "question_id": "gpt4_b5700ca9",
+      "question_type": "temporal-reasoning",
+      "question": "How many days ago did I attend the Maundy Thursday service at the Episcopal Church?",
+      "question_date": "2023/04/10 (Mon) 10:28",
+      "gold_answer": "4 days.",
+      "prediction": "4 days ago",
+      "support_memory_ids": [
+        "m_35b6d2e057feecf3049e"
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "The Maundy Thursday service was on 2023-04-06, and the question date is 2023-04-10, so it was 4 days ago.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5246,
+        "completion_tokens": 88,
+        "elapsed_seconds": 1.5110423564910889
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer in meaning, with only a minor wording difference.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 146,
+        "completion_tokens": 31,
+        "elapsed_seconds": 0.8753652572631836
+      }
+    },
+    {
+      "question_id": "6d550036",
+      "question_type": "multi-session",
+      "question": "How many projects have I led or am currently leading?",
+      "question_date": "2023/05/30 (Tue) 23:32",
+      "gold_answer": "2",
+      "prediction": "2",
+      "support_memory_ids": [
+        "m_28ec2b2b37043960e19c",
+        "m_80b592d84861eb9fcaf1"
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "User led a data analysis team in a Marketing Research class project and currently leads a team of five engineers as a senior software engineer.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5483,
+        "completion_tokens": 90,
+        "elapsed_seconds": 1.0894882678985596
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 136,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.7098886966705322
+      }
+    },
+    {
+      "question_id": "gpt4_4929293a",
+      "question_type": "temporal-reasoning",
+      "question": "Which event happened first, my cousin's wedding or Michael's engagement party?",
+      "question_date": "2023/10/01 (Sun) 07:41",
+      "gold_answer": "Michael's engagement party",
+      "prediction": "Michael's engagement party",
+      "support_memory_ids": [
+        "m_224c18b87a4eefa1b780",
+        "m_41ee172a756e40a45be4"
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "Michael's engagement party was on 2023-05-06, and the cousin's wedding was on 2023-06-15, so the engagement party happened first.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5618,
+        "completion_tokens": 103,
+        "elapsed_seconds": 1.3594698905944824
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 145,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.8321936130523682
+      }
+    },
+    {
+      "question_id": "60d45044",
+      "question_type": "single-session-user",
+      "question": "What type of rice is my favorite?",
+      "question_date": "2023/05/30 (Tue) 20:46",
+      "gold_answer": "Japanese short-grain rice",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No memory explicitly states the user's favorite type of rice.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5515,
+        "completion_tokens": 51,
+        "elapsed_seconds": 1.1541337966918945
+      },
+      "correct": false,
+      "judge_reason": "The prediction states it cannot be determined, but the reference answer provides a specific type of rice.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 141,
+        "completion_tokens": 34,
+        "elapsed_seconds": 0.830657958984375
+      }
+    },
+    {
+      "question_id": "d52b4f67",
+      "question_type": "single-session-user",
+      "question": "Where did I attend my cousin's wedding?",
+      "question_date": "2023/05/30 (Tue) 23:57",
+      "gold_answer": "The Grand Ballroom",
+      "prediction": "Grand Ballroom",
+      "support_memory_ids": [
+        "m_7885b648792725dc5570"
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "Memory m_7885b648792725dc5570 explicitly states user attended their cousin's wedding at the Grand Ballroom around May 21, 2023.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5568,
+        "completion_tokens": 82,
+        "elapsed_seconds": 1.3444526195526123
+      },
+      "correct": true,
+      "judge_reason": "The prediction matches the reference answer, ignoring the definite article.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 138,
+        "completion_tokens": 27,
+        "elapsed_seconds": 0.7446608543395996
+      }
+    },
+    {
+      "question_id": "993da5e2",
+      "question_type": "temporal-reasoning",
+      "question": "How long had I been using the new area rug when I rearranged my living room furniture?",
+      "question_date": "2023/05/26 (Fri) 17:49",
+      "gold_answer": "One week. Answers ranging from 7 days to 10 days are also acceptable.",
+      "prediction": "1 week",
+      "support_memory_ids": [
+        "m_9b55192edc9ec3e32707",
+        "m_6621c47f31a29be30637"
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "User got the rug on 2023-04-26 and rearranged furniture on 2023-05-05, so the rug had been used for 9 days, approximately 1 week.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5549,
+        "completion_tokens": 106,
+        "elapsed_seconds": 1.587414264678955
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer (1 week is within acceptable range).",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 160,
+        "completion_tokens": 29,
+        "elapsed_seconds": 1.0378084182739258
+      }
+    },
+    {
+      "question_id": "a3332713",
+      "question_type": "multi-session",
+      "question": "What is the total amount I spent on gifts for my coworker and brother?",
+      "question_date": "2023/05/30 (Tue) 21:10",
+      "gold_answer": "$200",
+      "prediction": "$200",
+      "support_memory_ids": [
+        "m_35bad716160654d8e1a9",
+        "m_662846528e72731b337a"
+      ],
+      "confidence": 0.7,
+      "reasoning_summary": "User spent $100 on brother's gift card and approximately $100 on coworker's baby shower gift, totaling $200.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5642,
+        "completion_tokens": 86,
+        "elapsed_seconds": 1.3494083881378174
+      },
+      "correct": true,
+      "judge_reason": "Prediction matches reference answer exactly.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 141,
+        "completion_tokens": 22,
+        "elapsed_seconds": 0.8442168235778809
+      }
+    },
+    {
+      "question_id": "28bcfaac",
+      "question_type": "single-session-assistant",
+      "question": "I'm going back to our previous conversation about music theory. You mentioned some online resources for learning music theory. Can you remind me of the website you recommended for free lessons and exercises?",
+      "question_date": "2023/05/30 (Tue) 11:46",
+      "gold_answer": "MusicTheory.net",
+      "prediction": "MusicTheory.net",
+      "support_memory_ids": [
+        "m_5158cf9eae05883c8c3b",
+        "m_e5f3b10dfdc7e348a0e0"
+      ],
+      "confidence": 1.0,
+      "reasoning_summary": "User previously planned to use MusicTheory.net for free lessons and exercises, and assistant recommended it.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 8266,
+        "completion_tokens": 89,
+        "elapsed_seconds": 1.1026854515075684
+      },
+      "correct": true,
+      "judge_reason": "The prediction exactly matches the reference answer.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 166,
+        "completion_tokens": 23,
+        "elapsed_seconds": 0.6982624530792236
+      }
+    },
+    {
+      "question_id": "18dcd5a5",
+      "question_type": "single-session-assistant",
+      "question": "I'm going back to our previous chat about the Lost Temple of the Djinn one-shot. Can you remind me how many mummies the party will face in the temple?",
+      "question_date": "2023/05/30 (Tue) 23:50",
+      "gold_answer": "4",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No evidence in the provided memories mentions the Lost Temple of the Djinn one-shot or the number of mummies the party will face.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5305,
+        "completion_tokens": 66,
+        "elapsed_seconds": 1.3186330795288086
+      },
+      "correct": false,
+      "judge_reason": "The prediction states the answer cannot be determined, but the reference answer is 4, indicating the information was provided.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 166,
+        "completion_tokens": 38,
+        "elapsed_seconds": 0.8211841583251953
+      }
+    },
+    {
+      "question_id": "1da05512",
+      "question_type": "single-session-preference",
+      "question": "I'm trying to decide whether to buy a NAS device now or wait. What do you think?",
+      "question_date": "2023/05/30 (Tue) 15:33",
+      "gold_answer": "The user would prefer responses that take into account their current home network storage capacity issues and recent reliance on external hard drives, highlighting the potential benefits of a NAS device in addressing these specific needs. They might not prefer responses that ignore their current storage challenges or fail to consider their recent tech upgrades and priorities. Preferred responses would utilize the user's previous mentions of storage capacity issues and tech investments to inform their decision.",
+      "prediction": "Cannot be determined from the conversation.",
+      "support_memory_ids": [],
+      "confidence": 0.0,
+      "reasoning_summary": "No evidence about whether to buy now or wait.",
+      "retrieval_name": "graph_active",
+      "meta": {
+        "mode": "llm",
+        "prompt_tokens": 5376,
+        "completion_tokens": 49,
+        "elapsed_seconds": 1.057992696762085
+      },
+      "correct": false,
+      "judge_reason": "The prediction states 'Cannot be determined from the conversation', but the reference answer indicates that the user's specific storage issues and tech upgrades should be considered, implying that a determination can be made based on the conversation context.",
+      "judge_meta": {
+        "mode": "llm",
+        "prompt_tokens": 229,
+        "completion_tokens": 58,
+        "elapsed_seconds": 1.2986810207366943
+      }
+    }
+  ]
+}

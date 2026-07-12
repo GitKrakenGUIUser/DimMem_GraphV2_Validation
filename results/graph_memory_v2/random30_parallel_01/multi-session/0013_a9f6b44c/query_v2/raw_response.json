@@ -1,0 +1,100 @@
+{
+  "question": "How many bikes did I service or plan to service in March?",
+  "question_date": "2023-03-20T23:57:00",
+  "hypotheses": [
+    {
+      "query_anchor": "bikes serviced or planned to service by the user in March 2023",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "bike"
+      ],
+      "keywords": [
+        "service",
+        "plan",
+        "March"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-03-01",
+        "end": "2023-03-31",
+        "raw": "in March"
+      },
+      "locations": [],
+      "state_keys": [
+        "service_status"
+      ],
+      "relation_hints": [
+        "same_time"
+      ],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.8
+    },
+    {
+      "query_anchor": "bikes serviced by the user in March 2023",
+      "target_memory_types": [
+        "episodic"
+      ],
+      "entities": [
+        "bike"
+      ],
+      "keywords": [
+        "service",
+        "March"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-03-01",
+        "end": "2023-03-31",
+        "raw": "in March"
+      },
+      "locations": [],
+      "state_keys": [],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    },
+    {
+      "query_anchor": "bikes planned to service by the user in March 2023",
+      "target_memory_types": [
+        "fact",
+        "episodic"
+      ],
+      "entities": [
+        "bike"
+      ],
+      "keywords": [
+        "plan",
+        "service",
+        "March"
+      ],
+      "time_constraint": {
+        "operator": "between",
+        "start": "2023-03-01",
+        "end": "2023-03-31",
+        "raw": "in March"
+      },
+      "locations": [],
+      "state_keys": [
+        "plan_status"
+      ],
+      "relation_hints": [],
+      "answer_dim": "content",
+      "need_assistant_context": false,
+      "need_multi_hop": false,
+      "expected_evidence_count": 1,
+      "missing_slots": [],
+      "confidence": 0.7
+    }
+  ]
+}
