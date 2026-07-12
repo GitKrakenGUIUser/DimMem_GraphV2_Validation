@@ -1,0 +1,63 @@
+diff --git a/longmemeval/graph_memory_v2/prompts.py b/longmemeval/graph_memory_v2/prompts.py
+--- a/longmemeval/graph_memory_v2/prompts.py
++++ b/longmemeval/graph_memory_v2/prompts.py
+@@ -1,7 +1,8 @@
+ from __future__ import annotations
+
+ import json
++import re
+
+ from typing import Any, Dict, List
+
+@@ -218,15 +219,33 @@ JUDGE_TEMPLATE = r"""
+
+ """
+
++
++_PROMPT_FIELD_RE = re.compile(r"\{([A-Za-z_][A-Za-z0-9_]*)\}")
++
++
+ def render(template: str, **kwargs: Any) -> str:
+-
+- values = {
+-
+- key: json.dumps(value, ensure_ascii=False, indent=2)
+-
+- if isinstance(value, (dict, list))
+-
+- else str(value or "")
+-
+- for key, value in kwargs.items()
+-
+- }
+-
+- return template.format(**values)
++    """Render only named prompt placeholders and preserve literal JSON braces.
++
++    Python ``str.format`` treats every ``{...}`` block as a formatting field.
++    The prompt templates contain literal JSON examples, so using ``format``
++    raises errors such as ``KeyError: '\\n  "memories"'``.  This renderer
++    replaces only simple named placeholders such as ``{conversation}`` and
++    leaves all other braces untouched.
++    """
++    values = {
++        key: (
++            json.dumps(value, ensure_ascii=False, indent=2)
++            if isinstance(value, (dict, list))
++            else str(value if value is not None else "")
++        )
++        for key, value in kwargs.items()
++    }
++
++    required = set(_PROMPT_FIELD_RE.findall(template))
++    missing = sorted(required.difference(values))
++    if missing:
++        raise KeyError(
++            "Missing prompt render values: "
++            + ", ".join(missing)
++        )
++
++    return _PROMPT_FIELD_RE.sub(
++        lambda match: values[match.group(1)],
++        template,
++    )

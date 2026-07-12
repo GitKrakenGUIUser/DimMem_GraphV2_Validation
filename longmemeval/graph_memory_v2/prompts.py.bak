@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import re
 from typing import Any, Dict, List
 
 
@@ -219,39 +218,14 @@ Return:
 """
 
 
-_PROMPT_FIELD_RE = re.compile(
-    r"\{([A-Za-z_][A-Za-z0-9_]*)\}"
-)
-
-
 def render(template: str, **kwargs: Any) -> str:
-    """Replace named placeholders while preserving literal JSON braces."""
     values = {
-        key: (
-            json.dumps(
-                value,
-                ensure_ascii=False,
-                indent=2,
-            )
-            if isinstance(value, (dict, list))
-            else str(value if value is not None else "")
-        )
+        key: json.dumps(value, ensure_ascii=False, indent=2)
+        if isinstance(value, (dict, list))
+        else str(value or "")
         for key, value in kwargs.items()
     }
-
-    required = set(_PROMPT_FIELD_RE.findall(template))
-    missing = sorted(required.difference(values))
-    if missing:
-        raise KeyError(
-            "Missing prompt render values: "
-            + ", ".join(missing)
-        )
-
-    return _PROMPT_FIELD_RE.sub(
-        lambda match: values[match.group(1)],
-        template,
-    )
-
+    return template.format(**values)
 
 DIMMEM_V1_EXTRACTION_SYSTEM = """You are a precise long-term memory constructor.
 Extract only grounded, self-contained memories. Return valid JSON only. The first
