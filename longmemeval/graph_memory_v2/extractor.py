@@ -9,6 +9,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 from .io_utils import ensure_dir, normalize_text, read_json, stable_hash, write_json
 from .llm_client import OpenAICompatibleClient
+from .parallel import run_parallel, should_checkpoint
 from .prompts import MEMORY_EXTRACTION_SYSTEM, MEMORY_EXTRACTION_TEMPLATE, render
 from .schemas import EnhancedDimension, MemoryRecord, Provenance
 
@@ -192,6 +193,7 @@ def extract_sample(
     force: bool = False,
     heuristic: bool = False,
     max_tokens: int = 5000,
+    window_workers: int = 1,
 ) -> Dict[str, Any]:
     output_dir = ensure_dir(sample_dir / "memory_v2")
     final_path = output_dir / "all_memories.json"
@@ -201,9 +203,13 @@ def extract_sample(
         return {"status": "existing", "memory_count": len(memories), "path": str(final_path)}
 
     sample_id = sample_dir.name
-    all_records: Dict[str, MemoryRecord] = {}
-    trace: List[Dict[str, Any]] = []
-    for window_path in _window_files(sample_dir):
+    window_tasks = [
+        {"name": path.name, "_path": str(path)}
+        for path in _window_files(sample_dir)
+    ]
+
+    def process_window(task: Dict[str, Any]) -> Dict[str, Any]:
+        window_path = Path(task["_path"])
         window = read_json(window_path)
         started = time.time()
         if heuristic:
@@ -240,21 +246,39 @@ def extract_sample(
 
         window_output = output_dir / "windows" / (window_path.stem + "_memories.json")
         write_json(window_output, [record.to_dict() for record in records])
-        for record in records:
-            key = _record_key(record)
-            if key in all_records:
-                all_records[key] = _merge_duplicate(all_records[key], record)
-            else:
-                all_records[key] = record
-        trace.append(
-            {
+        return {
+            "status": "ok",
+            "records": records,
+            "trace": {
                 "window": window_path.name,
                 "record_count": len(records),
                 "elapsed_seconds": time.time() - started,
                 **llm_meta,
                 "raw_response": raw_payload if heuristic else None,
-            }
-        )
+            },
+        }
+
+    window_results, window_stats = run_parallel(
+        window_tasks,
+        process_window,
+        workers=window_workers,
+        stage=f"extract-v2-windows-{sample_id}",
+        merge_input=False,
+        fail_fast=True,
+        progress=window_workers != 1,
+    )
+
+    all_records: Dict[str, MemoryRecord] = {}
+    trace: List[Dict[str, Any]] = []
+    for result in window_results:
+        for record in result.get("records") or []:
+            key = _record_key(record)
+            if key in all_records:
+                all_records[key] = _merge_duplicate(all_records[key], record)
+            else:
+                all_records[key] = record
+        if result.get("trace"):
+            trace.append(result["trace"])
 
     memories = list(all_records.values())
     memories.sort(key=lambda item: (
@@ -262,11 +286,15 @@ def extract_sample(
         item.memory_id,
     ))
     write_json(final_path, [record.to_dict() for record in memories])
-    # Alias kept deliberately close to DimMem's original output naming.
     write_json(output_dir / "memory_bank.json", [record.to_dict() for record in memories])
     write_json(trace_path, trace)
-    return {"status": "ok", "memory_count": len(memories), "path": str(final_path)}
-
+    write_json(output_dir / "extraction_parallel.json", window_stats.to_dict())
+    return {
+        "status": "ok",
+        "memory_count": len(memories),
+        "path": str(final_path),
+        "window_parallel": window_stats.to_dict(),
+    }
 
 def extract_run(
     run_root: str,
@@ -276,25 +304,47 @@ def extract_run(
     heuristic: bool = False,
     max_tokens: int = 5000,
     question_types: Optional[Iterable[str]] = None,
+    workers: int = 0,
+    fail_fast: bool = False,
+    window_workers: int = 1,
 ) -> Dict[str, Any]:
     root = Path(run_root)
     manifest = read_json(root / "run_manifest.json")
     allowed = {str(value) for value in question_types or []}
-    output: List[Dict[str, Any]] = []
-    for sample in manifest.get("samples") or []:
-        if allowed and sample.get("question_type") not in allowed:
-            continue
-        sample_dir = Path(sample["sample_dir"])
-        try:
-            result = extract_sample(
-                sample_dir,
-                client=client,
-                force=force,
-                heuristic=heuristic,
-                max_tokens=max_tokens,
-            )
-            output.append({**sample, **result})
-        except Exception as exc:
-            output.append({**sample, "status": "failed", "error": repr(exc)})
-    write_json(root / "extraction_manifest_v2.json", {"samples": output})
-    return {"samples": output}
+    samples = [
+        sample for sample in (manifest.get("samples") or [])
+        if not allowed or sample.get("question_type") in allowed
+    ]
+    manifest_path = root / "extraction_manifest_v2.json"
+    checkpoint_rows: List[Optional[Dict[str, Any]]] = [None] * len(samples)
+
+    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
+        return extract_sample(
+            Path(sample["sample_dir"]),
+            client=client,
+            force=force,
+            heuristic=heuristic,
+            max_tokens=max_tokens,
+            window_workers=window_workers,
+        )
+
+    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
+        checkpoint_rows[index] = result
+        if not should_checkpoint(completed, total):
+            return
+        write_json(manifest_path, {
+            "parallel": {"requested_workers": workers, "completed": completed, "total": total},
+            "samples": [row for row in checkpoint_rows if row is not None],
+        })
+
+    output, stats = run_parallel(
+        samples,
+        worker,
+        workers=workers,
+        stage="extract-v2",
+        merge_input=True,
+        fail_fast=fail_fast,
+        on_result=on_result,
+    )
+    write_json(manifest_path, {"parallel": stats.to_dict(), "samples": output})
+    return {"samples": output, "parallel": stats.to_dict()}

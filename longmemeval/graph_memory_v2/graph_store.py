@@ -7,6 +7,7 @@ from typing import Any, DefaultDict, Dict, Iterable, List, Optional, Sequence, S
 
 from .dataset import parse_datetime
 from .io_utils import ensure_dir, normalize_text, read_json, stable_hash, write_json
+from .parallel import run_parallel, should_checkpoint
 from .schemas import GraphEdge, GraphNode, MemoryRecord, memories_from_payload
 
 
@@ -315,18 +316,44 @@ def build_sample_graph(sample_dir: Path, *, force: bool = False) -> Dict[str, An
     return {"status": "ok", **read_json(stats_path)}
 
 
-def build_run_graphs(run_root: str, *, force: bool = False, question_types: Optional[Iterable[str]] = None) -> Dict[str, Any]:
+def build_run_graphs(
+    run_root: str,
+    *,
+    force: bool = False,
+    question_types: Optional[Iterable[str]] = None,
+    workers: int = 0,
+    fail_fast: bool = False,
+) -> Dict[str, Any]:
     root = Path(run_root)
     manifest = read_json(root / "run_manifest.json")
     allowed = {str(value) for value in question_types or []}
-    results: List[Dict[str, Any]] = []
-    for sample in manifest.get("samples") or []:
-        if allowed and sample.get("question_type") not in allowed:
-            continue
-        try:
-            stats = build_sample_graph(Path(sample["sample_dir"]), force=force)
-            results.append({**sample, **stats})
-        except Exception as exc:
-            results.append({**sample, "status": "failed", "error": repr(exc)})
-    write_json(root / "graph_manifest_v2.json", {"samples": results})
-    return {"samples": results}
+    samples = [
+        sample for sample in (manifest.get("samples") or [])
+        if not allowed or sample.get("question_type") in allowed
+    ]
+    manifest_path = root / "graph_manifest_v2.json"
+    checkpoint_rows: List[Optional[Dict[str, Any]]] = [None] * len(samples)
+
+    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
+        return build_sample_graph(Path(sample["sample_dir"]), force=force)
+
+    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
+        checkpoint_rows[index] = result
+        if not should_checkpoint(completed, total):
+            return
+        write_json(manifest_path, {
+            "parallel": {"requested_workers": workers, "completed": completed, "total": total},
+            "samples": [row for row in checkpoint_rows if row is not None],
+        })
+
+    results, stats = run_parallel(
+        samples,
+        worker,
+        workers=workers,
+        stage="build-graph",
+        merge_input=True,
+        fail_fast=fail_fast,
+        on_result=on_result,
+    )
+    write_json(manifest_path, {"parallel": stats.to_dict(), "samples": results})
+    return {"samples": results, "parallel": stats.to_dict()}

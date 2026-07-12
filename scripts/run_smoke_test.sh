@@ -11,5 +11,7 @@ PYTHONPATH="$ROOT" python -m longmemeval.graph_memory_v2 all \
   --output-name graph_active \
   --final-k 5 \
   --max-rounds 2 \
+  --workers 0 \
+  --window-workers 0 \
   --force
 PYTHONPATH="$ROOT" python -m unittest discover -s "$ROOT/tests" -p 'test_*.py' -v

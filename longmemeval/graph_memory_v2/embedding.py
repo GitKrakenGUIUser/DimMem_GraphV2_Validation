@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import math
+import threading
 from typing import Iterable, List, Protocol, Sequence
 
 from .io_utils import tokenize
@@ -47,13 +48,18 @@ class SentenceTransformerEmbedder:
                 "or use --embedder hash"
             ) from exc
         self.model = SentenceTransformer(model_name, device=device)
+        self._encode_lock = threading.RLock()
 
     def encode(self, texts: Sequence[str]) -> List[List[float]]:
-        vectors = self.model.encode(
-            list(texts),
-            normalize_embeddings=True,
-            show_progress_bar=False,
-        )
+        # One shared model is reused across case workers. Most PyTorch backends are
+        # not reliably re-entrant for concurrent encode() calls on one GPU model,
+        # so the small critical section prevents duplicate model loads and OOMs.
+        with self._encode_lock:
+            vectors = self.model.encode(
+                list(texts),
+                normalize_embeddings=True,
+                show_progress_bar=False,
+            )
         return [list(map(float, row)) for row in vectors]
 
 

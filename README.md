@@ -16,6 +16,38 @@ LongMemEval 原始数据
 
 代码以新增目录 `longmemeval/graph_memory_v2/` 的方式接入原始 DimMem 仓库，不覆盖其现有模块，便于保留原始实现并做公平对照。
 
+## 并行版确认
+
+仓库最初版本的 `prepare / extract / build-graph / parse-query / retrieve / qa-judge / report` 都是逐 case 的普通 `for` 循环；尤其建图阶段会等待前一个 case 完成后才处理下一个 case。当前版本已经改成分层并行：
+
+```text
+Case level（默认全部 case 并行）
+├── prepare
+├── V1 extraction
+├── V2 extraction
+├── graph build
+├── query parse
+├── retrieval
+├── QA
+├── Judge
+├── report
+└── paired comparison
+
+Within-case optional parallelism
+├── extraction windows
+├── BM25 / Dense / Dimension routes
+└── active graph tools in the same reasoning round
+
+Cross-variant parallelism
+└── dimmem_v1 / dimension_v2 / graph_static / graph_active
+```
+
+默认参数 `--workers 0` 的含义是：**为当前选中的每一个 LongMemEval case 提交一个并发任务**。`-1` 使用保守自动值，正整数用于限制并发。建图、QA、Judge 等存在明确数据依赖的阶段仍保持阶段顺序，但每一阶段内部的所有 case 同时运行。
+
+`all` 命令还会在 prepare 完成后，同时启动三个互不依赖的分支：V1 extraction、V2 extraction 和 query parse。V2 extraction 完成后才允许建图；retrieval 必须等待 graph 和 query parse，Judge 必须等待同 case 的 QA。这些依赖无法安全并行化。
+
+> 全量 LongMemEval 使用 `--workers 0 --pipeline-workers 0 --window-workers 0 --variant-workers 0` 会产生非常高的并发请求数。代码支持这种“全部展开”模式，但正式 API 通常应按网关限流将 `--workers` 设为 16、32 或 64。任务仍全部进入并行队列，只是同时执行数受控。
+
 ---
 
 ## 1. 这版到底优化了什么
@@ -229,7 +261,12 @@ python -m longmemeval.graph_memory_v2 all \
   --max-rounds 3 \
   --router-mode llm \
   --embedder sentence-transformers \
-  --embedding-model sentence-transformers/all-MiniLM-L6-v2
+  --embedding-model sentence-transformers/all-MiniLM-L6-v2 \
+  --workers 0 \
+  --pipeline-workers 0 \
+  --window-workers 1 \
+  --route-workers 0 \
+  --tool-workers 0
 ```
 
 `--input` 支持：
@@ -266,7 +303,8 @@ python -m longmemeval.graph_memory_v2 prepare \
   --output-root ./results/graph_memory_v2 \
   --run-name exp01 \
   --window-size 15 \
-  --overlap 3
+  --overlap 3 \
+  --workers 0
 ```
 
 输出：
@@ -282,7 +320,10 @@ results/graph_memory_v2/exp01/<question_type>/<sample_id>/windows/
 ```bash
 python -m longmemeval.graph_memory_v2 extract \
   --run-root ./results/graph_memory_v2/exp01 \
-  --schema both
+  --schema both \
+  --workers 0 \
+  --schema-workers 0 \
+  --window-workers 1
 ```
 
 输出：
@@ -296,14 +337,16 @@ memory_v2/all_memories.json
 
 ```bash
 python -m longmemeval.graph_memory_v2 build-graph \
-  --run-root ./results/graph_memory_v2/exp01
+  --run-root ./results/graph_memory_v2/exp01 \
+  --workers 0
 ```
 
 ### Stage 4：解析查询为可修正的多假设
 
 ```bash
 python -m longmemeval.graph_memory_v2 parse-query \
-  --run-root ./results/graph_memory_v2/exp01
+  --run-root ./results/graph_memory_v2/exp01 \
+  --workers 0
 ```
 
 Query Parse 不再输出一个不可变的硬判决，而是最多三个 hypothesis，包含：
@@ -330,7 +373,9 @@ python -m longmemeval.graph_memory_v2 retrieve \
   --mode dimmem_v1 \
   --output-name dimmem_v1 \
   --route-k 20 --final-k 15 \
-  --embedder sentence-transformers
+  --embedder sentence-transformers \
+  --workers 0 \
+  --route-workers 0
 ```
 
 ```bash
@@ -339,7 +384,9 @@ python -m longmemeval.graph_memory_v2 retrieve \
   --mode dimension_v2 \
   --output-name dimension_v2 \
   --route-k 20 --final-k 15 \
-  --embedder sentence-transformers
+  --embedder sentence-transformers \
+  --workers 0 \
+  --route-workers 0
 ```
 
 ```bash
@@ -348,7 +395,9 @@ python -m longmemeval.graph_memory_v2 retrieve \
   --mode graph_static \
   --output-name graph_static \
   --route-k 20 --final-k 15 \
-  --embedder sentence-transformers
+  --embedder sentence-transformers \
+  --workers 0 \
+  --route-workers 0
 ```
 
 ```bash
@@ -361,7 +410,10 @@ python -m longmemeval.graph_memory_v2 retrieve \
   --final-k 15 \
   --max-rounds 3 \
   --router-mode llm \
-  --embedder sentence-transformers
+  --embedder sentence-transformers \
+  --workers 0 \
+  --route-workers 0 \
+  --tool-workers 0
 ```
 
 Active Router 可调用：
@@ -387,7 +439,8 @@ finish
 ```bash
 python -m longmemeval.graph_memory_v2 qa-judge \
   --run-root ./results/graph_memory_v2/exp01 \
-  --retrieval-name graph_active
+  --retrieval-name graph_active \
+  --workers 0
 ```
 
 ### Stage 7：生成报告
@@ -395,7 +448,8 @@ python -m longmemeval.graph_memory_v2 qa-judge \
 ```bash
 python -m longmemeval.graph_memory_v2 report \
   --run-root ./results/graph_memory_v2/exp01 \
-  --retrieval-name graph_active
+  --retrieval-name graph_active \
+  --workers 0
 ```
 
 输出：
@@ -429,7 +483,11 @@ python -m longmemeval.graph_memory_v2 ablation \
   --final-k 15 \
   --max-rounds 3 \
   --router-mode llm \
-  --embedder sentence-transformers
+  --embedder sentence-transformers \
+  --workers 0 \
+  --variant-workers 0 \
+  --route-workers 0 \
+  --tool-workers 0
 ```
 
 自动生成四组结果和以下成对比较：
@@ -559,8 +617,11 @@ Assistant context omitted
 本包已完成：
 
 - Python 全模块编译；
-- 4 项单元测试；
-- 2 个 synthetic LongMemEval case 的端到端 smoke run；
+- 6 项单元测试；
+- 2 个 synthetic LongMemEval case 的端到端并行 smoke run；
+- prepare、V1/V2 extraction、query parse、graph build、retrieval、QA、Judge、report 的 case-level 并发日志验证；
+- V1/V2/query 三分支并发验证；
+- 检索三路和同轮图工具并发实现验证；
 - V1/V2 独立抽取目录验证；
 - graph nodes/edges/indexes/stats 输出验证；
 - active trace、QA、Judge、report 输出验证。

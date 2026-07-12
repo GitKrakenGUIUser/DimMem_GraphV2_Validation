@@ -10,9 +10,11 @@ from .io_utils import (
     iter_json_inputs,
     normalize_question_type,
     question_type_from_file,
+    read_json,
     sample_id,
     write_json,
 )
+from .parallel import run_parallel, should_checkpoint
 
 
 DATE_FORMATS = (
@@ -181,6 +183,63 @@ def build_windows(
     return windows
 
 
+def _prepare_case(task: Dict[str, Any]) -> Dict[str, Any]:
+    row = task["_row"]
+    sample_dir = Path(task["sample_dir"])
+    force = bool(task["_force"])
+    window_size = int(task["_window_size"])
+    overlap = int(task["_overlap"])
+    truncate_threshold = int(task["_truncate_threshold"])
+
+    if sample_dir.exists() and not force:
+        summary_path = sample_dir / "summary.json"
+        summary = read_json(summary_path) if summary_path.exists() else {}
+        return {
+            "status": "existing",
+            "turn_count": int(summary.get("turn_count") or 0),
+            "window_count": int(summary.get("window_count") or 0),
+        }
+
+    ensure_dir(sample_dir / "windows")
+    turns = flatten_user_turns(row)
+    windows = build_windows(
+        turns,
+        window_size=window_size,
+        overlap=overlap,
+        truncate_threshold=truncate_threshold,
+    )
+    write_json(sample_dir / "input_item.json", row)
+    write_json(sample_dir / "source_turns.json", [turn.to_dict() for turn in turns])
+    for window in windows:
+        window_index = window["window_index"]
+        window_path = sample_dir / "windows" / f"window_{window_index:04d}.json"
+        write_json(window_path, window)
+        (sample_dir / "windows" / f"window_{window_index:04d}.txt").write_text(
+            window["conversation"], encoding="utf-8"
+        )
+        write_json(
+            sample_dir / "windows" / f"window_{window_index:04d}_assistant_replies.json",
+            window["assistant_replies"],
+        )
+    write_json(
+        sample_dir / "summary.json",
+        {
+            "sample_id": task["sample_id"],
+            "question_id": task["question_id"],
+            "question_type": task["question_type"],
+            "turn_count": len(turns),
+            "window_count": len(windows),
+            "window_size": window_size,
+            "overlap": overlap,
+        },
+    )
+    return {
+        "status": "prepared",
+        "turn_count": len(turns),
+        "window_count": len(windows),
+    }
+
+
 def prepare_dataset(
     *,
     input_path: str,
@@ -192,15 +251,19 @@ def prepare_dataset(
     max_items: int = 0,
     question_types: Optional[Iterable[str]] = None,
     force: bool = False,
+    workers: int = 0,
+    fail_fast: bool = False,
 ) -> Dict[str, Any]:
     output_run = ensure_dir(Path(output_root) / run_name)
     allowed = {normalize_question_type(value) for value in question_types or []}
-    manifest: List[Dict[str, Any]] = []
+    tasks: List[Dict[str, Any]] = []
     global_index = 0
 
     for source_file, rows in iter_json_inputs(input_path):
         file_type = normalize_question_type(question_type_from_file(source_file))
         for row in rows:
+            if max_items and global_index >= max_items:
+                break
             qid = str(row.get("question_id") or f"row_{global_index}")
             qid_prefix = qid.split("/", 1)[0] if "/" in qid else ""
             qtype = normalize_question_type(row.get("question_type") or file_type or qid_prefix)
@@ -208,75 +271,66 @@ def prepare_dataset(
                 qtype = normalize_question_type(qid_prefix)
             if allowed and qtype not in allowed:
                 continue
-            if max_items and global_index >= max_items:
-                break
             sid = sample_id(global_index, qid)
             sample_dir = output_run / qtype / sid
-            if sample_dir.exists() and not force:
-                manifest.append({
-                    "sample_id": sid,
-                    "question_id": qid,
-                    "question_type": qtype,
-                    "sample_dir": str(sample_dir),
-                    "status": "existing",
-                })
-                global_index += 1
-                continue
-
-            ensure_dir(sample_dir / "windows")
-            turns = flatten_user_turns(row)
-            windows = build_windows(
-                turns,
-                window_size=window_size,
-                overlap=overlap,
-                truncate_threshold=truncate_threshold,
-            )
-            write_json(sample_dir / "input_item.json", row)
-            write_json(sample_dir / "source_turns.json", [turn.to_dict() for turn in turns])
-            for window in windows:
-                window_index = window["window_index"]
-                window_path = sample_dir / "windows" / f"window_{window_index:04d}.json"
-                write_json(window_path, window)
-                (sample_dir / "windows" / f"window_{window_index:04d}.txt").write_text(
-                    window["conversation"], encoding="utf-8"
-                )
-                write_json(
-                    sample_dir / "windows" / f"window_{window_index:04d}_assistant_replies.json",
-                    window["assistant_replies"],
-                )
-            write_json(
-                sample_dir / "summary.json",
-                {
-                    "sample_id": sid,
-                    "question_id": qid,
-                    "question_type": qtype,
-                    "turn_count": len(turns),
-                    "window_count": len(windows),
-                    "window_size": window_size,
-                    "overlap": overlap,
-                },
-            )
-            manifest.append({
+            tasks.append({
                 "sample_id": sid,
                 "question_id": qid,
                 "question_type": qtype,
                 "sample_dir": str(sample_dir),
-                "turn_count": len(turns),
-                "window_count": len(windows),
-                "status": "prepared",
+                "_row": row,
+                "_force": force,
+                "_window_size": window_size,
+                "_overlap": overlap,
+                "_truncate_threshold": truncate_threshold,
             })
             global_index += 1
         if max_items and global_index >= max_items:
             break
 
+    manifest_path = output_run / "run_manifest.json"
+
+    def checkpoint(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
+        # Atomic checkpoint; useful when hundreds of cases are in flight.
+        current = checkpoint_results.copy()
+        current[index] = result
+        write_json(
+            manifest_path,
+            {
+                "run_name": run_name,
+                "input_path": str(input_path),
+                "window_size": window_size,
+                "overlap": overlap,
+                "parallel": {"requested_workers": workers, "completed": completed, "total": total},
+                "samples": [row for row in current if row is not None],
+            },
+        )
+
+    checkpoint_results: List[Optional[Dict[str, Any]]] = [None] * len(tasks)
+
+    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
+        checkpoint_results[index] = result
+        if should_checkpoint(completed, total):
+            checkpoint(index, result, completed, total)
+
+    manifest, stats = run_parallel(
+        tasks,
+        _prepare_case,
+        workers=workers,
+        stage="prepare",
+        merge_input=True,
+        fail_fast=fail_fast,
+        on_result=on_result,
+    )
     write_json(
-        output_run / "run_manifest.json",
+        manifest_path,
         {
             "run_name": run_name,
             "input_path": str(input_path),
             "window_size": window_size,
             "overlap": overlap,
+            "parallel": stats.to_dict(),
             "samples": manifest,
         },
     )
-    return {"run_root": str(output_run), "samples": manifest}
+    return {"run_root": str(output_run), "samples": manifest, "parallel": stats.to_dict()}

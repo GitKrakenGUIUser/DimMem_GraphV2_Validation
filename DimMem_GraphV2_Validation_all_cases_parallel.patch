@@ -1,0 +1,2579 @@
+diff --git a/DESIGN.md b/DESIGN.md
+index 5cb7e67..333d672 100644
+--- a/DESIGN.md
++++ b/DESIGN.md
+@@ -75,3 +75,27 @@ Router 不允许生成任意 Cypher，而只能调用有限的类型化工具。
+ - 时间锚点重新检索频率。
+ 
+ 这比自由文本图导航更容易做严格实验。
++
++## 5. 并行执行模型
++
++当前实现采用“有向无环依赖 + case-level 并发”的执行模型：
++
++```text
++prepare
++  ├─ extract_v1 ──────────────┐
++  ├─ extract_v2 → build_graph ├→ retrieval → QA → Judge → report
++  └─ parse_query ─────────────┘
++```
++
++- 同一阶段中的 LongMemEval case 彼此隔离，默认全部并行；
++- V1 extraction、V2 extraction、query parse 在 prepare 后并行；
++- 同一 case 的 extraction windows 可并行；
++- BM25、Dense、Dimension 三条召回路由可并行；
++- Active Router 同一轮产生的多个只读图工具可并行；
++- QA 与 Judge 分成两个并行 phase，因为 Judge 依赖同 case 的 QA 输出；
++- 四个消融变体可以同时运行；
++- active reconstruction 的不同 reasoning rounds 必须顺序执行，因为后一轮依赖前一轮证据。
++
++并行调度集中在 `parallel.py`，所有阶段保持确定性的 manifest 顺序，失败 case 会写入失败记录而不是无声丢失。`--fail-fast` 可改成首错终止。
++
++SentenceTransformer 模型在 retrieval run 中只加载一次。各 case 共享模型，`encode()` 使用锁保护，以避免在单 GPU 上并发重入或为每个 case 重复加载模型导致显存溢出。外层 case、图扩展和 LLM Router 仍保持并发。
+diff --git a/PARALLEL_CHANGES.md b/PARALLEL_CHANGES.md
+new file mode 100644
+index 0000000..757936a
+--- /dev/null
++++ b/PARALLEL_CHANGES.md
+@@ -0,0 +1,65 @@
++# 全 Case 并行改造说明
++
++## 原版本确认
++
++原版本在以下 run-level 函数中逐 case 顺序执行：
++
++```text
++prepare_dataset
++extract_run_v1
++extract_run
++build_run_graphs
++parse_run
++run_retrieval_run
++run_qa_judge_run
++build_report
++```
++
++因此原来的建图并不是并行的，后续 retrieval、QA/Judge 等也不是 case-level 并行。
++
++## 当前版本
++
++新增统一调度器：
++
++```text
++longmemeval/graph_memory_v2/parallel.py
++```
++
++并行范围：
++
++1. 所有 case 的数据准备；
++2. 所有 case 的 V1/V2 memory extraction；
++3. 所有 case 的从零建图；
++4. 所有 case 的 query parse；
++5. 所有 case 的四类 retrieval；
++6. 所有 case 的 QA；
++7. 所有 case 的 Judge；
++8. 所有 case 的 report 与 paired comparison；
++9. V1 extraction、V2 extraction、query parse 三个 pipeline 分支；
++10. 每个 case 内的 extraction windows；
++11. 每个 case 内的 BM25/Dense/Dimension 三路召回；
++12. Active Router 同一轮输出的多个图工具；
++13. 四个 ablation variants。
++
++## 参数
++
++```text
++--workers 0           所有 case 并行
++--pipeline-workers 0  三个独立 pipeline 分支并行
++--schema-workers 0    V1/V2 extraction 并行
++--window-workers 0    每个 case 的全部 extraction windows 并行
++--route-workers 0     BM25/Dense/Dimension 并行
++--tool-workers 0      同一 active round 的图工具并行
++--variant-workers 0   四个消融版本并行
++```
++
++`0` 表示全部展开，`-1` 表示保守自动值，正整数表示并发上限。
++
++## 无法并行的依赖
++
++- 建图必须等待 V2 memory extraction；
++- retrieval 必须等待 query parse 和所需 memory/graph；
++- Judge 必须等待同 case 的 QA；
++- Active Reconstruction 的第 t+1 轮必须等待第 t 轮产生的新证据。
++
++这些地方保留顺序执行，否则会改变算法语义或读取尚未产生的文件。
+diff --git a/README.md b/README.md
+index 9c23f55..915c81f 100644
+--- a/README.md
++++ b/README.md
+@@ -16,6 +16,38 @@ LongMemEval 原始数据
+ 
+ 代码以新增目录 `longmemeval/graph_memory_v2/` 的方式接入原始 DimMem 仓库，不覆盖其现有模块，便于保留原始实现并做公平对照。
+ 
++## 并行版确认
++
++仓库最初版本的 `prepare / extract / build-graph / parse-query / retrieve / qa-judge / report` 都是逐 case 的普通 `for` 循环；尤其建图阶段会等待前一个 case 完成后才处理下一个 case。当前版本已经改成分层并行：
++
++```text
++Case level（默认全部 case 并行）
++├── prepare
++├── V1 extraction
++├── V2 extraction
++├── graph build
++├── query parse
++├── retrieval
++├── QA
++├── Judge
++├── report
++└── paired comparison
++
++Within-case optional parallelism
++├── extraction windows
++├── BM25 / Dense / Dimension routes
++└── active graph tools in the same reasoning round
++
++Cross-variant parallelism
++└── dimmem_v1 / dimension_v2 / graph_static / graph_active
++```
++
++默认参数 `--workers 0` 的含义是：**为当前选中的每一个 LongMemEval case 提交一个并发任务**。`-1` 使用保守自动值，正整数用于限制并发。建图、QA、Judge 等存在明确数据依赖的阶段仍保持阶段顺序，但每一阶段内部的所有 case 同时运行。
++
++`all` 命令还会在 prepare 完成后，同时启动三个互不依赖的分支：V1 extraction、V2 extraction 和 query parse。V2 extraction 完成后才允许建图；retrieval 必须等待 graph 和 query parse，Judge 必须等待同 case 的 QA。这些依赖无法安全并行化。
++
++> 全量 LongMemEval 使用 `--workers 0 --pipeline-workers 0 --window-workers 0 --variant-workers 0` 会产生非常高的并发请求数。代码支持这种“全部展开”模式，但正式 API 通常应按网关限流将 `--workers` 设为 16、32 或 64。任务仍全部进入并行队列，只是同时执行数受控。
++
+ ---
+ 
+ ## 1. 这版到底优化了什么
+@@ -229,7 +261,12 @@ python -m longmemeval.graph_memory_v2 all \
+   --max-rounds 3 \
+   --router-mode llm \
+   --embedder sentence-transformers \
+-  --embedding-model sentence-transformers/all-MiniLM-L6-v2
++  --embedding-model sentence-transformers/all-MiniLM-L6-v2 \
++  --workers 0 \
++  --pipeline-workers 0 \
++  --window-workers 1 \
++  --route-workers 0 \
++  --tool-workers 0
+ ```
+ 
+ `--input` 支持：
+@@ -266,7 +303,8 @@ python -m longmemeval.graph_memory_v2 prepare \
+   --output-root ./results/graph_memory_v2 \
+   --run-name exp01 \
+   --window-size 15 \
+-  --overlap 3
++  --overlap 3 \
++  --workers 0
+ ```
+ 
+ 输出：
+@@ -282,7 +320,10 @@ results/graph_memory_v2/exp01/<question_type>/<sample_id>/windows/
+ ```bash
+ python -m longmemeval.graph_memory_v2 extract \
+   --run-root ./results/graph_memory_v2/exp01 \
+-  --schema both
++  --schema both \
++  --workers 0 \
++  --schema-workers 0 \
++  --window-workers 1
+ ```
+ 
+ 输出：
+@@ -296,14 +337,16 @@ memory_v2/all_memories.json
+ 
+ ```bash
+ python -m longmemeval.graph_memory_v2 build-graph \
+-  --run-root ./results/graph_memory_v2/exp01
++  --run-root ./results/graph_memory_v2/exp01 \
++  --workers 0
+ ```
+ 
+ ### Stage 4：解析查询为可修正的多假设
+ 
+ ```bash
+ python -m longmemeval.graph_memory_v2 parse-query \
+-  --run-root ./results/graph_memory_v2/exp01
++  --run-root ./results/graph_memory_v2/exp01 \
++  --workers 0
+ ```
+ 
+ Query Parse 不再输出一个不可变的硬判决，而是最多三个 hypothesis，包含：
+@@ -330,7 +373,9 @@ python -m longmemeval.graph_memory_v2 retrieve \
+   --mode dimmem_v1 \
+   --output-name dimmem_v1 \
+   --route-k 20 --final-k 15 \
+-  --embedder sentence-transformers
++  --embedder sentence-transformers \
++  --workers 0 \
++  --route-workers 0
+ ```
+ 
+ ```bash
+@@ -339,7 +384,9 @@ python -m longmemeval.graph_memory_v2 retrieve \
+   --mode dimension_v2 \
+   --output-name dimension_v2 \
+   --route-k 20 --final-k 15 \
+-  --embedder sentence-transformers
++  --embedder sentence-transformers \
++  --workers 0 \
++  --route-workers 0
+ ```
+ 
+ ```bash
+@@ -348,7 +395,9 @@ python -m longmemeval.graph_memory_v2 retrieve \
+   --mode graph_static \
+   --output-name graph_static \
+   --route-k 20 --final-k 15 \
+-  --embedder sentence-transformers
++  --embedder sentence-transformers \
++  --workers 0 \
++  --route-workers 0
+ ```
+ 
+ ```bash
+@@ -361,7 +410,10 @@ python -m longmemeval.graph_memory_v2 retrieve \
+   --final-k 15 \
+   --max-rounds 3 \
+   --router-mode llm \
+-  --embedder sentence-transformers
++  --embedder sentence-transformers \
++  --workers 0 \
++  --route-workers 0 \
++  --tool-workers 0
+ ```
+ 
+ Active Router 可调用：
+@@ -387,7 +439,8 @@ finish
+ ```bash
+ python -m longmemeval.graph_memory_v2 qa-judge \
+   --run-root ./results/graph_memory_v2/exp01 \
+-  --retrieval-name graph_active
++  --retrieval-name graph_active \
++  --workers 0
+ ```
+ 
+ ### Stage 7：生成报告
+@@ -395,7 +448,8 @@ python -m longmemeval.graph_memory_v2 qa-judge \
+ ```bash
+ python -m longmemeval.graph_memory_v2 report \
+   --run-root ./results/graph_memory_v2/exp01 \
+-  --retrieval-name graph_active
++  --retrieval-name graph_active \
++  --workers 0
+ ```
+ 
+ 输出：
+@@ -429,7 +483,11 @@ python -m longmemeval.graph_memory_v2 ablation \
+   --final-k 15 \
+   --max-rounds 3 \
+   --router-mode llm \
+-  --embedder sentence-transformers
++  --embedder sentence-transformers \
++  --workers 0 \
++  --variant-workers 0 \
++  --route-workers 0 \
++  --tool-workers 0
+ ```
+ 
+ 自动生成四组结果和以下成对比较：
+@@ -559,8 +617,11 @@ Assistant context omitted
+ 本包已完成：
+ 
+ - Python 全模块编译；
+-- 4 项单元测试；
+-- 2 个 synthetic LongMemEval case 的端到端 smoke run；
++- 6 项单元测试；
++- 2 个 synthetic LongMemEval case 的端到端并行 smoke run；
++- prepare、V1/V2 extraction、query parse、graph build、retrieval、QA、Judge、report 的 case-level 并发日志验证；
++- V1/V2/query 三分支并发验证；
++- 检索三路和同轮图工具并发实现验证；
+ - V1/V2 独立抽取目录验证；
+ - graph nodes/edges/indexes/stats 输出验证；
+ - active trace、QA、Judge、report 输出验证。
+diff --git a/VALIDATION_REPORT.md b/VALIDATION_REPORT.md
+index edcb5c0..32e82c3 100644
+--- a/VALIDATION_REPORT.md
++++ b/VALIDATION_REPORT.md
+@@ -13,8 +13,20 @@ bash scripts/run_smoke_test.sh
+ ## 结果
+ 
+ - 全部 Python 模块编译通过；
+-- 4/4 单元测试通过；
+-- synthetic LongMemEval 端到端流程成功生成：
++- 6/6 单元测试通过；
++- 两个 synthetic LongMemEval case 的端到端并行流程成功；
++- smoke 日志确认以下 stage 使用 2 个 case workers：
++  - prepare；
++  - V1 extraction；
++  - V2 extraction；
++  - query parse；
++  - graph build；
++  - retrieval；
++  - QA；
++  - Judge；
++  - report；
++- prepare 后的 V1 extraction、V2 extraction、query parse 使用 3 个 branch workers 同时执行；
++- 输出成功生成：
+   - V1 memory；
+   - V2 memory；
+   - graph nodes/edges/indexes/stats；
+@@ -29,14 +41,30 @@ bash scripts/run_smoke_test.sh
+ 1. 相同 `state_key` 的新事实建立 `SUPERSEDES`；
+ 2. V1 projection 不泄漏 V2 state fields；
+ 3. heuristic active router 可沿 state chain 找回更新记录；
+-4. overlap window 正确标记上下文 turn。
++4. overlap window 正确标记上下文 turn；
++5. parallel runner 使用多个线程并保持 manifest 原始顺序；
++6. `workers=0/-1/N` 的并发解析行为正确。
++
++## 并行语义
++
++```text
++--workers 0          所有选中 case 同时提交
++--workers -1         保守自动线程数
++--workers N          最大同时执行 N 个 case
++--pipeline-workers 0 V1/V2/query 三分支同时执行
++--schema-workers 0   V1/V2 schema 同时抽取
++--window-workers 0   同一 case 的全部窗口同时抽取
++--route-workers 0    BM25/Dense/Dimension 同时召回
++--tool-workers 0     同一主动推理轮的全部图工具同时执行
++--variant-workers 0  四个消融版本同时执行
++```
+ 
+ ## 未执行
+ 
+ - 完整 LongMemEval-S；
+-- 外部 LLM API；
+-- SentenceTransformer benchmark embedding；
++- 外部 LLM API 的高并发压力测试；
++- SentenceTransformer benchmark embedding 的真实 GPU 压力测试；
+ - 原始 DimMem 仓库的完整依赖环境；
+ - 与论文报告数值的复现比较。
+ 
+-因此 smoke Accuracy 不具有研究意义，不应写入论文或实验表。
++因此 smoke Accuracy 不具有研究意义，不应写入论文或实验表。正式运行前需要根据 API 网关并发限制选择 `--workers`。默认 `0` 严格满足“全部 case 并行”，但可能触发 429、连接数上限或瞬时显存/内存压力。
+diff --git a/configs/example.env b/configs/example.env
+index af4343d..46e36f3 100644
+--- a/configs/example.env
++++ b/configs/example.env
+@@ -2,3 +2,17 @@
+ OPENAI_BASE_URL=https://api.openai.com/v1
+ OPENAI_API_KEY=replace_me
+ MODEL_NAME=replace_with_your_model
++
++# 0 = submit all selected LongMemEval cases concurrently.
++CASE_WORKERS=0
++# 0 = run V1 extraction, V2 extraction, and query parse concurrently.
++PIPELINE_WORKERS=0
++# Inner extraction concurrency per case. 0 = every window concurrently.
++# Total extraction requests can approach 2 × CASE_WORKERS × WINDOW_WORKERS.
++WINDOW_WORKERS=1
++# 0 = BM25, dense, and dimension retrieval routes concurrently per case.
++ROUTE_WORKERS=0
++# 0 = all active graph tools emitted in one round concurrently.
++TOOL_WORKERS=0
++# 0 = all four ablation variants concurrently.
++VARIANT_WORKERS=0
+diff --git a/longmemeval/graph_memory_v2/active_agent.py b/longmemeval/graph_memory_v2/active_agent.py
+index 3eb7427..ee923ad 100644
+--- a/longmemeval/graph_memory_v2/active_agent.py
++++ b/longmemeval/graph_memory_v2/active_agent.py
+@@ -8,6 +8,7 @@ from typing import Any, DefaultDict, Dict, Iterable, List, Optional, Sequence, S
+ from .graph_store import GraphStore, canonical
+ from .io_utils import normalize_text
+ from .llm_client import OpenAICompatibleClient
++from .parallel import run_parallel
+ from .prompts import ACTIVE_ROUTER_SYSTEM, ACTIVE_ROUTER_TEMPLATE, render
+ from .retrieval import StaticRetriever
+ from .schemas import MemoryRecord, ParsedQueryV2, RetrievalRecord
+@@ -221,6 +222,7 @@ class ActiveReconstructionAgent:
+         max_rounds: int = 3,
+         final_k: int = 15,
+         router_mode: str = "llm",
++        tool_workers: int = 0,
+     ) -> None:
+         self.store = store
+         self.retriever = retriever
+@@ -228,6 +230,7 @@ class ActiveReconstructionAgent:
+         self.max_rounds = max(0, int(max_rounds))
+         self.final_k = max(1, int(final_k))
+         self.router_mode = router_mode
++        self.tool_workers = int(tool_workers)
+         self.tools = GraphTools(store, retriever)
+ 
+     def _heuristic_actions(
+@@ -319,6 +322,7 @@ class ActiveReconstructionAgent:
+             if mode == "finish" or not isinstance(actions, list) or not actions:
+                 trace["rounds"].append(round_trace)
+                 break
++            runnable_actions: List[Dict[str, Any]] = []
+             for action in actions[:3]:
+                 if not isinstance(action, dict):
+                     continue
+@@ -328,25 +332,52 @@ class ActiveReconstructionAgent:
+                 if key in visited or tool == "finish":
+                     continue
+                 visited.add(key)
++                runnable_actions.append({"tool": tool, "args": args})
++
++            def tool_worker(action: Dict[str, Any]) -> Dict[str, Any]:
++                tool = str(action["tool"])
++                args = dict(action["args"])
+                 try:
+                     rows = self.tools.execute(tool, args)
+-                    for row in rows:
+-                        memory_id = row.memory.memory_id
+-                        if memory_id in evidence:
+-                            existing = evidence[memory_id]
+-                            existing.score += row.score
+-                            existing.sources.extend(row.sources)
+-                            existing.paths.extend(row.paths)
+-                        else:
+-                            evidence[memory_id] = row
++                    return {"status": "ok", "tool": tool, "args": args, "rows": rows}
++                except Exception as exc:
++                    return {"status": "failed", "tool": tool, "args": args, "error": repr(exc), "rows": []}
++
++            tool_results, tool_stats = run_parallel(
++                runnable_actions,
++                tool_worker,
++                workers=self.tool_workers,
++                stage=f"active-tools-r{round_index + 1}",
++                progress=False,
++                fail_fast=False,
++            )
++            round_trace["tool_parallel"] = tool_stats.to_dict()
++            for result in tool_results:
++                tool = str(result.get("tool") or "")
++                args = result.get("args") if isinstance(result.get("args"), dict) else {}
++                rows = result.get("rows") if isinstance(result.get("rows"), list) else []
++                if result.get("status") == "failed":
+                     round_trace["tool_results"].append({
+                         "tool": tool,
+                         "args": args,
+-                        "count": len(rows),
+-                        "memory_ids": [row.memory.memory_id for row in rows],
++                        "error": result.get("error") or "tool execution failed",
+                     })
+-                except Exception as exc:
+-                    round_trace["tool_results"].append({"tool": tool, "args": args, "error": repr(exc)})
++                    continue
++                for row in rows:
++                    memory_id = row.memory.memory_id
++                    if memory_id in evidence:
++                        existing = evidence[memory_id]
++                        existing.score += row.score
++                        existing.sources.extend(row.sources)
++                        existing.paths.extend(row.paths)
++                    else:
++                        evidence[memory_id] = row
++                round_trace["tool_results"].append({
++                    "tool": tool,
++                    "args": args,
++                    "count": len(rows),
++                    "memory_ids": [row.memory.memory_id for row in rows],
++                })
+             trace["rounds"].append(round_trace)
+ 
+         final = sorted(evidence.values(), key=lambda row: (-row.score, row.memory.memory_id))[: self.final_k]
+diff --git a/longmemeval/graph_memory_v2/dataset.py b/longmemeval/graph_memory_v2/dataset.py
+index 7d5f75d..c3d54da 100644
+--- a/longmemeval/graph_memory_v2/dataset.py
++++ b/longmemeval/graph_memory_v2/dataset.py
+@@ -10,9 +10,11 @@ from .io_utils import (
+     iter_json_inputs,
+     normalize_question_type,
+     question_type_from_file,
++    read_json,
+     sample_id,
+     write_json,
+ )
++from .parallel import run_parallel, should_checkpoint
+ 
+ 
+ DATE_FORMATS = (
+@@ -181,6 +183,63 @@ def build_windows(
+     return windows
+ 
+ 
++def _prepare_case(task: Dict[str, Any]) -> Dict[str, Any]:
++    row = task["_row"]
++    sample_dir = Path(task["sample_dir"])
++    force = bool(task["_force"])
++    window_size = int(task["_window_size"])
++    overlap = int(task["_overlap"])
++    truncate_threshold = int(task["_truncate_threshold"])
++
++    if sample_dir.exists() and not force:
++        summary_path = sample_dir / "summary.json"
++        summary = read_json(summary_path) if summary_path.exists() else {}
++        return {
++            "status": "existing",
++            "turn_count": int(summary.get("turn_count") or 0),
++            "window_count": int(summary.get("window_count") or 0),
++        }
++
++    ensure_dir(sample_dir / "windows")
++    turns = flatten_user_turns(row)
++    windows = build_windows(
++        turns,
++        window_size=window_size,
++        overlap=overlap,
++        truncate_threshold=truncate_threshold,
++    )
++    write_json(sample_dir / "input_item.json", row)
++    write_json(sample_dir / "source_turns.json", [turn.to_dict() for turn in turns])
++    for window in windows:
++        window_index = window["window_index"]
++        window_path = sample_dir / "windows" / f"window_{window_index:04d}.json"
++        write_json(window_path, window)
++        (sample_dir / "windows" / f"window_{window_index:04d}.txt").write_text(
++            window["conversation"], encoding="utf-8"
++        )
++        write_json(
++            sample_dir / "windows" / f"window_{window_index:04d}_assistant_replies.json",
++            window["assistant_replies"],
++        )
++    write_json(
++        sample_dir / "summary.json",
++        {
++            "sample_id": task["sample_id"],
++            "question_id": task["question_id"],
++            "question_type": task["question_type"],
++            "turn_count": len(turns),
++            "window_count": len(windows),
++            "window_size": window_size,
++            "overlap": overlap,
++        },
++    )
++    return {
++        "status": "prepared",
++        "turn_count": len(turns),
++        "window_count": len(windows),
++    }
++
++
+ def prepare_dataset(
+     *,
+     input_path: str,
+@@ -192,15 +251,19 @@ def prepare_dataset(
+     max_items: int = 0,
+     question_types: Optional[Iterable[str]] = None,
+     force: bool = False,
++    workers: int = 0,
++    fail_fast: bool = False,
+ ) -> Dict[str, Any]:
+     output_run = ensure_dir(Path(output_root) / run_name)
+     allowed = {normalize_question_type(value) for value in question_types or []}
+-    manifest: List[Dict[str, Any]] = []
++    tasks: List[Dict[str, Any]] = []
+     global_index = 0
+ 
+     for source_file, rows in iter_json_inputs(input_path):
+         file_type = normalize_question_type(question_type_from_file(source_file))
+         for row in rows:
++            if max_items and global_index >= max_items:
++                break
+             qid = str(row.get("question_id") or f"row_{global_index}")
+             qid_prefix = qid.split("/", 1)[0] if "/" in qid else ""
+             qtype = normalize_question_type(row.get("question_type") or file_type or qid_prefix)
+@@ -208,75 +271,66 @@ def prepare_dataset(
+                 qtype = normalize_question_type(qid_prefix)
+             if allowed and qtype not in allowed:
+                 continue
+-            if max_items and global_index >= max_items:
+-                break
+             sid = sample_id(global_index, qid)
+             sample_dir = output_run / qtype / sid
+-            if sample_dir.exists() and not force:
+-                manifest.append({
+-                    "sample_id": sid,
+-                    "question_id": qid,
+-                    "question_type": qtype,
+-                    "sample_dir": str(sample_dir),
+-                    "status": "existing",
+-                })
+-                global_index += 1
+-                continue
+-
+-            ensure_dir(sample_dir / "windows")
+-            turns = flatten_user_turns(row)
+-            windows = build_windows(
+-                turns,
+-                window_size=window_size,
+-                overlap=overlap,
+-                truncate_threshold=truncate_threshold,
+-            )
+-            write_json(sample_dir / "input_item.json", row)
+-            write_json(sample_dir / "source_turns.json", [turn.to_dict() for turn in turns])
+-            for window in windows:
+-                window_index = window["window_index"]
+-                window_path = sample_dir / "windows" / f"window_{window_index:04d}.json"
+-                write_json(window_path, window)
+-                (sample_dir / "windows" / f"window_{window_index:04d}.txt").write_text(
+-                    window["conversation"], encoding="utf-8"
+-                )
+-                write_json(
+-                    sample_dir / "windows" / f"window_{window_index:04d}_assistant_replies.json",
+-                    window["assistant_replies"],
+-                )
+-            write_json(
+-                sample_dir / "summary.json",
+-                {
+-                    "sample_id": sid,
+-                    "question_id": qid,
+-                    "question_type": qtype,
+-                    "turn_count": len(turns),
+-                    "window_count": len(windows),
+-                    "window_size": window_size,
+-                    "overlap": overlap,
+-                },
+-            )
+-            manifest.append({
++            tasks.append({
+                 "sample_id": sid,
+                 "question_id": qid,
+                 "question_type": qtype,
+                 "sample_dir": str(sample_dir),
+-                "turn_count": len(turns),
+-                "window_count": len(windows),
+-                "status": "prepared",
++                "_row": row,
++                "_force": force,
++                "_window_size": window_size,
++                "_overlap": overlap,
++                "_truncate_threshold": truncate_threshold,
+             })
+             global_index += 1
+         if max_items and global_index >= max_items:
+             break
+ 
++    manifest_path = output_run / "run_manifest.json"
++
++    def checkpoint(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
++        # Atomic checkpoint; useful when hundreds of cases are in flight.
++        current = checkpoint_results.copy()
++        current[index] = result
++        write_json(
++            manifest_path,
++            {
++                "run_name": run_name,
++                "input_path": str(input_path),
++                "window_size": window_size,
++                "overlap": overlap,
++                "parallel": {"requested_workers": workers, "completed": completed, "total": total},
++                "samples": [row for row in current if row is not None],
++            },
++        )
++
++    checkpoint_results: List[Optional[Dict[str, Any]]] = [None] * len(tasks)
++
++    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
++        checkpoint_results[index] = result
++        if should_checkpoint(completed, total):
++            checkpoint(index, result, completed, total)
++
++    manifest, stats = run_parallel(
++        tasks,
++        _prepare_case,
++        workers=workers,
++        stage="prepare",
++        merge_input=True,
++        fail_fast=fail_fast,
++        on_result=on_result,
++    )
+     write_json(
+-        output_run / "run_manifest.json",
++        manifest_path,
+         {
+             "run_name": run_name,
+             "input_path": str(input_path),
+             "window_size": window_size,
+             "overlap": overlap,
++            "parallel": stats.to_dict(),
+             "samples": manifest,
+         },
+     )
+-    return {"run_root": str(output_run), "samples": manifest}
++    return {"run_root": str(output_run), "samples": manifest, "parallel": stats.to_dict()}
+diff --git a/longmemeval/graph_memory_v2/embedding.py b/longmemeval/graph_memory_v2/embedding.py
+index 1c23b21..adb2517 100644
+--- a/longmemeval/graph_memory_v2/embedding.py
++++ b/longmemeval/graph_memory_v2/embedding.py
+@@ -2,6 +2,7 @@ from __future__ import annotations
+ 
+ import hashlib
+ import math
++import threading
+ from typing import Iterable, List, Protocol, Sequence
+ 
+ from .io_utils import tokenize
+@@ -47,13 +48,18 @@ class SentenceTransformerEmbedder:
+                 "or use --embedder hash"
+             ) from exc
+         self.model = SentenceTransformer(model_name, device=device)
++        self._encode_lock = threading.RLock()
+ 
+     def encode(self, texts: Sequence[str]) -> List[List[float]]:
+-        vectors = self.model.encode(
+-            list(texts),
+-            normalize_embeddings=True,
+-            show_progress_bar=False,
+-        )
++        # One shared model is reused across case workers. Most PyTorch backends are
++        # not reliably re-entrant for concurrent encode() calls on one GPU model,
++        # so the small critical section prevents duplicate model loads and OOMs.
++        with self._encode_lock:
++            vectors = self.model.encode(
++                list(texts),
++                normalize_embeddings=True,
++                show_progress_bar=False,
++            )
+         return [list(map(float, row)) for row in vectors]
+ 
+ 
+diff --git a/longmemeval/graph_memory_v2/evaluation.py b/longmemeval/graph_memory_v2/evaluation.py
+index c568401..75baf6a 100644
+--- a/longmemeval/graph_memory_v2/evaluation.py
++++ b/longmemeval/graph_memory_v2/evaluation.py
+@@ -15,6 +15,7 @@ from .embedding import HashEmbedder, SentenceTransformerEmbedder
+ from .graph_store import GraphBuilder, GraphStore
+ from .io_utils import normalize_question_type, normalize_text, read_json, write_json
+ from .llm_client import OpenAICompatibleClient
++from .parallel import run_parallel, should_checkpoint
+ from .prompts import JUDGE_SYSTEM, JUDGE_TEMPLATE, QA_SYSTEM, QA_TEMPLATE, render
+ from .retrieval import StaticRetriever
+ from .schemas import ParsedQueryV2, RetrievalRecord, memories_from_payload
+@@ -60,6 +61,9 @@ def run_retrieval_sample(
+     embedding_model: str = "",
+     device: str = "cpu",
+     force: bool = False,
++    embedder: Optional[Any] = None,
++    route_workers: int = 0,
++    tool_workers: int = 0,
+ ) -> Dict[str, Any]:
+     if mode not in VALID_MODES:
+         raise ValueError(f"unknown mode {mode}; expected one of {sorted(VALID_MODES)}")
+@@ -78,8 +82,13 @@ def run_retrieval_sample(
+         store = GraphBuilder(add_weak_same_event_edges=False).build(memories_from_payload(read_json(v1_path)))
+     else:
+         store = GraphStore.load(sample_dir / "graph_v2")
+-    embedder = _make_embedder(embedder_kind, embedding_model, device)
+-    retriever = StaticRetriever(store, embedder=embedder, original_projection=original)
++    active_embedder = embedder or _make_embedder(embedder_kind, embedding_model, device)
++    retriever = StaticRetriever(
++        store,
++        embedder=active_embedder,
++        original_projection=original,
++        route_workers=route_workers,
++    )
+ 
+     started = time.time()
+     if mode == "graph_active":
+@@ -90,6 +99,7 @@ def run_retrieval_sample(
+             max_rounds=max_rounds,
+             final_k=final_k,
+             router_mode=router_mode,
++            tool_workers=tool_workers,
+         )
+         records, trace = agent.retrieve(parsed, route_k=route_k, initial_k=initial_k)
+     else:
+@@ -121,6 +131,8 @@ def run_retrieval_sample(
+             "router_mode": router_mode,
+             "embedder_kind": embedder_kind,
+             "embedding_model": embedding_model,
++            "route_workers": route_workers,
++            "tool_workers": tool_workers,
+             "elapsed_seconds": time.time() - started,
+         },
+     )
+@@ -161,36 +173,66 @@ def run_retrieval_run(
+     device: str = "cpu",
+     force: bool = False,
+     question_types: Optional[Iterable[str]] = None,
++    workers: int = 0,
++    fail_fast: bool = False,
++    shared_embedder: Optional[Any] = None,
++    route_workers: int = 0,
++    tool_workers: int = 0,
+ ) -> Dict[str, Any]:
+     root = Path(run_root)
+     manifest = read_json(root / "run_manifest.json")
+     allowed = {normalize_question_type(value) for value in question_types or []}
+-    results: List[Dict[str, Any]] = []
+-    for sample in manifest.get("samples") or []:
+-        if allowed and sample.get("question_type") not in allowed:
+-            continue
+-        try:
+-            result = run_retrieval_sample(
+-                Path(sample["sample_dir"]),
+-                mode=mode,
+-                output_name=output_name,
+-                route_k=route_k,
+-                initial_k=initial_k,
+-                final_k=final_k,
+-                max_rounds=max_rounds,
+-                active_client=active_client,
+-                router_mode=router_mode,
+-                embedder_kind=embedder_kind,
+-                embedding_model=embedding_model,
+-                device=device,
+-                force=force,
+-            )
+-            results.append({**sample, **result})
+-        except Exception as exc:
+-            results.append({**sample, "status": "failed", "error": repr(exc)})
+-    write_json(root / f"retrieval_manifest_{output_name}.json", {"mode": mode, "samples": results})
+-    return {"samples": results}
++    samples = [
++        sample for sample in (manifest.get("samples") or [])
++        if not allowed or sample.get("question_type") in allowed
++    ]
++    # Load the embedding model once. Case workers share it; the sentence-transformer
++    # wrapper serializes encode() safely to avoid one GPU model per case.
++    embedder = shared_embedder or _make_embedder(embedder_kind, embedding_model, device)
++    manifest_path = root / f"retrieval_manifest_{output_name}.json"
++    checkpoint_rows: List[Optional[Dict[str, Any]]] = [None] * len(samples)
++
++    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
++        return run_retrieval_sample(
++            Path(sample["sample_dir"]),
++            mode=mode,
++            output_name=output_name,
++            route_k=route_k,
++            initial_k=initial_k,
++            final_k=final_k,
++            max_rounds=max_rounds,
++            active_client=active_client,
++            router_mode=router_mode,
++            embedder_kind=embedder_kind,
++            embedding_model=embedding_model,
++            device=device,
++            force=force,
++            embedder=embedder,
++            route_workers=route_workers,
++            tool_workers=tool_workers,
++        )
+ 
++    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
++        checkpoint_rows[index] = result
++        if not should_checkpoint(completed, total):
++            return
++        write_json(manifest_path, {
++            "mode": mode,
++            "parallel": {"requested_workers": workers, "completed": completed, "total": total},
++            "samples": [row for row in checkpoint_rows if row is not None],
++        })
++
++    results, stats = run_parallel(
++        samples,
++        worker,
++        workers=workers,
++        stage=f"retrieve-{output_name}",
++        merge_input=True,
++        fail_fast=fail_fast,
++        on_result=on_result,
++    )
++    write_json(manifest_path, {"mode": mode, "parallel": stats.to_dict(), "samples": results})
++    return {"samples": results, "parallel": stats.to_dict()}
+ 
+ def _evidence_for_qa(rows: Sequence[Dict[str, Any]], need_assistant: bool) -> List[Dict[str, Any]]:
+     evidence: List[Dict[str, Any]] = []
+@@ -342,35 +384,85 @@ def run_qa_judge_run(
+     exact_judge_mode: bool = False,
+     force: bool = False,
+     question_types: Optional[Iterable[str]] = None,
++    workers: int = 0,
++    fail_fast: bool = False,
+ ) -> Dict[str, Any]:
++    """Run QA for all cases in parallel, then Judge for all cases in parallel.
++
++    Judge depends on the prediction for the same case, so the two phases remain
++    ordered. Within each phase, every selected LongMemEval case is concurrent.
++    """
+     root = Path(run_root)
+     manifest = read_json(root / "run_manifest.json")
+     allowed = {normalize_question_type(value) for value in question_types or []}
+-    results: List[Dict[str, Any]] = []
+-    for sample in manifest.get("samples") or []:
+-        if allowed and sample.get("question_type") not in allowed:
+-            continue
+-        sample_dir = Path(sample["sample_dir"])
+-        try:
+-            qa_result = run_qa_sample(
+-                sample_dir,
+-                retrieval_name=retrieval_name,
+-                client=qa_client,
+-                heuristic=heuristic_qa,
+-                force=force,
+-            )
+-            judge_result = run_judge_sample(
+-                sample_dir,
+-                retrieval_name=retrieval_name,
+-                client=judge_client,
+-                exact=exact_judge_mode,
+-                force=force,
+-            )
+-            results.append({**sample, "qa": qa_result, "judge": judge_result, "status": "ok"})
+-        except Exception as exc:
+-            results.append({**sample, "status": "failed", "error": repr(exc)})
+-    write_json(root / f"qa_judge_manifest_{retrieval_name}.json", {"samples": results})
+-    return {"samples": results}
++    samples = [
++        sample for sample in (manifest.get("samples") or [])
++        if not allowed or sample.get("question_type") in allowed
++    ]
++    manifest_path = root / f"qa_judge_manifest_{retrieval_name}.json"
++
++    def qa_worker(sample: Dict[str, Any]) -> Dict[str, Any]:
++        return run_qa_sample(
++            Path(sample["sample_dir"]),
++            retrieval_name=retrieval_name,
++            client=qa_client,
++            heuristic=heuristic_qa,
++            force=force,
++        )
++
++    qa_results, qa_stats = run_parallel(
++        samples,
++        qa_worker,
++        workers=workers,
++        stage=f"qa-{retrieval_name}",
++        merge_input=True,
++        fail_fast=fail_fast,
++    )
++
++    qa_by_id = {str(row.get("sample_id") or row.get("question_id")): row for row in qa_results}
++    judge_inputs = [
++        sample for sample in samples
++        if qa_by_id.get(str(sample.get("sample_id") or sample.get("question_id")), {}).get("status") != "failed"
++    ]
++
++    def judge_worker(sample: Dict[str, Any]) -> Dict[str, Any]:
++        return run_judge_sample(
++            Path(sample["sample_dir"]),
++            retrieval_name=retrieval_name,
++            client=judge_client,
++            exact=exact_judge_mode,
++            force=force,
++        )
++
++    judge_results, judge_stats = run_parallel(
++        judge_inputs,
++        judge_worker,
++        workers=workers,
++        stage=f"judge-{retrieval_name}",
++        merge_input=True,
++        fail_fast=fail_fast,
++    )
++    judge_by_id = {str(row.get("sample_id") or row.get("question_id")): row for row in judge_results}
++
++    merged: List[Dict[str, Any]] = []
++    for sample in samples:
++        key = str(sample.get("sample_id") or sample.get("question_id"))
++        qa_result = qa_by_id.get(key, {"status": "failed", "error": "QA result missing"})
++        judge_result = judge_by_id.get(key, {"status": "skipped", "error": "Judge skipped because QA failed"})
++        merged.append({
++            **{k: v for k, v in sample.items() if not str(k).startswith("_")},
++            "status": "ok" if qa_result.get("status") != "failed" and judge_result.get("status") != "failed" else "failed",
++            "qa": qa_result,
++            "judge": judge_result,
++        })
++
++    output = {
++        "qa_parallel": qa_stats.to_dict(),
++        "judge_parallel": judge_stats.to_dict(),
++        "samples": merged,
++    }
++    write_json(manifest_path, output)
++    return output
+ 
+ 
+ def _gold_session_ids(item: Dict[str, Any]) -> List[str]:
+@@ -385,44 +477,72 @@ def _gold_session_ids(item: Dict[str, Any]) -> List[str]:
+     return [str(value) for value in values if str(value).strip()] if isinstance(values, list) else []
+ 
+ 
+-def build_report(run_root: str, retrieval_name: str) -> Dict[str, Any]:
++def build_report(
++    run_root: str,
++    retrieval_name: str,
++    *,
++    workers: int = 0,
++    fail_fast: bool = False,
++) -> Dict[str, Any]:
+     root = Path(run_root)
+     manifest = read_json(root / "run_manifest.json")
+-    rows: List[Dict[str, Any]] = []
+-    by_type: DefaultDict[str, List[bool]] = defaultdict(list)
+-    session_recalls: List[float] = []
+-    retrieval_times: List[float] = []
+-    active_rounds: List[int] = []
+-    tool_calls: List[int] = []
+-    token_totals = {"qa_prompt": 0, "qa_completion": 0, "judge_prompt": 0, "judge_completion": 0}
+-    for sample in manifest.get("samples") or []:
++    samples = list(manifest.get("samples") or [])
++
++    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
+         sample_dir = Path(sample["sample_dir"])
+         path = sample_dir / "judge_v2" / retrieval_name / "judge.json"
+         if not path.exists():
+-            continue
++            return {"status": "missing"}
+         row = read_json(path)
+-        rows.append(row)
+-        by_type[normalize_question_type(row.get("question_type"))].append(bool(row.get("correct")))
+-
+         item = read_json(sample_dir / "input_item.json")
+         gold_sessions = set(_gold_session_ids(item))
++        session_recall = None
+         retrieval_path = sample_dir / "retrieval_v2" / retrieval_name / "top_records.json"
+         if gold_sessions and retrieval_path.exists():
+             retrieved_sessions = {
+                 str(record.get("provenance", {}).get("session_id") or "")
+                 for record in read_json(retrieval_path)
+             }
+-            session_recalls.append(len(gold_sessions & retrieved_sessions) / len(gold_sessions))
++            session_recall = len(gold_sessions & retrieved_sessions) / len(gold_sessions)
++        retrieval_seconds = None
+         meta_path = sample_dir / "retrieval_v2" / retrieval_name / "retrieval_meta.json"
+         if meta_path.exists():
+-            retrieval_times.append(float(read_json(meta_path).get("elapsed_seconds") or 0.0))
++            retrieval_seconds = float(read_json(meta_path).get("elapsed_seconds") or 0.0)
++        rounds_count = None
++        tool_count = None
+         trace_path = sample_dir / "retrieval_v2" / retrieval_name / "retrieval_trace.json"
+         if trace_path.exists():
+             trace = read_json(trace_path)
+             rounds = trace.get("rounds") or []
+-            active_rounds.append(len(rounds))
+-            tool_calls.append(sum(len(r.get("tool_results") or []) for r in rounds if isinstance(r, dict)))
++            rounds_count = len(rounds)
++            tool_count = sum(len(r.get("tool_results") or []) for r in rounds if isinstance(r, dict))
++        return {
++            "status": "ok",
++            "row": row,
++            "session_recall": session_recall,
++            "retrieval_seconds": retrieval_seconds,
++            "active_rounds": rounds_count,
++            "tool_calls": tool_count,
++        }
+ 
++    gathered, stats = run_parallel(
++        samples,
++        worker,
++        workers=workers,
++        stage=f"report-{retrieval_name}",
++        merge_input=False,
++        fail_fast=fail_fast,
++    )
++    gathered = [item for item in gathered if isinstance(item, dict) and item.get("status") == "ok"]
++    rows = [item["row"] for item in gathered]
++    by_type: DefaultDict[str, List[bool]] = defaultdict(list)
++    session_recalls = [float(item["session_recall"]) for item in gathered if item.get("session_recall") is not None]
++    retrieval_times = [float(item["retrieval_seconds"]) for item in gathered if item.get("retrieval_seconds") is not None]
++    active_rounds = [int(item["active_rounds"]) for item in gathered if item.get("active_rounds") is not None]
++    tool_calls = [int(item["tool_calls"]) for item in gathered if item.get("tool_calls") is not None]
++    token_totals = {"qa_prompt": 0, "qa_completion": 0, "judge_prompt": 0, "judge_completion": 0}
++    for row in rows:
++        by_type[normalize_question_type(row.get("question_type"))].append(bool(row.get("correct")))
+         qa_meta = row.get("meta") or {}
+         judge_meta = row.get("judge_meta") or {}
+         token_totals["qa_prompt"] += int(qa_meta.get("prompt_tokens") or 0)
+@@ -444,6 +564,7 @@ def build_report(run_root: str, retrieval_name: str) -> Dict[str, Any]:
+         "n": len(all_values),
+         "correct": sum(all_values),
+         "accuracy": sum(all_values) / len(all_values) if all_values else 0.0,
++        "parallel": stats.to_dict(),
+         "by_question_type": summary,
+         "retrieval_metrics": {
+             "gold_session_recall_mean": (sum(session_recalls) / len(session_recalls)) if session_recalls else None,
+@@ -464,6 +585,7 @@ def build_report(run_root: str, retrieval_name: str) -> Dict[str, Any]:
+         f"- N: {report['n']}",
+         f"- Correct: {report['correct']}",
+         f"- Accuracy: {report['accuracy']:.4f}",
++        f"- Case workers: {stats.workers}",
+         f"- Gold-session recall: {report['retrieval_metrics']['gold_session_recall_mean']}",
+         f"- Mean retrieval seconds: {report['retrieval_metrics']['mean_retrieval_seconds']}",
+         "",
+@@ -475,7 +597,6 @@ def build_report(run_root: str, retrieval_name: str) -> Dict[str, Any]:
+     (report_dir / f"report_{retrieval_name}.md").write_text("\n".join(markdown) + "\n", encoding="utf-8")
+     return report
+ 
+-
+ def _paired_binomial_p_value(fixed_count: int, broken_count: int) -> float:
+     n = fixed_count + broken_count
+     if n == 0:
+@@ -498,30 +619,67 @@ def _bootstrap_delta_ci(pairs: Sequence[Tuple[int, int]], samples: int = 5000) -
+     return deltas[int(0.025 * (samples - 1))], deltas[int(0.975 * (samples - 1))]
+ 
+ 
+-def compare_reports(run_root: str, baseline: str, candidate: str) -> Dict[str, Any]:
++def compare_reports(
++    run_root: str,
++    baseline: str,
++    candidate: str,
++    *,
++    workers: int = 0,
++    fail_fast: bool = False,
++) -> Dict[str, Any]:
+     root = Path(run_root)
+-    base = build_report(run_root, baseline)
+-    cand = build_report(run_root, candidate)
++
++    def report_worker(name: str) -> Dict[str, Any]:
++        report_path = root / "reports" / f"report_{name}.json"
++        if report_path.exists():
++            return {"name": name, "report": read_json(report_path), "status": "existing"}
++        return {
++            "name": name,
++            "report": build_report(run_root, name, workers=workers, fail_fast=fail_fast),
++            "status": "ok",
++        }
++
++    report_rows, report_stats = run_parallel(
++        [baseline, candidate],
++        report_worker,
++        workers=0,
++        stage="compare-report-load",
++        progress=False,
++        fail_fast=True,
++    )
++    reports = {row["name"]: row["report"] for row in report_rows}
++    base = reports[baseline]
++    cand = reports[candidate]
+     base_by_id = {str(row.get("question_id")): row for row in base["rows"]}
+     cand_by_id = {str(row.get("question_id")): row for row in cand["rows"]}
+     paired_ids = sorted(set(base_by_id) & set(cand_by_id))
+-    fixed: List[str] = []
+-    broken: List[str] = []
+-    unchanged_correct = 0
+-    unchanged_wrong = 0
+-    pairs: List[Tuple[int, int]] = []
+-    for qid in paired_ids:
++
++    def pair_worker(qid: str) -> Dict[str, Any]:
+         left = bool(base_by_id[qid].get("correct"))
+         right = bool(cand_by_id[qid].get("correct"))
+-        pairs.append((int(left), int(right)))
+         if not left and right:
+-            fixed.append(qid)
++            state = "fixed"
+         elif left and not right:
+-            broken.append(qid)
++            state = "broken"
+         elif left:
+-            unchanged_correct += 1
++            state = "unchanged_correct"
+         else:
+-            unchanged_wrong += 1
++            state = "unchanged_wrong"
++        return {"question_id": qid, "left": int(left), "right": int(right), "state": state}
++
++    pair_rows, pair_stats = run_parallel(
++        paired_ids,
++        pair_worker,
++        workers=workers,
++        stage=f"compare-{baseline}-vs-{candidate}",
++        progress=False,
++        fail_fast=fail_fast,
++    )
++    fixed = [row["question_id"] for row in pair_rows if row["state"] == "fixed"]
++    broken = [row["question_id"] for row in pair_rows if row["state"] == "broken"]
++    unchanged_correct = sum(row["state"] == "unchanged_correct" for row in pair_rows)
++    unchanged_wrong = sum(row["state"] == "unchanged_wrong" for row in pair_rows)
++    pairs = [(int(row["left"]), int(row["right"])) for row in pair_rows]
+     baseline_paired_accuracy = sum(left for left, _ in pairs) / len(pairs) if pairs else 0.0
+     candidate_paired_accuracy = sum(right for _, right in pairs) / len(pairs) if pairs else 0.0
+     ci_low, ci_high = _bootstrap_delta_ci(pairs)
+@@ -540,21 +698,12 @@ def compare_reports(run_root: str, baseline: str, candidate: str) -> Dict[str, A
+         "broken_question_ids": broken,
+         "unchanged_correct": unchanged_correct,
+         "unchanged_wrong": unchanged_wrong,
++        "parallel": {
++            "report_loading": report_stats.to_dict(),
++            "paired_cases": pair_stats.to_dict(),
++        },
+     }
+     report_dir = root / "reports"
+     report_dir.mkdir(parents=True, exist_ok=True)
+     write_json(report_dir / f"compare_{baseline}_vs_{candidate}.json", result)
+-    markdown = [
+-        f"# Comparison: {baseline} vs {candidate}",
+-        "",
+-        f"- Paired N: {result['paired_n']}",
+-        f"- Baseline accuracy: {result['baseline_accuracy']:.4f}",
+-        f"- Candidate accuracy: {result['candidate_accuracy']:.4f}",
+-        f"- Delta: {result['delta']:+.4f}",
+-        f"- Bootstrap 95% CI: [{ci_low:+.4f}, {ci_high:+.4f}]",
+-        f"- Paired exact p-value: {result['paired_binomial_p_value']:.6f}",
+-        f"- Fixed / broken: {len(fixed)} / {len(broken)}",
+-    ]
+-    (report_dir / f"compare_{baseline}_vs_{candidate}.md").write_text("\n".join(markdown) + "\n", encoding="utf-8")
+     return result
+-
+diff --git a/longmemeval/graph_memory_v2/extractor.py b/longmemeval/graph_memory_v2/extractor.py
+index 930473c..47839ec 100644
+--- a/longmemeval/graph_memory_v2/extractor.py
++++ b/longmemeval/graph_memory_v2/extractor.py
+@@ -9,6 +9,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
+ 
+ from .io_utils import ensure_dir, normalize_text, read_json, stable_hash, write_json
+ from .llm_client import OpenAICompatibleClient
++from .parallel import run_parallel, should_checkpoint
+ from .prompts import MEMORY_EXTRACTION_SYSTEM, MEMORY_EXTRACTION_TEMPLATE, render
+ from .schemas import EnhancedDimension, MemoryRecord, Provenance
+ 
+@@ -192,6 +193,7 @@ def extract_sample(
+     force: bool = False,
+     heuristic: bool = False,
+     max_tokens: int = 5000,
++    window_workers: int = 1,
+ ) -> Dict[str, Any]:
+     output_dir = ensure_dir(sample_dir / "memory_v2")
+     final_path = output_dir / "all_memories.json"
+@@ -201,9 +203,13 @@ def extract_sample(
+         return {"status": "existing", "memory_count": len(memories), "path": str(final_path)}
+ 
+     sample_id = sample_dir.name
+-    all_records: Dict[str, MemoryRecord] = {}
+-    trace: List[Dict[str, Any]] = []
+-    for window_path in _window_files(sample_dir):
++    window_tasks = [
++        {"name": path.name, "_path": str(path)}
++        for path in _window_files(sample_dir)
++    ]
++
++    def process_window(task: Dict[str, Any]) -> Dict[str, Any]:
++        window_path = Path(task["_path"])
+         window = read_json(window_path)
+         started = time.time()
+         if heuristic:
+@@ -240,21 +246,39 @@ def extract_sample(
+ 
+         window_output = output_dir / "windows" / (window_path.stem + "_memories.json")
+         write_json(window_output, [record.to_dict() for record in records])
+-        for record in records:
+-            key = _record_key(record)
+-            if key in all_records:
+-                all_records[key] = _merge_duplicate(all_records[key], record)
+-            else:
+-                all_records[key] = record
+-        trace.append(
+-            {
++        return {
++            "status": "ok",
++            "records": records,
++            "trace": {
+                 "window": window_path.name,
+                 "record_count": len(records),
+                 "elapsed_seconds": time.time() - started,
+                 **llm_meta,
+                 "raw_response": raw_payload if heuristic else None,
+-            }
+-        )
++            },
++        }
++
++    window_results, window_stats = run_parallel(
++        window_tasks,
++        process_window,
++        workers=window_workers,
++        stage=f"extract-v2-windows-{sample_id}",
++        merge_input=False,
++        fail_fast=True,
++        progress=window_workers != 1,
++    )
++
++    all_records: Dict[str, MemoryRecord] = {}
++    trace: List[Dict[str, Any]] = []
++    for result in window_results:
++        for record in result.get("records") or []:
++            key = _record_key(record)
++            if key in all_records:
++                all_records[key] = _merge_duplicate(all_records[key], record)
++            else:
++                all_records[key] = record
++        if result.get("trace"):
++            trace.append(result["trace"])
+ 
+     memories = list(all_records.values())
+     memories.sort(key=lambda item: (
+@@ -262,11 +286,15 @@ def extract_sample(
+         item.memory_id,
+     ))
+     write_json(final_path, [record.to_dict() for record in memories])
+-    # Alias kept deliberately close to DimMem's original output naming.
+     write_json(output_dir / "memory_bank.json", [record.to_dict() for record in memories])
+     write_json(trace_path, trace)
+-    return {"status": "ok", "memory_count": len(memories), "path": str(final_path)}
+-
++    write_json(output_dir / "extraction_parallel.json", window_stats.to_dict())
++    return {
++        "status": "ok",
++        "memory_count": len(memories),
++        "path": str(final_path),
++        "window_parallel": window_stats.to_dict(),
++    }
+ 
+ def extract_run(
+     run_root: str,
+@@ -276,25 +304,47 @@ def extract_run(
+     heuristic: bool = False,
+     max_tokens: int = 5000,
+     question_types: Optional[Iterable[str]] = None,
++    workers: int = 0,
++    fail_fast: bool = False,
++    window_workers: int = 1,
+ ) -> Dict[str, Any]:
+     root = Path(run_root)
+     manifest = read_json(root / "run_manifest.json")
+     allowed = {str(value) for value in question_types or []}
+-    output: List[Dict[str, Any]] = []
+-    for sample in manifest.get("samples") or []:
+-        if allowed and sample.get("question_type") not in allowed:
+-            continue
+-        sample_dir = Path(sample["sample_dir"])
+-        try:
+-            result = extract_sample(
+-                sample_dir,
+-                client=client,
+-                force=force,
+-                heuristic=heuristic,
+-                max_tokens=max_tokens,
+-            )
+-            output.append({**sample, **result})
+-        except Exception as exc:
+-            output.append({**sample, "status": "failed", "error": repr(exc)})
+-    write_json(root / "extraction_manifest_v2.json", {"samples": output})
+-    return {"samples": output}
++    samples = [
++        sample for sample in (manifest.get("samples") or [])
++        if not allowed or sample.get("question_type") in allowed
++    ]
++    manifest_path = root / "extraction_manifest_v2.json"
++    checkpoint_rows: List[Optional[Dict[str, Any]]] = [None] * len(samples)
++
++    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
++        return extract_sample(
++            Path(sample["sample_dir"]),
++            client=client,
++            force=force,
++            heuristic=heuristic,
++            max_tokens=max_tokens,
++            window_workers=window_workers,
++        )
++
++    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
++        checkpoint_rows[index] = result
++        if not should_checkpoint(completed, total):
++            return
++        write_json(manifest_path, {
++            "parallel": {"requested_workers": workers, "completed": completed, "total": total},
++            "samples": [row for row in checkpoint_rows if row is not None],
++        })
++
++    output, stats = run_parallel(
++        samples,
++        worker,
++        workers=workers,
++        stage="extract-v2",
++        merge_input=True,
++        fail_fast=fail_fast,
++        on_result=on_result,
++    )
++    write_json(manifest_path, {"parallel": stats.to_dict(), "samples": output})
++    return {"samples": output, "parallel": stats.to_dict()}
+diff --git a/longmemeval/graph_memory_v2/extractor_v1.py b/longmemeval/graph_memory_v2/extractor_v1.py
+index ec40489..e0aebbc 100644
+--- a/longmemeval/graph_memory_v2/extractor_v1.py
++++ b/longmemeval/graph_memory_v2/extractor_v1.py
+@@ -8,6 +8,7 @@ from typing import Any, Dict, Iterable, List, Optional
+ from .extractor import _merge_duplicate, _record_key, _window_files
+ from .io_utils import ensure_dir, normalize_text, read_json, stable_hash, write_json
+ from .llm_client import OpenAICompatibleClient
++from .parallel import run_parallel, should_checkpoint
+ from .prompts import DIMMEM_V1_EXTRACTION_SYSTEM, DIMMEM_V1_EXTRACTION_TEMPLATE, render
+ from .schemas import EnhancedDimension, MemoryRecord, Provenance
+ 
+@@ -103,14 +104,20 @@ def extract_sample_v1(
+     force: bool = False,
+     heuristic: bool = False,
+     max_tokens: int = 4200,
++    window_workers: int = 1,
+ ) -> Dict[str, Any]:
+     output_dir = ensure_dir(sample_dir / "memory_v1")
+     final_path = output_dir / "all_memories.json"
+     if final_path.exists() and not force:
+         return {"status": "existing", "memory_count": len(read_json(final_path)), "path": str(final_path)}
+-    records_by_key: Dict[str, MemoryRecord] = {}
+-    trace: List[Dict[str, Any]] = []
+-    for window_path in _window_files(sample_dir):
++
++    window_tasks = [
++        {"name": path.name, "_path": str(path)}
++        for path in _window_files(sample_dir)
++    ]
++
++    def process_window(task: Dict[str, Any]) -> Dict[str, Any]:
++        window_path = Path(task["_path"])
+         window = read_json(window_path)
+         if heuristic:
+             records = heuristic_v1(window, sample_dir.name)
+@@ -140,20 +147,52 @@ def extract_sample_v1(
+                 "completion_tokens": result.completion_tokens,
+                 "elapsed_seconds": result.elapsed_seconds,
+             }
+-        write_json(output_dir / "windows" / f"{window_path.stem}_memories.json", [record.to_dict() for record in records])
+-        for record in records:
++        write_json(
++            output_dir / "windows" / f"{window_path.stem}_memories.json",
++            [record.to_dict() for record in records],
++        )
++        return {
++            "status": "ok",
++            "records": records,
++            "trace": {"window": window_path.name, "record_count": len(records), **meta},
++        }
++
++    window_results, window_stats = run_parallel(
++        window_tasks,
++        process_window,
++        workers=window_workers,
++        stage=f"extract-v1-windows-{sample_dir.name}",
++        merge_input=False,
++        fail_fast=True,
++        progress=window_workers != 1,
++    )
++
++    records_by_key: Dict[str, MemoryRecord] = {}
++    trace: List[Dict[str, Any]] = []
++    for result in window_results:
++        for record in result.get("records") or []:
+             key = _record_key(record)
+             if key in records_by_key:
+                 records_by_key[key] = _merge_duplicate(records_by_key[key], record)
+             else:
+                 records_by_key[key] = record
+-        trace.append({"window": window_path.name, "record_count": len(records), **meta})
++        if result.get("trace"):
++            trace.append(result["trace"])
++
+     records = list(records_by_key.values())
+-    records.sort(key=lambda item: (item.provenance.source_ids[0] if item.provenance.source_ids else 10**9, item.memory_id))
++    records.sort(key=lambda item: (
++        item.provenance.source_ids[0] if item.provenance.source_ids else 10**9,
++        item.memory_id,
++    ))
+     write_json(final_path, [record.to_dict() for record in records])
+     write_json(output_dir / "extraction_trace.json", trace)
+-    return {"status": "ok", "memory_count": len(records), "path": str(final_path)}
+-
++    write_json(output_dir / "extraction_parallel.json", window_stats.to_dict())
++    return {
++        "status": "ok",
++        "memory_count": len(records),
++        "path": str(final_path),
++        "window_parallel": window_stats.to_dict(),
++    }
+ 
+ def extract_run_v1(
+     run_root: str,
+@@ -163,21 +202,47 @@ def extract_run_v1(
+     heuristic: bool = False,
+     max_tokens: int = 4200,
+     question_types: Optional[Iterable[str]] = None,
++    workers: int = 0,
++    fail_fast: bool = False,
++    window_workers: int = 1,
+ ) -> Dict[str, Any]:
+     root = Path(run_root)
+     manifest = read_json(root / "run_manifest.json")
+     allowed = {str(value) for value in question_types or []}
+-    results: List[Dict[str, Any]] = []
+-    for sample in manifest.get("samples") or []:
+-        if allowed and sample.get("question_type") not in allowed:
+-            continue
+-        try:
+-            result = extract_sample_v1(
+-                Path(sample["sample_dir"]), client=client, force=force,
+-                heuristic=heuristic, max_tokens=max_tokens,
+-            )
+-            results.append({**sample, **result})
+-        except Exception as exc:
+-            results.append({**sample, "status": "failed", "error": repr(exc)})
+-    write_json(root / "extraction_manifest_v1.json", {"samples": results})
+-    return {"samples": results}
++    samples = [
++        sample for sample in (manifest.get("samples") or [])
++        if not allowed or sample.get("question_type") in allowed
++    ]
++    manifest_path = root / "extraction_manifest_v1.json"
++    checkpoint_rows: List[Optional[Dict[str, Any]]] = [None] * len(samples)
++
++    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
++        return extract_sample_v1(
++            Path(sample["sample_dir"]),
++            client=client,
++            force=force,
++            heuristic=heuristic,
++            max_tokens=max_tokens,
++            window_workers=window_workers,
++        )
++
++    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
++        checkpoint_rows[index] = result
++        if not should_checkpoint(completed, total):
++            return
++        write_json(manifest_path, {
++            "parallel": {"requested_workers": workers, "completed": completed, "total": total},
++            "samples": [row for row in checkpoint_rows if row is not None],
++        })
++
++    results, stats = run_parallel(
++        samples,
++        worker,
++        workers=workers,
++        stage="extract-v1",
++        merge_input=True,
++        fail_fast=fail_fast,
++        on_result=on_result,
++    )
++    write_json(manifest_path, {"parallel": stats.to_dict(), "samples": results})
++    return {"samples": results, "parallel": stats.to_dict()}
+diff --git a/longmemeval/graph_memory_v2/graph_store.py b/longmemeval/graph_memory_v2/graph_store.py
+index d91ac20..a2a2839 100644
+--- a/longmemeval/graph_memory_v2/graph_store.py
++++ b/longmemeval/graph_memory_v2/graph_store.py
+@@ -7,6 +7,7 @@ from typing import Any, DefaultDict, Dict, Iterable, List, Optional, Sequence, S
+ 
+ from .dataset import parse_datetime
+ from .io_utils import ensure_dir, normalize_text, read_json, stable_hash, write_json
++from .parallel import run_parallel, should_checkpoint
+ from .schemas import GraphEdge, GraphNode, MemoryRecord, memories_from_payload
+ 
+ 
+@@ -315,18 +316,44 @@ def build_sample_graph(sample_dir: Path, *, force: bool = False) -> Dict[str, An
+     return {"status": "ok", **read_json(stats_path)}
+ 
+ 
+-def build_run_graphs(run_root: str, *, force: bool = False, question_types: Optional[Iterable[str]] = None) -> Dict[str, Any]:
++def build_run_graphs(
++    run_root: str,
++    *,
++    force: bool = False,
++    question_types: Optional[Iterable[str]] = None,
++    workers: int = 0,
++    fail_fast: bool = False,
++) -> Dict[str, Any]:
+     root = Path(run_root)
+     manifest = read_json(root / "run_manifest.json")
+     allowed = {str(value) for value in question_types or []}
+-    results: List[Dict[str, Any]] = []
+-    for sample in manifest.get("samples") or []:
+-        if allowed and sample.get("question_type") not in allowed:
+-            continue
+-        try:
+-            stats = build_sample_graph(Path(sample["sample_dir"]), force=force)
+-            results.append({**sample, **stats})
+-        except Exception as exc:
+-            results.append({**sample, "status": "failed", "error": repr(exc)})
+-    write_json(root / "graph_manifest_v2.json", {"samples": results})
+-    return {"samples": results}
++    samples = [
++        sample for sample in (manifest.get("samples") or [])
++        if not allowed or sample.get("question_type") in allowed
++    ]
++    manifest_path = root / "graph_manifest_v2.json"
++    checkpoint_rows: List[Optional[Dict[str, Any]]] = [None] * len(samples)
++
++    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
++        return build_sample_graph(Path(sample["sample_dir"]), force=force)
++
++    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
++        checkpoint_rows[index] = result
++        if not should_checkpoint(completed, total):
++            return
++        write_json(manifest_path, {
++            "parallel": {"requested_workers": workers, "completed": completed, "total": total},
++            "samples": [row for row in checkpoint_rows if row is not None],
++        })
++
++    results, stats = run_parallel(
++        samples,
++        worker,
++        workers=workers,
++        stage="build-graph",
++        merge_input=True,
++        fail_fast=fail_fast,
++        on_result=on_result,
++    )
++    write_json(manifest_path, {"parallel": stats.to_dict(), "samples": results})
++    return {"samples": results, "parallel": stats.to_dict()}
+diff --git a/longmemeval/graph_memory_v2/parallel.py b/longmemeval/graph_memory_v2/parallel.py
+new file mode 100644
+index 0000000..8919f63
+--- /dev/null
++++ b/longmemeval/graph_memory_v2/parallel.py
+@@ -0,0 +1,170 @@
++from __future__ import annotations
++
++import os
++import sys
++import time
++from concurrent.futures import Future, ThreadPoolExecutor, as_completed
++from dataclasses import dataclass
++from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, TypeVar
++
++T = TypeVar("T")
++R = TypeVar("R")
++
++
++@dataclass(frozen=True)
++class ParallelStats:
++    stage: str
++    total: int
++    workers: int
++    succeeded: int
++    failed: int
++    elapsed_seconds: float
++
++    def to_dict(self) -> Dict[str, Any]:
++        return {
++            "stage": self.stage,
++            "total": self.total,
++            "workers": self.workers,
++            "succeeded": self.succeeded,
++            "failed": self.failed,
++            "elapsed_seconds": self.elapsed_seconds,
++        }
++
++
++def resolve_workers(requested: int, total: int) -> int:
++    """Resolve a user worker setting.
++
++    Semantics:
++      * 0  -> one worker per selected case (all cases submitted concurrently)
++      * -1 -> a conservative automatic thread count
++      * >0 -> exactly that many workers, capped by the task count
++
++    The executor never creates fewer than one worker when work exists.
++    """
++    if total <= 0:
++        return 0
++    requested = int(requested)
++    if requested == 0:
++        return total
++    if requested < 0:
++        automatic = min(32, (os.cpu_count() or 1) + 4)
++        return max(1, min(total, automatic))
++    return max(1, min(total, requested))
++
++
++def _public_item(item: Any) -> Dict[str, Any]:
++    if not isinstance(item, dict):
++        return {}
++    return {key: value for key, value in item.items() if not str(key).startswith("_")}
++
++
++def _item_label(item: Any, index: int) -> str:
++    if isinstance(item, (str, int, float)):
++        return str(item)
++    if isinstance(item, dict):
++        for key in ("sample_id", "question_id", "name", "id"):
++            value = item.get(key)
++            if value:
++                return str(value)
++    return str(index)
++
++
++
++def should_checkpoint(completed: int, total: int, every: int = 10) -> bool:
++    every = max(1, int(every))
++    return completed >= total or completed % every == 0
++
++def run_parallel(
++    items: Sequence[T] | Iterable[T],
++    worker: Callable[[T], R],
++    *,
++    workers: int = 0,
++    stage: str = "stage",
++    merge_input: bool = False,
++    fail_fast: bool = False,
++    progress: bool = True,
++    on_result: Optional[Callable[[int, R, int, int], None]] = None,
++) -> tuple[List[R], ParallelStats]:
++    """Run independent case tasks concurrently and preserve manifest order.
++
++    Exceptions are converted into a deterministic failure dictionary unless
++    ``fail_fast`` is enabled. ``on_result`` is executed in the coordinator
++    thread, which makes it safe to write incremental manifests/checkpoints.
++    """
++    values = list(items)
++    total = len(values)
++    effective_workers = resolve_workers(workers, total)
++    started = time.time()
++    if total == 0:
++        stats = ParallelStats(stage, 0, 0, 0, 0, 0.0)
++        return [], stats
++
++    ordered: List[Optional[R]] = [None] * total
++    completed = 0
++    failed = 0
++
++    def call(index: int, item: T) -> R:
++        try:
++            result = worker(item)
++            if merge_input and isinstance(result, dict):
++                return {**_public_item(item), **result}  # type: ignore[return-value]
++            return result
++        except Exception as exc:
++            if fail_fast:
++                raise
++            base = _public_item(item) if merge_input else {}
++            return {**base, "status": "failed", "error": repr(exc)}  # type: ignore[return-value]
++
++    def accept(index: int, result: R) -> None:
++        nonlocal completed, failed
++        ordered[index] = result
++        completed += 1
++        if isinstance(result, dict) and result.get("status") == "failed":
++            failed += 1
++        if progress:
++            status = result.get("status", "ok") if isinstance(result, dict) else "ok"
++            label = _item_label(values[index], index)
++            elapsed = time.time() - started
++            print(
++                f"[{stage}] {completed}/{total} | {label} | {status} | "
++                f"workers={effective_workers} | elapsed={elapsed:.1f}s",
++                file=sys.stderr,
++                flush=True,
++            )
++        if on_result is not None:
++            on_result(index, result, completed, total)
++
++    if effective_workers <= 1:
++        for index, item in enumerate(values):
++            result = call(index, item)
++            accept(index, result)
++    else:
++        with ThreadPoolExecutor(
++            max_workers=effective_workers,
++            thread_name_prefix=f"dimmem-{stage}",
++        ) as executor:
++            futures: Dict[Future[R], int] = {
++                executor.submit(call, index, item): index
++                for index, item in enumerate(values)
++            }
++            try:
++                for future in as_completed(futures):
++                    index = futures[future]
++                    result = future.result()
++                    accept(index, result)
++            except Exception:
++                for future in futures:
++                    future.cancel()
++                raise
++
++    results: List[R] = [value for value in ordered if value is not None]
++    elapsed = time.time() - started
++    stats = ParallelStats(
++        stage=stage,
++        total=total,
++        workers=effective_workers,
++        succeeded=total - failed,
++        failed=failed,
++        elapsed_seconds=elapsed,
++    )
++    return results, stats
+diff --git a/longmemeval/graph_memory_v2/query_parser_v2.py b/longmemeval/graph_memory_v2/query_parser_v2.py
+index 12987c4..258bac9 100644
+--- a/longmemeval/graph_memory_v2/query_parser_v2.py
++++ b/longmemeval/graph_memory_v2/query_parser_v2.py
+@@ -5,6 +5,7 @@ from typing import Any, Dict, Iterable, List, Optional
+ 
+ from .io_utils import read_json, write_json
+ from .llm_client import OpenAICompatibleClient
++from .parallel import run_parallel, should_checkpoint
+ from .prompts import QUERY_PARSE_SYSTEM, QUERY_PARSE_TEMPLATE, render
+ from .schemas import ParsedQueryV2, QueryHypothesis
+ 
+@@ -93,20 +94,44 @@ def parse_run(
+     heuristic: bool = False,
+     force: bool = False,
+     question_types: Optional[Iterable[str]] = None,
++    workers: int = 0,
++    fail_fast: bool = False,
+ ) -> Dict[str, Any]:
+     root = Path(run_root)
+     manifest = read_json(root / "run_manifest.json")
+     allowed = {str(value) for value in question_types or []}
+-    results: List[Dict[str, Any]] = []
+-    for sample in manifest.get("samples") or []:
+-        if allowed and sample.get("question_type") not in allowed:
+-            continue
+-        try:
+-            result = parse_sample(
+-                Path(sample["sample_dir"]), client=client, heuristic=heuristic, force=force
+-            )
+-            results.append({**sample, **result})
+-        except Exception as exc:
+-            results.append({**sample, "status": "failed", "error": repr(exc)})
+-    write_json(root / "query_manifest_v2.json", {"samples": results})
+-    return {"samples": results}
++    samples = [
++        sample for sample in (manifest.get("samples") or [])
++        if not allowed or sample.get("question_type") in allowed
++    ]
++    manifest_path = root / "query_manifest_v2.json"
++    checkpoint_rows: List[Optional[Dict[str, Any]]] = [None] * len(samples)
++
++    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
++        return parse_sample(
++            Path(sample["sample_dir"]),
++            client=client,
++            heuristic=heuristic,
++            force=force,
++        )
++
++    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
++        checkpoint_rows[index] = result
++        if not should_checkpoint(completed, total):
++            return
++        write_json(manifest_path, {
++            "parallel": {"requested_workers": workers, "completed": completed, "total": total},
++            "samples": [row for row in checkpoint_rows if row is not None],
++        })
++
++    results, stats = run_parallel(
++        samples,
++        worker,
++        workers=workers,
++        stage="parse-query",
++        merge_input=True,
++        fail_fast=fail_fast,
++        on_result=on_result,
++    )
++    write_json(manifest_path, {"parallel": stats.to_dict(), "samples": results})
++    return {"samples": results, "parallel": stats.to_dict()}
+diff --git a/longmemeval/graph_memory_v2/retrieval.py b/longmemeval/graph_memory_v2/retrieval.py
+index a285a35..0fe7b28 100644
+--- a/longmemeval/graph_memory_v2/retrieval.py
++++ b/longmemeval/graph_memory_v2/retrieval.py
+@@ -9,6 +9,7 @@ from .dataset import parse_datetime
+ from .embedding import Embedder, HashEmbedder, cosine
+ from .graph_store import GraphStore, canonical
+ from .io_utils import normalize_text, tokenize
++from .parallel import run_parallel
+ from .schemas import MemoryRecord, ParsedQueryV2, QueryHypothesis, RetrievalRecord
+ 
+ 
+@@ -156,9 +157,11 @@ class StaticRetriever:
+         *,
+         embedder: Optional[Embedder] = None,
+         original_projection: bool = False,
++        route_workers: int = 0,
+     ) -> None:
+         self.store = store
+         self.original_projection = original_projection
++        self.route_workers = int(route_workers)
+         self.embedder = embedder or HashEmbedder()
+         self.documents = {
+             memory_id: self._document_text(memory)
+@@ -199,24 +202,40 @@ class StaticRetriever:
+         graph_expand_k: int = 20,
+     ) -> List[RetrievalRecord]:
+         query_text = self._query_text(parsed)
+-        bm25 = self.bm25.search(query_text, route_k)
+-        query_vector = self.embedder.encode([query_text])[0]
+-        dense = sorted(
+-            ((memory_id, cosine(query_vector, vector)) for memory_id, vector in self.vectors.items()),
+-            key=lambda pair: (-pair[1], pair[0]),
+-        )[:route_k]
+-        dimension_rows: List[Tuple[str, float]] = []
+-        for memory_id, memory in self.store.memories.items():
+-            score = max(
+-                dimension_score(memory, hypothesis, enhanced=not self.original_projection)
+-                for hypothesis in parsed.hypotheses
+-            )
+-            if score > 0:
+-                dimension_rows.append((memory_id, score))
+-        dimension_rows.sort(key=lambda pair: (-pair[1], pair[0]))
+-        dimension_rows = dimension_rows[:route_k]
+ 
+-        routes = {"bm25": bm25, "dense": dense, "dimension": dimension_rows}
++        def route_worker(route_name: str) -> Dict[str, Any]:
++            if route_name == "bm25":
++                rows = self.bm25.search(query_text, route_k)
++            elif route_name == "dense":
++                query_vector = self.embedder.encode([query_text])[0]
++                rows = sorted(
++                    ((memory_id, cosine(query_vector, vector)) for memory_id, vector in self.vectors.items()),
++                    key=lambda pair: (-pair[1], pair[0]),
++                )[:route_k]
++            elif route_name == "dimension":
++                dimension_rows: List[Tuple[str, float]] = []
++                for memory_id, memory in self.store.memories.items():
++                    score = max(
++                        dimension_score(memory, hypothesis, enhanced=not self.original_projection)
++                        for hypothesis in parsed.hypotheses
++                    )
++                    if score > 0:
++                        dimension_rows.append((memory_id, score))
++                dimension_rows.sort(key=lambda pair: (-pair[1], pair[0]))
++                rows = dimension_rows[:route_k]
++            else:
++                raise ValueError(f"unknown retrieval route: {route_name}")
++            return {"name": route_name, "rows": rows}
++
++        route_results, _ = run_parallel(
++            ["bm25", "dense", "dimension"],
++            route_worker,
++            workers=self.route_workers,
++            stage="retrieval-route",
++            progress=False,
++            fail_fast=True,
++        )
++        routes = {str(result["name"]): result["rows"] for result in route_results}
+         fused = reciprocal_rank_fusion(
+             routes,
+             route_weights={"bm25": 1.0, "dense": 1.0, "dimension": 1.15 if not self.original_projection else 1.0},
+diff --git a/longmemeval/graph_memory_v2/run_pipeline.py b/longmemeval/graph_memory_v2/run_pipeline.py
+index 3ead826..89a8caa 100644
+--- a/longmemeval/graph_memory_v2/run_pipeline.py
++++ b/longmemeval/graph_memory_v2/run_pipeline.py
+@@ -3,11 +3,11 @@ from __future__ import annotations
+ import argparse
+ import json
+ import os
+-from pathlib import Path
+-from typing import Iterable, List, Optional
++from typing import List, Optional
+ 
+ from .dataset import prepare_dataset
+ from .evaluation import (
++    _make_embedder,
+     build_report,
+     compare_reports,
+     run_qa_judge_run,
+@@ -17,6 +17,7 @@ from .extractor import extract_run
+ from .extractor_v1 import extract_run_v1
+ from .graph_store import build_run_graphs
+ from .llm_client import OpenAICompatibleClient
++from .parallel import run_parallel
+ from .query_parser_v2 import parse_run
+ 
+ 
+@@ -53,6 +54,38 @@ def add_run_filters(parser: argparse.ArgumentParser) -> None:
+     parser.add_argument("--force", action="store_true")
+ 
+ 
++def add_parallel_options(parser: argparse.ArgumentParser) -> None:
++    parser.add_argument(
++        "--workers",
++        type=int,
++        default=0,
++        help=(
++            "case-level concurrency: 0 submits all selected cases concurrently; "
++            "-1 uses a conservative auto value; positive N caps concurrency at N"
++        ),
++    )
++    parser.add_argument(
++        "--fail-fast",
++        action="store_true",
++        help="cancel remaining cases when one case raises instead of recording a failed row",
++    )
++
++
++def add_retrieval_parallel_options(parser: argparse.ArgumentParser) -> None:
++    parser.add_argument(
++        "--route-workers",
++        type=int,
++        default=0,
++        help="within-case BM25/dense/dimension route concurrency; 0 runs all three concurrently",
++    )
++    parser.add_argument(
++        "--tool-workers",
++        type=int,
++        default=0,
++        help="within-round active graph tool concurrency; 0 runs all emitted tools concurrently",
++    )
++
++
+ def build_parser() -> argparse.ArgumentParser:
+     parser = argparse.ArgumentParser(
+         description="From-scratch LongMemEval validation for enhanced DimMem graph memory."
+@@ -70,28 +103,48 @@ def build_parser() -> argparse.ArgumentParser:
+     prepare.add_argument("--truncate-threshold", type=int, default=8000)
+     prepare.add_argument("--max-items", type=int, default=0)
+     add_run_filters(prepare)
++    add_parallel_options(prepare)
+ 
+     extract = sub.add_parser("extract", help="extract enhanced dimensional memories")
+     extract.add_argument("--run-root", required=True)
+     extract.add_argument("--heuristic", action="store_true", help="smoke test only")
+     extract.add_argument("--schema", choices=["v1", "v2", "both"], default="v2")
+     extract.add_argument("--max-tokens", type=int, default=5000)
++    extract.add_argument(
++        "--window-workers",
++        type=int,
++        default=1,
++        help="per-case extraction-window concurrency; 0 submits every window concurrently",
++    )
++    extract.add_argument(
++        "--schema-workers",
++        type=int,
++        default=0,
++        help="when --schema both, run V1 and V2 extraction concurrently; 0 runs both",
++    )
+     add_common_client(extract)
+     add_run_filters(extract)
++    add_parallel_options(extract)
+ 
+     graph = sub.add_parser("build-graph", help="build typed graph and update chains")
+     graph.add_argument("--run-root", required=True)
+     add_run_filters(graph)
++    add_parallel_options(graph)
+ 
+     query = sub.add_parser("parse-query", help="parse query into revisable dimensional hypotheses")
+     query.add_argument("--run-root", required=True)
+     query.add_argument("--heuristic", action="store_true", help="smoke test only")
+     add_common_client(query)
+     add_run_filters(query)
++    add_parallel_options(query)
+ 
+     retrieval = sub.add_parser("retrieve", help="run one retrieval variant")
+     retrieval.add_argument("--run-root", required=True)
+-    retrieval.add_argument("--mode", required=True, choices=["dimmem_v1", "dimension_v2", "graph_static", "graph_active"])
++    retrieval.add_argument(
++        "--mode",
++        required=True,
++        choices=["dimmem_v1", "dimension_v2", "graph_static", "graph_active"],
++    )
+     retrieval.add_argument("--output-name", required=True)
+     retrieval.add_argument("--route-k", type=int, default=20)
+     retrieval.add_argument("--initial-k", type=int, default=12)
+@@ -102,7 +155,9 @@ def build_parser() -> argparse.ArgumentParser:
+     retrieval.add_argument("--embedding-model", default="sentence-transformers/all-MiniLM-L6-v2")
+     retrieval.add_argument("--device", default="cpu")
+     add_common_client(retrieval, "active")
++    add_retrieval_parallel_options(retrieval)
+     add_run_filters(retrieval)
++    add_parallel_options(retrieval)
+ 
+     qa = sub.add_parser("qa-judge", help="answer and judge a retrieval run")
+     qa.add_argument("--run-root", required=True)
+@@ -112,15 +167,18 @@ def build_parser() -> argparse.ArgumentParser:
+     add_common_client(qa, "qa")
+     add_common_client(qa, "judge")
+     add_run_filters(qa)
++    add_parallel_options(qa)
+ 
+     report = sub.add_parser("report")
+     report.add_argument("--run-root", required=True)
+     report.add_argument("--retrieval-name", required=True)
++    add_parallel_options(report)
+ 
+     compare = sub.add_parser("compare")
+     compare.add_argument("--run-root", required=True)
+     compare.add_argument("--baseline", required=True)
+     compare.add_argument("--candidate", required=True)
++    add_parallel_options(compare)
+ 
+     all_cmd = sub.add_parser("all", help="raw dataset -> extraction -> graph -> query -> retrieval -> QA/judge")
+     all_cmd.add_argument("--input", required=True)
+@@ -130,7 +188,11 @@ def build_parser() -> argparse.ArgumentParser:
+     all_cmd.add_argument("--overlap", type=int, default=3)
+     all_cmd.add_argument("--truncate-threshold", type=int, default=8000)
+     all_cmd.add_argument("--max-items", type=int, default=0)
+-    all_cmd.add_argument("--mode", choices=["dimmem_v1", "dimension_v2", "graph_static", "graph_active"], default="graph_active")
++    all_cmd.add_argument(
++        "--mode",
++        choices=["dimmem_v1", "dimension_v2", "graph_static", "graph_active"],
++        default="graph_active",
++    )
+     all_cmd.add_argument("--output-name", default="graph_active")
+     all_cmd.add_argument("--route-k", type=int, default=20)
+     all_cmd.add_argument("--initial-k", type=int, default=12)
+@@ -141,12 +203,26 @@ def build_parser() -> argparse.ArgumentParser:
+     all_cmd.add_argument("--embedding-model", default="sentence-transformers/all-MiniLM-L6-v2")
+     all_cmd.add_argument("--device", default="cpu")
+     all_cmd.add_argument("--smoke-test", action="store_true", help="use heuristic extraction/query/QA and exact judge")
++    all_cmd.add_argument(
++        "--window-workers",
++        type=int,
++        default=1,
++        help="per-case extraction-window concurrency; total LLM concurrency is roughly workers × window-workers",
++    )
++    all_cmd.add_argument(
++        "--pipeline-workers",
++        type=int,
++        default=0,
++        help="run independent post-prepare branches (V1 extraction, V2 extraction, query parse) concurrently",
++    )
+     add_common_client(all_cmd, "extract")
+     add_common_client(all_cmd, "query")
+     add_common_client(all_cmd, "active")
+     add_common_client(all_cmd, "qa")
+     add_common_client(all_cmd, "judge")
++    add_retrieval_parallel_options(all_cmd)
+     add_run_filters(all_cmd)
++    add_parallel_options(all_cmd)
+ 
+     ablation = sub.add_parser("ablation", help="run four controlled variants on one prepared run")
+     ablation.add_argument("--run-root", required=True)
+@@ -160,10 +236,18 @@ def build_parser() -> argparse.ArgumentParser:
+     ablation.add_argument("--device", default="cpu")
+     ablation.add_argument("--heuristic-qa", action="store_true")
+     ablation.add_argument("--exact-judge", action="store_true")
++    ablation.add_argument(
++        "--variant-workers",
++        type=int,
++        default=0,
++        help="parallel ablation variants; 0 runs all four concurrently (multiplies API concurrency)",
++    )
+     add_common_client(ablation, "active")
+     add_common_client(ablation, "qa")
+     add_common_client(ablation, "judge")
++    add_retrieval_parallel_options(ablation)
+     add_run_filters(ablation)
++    add_parallel_options(ablation)
+     return parser
+ 
+ 
+@@ -171,6 +255,8 @@ def main(argv: Optional[List[str]] = None) -> int:
+     parser = build_parser()
+     args = parser.parse_args(argv)
+     qtypes = split_csv(getattr(args, "question_types", ""))
++    workers = int(getattr(args, "workers", 0))
++    fail_fast = bool(getattr(args, "fail_fast", False))
+ 
+     if args.command == "prepare":
+         result = prepare_dataset(
+@@ -183,23 +269,64 @@ def main(argv: Optional[List[str]] = None) -> int:
+             max_items=args.max_items,
+             question_types=qtypes,
+             force=args.force,
++            workers=workers,
++            fail_fast=fail_fast,
+         )
+     elif args.command == "extract":
+         client = client_from_args(args)
+-        outputs = {}
+-        if args.schema in {"v1", "both"}:
+-            outputs["v1"] = extract_run_v1(
+-                args.run_root, client=client, force=args.force, heuristic=args.heuristic,
+-                max_tokens=min(args.max_tokens, 4200), question_types=qtypes,
+-            )
+-        if args.schema in {"v2", "both"}:
+-            outputs["v2"] = extract_run(
+-                args.run_root, client=client, force=args.force, heuristic=args.heuristic,
+-                max_tokens=args.max_tokens, question_types=qtypes,
+-            )
+-        result = outputs
++        schema_names = [name for name in ("v1", "v2") if args.schema in {name, "both"}]
++
++        def schema_worker(schema_name: str):
++            if schema_name == "v1":
++                return {
++                    "schema": "v1",
++                    "result": extract_run_v1(
++                        args.run_root,
++                        client=client,
++                        force=args.force,
++                        heuristic=args.heuristic,
++                        max_tokens=min(args.max_tokens, 4200),
++                        question_types=qtypes,
++                        workers=workers,
++                        fail_fast=fail_fast,
++                        window_workers=args.window_workers,
++                    ),
++                }
++            return {
++                "schema": "v2",
++                "result": extract_run(
++                    args.run_root,
++                    client=client,
++                    force=args.force,
++                    heuristic=args.heuristic,
++                    max_tokens=args.max_tokens,
++                    question_types=qtypes,
++                    workers=workers,
++                    fail_fast=fail_fast,
++                    window_workers=args.window_workers,
++                ),
++            }
++
++        schema_rows, schema_stats = run_parallel(
++            schema_names,
++            schema_worker,
++            workers=args.schema_workers,
++            stage="extract-schema",
++            progress=True,
++            fail_fast=fail_fast,
++        )
++        result = {
++            "schemas": {row["schema"]: row["result"] for row in schema_rows if row.get("schema")},
++            "schema_parallel": schema_stats.to_dict(),
++        }
+     elif args.command == "build-graph":
+-        result = build_run_graphs(args.run_root, force=args.force, question_types=qtypes)
++        result = build_run_graphs(
++            args.run_root,
++            force=args.force,
++            question_types=qtypes,
++            workers=workers,
++            fail_fast=fail_fast,
++        )
+     elif args.command == "parse-query":
+         result = parse_run(
+             args.run_root,
+@@ -207,6 +334,8 @@ def main(argv: Optional[List[str]] = None) -> int:
+             heuristic=args.heuristic,
+             force=args.force,
+             question_types=qtypes,
++            workers=workers,
++            fail_fast=fail_fast,
+         )
+     elif args.command == "retrieve":
+         result = run_retrieval_run(
+@@ -224,6 +353,10 @@ def main(argv: Optional[List[str]] = None) -> int:
+             device=args.device,
+             force=args.force,
+             question_types=qtypes,
++            workers=workers,
++            fail_fast=fail_fast,
++            route_workers=args.route_workers,
++            tool_workers=args.tool_workers,
+         )
+     elif args.command == "qa-judge":
+         result = run_qa_judge_run(
+@@ -235,11 +368,15 @@ def main(argv: Optional[List[str]] = None) -> int:
+             exact_judge_mode=args.exact_judge,
+             force=args.force,
+             question_types=qtypes,
++            workers=workers,
++            fail_fast=fail_fast,
+         )
+     elif args.command == "report":
+-        result = build_report(args.run_root, args.retrieval_name)
++        result = build_report(args.run_root, args.retrieval_name, workers=workers, fail_fast=fail_fast)
+     elif args.command == "compare":
+-        result = compare_reports(args.run_root, args.baseline, args.candidate)
++        result = compare_reports(
++            args.run_root, args.baseline, args.candidate, workers=workers, fail_fast=fail_fast
++        )
+     elif args.command == "all":
+         prepared = prepare_dataset(
+             input_path=args.input,
+@@ -251,24 +388,63 @@ def main(argv: Optional[List[str]] = None) -> int:
+             max_items=args.max_items,
+             question_types=qtypes,
+             force=args.force,
++            workers=workers,
++            fail_fast=fail_fast,
+         )
+         run_root = prepared["run_root"]
+         extraction_client = client_from_args(args, "extract")
+-        extract_run_v1(
+-            run_root, client=extraction_client, force=args.force,
+-            heuristic=args.smoke_test, question_types=qtypes,
+-        )
+-        extract_run(
+-            run_root, client=extraction_client, force=args.force,
+-            heuristic=args.smoke_test, question_types=qtypes,
++
++        def pipeline_branch(name: str):
++            if name == "extract_v1":
++                value = extract_run_v1(
++                    run_root,
++                    client=extraction_client,
++                    force=args.force,
++                    heuristic=args.smoke_test,
++                    question_types=qtypes,
++                    workers=workers,
++                    fail_fast=fail_fast,
++                    window_workers=args.window_workers,
++                )
++            elif name == "extract_v2":
++                value = extract_run(
++                    run_root,
++                    client=extraction_client,
++                    force=args.force,
++                    heuristic=args.smoke_test,
++                    question_types=qtypes,
++                    workers=workers,
++                    fail_fast=fail_fast,
++                    window_workers=args.window_workers,
++                )
++            elif name == "parse_query":
++                value = parse_run(
++                    run_root,
++                    client=client_from_args(args, "query"),
++                    heuristic=args.smoke_test,
++                    force=args.force,
++                    question_types=qtypes,
++                    workers=workers,
++                    fail_fast=fail_fast,
++                )
++            else:
++                raise ValueError(f"unknown pipeline branch: {name}")
++            return {"branch": name, "result": value}
++
++        branch_rows, branch_stats = run_parallel(
++            ["extract_v1", "extract_v2", "parse_query"],
++            pipeline_branch,
++            workers=args.pipeline_workers,
++            stage="pipeline-branch",
++            progress=True,
++            fail_fast=fail_fast,
+         )
+-        build_run_graphs(run_root, force=args.force, question_types=qtypes)
+-        parse_run(
++        build_run_graphs(
+             run_root,
+-            client=client_from_args(args, "query"),
+-            heuristic=args.smoke_test,
+             force=args.force,
+             question_types=qtypes,
++            workers=workers,
++            fail_fast=fail_fast,
+         )
+         run_retrieval_run(
+             run_root,
+@@ -285,6 +461,10 @@ def main(argv: Optional[List[str]] = None) -> int:
+             device=args.device,
+             force=args.force,
+             question_types=qtypes,
++            workers=workers,
++            fail_fast=fail_fast,
++            route_workers=args.route_workers,
++            tool_workers=args.tool_workers,
+         )
+         run_qa_judge_run(
+             run_root,
+@@ -295,20 +475,31 @@ def main(argv: Optional[List[str]] = None) -> int:
+             exact_judge_mode=args.smoke_test,
+             force=args.force,
+             question_types=qtypes,
++            workers=workers,
++            fail_fast=fail_fast,
+         )
+-        result = build_report(run_root, args.output_name)
++        report_result = build_report(run_root, args.output_name, workers=workers, fail_fast=fail_fast)
++        result = {
++            "run_root": run_root,
++            "pipeline_branches": {row["branch"]: row["result"] for row in branch_rows if row.get("branch")},
++            "pipeline_parallel": branch_stats.to_dict(),
++            "report": report_result,
++        }
+     elif args.command == "ablation":
+         active_client = client_from_args(args, "active")
+         qa_client = client_from_args(args, "qa")
+         judge_client = client_from_args(args, "judge")
++        shared_embedder = _make_embedder(args.embedder, args.embedding_model, args.device)
+         variants = [
+-            ("dimmem_v1", "dimmem_v1"),
+-            ("dimension_v2", "dimension_v2"),
+-            ("graph_static", "graph_static"),
+-            ("graph_active", "graph_active"),
++            {"mode": "dimmem_v1", "output_name": "dimmem_v1"},
++            {"mode": "dimension_v2", "output_name": "dimension_v2"},
++            {"mode": "graph_static", "output_name": "graph_static"},
++            {"mode": "graph_active", "output_name": "graph_active"},
+         ]
+-        reports = {}
+-        for mode, output_name in variants:
++
++        def run_variant(variant):
++            mode = variant["mode"]
++            output_name = variant["output_name"]
+             run_retrieval_run(
+                 args.run_root,
+                 mode=mode,
+@@ -324,6 +515,11 @@ def main(argv: Optional[List[str]] = None) -> int:
+                 device=args.device,
+                 force=args.force,
+                 question_types=qtypes,
++                workers=workers,
++                fail_fast=fail_fast,
++                shared_embedder=shared_embedder,
++                route_workers=args.route_workers,
++                tool_workers=args.tool_workers,
+             )
+             run_qa_judge_run(
+                 args.run_root,
+@@ -334,15 +530,39 @@ def main(argv: Optional[List[str]] = None) -> int:
+                 exact_judge_mode=args.exact_judge,
+                 force=args.force,
+                 question_types=qtypes,
++                workers=workers,
++                fail_fast=fail_fast,
+             )
+-            reports[output_name] = build_report(args.run_root, output_name)
++            return {
++                "status": "ok",
++                "output_name": output_name,
++                "report": build_report(args.run_root, output_name, workers=workers, fail_fast=fail_fast),
++            }
++
++        variant_results, variant_stats = run_parallel(
++            variants,
++            run_variant,
++            workers=args.variant_workers,
++            stage="ablation-variant",
++            merge_input=True,
++            fail_fast=fail_fast,
++        )
++        reports = {
++            row["output_name"]: row["report"]
++            for row in variant_results
++            if row.get("status") == "ok" and row.get("report")
++        }
+         comparisons = {
+-            "v1_vs_v2": compare_reports(args.run_root, "dimmem_v1", "dimension_v2"),
+-            "v2_vs_static_graph": compare_reports(args.run_root, "dimension_v2", "graph_static"),
+-            "static_vs_active_graph": compare_reports(args.run_root, "graph_static", "graph_active"),
+-            "v1_vs_active_graph": compare_reports(args.run_root, "dimmem_v1", "graph_active"),
++            "v1_vs_v2": compare_reports(args.run_root, "dimmem_v1", "dimension_v2", workers=workers, fail_fast=fail_fast),
++            "v2_vs_static_graph": compare_reports(args.run_root, "dimension_v2", "graph_static", workers=workers, fail_fast=fail_fast),
++            "static_vs_active_graph": compare_reports(args.run_root, "graph_static", "graph_active", workers=workers, fail_fast=fail_fast),
++            "v1_vs_active_graph": compare_reports(args.run_root, "dimmem_v1", "graph_active", workers=workers, fail_fast=fail_fast),
++        }
++        result = {
++            "reports": reports,
++            "comparisons": comparisons,
++            "variant_parallel": variant_stats.to_dict(),
+         }
+-        result = {"reports": reports, "comparisons": comparisons}
+     else:
+         parser.error("unhandled command")
+         return 2
+diff --git a/scripts/run_ablation.sh b/scripts/run_ablation.sh
+index 134a57e..08c4238 100755
+--- a/scripts/run_ablation.sh
++++ b/scripts/run_ablation.sh
+@@ -11,6 +11,12 @@ RUN_ROOT="$1"
+ : "${OPENAI_API_KEY:?Set OPENAI_API_KEY}"
+ : "${MODEL_NAME:?Set MODEL_NAME}"
+ 
++CASE_WORKERS="${CASE_WORKERS:-0}"
++# 0 runs dimmem_v1, dimension_v2, graph_static, and graph_active concurrently.
++VARIANT_WORKERS="${VARIANT_WORKERS:-0}"
++ROUTE_WORKERS="${ROUTE_WORKERS:-0}"
++TOOL_WORKERS="${TOOL_WORKERS:-0}"
++
+ python -m longmemeval.graph_memory_v2 ablation \
+   --run-root "$RUN_ROOT" \
+   --route-k 20 \
+@@ -19,4 +25,8 @@ python -m longmemeval.graph_memory_v2 ablation \
+   --max-rounds 3 \
+   --router-mode llm \
+   --embedder sentence-transformers \
+-  --embedding-model sentence-transformers/all-MiniLM-L6-v2
++  --embedding-model sentence-transformers/all-MiniLM-L6-v2 \
++  --workers "$CASE_WORKERS" \
++  --variant-workers "$VARIANT_WORKERS" \
++  --route-workers "$ROUTE_WORKERS" \
++  --tool-workers "$TOOL_WORKERS"
+diff --git a/scripts/run_from_scratch.sh b/scripts/run_from_scratch.sh
+index e0bad3b..1bdd81a 100755
+--- a/scripts/run_from_scratch.sh
++++ b/scripts/run_from_scratch.sh
+@@ -15,6 +15,18 @@ MAX_ITEMS="${4:-0}"
+ : "${OPENAI_API_KEY:?Set OPENAI_API_KEY}"
+ : "${MODEL_NAME:?Set MODEL_NAME}"
+ 
++# 0 means every selected LongMemEval case is submitted concurrently.
++# Use a positive value (for example 16/32/64) when the API gateway limits concurrency.
++CASE_WORKERS="${CASE_WORKERS:-0}"
++# V1 extraction, V2 extraction, and query parsing are independent after prepare.
++PIPELINE_WORKERS="${PIPELINE_WORKERS:-0}"
++# Extraction windows inside each case. 0 means all windows concurrently.
++WINDOW_WORKERS="${WINDOW_WORKERS:-1}"
++# BM25, dense, and dimension routes inside each case.
++ROUTE_WORKERS="${ROUTE_WORKERS:-0}"
++# Up to three active graph tools emitted in one reasoning round.
++TOOL_WORKERS="${TOOL_WORKERS:-0}"
++
+ python -m longmemeval.graph_memory_v2 all \
+   --input "$DATA" \
+   --output-root "$OUTPUT" \
+@@ -30,4 +42,9 @@ python -m longmemeval.graph_memory_v2 all \
+   --max-rounds 3 \
+   --router-mode llm \
+   --embedder sentence-transformers \
+-  --embedding-model sentence-transformers/all-MiniLM-L6-v2
++  --embedding-model sentence-transformers/all-MiniLM-L6-v2 \
++  --workers "$CASE_WORKERS" \
++  --pipeline-workers "$PIPELINE_WORKERS" \
++  --window-workers "$WINDOW_WORKERS" \
++  --route-workers "$ROUTE_WORKERS" \
++  --tool-workers "$TOOL_WORKERS"
+diff --git a/scripts/run_smoke_test.sh b/scripts/run_smoke_test.sh
+index 665ac85..6281afd 100755
+--- a/scripts/run_smoke_test.sh
++++ b/scripts/run_smoke_test.sh
+@@ -11,5 +11,7 @@ PYTHONPATH="$ROOT" python -m longmemeval.graph_memory_v2 all \
+   --output-name graph_active \
+   --final-k 5 \
+   --max-rounds 2 \
++  --workers 0 \
++  --window-workers 0 \
+   --force
+ PYTHONPATH="$ROOT" python -m unittest discover -s "$ROOT/tests" -p 'test_*.py' -v
+diff --git a/tests/test_graph_memory_v2.py b/tests/test_graph_memory_v2.py
+index 0d0af80..18c3b0d 100644
+--- a/tests/test_graph_memory_v2.py
++++ b/tests/test_graph_memory_v2.py
+@@ -2,12 +2,15 @@ from __future__ import annotations
+ 
+ import json
+ import tempfile
++import threading
++import time
+ import unittest
+ from pathlib import Path
+ 
+ from longmemeval.graph_memory_v2.active_agent import ActiveReconstructionAgent
+ from longmemeval.graph_memory_v2.dataset import build_windows, flatten_user_turns
+ from longmemeval.graph_memory_v2.graph_store import GraphBuilder
++from longmemeval.graph_memory_v2.parallel import resolve_workers, run_parallel
+ from longmemeval.graph_memory_v2.retrieval import StaticRetriever
+ from longmemeval.graph_memory_v2.schemas import MemoryRecord, ParsedQueryV2
+ 
+@@ -88,6 +91,33 @@ class GraphMemoryV2Tests(unittest.TestCase):
+         self.assertEqual(windows[1]["overlap_count"], 2)
+         self.assertEqual(windows[1]["messages"][0]["content"], "turn 3")
+ 
++    def test_parallel_runner_preserves_order_and_uses_multiple_threads(self):
++        seen_threads = set()
++        lock = threading.Lock()
++
++        def worker(value):
++            with lock:
++                seen_threads.add(threading.current_thread().name)
++            time.sleep(0.01 * (4 - value))
++            return {"value": value, "status": "ok"}
++
++        results, stats = run_parallel(
++            [1, 2, 3],
++            worker,
++            workers=0,
++            stage="unit-parallel",
++            progress=False,
++        )
++        self.assertEqual([row["value"] for row in results], [1, 2, 3])
++        self.assertEqual(stats.workers, 3)
++        self.assertGreaterEqual(len(seen_threads), 2)
++
++    def test_worker_resolution_all_and_auto(self):
++        self.assertEqual(resolve_workers(0, 7), 7)
++        self.assertEqual(resolve_workers(99, 7), 7)
++        self.assertEqual(resolve_workers(1, 7), 1)
++        self.assertGreaterEqual(resolve_workers(-1, 7), 1)
++
+ 
+ if __name__ == "__main__":
+     unittest.main()

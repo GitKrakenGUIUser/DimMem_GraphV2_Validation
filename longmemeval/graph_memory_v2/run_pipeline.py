@@ -3,11 +3,11 @@ from __future__ import annotations
 import argparse
 import json
 import os
-from pathlib import Path
-from typing import Iterable, List, Optional
+from typing import List, Optional
 
 from .dataset import prepare_dataset
 from .evaluation import (
+    _make_embedder,
     build_report,
     compare_reports,
     run_qa_judge_run,
@@ -17,6 +17,7 @@ from .extractor import extract_run
 from .extractor_v1 import extract_run_v1
 from .graph_store import build_run_graphs
 from .llm_client import OpenAICompatibleClient
+from .parallel import run_parallel
 from .query_parser_v2 import parse_run
 
 
@@ -53,6 +54,38 @@ def add_run_filters(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--force", action="store_true")
 
 
+def add_parallel_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=0,
+        help=(
+            "case-level concurrency: 0 submits all selected cases concurrently; "
+            "-1 uses a conservative auto value; positive N caps concurrency at N"
+        ),
+    )
+    parser.add_argument(
+        "--fail-fast",
+        action="store_true",
+        help="cancel remaining cases when one case raises instead of recording a failed row",
+    )
+
+
+def add_retrieval_parallel_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--route-workers",
+        type=int,
+        default=0,
+        help="within-case BM25/dense/dimension route concurrency; 0 runs all three concurrently",
+    )
+    parser.add_argument(
+        "--tool-workers",
+        type=int,
+        default=0,
+        help="within-round active graph tool concurrency; 0 runs all emitted tools concurrently",
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="From-scratch LongMemEval validation for enhanced DimMem graph memory."
@@ -70,28 +103,48 @@ def build_parser() -> argparse.ArgumentParser:
     prepare.add_argument("--truncate-threshold", type=int, default=8000)
     prepare.add_argument("--max-items", type=int, default=0)
     add_run_filters(prepare)
+    add_parallel_options(prepare)
 
     extract = sub.add_parser("extract", help="extract enhanced dimensional memories")
     extract.add_argument("--run-root", required=True)
     extract.add_argument("--heuristic", action="store_true", help="smoke test only")
     extract.add_argument("--schema", choices=["v1", "v2", "both"], default="v2")
     extract.add_argument("--max-tokens", type=int, default=5000)
+    extract.add_argument(
+        "--window-workers",
+        type=int,
+        default=1,
+        help="per-case extraction-window concurrency; 0 submits every window concurrently",
+    )
+    extract.add_argument(
+        "--schema-workers",
+        type=int,
+        default=0,
+        help="when --schema both, run V1 and V2 extraction concurrently; 0 runs both",
+    )
     add_common_client(extract)
     add_run_filters(extract)
+    add_parallel_options(extract)
 
     graph = sub.add_parser("build-graph", help="build typed graph and update chains")
     graph.add_argument("--run-root", required=True)
     add_run_filters(graph)
+    add_parallel_options(graph)
 
     query = sub.add_parser("parse-query", help="parse query into revisable dimensional hypotheses")
     query.add_argument("--run-root", required=True)
     query.add_argument("--heuristic", action="store_true", help="smoke test only")
     add_common_client(query)
     add_run_filters(query)
+    add_parallel_options(query)
 
     retrieval = sub.add_parser("retrieve", help="run one retrieval variant")
     retrieval.add_argument("--run-root", required=True)
-    retrieval.add_argument("--mode", required=True, choices=["dimmem_v1", "dimension_v2", "graph_static", "graph_active"])
+    retrieval.add_argument(
+        "--mode",
+        required=True,
+        choices=["dimmem_v1", "dimension_v2", "graph_static", "graph_active"],
+    )
     retrieval.add_argument("--output-name", required=True)
     retrieval.add_argument("--route-k", type=int, default=20)
     retrieval.add_argument("--initial-k", type=int, default=12)
@@ -102,7 +155,9 @@ def build_parser() -> argparse.ArgumentParser:
     retrieval.add_argument("--embedding-model", default="sentence-transformers/all-MiniLM-L6-v2")
     retrieval.add_argument("--device", default="cpu")
     add_common_client(retrieval, "active")
+    add_retrieval_parallel_options(retrieval)
     add_run_filters(retrieval)
+    add_parallel_options(retrieval)
 
     qa = sub.add_parser("qa-judge", help="answer and judge a retrieval run")
     qa.add_argument("--run-root", required=True)
@@ -112,15 +167,18 @@ def build_parser() -> argparse.ArgumentParser:
     add_common_client(qa, "qa")
     add_common_client(qa, "judge")
     add_run_filters(qa)
+    add_parallel_options(qa)
 
     report = sub.add_parser("report")
     report.add_argument("--run-root", required=True)
     report.add_argument("--retrieval-name", required=True)
+    add_parallel_options(report)
 
     compare = sub.add_parser("compare")
     compare.add_argument("--run-root", required=True)
     compare.add_argument("--baseline", required=True)
     compare.add_argument("--candidate", required=True)
+    add_parallel_options(compare)
 
     all_cmd = sub.add_parser("all", help="raw dataset -> extraction -> graph -> query -> retrieval -> QA/judge")
     all_cmd.add_argument("--input", required=True)
@@ -130,7 +188,11 @@ def build_parser() -> argparse.ArgumentParser:
     all_cmd.add_argument("--overlap", type=int, default=3)
     all_cmd.add_argument("--truncate-threshold", type=int, default=8000)
     all_cmd.add_argument("--max-items", type=int, default=0)
-    all_cmd.add_argument("--mode", choices=["dimmem_v1", "dimension_v2", "graph_static", "graph_active"], default="graph_active")
+    all_cmd.add_argument(
+        "--mode",
+        choices=["dimmem_v1", "dimension_v2", "graph_static", "graph_active"],
+        default="graph_active",
+    )
     all_cmd.add_argument("--output-name", default="graph_active")
     all_cmd.add_argument("--route-k", type=int, default=20)
     all_cmd.add_argument("--initial-k", type=int, default=12)
@@ -141,12 +203,26 @@ def build_parser() -> argparse.ArgumentParser:
     all_cmd.add_argument("--embedding-model", default="sentence-transformers/all-MiniLM-L6-v2")
     all_cmd.add_argument("--device", default="cpu")
     all_cmd.add_argument("--smoke-test", action="store_true", help="use heuristic extraction/query/QA and exact judge")
+    all_cmd.add_argument(
+        "--window-workers",
+        type=int,
+        default=1,
+        help="per-case extraction-window concurrency; total LLM concurrency is roughly workers × window-workers",
+    )
+    all_cmd.add_argument(
+        "--pipeline-workers",
+        type=int,
+        default=0,
+        help="run independent post-prepare branches (V1 extraction, V2 extraction, query parse) concurrently",
+    )
     add_common_client(all_cmd, "extract")
     add_common_client(all_cmd, "query")
     add_common_client(all_cmd, "active")
     add_common_client(all_cmd, "qa")
     add_common_client(all_cmd, "judge")
+    add_retrieval_parallel_options(all_cmd)
     add_run_filters(all_cmd)
+    add_parallel_options(all_cmd)
 
     ablation = sub.add_parser("ablation", help="run four controlled variants on one prepared run")
     ablation.add_argument("--run-root", required=True)
@@ -160,10 +236,18 @@ def build_parser() -> argparse.ArgumentParser:
     ablation.add_argument("--device", default="cpu")
     ablation.add_argument("--heuristic-qa", action="store_true")
     ablation.add_argument("--exact-judge", action="store_true")
+    ablation.add_argument(
+        "--variant-workers",
+        type=int,
+        default=0,
+        help="parallel ablation variants; 0 runs all four concurrently (multiplies API concurrency)",
+    )
     add_common_client(ablation, "active")
     add_common_client(ablation, "qa")
     add_common_client(ablation, "judge")
+    add_retrieval_parallel_options(ablation)
     add_run_filters(ablation)
+    add_parallel_options(ablation)
     return parser
 
 
@@ -171,6 +255,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
     qtypes = split_csv(getattr(args, "question_types", ""))
+    workers = int(getattr(args, "workers", 0))
+    fail_fast = bool(getattr(args, "fail_fast", False))
 
     if args.command == "prepare":
         result = prepare_dataset(
@@ -183,23 +269,64 @@ def main(argv: Optional[List[str]] = None) -> int:
             max_items=args.max_items,
             question_types=qtypes,
             force=args.force,
+            workers=workers,
+            fail_fast=fail_fast,
         )
     elif args.command == "extract":
         client = client_from_args(args)
-        outputs = {}
-        if args.schema in {"v1", "both"}:
-            outputs["v1"] = extract_run_v1(
-                args.run_root, client=client, force=args.force, heuristic=args.heuristic,
-                max_tokens=min(args.max_tokens, 4200), question_types=qtypes,
-            )
-        if args.schema in {"v2", "both"}:
-            outputs["v2"] = extract_run(
-                args.run_root, client=client, force=args.force, heuristic=args.heuristic,
-                max_tokens=args.max_tokens, question_types=qtypes,
-            )
-        result = outputs
+        schema_names = [name for name in ("v1", "v2") if args.schema in {name, "both"}]
+
+        def schema_worker(schema_name: str):
+            if schema_name == "v1":
+                return {
+                    "schema": "v1",
+                    "result": extract_run_v1(
+                        args.run_root,
+                        client=client,
+                        force=args.force,
+                        heuristic=args.heuristic,
+                        max_tokens=min(args.max_tokens, 4200),
+                        question_types=qtypes,
+                        workers=workers,
+                        fail_fast=fail_fast,
+                        window_workers=args.window_workers,
+                    ),
+                }
+            return {
+                "schema": "v2",
+                "result": extract_run(
+                    args.run_root,
+                    client=client,
+                    force=args.force,
+                    heuristic=args.heuristic,
+                    max_tokens=args.max_tokens,
+                    question_types=qtypes,
+                    workers=workers,
+                    fail_fast=fail_fast,
+                    window_workers=args.window_workers,
+                ),
+            }
+
+        schema_rows, schema_stats = run_parallel(
+            schema_names,
+            schema_worker,
+            workers=args.schema_workers,
+            stage="extract-schema",
+            progress=True,
+            fail_fast=fail_fast,
+        )
+        result = {
+            "schemas": {row["schema"]: row["result"] for row in schema_rows if row.get("schema")},
+            "schema_parallel": schema_stats.to_dict(),
+        }
     elif args.command == "build-graph":
-        result = build_run_graphs(args.run_root, force=args.force, question_types=qtypes)
+        result = build_run_graphs(
+            args.run_root,
+            force=args.force,
+            question_types=qtypes,
+            workers=workers,
+            fail_fast=fail_fast,
+        )
     elif args.command == "parse-query":
         result = parse_run(
             args.run_root,
@@ -207,6 +334,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             heuristic=args.heuristic,
             force=args.force,
             question_types=qtypes,
+            workers=workers,
+            fail_fast=fail_fast,
         )
     elif args.command == "retrieve":
         result = run_retrieval_run(
@@ -224,6 +353,10 @@ def main(argv: Optional[List[str]] = None) -> int:
             device=args.device,
             force=args.force,
             question_types=qtypes,
+            workers=workers,
+            fail_fast=fail_fast,
+            route_workers=args.route_workers,
+            tool_workers=args.tool_workers,
         )
     elif args.command == "qa-judge":
         result = run_qa_judge_run(
@@ -235,11 +368,15 @@ def main(argv: Optional[List[str]] = None) -> int:
             exact_judge_mode=args.exact_judge,
             force=args.force,
             question_types=qtypes,
+            workers=workers,
+            fail_fast=fail_fast,
         )
     elif args.command == "report":
-        result = build_report(args.run_root, args.retrieval_name)
+        result = build_report(args.run_root, args.retrieval_name, workers=workers, fail_fast=fail_fast)
     elif args.command == "compare":
-        result = compare_reports(args.run_root, args.baseline, args.candidate)
+        result = compare_reports(
+            args.run_root, args.baseline, args.candidate, workers=workers, fail_fast=fail_fast
+        )
     elif args.command == "all":
         prepared = prepare_dataset(
             input_path=args.input,
@@ -251,24 +388,63 @@ def main(argv: Optional[List[str]] = None) -> int:
             max_items=args.max_items,
             question_types=qtypes,
             force=args.force,
+            workers=workers,
+            fail_fast=fail_fast,
         )
         run_root = prepared["run_root"]
         extraction_client = client_from_args(args, "extract")
-        extract_run_v1(
-            run_root, client=extraction_client, force=args.force,
-            heuristic=args.smoke_test, question_types=qtypes,
+
+        def pipeline_branch(name: str):
+            if name == "extract_v1":
+                value = extract_run_v1(
+                    run_root,
+                    client=extraction_client,
+                    force=args.force,
+                    heuristic=args.smoke_test,
+                    question_types=qtypes,
+                    workers=workers,
+                    fail_fast=fail_fast,
+                    window_workers=args.window_workers,
+                )
+            elif name == "extract_v2":
+                value = extract_run(
+                    run_root,
+                    client=extraction_client,
+                    force=args.force,
+                    heuristic=args.smoke_test,
+                    question_types=qtypes,
+                    workers=workers,
+                    fail_fast=fail_fast,
+                    window_workers=args.window_workers,
+                )
+            elif name == "parse_query":
+                value = parse_run(
+                    run_root,
+                    client=client_from_args(args, "query"),
+                    heuristic=args.smoke_test,
+                    force=args.force,
+                    question_types=qtypes,
+                    workers=workers,
+                    fail_fast=fail_fast,
+                )
+            else:
+                raise ValueError(f"unknown pipeline branch: {name}")
+            return {"branch": name, "result": value}
+
+        branch_rows, branch_stats = run_parallel(
+            ["extract_v1", "extract_v2", "parse_query"],
+            pipeline_branch,
+            workers=args.pipeline_workers,
+            stage="pipeline-branch",
+            progress=True,
+            fail_fast=fail_fast,
         )
-        extract_run(
-            run_root, client=extraction_client, force=args.force,
-            heuristic=args.smoke_test, question_types=qtypes,
-        )
-        build_run_graphs(run_root, force=args.force, question_types=qtypes)
-        parse_run(
+        build_run_graphs(
             run_root,
-            client=client_from_args(args, "query"),
-            heuristic=args.smoke_test,
             force=args.force,
             question_types=qtypes,
+            workers=workers,
+            fail_fast=fail_fast,
         )
         run_retrieval_run(
             run_root,
@@ -285,6 +461,10 @@ def main(argv: Optional[List[str]] = None) -> int:
             device=args.device,
             force=args.force,
             question_types=qtypes,
+            workers=workers,
+            fail_fast=fail_fast,
+            route_workers=args.route_workers,
+            tool_workers=args.tool_workers,
         )
         run_qa_judge_run(
             run_root,
@@ -295,20 +475,31 @@ def main(argv: Optional[List[str]] = None) -> int:
             exact_judge_mode=args.smoke_test,
             force=args.force,
             question_types=qtypes,
+            workers=workers,
+            fail_fast=fail_fast,
         )
-        result = build_report(run_root, args.output_name)
+        report_result = build_report(run_root, args.output_name, workers=workers, fail_fast=fail_fast)
+        result = {
+            "run_root": run_root,
+            "pipeline_branches": {row["branch"]: row["result"] for row in branch_rows if row.get("branch")},
+            "pipeline_parallel": branch_stats.to_dict(),
+            "report": report_result,
+        }
     elif args.command == "ablation":
         active_client = client_from_args(args, "active")
         qa_client = client_from_args(args, "qa")
         judge_client = client_from_args(args, "judge")
+        shared_embedder = _make_embedder(args.embedder, args.embedding_model, args.device)
         variants = [
-            ("dimmem_v1", "dimmem_v1"),
-            ("dimension_v2", "dimension_v2"),
-            ("graph_static", "graph_static"),
-            ("graph_active", "graph_active"),
+            {"mode": "dimmem_v1", "output_name": "dimmem_v1"},
+            {"mode": "dimension_v2", "output_name": "dimension_v2"},
+            {"mode": "graph_static", "output_name": "graph_static"},
+            {"mode": "graph_active", "output_name": "graph_active"},
         ]
-        reports = {}
-        for mode, output_name in variants:
+
+        def run_variant(variant):
+            mode = variant["mode"]
+            output_name = variant["output_name"]
             run_retrieval_run(
                 args.run_root,
                 mode=mode,
@@ -324,6 +515,11 @@ def main(argv: Optional[List[str]] = None) -> int:
                 device=args.device,
                 force=args.force,
                 question_types=qtypes,
+                workers=workers,
+                fail_fast=fail_fast,
+                shared_embedder=shared_embedder,
+                route_workers=args.route_workers,
+                tool_workers=args.tool_workers,
             )
             run_qa_judge_run(
                 args.run_root,
@@ -334,15 +530,39 @@ def main(argv: Optional[List[str]] = None) -> int:
                 exact_judge_mode=args.exact_judge,
                 force=args.force,
                 question_types=qtypes,
+                workers=workers,
+                fail_fast=fail_fast,
             )
-            reports[output_name] = build_report(args.run_root, output_name)
-        comparisons = {
-            "v1_vs_v2": compare_reports(args.run_root, "dimmem_v1", "dimension_v2"),
-            "v2_vs_static_graph": compare_reports(args.run_root, "dimension_v2", "graph_static"),
-            "static_vs_active_graph": compare_reports(args.run_root, "graph_static", "graph_active"),
-            "v1_vs_active_graph": compare_reports(args.run_root, "dimmem_v1", "graph_active"),
+            return {
+                "status": "ok",
+                "output_name": output_name,
+                "report": build_report(args.run_root, output_name, workers=workers, fail_fast=fail_fast),
+            }
+
+        variant_results, variant_stats = run_parallel(
+            variants,
+            run_variant,
+            workers=args.variant_workers,
+            stage="ablation-variant",
+            merge_input=True,
+            fail_fast=fail_fast,
+        )
+        reports = {
+            row["output_name"]: row["report"]
+            for row in variant_results
+            if row.get("status") == "ok" and row.get("report")
         }
-        result = {"reports": reports, "comparisons": comparisons}
+        comparisons = {
+            "v1_vs_v2": compare_reports(args.run_root, "dimmem_v1", "dimension_v2", workers=workers, fail_fast=fail_fast),
+            "v2_vs_static_graph": compare_reports(args.run_root, "dimension_v2", "graph_static", workers=workers, fail_fast=fail_fast),
+            "static_vs_active_graph": compare_reports(args.run_root, "graph_static", "graph_active", workers=workers, fail_fast=fail_fast),
+            "v1_vs_active_graph": compare_reports(args.run_root, "dimmem_v1", "graph_active", workers=workers, fail_fast=fail_fast),
+        }
+        result = {
+            "reports": reports,
+            "comparisons": comparisons,
+            "variant_parallel": variant_stats.to_dict(),
+        }
     else:
         parser.error("unhandled command")
         return 2

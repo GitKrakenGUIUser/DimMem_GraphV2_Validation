@@ -8,6 +8,7 @@ from typing import Any, DefaultDict, Dict, Iterable, List, Optional, Sequence, S
 from .graph_store import GraphStore, canonical
 from .io_utils import normalize_text
 from .llm_client import OpenAICompatibleClient
+from .parallel import run_parallel
 from .prompts import ACTIVE_ROUTER_SYSTEM, ACTIVE_ROUTER_TEMPLATE, render
 from .retrieval import StaticRetriever
 from .schemas import MemoryRecord, ParsedQueryV2, RetrievalRecord
@@ -221,6 +222,7 @@ class ActiveReconstructionAgent:
         max_rounds: int = 3,
         final_k: int = 15,
         router_mode: str = "llm",
+        tool_workers: int = 0,
     ) -> None:
         self.store = store
         self.retriever = retriever
@@ -228,6 +230,7 @@ class ActiveReconstructionAgent:
         self.max_rounds = max(0, int(max_rounds))
         self.final_k = max(1, int(final_k))
         self.router_mode = router_mode
+        self.tool_workers = int(tool_workers)
         self.tools = GraphTools(store, retriever)
 
     def _heuristic_actions(
@@ -319,6 +322,7 @@ class ActiveReconstructionAgent:
             if mode == "finish" or not isinstance(actions, list) or not actions:
                 trace["rounds"].append(round_trace)
                 break
+            runnable_actions: List[Dict[str, Any]] = []
             for action in actions[:3]:
                 if not isinstance(action, dict):
                     continue
@@ -328,25 +332,52 @@ class ActiveReconstructionAgent:
                 if key in visited or tool == "finish":
                     continue
                 visited.add(key)
+                runnable_actions.append({"tool": tool, "args": args})
+
+            def tool_worker(action: Dict[str, Any]) -> Dict[str, Any]:
+                tool = str(action["tool"])
+                args = dict(action["args"])
                 try:
                     rows = self.tools.execute(tool, args)
-                    for row in rows:
-                        memory_id = row.memory.memory_id
-                        if memory_id in evidence:
-                            existing = evidence[memory_id]
-                            existing.score += row.score
-                            existing.sources.extend(row.sources)
-                            existing.paths.extend(row.paths)
-                        else:
-                            evidence[memory_id] = row
+                    return {"status": "ok", "tool": tool, "args": args, "rows": rows}
+                except Exception as exc:
+                    return {"status": "failed", "tool": tool, "args": args, "error": repr(exc), "rows": []}
+
+            tool_results, tool_stats = run_parallel(
+                runnable_actions,
+                tool_worker,
+                workers=self.tool_workers,
+                stage=f"active-tools-r{round_index + 1}",
+                progress=False,
+                fail_fast=False,
+            )
+            round_trace["tool_parallel"] = tool_stats.to_dict()
+            for result in tool_results:
+                tool = str(result.get("tool") or "")
+                args = result.get("args") if isinstance(result.get("args"), dict) else {}
+                rows = result.get("rows") if isinstance(result.get("rows"), list) else []
+                if result.get("status") == "failed":
                     round_trace["tool_results"].append({
                         "tool": tool,
                         "args": args,
-                        "count": len(rows),
-                        "memory_ids": [row.memory.memory_id for row in rows],
+                        "error": result.get("error") or "tool execution failed",
                     })
-                except Exception as exc:
-                    round_trace["tool_results"].append({"tool": tool, "args": args, "error": repr(exc)})
+                    continue
+                for row in rows:
+                    memory_id = row.memory.memory_id
+                    if memory_id in evidence:
+                        existing = evidence[memory_id]
+                        existing.score += row.score
+                        existing.sources.extend(row.sources)
+                        existing.paths.extend(row.paths)
+                    else:
+                        evidence[memory_id] = row
+                round_trace["tool_results"].append({
+                    "tool": tool,
+                    "args": args,
+                    "count": len(rows),
+                    "memory_ids": [row.memory.memory_id for row in rows],
+                })
             trace["rounds"].append(round_trace)
 
         final = sorted(evidence.values(), key=lambda row: (-row.score, row.memory.memory_id))[: self.final_k]

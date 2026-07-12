@@ -2,12 +2,15 @@ from __future__ import annotations
 
 import json
 import tempfile
+import threading
+import time
 import unittest
 from pathlib import Path
 
 from longmemeval.graph_memory_v2.active_agent import ActiveReconstructionAgent
 from longmemeval.graph_memory_v2.dataset import build_windows, flatten_user_turns
 from longmemeval.graph_memory_v2.graph_store import GraphBuilder
+from longmemeval.graph_memory_v2.parallel import resolve_workers, run_parallel
 from longmemeval.graph_memory_v2.retrieval import StaticRetriever
 from longmemeval.graph_memory_v2.schemas import MemoryRecord, ParsedQueryV2
 
@@ -87,6 +90,33 @@ class GraphMemoryV2Tests(unittest.TestCase):
         self.assertEqual(windows[0]["overlap_count"], 0)
         self.assertEqual(windows[1]["overlap_count"], 2)
         self.assertEqual(windows[1]["messages"][0]["content"], "turn 3")
+
+    def test_parallel_runner_preserves_order_and_uses_multiple_threads(self):
+        seen_threads = set()
+        lock = threading.Lock()
+
+        def worker(value):
+            with lock:
+                seen_threads.add(threading.current_thread().name)
+            time.sleep(0.01 * (4 - value))
+            return {"value": value, "status": "ok"}
+
+        results, stats = run_parallel(
+            [1, 2, 3],
+            worker,
+            workers=0,
+            stage="unit-parallel",
+            progress=False,
+        )
+        self.assertEqual([row["value"] for row in results], [1, 2, 3])
+        self.assertEqual(stats.workers, 3)
+        self.assertGreaterEqual(len(seen_threads), 2)
+
+    def test_worker_resolution_all_and_auto(self):
+        self.assertEqual(resolve_workers(0, 7), 7)
+        self.assertEqual(resolve_workers(99, 7), 7)
+        self.assertEqual(resolve_workers(1, 7), 1)
+        self.assertGreaterEqual(resolve_workers(-1, 7), 1)
 
 
 if __name__ == "__main__":

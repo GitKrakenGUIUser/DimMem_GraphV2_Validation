@@ -5,6 +5,7 @@ from typing import Any, Dict, Iterable, List, Optional
 
 from .io_utils import read_json, write_json
 from .llm_client import OpenAICompatibleClient
+from .parallel import run_parallel, should_checkpoint
 from .prompts import QUERY_PARSE_SYSTEM, QUERY_PARSE_TEMPLATE, render
 from .schemas import ParsedQueryV2, QueryHypothesis
 
@@ -93,20 +94,44 @@ def parse_run(
     heuristic: bool = False,
     force: bool = False,
     question_types: Optional[Iterable[str]] = None,
+    workers: int = 0,
+    fail_fast: bool = False,
 ) -> Dict[str, Any]:
     root = Path(run_root)
     manifest = read_json(root / "run_manifest.json")
     allowed = {str(value) for value in question_types or []}
-    results: List[Dict[str, Any]] = []
-    for sample in manifest.get("samples") or []:
-        if allowed and sample.get("question_type") not in allowed:
-            continue
-        try:
-            result = parse_sample(
-                Path(sample["sample_dir"]), client=client, heuristic=heuristic, force=force
-            )
-            results.append({**sample, **result})
-        except Exception as exc:
-            results.append({**sample, "status": "failed", "error": repr(exc)})
-    write_json(root / "query_manifest_v2.json", {"samples": results})
-    return {"samples": results}
+    samples = [
+        sample for sample in (manifest.get("samples") or [])
+        if not allowed or sample.get("question_type") in allowed
+    ]
+    manifest_path = root / "query_manifest_v2.json"
+    checkpoint_rows: List[Optional[Dict[str, Any]]] = [None] * len(samples)
+
+    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
+        return parse_sample(
+            Path(sample["sample_dir"]),
+            client=client,
+            heuristic=heuristic,
+            force=force,
+        )
+
+    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
+        checkpoint_rows[index] = result
+        if not should_checkpoint(completed, total):
+            return
+        write_json(manifest_path, {
+            "parallel": {"requested_workers": workers, "completed": completed, "total": total},
+            "samples": [row for row in checkpoint_rows if row is not None],
+        })
+
+    results, stats = run_parallel(
+        samples,
+        worker,
+        workers=workers,
+        stage="parse-query",
+        merge_input=True,
+        fail_fast=fail_fast,
+        on_result=on_result,
+    )
+    write_json(manifest_path, {"parallel": stats.to_dict(), "samples": results})
+    return {"samples": results, "parallel": stats.to_dict()}

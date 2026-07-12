@@ -9,6 +9,7 @@ from .dataset import parse_datetime
 from .embedding import Embedder, HashEmbedder, cosine
 from .graph_store import GraphStore, canonical
 from .io_utils import normalize_text, tokenize
+from .parallel import run_parallel
 from .schemas import MemoryRecord, ParsedQueryV2, QueryHypothesis, RetrievalRecord
 
 
@@ -156,9 +157,11 @@ class StaticRetriever:
         *,
         embedder: Optional[Embedder] = None,
         original_projection: bool = False,
+        route_workers: int = 0,
     ) -> None:
         self.store = store
         self.original_projection = original_projection
+        self.route_workers = int(route_workers)
         self.embedder = embedder or HashEmbedder()
         self.documents = {
             memory_id: self._document_text(memory)
@@ -199,24 +202,40 @@ class StaticRetriever:
         graph_expand_k: int = 20,
     ) -> List[RetrievalRecord]:
         query_text = self._query_text(parsed)
-        bm25 = self.bm25.search(query_text, route_k)
-        query_vector = self.embedder.encode([query_text])[0]
-        dense = sorted(
-            ((memory_id, cosine(query_vector, vector)) for memory_id, vector in self.vectors.items()),
-            key=lambda pair: (-pair[1], pair[0]),
-        )[:route_k]
-        dimension_rows: List[Tuple[str, float]] = []
-        for memory_id, memory in self.store.memories.items():
-            score = max(
-                dimension_score(memory, hypothesis, enhanced=not self.original_projection)
-                for hypothesis in parsed.hypotheses
-            )
-            if score > 0:
-                dimension_rows.append((memory_id, score))
-        dimension_rows.sort(key=lambda pair: (-pair[1], pair[0]))
-        dimension_rows = dimension_rows[:route_k]
 
-        routes = {"bm25": bm25, "dense": dense, "dimension": dimension_rows}
+        def route_worker(route_name: str) -> Dict[str, Any]:
+            if route_name == "bm25":
+                rows = self.bm25.search(query_text, route_k)
+            elif route_name == "dense":
+                query_vector = self.embedder.encode([query_text])[0]
+                rows = sorted(
+                    ((memory_id, cosine(query_vector, vector)) for memory_id, vector in self.vectors.items()),
+                    key=lambda pair: (-pair[1], pair[0]),
+                )[:route_k]
+            elif route_name == "dimension":
+                dimension_rows: List[Tuple[str, float]] = []
+                for memory_id, memory in self.store.memories.items():
+                    score = max(
+                        dimension_score(memory, hypothesis, enhanced=not self.original_projection)
+                        for hypothesis in parsed.hypotheses
+                    )
+                    if score > 0:
+                        dimension_rows.append((memory_id, score))
+                dimension_rows.sort(key=lambda pair: (-pair[1], pair[0]))
+                rows = dimension_rows[:route_k]
+            else:
+                raise ValueError(f"unknown retrieval route: {route_name}")
+            return {"name": route_name, "rows": rows}
+
+        route_results, _ = run_parallel(
+            ["bm25", "dense", "dimension"],
+            route_worker,
+            workers=self.route_workers,
+            stage="retrieval-route",
+            progress=False,
+            fail_fast=True,
+        )
+        routes = {str(result["name"]): result["rows"] for result in route_results}
         fused = reciprocal_rank_fusion(
             routes,
             route_weights={"bm25": 1.0, "dense": 1.0, "dimension": 1.15 if not self.original_projection else 1.0},

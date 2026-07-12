@@ -15,6 +15,7 @@ from .embedding import HashEmbedder, SentenceTransformerEmbedder
 from .graph_store import GraphBuilder, GraphStore
 from .io_utils import normalize_question_type, normalize_text, read_json, write_json
 from .llm_client import OpenAICompatibleClient
+from .parallel import run_parallel, should_checkpoint
 from .prompts import JUDGE_SYSTEM, JUDGE_TEMPLATE, QA_SYSTEM, QA_TEMPLATE, render
 from .retrieval import StaticRetriever
 from .schemas import ParsedQueryV2, RetrievalRecord, memories_from_payload
@@ -60,6 +61,9 @@ def run_retrieval_sample(
     embedding_model: str = "",
     device: str = "cpu",
     force: bool = False,
+    embedder: Optional[Any] = None,
+    route_workers: int = 0,
+    tool_workers: int = 0,
 ) -> Dict[str, Any]:
     if mode not in VALID_MODES:
         raise ValueError(f"unknown mode {mode}; expected one of {sorted(VALID_MODES)}")
@@ -78,8 +82,13 @@ def run_retrieval_sample(
         store = GraphBuilder(add_weak_same_event_edges=False).build(memories_from_payload(read_json(v1_path)))
     else:
         store = GraphStore.load(sample_dir / "graph_v2")
-    embedder = _make_embedder(embedder_kind, embedding_model, device)
-    retriever = StaticRetriever(store, embedder=embedder, original_projection=original)
+    active_embedder = embedder or _make_embedder(embedder_kind, embedding_model, device)
+    retriever = StaticRetriever(
+        store,
+        embedder=active_embedder,
+        original_projection=original,
+        route_workers=route_workers,
+    )
 
     started = time.time()
     if mode == "graph_active":
@@ -90,6 +99,7 @@ def run_retrieval_sample(
             max_rounds=max_rounds,
             final_k=final_k,
             router_mode=router_mode,
+            tool_workers=tool_workers,
         )
         records, trace = agent.retrieve(parsed, route_k=route_k, initial_k=initial_k)
     else:
@@ -121,6 +131,8 @@ def run_retrieval_sample(
             "router_mode": router_mode,
             "embedder_kind": embedder_kind,
             "embedding_model": embedding_model,
+            "route_workers": route_workers,
+            "tool_workers": tool_workers,
             "elapsed_seconds": time.time() - started,
         },
     )
@@ -161,36 +173,66 @@ def run_retrieval_run(
     device: str = "cpu",
     force: bool = False,
     question_types: Optional[Iterable[str]] = None,
+    workers: int = 0,
+    fail_fast: bool = False,
+    shared_embedder: Optional[Any] = None,
+    route_workers: int = 0,
+    tool_workers: int = 0,
 ) -> Dict[str, Any]:
     root = Path(run_root)
     manifest = read_json(root / "run_manifest.json")
     allowed = {normalize_question_type(value) for value in question_types or []}
-    results: List[Dict[str, Any]] = []
-    for sample in manifest.get("samples") or []:
-        if allowed and sample.get("question_type") not in allowed:
-            continue
-        try:
-            result = run_retrieval_sample(
-                Path(sample["sample_dir"]),
-                mode=mode,
-                output_name=output_name,
-                route_k=route_k,
-                initial_k=initial_k,
-                final_k=final_k,
-                max_rounds=max_rounds,
-                active_client=active_client,
-                router_mode=router_mode,
-                embedder_kind=embedder_kind,
-                embedding_model=embedding_model,
-                device=device,
-                force=force,
-            )
-            results.append({**sample, **result})
-        except Exception as exc:
-            results.append({**sample, "status": "failed", "error": repr(exc)})
-    write_json(root / f"retrieval_manifest_{output_name}.json", {"mode": mode, "samples": results})
-    return {"samples": results}
+    samples = [
+        sample for sample in (manifest.get("samples") or [])
+        if not allowed or sample.get("question_type") in allowed
+    ]
+    # Load the embedding model once. Case workers share it; the sentence-transformer
+    # wrapper serializes encode() safely to avoid one GPU model per case.
+    embedder = shared_embedder or _make_embedder(embedder_kind, embedding_model, device)
+    manifest_path = root / f"retrieval_manifest_{output_name}.json"
+    checkpoint_rows: List[Optional[Dict[str, Any]]] = [None] * len(samples)
 
+    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
+        return run_retrieval_sample(
+            Path(sample["sample_dir"]),
+            mode=mode,
+            output_name=output_name,
+            route_k=route_k,
+            initial_k=initial_k,
+            final_k=final_k,
+            max_rounds=max_rounds,
+            active_client=active_client,
+            router_mode=router_mode,
+            embedder_kind=embedder_kind,
+            embedding_model=embedding_model,
+            device=device,
+            force=force,
+            embedder=embedder,
+            route_workers=route_workers,
+            tool_workers=tool_workers,
+        )
+
+    def on_result(index: int, result: Dict[str, Any], completed: int, total: int) -> None:
+        checkpoint_rows[index] = result
+        if not should_checkpoint(completed, total):
+            return
+        write_json(manifest_path, {
+            "mode": mode,
+            "parallel": {"requested_workers": workers, "completed": completed, "total": total},
+            "samples": [row for row in checkpoint_rows if row is not None],
+        })
+
+    results, stats = run_parallel(
+        samples,
+        worker,
+        workers=workers,
+        stage=f"retrieve-{output_name}",
+        merge_input=True,
+        fail_fast=fail_fast,
+        on_result=on_result,
+    )
+    write_json(manifest_path, {"mode": mode, "parallel": stats.to_dict(), "samples": results})
+    return {"samples": results, "parallel": stats.to_dict()}
 
 def _evidence_for_qa(rows: Sequence[Dict[str, Any]], need_assistant: bool) -> List[Dict[str, Any]]:
     evidence: List[Dict[str, Any]] = []
@@ -342,35 +384,85 @@ def run_qa_judge_run(
     exact_judge_mode: bool = False,
     force: bool = False,
     question_types: Optional[Iterable[str]] = None,
+    workers: int = 0,
+    fail_fast: bool = False,
 ) -> Dict[str, Any]:
+    """Run QA for all cases in parallel, then Judge for all cases in parallel.
+
+    Judge depends on the prediction for the same case, so the two phases remain
+    ordered. Within each phase, every selected LongMemEval case is concurrent.
+    """
     root = Path(run_root)
     manifest = read_json(root / "run_manifest.json")
     allowed = {normalize_question_type(value) for value in question_types or []}
-    results: List[Dict[str, Any]] = []
-    for sample in manifest.get("samples") or []:
-        if allowed and sample.get("question_type") not in allowed:
-            continue
-        sample_dir = Path(sample["sample_dir"])
-        try:
-            qa_result = run_qa_sample(
-                sample_dir,
-                retrieval_name=retrieval_name,
-                client=qa_client,
-                heuristic=heuristic_qa,
-                force=force,
-            )
-            judge_result = run_judge_sample(
-                sample_dir,
-                retrieval_name=retrieval_name,
-                client=judge_client,
-                exact=exact_judge_mode,
-                force=force,
-            )
-            results.append({**sample, "qa": qa_result, "judge": judge_result, "status": "ok"})
-        except Exception as exc:
-            results.append({**sample, "status": "failed", "error": repr(exc)})
-    write_json(root / f"qa_judge_manifest_{retrieval_name}.json", {"samples": results})
-    return {"samples": results}
+    samples = [
+        sample for sample in (manifest.get("samples") or [])
+        if not allowed or sample.get("question_type") in allowed
+    ]
+    manifest_path = root / f"qa_judge_manifest_{retrieval_name}.json"
+
+    def qa_worker(sample: Dict[str, Any]) -> Dict[str, Any]:
+        return run_qa_sample(
+            Path(sample["sample_dir"]),
+            retrieval_name=retrieval_name,
+            client=qa_client,
+            heuristic=heuristic_qa,
+            force=force,
+        )
+
+    qa_results, qa_stats = run_parallel(
+        samples,
+        qa_worker,
+        workers=workers,
+        stage=f"qa-{retrieval_name}",
+        merge_input=True,
+        fail_fast=fail_fast,
+    )
+
+    qa_by_id = {str(row.get("sample_id") or row.get("question_id")): row for row in qa_results}
+    judge_inputs = [
+        sample for sample in samples
+        if qa_by_id.get(str(sample.get("sample_id") or sample.get("question_id")), {}).get("status") != "failed"
+    ]
+
+    def judge_worker(sample: Dict[str, Any]) -> Dict[str, Any]:
+        return run_judge_sample(
+            Path(sample["sample_dir"]),
+            retrieval_name=retrieval_name,
+            client=judge_client,
+            exact=exact_judge_mode,
+            force=force,
+        )
+
+    judge_results, judge_stats = run_parallel(
+        judge_inputs,
+        judge_worker,
+        workers=workers,
+        stage=f"judge-{retrieval_name}",
+        merge_input=True,
+        fail_fast=fail_fast,
+    )
+    judge_by_id = {str(row.get("sample_id") or row.get("question_id")): row for row in judge_results}
+
+    merged: List[Dict[str, Any]] = []
+    for sample in samples:
+        key = str(sample.get("sample_id") or sample.get("question_id"))
+        qa_result = qa_by_id.get(key, {"status": "failed", "error": "QA result missing"})
+        judge_result = judge_by_id.get(key, {"status": "skipped", "error": "Judge skipped because QA failed"})
+        merged.append({
+            **{k: v for k, v in sample.items() if not str(k).startswith("_")},
+            "status": "ok" if qa_result.get("status") != "failed" and judge_result.get("status") != "failed" else "failed",
+            "qa": qa_result,
+            "judge": judge_result,
+        })
+
+    output = {
+        "qa_parallel": qa_stats.to_dict(),
+        "judge_parallel": judge_stats.to_dict(),
+        "samples": merged,
+    }
+    write_json(manifest_path, output)
+    return output
 
 
 def _gold_session_ids(item: Dict[str, Any]) -> List[str]:
@@ -385,44 +477,72 @@ def _gold_session_ids(item: Dict[str, Any]) -> List[str]:
     return [str(value) for value in values if str(value).strip()] if isinstance(values, list) else []
 
 
-def build_report(run_root: str, retrieval_name: str) -> Dict[str, Any]:
+def build_report(
+    run_root: str,
+    retrieval_name: str,
+    *,
+    workers: int = 0,
+    fail_fast: bool = False,
+) -> Dict[str, Any]:
     root = Path(run_root)
     manifest = read_json(root / "run_manifest.json")
-    rows: List[Dict[str, Any]] = []
-    by_type: DefaultDict[str, List[bool]] = defaultdict(list)
-    session_recalls: List[float] = []
-    retrieval_times: List[float] = []
-    active_rounds: List[int] = []
-    tool_calls: List[int] = []
-    token_totals = {"qa_prompt": 0, "qa_completion": 0, "judge_prompt": 0, "judge_completion": 0}
-    for sample in manifest.get("samples") or []:
+    samples = list(manifest.get("samples") or [])
+
+    def worker(sample: Dict[str, Any]) -> Dict[str, Any]:
         sample_dir = Path(sample["sample_dir"])
         path = sample_dir / "judge_v2" / retrieval_name / "judge.json"
         if not path.exists():
-            continue
+            return {"status": "missing"}
         row = read_json(path)
-        rows.append(row)
-        by_type[normalize_question_type(row.get("question_type"))].append(bool(row.get("correct")))
-
         item = read_json(sample_dir / "input_item.json")
         gold_sessions = set(_gold_session_ids(item))
+        session_recall = None
         retrieval_path = sample_dir / "retrieval_v2" / retrieval_name / "top_records.json"
         if gold_sessions and retrieval_path.exists():
             retrieved_sessions = {
                 str(record.get("provenance", {}).get("session_id") or "")
                 for record in read_json(retrieval_path)
             }
-            session_recalls.append(len(gold_sessions & retrieved_sessions) / len(gold_sessions))
+            session_recall = len(gold_sessions & retrieved_sessions) / len(gold_sessions)
+        retrieval_seconds = None
         meta_path = sample_dir / "retrieval_v2" / retrieval_name / "retrieval_meta.json"
         if meta_path.exists():
-            retrieval_times.append(float(read_json(meta_path).get("elapsed_seconds") or 0.0))
+            retrieval_seconds = float(read_json(meta_path).get("elapsed_seconds") or 0.0)
+        rounds_count = None
+        tool_count = None
         trace_path = sample_dir / "retrieval_v2" / retrieval_name / "retrieval_trace.json"
         if trace_path.exists():
             trace = read_json(trace_path)
             rounds = trace.get("rounds") or []
-            active_rounds.append(len(rounds))
-            tool_calls.append(sum(len(r.get("tool_results") or []) for r in rounds if isinstance(r, dict)))
+            rounds_count = len(rounds)
+            tool_count = sum(len(r.get("tool_results") or []) for r in rounds if isinstance(r, dict))
+        return {
+            "status": "ok",
+            "row": row,
+            "session_recall": session_recall,
+            "retrieval_seconds": retrieval_seconds,
+            "active_rounds": rounds_count,
+            "tool_calls": tool_count,
+        }
 
+    gathered, stats = run_parallel(
+        samples,
+        worker,
+        workers=workers,
+        stage=f"report-{retrieval_name}",
+        merge_input=False,
+        fail_fast=fail_fast,
+    )
+    gathered = [item for item in gathered if isinstance(item, dict) and item.get("status") == "ok"]
+    rows = [item["row"] for item in gathered]
+    by_type: DefaultDict[str, List[bool]] = defaultdict(list)
+    session_recalls = [float(item["session_recall"]) for item in gathered if item.get("session_recall") is not None]
+    retrieval_times = [float(item["retrieval_seconds"]) for item in gathered if item.get("retrieval_seconds") is not None]
+    active_rounds = [int(item["active_rounds"]) for item in gathered if item.get("active_rounds") is not None]
+    tool_calls = [int(item["tool_calls"]) for item in gathered if item.get("tool_calls") is not None]
+    token_totals = {"qa_prompt": 0, "qa_completion": 0, "judge_prompt": 0, "judge_completion": 0}
+    for row in rows:
+        by_type[normalize_question_type(row.get("question_type"))].append(bool(row.get("correct")))
         qa_meta = row.get("meta") or {}
         judge_meta = row.get("judge_meta") or {}
         token_totals["qa_prompt"] += int(qa_meta.get("prompt_tokens") or 0)
@@ -444,6 +564,7 @@ def build_report(run_root: str, retrieval_name: str) -> Dict[str, Any]:
         "n": len(all_values),
         "correct": sum(all_values),
         "accuracy": sum(all_values) / len(all_values) if all_values else 0.0,
+        "parallel": stats.to_dict(),
         "by_question_type": summary,
         "retrieval_metrics": {
             "gold_session_recall_mean": (sum(session_recalls) / len(session_recalls)) if session_recalls else None,
@@ -464,6 +585,7 @@ def build_report(run_root: str, retrieval_name: str) -> Dict[str, Any]:
         f"- N: {report['n']}",
         f"- Correct: {report['correct']}",
         f"- Accuracy: {report['accuracy']:.4f}",
+        f"- Case workers: {stats.workers}",
         f"- Gold-session recall: {report['retrieval_metrics']['gold_session_recall_mean']}",
         f"- Mean retrieval seconds: {report['retrieval_metrics']['mean_retrieval_seconds']}",
         "",
@@ -474,7 +596,6 @@ def build_report(run_root: str, retrieval_name: str) -> Dict[str, Any]:
         markdown.append(f"| {qtype} | {values['n']} | {values['correct']} | {values['accuracy']:.4f} |")
     (report_dir / f"report_{retrieval_name}.md").write_text("\n".join(markdown) + "\n", encoding="utf-8")
     return report
-
 
 def _paired_binomial_p_value(fixed_count: int, broken_count: int) -> float:
     n = fixed_count + broken_count
@@ -498,30 +619,67 @@ def _bootstrap_delta_ci(pairs: Sequence[Tuple[int, int]], samples: int = 5000) -
     return deltas[int(0.025 * (samples - 1))], deltas[int(0.975 * (samples - 1))]
 
 
-def compare_reports(run_root: str, baseline: str, candidate: str) -> Dict[str, Any]:
+def compare_reports(
+    run_root: str,
+    baseline: str,
+    candidate: str,
+    *,
+    workers: int = 0,
+    fail_fast: bool = False,
+) -> Dict[str, Any]:
     root = Path(run_root)
-    base = build_report(run_root, baseline)
-    cand = build_report(run_root, candidate)
+
+    def report_worker(name: str) -> Dict[str, Any]:
+        report_path = root / "reports" / f"report_{name}.json"
+        if report_path.exists():
+            return {"name": name, "report": read_json(report_path), "status": "existing"}
+        return {
+            "name": name,
+            "report": build_report(run_root, name, workers=workers, fail_fast=fail_fast),
+            "status": "ok",
+        }
+
+    report_rows, report_stats = run_parallel(
+        [baseline, candidate],
+        report_worker,
+        workers=0,
+        stage="compare-report-load",
+        progress=False,
+        fail_fast=True,
+    )
+    reports = {row["name"]: row["report"] for row in report_rows}
+    base = reports[baseline]
+    cand = reports[candidate]
     base_by_id = {str(row.get("question_id")): row for row in base["rows"]}
     cand_by_id = {str(row.get("question_id")): row for row in cand["rows"]}
     paired_ids = sorted(set(base_by_id) & set(cand_by_id))
-    fixed: List[str] = []
-    broken: List[str] = []
-    unchanged_correct = 0
-    unchanged_wrong = 0
-    pairs: List[Tuple[int, int]] = []
-    for qid in paired_ids:
+
+    def pair_worker(qid: str) -> Dict[str, Any]:
         left = bool(base_by_id[qid].get("correct"))
         right = bool(cand_by_id[qid].get("correct"))
-        pairs.append((int(left), int(right)))
         if not left and right:
-            fixed.append(qid)
+            state = "fixed"
         elif left and not right:
-            broken.append(qid)
+            state = "broken"
         elif left:
-            unchanged_correct += 1
+            state = "unchanged_correct"
         else:
-            unchanged_wrong += 1
+            state = "unchanged_wrong"
+        return {"question_id": qid, "left": int(left), "right": int(right), "state": state}
+
+    pair_rows, pair_stats = run_parallel(
+        paired_ids,
+        pair_worker,
+        workers=workers,
+        stage=f"compare-{baseline}-vs-{candidate}",
+        progress=False,
+        fail_fast=fail_fast,
+    )
+    fixed = [row["question_id"] for row in pair_rows if row["state"] == "fixed"]
+    broken = [row["question_id"] for row in pair_rows if row["state"] == "broken"]
+    unchanged_correct = sum(row["state"] == "unchanged_correct" for row in pair_rows)
+    unchanged_wrong = sum(row["state"] == "unchanged_wrong" for row in pair_rows)
+    pairs = [(int(row["left"]), int(row["right"])) for row in pair_rows]
     baseline_paired_accuracy = sum(left for left, _ in pairs) / len(pairs) if pairs else 0.0
     candidate_paired_accuracy = sum(right for _, right in pairs) / len(pairs) if pairs else 0.0
     ci_low, ci_high = _bootstrap_delta_ci(pairs)
@@ -540,21 +698,12 @@ def compare_reports(run_root: str, baseline: str, candidate: str) -> Dict[str, A
         "broken_question_ids": broken,
         "unchanged_correct": unchanged_correct,
         "unchanged_wrong": unchanged_wrong,
+        "parallel": {
+            "report_loading": report_stats.to_dict(),
+            "paired_cases": pair_stats.to_dict(),
+        },
     }
     report_dir = root / "reports"
     report_dir.mkdir(parents=True, exist_ok=True)
     write_json(report_dir / f"compare_{baseline}_vs_{candidate}.json", result)
-    markdown = [
-        f"# Comparison: {baseline} vs {candidate}",
-        "",
-        f"- Paired N: {result['paired_n']}",
-        f"- Baseline accuracy: {result['baseline_accuracy']:.4f}",
-        f"- Candidate accuracy: {result['candidate_accuracy']:.4f}",
-        f"- Delta: {result['delta']:+.4f}",
-        f"- Bootstrap 95% CI: [{ci_low:+.4f}, {ci_high:+.4f}]",
-        f"- Paired exact p-value: {result['paired_binomial_p_value']:.6f}",
-        f"- Fixed / broken: {len(fixed)} / {len(broken)}",
-    ]
-    (report_dir / f"compare_{baseline}_vs_{candidate}.md").write_text("\n".join(markdown) + "\n", encoding="utf-8")
     return result
-

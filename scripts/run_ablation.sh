@@ -11,6 +11,12 @@ RUN_ROOT="$1"
 : "${OPENAI_API_KEY:?Set OPENAI_API_KEY}"
 : "${MODEL_NAME:?Set MODEL_NAME}"
 
+CASE_WORKERS="${CASE_WORKERS:-0}"
+# 0 runs dimmem_v1, dimension_v2, graph_static, and graph_active concurrently.
+VARIANT_WORKERS="${VARIANT_WORKERS:-0}"
+ROUTE_WORKERS="${ROUTE_WORKERS:-0}"
+TOOL_WORKERS="${TOOL_WORKERS:-0}"
+
 python -m longmemeval.graph_memory_v2 ablation \
   --run-root "$RUN_ROOT" \
   --route-k 20 \
@@ -19,4 +25,8 @@ python -m longmemeval.graph_memory_v2 ablation \
   --max-rounds 3 \
   --router-mode llm \
   --embedder sentence-transformers \
-  --embedding-model sentence-transformers/all-MiniLM-L6-v2
+  --embedding-model sentence-transformers/all-MiniLM-L6-v2 \
+  --workers "$CASE_WORKERS" \
+  --variant-workers "$VARIANT_WORKERS" \
+  --route-workers "$ROUTE_WORKERS" \
+  --tool-workers "$TOOL_WORKERS"
